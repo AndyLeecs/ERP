@@ -14,7 +14,7 @@ import VO.PaymentListVO;
 
 public class AccountBL_Stub implements AccountBL{
 	private static final GoodsVO testGoodsVO = new GoodsVO("台灯","一型","护眼灯","0","000001",250.0,500.0,250.0,500.0);
-    private static final MemberVO memberVO = new MemberVO("00001","张三","00000","客户");
+    private static final MemberVO memberVO = new MemberVO("000001","张三","00000","客户");
 	
 	public GoodsVO getGoodsInfo(String id) {
 		// TODO Auto-generated method stub
