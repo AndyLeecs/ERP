@@ -8,5 +8,13 @@ public class InitAccountVO {
 		a = id;
 		b = info;
 	}
+	
+	public void setID(String a) {
+		id = a;
+	}
+	
+	public void setInfo(String a) {
+		info = a;
+	}
 
 }
