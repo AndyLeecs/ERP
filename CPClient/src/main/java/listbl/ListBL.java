@@ -25,7 +25,7 @@ public interface ListBL {
 	 * @param vo
 	 * @return
 	 */
-	public Map checkBusinessProcessForm(BusinessProcessConditionVO vo);
+	public ArrayList checkBusinessProcessForm(BusinessProcessConditionVO vo);
 	
 	/**
 	 * 后置条件	返回具体的某个单据信息
