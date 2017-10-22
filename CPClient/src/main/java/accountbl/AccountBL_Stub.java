@@ -30,7 +30,7 @@ public class AccountBL_Stub implements AccountBL{
 
 	public void saveInitAccountInfo(InitAccountVO vo) {
 		// TODO Auto-generated method stub
-		vo = new InitAccountVO("000001","信息");
+		vo = new InitAccountVO("000001","信息");//??
 		System.out.println("Save Success!");	
 	}
 

@@ -30,7 +30,7 @@ public class userbl_stub implements userblservice{
 		return u1;
 	}
 	
-	public void userbl_driver(){
+	public void userdata_driver(){
 		UserPO po=new UserPO("161250143","wangruihua","123456",3);
 		us.insert(po);
 		us.find(po);

@@ -1,6 +1,8 @@
-package userui;
+package userUI;
+
 import VO.UserVO;
 import userblservice.userblservice;
+
 public class user_mainview {
 	userblservice us;
 	UserVO vo=new UserVO("161250143", "wangruihua", "123456", 3);
