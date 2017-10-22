@@ -1,19 +1,12 @@
 package listbl;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Map;
-
-import VO.BusinessCircumVO;
-import VO.BusinessProcessConditionVO;
-import VO.ListType;
-import VO.ListVO;
-import VO.SaleDetailConditionVO;
+import java.util.*;
+import VO.*;
 
 public class ListBL_Stub implements ListBL{
 	ListVO listVO = new ListVO();
 
-	public ArrayList<String> checkList() {
+	public ArrayList checkList() {
 		// TODO Auto-generated method stub
 		return listVO.checkList();
 	}
@@ -29,9 +22,10 @@ public class ListBL_Stub implements ListBL{
 		return listVO.getSpecificList(type, id);
 	}
 
-	public void hongchong(ListType type, String id) {
+	public boolean hongchong(ListType type, String id) {
 		// TODO Auto-generated method stub
 		listVO.hongchong(type, id);	
+		return true;
 	}
 
 	public String hongchongAndCopy(ListType type, String id) {
@@ -39,15 +33,16 @@ public class ListBL_Stub implements ListBL{
 		return listVO.hongchongAndCopy(type, id);
 	}
 
-	public BusinessCircumVO checkBusinessCircumForm(Date begainTime, Date EndTime) {
+	public BusinessCircumVO checkBusinessCircumForm(Date beginTime, Date endTime) {
 		// TODO Auto-generated method stub
 		BusinessCircumVO businessCircumVO = new BusinessCircumVO();
 		return businessCircumVO.checkBusinessCircumForm();
 	}
 
-	public void approvalList(ListType type, String ID, ListVO vo) {
+	public boolean approvalList(ListType type, String id, ListVO vo) {
 		// TODO Auto-generated method stub
-		listVO.approvalList(type, ID, vo);
+		listVO.approvalList(type, id, vo);
+		return true;
 	}
 
 	public ArrayList checkBusinessProcessForm(BusinessProcessConditionVO vo) {

@@ -1,9 +1,6 @@
 package listbl;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Map;
-
+import java.util.*;
 import VO.*;
 
 public interface ListBL {
@@ -39,8 +36,9 @@ public interface ListBL {
 	 * 后置条件	持久化保存一个生成一个一模一样但是仅仅把数量取负数的单子并入账
 	 * @param type
 	 * @param id
+	 * @return 
 	 */
-	public void hongchong(ListType type, String id);
+	public boolean hongchong(ListType type, String id);
 	
 	/**
 	 * 后置条件	持久化保存一个生成一个一模一样但是仅仅把数量取负数的单子并入账,返回一个新的草稿单的单据编号
@@ -63,8 +61,9 @@ public interface ListBL {
 	 * @param type
 	 * @param ID
 	 * @param vo
+	 * @return 
 	 */
-	public void approvalList(ListType type, String ID, ListVO vo);
+	public boolean approvalList(ListType type, String ID, ListVO vo);
 	
 
 }
