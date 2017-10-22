@@ -2,8 +2,10 @@ package userbl;
 
 import VO.UserVO;
 import userblservice.userblservice;
-
+import userdataservice.*;
+import PO.*;
 public class userbl_stub implements userblservice{
+	Userdataservice_stub us;
 	public String check_login (String name, String id){
 		return "Success";
 	}
@@ -29,6 +31,10 @@ public class userbl_stub implements userblservice{
 	}
 	
 	public void userbl_driver(){
-		
+		UserPO po=new UserPO("161250143","wangruihua","123456",3);
+		us.insert(po);
+		us.find(po);
+		us.delete(po);
+		us.update(po);
 	}
 }
