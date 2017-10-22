@@ -28,17 +28,17 @@ public class AccountBL_Stub implements AccountBL{
 		return memberVO;
 	}
 
-	public void saveInitAccountInfo(InitAccountVO vo) {
+	public boolean saveInitAccountInfo(InitAccountVO vo) {
 		// TODO Auto-generated method stub
-		vo = new InitAccountVO("000001","信息");//??
-		System.out.println("Save Success!");	
+		System.out.println("Save Success!");
+		return true;	
 	}
 
 	public boolean addAccount(AccountVO vo) {
 		// TODO Auto-generated method stub
 		vo.addAccount();
 		System.out.println("Add Success!");
-		return false;
+		return true;
 	}
 
 	public boolean deleteAccount(String name) {
@@ -46,22 +46,22 @@ public class AccountBL_Stub implements AccountBL{
 		AccountVO accountVO = new AccountVO();
 		accountVO.deleteAccount();
 		System.out.println("Delete Success!");
-		return false;
+		return true;
 	}
 
-	public void saveAccount(String name, AccountVO vo) {
+	public boolean saveAccount(String name, AccountVO vo) {
 		// TODO Auto-generated method stub
 		vo.saveAccount(name);
 		System.out.println("Save Success!");
-		
+		return true;
 	}
 
 	public ArrayList<String> searchAccount(String keyword) {
 		// TODO Auto-generated method stub
 		AccountVO accountVO = new AccountVO();
-		accountVO.searchAccount(keyword);
+		ArrayList<String> a = accountVO.searchAccount(keyword);
 		System.out.println("Search Success!");
-		return null;
+		return a;
 	}
 
 	public ListInitVO createList(ListType type) {
@@ -87,42 +87,42 @@ public class AccountBL_Stub implements AccountBL{
 		return null;
 	}
 
-	public void saveList(ListType type, PaymentListVO vo) {
+	public boolean saveList(ListType type, PaymentListVO vo) {
 		ListVO listVO = new ListVO();
 		listVO.saveList();
 		System.out.println("Save Success!");
 		// TODO Auto-generated method stub
-		
+		return true;
 	}
 
-	public Map searchMember(int id, String name) {
+	public Map searchMember(String id, String name) {
 		memberVO.getMember();
 		System.out.println("Search Success!");
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public MemberVO getMember(int id) {
+	public MemberVO getMember(String id) {
         memberVO.getName();
 		System.out.println("Search Success!");
 		// TODO Auto-generated method stub
 		return memberVO;
 	}
 
-	public AccountVO getAccount(String accountName) {
+	public AccountVO getAccount(String name) {
 		AccountVO accountVO = new AccountVO();
-		accountVO.getAccount(accountName);
+		accountVO.getAccount(name);
 		System.out.println("Search Success!");
 		// TODO Auto-generated method stub
-		return null;
+		return accountVO;
 	}
 
-	public void commitList(ListType type, PaymentListVO vo) {
+	public boolean commitList(ListType type, PaymentListVO vo) {
 		ListVO listVO = new ListVO();
 		listVO.commitList();
 		System.out.println("Search Success!");
 		// TODO Auto-generated method stub
-		
+		return true;
 	}
 
 }

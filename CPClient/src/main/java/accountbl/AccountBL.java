@@ -24,8 +24,9 @@ public interface AccountBL {
 	 * 前置条件   已填写好期初建账的必要信息
 	 * 后置条件   持久化保存期初建账信息，更新客户，账户，商品数据
 	 * @param vo
+	 * @return 
 	 */
-	public void saveInitAccountInfo(InitAccountVO vo);
+	public boolean saveInitAccountInfo(InitAccountVO vo);
 	
 	/**
 	 * 前置条件   财务人员增加账户
@@ -47,8 +48,9 @@ public interface AccountBL {
 	 * 前置条件	财务人员修改账户信息后保存
 	 * 后置条件	持久化保存账户信息
 	 * @param name
+	 * @return 
 	 */
-	public void saveAccount(String name,AccountVO vo);
+	public boolean saveAccount(String name,AccountVO vo);
 	
 	/**
 	 * 前置条件	财务人员输入关键字进行模糊查找账户
@@ -83,8 +85,9 @@ public interface AccountBL {
 	 * 前置条件	启动一个收款／付款／现金费用回合
 	 * 后置条件	持久化保存单据数据
 	 * @param type
+	 * @return 
 	 */
-	public void saveList(ListType type, PaymentListVO vo);
+	public boolean saveList(ListType type, PaymentListVO vo);
 	
 	/**
 	 * 前置条件	输入会员id和姓名进行模糊查找
@@ -93,14 +96,14 @@ public interface AccountBL {
 	 * @param name
 	 * @return
 	 */
-	public Map searchMember(int id, String name);
+	public Map searchMember(String id, String name);
 	
 	/**
 	 * 后置条件	返回要查询的会员信息
 	 * @param id
 	 * @return
 	 */
-	public MemberVO getMember(int id);
+	public MemberVO getMember(String id);
 	
 	/**
 	 * 前置条件	启动一个收款／付款／现金费用回合
@@ -114,8 +117,9 @@ public interface AccountBL {
 	 * 前置条件	已填写好收款／付款／现金费用单信息
 	 * 后置条件	提交单据并持久化保存单据数据
 	 * @param type
+	 * @return 
 	 */
-	public void commitList(ListType type, PaymentListVO vo);
+	public boolean commitList(ListType type, PaymentListVO vo);
 	
 	
 	
