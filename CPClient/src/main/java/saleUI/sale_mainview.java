@@ -7,6 +7,7 @@ public class sale_mainview {
 	   ListType lt=null;
 	   sb.commitList(null, null);
 	   sb.createList( lt);
+	   sb.commitList(null, null);
 	   
    }
 }
