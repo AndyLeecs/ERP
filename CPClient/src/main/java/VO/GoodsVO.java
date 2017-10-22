@@ -1,7 +1,7 @@
 package VO;
 
 public class GoodsVO {
-	String goods;
+	String goodsID;
 	String goodsSort;
 	String goodsName;
 	String goodsType;
@@ -12,7 +12,7 @@ public class GoodsVO {
 	double recentSellPrice;
 	
 	public GoodsVO(String a,String b,String c,String d,String e,double f,double g,double h,double i) {
-		goods = a;
+		goodsID = a;
 		goodsSort = b;
 		goodsName = c;
 		goodsType = d;
@@ -24,7 +24,7 @@ public class GoodsVO {
 	}
 	
 	public String getGoods() {
-		return  goods;
+		return  goodsID;
 	}
 	
 	public String getGoodsSort() {
