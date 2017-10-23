@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainUI.LoginController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFF7FE;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainUI.LoginController">
    <children>
-      <ImageView fitHeight="406.0" fitWidth="606.0" layoutX="-2.0" layoutY="-222.0">
+      <ImageView fitHeight="410.0" fitWidth="608.0" layoutX="-4.0" layoutY="-205.0">
          <image>
-            <Image url="@loginBG.jpg" />
+            <Image url="@loginBg3.jpg" />
          </image>
       </ImageView>
       <PasswordField fx:id="passwordTxt" layoutX="260.0" layoutY="293.0" />

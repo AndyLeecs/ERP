@@ -16,6 +16,7 @@ public class LoginWin extends Stage{
 	public LoginWin() throws IOException{
 		root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);
