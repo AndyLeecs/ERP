@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainUI.LoginController">
+   <children>
+      <ImageView fitHeight="406.0" fitWidth="606.0" layoutX="-2.0" layoutY="-222.0">
+         <image>
+            <Image url="@loginBG.jpg" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="passwordTxt" layoutX="260.0" layoutY="293.0" />
+      <TextField fx:id="usernameTxt" layoutX="260.0" layoutY="240.0" style="-fx-background-radius: 0.5;" />
+      <Label layoutX="174.0" layoutY="240.0" text="用户名">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="183.0" layoutY="295.0" text="密码">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="64.0" text="登录">
+         <font>
+            <Font size="36.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.0625" startY="0.5817307692307693">
+               <stops>
+                  <Stop color="#8f6918" />
+                  <Stop color="BLACK" offset="0.16354390719996018" />
+                  <Stop color="#282726" offset="0.5968345538411806" />
+                  <Stop color="#d74747" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="loginBtn" layoutX="265.0" layoutY="344.0" mnemonicParsing="false" onAction="#onLoginBtnClicked" prefHeight="27.0" prefWidth="72.0" text="Log In">
+         <font>
+            <Font name="Helvetica" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
