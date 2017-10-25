@@ -34,10 +34,10 @@
       </Pane>
       <Pane layoutX="214.0" layoutY="123.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
          <children>
-            <Label layoutX="33.0" layoutY="11.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
-            <Label layoutX="65.0" layoutY="20.0" text="我的消息" textFill="#9f353a">
+            <Label layoutX="36.0" layoutY="20.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
+            <Label layoutX="68.0" layoutY="29.0" text="我的消息">
                <font>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
             <TextField layoutX="656.0" layoutY="78.0" style="-fx-border-radius: 23; -fx-background-radius: 23;" />
@@ -83,7 +83,7 @@
       <Pane layoutX="214.0" layoutY="275.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
          <children>
             <Label layoutX="33.0" layoutY="11.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
-            <Label layoutX="65.0" layoutY="20.0" text="总经理" textFill="#9f353a">
+            <Label layoutX="65.0" layoutY="20.0" text="总经理">
                <font>
                   <Font size="16.0" />
                </font>
@@ -100,7 +100,7 @@
       <Pane layoutX="214.0" layoutY="426.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
          <children>
             <Label layoutX="33.0" layoutY="11.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
-            <Label layoutX="65.0" layoutY="20.0" text="库存人员" textFill="#9f353a">
+            <Label layoutX="65.0" layoutY="20.0" text="库存人员">
                <font>
                   <Font size="16.0" />
                </font>
@@ -117,7 +117,7 @@
       <Pane layoutX="214.0" layoutY="580.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
          <children>
             <Label layoutX="33.0" layoutY="11.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
-            <Label layoutX="65.0" layoutY="20.0" text="总经理" textFill="#9f353a">
+            <Label layoutX="65.0" layoutY="20.0" text="总经理">
                <font>
                   <Font size="16.0" />
                </font>

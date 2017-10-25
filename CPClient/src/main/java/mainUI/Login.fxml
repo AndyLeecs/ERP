@@ -41,7 +41,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button fx:id="loginBtn" layoutX="265.0" layoutY="344.0" mnemonicParsing="false" onAction="#onLoginBtnClicked" prefHeight="27.0" prefWidth="72.0" text="Log In">
+      <Button fx:id="loginBtn" layoutX="265.0" layoutY="344.0" mnemonicParsing="false" onAction="#onLoginBtnClicked" prefHeight="27.0" prefWidth="72.0" style="-fx-background-radius: 23; -fx-border-radius: 23;" text="Log In">
          <font>
             <Font name="Helvetica" size="14.0" />
          </font>
