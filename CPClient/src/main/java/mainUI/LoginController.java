@@ -1,5 +1,8 @@
 package mainUI;
 
+import java.io.IOException;
+
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -18,6 +21,16 @@ public class LoginController {
 	public void onLoginBtnClicked() {
 		this.username = usernameTxt.getText();
 		this.password = passwordTxt.getText();
+		
+		Platform.runLater(()->{
+			try {
+				new saleUI.SaleWin();
+				root.getScene().getWindow().hide();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
 	}
 
 }
