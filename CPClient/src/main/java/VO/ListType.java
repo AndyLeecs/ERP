@@ -1,5 +1,5 @@
 package VO;
 
-public class ListType {
+public interface ListType {
 
 }
