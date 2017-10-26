@@ -1,4 +1,4 @@
-package VO;
+package PO;
 
 import java.util.Map;
 
@@ -7,7 +7,7 @@ import java.util.Map;
 * @date 2017年10月22日
 * @description
 */
-public class CategoryVO {
+public class CategoryPO {
 		/**
 		 * 商品分类编号
 		 */
