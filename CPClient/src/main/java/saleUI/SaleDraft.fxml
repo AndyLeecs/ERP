@@ -39,12 +39,6 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="656.0" layoutY="78.0" style="-fx-border-radius: 23; -fx-background-radius: 23;" />
-            <Label layoutX="833.0" layoutY="83.0" text="查询" textFill="#9f353a">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
          </children></Pane>
       <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
          <children>
