@@ -31,13 +31,18 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="187.0" layoutY="123.0" opacity="0.39" prefHeight="644.0" prefWidth="948.0" style="-fx-background-color: #FFB5B5;">
+      <Pane layoutX="177.0" layoutY="121.0" opacity="0.39" prefHeight="646.0" prefWidth="978.0" style="-fx-background-color: transparant;">
          <children>
             <Label layoutX="413.0" layoutY="290.0" prefHeight="82.0" prefWidth="152.0" text="WELCOME" textAlignment="CENTER" textFill="#9f353a" textOverrun="CLIP">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
+            <ImageView fitHeight="599.0" fitWidth="958.0" layoutX="12.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1.jpg" />
+               </image>
+            </ImageView>
          </children></Pane>
       <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
          <children>

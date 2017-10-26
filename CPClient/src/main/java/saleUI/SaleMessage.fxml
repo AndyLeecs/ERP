@@ -40,12 +40,8 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="656.0" layoutY="78.0" style="-fx-border-radius: 23; -fx-background-radius: 23;" />
-            <Label layoutX="833.0" layoutY="83.0" text="查询" textFill="#9f353a">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
+            <TextField layoutX="643.0" layoutY="90.0" style="-fx-border-radius: 23; -fx-background-radius: 23;" />
+            <Button layoutX="829.0" layoutY="90.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" style="-fx-background-color: #ff7575; -fx-background-radius: 23; -fx-border-radius: 23;" text="查询" textFill="WHITE" />
          </children></Pane>
       <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
          <children>
