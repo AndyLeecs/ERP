@@ -6,7 +6,7 @@ package VO;
 * @date 2017年10月27日
 * @description
 */
-public class SaleListVO extends SalesmanListVO{
+public class SaleBackListVO extends SalesmanListVO{
 	/**
 	 * 折让前总额
 	 */

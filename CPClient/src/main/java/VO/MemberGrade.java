@@ -1,4 +1,4 @@
-package PO;
+package VO;
 
 
 /**     
@@ -6,7 +6,7 @@ package PO;
 * @date 2017年10月26日
 * @description 用户等级，分为5个等级
 */
-public enum Grade {
+public enum MemberGrade {
 
 	GradeOne(1),
 	GradeTwo(2),
@@ -16,7 +16,7 @@ public enum Grade {
 	
 	private final int grade;
 	
-	private Grade(int grade){
+	private MemberGrade(int grade){
 		this.grade = grade;
 	}
 	

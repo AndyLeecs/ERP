@@ -1,4 +1,4 @@
-package VO;
+package PO;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ import java.util.Date;
 * @date 2017年10月22日
 * @description
 */
-public class StoreVO {
+public class StorePO {
 	/**
      * 商品编号	
     */

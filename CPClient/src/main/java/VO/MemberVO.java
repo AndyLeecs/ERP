@@ -2,8 +2,8 @@ package VO;
 
 public class MemberVO {
       public String id; //编号
-public String category; //分类
-      Grade grade ; //级别
+      public String category; //分类
+      MemberGrade grade ; //级别
       String name ; //姓名
       String phoneNumber ;//电话号码
       String email ; //电子邮箱

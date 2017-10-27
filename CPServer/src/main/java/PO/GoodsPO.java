@@ -1,6 +1,6 @@
-package VO;
+package PO;
 
-public class GoodsVO {
+public class GoodsPO {
 	/**
 	 * 商品编号
 	 */
