@@ -1,6 +1,8 @@
 package PO;
 
-public class GoodsPO {
+import java.io.Serializable;
+
+public class GoodsPO implements Serializable{
 	/**
 	 * 商品编号
 	 */

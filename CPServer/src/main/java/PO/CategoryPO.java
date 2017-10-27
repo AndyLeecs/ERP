@@ -1,5 +1,6 @@
 package PO;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**     
@@ -7,7 +8,7 @@ import java.util.Map;
 * @date 2017年10月22日
 * @description
 */
-public class CategoryPO {
+public class CategoryPO implements Serializable{
 		/**
 		 * 商品分类编号
 		 */

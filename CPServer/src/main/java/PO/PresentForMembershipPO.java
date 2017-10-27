@@ -1,5 +1,6 @@
 package PO;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
 * @date 2017年10月26日
 * @description 针对不同级别的用户制定促销策略（赠品、价格折让、 赠送代金劵）
 */
-public class PresentForMembershipPO extends PresentPO{
+public class PresentForMembershipPO extends PresentPO implements Serializable{
 
 	/**
 	 *会员级别

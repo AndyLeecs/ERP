@@ -1,6 +1,8 @@
 package PO;
 
-public class UserPO {
+import java.io.Serializable;
+
+public class UserPO  implements Serializable{
 	/**
 	 * 编号
 	 */

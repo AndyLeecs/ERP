@@ -1,12 +1,13 @@
 package PO;
 
+import java.io.Serializable;
 
 /**     
 * @author 李安迪
 * @date 2017年10月27日
 * @description 单据类继承的抽象类
 */
-public abstract class ListPO {
+public abstract class ListPO{
 	/**
 	 * 单据编号
 	 */

@@ -1,5 +1,6 @@
 package PO;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**     
@@ -7,7 +8,7 @@ import java.util.List;
 * @date 2017年10月27日
 * @description
 */
-public abstract class StockmanListPO extends ListPO{
+public abstract class StockmanListPO extends ListPO implements Serializable{
 	 /**
 	  * 商品清单
 	  */

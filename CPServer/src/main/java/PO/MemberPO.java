@@ -1,6 +1,8 @@
 package PO;
 
-public class MemberPO {
+import java.io.Serializable;
+
+public class MemberPO implements Serializable{
       public String id; //编号
 public String category; //分类
       MemberGrade grade ; //级别

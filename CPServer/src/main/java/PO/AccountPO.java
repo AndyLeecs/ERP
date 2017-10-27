@@ -1,6 +1,8 @@
 package PO;
 
-public class AccountPO {
+import java.io.Serializable;
+
+public class AccountPO implements Serializable{
 	/**
 	 * 账户名称
 	 */

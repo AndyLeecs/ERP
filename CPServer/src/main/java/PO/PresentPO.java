@@ -1,5 +1,6 @@
 package PO;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
 * @date 2017年10月27日
 * @description
 */
-public abstract class PresentPO {
+public abstract class PresentPO{
 	/**
 	 * 策略编号
 	 */

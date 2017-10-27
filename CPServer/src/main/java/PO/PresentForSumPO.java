@@ -1,5 +1,6 @@
 package PO;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**     
@@ -7,7 +8,7 @@ import java.util.List;
 * @date 2017年10月27日
 * @description 赠送策略，针对总价
 */
-public class PresentForSumPO extends PresentPO{
+public class PresentForSumPO extends PresentPO implements Serializable{
 	/**
 	 * 总额
 	 */

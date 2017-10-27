@@ -1,5 +1,6 @@
 package PO;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**     
@@ -7,7 +8,7 @@ import java.util.Date;
 * @date 2017年10月22日
 * @description
 */
-public class StorePO {
+public class StorePO  implements Serializable{
 	/**
      * 商品编号	
     */

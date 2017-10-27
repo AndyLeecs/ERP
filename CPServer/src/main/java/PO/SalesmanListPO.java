@@ -1,8 +1,9 @@
 package PO;
 
+import java.io.Serializable;
 import java.util.List;
 
-public abstract class SalesmanListPO {
+public abstract class SalesmanListPO  implements Serializable{
 	 /**
 	  * 客户编号
 	  */
