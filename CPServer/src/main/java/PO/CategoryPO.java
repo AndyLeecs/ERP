@@ -20,7 +20,7 @@ public class CategoryPO implements Serializable{
 		/**
 		 * 父节点编号
 		 */
-	    String ParentID;
+	    String parentID;
 		/**
 		 * 子节点列表
 		 */
