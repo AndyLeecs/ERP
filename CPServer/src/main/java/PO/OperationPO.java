@@ -1,6 +1,8 @@
 package PO;
 
-public class OperationPO {
+import java.io.Serializable;
+
+public class OperationPO implements Serializable{
      public String opID;//操作编号
      public String time ;//操作时间
      public String operator ;//操作员

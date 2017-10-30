@@ -3,7 +3,7 @@ package salebl;
 import PO.SaleListPO;
 import saledataservice.*;
 public class salebl_driver {
-	SaleListPO po=new SaleListPO();
+	SaleListVO po=new SaleListVO();
 	saledataservice_stub sd;
      public void datadriver(){
     	 sd.insert(po);

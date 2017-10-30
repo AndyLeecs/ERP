@@ -1,40 +1,49 @@
 package VO;
 
-import java.util.ArrayList;
-
 public class MemberVO {
-	  String id;
-	  String name;
-	  String password;
-	  String role;
-	  boolean hashighLimit;
-	  ArrayList<String> memberInfo;
-	  
-	  public MemberVO(String i,String n,String p,String r){
-	  id=i;
-	  name =n;
-	  password=p;
-	  role=r;
-	  }
-
-	  public String getName(){
-	  return name;
-	  }
-	    
-	  public String getID(){
-	        return id;
-	  }
-	  
-	  public String getPassword(){
-	     return password;
-	  }
-
-	  public String getRole(){
-	     return role;
-	  }
-	  
-	  public ArrayList<String> getMember(){
-		  return memberInfo;
-	  }
-
+      public String id; //编号
+      public String category; //分类
+      MemberGrade grade ; //级别
+      String name ; //姓名
+      String phoneNumber ;//电话号码
+      String email ; //电子邮箱
+      String address; //地址
+      String locationID ; //邮编
+      double collection;//应收
+      double collecton_limit ;//应收额度
+      double payment  ; //应付
+      String executive; // 默认业务员
+//      public MemberPO(String name,String phoneNumber,String email,String address,String locationID){
+//    	  this.address=address;
+//    	  this.email=email;
+//    	  this.phoneNumber=phoneNumber;
+//    	  this.name=name;
+//    	  this.locationID=locationID;
+//    	  
+//      }
+//	public double getCollection() {
+//		return collection;
+//	}
+//	public void setCollection(double collection) {
+//		this.collection = collection;
+//	}
+//	public double getCollecton_limit() {
+//		return collecton_limit;
+//	}
+//	public void setCollecton_limit(double collecton_limit) {
+//		this.collecton_limit = collecton_limit;
+//	}
+//	public double getPayment() {
+//		return payment;
+//	}
+//	public void setPayment(double payment) {
+//		this.payment = payment;
+//	}
+//	public Grade getLevel() {
+//		return grade;
+//	}
+//	public void setLevel(Grade grade) {
+//		this.grade = grade;
+//	}
+      
 }

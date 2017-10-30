@@ -1,10 +1,10 @@
 package saledataservice;
 
-import PO.SaleListPO;
+import PO.SalesmanListPO;
 
 public interface saledataservice_stub {
-	public String insert (SaleListPO po);
-    public String delete (SaleListPO po);
-    public String update (SaleListPO po);
-    public String find (SaleListPO po);
+	public String insert (SalesmanListPO po);
+    public String delete (SalesmanListPO po);
+    public String update (SalesmanListPO po);
+    public String find (SalesmanListPO po);
 }
