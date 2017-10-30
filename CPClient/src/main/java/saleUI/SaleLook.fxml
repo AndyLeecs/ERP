@@ -80,7 +80,7 @@
       </Circle>
       <Pane layoutX="214.0" layoutY="281.0" prefHeight="200.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
          <children>
-            <Label layoutX="261.0" layoutY="21.0" text="订单编号:XSD-yyyyMMdd-xxxxx" textFill="#000000a1" />
+            <Label layoutX="263.0" layoutY="21.0" text="订单编号:XSD-yyyyMMdd-xxxxx" textFill="#000000a1" />
             <Label layoutX="483.0" layoutY="21.0" />
             <Label layoutX="540.0" layoutY="21.0" text="订单日期:2017-10-25" textFill="#000000a1" />
             <Label layoutX="267.0" layoutY="55.0" text="客户名字">
@@ -147,5 +147,10 @@
             </ImageView>
          </children>
       </Pane>
+      <ImageView fx:id="clientImage" fitHeight="111.0" fitWidth="112.0" layoutX="51.0" layoutY="32.0" onMouseClicked="#onClientImageClicked" opacity="0.79">
+         <image>
+            <Image url="@client1.JPG" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
