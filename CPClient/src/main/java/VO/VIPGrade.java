@@ -16,7 +16,7 @@ public enum VIPGrade {
 	
 	private final int grade;
 	
-	private VIPGrade(int grade){
+	VIPGrade(int grade){
 		this.grade = grade;
 	}
 	

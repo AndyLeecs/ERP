@@ -5,7 +5,7 @@ public class VIPVO {
       public String category; //分类
       VIPGrade grade ; //级别
       String name ; //姓名
-      String phonenumber ;//电话号码
+      String phoneNumber ;//电话号码
       String email ; //电子邮箱
       String address; //地址
       String locationID ; //邮编
@@ -13,14 +13,15 @@ public class VIPVO {
       double collecton_limit ;//应收额度
       double payment  ; //应付
       String executive; // 默认业务员
-//      public MemberPO(String name,String phoneNumber,String email,String address,String locationID){
-//    	  this.address=address;
-//    	  this.email=email;
-//    	  this.phoneNumber=phoneNumber;
-//    	  this.name=name;
-//    	  this.locationID=locationID;
-//    	  
-//      }
+      
+      public VIPVO(String name,String phoneNumber,String email,String address,String locationID){
+    	  this.address=address;
+    	  this.email=email;
+    	  this.phoneNumber=phoneNumber;
+    	  this.name=name;
+    	  this.locationID=locationID;
+    	  
+      }
 //	public double getCollection() {
 //		return collection;
 //	}

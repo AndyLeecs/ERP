@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import VO.*;
+import bl.utilitybl.ResultMessage;
 /**
  * 
  * @author julia98
@@ -30,7 +31,7 @@ public interface AccountBL {
 	 * @param vo
 	 * @return 
 	 */
-	public boolean saveInitAccountInfo(AccountVO vo);
+	public ResultMessage saveInitAccountInfo(AccountVO vo);
 	
 	/**
 	 * 前置条件   财务人员增加账户
@@ -38,7 +39,7 @@ public interface AccountBL {
 	 * @param vo
 	 * @return
 	 */
-	public boolean addAccount(AccountVO vo);
+	public ResultMessage addAccount(AccountVO vo);
 	
     /**
      * 前置条件   财务人员删除账户
@@ -46,7 +47,7 @@ public interface AccountBL {
      * @param name
      * @return
      */
-	public boolean deleteAccount(String name);
+	public ResultMessage deleteAccount(String name);
 	
 	/**
 	 * 前置条件	财务人员修改账户信息后保存
@@ -54,7 +55,7 @@ public interface AccountBL {
 	 * @param name
 	 * @return 
 	 */
-	public boolean saveAccount(String name,AccountVO vo);
+	public ResultMessage saveAccount(String name,AccountVO vo);
 	
 	/**
 	 * 前置条件	财务人员输入关键字进行模糊查找账户
@@ -91,7 +92,7 @@ public interface AccountBL {
 	 * @param type
 	 * @return 
 	 */
-	public boolean saveList(ListType type, PaymentListVO vo);
+	public ResultMessage saveList(ListType type, PaymentListVO vo);
 	
 	/**
 	 * 前置条件	输入会员id和姓名进行模糊查找
@@ -123,7 +124,7 @@ public interface AccountBL {
 	 * @param type
 	 * @return 
 	 */
-	public boolean commitList(ListType type, PaymentListVO vo);
+	public ResultMessage commitList(ListType type, PaymentListVO vo);
 	
 	
 	

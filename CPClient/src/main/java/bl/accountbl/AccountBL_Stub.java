@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import VO.*;
+import bl.utilitybl.ResultMessage;
 /**
  * 
  * @author julia98
@@ -25,32 +26,32 @@ public class AccountBL_Stub implements AccountBL{
 		return memberVO;
 	}
 
-	public boolean saveInitAccountInfo(InitAccountVO vo) {
+	public ResultMessage saveInitAccountInfo(InitAccountVO vo) {
 		// TODO Auto-generated method stub
 		System.out.println("Save Success!");
-		return true;	
+		return ResultMessage.SUCCESS;	
 	}
 
-	public boolean addAccount(AccountVO vo) {
+	public ResultMessage addAccount(AccountVO vo) {
 		// TODO Auto-generated method stub
 		vo.addAccount();
 		System.out.println("Add Success!");
-		return true;
+		return ResultMessage.SUCCESS;
 	}
 
-	public boolean deleteAccount(String name) {
+	public ResultMessage deleteAccount(String name) {
 		// TODO Auto-generated method stub
 		AccountVO accountVO = new AccountVO();
 		accountVO.deleteAccount();
 		System.out.println("Delete Success!");
-		return true;
+		return ResultMessage.SUCCESS;
 	}
 
-	public boolean saveAccount(String name, AccountVO vo) {
+	public ResultMessage saveAccount(String name, AccountVO vo) {
 		// TODO Auto-generated method stub
 		vo.saveAccount(name);
 		System.out.println("Save Success!");
-		return true;
+		return ResultMessage.SUCCESS;
 	}
 
 	public ArrayList<String> searchAccount(String keyword) {
@@ -84,12 +85,12 @@ public class AccountBL_Stub implements AccountBL{
 		return null;
 	}
 
-	public boolean saveList(ListType type, PaymentListVO vo) {
+	public ResultMessage saveList(ListType type, PaymentListVO vo) {
 		ListVO listVO = new ListVO();
 		listVO.saveList();
 		System.out.println("Save Success!");
 		// TODO Auto-generated method stub
-		return true;
+		return ResultMessage.SUCCESS;
 	}
 
 	public Map searchMember(String id, String name) {
@@ -114,22 +115,22 @@ public class AccountBL_Stub implements AccountBL{
 		return accountVO;
 	}
 
-	public boolean commitList(ListType type, PaymentListVO vo) {
+	public ResultMessage commitList(ListType type, PaymentListVO vo) {
 		ListVO listVO = new ListVO();
 		listVO.commitList();
 		System.out.println("Search Success!");
 		// TODO Auto-generated method stub
-		return true;
+		return ResultMessage.SUCCESS;
 	}
 
 	@Override
-	public boolean saveInitAccountInfo(AccountVO vo) {
+	public ResultMessage saveInitAccountInfo(AccountVO vo) {
 		// TODO Auto-generated method stub
-		return false;
+		return ResultMessage.SUCCESS;
 	}
 
 	@Override
-	public bl.accountbl.ListVO createList(ListType type) {
+	public ListVO createList(ListType type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
