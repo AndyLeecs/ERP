@@ -24,9 +24,9 @@ public class StoreBLService_Stub implements StoreBLService{
 	/* (non-Javadoc)
 	 * @see storeblservice.StoreBLService#createList(VO.ListType)
 	 */
-	public ListInitVO createList(ListType type) {
+	public String createList(ListType type) {
 		// TODO Auto-generated method stub
-		return null;
+		return "0001";
 	}
 
 	/* (non-Javadoc)
@@ -34,7 +34,7 @@ public class StoreBLService_Stub implements StoreBLService{
 	 */
 	public Map<ListType, String> openDraftList() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Map<ListType,String>();
 	}
 
 	/* (non-Javadoc)
@@ -42,22 +42,23 @@ public class StoreBLService_Stub implements StoreBLService{
 	 */
 	public StoreListVO openList(ListType type, String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return new StoreListVO();
 	}
 
 	/* (non-Javadoc)
 	 * @see storeblservice.StoreBLService#saveList(VO.ListType, VO.ListVO)
 	 */
-	public void saveList(ListType type, ListVO vo) {
+	public ResultMessage saveList(ListType type, ListVO vo) {
 		// TODO Auto-generated method stub
-		
+		return ResultMessage.SUCCESS;
 	}
 
 	/* (non-Javadoc)
 	 * @see storeblservice.StoreBLService#commitList(VO.ListType, VO.ListVO)
 	 */
-	public void commitList(ListType type, ListVO vo) {
+	public ResultMessage commitList(ListType type, ListVO vo) {
 		// TODO Auto-generated method stub
+		return ResultMessage.SUCCESS;
 		
 	}
 
@@ -66,7 +67,7 @@ public class StoreBLService_Stub implements StoreBLService{
 	 */
 	public Map<String, String> findGoods(String id, String name) {
 		// TODO Auto-generated method stub
-		return null;
+		return new Map<String,String>();
 	}
 
 	/* (non-Javadoc)
@@ -74,7 +75,7 @@ public class StoreBLService_Stub implements StoreBLService{
 	 */
 	public GoodsVO getGoods(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return new GoodsVO();
 	}
 
 	/* (non-Javadoc)
@@ -106,7 +107,7 @@ public class StoreBLService_Stub implements StoreBLService{
 	 */
 	public Set<StoreVO> check() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Set<StoreVO>();
 	}
 
 	/* (non-Javadoc)
@@ -114,15 +115,15 @@ public class StoreBLService_Stub implements StoreBLService{
 	 */
 	public StoreViewVO view(StoreViewStandardVO vo, Date begin, Date end) {
 		// TODO Auto-generated method stub
-		return null;
+		return new StoreViewVO();
 	}
 
 	/* (non-Javadoc)
 	 * @see storeblservice.StoreBLService#setAlert(java.util.Map)
 	 */
-	public void setAlert(Map<String, Integer> alertMap) {
+	public ResultMessage setAlert(Map<String, Integer> alertMap) {
 		// TODO Auto-generated method stub
-		
+		return ResultMessage.SUCCESS;
 	}
 
 }

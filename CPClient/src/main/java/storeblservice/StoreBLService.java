@@ -19,7 +19,7 @@ import VO.StoreViewVO;
 * @description
 */
 public interface StoreBLService {
-	public ListInitVO createList(ListType type);
+	public String createList(ListType type);
 	public Map<ListType, String> openDraftList();
 	public StoreListVO openList(ListType type, String id);
 	public void saveList(ListType type, ListVO vo);
