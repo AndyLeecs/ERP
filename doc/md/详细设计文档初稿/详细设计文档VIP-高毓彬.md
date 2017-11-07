@@ -6,7 +6,7 @@ VIPbl模块的职责及接口参见软件系统体系结构描述文档
 #### （2）整体结构
 根据体系结构的设计，我们将系统分为展示层、业务逻辑层、数据层。每一层之间为了增加灵活性和可修改性，我们会添加接口。在展示层和业务逻辑层之间，我们添加VIPBLService接口。业务逻辑层和数据层之间添加VIPDataService接口。为了隔离业务逻辑职责和逻辑控制职责，我们添加了VIPBLServiceImpl，这样VIPBLServiceImpl会将对新建的业务逻辑处理委托给VIP对象。VIPPO是作为商品和商品分类信息的持久化对象被添加到设计模型中去的。<br/>
 
-![image](http://101.37.19.32:10080/CuteGroup/Cute_Project/blob/master/doc/img/详细设计相关/VIP模块设计.png)<br/>
+![image](http://101.37.19.32:10080/CuteGroup/Cute_Project/blob/master/doc/md/详细设计文档初稿/VIP模块设计.png)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 VIPbl模块的设计如图4.1.2-1 所示
 
@@ -217,12 +217,12 @@ VIP的接口规范如表4.1.2（3）-2所示。<br/>
 
 #### (4)业务逻辑层的动态模型
 图4.1.2（4）-1表明了进销存系统中，当用户选择初始化并保存客户信息时，客户业务逻辑处理的相关对象之间的协作。<br/>
-![image](http://101.37.19.32:10080/CuteGroup/Cute_Project/blob/master/doc/img/详细设计相关/初始化并保存客户信息系统顺序图.png)<br/>
+![image](http://101.37.19.32:10080/CuteGroup/Cute_Project/blob/master/doc/md/详细设计文档初稿/初始化并保存客户信息系统顺序图.png)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 **图4.1.2（4）-1初始化并保存客户信息**<br/>
 
 图4.1.2（4）-2所示的状态图描述VIP对象的生存期间的状态序列、引起转移的事件、以及因状态转移而伴随的动作。随着initAndSaveVIP/newVIP/VIP/modifyVIP方法被VIPBLServiceImpl调用，VIP进入handleData状态；之后通过获取VIPPO进入Present状态；通过获取ResultMessage进入Complete状态<br/>
-![image](http://101.37.19.32:10080/CuteGroup/Cute_Project/blob/master/doc/img/详细设计相关/VIP对象状态图.png)<br/>
+![image](http://101.37.19.32:10080/CuteGroup/Cute_Project/blob/master/doc/md/详细设计文档初稿/VIP对象状态图.png)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 **图4.1.2（4）-2 VIP对象状态图**<br/>
 
