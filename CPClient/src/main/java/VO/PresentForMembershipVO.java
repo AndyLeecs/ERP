@@ -13,7 +13,7 @@ public class PresentForMembershipVO extends PresentVO{
 	/**
 	 *会员级别
 	 */	
-	MemberGrade grade;
+	VIPGrade grade;
 	/**
 	 *总额
 	 */	

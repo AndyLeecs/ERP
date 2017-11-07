@@ -5,7 +5,7 @@ import java.util.Map;
 import VO.GoodsVO;
 import VO.ListInitVO;
 import VO.ListType;
-import VO.MemberVO;
+import VO.VIPVO;
 import VO.SaleListVO;
 import VO.SalePresentVO;
 import saleblservice.saleblservice_stub;
@@ -46,9 +46,9 @@ public class salebl_stub implements saleblservice_stub{
 		return null;
 	}
 
-	public MemberVO getMember(int id) {
+	public VIPVO getMember(int id) {
 		// TODO Auto-generated method stub
-		MemberVO mv=new MemberVO("161250143", "wangruihua", "123456", "chairman");
+		VIPVO mv=new VIPVO("161250143", "wangruihua", "123456", "chairman");
 		return mv;
 	}
 

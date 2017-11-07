@@ -9,12 +9,12 @@ import VO.InitAccountVO;
 import VO.ListInitVO;
 import VO.ListType;
 import VO.ListVO;
-import VO.MemberVO;
+import VO.VIPVO;
 import VO.PaymentListVO;
 
 public class AccountBL_Stub implements AccountBL{
 	private static final GoodsVO testGoodsVO = new GoodsVO("台灯","一型","护眼灯","0","000001",250.0,500.0,250.0,500.0);
-    private static final MemberVO memberVO = new MemberVO("000001","张三","00000","客户");
+    private static final VIPVO memberVO = new VIPVO("000001","张三","00000","客户");
 	
 	public GoodsVO getGoodsInfo(String id) {
 		// TODO Auto-generated method stub
@@ -22,7 +22,7 @@ public class AccountBL_Stub implements AccountBL{
 		return testGoodsVO;
 	}
 
-	public MemberVO getMemberInfo(String id) {
+	public VIPVO getMemberInfo(String id) {
 		// TODO Auto-generated method stub
 		System.out.println("Search Success!");
 		return memberVO;
@@ -102,7 +102,7 @@ public class AccountBL_Stub implements AccountBL{
 		return null;
 	}
 
-	public MemberVO getMember(String id) {
+	public VIPVO getMember(String id) {
         memberVO.getName();
 		System.out.println("Search Success!");
 		// TODO Auto-generated method stub
