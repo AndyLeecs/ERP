@@ -2,7 +2,11 @@ package bl.accountbl;
 
 import java.util.*;
 import VO.*;
-
+/**
+ * 
+ * @author julia98
+ *
+ */
 public class AccountBL_Driver {
 	private static final GoodsVO testGoodsVO = new GoodsVO("台灯","一型","护眼灯","0","000001",250.0,500.0,250.0,500.0);
 	private static final VIPVO testMemberVO = new VIPVO("000001","张三","00000","客户");

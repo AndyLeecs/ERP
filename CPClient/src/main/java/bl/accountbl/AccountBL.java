@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import VO.*;
-
+/**
+ * 
+ * @author julia98
+ *
+ */
 public interface AccountBL {
 	/**
 	 * 后置条件   返回上一财政年该商品信息

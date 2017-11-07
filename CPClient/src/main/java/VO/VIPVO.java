@@ -5,7 +5,7 @@ public class VIPVO {
       public String category; //分类
       VIPGrade grade ; //级别
       String name ; //姓名
-      String phoneNumber ;//电话号码
+      String phonenumber ;//电话号码
       String email ; //电子邮箱
       String address; //地址
       String locationID ; //邮编
