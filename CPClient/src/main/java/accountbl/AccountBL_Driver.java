@@ -5,8 +5,8 @@ import VO.*;
 
 public class AccountBL_Driver {
 	private static final GoodsVO testGoodsVO = new GoodsVO("台灯","一型","护眼灯","0","000001",250.0,500.0,250.0,500.0);
-	private static final MemberVO testMemberVO = new MemberVO("000001","张三","00000","客户");
-	private static final InitAccountVO initAccountVO =  new InitAccountVO("张三","客户");
+	private static final VIPVO testMemberVO = new VIPVO("000001","张三","00000","客户");
+	private static final AccountVO initAccountVO =  new AccountVO("张三","客户");
 	private static AccountVO accountVO = new AccountVO();
 	private static final PaymentListVO paymentListVO = new PaymentListVO();
 	
@@ -27,7 +27,7 @@ public class AccountBL_Driver {
 	    	System.out.println("Fail!");
 	    
 	    //2
-	    MemberVO memberVO = accountBL_Stub.getMemberInfo(id);
+	    VIPVO memberVO = accountBL_Stub.getMemberInfo(id);
 	    if(goodsVO.equals(testMemberVO))
     	        System.out.println("Success!");
         else

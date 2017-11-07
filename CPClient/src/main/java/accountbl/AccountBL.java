@@ -18,7 +18,7 @@ public interface AccountBL {
 	 * @param id
 	 * @return
 	 */
-	public MemberVO getMemberInfo(String id);
+	public VIPVO getMemberInfo(String id);
 	
 	/**
 	 * 前置条件   已填写好期初建账的必要信息
@@ -26,7 +26,7 @@ public interface AccountBL {
 	 * @param vo
 	 * @return 
 	 */
-	public boolean saveInitAccountInfo(InitAccountVO vo);
+	public boolean saveInitAccountInfo(AccountVO vo);
 	
 	/**
 	 * 前置条件   财务人员增加账户
@@ -65,7 +65,7 @@ public interface AccountBL {
 	 * @param type
 	 * @return
 	 */
-	public ListInitVO createList(ListType type);
+	public ListVO createList(ListType type);
 	
 	/**
 	 * 后置条件	打开草稿单列表
@@ -103,7 +103,7 @@ public interface AccountBL {
 	 * @param id
 	 * @return
 	 */
-	public MemberVO getMember(String id);
+	public VIPVO getMember(String id);
 	
 	/**
 	 * 前置条件	启动一个收款／付款／现金费用回合
