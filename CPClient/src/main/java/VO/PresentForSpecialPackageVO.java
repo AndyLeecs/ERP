@@ -9,6 +9,10 @@ import java.util.List;
 */
 public class PresentForSpecialPackageVO extends PresentVO{
 	/**
+	 * 策略类型
+	 */
+	PresentType SpecialPackage;
+	/**
 	 *商品列表，每个策略里只有一个特价包
 	 */	
 	List<GoodsInSaleVO> goodsList;

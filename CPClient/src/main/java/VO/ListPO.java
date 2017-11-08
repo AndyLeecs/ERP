@@ -23,6 +23,9 @@ public abstract class ListPO {
 	 * 审批状态
 	 */
 	boolean isApproved;
-	
+	/**
+	 * 通过状态
+	 */
+	boolean isRefused;	
 	
 }

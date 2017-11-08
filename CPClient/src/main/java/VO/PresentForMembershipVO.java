@@ -11,6 +11,10 @@ import java.util.List;
 public class PresentForMembershipVO extends PresentVO{
 
 	/**
+	 * 策略类型
+	 */
+	PresentType Membership;
+	/**
 	 *会员级别
 	 */	
 	VIPGrade grade;
