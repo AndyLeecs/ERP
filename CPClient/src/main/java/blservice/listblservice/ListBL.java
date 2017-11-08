@@ -1,4 +1,4 @@
-package bl.listbl;
+package blservice.listblservice;
 
 import java.util.*;
 import VO.*;

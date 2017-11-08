@@ -10,8 +10,8 @@ public enum AccountantListType implements ListType{
 
 
 		PaymentList("付款单"),
-		ReceiptList("收款单"),
-		CashList("现金费用单");		
+		CollectMoneyList("收款单"),
+		CashExpenseList("现金费用单");		
 		
 		private final String type;
 		

@@ -5,14 +5,15 @@ import java.util.Map;
 
 import VO.*;
 import bl.utilitybl.ResultMessage;
+import blservice.accountblservice.AccountBL;
 /**
  * 
  * @author julia98
  *
  */
 public class AccountBL_Stub implements AccountBL{
-	private static final GoodsVO testGoodsVO = new GoodsVO("台灯","一型","护眼灯","0","000001",250.0,500.0,250.0,500.0);
-    private static final VIPVO memberVO = new VIPVO("000001","张三","00000","客户");
+	private static final GoodsVO testGoodsVO = new GoodsVO();
+    private static final VIPVO vipVO = new VIPVO("000001","张三","00000","客户", null);
 	
 	public GoodsVO getGoodsInfo(String id) {
 		// TODO Auto-generated method stub
@@ -23,10 +24,10 @@ public class AccountBL_Stub implements AccountBL{
 	public VIPVO getMemberInfo(String id) {
 		// TODO Auto-generated method stub
 		System.out.println("Search Success!");
-		return memberVO;
+		return vipVO;
 	}
 
-	public ResultMessage saveInitAccountInfo(InitAccountVO vo) {
+	public ResultMessage saveInitAccountInfo(AccountVO vo) {
 		// TODO Auto-generated method stub
 		System.out.println("Save Success!");
 		return ResultMessage.SUCCESS;	
@@ -47,26 +48,19 @@ public class AccountBL_Stub implements AccountBL{
 		return ResultMessage.SUCCESS;
 	}
 
-	public ResultMessage saveAccount(String name, AccountVO vo) {
+	public ResultMessage modifyAccount(String name, AccountVO vo) {
 		// TODO Auto-generated method stub
-		vo.saveAccount(name);
+		vo.modifyAccount(name);
 		System.out.println("Save Success!");
 		return ResultMessage.SUCCESS;
 	}
 
-	public ArrayList<String> searchAccount(String keyword) {
+	public ArrayList<AccountVO> searchAccount(String keyword) {
 		// TODO Auto-generated method stub
 		AccountVO accountVO = new AccountVO();
 		ArrayList<String> a = accountVO.searchAccount(keyword);
 		System.out.println("Search Success!");
 		return a;
-	}
-
-	public ListVO createList(ListType type) {
-		// TODO Auto-generated method stub
-		type = new ListType();
-		System.out.println("Create Success!");
-		return null;
 	}
 
 	public Map openDraftList() {
@@ -79,32 +73,39 @@ public class AccountBL_Stub implements AccountBL{
 
 	public Map openList(ListType type, String id) {
 		// TODO Auto-generated method stub
-		ListVO listVO = new ListVO();
-		listVO.openList();
+		switch(type) {
+		case AccountantListType.CashExpenseList:
+			CashExpenseListVO cashExpenseListVO = new CashExpenseListVO();
+			break;
+		case AccountantListType.CollectMoneyList:
+			CollectMoneyListVO collectMoneyListVO = new CollectMoneyListVO();
+			break;
+		case AccountantListType.PaymentList:
+			PaymentListVO paymentListVO = new PaymentListVO();
+			break;
+		}
 		System.out.println("Open Success!");
 		return null;
 	}
 
 	public ResultMessage saveList(ListType type, PaymentListVO vo) {
-		ListVO listVO = new ListVO();
-		listVO.saveList();
 		System.out.println("Save Success!");
 		// TODO Auto-generated method stub
 		return ResultMessage.SUCCESS;
 	}
 
-	public Map searchMember(String id, String name) {
-		memberVO.getMember();
+	public Map searchVIP(String id, String name) {
+		vipVO.getVIP();
 		System.out.println("Search Success!");
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public VIPVO getMember(String id) {
-        memberVO.getName();
+	public VIPVO getVIP(String id) {
+        vipVO.getName();
 		System.out.println("Search Success!");
 		// TODO Auto-generated method stub
-		return memberVO;
+		return vipVO;
 	}
 
 	public AccountVO getAccount(String name) {
@@ -116,7 +117,7 @@ public class AccountBL_Stub implements AccountBL{
 	}
 
 	public ResultMessage commitList(ListType type, PaymentListVO vo) {
-		ListVO listVO = new ListVO();
+		if(type == ListType)
 		listVO.commitList();
 		System.out.println("Search Success!");
 		// TODO Auto-generated method stub
@@ -129,8 +130,21 @@ public class AccountBL_Stub implements AccountBL{
 		return ResultMessage.SUCCESS;
 	}
 
+
 	@Override
-	public ListVO createList(ListType type) {
+	public CollectMoneyListVO newCollectMoneyList(ListType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PaymentListVO newPaymentList(ListType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CashExpenseListVO newCashExpenseList(ListType type) {
 		// TODO Auto-generated method stub
 		return null;
 	}

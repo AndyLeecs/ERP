@@ -1,4 +1,4 @@
-package bl.accountbl;
+package blservice.accountblservice;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -55,7 +55,7 @@ public interface AccountBL {
 	 * @param name
 	 * @return 
 	 */
-	public ResultMessage saveAccount(String name,AccountVO vo);
+	public ResultMessage modifyAccount(String name,AccountVO vo);
 	
 	/**
 	 * 前置条件	财务人员输入关键字进行模糊查找账户
@@ -63,14 +63,28 @@ public interface AccountBL {
 	 * @param keyword
 	 * @return
 	 */
-	public ArrayList<String> searchAccount(String keyword);
+	public ArrayList<AccountVO> searchAccount(String keyword);
 	
 	/**
 	 * 后置条件	返回单据编号和操作员
 	 * @param type
 	 * @return
 	 */
-	public ListVO createList(ListType type);
+	public CollectMoneyListVO createCollectMoneyList(ListType type);
+	
+	/**
+	 * 后置条件	返回单据编号和操作员
+	 * @param type
+	 * @return
+	 */
+	public PaymentListVO createPaymentList(ListType type);
+	
+	/**
+	 * 后置条件	返回单据编号和操作员
+	 * @param type
+	 * @return
+	 */
+	public CashExpenseListVO createCashExpenseList(ListType type);
 	
 	/**
 	 * 后置条件	打开草稿单列表
@@ -101,14 +115,14 @@ public interface AccountBL {
 	 * @param name
 	 * @return
 	 */
-	public Map searchMember(String id, String name);
+	public Map searchVIP(String id, String name);
 	
 	/**
 	 * 后置条件	返回要查询的会员信息
 	 * @param id
 	 * @return
 	 */
-	public VIPVO getMember(String id);
+	public VIPVO getVIP(String id);
 	
 	/**
 	 * 前置条件	启动一个收款／付款／现金费用回合
@@ -125,8 +139,5 @@ public interface AccountBL {
 	 * @return 
 	 */
 	public ResultMessage commitList(ListType type, PaymentListVO vo);
-	
-	
-	
-	
+		
 }

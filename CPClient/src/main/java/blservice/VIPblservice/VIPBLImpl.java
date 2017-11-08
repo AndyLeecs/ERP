@@ -1,5 +1,6 @@
-package bl.VIPbl;
+package blservice.VIPblservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import VO.VIPVO;
@@ -8,7 +9,7 @@ import bl.utilitybl.ResultMessage;
 /**
  * 
  * @author julia98
- *
+ * 
  */
 public interface VIPBLImpl {
 	/**
@@ -26,7 +27,7 @@ public interface VIPBLImpl {
 	 * @param type
 	 * @return
 	 */
-	public List<VIPVO> findVIP(String info,String type);
+	public ArrayList<VIPVO> findVIP(String info,String type);
 
 	/**
 	 * 前置条件	用户选择删除客户
@@ -57,6 +58,6 @@ public interface VIPBLImpl {
 	 * 后置条件	系统显示所有客户信息
 	 * @return
 	 */
-	public List<VIPVO> getVIPInfo();
+	public ArrayList<VIPVO> getVIPInfo();
 	
 }

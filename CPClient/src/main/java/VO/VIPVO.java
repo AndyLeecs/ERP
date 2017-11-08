@@ -1,5 +1,7 @@
 package VO;
 
+import java.util.List;
+
 public class VIPVO {
       public String id; //编号
       public String category; //分类
@@ -10,7 +12,7 @@ public class VIPVO {
       String address; //地址
       String locationID ; //邮编
       double collection;//应收
-      double collecton_limit ;//应收额度
+      double collection_limit ;//应收额度
       double payment  ; //应付
       String executive; // 默认业务员
       
@@ -22,6 +24,14 @@ public class VIPVO {
     	  this.locationID=locationID;
     	  
       }
+      
+      @Override
+      public String toString() {
+    	  String result = "ID:" + id + "Category:" + category + "Grade:" + grade + "Name:" + name + "PhoneNumber:" + phoneNumber + "email:" + email + "Address:" + address + "LocationID:" + locationID + "Collection:" + collection + "CollectionLimit:" + collection_limit + "Payment:" + payment + "Executive:" + executive;
+		return result;
+    	  
+      }
+      
 //	public double getCollection() {
 //		return collection;
 //	}

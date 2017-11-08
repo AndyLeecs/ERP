@@ -2,6 +2,7 @@ package bl.listbl;
 
 import java.util.*;
 import VO.*;
+import blservice.listblservice.ListBL;
 
 public class ListBL_Stub implements ListBL{
 	ListVO listVO = new ListVO();

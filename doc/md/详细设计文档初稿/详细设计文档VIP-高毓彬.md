@@ -38,7 +38,7 @@ VIP的接口规范如表4.1.2（3）-2所示。<br/>
 </tr>
 <tr>
 <td rowspan="3">VIPBLServiceImpl.findVIP</td>
-<td>语法</td> <td> public List<VIPVO> findVIP(String info,String type);</td>
+<td>语法</td> <td> public ArrayList<VIPVO> findVIP(String info,String type);</td>
 </tr>
 <tr>
 <td>前置条件</td> <td>用户输入信息模糊查找客户</td>
@@ -78,7 +78,7 @@ VIP的接口规范如表4.1.2（3）-2所示。<br/>
 </tr>
 <tr>
 <td rowspan="3">VIPBLServiceImpl.getVIPInfo</td>
-<td>语法</td> <td>public List<VIPVO> getVIPInfo();</td>
+<td>语法</td> <td>public ArrayList<VIPVO> getVIPInfo();</td>
 </tr>
 <tr>
 <td>前置条件</td><td>用户选择查看所有客户信息</td>
@@ -135,7 +135,7 @@ VIP的接口规范如表4.1.2（3）-2所示。<br/>
 </tr>
 <tr>
 <td rowspan="3">VIP.findVIP</td>
-<td>语法</td> <td> public List<VIPVO> findVIP(String info,String type);</td>
+<td>语法</td> <td> public ArrayList<VIPVO> findVIP(String info,String type);</td>
 </tr>
 <tr>
 <td>前置条件</td> <td>用户输入信息模糊查找客户</td>
@@ -175,7 +175,7 @@ VIP的接口规范如表4.1.2（3）-2所示。<br/>
 </tr>
 <tr>
 <td rowspan="3">VIP.getVIPInfo</td>
-<td>语法</td> <td>public List<VIPVO> getVIPInfo();</td>
+<td>语法</td> <td>public ArrayList<VIPVO> getVIPInfo();</td>
 </tr>
 <tr>
 <td>前置条件</td><td>用户选择查看所有客户信息</td>
