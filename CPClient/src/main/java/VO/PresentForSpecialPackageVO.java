@@ -9,6 +9,10 @@ import java.util.List;
 */
 public class PresentForSpecialPackageVO extends PresentVO{
 	/**
+	 * 策略名称
+	 */
+	String presentName;
+	/**
 	 * 策略类型
 	 */
 	PresentType SpecialPackage;

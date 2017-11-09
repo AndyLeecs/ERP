@@ -6,7 +6,7 @@ package VO;
 * @date 2017年10月27日
 * @description 单据类继承的抽象类
 */
-public abstract class ListPO {
+public abstract class ListVO {
 	/**
 	 * 单据编号
 	 */
@@ -19,13 +19,10 @@ public abstract class ListPO {
 	 * 操作员编号
 	 */
 	String operatorId;
+
 	/**
-	 * 审批状态
+	 * 单据状态
 	 */
-	boolean isApproved;
-	/**
-	 * 通过状态
-	 */
-	boolean isRefused;	
 	
+	State state;
 }

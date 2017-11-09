@@ -7,7 +7,7 @@ import java.util.List;
 * @date 2017年10月27日
 * @description
 */
-public abstract class StockmanListVO extends ListPO{
+public abstract class StockmanListVO extends ListVO{
 	 /**
 	  * 商品清单
 	  */
