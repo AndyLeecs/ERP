@@ -6,7 +6,7 @@ package VO;
 * @date 2017年10月27日
 * @description
 */
-public class StockOverflowListItemVO extends SalesmanItemVO{
+public class StockOverflowAndLostListItemVO extends SalesmanItemVO{
 	/**
 	 * 实际库存数量
 	 */
@@ -16,7 +16,7 @@ public class StockOverflowListItemVO extends SalesmanItemVO{
 	 */    
     int numberInSystem;
 	/**
-	 * 报溢数量
+	 * 报溢/损数量
 	 */
     int gap;
 }
