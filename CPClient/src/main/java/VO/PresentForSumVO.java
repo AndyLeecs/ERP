@@ -9,6 +9,14 @@ import java.util.List;
 */
 public class PresentForSumVO extends PresentVO{
 	/**
+	 * 策略名称
+	 */
+	String presentName;
+	/**
+	 * 策略类型
+	 */
+	PresentType Sum;
+	/**
 	 * 总额
 	 */
 	int sum;

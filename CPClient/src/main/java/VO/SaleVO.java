@@ -11,7 +11,7 @@ public class SaleVO {
 	/**
 	 * 会员级别
 	 */
-	MemberGrade grade;
+	VIPGrade grade;
 	/**
 	 * 商品列表
 	 */

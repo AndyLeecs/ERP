@@ -4,9 +4,13 @@ package VO;
 /**     
 * @author 李安迪
 * @date 2017年10月27日
-* @description
+* @description 销售单
 */
 public class SaleListVO extends SalesmanListVO{
+	/**
+	 * 单据类型
+	 */
+	SalesmanListType SaleList;
 	/**
 	 * 折让前总额
 	 */
