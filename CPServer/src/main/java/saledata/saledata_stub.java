@@ -19,7 +19,7 @@ public class saledata_stub implements SaleDataService{
 	List<SaleReturnListPO> saleReturnList = new ArrayList<SaleReturnListPO>();
 	List<StockListPO> stockList = new ArrayList<StockListPO>();
 	List<StockReturnListPO> stockReturnList = new ArrayList<StockReturnListPO>();
-	List<ListPO> list = new ArrayList<ListPO>();
+	List<SalesmanListPO> list = new ArrayList<SalesmanListPO>();
 	List<VIPPO> viplist = new ArrayList<VIPPO>();
 	List<GoodsPO> goods = new ArrayList<GoodsPO>();
 	/* (non-Javadoc)
@@ -153,7 +153,7 @@ public class saledata_stub implements SaleDataService{
 	/* (non-Javadoc)
 	 * @see saledataservice.SaleDataService#get(PO.State)
 	 */
-	public List<ListPO> get(State state) {
+	public List<SalesmanListPO> get(State state) {
 		// TODO Auto-generated method stub
 		return list;
 	}

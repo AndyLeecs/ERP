@@ -8,6 +8,7 @@ import VO.PresentResultVO;
 import VO.SaleListVO;
 import VO.SaleReturnListVO;
 import VO.SaleVO;
+import VO.SalesmanListVO;
 import VO.StockListVO;
 import VO.StockReturnListVO;
 import VO.VIPVO;
@@ -18,7 +19,7 @@ public interface SaleBLService extends SaleListBLService, SaleReturnListBLServic
 	
 	
 
-	public List<ListVO> openDraftList();
+	public List<SalesmanListVO> openDraftList();
 	
 	
 

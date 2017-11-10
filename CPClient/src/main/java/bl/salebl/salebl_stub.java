@@ -17,6 +17,7 @@ import VO.SaleListVO;
 import VO.SalePresentVO;
 import VO.SaleReturnListVO;
 import VO.SaleVO;
+import VO.SalesmanListVO;
 import VO.StockListVO;
 import VO.StockReturnListVO;
 
@@ -26,7 +27,7 @@ public class salebl_stub implements SaleBLService{
 	List<SaleReturnListVO> saleReturnList = new ArrayList<SaleReturnListVO>();
 	List<StockListVO> stockList = new ArrayList<StockListVO>();
 	List<StockReturnListVO> stockReturnList = new ArrayList<StockReturnListVO>();
-	List<ListVO> list = new ArrayList<ListVO>();
+	List<SalesmanListVO> list = new ArrayList<SalesmanListVO>();
 	List<VIPVO> viplist = new ArrayList<VIPVO>();
 	List<GoodsVO> goods = new ArrayList<GoodsVO>();
 	
@@ -187,7 +188,7 @@ public class salebl_stub implements SaleBLService{
 	 * @see blservice.saleblservice.SaleBLService#openDraftList()
 	 */
 	@Override
-	public List<ListVO> openDraftList() {
+	public List<SalesmanListVO> openDraftList() {
 		// TODO Auto-generated method stub
 		return list;
 	}
