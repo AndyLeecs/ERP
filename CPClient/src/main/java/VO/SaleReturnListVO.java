@@ -1,13 +1,16 @@
-package PO;
+package VO;
 
-import java.io.Serializable;
 
 /**     
 * @author 李安迪
 * @date 2017年10月27日
-* @description
+* @description 销售退货单
 */
-public class SaleBackListPO extends SalesmanListPO implements Serializable{
+public class SaleReturnListVO extends SalesmanListVO{
+	/**
+	 * 单据类型
+	 */
+	SalesmanListType SaleBackList;
 	/**
 	 * 折让前总额
 	 */
