@@ -19,7 +19,6 @@ public interface PresentBLService extends PresentForMembershipBLService, Present
 
 
 
-	public List<PresentVO> getStrategy(SaleVO vo);
 
 
 

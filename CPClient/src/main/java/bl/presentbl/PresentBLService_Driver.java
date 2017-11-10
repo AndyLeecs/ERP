@@ -49,10 +49,10 @@ public class PresentBLService_Driver {
 	  else
 		  System.out.println("Fail");
 	  
-	  if(service.getStrategy(null)!=null)
-		  System.out.println("Success");
-	  else
-		  System.out.println("Fail");
+//	  if(service.getStrategy(null)!=null)
+//		  System.out.println("Success");
+//	  else
+//		  System.out.println("Fail");
 	  PresentForMembershipVO p1vo1 = new PresentForMembershipVO("0001", "双十一", null, null, null, null, 0, null, 0, 0);
 	  PresentForMembershipVO p1vo2 = new PresentForMembershipVO("0002", null, null, null, null, null, 0, null, 0, 0);
 	  PresentForSpecialPackageVO p2vo1 = new PresentForSpecialPackageVO("0001", "双十一", null, null, null, null, 0);

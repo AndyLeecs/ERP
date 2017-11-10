@@ -156,10 +156,10 @@ public class PresentBLService_Stub implements PresentBLService{
 	/* (non-Javadoc)
 	 * @see blservice.presentblservice.PresentBLService#getStrategy(VO.SaleVO)
 	 */
-	@Override
-	public List<PresentVO> getStrategy(SaleVO vo) {
-		// TODO Auto-generated method stub
-		return ListForAll;
-	}
+//	@Override
+//	public List<PresentVO> getStrategy(SaleVO vo) {
+//		// TODO Auto-generated method stub
+//		return ListForAll;
+//	}
 
 }
