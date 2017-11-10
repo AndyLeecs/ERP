@@ -56,7 +56,7 @@ public class salebl_driver {
 			System.out.println("success");
 		else
 			System.out.println("fail");
-		if(service.findGoods(null, null) != null)
+		if(service.findGoods(null) != null)
 			System.out.println("success");
 		else
 			System.out.println("fail");
@@ -65,7 +65,7 @@ public class salebl_driver {
 	else
 		System.out.println("fail");
 		
-		if(service.findVIP(null, null) != null)
+		if(service.findVIP(null) != null)
 		System.out.println("success");
 	else
 		System.out.println("fail");

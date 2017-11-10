@@ -23,7 +23,7 @@ public interface SaleBLService extends SaleListBLService, SaleReturnListBLServic
 	
 
 
-	public List<VIPVO> findVIP(String info, String type);
-	public List<GoodsVO> findGoods(String info, String type);
+	public List<VIPVO> findVIP(String info);
+	public List<GoodsVO> findGoods(String info);
 	
 }

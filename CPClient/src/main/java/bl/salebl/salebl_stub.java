@@ -196,7 +196,7 @@ public class salebl_stub implements SaleBLService{
 	 * @see blservice.saleblservice.SaleBLService#findVIP(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public List<VIPVO> findVIP(String info, String type) {
+	public List<VIPVO> findVIP(String info) {
 		// TODO Auto-generated method stub
 		return viplist;
 	}
@@ -205,7 +205,7 @@ public class salebl_stub implements SaleBLService{
 	 * @see blservice.saleblservice.SaleBLService#findGoods(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public List<GoodsVO> findGoods(String info, String type) {
+	public List<GoodsVO> findGoods(String info) {
 		// TODO Auto-generated method stub
 		return goods;
 	}
