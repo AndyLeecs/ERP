@@ -23,4 +23,17 @@ public abstract class PresentPO{
 	 */	
 	Date finishTime;
 
+	public String getId() {
+		// TODO Auto-generated method stub
+		return this.id;
+	}
+
+	public PresentPO(String id, Date startTime, Date finishTime) {
+		super();
+		this.id = id;
+		this.startTime = startTime;
+		this.finishTime = finishTime;
+	}
+	
+	
 }

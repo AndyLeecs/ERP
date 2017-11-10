@@ -16,7 +16,7 @@ import blservice.presentblservice.PresentBLService;
 * @date 2017年11月10日
 * @description
 */
-public class PresentBLServiceStub implements PresentBLService{
+public class PresentBLService_Stub implements PresentBLService{
 
 	List<PresentForMembershipVO> ListForMembership = new ArrayList<PresentForMembershipVO>();
 	List<PresentForSpecialPackageVO> ListForSpecialPackage = new ArrayList<PresentForSpecialPackageVO>();
@@ -37,7 +37,9 @@ public class PresentBLServiceStub implements PresentBLService{
 	@Override
 	public ResultMessage addPresentForMembership(PresentForMembershipVO vo) {
 		// TODO Auto-generated method stub
+
 		return ResultMessage.SUCCESS;
+		
 	}
 
 	/* (non-Javadoc)
@@ -46,6 +48,8 @@ public class PresentBLServiceStub implements PresentBLService{
 	@Override
 	public ResultMessage deletePresentForMembership(String id) {
 		// TODO Auto-generated method stub
+		if(id == "0001")
+			return ResultMessage.FAILED;//现在销售单里有的策略不能删除
 		return ResultMessage.SUCCESS;
 	}
 
@@ -55,6 +59,8 @@ public class PresentBLServiceStub implements PresentBLService{
 	@Override
 	public ResultMessage savePresentForMembership(PresentForMembershipVO vo) {
 		// TODO Auto-generated method stub
+		if(vo.getPresentName() == "双十一")
+			return ResultMessage.EXIST;
 		return ResultMessage.SUCCESS;
 	}
 
@@ -73,6 +79,7 @@ public class PresentBLServiceStub implements PresentBLService{
 	@Override
 	public ResultMessage addPresentForSpecialPackage(PresentForSpecialPackageVO vo) {
 		// TODO Auto-generated method stub
+
 		return ResultMessage.SUCCESS;
 	}
 
@@ -82,6 +89,8 @@ public class PresentBLServiceStub implements PresentBLService{
 	@Override
 	public ResultMessage deletePresentForSpecialPackage(String id) {
 		// TODO Auto-generated method stub
+		if(id == "0001")
+			return ResultMessage.FAILED;//现在销售单里有的策略不能删除
 		return ResultMessage.SUCCESS;
 	}
 
@@ -109,6 +118,7 @@ public class PresentBLServiceStub implements PresentBLService{
 	@Override
 	public ResultMessage addPresentForSum(PresentForSumVO vo) {
 		// TODO Auto-generated method stub
+
 		return ResultMessage.SUCCESS;
 	}
 
@@ -118,6 +128,8 @@ public class PresentBLServiceStub implements PresentBLService{
 	@Override
 	public ResultMessage deletePresentForSum(String id) {
 		// TODO Auto-generated method stub
+		if(id == "0001")
+			return ResultMessage.FAILED;//现在销售单里有的策略不能删除
 		return ResultMessage.SUCCESS;
 	}
 
@@ -127,6 +139,8 @@ public class PresentBLServiceStub implements PresentBLService{
 	@Override
 	public ResultMessage savePresentForSum(PresentForSumVO vo) {
 		// TODO Auto-generated method stub
+		if(vo.getPresentName() == "双十一")
+			return ResultMessage.EXIST;
 		return ResultMessage.SUCCESS;
 	}
 

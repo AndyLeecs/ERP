@@ -11,6 +11,15 @@ import java.util.List;
 */
 public class PresentForMembershipPO extends PresentPO implements Serializable{
 
+	public PresentForMembershipPO(String id, Date startTime, Date finishTime, MemberGrade grade, double sum,
+			List<GoodsInSalePO> presentList, double rebateInPresentForMembership, double voucher) {
+		super(id, startTime, finishTime);
+		this.grade = grade;
+		this.sum = sum;
+		this.presentList = presentList;
+		this.rebateInPresentForMembership = rebateInPresentForMembership;
+		this.voucher = voucher;
+	}
 	/**
 	 *会员级别
 	 */	
