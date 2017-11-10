@@ -1,5 +1,6 @@
 package VO;
 
+import java.util.Date;
 import java.util.List;
 
 /**     
@@ -8,10 +9,7 @@ import java.util.List;
 * @description 赠送策略。特价包
 */
 public class PresentForSpecialPackageVO extends PresentVO{
-	/**
-	 * 策略名称
-	 */
-	String presentName;
+
 	/**
 	 * 策略类型
 	 */
@@ -24,4 +22,19 @@ public class PresentForSpecialPackageVO extends PresentVO{
 	 *降价金额
 	 */	
 	int priceReduction;
+	
+	public String getPresentName(){
+		return this.presentName;
+	}
+
+	public PresentForSpecialPackageVO(String id, String presentName, Date startTime, Date finishTime,
+			PresentType specialPackage, List<GoodsInSaleVO> goodsList, int priceReduction) {
+		super(id, presentName, startTime, finishTime);
+		SpecialPackage = specialPackage;
+		this.goodsList = goodsList;
+		this.priceReduction = priceReduction;
+	}
+
+
+	
 }

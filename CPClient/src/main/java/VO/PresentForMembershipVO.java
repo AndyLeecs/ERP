@@ -9,10 +9,7 @@ import java.util.List;
 * @description 针对不同级别的用户制定促销策略（赠品、价格折让、 赠送代金劵）
 */
 public class PresentForMembershipVO extends PresentVO{
-	/**
-	 * 策略名称
-	 */
-	String presentName;
+
 	/**
 	 * 策略类型
 	 */
@@ -38,6 +35,19 @@ public class PresentForMembershipVO extends PresentVO{
 	 */	
 	int voucher;
 
+	public PresentForMembershipVO(String id, String presentName, Date startTime, Date finishTime,
+			PresentType membership, VIPGrade grade, int sum, List<GoodsInSaleVO> presentList,
+			int rebateInPresentForMembership, int voucher) {
+		super(id, presentName, startTime, finishTime);
+		Membership = membership;
+		this.grade = grade;
+		this.sum = sum;
+		this.presentList = presentList;
+		this.rebateInPresentForMembership = rebateInPresentForMembership;
+		this.voucher = voucher;
+	}
 	
+
+
 	
 }

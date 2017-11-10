@@ -1,5 +1,6 @@
 package VO;
 
+import java.util.Date;
 import java.util.List;
 
 /**     
@@ -8,10 +9,7 @@ import java.util.List;
 * @description 赠送策略，针对总价
 */
 public class PresentForSumVO extends PresentVO{
-	/**
-	 * 策略名称
-	 */
-	String presentName;
+
 	/**
 	 * 策略类型
 	 */
@@ -19,7 +17,7 @@ public class PresentForSumVO extends PresentVO{
 	/**
 	 * 总额
 	 */
-	int sum;
+	int total;
 	/**
 	 *赠品列表
 	 */	
@@ -28,6 +26,21 @@ public class PresentForSumVO extends PresentVO{
 	 * 赠送代金券金额
 	 */
 	int voucher;
+	
+	public String getPresentName(){
+		return this.presentName;
+	}
+
+	public PresentForSumVO(String id, String presentName, Date startTime, Date finishTime, PresentType sum, int total,
+			List<GoodsInSaleVO> presentList, int voucher) {
+		super(id, presentName, startTime, finishTime);
+		Sum = sum;
+		this.total = total;
+		this.presentList = presentList;
+		this.voucher = voucher;
+	}
+
+
 	
 	
 }
