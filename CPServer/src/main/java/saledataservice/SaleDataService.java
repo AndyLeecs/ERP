@@ -10,8 +10,8 @@ import PO.State;
 import PO.StockListPO;
 import PO.StockReturnListPO;
 
-public interface SaleDataService extends SaleListDataService, SaleReturnListDataService, StockListDataService,StockReturnListDataService{
-	public List<SalesmanListPO> get(State state);
+public interface SaleDataService extends SaleForAllDataService, SaleListDataService, SaleReturnListDataService, StockListDataService,StockReturnListDataService{
+	
 
 
 
