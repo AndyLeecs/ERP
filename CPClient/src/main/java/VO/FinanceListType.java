@@ -6,7 +6,7 @@ package VO;
 * @date 2017年10月26日
 * @description 财务人员处理的单据类型，包括付款单，收款单和现金费用单
 */
-public enum AccountantListType implements ListType{
+public enum FinanceListType implements ListType{
 
 
 		PaymentList("付款单"),
@@ -15,7 +15,7 @@ public enum AccountantListType implements ListType{
 		
 		private final String type;
 		
-		private AccountantListType(String type){
+		private FinanceListType(String type){
 			this.type = type;
 		}
 		

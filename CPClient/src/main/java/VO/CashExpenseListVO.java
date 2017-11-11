@@ -1,5 +1,5 @@
 package VO;
 
-public class CashExpenseListVO extends ListVO{
+public class CashExpenseListVO extends FinanceListVO{
 
 }
