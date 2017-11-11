@@ -13,7 +13,7 @@ import PO.VIPGrade;
 * @date 2017年11月9日
 * @description
 */
-public interface PresentDataService extends PresentForMembershipDataService, PresentForSpecialPackageDataService,PresentForSumDataService{
+public interface PresentDataService extends PresentForAllDataService,PresentForMembershipDataService, PresentForSpecialPackageDataService,PresentForSumDataService{
 	
-	public List<PresentPO> get();
+	
 }

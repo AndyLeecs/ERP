@@ -14,8 +14,8 @@ import bl.utilitybl.ResultMessage;
 * @date 2017年11月9日
 * @description ui和bl之间的接口
 */
-public interface PresentBLService extends PresentForMembershipBLService, PresentForSpecialPackageBLService, PresentForSumBLService{
-	public List<PresentVO> allStrategy();
+public interface PresentBLService extends PresentForAllService,PresentForMembershipBLService, PresentForSpecialPackageBLService, PresentForSumBLService{
+	
 
 
 
