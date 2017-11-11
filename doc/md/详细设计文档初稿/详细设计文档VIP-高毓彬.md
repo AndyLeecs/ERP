@@ -27,7 +27,7 @@ VIP的接口规范如表4.1.2（3）-2所示。<br/>
 <td colspan ="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提供的服务（供接口）</td>
 </tr>
 <tr>
-<td rowspan="3">VIPBLServiceImpl.newGoods</td>
+<td rowspan="3">VIPBLServiceImpl.newVIP</td>
 <td>语法</td> <td> public String newVIP(String telephone);</td>
 </tr>
 <tr>
