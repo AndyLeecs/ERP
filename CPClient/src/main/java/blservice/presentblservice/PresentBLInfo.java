@@ -1,5 +1,7 @@
 package blservice.presentblservice;
 
+import VO.PresentResultVO;
+import VO.SaleVO;
 
 /**     
 * @author 李安迪
@@ -7,5 +9,5 @@ package blservice.presentblservice;
 * @description present提供给sales的接口
 */
 public interface PresentBLInfo {
-
+	public PresentResultVO findPresent(SaleVO vo);
 }

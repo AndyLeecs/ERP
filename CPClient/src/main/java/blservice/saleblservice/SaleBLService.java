@@ -14,17 +14,10 @@ import VO.StockReturnListVO;
 import VO.VIPVO;
 import bl.utilitybl.ResultMessage;
 
-public interface SaleBLService extends SaleListBLService, SaleReturnListBLService, StockBLService, StockReturnBLService{
+public interface SaleBLService extends Find_GoodsService, Find_VIPService, SaleForAllBLService, SaleListBLService, SaleReturnListBLService, StockBLService, StockReturnBLService{
+
 
 	
 	
-
-	public List<SalesmanListVO> openDraftList();
-	
-	
-
-
-	public List<VIPVO> findVIP(String info);
-	public List<GoodsVO> findGoods(String info);
 	
 }
