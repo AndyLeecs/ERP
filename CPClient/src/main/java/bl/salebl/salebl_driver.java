@@ -65,7 +65,7 @@ public class salebl_driver {
 	else
 		System.out.println("fail");
 		
-		if(service.findVIP(null) != null)
+		if(service.findVIP(null,null) != null)
 		System.out.println("success");
 	else
 		System.out.println("fail");

@@ -17,6 +17,7 @@ import VO.SaleListVO;
 import VO.SalePresentVO;
 import VO.SaleReturnListVO;
 import VO.SaleVO;
+import VO.SalesmanListType;
 import VO.SalesmanListVO;
 import VO.StockListVO;
 import VO.StockReturnListVO;
@@ -197,7 +198,7 @@ public class salebl_stub implements SaleBLService{
 	 * @see blservice.saleblservice.SaleBLService#findVIP(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public List<VIPVO> findVIP(String info) {
+	public List<VIPVO> findVIP(String info,SalesmanListType type) {
 		// TODO Auto-generated method stub
 		return viplist;
 	}

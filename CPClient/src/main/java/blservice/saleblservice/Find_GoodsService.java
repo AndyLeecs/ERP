@@ -3,6 +3,7 @@ package blservice.saleblservice;
 import java.util.List;
 
 import VO.GoodsVO;
+import VO.SalesmanListType;
 
 /**     
 * @author 李安迪

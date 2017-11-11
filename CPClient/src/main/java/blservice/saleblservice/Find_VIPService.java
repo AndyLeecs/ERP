@@ -2,6 +2,7 @@ package blservice.saleblservice;
 
 import java.util.List;
 
+import VO.SalesmanListType;
 import VO.VIPVO;
 
 /**     
@@ -10,5 +11,5 @@ import VO.VIPVO;
 * @description
 */
 public interface Find_VIPService {
-	public List<VIPVO> findVIP(String info);
+	public List<VIPVO> findVIP(String info,SalesmanListType type);
 }
