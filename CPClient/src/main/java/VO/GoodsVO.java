@@ -12,9 +12,9 @@ public class GoodsVO {
 	/**
 	 * 商品分类
 	 */
-	String goodsSort;
+	String goodsCategory;
 	/**
-	 * 商品分类
+	 * 商品类型
 	 */
 	String goodsType;
 	/**
