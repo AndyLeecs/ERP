@@ -5,7 +5,7 @@ import VO.MessageVO;
 import VO.OperationVO;
 import VO.UserVO;
 import bl.utilitybl.ResultMessage;
-public interface userblservice {
+public interface UserBLService {
 	
 	/*
 	 * 每个用户所需的接口

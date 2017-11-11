@@ -6,7 +6,7 @@ import bl.utilitybl.ResultMessage;
 import blservice.accountblservice.AccountBLService;
 
 /**
- * 这个驱动并不全，也没有填入具体信息，只有大致的模版。在写测试用例的时候再详细补充。
+ * 这个驱动并不全，也没有填入具体信息，只给出了大致的模版。在写测试用例的时候再详细补充。
  * @author zxy
  */
 
