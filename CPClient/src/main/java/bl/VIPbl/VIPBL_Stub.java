@@ -9,7 +9,7 @@ import blservice.VIPblservice.VIPBLImpl;
  * @author julia98
  *
  */
-public class VIPBL_Stub implements VIPBLImpl {
+public class VIPBL_Stub implements blservice.VIPblservice.VIPBLImpl {
 	String id = "00000001";
 	
 	private static final VIPVO testVIPVO = new VIPVO("Julia","18812345678","123456789@qq.com","南大仙林校区","210023");

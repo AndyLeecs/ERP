@@ -58,6 +58,6 @@ public interface VIPBLImpl {
 	 * 后置条件	系统显示所有客户信息
 	 * @return
 	 */
-	public ArrayList<VIPVO> getVIPInfo();
+	public List<VIPVO> getVIPInfo();
 	
 }
