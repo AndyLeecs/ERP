@@ -1,6 +1,8 @@
-package VO;
+package VO.storeVO;
 
 import java.util.List;
+
+import VO.ListVO;
 
 /**     
 * @author 李安迪

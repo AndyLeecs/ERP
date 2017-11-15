@@ -1,3 +1,4 @@
+package VO.storeVO;
 //package VO;
 //
 //
@@ -6,6 +7,6 @@
 //* @date 2017年10月27日
 //* @description
 //*/
-//public class StockPresentListItemVO extends SalesmanItemVO{
+//public class StockReturnListItemVO extends SalesmanItemVO{
 //
 //}

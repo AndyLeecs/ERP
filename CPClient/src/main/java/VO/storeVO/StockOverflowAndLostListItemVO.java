@@ -1,5 +1,6 @@
-package VO;
+package VO.storeVO;
 
+import VO.SalesmanItemVO;
 
 /**     
 * @author 李安迪

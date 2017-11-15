@@ -2,7 +2,7 @@ package blservice.saleblservice;
 
 import java.util.List;
 
-import VO.StockReturnListVO;
+import VO.storeVO.*;
 import bl.utilitybl.ResultMessage;
 
 /**     

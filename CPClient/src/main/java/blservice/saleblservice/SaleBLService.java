@@ -9,8 +9,8 @@ import VO.SaleListVO;
 import VO.SaleReturnListVO;
 import VO.SaleVO;
 import VO.SalesmanListVO;
-import VO.StockListVO;
-import VO.StockReturnListVO;
+
+
 import VO.VIPVO;
 import bl.utilitybl.ResultMessage;
 

@@ -1,4 +1,4 @@
-package VO;
+package VO.storeVO;
 
 
 /**     
@@ -6,6 +6,6 @@ package VO;
 * @date 2017年10月27日
 * @description
 */
-public class StockPresentListVO extends StockListVO{
+public class StockLostListVO extends StockListVO{
 
 }
