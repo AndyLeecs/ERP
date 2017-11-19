@@ -3,7 +3,7 @@ package VO.saleVO;
 import java.util.List;
 
 import VO.GoodsInSaleVO;
-import VO.VIPGrade;
+import VO.VIPVO.VIPGrade;
 
 /**     
 * @author 李安迪

@@ -2,7 +2,7 @@ package bl.VIPbl;
 
 import java.util.ArrayList;
 
-import VO.VIPVO;
+import VO.VIPVO.VIPVO;
 import bl.utilitybl.ResultMessage;
 /**
  * 

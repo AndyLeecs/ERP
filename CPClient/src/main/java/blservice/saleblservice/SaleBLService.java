@@ -2,8 +2,8 @@ package blservice.saleblservice;
 
 import java.util.List;
 
-import VO.GoodsVO;
-import VO.VIPVO;
+import VO.VIPVO.VIPVO;
+import VO.goodsVO.GoodsVO;
 import VO.presentVO.PresentResultVO;
 import VO.saleVO.SaleListVO;
 import VO.saleVO.SaleReturnListVO;

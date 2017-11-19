@@ -1,9 +1,10 @@
 package blservice.userblservice;
 
 import java.util.List;
-import VO.MessageVO;
-import VO.OperationVO;
-import VO.UserVO;
+
+import VO.userVO.MessageVO;
+import VO.userVO.OperationVO;
+import VO.userVO.UserVO;
 import bl.utilitybl.ResultMessage;
 
 /**

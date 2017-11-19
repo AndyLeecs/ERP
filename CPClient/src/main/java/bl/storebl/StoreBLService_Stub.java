@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
-import VO.GoodsVO;
 import VO.ListInitVO;
 import VO.ListType;
 import VO.ListVO;
@@ -12,6 +11,7 @@ import VO.StoreListVO;
 import VO.StoreVO;
 import VO.StoreViewStandardVO;
 import VO.StoreViewVO;
+import VO.goodsVO.GoodsVO;
 import blservice.storeblservice.StoreBLService;
 
 /**     

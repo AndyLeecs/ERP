@@ -1,4 +1,4 @@
-package VO;
+package VO.userVO;
 
 public class OperationVO{
      public String opID;//操作编号

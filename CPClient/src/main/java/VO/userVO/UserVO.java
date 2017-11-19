@@ -1,8 +1,6 @@
-package VO;
+package VO.userVO;
 
-import java.io.Serializable;
-
-public class UserVO implements Serializable{
+public class UserVO{
 		  String id;
 		  String name;
 		  String password;

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import VO.CategoryVO;
-import VO.GoodsVO;
+import VO.goodsVO.CategoryVO;
+import VO.goodsVO.GoodsVO;
 import blservice.goodsblservice.GoodsBLService;
 
 /**     

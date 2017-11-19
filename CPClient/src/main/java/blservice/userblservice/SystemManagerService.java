@@ -2,7 +2,7 @@ package blservice.userblservice;
 
 import java.util.List;
 
-import VO.UserVO;
+import VO.userVO.UserVO;
 import bl.utilitybl.ResultMessage;
 
 public interface SystemManagerService {

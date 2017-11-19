@@ -2,9 +2,9 @@ package bl.userbl.mock;
 
 import java.util.ArrayList;
 
-import VO.AccountVO;
-import VO.UserType;
-import VO.UserVO;
+import VO.accountVO.AccountVO;
+import VO.userVO.UserType;
+import VO.userVO.UserVO;
 import bl.utilitybl.ResultMessage;
 /**
  * 

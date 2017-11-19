@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import VO.GoodsVO;
-
 import VO.ListType;
 import VO.ListVO;
-
-import VO.VIPVO;
+import VO.VIPVO.VIPVO;
+import VO.goodsVO.GoodsVO;
 import VO.presentVO.PresentResultVO;
 import bl.utilitybl.ResultMessage;
 import blservice.saleblservice.SaleBLService;

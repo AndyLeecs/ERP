@@ -1,6 +1,8 @@
-package VO;
+package VO.listVO;
 
 import java.util.Date;
+
+import VO.ListType;
 
 /**     
 * @author 李安迪

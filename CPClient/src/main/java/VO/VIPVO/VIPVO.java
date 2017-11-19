@@ -1,4 +1,4 @@
-package VO;
+package VO.VIPVO;
 
 public class VIPVO {
       public String id; //编号

@@ -1,5 +1,6 @@
-package VO;
+package VO.accountVO;
 
+import VO.ListType;
 
 /**     
 * @author 李安迪

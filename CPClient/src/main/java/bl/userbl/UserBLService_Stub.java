@@ -3,9 +3,9 @@ package bl.userbl;
 import java.util.ArrayList;
 import java.util.List;
 
-import VO.MessageVO;
-import VO.OperationVO;
-import VO.UserVO;
+import VO.userVO.MessageVO;
+import VO.userVO.OperationVO;
+import VO.userVO.UserVO;
 import bl.utilitybl.ResultMessage;
 import blservice.userblservice.UserBLService;
 

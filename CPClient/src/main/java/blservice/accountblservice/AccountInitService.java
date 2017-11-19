@@ -2,9 +2,9 @@ package blservice.accountblservice;
 
 import java.util.List;
 
-import VO.GoodsVO;
-import VO.InitAccountVO;
-import VO.VIPVO;
+import VO.VIPVO.VIPVO;
+import VO.accountVO.InitAccountVO;
+import VO.goodsVO.GoodsVO;
 import bl.utilitybl.ResultMessage;
 
 public interface AccountInitService {

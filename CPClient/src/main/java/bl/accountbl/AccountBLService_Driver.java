@@ -1,7 +1,7 @@
 package bl.accountbl;
 
-import VO.AccountVO;
-import VO.InitAccountVO;
+import VO.accountVO.AccountVO;
+import VO.accountVO.InitAccountVO;
 import bl.utilitybl.ResultMessage;
 import blservice.accountblservice.AccountBLService;
 

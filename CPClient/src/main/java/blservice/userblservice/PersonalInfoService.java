@@ -2,8 +2,8 @@ package blservice.userblservice;
 
 import java.util.List;
 
-import VO.MessageVO;
-import VO.UserVO;
+import VO.userVO.MessageVO;
+import VO.userVO.UserVO;
 import bl.utilitybl.ResultMessage;
 
 public interface PersonalInfoService {

@@ -1,4 +1,4 @@
-package VO;
+package VO.goodsVO;
 
 public class GoodsVO {
 	/**
