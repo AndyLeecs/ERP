@@ -20,6 +20,16 @@ public class UserBLService_Stub implements UserBLService{
 	public ResultMessage login(String name, String password) {
 		return ResultMessage.SUCCESS;
 		}
+	
+	@Override
+	public ResultMessage logout() {
+		return ResultMessage.SUCCESS;
+	}
+	
+	@Override
+	public UserVO getCurrentUserInfo() {
+		return uservo;
+	}
 
 	@Override
 	public ResultMessage changePassword(String oldPassword, String newPassword) {
@@ -27,7 +37,7 @@ public class UserBLService_Stub implements UserBLService{
 	}
 
 	@Override
-	public List<MessageVO> checkMessage(String id) {
+	public List<MessageVO> checkMessage() {
 		List<MessageVO> list = new ArrayList<MessageVO>();
 		list.add(messagevo);
 		return list;
@@ -67,10 +77,6 @@ public class UserBLService_Stub implements UserBLService{
 		return list;
 	}
 
-	@Override
-	public ResultMessage saveOperation(OperationVO vo) {
-		return ResultMessage.SUCCESS;
-	}
 	
 	
 }

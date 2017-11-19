@@ -1,18 +1,26 @@
 package blservice.userblservice;
-import java.util.List;
 
+import java.util.List;
 import VO.MessageVO;
 import VO.OperationVO;
 import VO.UserVO;
 import bl.utilitybl.ResultMessage;
+
+/**
+ * 	此接口应该是没有用了
+ * 
+ */
+	
 public interface UserBLService {
 	
 	/*
 	 * 每个用户所需的接口
 	 */
     public ResultMessage login(String name, String password);					//登录账户
+    public ResultMessage logout();												//登出账户
+    public UserVO getCurrentUserInfo();											//得到当前用户个人信息
     public ResultMessage changePassword(String oldPassword,String newPassword);	//修改密码
-    public List<MessageVO> checkMessage(String id);								//查看消息
+    public List<MessageVO> checkMessage();										//查看消息
     
     /*
      * 系统管理员所需的接口
@@ -27,5 +35,5 @@ public interface UserBLService {
      * 操作日志相关的接口
      */
     public List<OperationVO> viewLog();											//查看操作日志
-    public ResultMessage saveOperation(OperationVO vo);							//生成操作日志
+//    public ResultMessage saveOperation(OperationVO vo);							//生成操作日志		//层内接口
 }

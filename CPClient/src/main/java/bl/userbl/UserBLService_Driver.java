@@ -20,7 +20,7 @@ public class UserBLService_Driver {
 		if(userblService.login(name, password) != ResultMessage.SUCCESS)
 			System.out.println("fail");
 		
-		if(userblService.checkMessage(id) == null)
+		if(userblService.checkMessage() == null)
 			System.out.println("fail");
 		
 	}

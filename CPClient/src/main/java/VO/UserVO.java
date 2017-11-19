@@ -6,16 +6,16 @@ public class UserVO implements Serializable{
 		  String id;
 		  String name;
 		  String password;
-		  UserType usertype;
-		  boolean hashighLimit=false;
-		  int level;
+		  UserType userType;
+		  boolean hasHighLimit=false;
+//		  int level;		//这是什么？
 		  
 	public UserVO(String i,String n,String p,int l,UserType usertype){
 		  this.id=i;
 		  this.name =n;
 		  this.password=p;
-		  this.level=l ;
-		  this.usertype = usertype;
+//		  this.level=l ;
+		  this.userType = usertype;
 	}
 
 	public String getName(){
@@ -31,10 +31,10 @@ public class UserVO implements Serializable{
 	}
 
 	public UserType getType(){
-		 return usertype;
+		 return userType;
 		}
-    public int getLevel(){      	 
-        return level;
-    }
+//    public int getLevel(){      	 
+//        return level;
+//    }
 }
 
