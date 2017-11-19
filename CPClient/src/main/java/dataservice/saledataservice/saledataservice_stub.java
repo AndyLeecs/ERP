@@ -1,6 +1,7 @@
 package dataservice.saledataservice;
 
-import PO.SaleListPO;
+//import PO.SaleListPO;
+import VO.saleVO.SaleListVO;
 
 public interface saledataservice_stub {
 	public String insert (SaleListVO po);

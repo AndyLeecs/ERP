@@ -3,6 +3,8 @@ package VO.presentVO;
 import java.util.Date;
 import java.util.List;
 
+import VO.GoodsInSaleVO;
+
 /**     
 * @author 李安迪
 * @date 2017年10月27日

@@ -1,9 +1,9 @@
 package bl.VIPbl;
 
 import java.util.ArrayList;
+
 import VO.VIPVO;
 import bl.utilitybl.ResultMessage;
-import blservice.VIPblservice.VIPBLImpl;
 /**
  * 
  * @author julia98

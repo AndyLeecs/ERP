@@ -1,5 +1,6 @@
 package VO.saleVO;
 
+import VO.ListType;
 
 /**     
 * @author 李安迪

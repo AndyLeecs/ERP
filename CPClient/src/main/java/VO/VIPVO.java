@@ -1,7 +1,5 @@
 package VO;
 
-import java.util.List;
-
 public class VIPVO {
       public String id; //编号
       public String category; //分类
