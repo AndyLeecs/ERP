@@ -2,6 +2,8 @@ package VO.saleVO;
 
 import java.util.List;
 
+import VO.ListVO;
+
 public abstract class SalesmanListVO extends ListVO{
 	 /**
 	  * 客户编号

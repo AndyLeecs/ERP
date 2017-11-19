@@ -21,7 +21,7 @@ public class GoodsBLService_Driver {
 
 	Map<String,String> goods = null;
 	CategoryVO Categoryvo = new CategoryVO("", null, null, child, child);
-	GoodsVO goodsvo = new GoodsVO(null, null, null, null, null, 0, 0, 0, 0);
+	GoodsVO goodsvo = new GoodsVO(null, null, null, null,  0, 0, 0, 0);
 	
 	
 public void drive(GoodsBLService goodsBLService){

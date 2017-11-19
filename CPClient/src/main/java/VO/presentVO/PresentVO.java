@@ -1,7 +1,6 @@
 package VO.presentVO;
 
 import java.util.Date;
-import java.util.List;
 
 /**     
 * @author 李安迪

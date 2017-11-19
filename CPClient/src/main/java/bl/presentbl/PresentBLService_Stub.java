@@ -7,7 +7,6 @@ import VO.presentVO.PresentForMembershipVO;
 import VO.presentVO.PresentForSpecialPackageVO;
 import VO.presentVO.PresentForSumVO;
 import VO.presentVO.PresentVO;
-import VO.SaleVO;
 import bl.utilitybl.ResultMessage;
 import blservice.presentblservice.PresentBLService;
 

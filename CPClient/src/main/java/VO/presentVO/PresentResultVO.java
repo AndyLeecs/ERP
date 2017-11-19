@@ -2,6 +2,8 @@ package VO.presentVO;
 
 import java.util.List;
 
+import VO.GoodsInSaleVO;
+
 /**     
 * @author 李安迪
 * @date 2017年11月9日

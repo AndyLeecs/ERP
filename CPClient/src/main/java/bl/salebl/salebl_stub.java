@@ -8,19 +8,14 @@ import VO.GoodsVO;
 
 import VO.ListType;
 import VO.ListVO;
-import VO.PresentResultVO;
+
 import VO.VIPVO;
+import VO.presentVO.PresentResultVO;
 import bl.utilitybl.ResultMessage;
 import blservice.saleblservice.SaleBLService;
 
-import VO.SaleListVO;
-import VO.SalePresentVO;
-import VO.SaleReturnListVO;
-import VO.SaleVO;
-import VO.SalesmanListType;
-import VO.SalesmanListVO;
-import VO.StockListVO;
-import VO.StockReturnListVO;
+import VO.saleVO.*;
+import VO.storeVO.*;
 
 public class salebl_stub implements SaleBLService{
 

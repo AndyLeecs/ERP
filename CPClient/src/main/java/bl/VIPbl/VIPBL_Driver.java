@@ -1,6 +1,7 @@
 package bl.VIPbl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import VO.VIPVO;
 import bl.utilitybl.ResultMessage;
@@ -59,7 +60,7 @@ public class VIPBL_Driver {
 			System.out.println("Init and save VIP failed!");
 		
 		//6
-		ArrayList<VIPVO> testlist1 = new ArrayList<VIPVO>();
+		List<VIPVO> testlist1 = new ArrayList<VIPVO>();
 		testlist1 = test.getVIPInfo();
 		if(testlist1 != null)
 			System.out.println("Get VIP Info success!");

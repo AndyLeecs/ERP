@@ -1,7 +1,5 @@
 package VO;
 
-import java.io.Serializable;
-
 public class OperationVO{
      public String opID;//操作编号
      public String time ;//操作时间

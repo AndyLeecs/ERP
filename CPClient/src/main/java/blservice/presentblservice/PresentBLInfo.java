@@ -1,7 +1,7 @@
 package blservice.presentblservice;
 
 import VO.presentVO.PresentResultVO;
-import VO.SaleVO;
+import VO.saleVO.SaleVO;
 
 /**     
 * @author 李安迪

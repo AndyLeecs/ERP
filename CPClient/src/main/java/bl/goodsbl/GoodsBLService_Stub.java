@@ -153,7 +153,7 @@ public class GoodsBLService_Stub implements GoodsBLService{
 	 */
 	public GoodsVO getGoods(String id) {
 		// TODO Auto-generated method stub
-		return new GoodsVO("00000","00001","明亮灯","00002","00003",200,300,200,300);
+		return new GoodsVO("00000","00001","明亮灯","00002",200,300,200,300);
 	}
 
 	/* (non-Javadoc)

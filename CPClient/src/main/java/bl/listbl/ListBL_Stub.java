@@ -1,7 +1,13 @@
 package bl.listbl;
 
-import java.util.*;
-import VO.*;
+import java.util.ArrayList;
+import java.util.Date;
+
+import VO.BusinessProcessConditionVO;
+import VO.ListType;
+import VO.ListVO;
+import VO.saleVO.SaleDetailConditionVO;
+import blservice.listblservice.BusinessCircumVO;
 import blservice.listblservice.ListBL;
 
 public class ListBL_Stub implements ListBL{
@@ -49,6 +55,12 @@ public class ListBL_Stub implements ListBL{
 	public ArrayList checkBusinessProcessForm(BusinessProcessConditionVO vo) {
 		// TODO Auto-generated method stub
 		return vo.checkBusinessProcessForm();
+	}
+
+	@Override
+	public BusinessCircumVO checkBusinessCircumForm(Date begainTime, Date EndTime) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

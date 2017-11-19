@@ -1,7 +1,7 @@
 package VO.storeVO;
 
-import VO.SalesmanListType;
-import VO.SalesmanListVO;
+import VO.saleVO.SalesmanListType;
+import VO.saleVO.SalesmanListVO;
 
 /**     
 * @author 李安迪
