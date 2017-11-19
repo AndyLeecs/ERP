@@ -1,8 +1,8 @@
 package bl.presentbl;
 
-import VO.PresentForMembershipVO;
-import VO.PresentForSpecialPackageVO;
-import VO.PresentForSumVO;
+import VO.presentVO.PresentForMembershipVO;
+import VO.presentVO.PresentForSpecialPackageVO;
+import VO.presentVO.PresentForSumVO;
 import bl.utilitybl.ResultMessage;
 import blservice.presentblservice.PresentBLService;
 

@@ -1,6 +1,6 @@
 package blservice.presentblservice;
 
-import VO.PresentResultVO;
+import VO.presentVO.PresentResultVO;
 import VO.SaleVO;
 
 /**     

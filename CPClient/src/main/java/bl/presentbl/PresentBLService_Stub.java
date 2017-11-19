@@ -3,10 +3,10 @@ package bl.presentbl;
 import java.util.ArrayList;
 import java.util.List;
 
-import VO.PresentForMembershipVO;
-import VO.PresentForSpecialPackageVO;
-import VO.PresentForSumVO;
-import VO.PresentVO;
+import VO.presentVO.PresentForMembershipVO;
+import VO.presentVO.PresentForSpecialPackageVO;
+import VO.presentVO.PresentForSumVO;
+import VO.presentVO.PresentVO;
 import VO.SaleVO;
 import bl.utilitybl.ResultMessage;
 import blservice.presentblservice.PresentBLService;
