@@ -5,13 +5,5 @@
     <artifactId>0000</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>CPClient</artifactId>
-  
-  <dependencies>
-  		<dependency>
-  			<groupId>CuteGroup</groupId>
-   			<artifactId>CPCommon</artifactId>
-    		<version>0.0.1-SNAPSHOT</version>
-  		</dependency>
-  </dependencies>
+  <artifactId>CPCommon</artifactId>
 </project>

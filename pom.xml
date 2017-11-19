@@ -37,5 +37,6 @@
   <modules>
   	<module>CPClient</module>
   	<module>CPServer</module>
+  	<module>CPCommon</module>
   </modules>
 </project>
