@@ -12,7 +12,7 @@ import VO.PaymentListVO;
 import VO.VIPVO;
 import bl.utilitybl.ResultMessage;
 /**
- * 
+ * 这个接口应该是没用了
  * @author  julia98
  * @author  zxy			
  */
