@@ -1,10 +1,11 @@
 package blservice.storeblservice;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import VO.ListType;
 import VO.ListVO;
-import VO.storeVO.PresentListVO;
+import VO.storeVO.*;
 
 /**     
 * @author 李安迪/王瑞华
@@ -27,8 +28,8 @@ public interface StoreBLService {
 	public void setAlert(Map<String, Integer> alertMap);
 	*/
 	//下面按照详细设计文档中规定的store提供的接口进行了描述，有几个存疑的地方。
-	public List <AlarmListVO> openAlarmList();
-	public List<ReportListVO> openReportList(ListType lt,StateType st);
+	public LinkedList<AlarmListVO> openAlarmList();
+	public List<ReportListVO> openReportList(ListType lt, StateType st);
 	public List<PresentListVO> openPresentList(StateType st);
 	public String toExcel(	InventoryVO vo);
 	public String newList(ListType type);
@@ -36,6 +37,6 @@ public interface StoreBLService {
 	public ListRM savePresentList ( PresentListVO vo);
 	public ListRM commit (ListType type , String ID);
 	 public storeCheckVO store_check(String begintime,String endTime);
-	 public storeInventoryVO store_inventory(String day)
+	 public storeInventoryVO store_inventory(String day);
 	
 }
