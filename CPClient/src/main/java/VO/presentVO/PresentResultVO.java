@@ -26,4 +26,8 @@ public class PresentResultVO {
 	 *赠品列表
 	 */	
 	List<GoodsInSaleVO> presentList;
+	/**
+	 *使用赠送策略后总价
+	 */	
+	int sum;
 }
