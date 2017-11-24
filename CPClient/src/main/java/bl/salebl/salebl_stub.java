@@ -205,6 +205,15 @@ public class salebl_stub implements SaleBLService{
 		return goods;
 	}
 
+	/* (non-Javadoc)
+	 * @see blservice.saleblservice.SaleBLService#openCommitted()
+	 */
+	@Override
+	public List<SalesmanListVO> openCommitted() {
+		// TODO Auto-generated method stub
+		return list;
+	}
+
 //	public ListInitVO createList(ListType type) {
 //		// TODO Auto-generated method stub
 //		ListInitVO vo = null;

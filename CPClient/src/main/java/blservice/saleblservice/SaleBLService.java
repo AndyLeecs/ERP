@@ -20,6 +20,7 @@ public interface SaleBLService{
 	public List<VIPVO> findVIP(String info,SalesmanListType type);
 	
 	public List<SalesmanListVO> openDraftList();
+	public List<SalesmanListVO> openCommitted();
 	
 	public String createSaleList();
 	public List<SaleListVO> openSaleDraftList();
