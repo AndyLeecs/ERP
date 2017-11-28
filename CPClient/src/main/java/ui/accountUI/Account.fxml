@@ -33,11 +33,6 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <ImageView fitHeight="599.0" fitWidth="958.0" layoutX="12.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@1.jpg" />
-               </image>
-            </ImageView>
          </children></Pane>
       <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
          <children>
@@ -64,6 +59,26 @@
                </items>
             </MenuButton>
             <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="草稿" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="期初建账" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="账户" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="红冲" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="日志" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>

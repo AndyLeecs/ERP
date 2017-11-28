@@ -55,8 +55,11 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
+            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="127.0" style="-fx-background-color: transparant;" text="个人" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
       <Circle fill="#5cfeff99" layoutX="107.0" layoutY="87.0" opacity="0.67" radius="80.0" stroke="BLACK" strokeMiterLimit="0.0" strokeWidth="0.0">
@@ -119,4 +122,3 @@
       </ScrollPane>
    </children>
 </AnchorPane>
-
