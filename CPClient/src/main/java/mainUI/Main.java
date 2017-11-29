@@ -22,7 +22,8 @@ public class Main extends Application
 			{
 				try
 				{
-					new LoginWin();
+					//new LoginWin();
+					new ui.saleUI.SaleWin();
 
 				} catch (Exception e)
 				{
