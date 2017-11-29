@@ -28,8 +28,9 @@ public class PresentBLService_Driver {
 		  System.out.println("Fail");
 	  if(service.addPresentForSum(null) == ResultMessage.SUCCESS)
 		  System.out.println("Success");
-	  else
+	  else {
 		  System.out.println("Fail");
+	  }
 	
 	  if(service.allPresentForMembership()!=null)
 		  System.out.println("Success");
