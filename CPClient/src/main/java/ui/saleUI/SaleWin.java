@@ -16,7 +16,7 @@ public class SaleWin extends Stage{
 	public SaleWin() throws IOException{
 		root = FXMLLoader.load(getClass().getResource("Sale.fxml"));
 		Scene scene = new Scene(root);
-		//scene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("Sale.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);

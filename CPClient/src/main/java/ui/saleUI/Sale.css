@@ -1,20 +1,18 @@
 .button {
-    -fx-background-color: rgba(255, 255, 255, 0.4);
-    -fx-effect: dropshadow(gaussian, rgba(0, 233, 222, 0.2), 5, 5, 0, 0);
-    -fx-border-radius: 23;
-    -fx-background-radius: 23;
+     -fx-background-color: transparant;
 }
 
 .button:hover {
-    -fx-background-color: rgba(255, 255, 255, 1);
+	-fx-text-fill: white;
+    -fx-background-color:  #C48888;
 }
 
-.button:pressed {
-    -fx-background-color: rgba(211, 211, 211, 0.5);
+.menu-button:hover {
+	-fx-text-fill: white;
+    -fx-background-color:  #C48888;
 }
-.menuitem {
-	-fx-background-color: rgba(255, 255, 255, 0.4);
-    -fx-effect: dropshadow(gaussian, rgba(0, 233, 222, 0.2), 5, 5, 0, 0);
-    -fx-border-radius: 23;
-    -fx-background-radius: 23;
+
+.menu-item {
+	-fx-background-color: #C48888;
 }
+
