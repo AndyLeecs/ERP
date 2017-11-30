@@ -1,4 +1,4 @@
-package bl.storebl;
+/*package bl.storebl;
 
 import java.util.Map;
 import java.util.Set;
@@ -10,11 +10,6 @@ import blservice.storeblservice.StoreBLService;
 import util.ListType;
 import util.ResultMessage;
 
-/**     
-* @author 李安迪
-* @date 2017年10月22日
-* @description
-*/
 public class StoreBLService_Driver {
 	public void drive(StoreBLService storeBLService){
 		
@@ -112,4 +107,4 @@ public class StoreBLService_Driver {
 	}
 	
 	
-}
+}*/

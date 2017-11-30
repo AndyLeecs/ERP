@@ -7,7 +7,7 @@ import util.State;
 * @date 2017年10月27日
 * @description 单据类继承的抽象类
 */
-public abstract class ListVO {
+public class ListVO {
 	/**
 	 * 单据编号
 	 */

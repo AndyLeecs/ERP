@@ -6,7 +6,7 @@ import PO.PresentForMembershipPO;
 import PO.PresentForSpecialPackagePO;
 import PO.PresentForSumPO;
 import PO.PresentPO;
-import PO.VIPGrade;
+//import PO.VIPGrade;
 
 /**     
 * @author 李安迪
@@ -20,7 +20,7 @@ public interface PresentDataService {
 	public boolean deletePresentForMembership(String id);
 	public boolean update(PresentForMembershipPO po);
 	public List<PresentForMembershipPO> getPresentForMembership();
-	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade);
+	//public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade);
 	
 	public String insert(PresentForSpecialPackagePO po);
 	public boolean deletePresentForSpecialPackage(String id);

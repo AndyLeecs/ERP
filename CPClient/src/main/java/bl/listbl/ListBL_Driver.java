@@ -1,11 +1,13 @@
-package bl.listbl;
+/*package bl.listbl;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 import VO.ListVO;
 import VO.listVO.BusinessProcessConditionVO;
+import VO.saleVO.BusinessCircumVO;
 import VO.saleVO.SaleDetailConditionVO;
+import javafx.beans.property.SimpleObjectProperty;
 import util.ListType;
 
 public class ListBL_Driver {
@@ -16,7 +18,7 @@ public class ListBL_Driver {
 	BusinessProcessConditionVO businessProcessConditionVO = new BusinessProcessConditionVO();
 	
 	ListVO listVO = new ListVO();
-	ListType type = new ListType();
+//	final ThreadLocal<SimpleObjectProperty<ListType>> type = ThreadLocal.withInitial(() -> new SimpleObjectProperty<>(this, "type", new ListType()));
 	
 	Date beginTime = new Date();
 	Date endTime = new Date();
@@ -43,7 +45,7 @@ public class ListBL_Driver {
 		}
 		
 		//3
-		listVO = listBL_Stub.getSpecificList(type, id);
+//		listVO = listBL_Stub.getSpecificList(type.get().get(), id);
 		if(listVO != null) {
 			System.out.println("Success!");
 		}else {
@@ -51,7 +53,7 @@ public class ListBL_Driver {
 		}
 		
 		//4
-		a = listBL_Stub.hongchong(type, id);
+//		a = listBL_Stub.hongchong(type.get().get(), id);
 		if(a) {
 			System.out.println("Success!");
 		}else {
@@ -59,7 +61,7 @@ public class ListBL_Driver {
 		}
 		
 		//5
-		String tmp = listBL_Stub.hongchongAndCopy(type, id);
+//		String tmp = listBL_Stub.hongchongAndCopy(type.get().get(), id);
 		if(tmp != null) {
 			System.out.println("Success!");
 		}else {
@@ -75,7 +77,7 @@ public class ListBL_Driver {
 		}
 		
 		//7
-		a = listBL_Stub.approvalList(type, id, listVO);
+		a = listBL_Stub.approvalList(type.get().get(), id, listVO);
 		if(a) {
 			System.out.println("Success!");
 		}else {
@@ -90,4 +92,4 @@ public class ListBL_Driver {
 			System.out.println("Fail!");
 		}		
 	}
-}
+}*/
