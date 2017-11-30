@@ -6,8 +6,8 @@ import java.util.List;
 import VO.userVO.MessageVO;
 import VO.userVO.OperationVO;
 import VO.userVO.UserVO;
-import bl.utilitybl.ResultMessage;
 import blservice.userblservice.UserBLService;
+import util.ResultMessage;
 
 public class UserBLService_Stub implements UserBLService{
 	

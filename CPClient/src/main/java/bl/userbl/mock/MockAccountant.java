@@ -3,9 +3,9 @@ package bl.userbl.mock;
 import java.util.ArrayList;
 
 import VO.accountVO.AccountVO;
-import VO.userVO.UserType;
 import VO.userVO.UserVO;
-import bl.utilitybl.ResultMessage;
+import util.ResultMessage;
+import util.UserType;
 /**
  * 
  * @author julia98
@@ -16,7 +16,7 @@ public class MockAccountant {
 	private AccountVO accountVO = new AccountVO();
 	
 	public MockAccountant() {
-		this.userVO = new UserVO("00000001", "Julia", "123456", 5,UserType.Accountant);
+//		this.userVO = new UserVO("00000001", "Julia", "123456", 5,UserType.Accountant);
 	}
 	/**
 	 * 用户登录

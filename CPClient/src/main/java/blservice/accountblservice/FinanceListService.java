@@ -8,7 +8,7 @@ import VO.accountVO.CashExpenseListVO;
 import VO.accountVO.CollectionListVO;
 import VO.accountVO.FinanceListVO;
 import VO.accountVO.PaymentListVO;
-import bl.utilitybl.ResultMessage;
+import util.ResultMessage;
 
 public interface FinanceListService {
 

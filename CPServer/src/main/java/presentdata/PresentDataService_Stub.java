@@ -7,7 +7,7 @@ import PO.PresentForMembershipPO;
 import PO.PresentForSpecialPackagePO;
 import PO.PresentForSumPO;
 import PO.PresentPO;
-import PO.VIPGrade;
+//import PO.VIPGrade;
 
 import presentdataservice.PresentDataService;
 
@@ -63,10 +63,10 @@ public class PresentDataService_Stub implements PresentDataService{
 	/* (non-Javadoc)
 	 * @see presentdataservice.PresentForMembershipDataService#getPresentForMembership(PO.VIPGrade)
 	 */
-	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade) {
+	/*public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade) {
 		// TODO Auto-generated method stub
 		return ListForMembership;
-	}
+	}*/
 
 	/* (non-Javadoc)
 	 * @see presentdataservice.PresentForSpecialPackageDataService#insert(PO.PresentForSpecialPackagePO)

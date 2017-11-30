@@ -1,4 +1,4 @@
-package bl.utilitybl;
+package util;
 /**
  * 
  * @author julia98

@@ -1,6 +1,6 @@
 package VO.storeVO;
 
-import VO.ListType;
+import util.ListType;
 
 /**     
 * @author 李安迪

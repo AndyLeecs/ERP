@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
-import bl.utilitybl.ResultMessage;
+import util.ResultMessage;
 
 /**
  * 

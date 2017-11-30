@@ -12,7 +12,7 @@ import VO.saleVO.SalesmanListType;
 import VO.saleVO.SalesmanListVO;
 import VO.storeVO.StockListVO;
 import VO.storeVO.StockReturnListVO;
-import bl.utilitybl.ResultMessage;
+import util.ResultMessage;
 
 public interface SaleBLService{
 	public List<GoodsVO> findGoods(String info);

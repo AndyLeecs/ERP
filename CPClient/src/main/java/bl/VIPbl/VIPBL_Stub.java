@@ -3,7 +3,7 @@ package bl.VIPbl;
 import java.util.ArrayList;
 
 import VO.VIPVO.VIPVO;
-import bl.utilitybl.ResultMessage;
+import util.ResultMessage;
 /**
  * 
  * @author julia98
