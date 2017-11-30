@@ -3,12 +3,12 @@ package bl.storebl;
 import java.util.Map;
 import java.util.Set;
 
-import VO.ListType;
 import VO.StoreVO;
 import VO.StoreViewVO;
 import VO.goodsVO.GoodsVO;
-import bl.utilitybl.ResultMessage;
 import blservice.storeblservice.StoreBLService;
+import util.ListType;
+import util.ResultMessage;
 
 /**     
 * @author 李安迪

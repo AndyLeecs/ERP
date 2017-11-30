@@ -1,8 +1,8 @@
 package bl.salebl;
 
 
-import bl.utilitybl.ResultMessage;
 import dataservice.saledataservice.*;
+import util.ResultMessage;
 public class salebl_driver {
 	
 	salebl_stub service;

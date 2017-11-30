@@ -1,38 +1,50 @@
 package VO.userVO;
 
+import util.UserGrade;
+import util.UserPermission;
+import util.UserType;
+
 public class UserVO{
-		  String id;
-		  String name;
-		  String password;
-		  UserType userType;
-		  boolean hasHighLimit=false;
-//		  int level;		//这是什么？
+	private String id;
+	private	String name;
+	private	String password;
+	private	UserType type;				
+	private	UserGrade grade;			//用户等级（经理，普通）
+	private	UserPermission permission;		//权限等级
 		  
-	public UserVO(String i,String n,String p,int l,UserType usertype){
-		  this.id=i;
-		  this.name =n;
-		  this.password=p;
-//		  this.level=l ;
-		  this.userType = usertype;
+	public UserVO(String id,String name,String password,UserType type,UserGrade grade,UserPermission permission){
+		  this.id=id;
+		  this.name =name;
+		  this.password=password;
+		  this.type = type;
+		  this.grade = grade;
+		  this.permission = permission;
 	}
 
-	public String getName(){
-		 return name;
-	}
 		    
 	public String getID(){
 		 return id;
 	}
-		  
+		 
+	public String getName(){
+		 return name;
+	}
+	
 	public String getPassword(){
 		 return password;
 	}
 
 	public UserType getType(){
-		 return userType;
-		}
-//    public int getLevel(){      	 
-//        return level;
-//    }
+		 return type;
+	}
+	
+    public UserGrade getGrade(){      	 
+        return grade;
+    }
+    
+    public UserPermission getPermission(){      	 
+        return permission;
+    }
+    
 }
 

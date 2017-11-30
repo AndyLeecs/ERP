@@ -3,10 +3,10 @@ package bl.listbl;
 import java.util.ArrayList;
 import java.util.Date;
 
-import VO.ListType;
 import VO.ListVO;
 import VO.listVO.BusinessProcessConditionVO;
 import VO.saleVO.SaleDetailConditionVO;
+import util.ListType;
 
 public class ListBL_Driver {
 	ArrayList list = new ArrayList();

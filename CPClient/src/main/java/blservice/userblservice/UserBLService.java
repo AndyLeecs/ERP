@@ -5,7 +5,7 @@ import java.util.List;
 import VO.userVO.MessageVO;
 import VO.userVO.OperationVO;
 import VO.userVO.UserVO;
-import bl.utilitybl.ResultMessage;
+import util.ResultMessage;
 
 /**
  * 	此接口应该是没有用了

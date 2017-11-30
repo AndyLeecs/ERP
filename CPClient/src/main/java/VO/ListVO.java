@@ -1,5 +1,6 @@
 package VO;
 
+import util.State;
 
 /**     
 * @author 李安迪

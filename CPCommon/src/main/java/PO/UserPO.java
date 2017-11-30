@@ -2,6 +2,9 @@ package PO;
 
 import java.io.Serializable;
 
+import util.UserGrade;
+import util.UserType;
+
 public class UserPO  implements Serializable{
 	/**
 	 * 编号

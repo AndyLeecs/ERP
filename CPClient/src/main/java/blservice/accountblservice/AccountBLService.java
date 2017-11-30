@@ -10,7 +10,7 @@ import VO.accountVO.FinanceListVO;
 import VO.accountVO.InitAccountVO;
 import VO.accountVO.PaymentListVO;
 import VO.goodsVO.GoodsVO;
-import bl.utilitybl.ResultMessage;
+import util.ResultMessage;
 /**
  * 这个接口应该是没用了
  * @author  julia98

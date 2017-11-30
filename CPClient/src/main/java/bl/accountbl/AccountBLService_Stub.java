@@ -11,8 +11,8 @@ import VO.accountVO.FinanceListVO;
 import VO.accountVO.InitAccountVO;
 import VO.accountVO.PaymentListVO;
 import VO.goodsVO.GoodsVO;
-import bl.utilitybl.ResultMessage;
 import blservice.accountblservice.AccountBLService;
+import util.ResultMessage;
 
 public class AccountBLService_Stub implements AccountBLService{
 	

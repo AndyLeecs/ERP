@@ -1,4 +1,4 @@
-package VO.userVO;
+package util;
 
 
 /**     

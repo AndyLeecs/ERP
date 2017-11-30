@@ -3,8 +3,8 @@ package bl.presentbl;
 import VO.presentVO.PresentForMembershipVO;
 import VO.presentVO.PresentForSpecialPackageVO;
 import VO.presentVO.PresentForSumVO;
-import bl.utilitybl.ResultMessage;
 import blservice.presentblservice.PresentBLService;
+import util.ResultMessage;
 
 /**     
 * @author 李安迪
