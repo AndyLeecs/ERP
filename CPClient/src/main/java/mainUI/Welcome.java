@@ -15,7 +15,9 @@ import javafx.stage.StageStyle;
 
 public class Welcome extends Application {
     private Scene scene;
-    @Override public void start(Stage stage) {
+    
+    @Override 
+    public void start(Stage stage) {
         // create the scene
         stage.setTitle("Cute Project");
         scene = new Scene(new Browser(),600,400, Color.web("#666970"));
@@ -28,37 +30,31 @@ public class Welcome extends Application {
         	try {
         		Thread.sleep(7000);
         		if(stage.isShowing()) {
-        			Platform.runLater(new Runnable()
-        			{
-        				public void run()
-        				{
-        					try
-        					{
+        			Platform.runLater(new Runnable() {
+        				public void run() {
+        					try {
         						stage.close();
         						new LoginWin();
         						//new ui.saleUI.SaleWin();
-
-        					} catch (Exception e)
-        					{
+        					} catch (Exception e) {
         						e.printStackTrace();
         					}
-
         				}
         			});
         		}
-        	}catch(Exception e) {
+        	} catch(Exception e) {
         		e.printStackTrace();
-        	}
+        	    }
         });
         thread.setDaemon(true);
-        thread.start();
-       
+        thread.start();       
     }
 
     public static void main(String[] args){
         launch(args);
     }
 }
+
 class Browser extends Region {
 
     final WebView browser = new WebView();

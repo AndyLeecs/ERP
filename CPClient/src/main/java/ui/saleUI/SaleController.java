@@ -4,6 +4,7 @@ import javafx.animation.Transition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.util.Duration;
 
@@ -14,6 +15,7 @@ public class SaleController {
 	@FXML public Button draftBtn;
 	@FXML public Button messageBtn;
 	@FXML public Button personBtn;
+	@FXML public Label logOut;
 	
 	@FXML
 	public Transition lookBtnTransition(){

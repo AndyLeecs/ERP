@@ -1,18 +1,26 @@
 .button {
      -fx-background-color: transparant;
+     -fx-text-fill: #9f353a;
 }
 
 .button:hover {
 	-fx-text-fill: white;
-    -fx-background-color:  #C48888;
+}
+
+.menu-button {
+	-fx-text-fill: #9f353a;
 }
 
 .menu-button:hover {
 	-fx-text-fill: white;
-    -fx-background-color:  #C48888;
 }
 
 .menu-item {
-	-fx-background-color: #C48888;
+	-fx-text-fill: #9f353a;
+	-fx-background-color:  #ff7575;
+}
+
+.label:hover {
+	-fx-text-fill: white;
 }
 
