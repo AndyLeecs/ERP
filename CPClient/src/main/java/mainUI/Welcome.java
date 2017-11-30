@@ -26,7 +26,7 @@ public class Welcome extends Application {
         //scene.getStylesheets().add("webviewsample/BrowserToolbar.css");        
         stage.show();
         
-        Thread thread = new Thread(() -> {
+       Thread thread = new Thread(() -> {
         	try {
         		Thread.sleep(7000);
         		if(stage.isShowing()) {
@@ -47,7 +47,7 @@ public class Welcome extends Application {
         	    }
         });
         thread.setDaemon(true);
-        thread.start();       
+        thread.start();    
     }
 
     public static void main(String[] args){
