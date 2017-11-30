@@ -1,4 +1,4 @@
-package ui.storeUI;
+package ui.stockmanUI;
 
 public class StoreWin {
 

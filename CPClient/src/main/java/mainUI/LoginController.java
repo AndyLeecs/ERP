@@ -24,7 +24,7 @@ public class LoginController {
 		
 		Platform.runLater(()->{
 			try {
-				new ui.saleUI.SaleWin();
+				new ui.salesmanUI.SaleWin();
 				root.getScene().getWindow().hide();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
