@@ -1,4 +1,4 @@
-package ui.saleUI;
+package ui.salesmanUI;
 
 public class SaleMessageController {
 

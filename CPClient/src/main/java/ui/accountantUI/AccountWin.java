@@ -1,4 +1,4 @@
-package ui.accountUI;
+package ui.accountantUI;
 
 public class AccountWin {
 

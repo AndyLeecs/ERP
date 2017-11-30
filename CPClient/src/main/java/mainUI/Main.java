@@ -4,8 +4,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 
-public class Main extends Application
-{
+public class Main extends Application {
 
 	/*public static void main(String[] args)
 	{
@@ -16,24 +15,17 @@ public class Main extends Application
 	public void start(Stage stage) throws Exception
 	{
 
-		Platform.runLater(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
+		Platform.runLater(new Runnable() {
+			public void run() {
+				try {
 					new Welcome();
 					//new LoginWin();
 					//new ui.saleUI.SaleWin();
 
-				} catch (Exception e)
-				{
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
 			}
 		});
-
 	}
-
 }
