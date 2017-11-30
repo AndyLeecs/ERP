@@ -7,7 +7,7 @@ public class InfoListVO {
     private ListType type;  // 单据类型
     private String operater; //操作对象
     private String note; //备注
-
+//  王瑞华 制作
     public String getId() {
         return id;
     }
