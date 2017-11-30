@@ -30,27 +30,29 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
-            <Button fx:id="newBtn" mnemonicParsing="false" onAction="#onNewBtnClicked" prefHeight="55.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="新建" textFill="#9f353a">
+            <MenuButton mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
+              <items>
+                <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" styleClass="ui.saleUI.Sale.css" text="销售员" />
+                <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存管理员" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="财务人员" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="总经理" />
+              </items>
                <font>
                   <Font size="18.0" />
                </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="查看" textFill="#9f353a">
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      用户" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="草稿" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="127.0" style="-fx-background-color: transparant;" text="消息" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="newBtn1" mnemonicParsing="false" onAction="#onNewBtnClicked" prefHeight="55.0" prefWidth="123.0" style="-fx-background-color: #C48888;" text="个人" textFill="#a15858">
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" styleClass="ui.saleUI.Sale.css" text="销售员" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存管理员" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="财务人员" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="总经理" />
+               </items>
+            </MenuButton>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="个人" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
@@ -67,7 +69,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="672.0" prefWidth="920.0" style="-fx-background-color: #FFB5B5;">
                <children>
                   <Label layoutX="89.0" layoutY="39.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
-                  <Label layoutX="116.0" layoutY="46.0" text="个人信息">
+                  <Label layoutX="116.0" layoutY="46.0" text="用户信息">
                      <font>
                         <Font size="18.0" />
                      </font>

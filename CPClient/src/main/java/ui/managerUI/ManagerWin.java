@@ -1,5 +1,5 @@
 package ui.managerUI;
 
-public class PresentWin {
+public class ManagerWin {
 
 }
