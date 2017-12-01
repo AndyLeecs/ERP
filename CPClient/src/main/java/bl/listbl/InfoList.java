@@ -1,7 +1,7 @@
 package bl.listbl;
 
 import VO.listVO.InfoListVO;
-import VO.storeVO.ListRM;
+import VO.listVO.ListRM;
 
 public interface InfoList {
     //这个接口是所有可审批的表单在提交和过审时必须调用的接口

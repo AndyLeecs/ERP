@@ -5,6 +5,7 @@ import java.util.List;
 
 import VO.ListVO;
 
+import VO.listVO.ListRM;
 import VO.storeVO.*;
 import blservice.storeblservice.StoreBLService;
 import util.ListType;
