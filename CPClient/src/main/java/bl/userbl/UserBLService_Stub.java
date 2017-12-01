@@ -6,10 +6,12 @@ import java.util.List;
 import VO.userVO.MessageVO;
 import VO.userVO.OperationVO;
 import VO.userVO.UserVO;
+import blservice.userblservice.PersonalInfoService;
 import blservice.userblservice.UserBLService;
+import util.LoginRM;
 import util.ResultMessage;
 
-public class UserBLService_Stub implements UserBLService{
+public class UserBLService_Stub implements UserBLService, PersonalInfoService{
 	
 	protected static final MessageVO messagevo = null;
 	protected static final UserVO uservo = null;
@@ -17,8 +19,8 @@ public class UserBLService_Stub implements UserBLService{
 	
 	
 	@Override
-	public ResultMessage login(String name, String password) {
-		return ResultMessage.SUCCESS;
+	public LoginRM login(String name, String password) {
+		return LoginRM.SUCCESS;
 		}
 	
 	@Override

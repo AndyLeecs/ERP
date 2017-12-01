@@ -1,5 +1,5 @@
 package ui.stockmanUI;
 
-public class StoreWin {
+public class StockmanWin {
 
 }

@@ -1,4 +1,4 @@
-package ui.systemAdministerUI;
+package ui.AdministratorUI;
 //package ui.userUI;
 //
 //import VO.UserVO;

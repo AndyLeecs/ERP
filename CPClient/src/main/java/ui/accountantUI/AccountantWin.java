@@ -1,5 +1,5 @@
 package ui.accountantUI;
 
-public class AccountWin {
+public class AccountantWin {
 
 }

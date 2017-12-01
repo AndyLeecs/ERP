@@ -4,11 +4,12 @@ import java.util.List;
 
 import VO.userVO.MessageVO;
 import VO.userVO.UserVO;
+import util.LoginRM;
 import util.ResultMessage;
 
 public interface PersonalInfoService {
 
-	 public ResultMessage login(String name, String password);					//登录账户
+	 public LoginRM login(String name, String password);					//登录账户
 	 public ResultMessage logout();												//登出账户
 	 public UserVO getCurrentUserInfo();										//得到当前用户个人信息
 	 public ResultMessage changePassword(String oldPassword,String newPassword);//修改密码
