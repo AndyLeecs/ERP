@@ -19,16 +19,11 @@
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="1084.0" layoutY="13.0" text="消息" textFill="#9f353a">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="1136.0" layoutY="13.0" text="注销" textFill="#9f353a">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
+            <ImageView layoutX="1160.0" layoutY="14.0">
+               <image>
+                  <Image url="@../stockmanUI/logOut.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
               <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">

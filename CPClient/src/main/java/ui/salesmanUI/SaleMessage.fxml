@@ -19,17 +19,11 @@
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="1084.0" layoutY="13.0" text="消息" textFill="#9f353a">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="1136.0" layoutY="13.0" text="注销" textFill="#9f353a">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
-            <Circle fill="#f53030" layoutX="1120.0" layoutY="14.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <ImageView layoutX="1168.0" layoutY="8.0">
+               <image>
+                  <Image url="@../stockmanUI/logOut.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane layoutX="214.0" layoutY="123.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
