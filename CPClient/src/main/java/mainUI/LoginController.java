@@ -21,6 +21,7 @@ public class LoginController {
 	@FXML public Button loginBtn;
 	@FXML Label usernameLabel;
 	@FXML Label passwordLabel;
+	
 
 	private long displayTime = 1000;
 
@@ -29,28 +30,20 @@ public class LoginController {
 	public void onLoginBtnClicked() {
 		String username = usernameTxt.getText();
 		String password = passwordTxt.getText();
-		System.out.println(username+"kkk");
 		
 
 		if(username == null||username.equals("")){
 			usernameLabel.setText("用户名不能为空哦～");
+			clearLabel(usernameLabel);
 			passwordTxt.setText("");
 			usernameTxt.requestFocus();
-//			new Timer().schedule(new TimerTask(){
-//				public void run(){
-//					usernameLabel.setText("");
-//				}
-//			}, displayTime);
 			return;
 		}
+		
 		if(password == null||password.equals("")){
 			passwordLabel.setText("密码不能为空哦～");
+			clearLabel(passwordLabel);
 			passwordTxt.requestFocus();
-//			new Timer().schedule(new TimerTask(){
-//				public void run(){
-//					passwordLabel.setText("");
-//				}
-//			}, displayTime);
 			return;
 		}
 		
@@ -58,20 +51,21 @@ public class LoginController {
 		switch(loginRM){
 		case SUCCESS:{
 			root.getScene().getWindow().hide();
+			
 			openWindow(User.getInstance().getUserType());
 			break;
 		}
 		case USER_NOT_FOUND:{
 			usernameLabel.setText("该用户不存在～");
+			clearLabel(usernameLabel);
 			break;
 		}
 		case WRONG_PASSWORD:{
-			usernameLabel.setText("密码输错啦～");
+			passwordLabel.setText("密码输错啦～");
+			clearLabel(passwordLabel);
 			break;
 		}
 		}
-		
-		
 		
 	}
 	
@@ -108,6 +102,18 @@ public class LoginController {
 		});
 	}
 	
-	
+	private void clearLabel(Label label){
+		new Timer().schedule(new TimerTask(){
+			public void run(){
+				Platform.runLater(new Runnable() {
+			        @Override
+			        public void run() {
+			        	label.setText("");
+			        }
+			   });
+				
+			}
+		}, displayTime);
+	}
 
 }
