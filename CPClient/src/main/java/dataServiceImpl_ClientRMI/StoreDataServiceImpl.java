@@ -4,6 +4,7 @@ import DataService_RMI.StoreDataService;
 import java.net.MalformedURLException;
 import java.rmi.*;
 public class StoreDataServiceImpl implements  StoreDataService {
+    //王瑞华制作。
     private StoreDataService storeDataService;
     String url = "rmi://localhost:1099/";
     public  StoreDataServiceImpl(){
