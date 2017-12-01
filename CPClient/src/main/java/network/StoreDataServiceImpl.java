@@ -1,5 +1,5 @@
-package dataServiceImpl_ClientRMI;
-import DataService_RMI.StoreDataService;
+package network;
+import network.StoreDataService;
 
 import java.net.MalformedURLException;
 import java.rmi.*;
