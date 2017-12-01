@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="649bd520-b0c3-404d-97f2-1bdd52509486" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/SalesDataService.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/BussinessSituationListVO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/SalesDetailListVO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/ListblController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/blservice/listblservice/Listblservice.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CPClient/src/main/java/blservice/listblservice/ListBL.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CPClient/src/main/java/dataServiceImpl_ClientRMI/StoreDataServiceImpl.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/network/StoreDataServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/AccountDataService.java" afterPath="$PROJECT_DIR$/CPCommon/src/main/java/network/AccountDataService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/GoodsDataService.java" afterPath="$PROJECT_DIR$/CPCommon/src/main/java/network/GoodsDataService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/ListDataService.java" afterPath="$PROJECT_DIR$/CPCommon/src/main/java/network/ListDataService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/PresentDataService.java" afterPath="$PROJECT_DIR$/CPCommon/src/main/java/network/PresentDataService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/StoreDataService.java" afterPath="$PROJECT_DIR$/CPCommon/src/main/java/network/StoreDataService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/UserDataService.java" afterPath="$PROJECT_DIR$/CPCommon/src/main/java/network/UserDataService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/VIPDataService.java" afterPath="$PROJECT_DIR$/CPCommon/src/main/java/network/VIPDataService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/Approvable.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/Approvable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/InfoList.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/InfoList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/StoreBLService_Stub.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/StoreBLService_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/blservice/storeblservice/StoreBLService.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/blservice/storeblservice/StoreBLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/util/ListType.java" afterPath="$PROJECT_DIR$/CPCommon/src/main/java/util/ListType.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CPClient/src/main/java/VO/storeVO/ListRM.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/ListRM.java" />
     </list>
     <ignored path="$PROJECT_DIR$/CPCommon/target/" />
     <ignored path="$PROJECT_DIR$/CPServer/target/" />
@@ -28,40 +30,7 @@
     <favorites_list name="Cute_Project" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="AccountDataService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/accountdataservice/AccountDataService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SaleDataService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/saledataservice/SaleDataService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="820">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/network/Launcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -114,7 +83,6 @@
         <option value="$PROJECT_DIR$/CPClient/src/main/java/VO/saleVO/BusinessCircumVO.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/ListBL_Driver.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/ListBL_Stub.java" />
-        <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/Approvable.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/InfoList.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/InfoListVO.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/RMI/RMI_Lancher.java" />
@@ -128,6 +96,14 @@
         <option value="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/UserDataService.java" />
         <option value="$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/VIPDataService.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/dataServiceImpl_ClientRMI/StoreDataServiceImpl.java" />
+        <option value="$PROJECT_DIR$/CPServer/src/main/java/network/Launcher.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/SalesDetailListVO.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/BussinessSituationListVO.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/listblservice/Listblservice.java" />
+        <option value="$PROJECT_DIR$/CPCommon/src/main/java/util/ListType.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/Approvable.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/ListRM.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/ListblController.java" />
       </list>
     </option>
   </component>
@@ -180,6 +156,65 @@
               <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
               <item name="CPClient" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bl" type="462c0819:PsiDirectoryNode" />
+              <item name="listbl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="VO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="VO" type="462c0819:PsiDirectoryNode" />
+              <item name="listVO" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -193,6 +228,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="VO.listVO" />
       <recent name="VO.saleVO" />
       <recent name="VO.storeVO" />
     </key>
@@ -514,7 +550,7 @@
       <workItem from="1512021872912" duration="4659000" />
       <workItem from="1512030689248" duration="809000" />
       <workItem from="1512094179546" duration="1623000" />
-      <workItem from="1512107352400" duration="3088000" />
+      <workItem from="1512107352400" duration="7285000" />
     </task>
     <task id="LOCAL-00001" summary="更新详细设计文档的present和sale部分">
       <created>1511925122309</created>
@@ -565,11 +601,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512109196868</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="RMI初步搭建2">
+      <created>1512114219305</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1512114219338</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12236000" />
+    <option name="totallyTimeSpent" value="16433000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -695,7 +738,8 @@
     <MESSAGE value="看一下是否提交成功了。" />
     <MESSAGE value="初步写了一下RMI，还没写完。" />
     <MESSAGE value="RMI初步搭建" />
-    <option name="LAST_COMMIT_MESSAGE" value="RMI初步搭建" />
+    <MESSAGE value="RMI初步搭建2" />
+    <option name="LAST_COMMIT_MESSAGE" value="RMI初步搭建2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -706,46 +750,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/presentbl/PresentBLService_Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2760">
-          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/storeVO/AlarmListVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/storeblservice/StoreBLService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/StoreBLService_Stub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="47" lean-forward="true" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/md/详细设计文档/详细设计文档完整版V1.0.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/saleUI/Sale.fxml" />
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/saleUI/SaleDraft.fxml" />
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/saleUI/SaleLookController.java" />
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/saleVO/SaleBackListItemVO.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -907,24 +911,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/storeVO/ListRM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/Approvable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/InfoList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -932,6 +923,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1015,18 +1007,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/accountdataservice/AccountDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CPCommon/src/main/java/DataService_RMI/SaleDataService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/network/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1036,15 +1028,97 @@
         <state relative-caret-position="820">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/accountdataservice/AccountDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/listblservice/ListBL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/BusinessProcessConditionVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPCommon/src/main/java/util/ListType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/BussinessSituationListVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/SalesDetailListVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/ListRM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/ListblController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+            <element signature="e#901#902#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/listblservice/Listblservice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/network/Launcher.java">
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/Approvable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        <state relative-caret-position="173">
+          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
           <folding />
         </state>
       </provider>

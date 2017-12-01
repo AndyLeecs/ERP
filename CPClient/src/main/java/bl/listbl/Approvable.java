@@ -1,5 +1,7 @@
 package bl.listbl;
 
+import VO.listVO.ListRM;
+
 public interface Approvable {
     // 这个接口是所有需要审批的单据必须实现的接口。
     /*
@@ -15,6 +17,7 @@ public interface Approvable {
     public void replace();
     public void refresh();
     public String fail();
+    public ListRM toExcel(String  id);//把某一项表单导出excel.所有能够被审批的表单都必须实现这个方法。
     public default String onApprove(){
         if(check()){
             replace();
@@ -24,6 +27,7 @@ public interface Approvable {
 
             return fail();
         }
-
+        //这里写成default ，目的是规定审批操作的流程。
+        // 对于具体的单据，在replace和refresh里面调用其他方法，操作数据，所以这两个方法本身是无参数的。（参数也不方便统一）
     }
 }
