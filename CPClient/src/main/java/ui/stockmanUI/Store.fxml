@@ -38,7 +38,7 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
-            <MenuButton mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
               <items>
                 <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" styleClass="ui.saleUI.Sale.css" text="单据1" />
                 <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单据2" />
@@ -48,7 +48,7 @@
                   <Font size="18.0" />
                </font>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      查看" textFill="#9f353a">
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      查看" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
@@ -58,17 +58,16 @@
                   <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单        据         3" />
                </items>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      商品" textFill="#9f353a">
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      商品" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
                <items>
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="单据1" />
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单据2" />
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单        据         3" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="商品管理" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="商品分类管理" />
                </items>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      个人" textFill="#9f353a">
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      个人" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
