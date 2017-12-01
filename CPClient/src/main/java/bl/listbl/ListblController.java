@@ -5,7 +5,7 @@ import VO.listVO.InfoListVO;
 import VO.listVO.SalesDetailListVO;
 import VO.listVO.ListRM;
 import blservice.listblservice.Listblservice;
-import com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverException;
+import util.GreatListType;
 import util.ListType;
 
 import java.util.List;
@@ -37,7 +37,7 @@ public class ListblController implements Listblservice {
     }
 
     @Override
-    public ListRM toExcle(ListType type, String id) {
+    public ListRM toExcle(GreatListType type, String id) {
 
         switch (type){
             case ALL:

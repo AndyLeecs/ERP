@@ -4,6 +4,7 @@ import VO.listVO.BussinessSituationListVO;
 import VO.listVO.InfoListVO;
 import VO.listVO.SalesDetailListVO;
 import VO.listVO.ListRM;
+import util.GreatListType;
 import util.ListType;
 
 import java.util.List;
@@ -17,5 +18,5 @@ public interface Listblservice {
     public List<InfoListVO> openInfoList(ListType type);//经营历程表查看
     public SalesDetailListVO openSaleDetailList(); //销售明细表查看
     public BussinessSituationListVO openBussinessSituationList(); //经营情况表查看
-    public ListRM toExcle (ListType type ,String id); // 表单导出
+    public ListRM toExcle (GreatListType type ,String id); // 表单导出
 }
