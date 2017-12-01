@@ -34,12 +34,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="25.0" layoutY="78.0" mnemonicParsing="false" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-border-color: #9f353a;" text="全部" textFill="#9f353a" />
             <TextField layoutX="625.0" layoutY="74.0" prefHeight="32.0" prefWidth="167.0" style="-fx-background-radius: 23; -fx-border-radius: 23;" />
             <Button layoutX="830.0" layoutY="79.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="查询" textFill="WHITE" />
-            <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="766.0" layoutY="78.0">
+            <ImageView layoutX="761.0" layoutY="78.0">
                <image>
-                  <Image url="@../../../../../../../Downloads/search-3.png" />
+                  <Image url="@search.png" />
                </image>
             </ImageView>
          </children></Pane>
@@ -121,7 +120,7 @@
                   <Image url="@lamp1.JPG" />
                </image>
             </ImageView>
-            <Label layoutX="254.0" layoutY="152.0" text="库存数量" textFill="#000000a1" />
+            <Label layoutX="268.0" layoutY="152.0" text="库存数量" textFill="#000000a1" />
             <Label layoutX="254.0" layoutY="209.0" text="进价" textFill="#000000a1" />
             <Label layoutX="248.0" layoutY="274.0" text="销售价" textFill="#000000a1" />
             <Label layoutX="440.0" layoutY="274.0" text="最近销售价" textFill="#000000a1" />
@@ -142,16 +141,21 @@
                </font>
             </Label>
             <Label layoutX="242.0" layoutY="39.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
-            <ImageView layoutX="631.0" layoutY="23.0">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="631.0" layoutY="23.0">
                <image>
-                  <Image url="@../../../../../../../Downloads/edit-3.png" />
+                  <Image url="@edit.png" />
                </image>
             </ImageView>
+            <Label layoutX="347.0" layoutY="149.0" text="5" textFill="#228a6ea1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane layoutX="214.0" layoutY="282.0" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
          <children>
-            <VBox layoutY="43.0" prefHeight="392.0" prefWidth="196.0">
+            <VBox layoutX="7.0" layoutY="54.0" prefHeight="369.0" prefWidth="182.0" style="-fx-border-color: #ff7575; -fx-background-radius: 23; -fx-border-radius: 15;">
                <children>
                   <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类1" textFill="#9f353a" />
                   <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类2" textFill="#9f353a" />
@@ -161,35 +165,35 @@
                   <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类6" textFill="#9f353a" />
                </children>
             </VBox>
-            <HBox layoutX="22.0" prefHeight="42.0" prefWidth="189.0">
+            <Pane layoutX="8.0" layoutY="6.0" prefHeight="42.0" prefWidth="180.0" style="-fx-border-color: #ff7575; -fx-border-radius: 12;">
                <children>
-                  <ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="14.0" layoutY="9.0">
                      <image>
-                        <Image url="@../../../../../../../Downloads/all.png" />
+                        <Image url="@all.png" />
                      </image>
                   </ImageView>
-                  <ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="44.0" layoutY="9.0">
                      <image>
-                        <Image url="@../../../../../../../Downloads/add-2.png" />
+                        <Image url="@add.png" />
                      </image>
                   </ImageView>
-                  <ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="76.0" layoutY="9.0">
                      <image>
-                        <Image url="@../../../../../../../Downloads/move-2.png" />
+                        <Image url="@move.png" />
                      </image>
                   </ImageView>
-                  <ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="142.0" layoutY="7.0">
                      <image>
-                        <Image url="@../../../../../../../Downloads/delete-4.png" />
+                        <Image url="@delete.png" />
                      </image>
                   </ImageView>
-                  <ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="110.0" layoutY="9.0">
                      <image>
-                        <Image url="@../../../../../../../Downloads/survey.png" />
+                        <Image url="@survey.png" />
                      </image>
                   </ImageView>
                </children>
-            </HBox>
+            </Pane>
          </children></Pane>
    </children>
 </AnchorPane>
