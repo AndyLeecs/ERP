@@ -1,7 +1,6 @@
 package bl.userbl;
 
 import blservice.userblservice.UserBLService;
-import util.ResultMessage;
 
 /**
  * 这个驱动并不全，也没有填入具体信息，只给出了大致的模版。在写测试用例的时候再详细补充。
@@ -17,8 +16,8 @@ public class UserBLService_Driver {
 	
 	
 	public void drive(){
-		if(userblService.login(name, password) != ResultMessage.SUCCESS)
-			System.out.println("fail");
+//		if(userblService.login(name, password) != ResultMessage.SUCCESS)
+//			System.out.println("fail");
 		
 		if(userblService.checkMessage() == null)
 			System.out.println("fail");
