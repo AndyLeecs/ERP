@@ -64,17 +64,16 @@
                   <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单        据         3" />
                </items>
             </MenuButton>
+            <MenuButton fx:id="lookBtn1" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      个人" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="个人信息" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="消息" />
+               </items>
+            </MenuButton>
             <Button fx:id="draftBtn" mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="草稿" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="messageBtn" mnemonicParsing="false" prefHeight="59.0" prefWidth="127.0" style="-fx-background-color: transparant;" text="消息" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="personBtn" mnemonicParsing="false" prefHeight="59.0" prefWidth="127.0" style="-fx-background-color: transparant;" text="个人" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>

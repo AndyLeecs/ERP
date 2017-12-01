@@ -26,31 +26,41 @@
             </Label>
          </children>
       </Pane>
-      <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
+       <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
          <children>
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
-            <Button fx:id="newBtn" mnemonicParsing="false" onAction="#onNewBtnClicked" prefHeight="55.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="新建" textFill="#9f353a">
+            <MenuButton fx:id="newBtn" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
+              <items>
+                <MenuItem fx:id="aaa" mnemonicParsing="false" style="-fx-background-color: transparant;" text="单据1" />
+                <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单据2" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单        据         3" />
+              </items>
                <font>
                   <Font size="18.0" />
                </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="查看" textFill="#9f353a">
+            </MenuButton>
+            <MenuButton fx:id="lookBtn" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: #C48888;" text="      查看" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="草稿" textFill="#9f353a">
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="单据1" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单据2" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单        据         3" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="客户信息" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="lookBtn1" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      个人" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="127.0" style="-fx-background-color: transparant;" text="消息" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="newBtn1" mnemonicParsing="false" onAction="#onNewBtnClicked" prefHeight="55.0" prefWidth="123.0" style="-fx-background-color: #C48888;" text="个人" textFill="#a15858">
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="个人信息" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="消息" />
+               </items>
+            </MenuButton>
+            <Button fx:id="draftBtn" mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="草稿" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>

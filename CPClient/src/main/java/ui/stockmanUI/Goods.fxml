@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FFF7FB;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleUI.SaleLookController">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <Pane layoutX="-4.0" prefHeight="97.0" prefWidth="1207.0" style="-fx-background-color: #FFECEC;">
+         <children>
+            <Label layoutX="206.0" layoutY="20.0" text="CuteProject" textFill="#9f353a">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="1136.0" layoutY="13.0" text="注销" textFill="#9f353a">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="214.0" layoutY="123.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
+         <children>
+            <Label layoutX="34.0" layoutY="14.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
+            <Label layoutX="55.0" layoutY="23.0" text="商品管理">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="25.0" layoutY="78.0" mnemonicParsing="false" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-border-color: #9f353a;" text="全部" textFill="#9f353a" />
+            <TextField layoutX="625.0" layoutY="74.0" prefHeight="32.0" prefWidth="167.0" style="-fx-background-radius: 23; -fx-border-radius: 23;" />
+            <Button layoutX="830.0" layoutY="79.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="查询" textFill="WHITE" />
+            <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="766.0" layoutY="78.0">
+               <image>
+                  <Image url="@../../../../../../../Downloads/search-3.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
+              <items>
+                <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" styleClass="ui.saleUI.Sale.css" text="单据1" />
+                <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单据2" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单        据         3" />
+              </items>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      查看" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="单据1" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单据2" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单        据         3" />
+               </items>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: #C48888;" text="      商品" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="商品管理" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="商品分类管理" />
+               </items>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      个人" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <items>
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="消息" />
+                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="个人信息" />
+               </items>
+            </MenuButton>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="草稿" textFill="#9f353a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Circle fill="#5cfeff99" layoutX="107.0" layoutY="87.0" opacity="0.67" radius="80.0" stroke="BLACK" strokeMiterLimit="0.0" strokeWidth="0.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#c74242cf" height="0.0" radius="6.2675" width="27.07" />
+         </effect>
+      </Circle>
+      <Pane layoutX="429.0" layoutY="281.0" prefHeight="435.0" prefWidth="706.0" style="-fx-background-color: #FFB5B5;">
+         <children>
+            <Label layoutX="264.0" layoutY="94.0" text="商品编号:XSD-yyyyMMdd-xxxxx" textFill="#000000a1" />
+            <Label layoutX="483.0" layoutY="21.0" />
+            <Label layoutX="267.0" layoutY="55.0" text="商品名">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="302.0" layoutY="268.0" text="¥2350" textFill="#a10707">
+               <font>
+                  <Font name="AdobeHebrew-Regular" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="353.0" layoutY="57.0" text="商品型号" textFill="#d06d21">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="2.0">
+               <image>
+                  <Image url="@lamp1.JPG" />
+               </image>
+            </ImageView>
+            <Label layoutX="254.0" layoutY="152.0" text="库存数量" textFill="#000000a1" />
+            <Label layoutX="254.0" layoutY="209.0" text="进价" textFill="#000000a1" />
+            <Label layoutX="248.0" layoutY="274.0" text="销售价" textFill="#000000a1" />
+            <Label layoutX="440.0" layoutY="274.0" text="最近销售价" textFill="#000000a1" />
+            <Label layoutX="446.0" layoutY="209.0" text="最近进价" textFill="#000000a1" />
+            <Label layoutX="302.0" layoutY="203.0" text="¥250" textFill="#a10707">
+               <font>
+                  <Font name="AdobeHebrew-Regular" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="528.0" layoutY="203.0" text="¥250" textFill="#a10707">
+               <font>
+                  <Font name="AdobeHebrew-Regular" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="528.0" layoutY="268.0" text="¥2350" textFill="#a10707">
+               <font>
+                  <Font name="AdobeHebrew-Regular" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="242.0" layoutY="39.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
+            <ImageView layoutX="631.0" layoutY="23.0">
+               <image>
+                  <Image url="@../../../../../../../Downloads/edit-3.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="214.0" layoutY="282.0" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
+         <children>
+            <VBox layoutY="43.0" prefHeight="392.0" prefWidth="196.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类1" textFill="#9f353a" />
+                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类2" textFill="#9f353a" />
+                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类3" textFill="#9f353a" />
+                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类4" textFill="#9f353a" />
+                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类5" textFill="#9f353a" />
+                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类6" textFill="#9f353a" />
+               </children>
+            </VBox>
+            <HBox layoutX="22.0" prefHeight="42.0" prefWidth="189.0">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../../../../../../Downloads/all.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../../../../../../Downloads/add-2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../../../../../../Downloads/move-2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../../../../../../Downloads/delete-4.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../../../../../../Downloads/survey.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children></Pane>
+   </children>
+</AnchorPane>
