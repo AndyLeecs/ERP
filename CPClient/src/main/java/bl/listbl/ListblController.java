@@ -18,6 +18,9 @@ public class ListblController implements Listblservice {
     * 两张大的报表需要向其他包索要数据，建议其他包（销售、商品）写一个对应接口，直接把VO传输过来
     * 王瑞华 161250143  2017年12月1日
      */
+
+    //单据红冲的接口还没加，但理论上应该是我来写
+
     @Override
     public List<InfoListVO> openInfoList(ListType type) {
         return null;
