@@ -7,5 +7,5 @@ package util;
 * @description
 */
 public interface ListType {
-   
+   //用于被各个枚举类实现
 }

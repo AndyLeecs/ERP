@@ -1,42 +1,21 @@
 package VO.listVO;
 
+import bl.listbl.InfoList;
+import util.GreatListType;
 import util.ListType;
 
 public class InfoListVO {
-    private String id;  //单据编号
-    private ListType type;  // 单据类型
-    private String operater; //操作对象
-    private String note; //备注
+    public String id;  //单据编号
+    public GreatListType type;  // 单据类型
+    public String operater; //操作对象
+    public String note; //备注
+    public InfoListVO (String id,GreatListType type,String operator,String note){
+        this.id=id;
+        this.note=note;
+        this.type=type;
+        this.operater=operator;
+    }
+
 //  王瑞华 制作
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public ListType getType() {
-        return type;
-    }
-
-    public void setType(ListType type) {
-        this.type = type;
-    }
-
-    public String getOperater() {
-        return operater;
-    }
-
-    public void setOperater(String operater) {
-        this.operater = operater;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
 }

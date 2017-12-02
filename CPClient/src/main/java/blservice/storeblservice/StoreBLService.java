@@ -30,13 +30,14 @@ public interface StoreBLService {
 	*/
 	//下面按照详细设计文档中规定的store提供的接口进行了描述，有几个存疑的地方。
 	public LinkedList<AlarmListVO> openAlarmList();
-	public List<ReportListVO> openReportList(ListType lt, StateType st);
+	public List<ReportListVO> openReportList(StoreListType type, StateType st);
+
 	public List<PresentListVO> openPresentList(StateType st);
 	public String toExcel(	InventoryVO vo);
-	public String newList(ListType type);
-	public ListRM saveReportList (ListType type , ListVO vo);
+	public String newList(StoreListType type);
+	public ListRM saveReportList (StoreListType type , ReportListVO vo);
 	public ListRM savePresentList ( PresentListVO vo);
-	public ListRM commit (ListType type , String ID);
+	public ListRM commit (StoreListType type , String ID);
 	 public storeCheckVO store_check(String begintime,String endTime);
 	 public storeInventoryVO store_inventory(String day);
 	
