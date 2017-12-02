@@ -47,6 +47,8 @@ public class LoginController {
 			return;
 		}
 		
+		System.out.println("checking");
+		
 		LoginRM loginRM = User.getInstance().login(username, password);
 		switch(loginRM){
 		case SUCCESS:{
@@ -64,9 +66,10 @@ public class LoginController {
 			break;
 		}
 		case WRONG_PASSWORD:{
+			System.out.println("password wrong");
 			passwordLabel.setText("密码输错啦～");
-			passwordLabel.setText("");
-			passwordLabel.requestFocus();
+			passwordTxt.setText("");
+			passwordTxt.requestFocus();
 			clearLabel(passwordLabel);
 			break;
 		}
