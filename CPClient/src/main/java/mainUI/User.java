@@ -1,6 +1,7 @@
-package bl.userbl;
+package mainUI;
 
 import VO.userVO.UserVO;
+import bl.userbl.UserBLService_Stub;
 import blservice.userblservice.PersonalInfoService;
 import util.LoginRM;
 import util.UserGrade;
