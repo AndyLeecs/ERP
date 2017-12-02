@@ -57,11 +57,16 @@ public class LoginController {
 		}
 		case USER_NOT_FOUND:{
 			usernameLabel.setText("该用户不存在～");
+			usernameTxt.setText("");
+			passwordTxt.setText("");
+			usernameTxt.requestFocus();
 			clearLabel(usernameLabel);
 			break;
 		}
 		case WRONG_PASSWORD:{
 			passwordLabel.setText("密码输错啦～");
+			passwordLabel.setText("");
+			passwordLabel.requestFocus();
 			clearLabel(passwordLabel);
 			break;
 		}

@@ -10,16 +10,23 @@ import blservice.userblservice.PersonalInfoService;
 import blservice.userblservice.UserBLService;
 import util.LoginRM;
 import util.ResultMessage;
+import util.UserGrade;
+import util.UserPermission;
+import util.UserType;
 
 public class UserBLService_Stub implements UserBLService, PersonalInfoService{
 	
 	protected static final MessageVO messagevo = null;
-	protected static final UserVO uservo = null;
+	protected static final UserVO uservo = new UserVO("007", "zzz","123",UserType.Salesman,UserGrade.General,UserPermission.Highest);
 	protected static final OperationVO operationvo = null;
 	
 	
 	@Override
 	public LoginRM login(String name, String password) {
+		if(!uservo.getName().equals(name))
+			return LoginRM.USER_NOT_FOUND;
+		if(!uservo.getPassword().equals(password))
+			return LoginRM.WRONG_PASSWORD;
 		return LoginRM.SUCCESS;
 		}
 	

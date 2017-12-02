@@ -18,7 +18,7 @@ public class User {
 	private	UserType type = UserType.Salesman;				
 	private	UserGrade grade;			//用户等级（经理，普通）
 	private	UserPermission permission;		//权限等级
-	
+											//为了安全，密码不让界面层持有，不过userVO里是否要有密码？
 	private User(){
 		service = new UserBLService_Stub();
 	}
@@ -32,15 +32,15 @@ public class User {
 	
 	public LoginRM login(String username, String password){
 		LoginRM loginrm = service.login(username, password);
-//		if(loginrm == LoginRM.SUCCESS){
-//			loggedIn = true;
-//			UserVO uservo = service.getCurrentUserInfo();
-//			this.id = uservo.getID();
-//			this.name = uservo.getName();
-//			this.type = uservo.getType();
-//			this.grade = uservo.getGrade();
-//			this.permission = uservo.getPermission();
-//		}
+		if(loginrm == LoginRM.SUCCESS){
+			loggedIn = true;
+			UserVO uservo = service.getCurrentUserInfo();
+			this.id = uservo.getID();
+			this.name = uservo.getName();
+			this.type = uservo.getType();
+			this.grade = uservo.getGrade();
+			this.permission = uservo.getPermission();
+		}
 		
 		return loginrm;
 	}
