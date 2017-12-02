@@ -7,6 +7,8 @@ import PO.PresentForSpecialPackagePO;
 import PO.PresentForSumPO;
 import PO.PresentPO;
 //import PO.VIPGrade;
+import dataHelper.dataRM;
+import util.DataRM;
 
 /**     
 * @author 李安迪
@@ -16,21 +18,21 @@ import PO.PresentPO;
 public interface PresentDataService {
 	public List<PresentPO> get();
 	
-	public String insert(PresentForMembershipPO po);
-	public boolean deletePresentForMembership(String id);
-	public boolean update(PresentForMembershipPO po);
+	public DataRM insert(PresentForMembershipPO po);
+	public DataRM deletePresentForMembership(String id);
+	public DataRM update(PresentForMembershipPO po);
 	public List<PresentForMembershipPO> getPresentForMembership();
 	//public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade);
 	
-	public String insert(PresentForSpecialPackagePO po);
-	public boolean deletePresentForSpecialPackage(String id);
-	public boolean update(PresentForSpecialPackagePO po);
+	public DataRM insert(PresentForSpecialPackagePO po);
+	public DataRM deletePresentForSpecialPackage(String id);
+	public DataRM update(PresentForSpecialPackagePO po);
 	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage();
 	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage(List<String> GoodsID);
 	
-	public String insert(PresentForSumPO po);
-	public boolean deletePresentForSum(String id);
-	public boolean update(PresentForSumPO po);
+	public DataRM insert(PresentForSumPO po);
+	public DataRM deletePresentForSum(String id);
+	public DataRM update(PresentForSumPO po);
 	public List<PresentForSumPO> getPresentForSum();
 	public List<PresentForSumPO> getPresentForSum(int sum);
 	

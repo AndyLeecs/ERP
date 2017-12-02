@@ -10,6 +10,10 @@ public class SalesmanListPO  implements Serializable{
 	  * 数据库id
 	  */
 	int id;
+	/**
+	 * 单据状态
+	 */
+	State state;
 	 /**
 	  * 日期，精确到天
 	  */	
@@ -45,10 +49,11 @@ public class SalesmanListPO  implements Serializable{
 	  */
 	 double sum;
 	 public SalesmanListPO(){}
-	 public SalesmanListPO(String memberID, String memberName, String operator, String warehouse, String notes,
+	 public SalesmanListPO(State state,String memberID, String memberName, String operator, String warehouse, String notes,
 				List<SalesmanItemPO> saleListItems, double sum) {
 			super();
 			this.day = new Date();//获取默认时间
+			this.state = state;
 			this.memberID = memberID;
 			this.memberName = memberName;
 			this.operator = operator;
@@ -110,6 +115,12 @@ public class SalesmanListPO  implements Serializable{
 	}
 	public void setSum(double sum) {
 		this.sum = sum;
+	}
+	public State getState() {
+		return state;
+	}
+	public void setState(State state) {
+		this.state = state;
 	}
 	 
 //	  double priceBeforeDiscount; //折让前总额

@@ -9,6 +9,7 @@
 		</id>
 		<!-- 单据中存了日期 -->
 		<property name="day"/>
+		<property name="state"/>
 		<property name="memberID" />
 		<property name="memberName" />
 		<property name="operator"/>
