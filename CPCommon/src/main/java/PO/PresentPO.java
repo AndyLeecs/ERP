@@ -9,11 +9,11 @@ import java.util.List;
 * @date 2017年10月27日
 * @description
 */
-public abstract class PresentPO{
+public class PresentPO implements Serializable{
 	/**
 	 * 策略编号
 	 */
-	String id;
+	int id;
 	/**
 	 *开始时间
 	 */	
@@ -22,16 +22,64 @@ public abstract class PresentPO{
 	 *结束时间
 	 */	
 	Date finishTime;
+	/**
+	 *赠品列表,或者特价包中特价商品
+	 */	
+	List<GoodsInSalePO> presentList;
 
-	public String getId() {
-		// TODO Auto-generated method stub
-		return this.id;
+
+//	public PresentPO(String id, Date startTime, Date finishTime) {
+//		super();
+//		this.id = id;
+//		this.startTime = startTime;
+//		this.finishTime = finishTime;
+//	}
+	public PresentPO(){
+	}
+	public PresentPO(Date startTime, Date finishTime,List<GoodsInSalePO> presentList) {
+		this.startTime = startTime;
+		this.finishTime = finishTime;
+		this.presentList = presentList;
 	}
 
-	public PresentPO(String id, Date startTime, Date finishTime) {
-		super();
+	public List<GoodsInSalePO> getPresentList() {
+		return presentList;
+	}
+	public void setPresentList(List<GoodsInSalePO> presentList) {
+		this.presentList = presentList;
+	}
+
+	private int getId() {
+		return id;
+	}
+
+
+
+	private void setId(int id) {
 		this.id = id;
+	}
+
+
+
+	public Date getStartTime() {
+		return startTime;
+	}
+
+
+
+	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
+	}
+
+
+
+	public Date getFinishTime() {
+		return finishTime;
+	}
+
+
+
+	public void setFinishTime(Date finishTime) {
 		this.finishTime = finishTime;
 	}
 	
