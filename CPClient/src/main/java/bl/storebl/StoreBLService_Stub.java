@@ -15,6 +15,7 @@ import util.ListType;
 * @date 2017年10月22日
 * @description
 */
+/*
 public class StoreBLService_Stub implements StoreBLService{
 
 
@@ -70,3 +71,4 @@ public class StoreBLService_Stub implements StoreBLService{
 		return null;
 	}
 }
+*/
