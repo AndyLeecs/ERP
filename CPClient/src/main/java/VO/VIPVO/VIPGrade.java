@@ -20,7 +20,7 @@ public enum VIPGrade {
 		this.grade = grade;
 	}
 	
-	public int getName(){
+	public int getGrade(){
 		return this.grade;
 	}
 }
