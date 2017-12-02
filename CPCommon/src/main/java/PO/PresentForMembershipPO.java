@@ -10,13 +10,12 @@ import java.util.List;
 * @description 针对不同级别的用户制定促销策略（赠品、价格折让、 赠送代金劵）
 */
 public class PresentForMembershipPO extends PresentPO implements Serializable{
-
-	public PresentForMembershipPO(String id, Date startTime, Date finishTime, MemberGrade grade, double sum,
-			List<GoodsInSalePO> presentList, double rebateInPresentForMembership, double voucher) {
-		super(id, startTime, finishTime);
+	public PresentForMembershipPO(){}
+	public PresentForMembershipPO(Date startTime, Date finishTime,List<GoodsInSalePO> presentList, MemberGrade grade, double sum,
+			 double rebateInPresentForMembership, double voucher) {
+		super(startTime, finishTime,presentList);
 		this.grade = grade;
 		this.sum = sum;
-		this.presentList = presentList;
 		this.rebateInPresentForMembership = rebateInPresentForMembership;
 		this.voucher = voucher;
 	}
@@ -28,10 +27,7 @@ public class PresentForMembershipPO extends PresentPO implements Serializable{
 	 *总额
 	 */	
 	double sum;
-	/**
-	 *赠品列表
-	 */	
-	List<GoodsInSalePO> presentList;
+
 	/**
 	 *折让价格
 	 */	
@@ -40,6 +36,31 @@ public class PresentForMembershipPO extends PresentPO implements Serializable{
 	 *赠送代金券金额
 	 */	
 	double voucher;
+	public MemberGrade getGrade() {
+		return grade;
+	}
+	public void setGrade(MemberGrade grade) {
+		this.grade = grade;
+	}
+	public double getSum() {
+		return sum;
+	}
+	public void setSum(double sum) {
+		this.sum = sum;
+	}
+
+	public double getRebateInPresentForMembership() {
+		return rebateInPresentForMembership;
+	}
+	public void setRebateInPresentForMembership(double rebateInPresentForMembership) {
+		this.rebateInPresentForMembership = rebateInPresentForMembership;
+	}
+	public double getVoucher() {
+		return voucher;
+	}
+	public void setVoucher(double voucher) {
+		this.voucher = voucher;
+	}
 
 	
 	

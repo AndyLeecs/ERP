@@ -1,6 +1,7 @@
 package PO;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**     
 * @author 李安迪
@@ -8,5 +9,24 @@ import java.io.Serializable;
 * @description
 */
 public class StockListPO extends SalesmanListPO implements Serializable{
+	/*
+	 * 单据编号
+	 */
+	String id;
+	public StockListPO(){}
+	public StockListPO(String memberID, String memberName, String operator, String warehouse, String notes,
+			List<SalesmanItemPO> saleListItems, double sum) {
+		super(memberID, memberName, operator, warehouse, notes,
+				saleListItems, sum);
+		this.id = getId();
+	}
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 }

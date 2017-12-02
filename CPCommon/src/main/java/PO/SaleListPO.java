@@ -1,6 +1,7 @@
 package PO;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**     
 * @author 李安迪
@@ -8,6 +9,10 @@ import java.io.Serializable;
 * @description
 */
 public class SaleListPO extends SalesmanListPO implements Serializable{
+	/**
+	 * 单据编号
+	 */
+	String id;
 	/**
 	 * 折让前总额
 	 */
@@ -20,5 +25,43 @@ public class SaleListPO extends SalesmanListPO implements Serializable{
 	 * 使用代金券金额
 	 */
 	double voucher;
+	public SaleListPO(){}
+	
+	public SaleListPO(String memberID, String memberName, String operator, String warehouse, String notes,
+			List<SalesmanItemPO> saleListItems, double sum,double sumBeforeRebate, double rebate, double voucher) {
+		super(memberID, memberName, operator, warehouse, notes,
+				saleListItems, sum);
+		this.id = getId();
+		this.sumBeforeRebate = sumBeforeRebate;
+		this.rebate = rebate;
+		this.voucher = voucher;
+	}
+
+	public double getSumBeforeRebate() {
+		return sumBeforeRebate;
+	}
+	public void setSumBeforeRebate(double sumBeforeRebate) {
+		this.sumBeforeRebate = sumBeforeRebate;
+	}
+	public double getRebate() {
+		return rebate;
+	}
+	public void setRebate(double rebate) {
+		this.rebate = rebate;
+	}
+	public double getVoucher() {
+		return voucher;
+	}
+	public void setVoucher(double voucher) {
+		this.voucher = voucher;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 }
