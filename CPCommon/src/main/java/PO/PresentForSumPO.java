@@ -10,9 +10,10 @@ import java.util.List;
 * @description 赠送策略，针对总价
 */
 public class PresentForSumPO extends PresentPO implements Serializable{
-	public PresentForSumPO(String id, Date startTime, Date finishTime, double sum, List<GoodsInSalePO> presentList,
+	public PresentForSumPO(){}
+	public PresentForSumPO(Date startTime, Date finishTime, double sum, List<GoodsInSalePO> presentList,
 			double voucher) {
-		super(id, startTime, finishTime);
+		super(startTime, finishTime,presentList);
 		this.sum = sum;
 		this.presentList = presentList;
 		this.voucher = voucher;
@@ -22,13 +23,22 @@ public class PresentForSumPO extends PresentPO implements Serializable{
 	 */
 	double sum;
 	/**
-	 *赠品列表
-	 */	
-	List<GoodsInSalePO> presentList;
-	/**
 	 * 赠送代金券金额
 	 */
 	double voucher;
+	public double getSum() {
+		return sum;
+	}
+	public void setSum(double sum) {
+		this.sum = sum;
+	}
+
+	public double getVoucher() {
+		return voucher;
+	}
+	public void setVoucher(double voucher) {
+		this.voucher = voucher;
+	}
 	
 	
 }
