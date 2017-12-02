@@ -17,7 +17,7 @@ import util.UserType;
 public class UserBLService_Stub implements UserBLService, PersonalInfoService{
 	
 	protected static final MessageVO messagevo = null;
-	protected static final UserVO uservo = new UserVO("007", "zzz","123",UserType.Salesman,UserGrade.General,UserPermission.Highest);
+	protected static final UserVO uservo = new UserVO("007", "zzz","123",UserType.Accountant,UserGrade.General,UserPermission.Highest);
 	protected static final OperationVO operationvo = null;
 	
 	
