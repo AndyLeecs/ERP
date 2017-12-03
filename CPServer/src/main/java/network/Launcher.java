@@ -7,10 +7,13 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 
+import dataService.presentDataService.PresentDataService;
+import dataService.saleDataService.SaleDataService;
 import dataService.storeDataService.StoreDataService;
-import dataServiceImpl.stroreImpl.*;
+import dataServiceImpl.presentImpl.PresentDataServiceImpl;
+import dataServiceImpl.saleImpl.SaleDataServiceImpl;
+import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
 public class Launcher {
 //RMI启动 
 //	 private static Registry registry; //不知道为什么在这儿会有warning	//因为你没有使用这个变量。。这个不需要
@@ -31,7 +34,10 @@ public class Launcher {
 			System.out.println("successful connection");
 			StoreDataService storeDataService=new StoreDataServiceImpl();
 			Naming.rebind("StoreDataService", storeDataService);
-			
+			PresentDataService presentDataService=new PresentDataServiceImpl();
+			Naming.rebind("PresentDataService", presentDataService);			
+			SaleDataService saleDataService=new SaleDataServiceImpl();
+			Naming.rebind("SaleDataService", saleDataService);		
 			return launcher;
 		} catch (RemoteException e) {
 			return null;

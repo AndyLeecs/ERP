@@ -6,7 +6,11 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
+import dataService.presentDataService.PresentDataService;
+import dataService.saleDataService.SaleDataService;
 import dataService.storeDataService.StoreDataService;
+import dataServiceImpl.presentImpl.PresentDataServiceImpl;
+import dataServiceImpl.saleImpl.SaleDataServiceImpl;
 import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
 
 public class ServerHelper {
@@ -24,7 +28,14 @@ public class ServerHelper {
 			StoreDataService storeDataService=new StoreDataServiceImpl();
 			Naming.bind("StoreDataService", storeDataService);
 			System.out.println("bind successed!");
+
+			PresentDataService presentDataService=new PresentDataServiceImpl();
+			Naming.bind("PresentDataService", presentDataService);
+			System.out.println("bind successed!");
 			
+			SaleDataService saleDataService=new SaleDataServiceImpl();
+			Naming.bind("SaleDataService", saleDataService);
+			System.out.println("bind successed!");
 			//所有的service都要在这里绑定一下
 			
 		} catch (RemoteException e) {
