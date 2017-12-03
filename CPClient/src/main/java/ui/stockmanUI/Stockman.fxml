@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FFF7FB;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stockmanUI.SaleController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FFF7FB;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.StockmanController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" />
       <Pane layoutX="-4.0" prefHeight="97.0" prefWidth="1207.0" style="-fx-background-color: #FFECEC;">
@@ -19,7 +19,7 @@
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
-            <ImageView layoutX="1148.0" layoutY="14.0">
+            <ImageView fx:id="logOutBtn" layoutX="1148.0" layoutY="14.0" onMouseClicked="#logOut">
                <image>
                   <Image url="@logOut.png" />
                </image>
@@ -38,45 +38,43 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
-            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
+            <MenuButton fx:id="newBtn" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
               <items>
-                <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" styleClass="ui.saleUI.Sale.css" text="单据1" />
-                <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单据2" />
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单        据         3" />
+                <MenuItem fx:id="newPresentListBtn" mnemonicParsing="false" style="-fx-background-color: transparant;" styleClass="ui.saleUI.Sale.css" text="库存赠送单" />
+                <MenuItem fx:id="newStockOverflowListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报溢单" />
+                  <MenuItem fx:id="newStockLostListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报损单" />
+                  <MenuItem fx:id="newAlarmListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报警单" />
               </items>
                <font>
                   <Font size="18.0" />
                </font>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      查看" textFill="#9f353a">
+            <MenuButton fx:id="lookBtn" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      查看" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
                <items>
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="单据1" />
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单据2" />
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="单        据         3" />
+                  <MenuItem fx:id="lookPresentListBtn" mnemonicParsing="false" style="-fx-background-color: transparant;" styleClass="ui.saleUI.Sale.css" text="库存赠送单" />
+                  <MenuItem fx:id="lookStockOverflowListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报溢单" />
+                  <MenuItem fx:id="lookStockLostListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报损单" />
+                  <MenuItem fx:id="lookAlarmListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报警单" />
                </items>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      商品" textFill="#9f353a">
+            <MenuButton fx:id="personBtn" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      个人" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
                <items>
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="商品管理" />
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="商品分类管理" />
+                  <MenuItem fx:id="messageBtn" mnemonicParsing="false" style="-fx-background-color: transparant;" text="消息" />
+                  <MenuItem fx:id="personalInfoBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="个人信息" />
                </items>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      个人" textFill="#9f353a">
+            <Button fx:id="goodsManageBtn" mnemonicParsing="false" onAction="#goodsManage" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="商品" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
-               <items>
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparant;" text="消息" />
-                  <MenuItem mnemonicParsing="false" style="-fx-background-color: transparent;" text="个人信息" />
-               </items>
-            </MenuButton>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="草稿" textFill="#9f353a">
+            </Button>
+            <Button fx:id="draftBtn" mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="草稿" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>

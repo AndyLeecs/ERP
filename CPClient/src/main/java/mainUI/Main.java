@@ -19,8 +19,9 @@ public class Main extends Application {
 			public void run() {
 				try {
 //					new Welcome();
-					new LoginWin();
+					//new LoginWin();
 					//new ui.saleUI.SaleWin();
+					new ui.stockmanUI.StockmanWin();
 
 				} catch (Exception e) {
 					e.printStackTrace();
