@@ -10,7 +10,7 @@ import VO.storeVO.storeRM;
 public class DataSetter {
    //用于调用数据层接口中的方法，向数据层插入数据
 	//工具类，为方便测试和优化结构写的。
-	
+	//王瑞华 2017年12月3日
 	public storeRM insertStoreVO(StoreVO vo){
 	//向数据库中插入一个库存项目，若该ID不存在，则允许插入，否则不允许。
 		//其实我觉得ID合法性也有必要检查一下
