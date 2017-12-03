@@ -44,4 +44,12 @@ public class DataSetter {
 	public ListRM insertPresentListVO(PresentListVO vo){
 		return  ListRM.SUCCESS;
 	}
+	
+	public ListRM replaceReportListVO(ReportListVO vo){
+		return ListRM.SUCCESS;
+		//向数据库中插入库存报告单的值对象（保存状态为草稿）
+	}
+	public ListRM replacePresentListVO(PresentListVO vo){
+		return  ListRM.SUCCESS;
+	}
 }

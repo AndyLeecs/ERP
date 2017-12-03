@@ -64,12 +64,17 @@ public class StoreblController implements StoreBLService{
             PresentListVO vo =getter.getPresentListVO(ID);
             PresentList pl=new PresentList(vo);
             pl.commit();
+            vo.statetype=StateType.ON_APPROVE;
+            setter.replacePresentListVO(vo);
             return ListRM.SUCCESS;
             
     	}else if(type.equals(StoreListType.OVERFLOW)||type.equals(StoreListType.LOSS)){
     		ReportListVO vo=getter.getReportListVO(ID);
     		ReportList rl=new ReportList(vo);
     		rl.commit();
+    		vo.statetype=StateType.ON_APPROVE;
+    		setter.replaceReportListVO(vo);
+    		
     		return ListRM.SUCCESS;
     	}else{
         return ListRM.WRONG_LISTTYPE;

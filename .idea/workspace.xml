@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="649bd520-b0c3-404d-97f2-1bdd52509486" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/Approvable.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/listbl/Approvable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/DataSetter.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/DataSetter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/PresentList.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/PresentList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/ReportList.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/ReportList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/StoreList.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/StoreList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/StoreblController.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/StoreblController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/CPCommon/target/" />
     <ignored path="$PROJECT_DIR$/CPServer/target/" />
@@ -20,71 +25,7 @@
     <favorites_list name="Cute_Project" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="StockmanWin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanWin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoodsWin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsWin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Accountant.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/accountantUI/Accountant.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccountantWinController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/accountantUI/AccountantWinController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccountantWin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/accountantUI/AccountantWin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataSetter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/DataSetter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -206,8 +147,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -216,61 +155,13 @@
               <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bl" type="462c0819:PsiDirectoryNode" />
-              <item name="storebl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cute_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="CPCommon" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -611,7 +502,8 @@
       <workItem from="1512137570529" duration="709000" />
       <workItem from="1512183684033" duration="11394000" />
       <workItem from="1512222678155" duration="105000" />
-      <workItem from="1512313361951" duration="181000" />
+      <workItem from="1512313361951" duration="422000" />
+      <workItem from="1512315107876" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="更新详细设计文档的present和sale部分">
       <created>1511925122309</created>
@@ -697,11 +589,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512313445344</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="基本写完了库存模块的逻辑">
+      <created>1512313559419</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1512313559419</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30900000" />
+    <option name="totallyTimeSpent" value="31170000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -857,20 +756,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/saledataservice/SaleDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/accountdataservice/AccountDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/saledataservice/SaleDataService.java" />
+    <entry file="file://$PROJECT_DIR$/CPServer/src/main/java/accountdataservice/AccountDataService.java" />
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/listblservice/ListBL.java" />
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/listVO/BusinessProcessConditionVO.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -929,13 +816,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/salesmanUI/Sale.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/userbl/UserBLService_Driver.java">
@@ -962,20 +849,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/network/StoreDataServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPCommon/src/main/java/network/StoreDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/network/StoreDataServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/CPCommon/src/main/java/network/StoreDataService.java" />
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/storeVO/AlarmListVO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -1041,7 +916,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,7 +954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1105,45 +978,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanWin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsWin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/accountantUI/Accountant.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/accountantUI/AccountantWinController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/storeVO/StoreListType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/DataSetter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1156,10 +1001,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/storebl/DataSetter.java">
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/accountantUI/AccountantWinController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="32" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/accountantUI/Accountant.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsWin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanWin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>

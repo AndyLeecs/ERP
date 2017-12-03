@@ -2,6 +2,8 @@ package bl.storebl;
 
 import VO.listVO.ListRM;
 import bl.listbl.Approvable;
+import bl.listbl.InfoList;
+import bl.listbl.InfoList_Impl;
 
 public class StoreList implements Approvable {
     /*
@@ -11,6 +13,7 @@ public class StoreList implements Approvable {
  * 这个类是继承树的根节点，其他有单据的包希望也能够模仿这种模式来写。
  * 王瑞华 161250143 2017年12月1日
 */
+	InfoList infoList =new InfoList_Impl();
     @Override
     public boolean check() {
         return false;

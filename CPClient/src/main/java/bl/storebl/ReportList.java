@@ -4,7 +4,7 @@ import VO.listVO.InfoListVO;
 
 import VO.storeVO.ReportListVO;
 import VO.storeVO.StoreListType;
-import bl.listbl.InfoList;
+
 import util.GreatListType;
 import util.ResultMessage;
 
@@ -13,7 +13,7 @@ public class ReportList extends StoreList  {
     * 王瑞华 161250143 2017年12月2日
      */
     ReportListVO vo;
-    InfoList infoList ;
+    
     public ReportList(ReportListVO vo){
         this.vo=vo;
     }
