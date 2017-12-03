@@ -8,6 +8,7 @@ public class OverflowListVO {
     int actualNum;
     int Num;
     int delta;
+    StateType st;
 
 
 }

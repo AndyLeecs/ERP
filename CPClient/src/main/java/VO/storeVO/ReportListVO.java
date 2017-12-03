@@ -2,6 +2,7 @@ package VO.storeVO;
 
 public class ReportListVO {
    public  StoreListType st;
+   public StateType statetype;
     public int actualNum;
     public int Num;
    public  int delta;

@@ -1,10 +1,10 @@
 package bl.storebl;
 
-import VO.ListVO;
+
 import VO.listVO.ListRM;
 import VO.storeVO.*;
 import blservice.storeblservice.StoreBLService;
-import util.ListType;
+
 import bl.storebl.DataGetter;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,6 +13,7 @@ public class StoreblController implements StoreBLService{
     //控制器，负责分发库存类的职责
     // 王瑞华 161250143 2017年12月2日
     DataGetter getter=new DataGetter();
+    DataSetter setter =new DataSetter();
     @Override
     public LinkedList<AlarmListVO> openAlarmList() {
         //查看全部库存报警单
@@ -43,19 +44,36 @@ public class StoreblController implements StoreBLService{
     }
 
     @Override
-    public ListRM saveReportList(StoreListType type, ReportListVO vo) {
-        return null;
+    public ListRM saveReportList( ReportListVO vo) {
+    	//保存草稿单：
+    	//再次说明：保存并提交这个操作需要手动调用保存并手动调用提交
+    	vo.statetype=StateType.DRAFT;
+        return setter.insertReportListVO(vo);
     }
 
 
     @Override
     public ListRM savePresentList(PresentListVO vo) {
-        return null;
+    	vo.statetype=StateType.DRAFT;
+        return setter.insertPresentListVO(vo);
     }
 
     @Override
     public ListRM commit(StoreListType type, String ID) {
-        return null;
+    	if(type.equals(StoreListType.PRESENT)){
+            PresentListVO vo =getter.getPresentListVO(ID);
+            PresentList pl=new PresentList(vo);
+            pl.commit();
+            return ListRM.SUCCESS;
+            
+    	}else if(type.equals(StoreListType.OVERFLOW)||type.equals(StoreListType.LOSS)){
+    		ReportListVO vo=getter.getReportListVO(ID);
+    		ReportList rl=new ReportList(vo);
+    		rl.commit();
+    		return ListRM.SUCCESS;
+    	}else{
+        return ListRM.WRONG_LISTTYPE;
+    	}
     }
 
 

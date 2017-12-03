@@ -39,24 +39,6 @@ public class ListblController implements Listblservice {
     @Override
     public ListRM toExcle(GreatListType type, String id) {
 
-        switch (type){
-            case ALL:
-                break;
-            case SALE:
-               //调用销售单的导出方法
-                return ListRM.SUCCESS;
-
-            case STORE:
-                return ListRM.SUCCESS;
-
-            case ACCOUNT:
-                return ListRM.SUCCESS;
-
-            case PRESENT:
-                return ListRM.SUCCESS;
-
-
-        }
         return ListRM.WRONG_LISTTYPE;
     }
 }

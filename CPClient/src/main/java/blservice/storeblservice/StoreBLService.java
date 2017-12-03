@@ -3,10 +3,10 @@ package blservice.storeblservice;
 import java.util.LinkedList;
 import java.util.List;
 
-import VO.ListVO;
+
 import VO.listVO.ListRM;
 import VO.storeVO.*;
-import util.ListType;
+
 
 /**     
 * @author 李安迪/王瑞华
@@ -35,7 +35,7 @@ public interface StoreBLService {
 	public List<PresentListVO> openPresentList(StateType st);
 	public String toExcel(	InventoryVO vo);
 	public String newList(StoreListType type);
-	public ListRM saveReportList (StoreListType type , ReportListVO vo);
+	public ListRM saveReportList ( ReportListVO vo);
 	public ListRM savePresentList ( PresentListVO vo);
 	public ListRM commit (StoreListType type , String ID);
 	 public storeCheckVO store_check(String begintime,String endTime);
