@@ -14,6 +14,9 @@ import util.SaveListRM;
 
 public class FinanceListServiceController implements FinanceListService{
 
+	FinanceList financeList = new FinanceList();
+	PaymentList paymentList = new PaymentList();
+	
 	@Override
 	public String newPaymentList() {
 		// TODO Auto-generated method stub
@@ -34,50 +37,42 @@ public class FinanceListServiceController implements FinanceListService{
 
 	@Override
 	public List<FinanceListVO> openDraft() {
-		// TODO Auto-generated method stub
-		return null;
+		return financeList.openDraft();
 	}
 
 	@Override
 	public List<CollectionListVO> openCollectionDraft() {
-		// TODO Auto-generated method stub
-		return null;
+		return financeList.openCollectionDraft();
 	}
 
 	@Override
 	public List<PaymentListVO> openPaymentDraft() {
-		// TODO Auto-generated method stub
-		return null;
+		return financeList.openPaymentDraft();
 	}
 
 	@Override
 	public List<CashExpenseListVO> openCashExpenseDraft() {
-		// TODO Auto-generated method stub
-		return null;
+		return financeList.openCashExpenseDraft();
 	}
 
 	@Override
 	public List<FinanceListVO> openComitted() {
-		// TODO Auto-generated method stub
-		return null;
+		return financeList.openComitted();
 	}
 
 	@Override
 	public List<PaymentListVO> openPaymentComitted() {
-		// TODO Auto-generated method stub
-		return null;
+		return financeList.openPaymentComitted();
 	}
 
 	@Override
 	public List<CollectionListVO> openCollectionComitted() {
-		// TODO Auto-generated method stub
-		return null;
+		return financeList.openCollectionComitted();
 	}
 
 	@Override
 	public List<CashExpenseListVO> openCashExpenseComitted() {
-		// TODO Auto-generated method stub
-		return null;
+		return financeList.openCashExpenseComitted();
 	}
 
 	@Override
