@@ -18,6 +18,7 @@ public class Test {
 	    {
 	        System.out.println("Maven + Hibernate + MySQL");
 	        HibernateUtil hibernateUtil = new HibernateUtil();
+	    
 	        Session session = hibernateUtil.session;
 	        
 	        session.beginTransaction();

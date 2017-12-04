@@ -20,7 +20,8 @@ public class HibernateUtil {
     
     public HibernateUtil(){
     	sessionFactory = new Configuration().configure().buildSessionFactory();
-    	
+    	//下面那行在实际实现中可能需要注释掉，待设计
+    	session = sessionFactory.openSession();
     }
     
     /**
