@@ -15,10 +15,10 @@ public class GoodsWin extends Stage{
 	@FXML AnchorPane root2;
 	
 	public GoodsWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("Stockman.fxml"));
-		root2 = FXMLLoader.load(getClass().getResource("Goods2.fxml"));
-		root.getChildren().add(root2);
-		
+//		root = FXMLLoader.load(getClass().getResource("Stockman.fxml"));
+//		root2 = FXMLLoader.load(getClass().getResource("Goods2.fxml"));
+//		root.getChildren().add(root2);
+		root = FXMLLoader.load(getClass().getResource("Goods2.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("Stock.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
