@@ -14,10 +14,9 @@ public class StockListPO extends SalesmanListPO implements Serializable{
 	 */
 	String id;
 	public StockListPO(){}
-	public StockListPO(String memberID, String memberName, String operator, String warehouse, String notes,
-			List<SalesmanItemPO> saleListItems, double sum,String id) {
-		super(memberID, memberName, operator, warehouse, notes,
-				saleListItems, sum);
+	public StockListPO(State state, String memberID, String memberName, String operator, String warehouse, String notes,
+			List<SalesmanItemPO> saleListItems, double sum, String id) {
+		super(state, memberID, memberName, operator, warehouse, notes, saleListItems, sum);
 		this.id = id;
 	}
 

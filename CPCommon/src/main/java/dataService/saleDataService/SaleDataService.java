@@ -1,5 +1,6 @@
 package dataService.saleDataService;
 
+import java.io.Serializable;
 import java.rmi.Remote;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import PO.StockListPO;
 import PO.StockReturnListPO;
 import util.DataRM;
 
-public interface SaleDataService extends Remote{
+public interface SaleDataService extends Remote,Serializable{
 	public List<SalesmanListPO> get(State state);
 	
 	public String getNewSaleListId();

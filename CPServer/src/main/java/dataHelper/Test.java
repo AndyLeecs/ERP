@@ -19,7 +19,8 @@ public class Test {
 	 public static void main( String[] args )
 	    {
 	        System.out.println("Maven + Hibernate + MySQL");
-	        Session session = HibernateUtil.getSessionFactory().openSession();
+	        HibernateUtil hibernateUtil = new HibernateUtil();
+	        Session session = hibernateUtil.session;
 	        
 	        session.beginTransaction();
 //	        OperationPO op = new OperationPO("0001", "time", "operator", "category", "operation");

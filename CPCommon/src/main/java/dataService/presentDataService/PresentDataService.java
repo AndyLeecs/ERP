@@ -1,5 +1,6 @@
 package dataService.presentDataService;
 
+import java.io.Serializable;
 import java.rmi.Remote;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import util.DataRM;
 * @date 2017年11月9日
 * @description
 */
-public interface PresentDataService extends Remote{
+public interface PresentDataService extends Remote,Serializable{
 	public List<PresentPO> get();
 	
 	public DataRM insert(PresentForMembershipPO po);

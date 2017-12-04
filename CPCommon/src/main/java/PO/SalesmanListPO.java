@@ -48,7 +48,6 @@ public class SalesmanListPO  implements Serializable{
 	  * 最终金额
 	  */
 	 double sum;
-	 public SalesmanListPO(){}
 	 public SalesmanListPO(State state,String memberID, String memberName, String operator, String warehouse, String notes,
 				List<SalesmanItemPO> saleListItems, double sum) {
 			super();
@@ -62,6 +61,9 @@ public class SalesmanListPO  implements Serializable{
 			SaleListItems = saleListItems;
 			this.sum = sum;
 		}
+
+	 public SalesmanListPO(){}
+
 	private int getId() {
 		return id;
 	}
