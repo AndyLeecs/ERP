@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import network.accountRemoteHelper.PaymentListDataServiceHelper;
+import network.presentRemoteHelper.PresentDataServiceHelper;
+import network.saleRemoteHelper.SaleDataServiceHelper;
 import network.storeRemoteHelper.StoreDataServiceHelper;
 
 /**
@@ -33,7 +35,8 @@ public class ServerConnector {
 	private void addServices(){
 		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
-		
+		dataServiceHelpers.add(SaleDataServiceHelper.getInstance());
+		dataServiceHelpers.add(PresentDataServiceHelper.getInstance());		
 		//哈哈，巧妙的设计了一番，每个helper只需在这里add一下就行了
 	}
 	
