@@ -7,6 +7,7 @@ import VO.accountVO.CashExpenseListVO;
 import VO.accountVO.CollectionListVO;
 import VO.accountVO.FinanceListVO;
 import VO.accountVO.PaymentListVO;
+import bl.utility.DomainList;
 import blservice.accountblservice.FinanceListService;
 import util.CommitListRM;
 import util.DeleteListRM;
@@ -16,6 +17,8 @@ public class FinanceListServiceController implements FinanceListService{
 
 	FinanceList financeList = new FinanceList();
 	PaymentList paymentList = new PaymentList();
+	
+	DomainList domainList = new PaymentList();
 	
 	@Override
 	public String newPaymentList() {

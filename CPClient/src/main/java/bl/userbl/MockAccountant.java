@@ -1,4 +1,4 @@
-package bl.userbl.mock;
+package bl.userbl;
 
 import java.util.ArrayList;
 

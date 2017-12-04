@@ -1,5 +1,7 @@
 package dataService.accountDataService;
 
-public interface PaymentListDataService {
+import java.rmi.Remote;
+
+public interface PaymentListDataService extends Remote{
 
 }

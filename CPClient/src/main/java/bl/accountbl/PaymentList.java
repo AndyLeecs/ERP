@@ -1,17 +1,18 @@
 package bl.accountbl;
 
-import java.util.List;
+import bl.utility.DomainList;
+import dataService.accountDataService.PaymentListDataService;
+import network.accountRemoteHelper.PaymentListDataServiceHelper;
 
-import VO.ListVO;
-import VO.accountVO.PaymentListVO;
-import utility.DomainList;
+public class PaymentList extends DomainList{
 
-public class PaymentList implements DomainList{
+	PaymentListDataService dataService = PaymentListDataServiceHelper.getInstance().getPaymentListDataService();
+		
 
 	@Override
-	public String newList() {
-		// TODO Auto-generated method stub
-		return null;
+	public PaymentListDataService getDataService() {
+		return dataService;
 	}
+	
 	
 }
