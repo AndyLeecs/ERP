@@ -18,7 +18,7 @@ public class GoodsController {
 	@FXML public TextField searchField;
 	@FXML public Button searchBtn;
 	
-	@FXML public ImageView logOut;
+	//@FXML public ImageView logOut;
 	
 	
 

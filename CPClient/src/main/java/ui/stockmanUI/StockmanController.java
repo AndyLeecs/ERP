@@ -7,6 +7,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import mainUI.LoginWin;
 /**
  * 
@@ -32,6 +33,8 @@ public class StockmanController {
 	@FXML public MenuItem lookAlarmListBtn;
 	@FXML public MenuItem messageBtn;
 	@FXML public MenuItem personalInfoBtn;
+	
+	@FXML public Pane addNext;
 	
 	@FXML public void init() {
 	
