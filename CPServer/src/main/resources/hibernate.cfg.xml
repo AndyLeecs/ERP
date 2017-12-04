@@ -32,7 +32,8 @@
 		<mapping resource="OperationPO.hbm.xml" />
 		<mapping resource="PresentPO.hbm.xml" />
 		<mapping resource="GoodsInSalePO.hbm.xml" />
-		<mapping resource="SalesmanListPO.hbm.xml" />
+
 		<mapping resource="SalesmanItemPO.hbm.xml" />
+		<mapping resource="SalesmanListPO.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

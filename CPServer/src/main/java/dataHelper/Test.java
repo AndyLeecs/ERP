@@ -13,6 +13,7 @@ import java.util.List;
 * @date 2017年12月1日
 * @description
 */
+//
 public class Test {
 	 public static void main( String[] args )
 	    {
@@ -20,7 +21,7 @@ public class Test {
 	        HibernateUtil hibernateUtil = new HibernateUtil();
 	        Session session = hibernateUtil.session;
 	        
-	        session.beginTransaction();
+//	        session.beginTransaction();
 //	        OperationPO op = new OperationPO("0001", "time", "operator", "category", "operation");
 
 	        Date startTime = new Date(107, 0, 1);

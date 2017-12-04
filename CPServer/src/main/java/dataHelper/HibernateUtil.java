@@ -20,7 +20,7 @@ public class HibernateUtil {
     
     public HibernateUtil(){
     	sessionFactory = new Configuration().configure().buildSessionFactory();
-    	
+    	setUpSession();
     }
     
     /**
