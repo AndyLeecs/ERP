@@ -16,8 +16,8 @@ public class GoodsWin extends Stage{
 	
 	public GoodsWin() throws IOException{
 		root = FXMLLoader.load(getClass().getResource("Stockman.fxml"));
-		root2 = FXMLLoader.load(getClass().getResource("Goods.fxml"));
-		root.getChildren().addAll(root2);
+		root2 = FXMLLoader.load(getClass().getResource("Goods2.fxml"));
+		root.getChildren().add(root2);
 		
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("Stock.css").toExternalForm());
