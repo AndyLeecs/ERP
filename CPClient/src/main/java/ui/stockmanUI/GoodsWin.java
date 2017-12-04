@@ -13,13 +13,12 @@ import javafx.stage.StageStyle;
 
 public class GoodsWin extends Stage{
 	@FXML AnchorPane root;
-	@FXML AnchorPane root2;
-	@FXML Pane addNext;
+	//@FXML AnchorPane root2;
+	//@FXML Pane addNext;
 	
 	public GoodsWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("Stockman.fxml"));
-		root2 = FXMLLoader.load(getClass().getResource("Goods2.fxml"));
-		root.getChildren().add(root2);
+		root = FXMLLoader.load(getClass().getResource("Goods2.fxml"));
+		//root.getChildren().add(root2);
 		
 		//addNext.getChildren().add(root2);
 		
