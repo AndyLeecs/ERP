@@ -12,9 +12,12 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 
-    private SessionFactory sessionFactory;
-    private Session session;
+//    private SessionFactory sessionFactory;
+//    private Session session;
 
+    public SessionFactory sessionFactory;
+    public Session session;//用public简易测试
+    
     public HibernateUtil(){
     	sessionFactory = new Configuration().configure().buildSessionFactory();
     	
