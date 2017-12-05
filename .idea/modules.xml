@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/0000.iml" filepath="$PROJECT_DIR$/0000.iml" />
       <module fileurl="file://$PROJECT_DIR$/CPClient/CPClient.iml" filepath="$PROJECT_DIR$/CPClient/CPClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/CPCommon/CPCommon.iml" filepath="$PROJECT_DIR$/CPCommon/CPCommon.iml" />
       <module fileurl="file://$PROJECT_DIR$/CPServer/CPServer.iml" filepath="$PROJECT_DIR$/CPServer/CPServer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Cute_Project.iml" filepath="$PROJECT_DIR$/Cute_Project.iml" />
     </modules>
   </component>
 </project>

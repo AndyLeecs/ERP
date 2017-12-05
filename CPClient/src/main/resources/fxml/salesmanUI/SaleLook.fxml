@@ -19,17 +19,17 @@
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
-            <ImageView layoutX="1161.0" layoutY="17.0">
-               <image>
-                  <Image url="@logOut.png" />
-               </image>
-            </ImageView>
+            <Label layoutX="1136.0" layoutY="13.0" text="注销" textFill="#9f353a">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane layoutX="214.0" layoutY="123.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
          <children>
             <Label layoutX="34.0" layoutY="14.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
-            <Label layoutX="55.0" layoutY="23.0" text="库存报损单">
+            <Label layoutX="55.0" layoutY="23.0" text="销售单">
                <font>
                   <Font size="18.0" />
                </font>
@@ -95,6 +95,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <Button layoutX="812.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="83.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="审核通过" textFill="WHITE" />
             <Label layoutX="267.0" layoutY="93.0" text="护眼台灯*1" textFill="#57938b" />
             <Label layoutX="359.0" layoutY="92.0" text="水晶灯*1" textFill="#57938b" />
             <Label layoutX="435.0" layoutY="92.0" text="节能灯*1" textFill="#57938b" />
@@ -115,10 +116,9 @@
             </Label>
             <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="2.0">
                <image>
-                  <Image url="@lamp1.JPG" />
+                  <Image url="@/img/lamp1.JPG" />
                </image>
             </ImageView>
-            <Button layoutX="817.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-border-color: #9f353a;" text="审核通过" textFill="#9f353a" />
          </children>
       </Pane>
       <Pane layoutX="214.0" layoutY="515.0" prefHeight="200.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
@@ -130,6 +130,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <Button layoutX="815.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="审核未通过" textFill="WHITE" />
             <Label layoutX="273.0" layoutY="101.0" text="护眼台灯*3" textFill="#57938b" />
             <Label layoutX="269.0" layoutY="137.0" text="¥270" textFill="#e12121">
                <font>
@@ -148,11 +149,15 @@
             </Label>
             <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="1.0">
                <image>
-                  <Image url="@lamp1.JPG" />
+                  <Image url="@/img/lamp1.JPG" />
                </image>
             </ImageView>
-            <Button layoutX="814.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-border-color: #9f353a;" text="审核未通过" textFill="#9f353a" />
          </children>
       </Pane>
+      <ImageView fx:id="clientImage" fitHeight="111.0" fitWidth="112.0" layoutX="51.0" layoutY="32.0" onMouseClicked="#onClientImageClicked" opacity="0.79">
+         <image>
+            <Image url="@/img/client1.JPG" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

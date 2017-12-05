@@ -11,12 +11,12 @@
    <children>
       <ImageView fitHeight="408.0" fitWidth="608.0" layoutX="-2.0" layoutY="-3.0">
          <image>
-            <Image url="@1.jpg" />
+            <Image url="@/img/1.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="390.0" layoutY="74.0">
          <image>
-            <Image url="@lamp1.JPG" />
+            <Image url="@/img/lamp1.JPG" />
          </image>
       </ImageView>
       <ScrollPane layoutX="390.0" layoutY="74.0" prefHeight="200.0" prefWidth="200.0">

@@ -12,10 +12,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="0000" target="1.8" />
       <module name="CPClient" target="1.8" />
       <module name="CPCommon" target="1.8" />
       <module name="CPServer" target="1.8" />
-      <module name="Cute_Project" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

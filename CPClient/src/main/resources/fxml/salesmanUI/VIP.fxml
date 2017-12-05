@@ -21,7 +21,7 @@
             </Label>
             <ImageView layoutX="1159.0" layoutY="15.0">
                <image>
-                  <Image url="@../stockmanUI/logOut.png" />
+                  <Image url="@/img/logOut.png" />
                </image>
             </ImageView>
          </children>

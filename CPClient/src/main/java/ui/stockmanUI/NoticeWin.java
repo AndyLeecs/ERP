@@ -14,9 +14,9 @@ public class NoticeWin extends Stage{
 	@FXML
 	AnchorPane root;
 	public NoticeWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("Notice.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Notice.fxml"));
 		Scene scene = new Scene(root,600,400);
-		scene.getStylesheets().add(getClass().getResource("Stock.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/css/stockmanUI/Stock.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);

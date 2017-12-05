@@ -14,9 +14,9 @@ public class SaleWin extends Stage{
 	@FXML
 	AnchorPane root;
 	public SaleWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("Sale.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/fxml/salesmanUI/Sale.fxml"));
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("Sale.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/css/salesmanUI/Sale.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);

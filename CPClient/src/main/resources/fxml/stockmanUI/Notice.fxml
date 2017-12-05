@@ -12,7 +12,7 @@
    <children>
       <ImageView layoutX="237.0" layoutY="117.0">
          <image>
-            <Image url="@success.png" />
+            <Image url="@/img/success.png" />
          </image>
       </ImageView>
       <Label layoutX="238.0" layoutY="260.0" text="SUCCESS" textFill="#2aab5b">

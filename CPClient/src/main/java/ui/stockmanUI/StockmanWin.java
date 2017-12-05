@@ -15,11 +15,9 @@ public class StockmanWin extends Stage{
 	//@FXML AnchorPane root2;
 	
 	public StockmanWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("Stockman.fxml"));
-		//root2 = FXMLLoader.load(getClass().getResource("Goods.fxml"));
-		//root.getChildren().add(root2);
+		root = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Stockman.fxml"));
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("Stock.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/css/stockmanUI/Stock.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 		
 		this.setScene(scene);
