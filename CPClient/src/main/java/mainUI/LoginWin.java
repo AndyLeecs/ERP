@@ -14,9 +14,9 @@ public class LoginWin extends Stage{
 	@FXML
 	AnchorPane root;
 	public LoginWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/fxml/mainUI/Login.fxml"));
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/css/mainUI/Login.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);

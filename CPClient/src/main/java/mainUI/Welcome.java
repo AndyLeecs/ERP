@@ -64,7 +64,7 @@ class Browser extends Region {
         //apply the styles
         getStyleClass().add("browser");
         // load the web page
-        String url = getClass().getResource("Try.html").toExternalForm();
+        String url = getClass().getResource("/html/Try.html").toExternalForm();
         webEngine.load(url);
         //add the web view to the scene
         getChildren().add(browser);
