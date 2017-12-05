@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class CommonController {
     @FXML public AnchorPane root;
-    @FXML public ImageView logOut;
+    @FXML public ImageView logOutBtn;
 
     @FXML
     public void logOut() {

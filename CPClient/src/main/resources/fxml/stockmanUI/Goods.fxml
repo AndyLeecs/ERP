@@ -19,7 +19,7 @@
             </Label>
             <TextField fx:id="searchField" layoutX="625.0" layoutY="74.0" onMouseClicked="#setSearchField" prefHeight="32.0" prefWidth="167.0" style="-fx-background-radius: 23; -fx-border-radius: 23;" />
             <Button fx:id="searchBtn" layoutX="825.0" layoutY="77.0" mnemonicParsing="false" onAction="#setSearchBtn" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="查询" textFill="WHITE" />
-            <ImageView layoutX="761.0" layoutY="78.0">
+            <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="764.0" layoutY="81.0">
                <image>
                   <Image url="@../../img/search.png" />
                </image>
