@@ -30,7 +30,7 @@ public class CategoryVO {
 	    Map<String, String> goods;
 	    
 		public CategoryVO(String id, String name, String parentID, Map<String, String> childCategoryList,
-		Map<String, String> goods) {
+                          Map<String, String> goods) {
 	super();
 	this.id = id;
 	this.name = name;
@@ -38,36 +38,43 @@ public class CategoryVO {
 	this.childCategoryList = childCategoryList;
 	this.goods = goods;
 }
-public String getId() {
+    public String getId() {
 	return id;
 }
-public void setId(String id) {
+
+    public void setId(String id) {
 	this.id = id;
 }
-public String getName() {
+
+    public String getName() {
 	return name;
 }
-public void setName(String name) {
+
+    public void setName(String name) {
 	this.name = name;
 }
-public String getParentID() {
+
+    public String getParentID() {
 	return this.parentID;
 }
-public void setParentID(String parentID) {
+
+    public void setParentID(String parentID) {
 	this.parentID = parentID;
 }
-public Map<String, String> getChildCategoryList() {
+
+    public Map<String, String> getChildCategoryList() {
 	return childCategoryList;
 }
-public void setChildCategoryList(Map<String, String> childCategoryList) {
+
+    public void setChildCategoryList(Map<String, String> childCategoryList) {
 	this.childCategoryList = childCategoryList;
 }
-public Map<String, String> getGoods() {
+
+    public Map<String, String> getGoods() {
 	return goods;
 }
-public void setGoods(Map<String, String> goods) {
+
+    public void setGoods(Map<String, String> goods) {
 	this.goods = goods;
-} 
-    
-	
+}
 }

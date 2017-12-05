@@ -3,13 +3,14 @@ package bl.VIPbl;
 import java.util.ArrayList;
 
 import VO.VIPVO.VIPVO;
+import blservice.VIPblservice.VIPBLService;
 import util.ResultMessage;
 /**
  * 
  * @author julia98
  *
  */
-public class VIPBL_Stub implements blservice.VIPblservice.VIPBLImpl {
+public class VIPBL_Stub implements VIPBLService {
 	String id = "00000001";
 	
 	private static final VIPVO testVIPVO = new VIPVO("Julia","18812345678","123456789@qq.com","南大仙林校区","210023");

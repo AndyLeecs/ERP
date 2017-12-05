@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
-import blservice.VIPblservice.VIPBLImpl;
+import blservice.VIPblservice.VIPBLService;
 import util.ResultMessage;
 /**
  * 
@@ -17,7 +17,7 @@ public class VIPBL_Driver {
 	String info = "Julia";
 	String type = "name";
 	String testResult;
-	VIPBLImpl test;
+	VIPBLService test;
 	private static final VIPVO test_0 = new VIPVO(null, null, null, null, null);
 	
 	public void drive() {

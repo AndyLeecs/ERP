@@ -11,7 +11,7 @@ import util.ResultMessage;
  * @author julia98
  * 
  */
-public interface VIPBLImpl {
+public interface VIPBLService {
 	/**
 	 * 前置条件	用户选择新建客户
      * 后置条件	系统显示客户电话和编号

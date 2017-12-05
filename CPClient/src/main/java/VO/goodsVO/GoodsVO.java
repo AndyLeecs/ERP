@@ -34,15 +34,15 @@ public class GoodsVO {
 	 */
 	double recentSellPrice;
 	
-	public GoodsVO(String a,String b,String c,String d,double f,double g,double h,double i) {
-		goodsID = a;
-		goodsCategory = b;
-		goodsName = c;
-		goodsType = d;
-		goodsBuyPrice = f;
-		goodsSellPrice = g;
-		recentBuyPrice = h;
-		recentSellPrice = i;
+	public GoodsVO(String goodsID,String goodsCategory,String goodsName,String goodsType,double goodsBuyPrice,double goodsSellPrice,double recentBuyPrice,double recentSellPrice) {
+		this.goodsID = goodsID;
+		this.goodsCategory = goodsCategory;
+		this.goodsName = goodsName;
+		this.goodsType = goodsType;
+		this.goodsBuyPrice = goodsBuyPrice;
+		this.goodsSellPrice = goodsSellPrice;
+		this.recentBuyPrice = recentBuyPrice;
+		this.recentSellPrice = recentSellPrice;
 	}
 	
 	public String getGoods() {

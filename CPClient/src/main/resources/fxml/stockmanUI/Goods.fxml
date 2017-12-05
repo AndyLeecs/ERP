@@ -27,18 +27,7 @@
          </children></Pane>
       <Pane layoutX="429.0" layoutY="281.0" prefHeight="435.0" prefWidth="706.0" style="-fx-background-color: #FFB5B5;">
          <children>
-            <Label layoutX="264.0" layoutY="94.0" text="商品编号:XSD-yyyyMMdd-xxxxx" textFill="#000000a1" />
             <Label layoutX="483.0" layoutY="21.0" />
-            <Label layoutX="302.0" layoutY="268.0" text="¥2350" textFill="#a10707">
-               <font>
-                  <Font name="AdobeHebrew-Regular" size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="353.0" layoutY="57.0" text="商品型号" textFill="#d06d21">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
             <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="2.0">
                <image>
                   <Image url="@../../img/lamp1.JPG" />
@@ -49,37 +38,50 @@
             <Label layoutX="248.0" layoutY="274.0" text="销售价" textFill="#000000a1" />
             <Label layoutX="440.0" layoutY="274.0" text="最近销售价" textFill="#000000a1" />
             <Label layoutX="446.0" layoutY="209.0" text="最近进价" textFill="#000000a1" />
-            <Label layoutX="302.0" layoutY="203.0" text="¥250" textFill="#a10707">
-               <font>
-                  <Font name="AdobeHebrew-Regular" size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="528.0" layoutY="203.0" text="¥250" textFill="#a10707">
-               <font>
-                  <Font name="AdobeHebrew-Regular" size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="528.0" layoutY="268.0" text="¥2350" textFill="#a10707">
-               <font>
-                  <Font name="AdobeHebrew-Regular" size="24.0" />
-               </font>
-            </Label>
             <Label layoutX="242.0" layoutY="39.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
             <ImageView fx:id="editBtn" fitHeight="25.0" fitWidth="25.0" layoutX="631.0" layoutY="23.0" onMouseClicked="#setEditBtn">
                <image>
                   <Image url="@../../img/edit.png" />
                </image>
             </ImageView>
-            <Label layoutX="347.0" layoutY="149.0" text="5" textFill="#228a6ea1">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <TextField editable="false" layoutX="257.0" layoutY="42.0" prefHeight="37.0" prefWidth="75.0" style="-fx-background-color: transparent;" text="商品名">
+            <TextField fx:id="goodsName" editable="false" layoutX="257.0" layoutY="42.0" prefHeight="37.0" prefWidth="75.0" style="-fx-background-color: transparent; -fx-background-radius: 20; -fx-border-radius: 20;" text="商品名">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
+            <TextField fx:id="goodsType" editable="false" layoutX="340.0" layoutY="45.0" prefHeight="17.0" prefWidth="89.0" style="-fx-background-color: transparent;" text="商品型号">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="goodsID" editable="false" layoutX="340.0" layoutY="102.0" prefHeight="17.0" prefWidth="213.0" style="-fx-background-color: transparent;" text="XSD-yyyyMMdd-xxxxx" />
+            <TextField fx:id="goodsStoreNum" editable="false" layoutX="341.0" layoutY="145.0" prefHeight="32.0" prefWidth="39.0" style="-fx-background-color: transparent; -fx-background-radius: 20; -fx-border-radius: 20;" text="5">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="goodsBuyPrice" editable="false" layoutX="296.0" layoutY="195.0" prefHeight="45.0" prefWidth="89.0" style="-fx-background-color: transparent; -fx-background-radius: 20; -fx-border-radius: 20;" text="250">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="recentBuyPrice" editable="false" layoutX="521.0" layoutY="195.0" prefHeight="17.0" prefWidth="89.0" style="-fx-background-color: transparent; -fx-background-radius: 20; -fx-border-radius: 20;" text="250">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="goodsSellPrice" editable="false" layoutX="296.0" layoutY="260.0" prefHeight="17.0" prefWidth="89.0" style="-fx-background-color: transparent; -fx-border-radius: 20; -fx-background-radius: 20;" text="2350">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="recentSellPrice" editable="false" layoutX="521.0" layoutY="260.0" prefHeight="17.0" prefWidth="89.0" style="-fx-background-color: transparent; -fx-background-radius: 20; -fx-border-radius: 20;" text="2350">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <Label layoutX="270.0" layoutY="107.0" text="商品编号" textFill="#000000a1" />
+            <Button fx:id="saveGoodsInfoBtn" layoutX="611.0" layoutY="352.0" mnemonicParsing="false" onAction="#setSaveGoodsInfoBtn" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="保存" textFill="WHITE" />
          </children>
       </Pane>
       <Pane layoutX="214.0" layoutY="282.0" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
