@@ -1,39 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FFF7FB;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.StockmanController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.StockmanController">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" />
-      <Pane layoutX="-4.0" prefHeight="97.0" prefWidth="1207.0" style="-fx-background-color: #FFECEC;">
-         <children>
-            <Label layoutX="206.0" layoutY="20.0" text="CuteProject" textFill="#9f353a">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="logOutBtn" layoutX="1148.0" layoutY="14.0" onMouseClicked="#logOut">
-               <image>
-                  <Image url="@/img/logOut.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Pane fx:id="addNext" layoutX="177.0" layoutY="121.0" opacity="0.39" prefHeight="646.0" prefWidth="978.0" style="-fx-background-color: transparant;">
-         <children>
-            <Label layoutX="413.0" layoutY="290.0" prefHeight="82.0" prefWidth="152.0" text="WELCOME" textAlignment="CENTER" textFill="#9f353a" textOverrun="CLIP">
-               <font>
-                  <Font size="28.0" />
-               </font>
-            </Label>
-         </children></Pane>
+      <fx:include source="../commonUI/Background.fxml" />
       <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
          <children>
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparant;" textFill="#9f353a" />
@@ -69,12 +49,12 @@
                   <MenuItem fx:id="personalInfoBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="个人信息" />
                </items>
             </MenuButton>
-            <Button fx:id="goodsManageBtn" mnemonicParsing="false" onAction="#goodsManage" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="商品" textFill="#9f353a">
+            <Button fx:id="goodsManageBtn" mnemonicParsing="false" onAction="#goodsManage" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="商品" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="draftBtn" mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparant;" text="草稿" textFill="#9f353a">
+            <Button fx:id="draftBtn" mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="草稿" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>

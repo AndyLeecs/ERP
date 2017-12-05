@@ -17,8 +17,48 @@ public class GoodsController {
 	
 	@FXML public TextField searchField;
 	@FXML public Button searchBtn;
-	
-	//@FXML public ImageView logOut;
+
+	@FXML
+	public void setAllSelectBtn(){
+
+	}
+
+	@FXML
+	public void setNewGoodsORCategoryBtn(){
+
+	}
+
+	@FXML
+	public void setMoveBtn(){
+
+	}
+
+	@FXML
+	public void setChangeNameBtn(){
+
+	}
+
+	@FXML
+	public void setDeleteBtn(){
+
+	}
+
+	@FXML
+	public void setEditBtn(){
+
+	}
+
+	@FXML
+	public void setSearchField(){
+
+	}
+
+	@FXML
+	public void setSearchBtn(){
+
+	}
+
+
 	
 	
 
