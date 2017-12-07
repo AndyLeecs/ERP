@@ -19,7 +19,7 @@ import mainUI.LoginWin;
  */
 public class StockmanController {
 	@FXML public AnchorPane root;
-	@FXML public BorderPane newroot;
+	@FXML public BorderPane centerPane;
 	@FXML public MenuButton newBtn;
 	@FXML public MenuButton lookBtn;
 	@FXML public Button goodsManageBtn;
@@ -39,7 +39,6 @@ public class StockmanController {
 	
 	@FXML public Pane addNext;
 	
-	@FXML AnchorPane root2;
 	
 	@FXML public void init() {
 	
@@ -92,17 +91,15 @@ public class StockmanController {
      public void goodsManage() {
     	 Platform.runLater(new Runnable() {
     	     public void run() {
-		    try {
-//				root.getScene().getWindow().hide();
-				root2 = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Goods.fxml"));
-				newroot.setCenter(root2);
-//				new GoodsWin();
-				//new ui.saleUI.SaleWin();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	});  
+    	    	 try {
+			    	AnchorPane goodsroot = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Goods.fxml"));
+					centerPane.setCenter(goodsroot);
+	
+				 } catch (Exception e) {
+					e.printStackTrace();
+				 }
+    	     }
+    	 });  
      }
      
      @FXML 
