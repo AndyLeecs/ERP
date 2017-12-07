@@ -8,6 +8,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import mainUI.LoginWin;
 /**
@@ -18,7 +19,7 @@ import mainUI.LoginWin;
  */
 public class StockmanController {
 	@FXML public AnchorPane root;
-	@FXML public AnchorPane newroot;
+	@FXML public BorderPane newroot;
 	@FXML public MenuButton newBtn;
 	@FXML public MenuButton lookBtn;
 	@FXML public Button goodsManageBtn;
@@ -94,7 +95,7 @@ public class StockmanController {
 		    try {
 //				root.getScene().getWindow().hide();
 				root2 = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Goods.fxml"));
-				newroot.getChildren().add(root2);
+				newroot.setCenter(root2);
 //				new GoodsWin();
 				//new ui.saleUI.SaleWin();
 			} catch (Exception e) {

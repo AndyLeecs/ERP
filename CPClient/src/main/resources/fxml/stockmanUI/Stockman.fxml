@@ -13,6 +13,7 @@
 
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.StockmanController">
    <children>
+      <BorderPane fx:id="newroot" layoutX="135.0" layoutY="95.0" prefHeight="705.0" prefWidth="1066.0" />
       <fx:include source="../commonUI/Background.fxml" />
       <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
          <children>
@@ -66,6 +67,5 @@
             <DropShadow blurType="GAUSSIAN" color="#c74242cf" height="0.0" radius="6.2675" width="27.07" />
          </effect>
       </Circle>
-      <AnchorPane fx:id = "newroot" layoutX="135.0" layoutY="96.0" prefHeight="705.0" prefWidth="1066.0" />
    </children>
 </AnchorPane>
