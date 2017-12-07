@@ -2,6 +2,7 @@ package ui.stockmanUI;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -17,6 +18,7 @@ import mainUI.LoginWin;
  */
 public class StockmanController {
 	@FXML public AnchorPane root;
+	@FXML public AnchorPane newroot;
 	@FXML public MenuButton newBtn;
 	@FXML public MenuButton lookBtn;
 	@FXML public Button goodsManageBtn;
@@ -35,6 +37,8 @@ public class StockmanController {
 	@FXML public MenuItem personalInfoBtn;
 	
 	@FXML public Pane addNext;
+	
+	@FXML AnchorPane root2;
 	
 	@FXML public void init() {
 	
@@ -88,8 +92,10 @@ public class StockmanController {
     	 Platform.runLater(new Runnable() {
     	     public void run() {
 		    try {
-				root.getScene().getWindow().hide();
-				new GoodsWin();
+//				root.getScene().getWindow().hide();
+				root2 = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Goods.fxml"));
+				newroot.getChildren().add(root2);
+//				new GoodsWin();
 				//new ui.saleUI.SaleWin();
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
-public class GoodsController {
+public class GoodsController{
 	
 	@FXML public ImageView allSelectBtn;
 	@FXML public ImageView newGoodsORCategoryBtn;
@@ -30,9 +30,12 @@ public class GoodsController {
     @FXML public TextField goodsStoreNum;
 
     private String presentGoodsCategory;
+    
+    @FXML public StockmanController stc;
+    
     @FXML
     public void initialize(){
-
+    	
     }
 
 	@FXML
