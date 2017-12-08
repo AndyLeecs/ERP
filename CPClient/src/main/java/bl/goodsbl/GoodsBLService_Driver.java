@@ -14,7 +14,7 @@ import blservice.goodsblservice.GoodsBLService;
 * @date 2017年10月22日
 * @description
 */
-public class GoodsBLService_Driver {
+/*public class GoodsBLService_Driver {
 	
 	List<CategoryVO> l = new ArrayList<CategoryVO> ();
 	Map<String,String> child = new HashMap<String,String>();
@@ -81,3 +81,4 @@ public void drive(GoodsBLService goodsBLService){
 }
 
 }
+*/

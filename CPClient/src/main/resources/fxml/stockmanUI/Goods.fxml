@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.GoodsController">
+<AnchorPane fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.GoodsController">
    <children>
    <fx:include source="Stockman.fxml" />
       <Pane layoutX="214.0" layoutY="123.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
@@ -17,7 +17,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="searchField" layoutX="625.0" layoutY="74.0" onMouseClicked="#setSearchField" prefHeight="32.0" prefWidth="167.0" style="-fx-background-radius: 23; -fx-border-radius: 23;" />
+            <TextField fx:id="searchField" layoutX="625.0" layoutY="74.0" onMouseClicked="#setSearchField" prefHeight="32.0" prefWidth="167.0" promptText="  请输入要查询的信息" style="-fx-background-radius: 23; -fx-border-radius: 23;" />
             <Button fx:id="searchBtn" layoutX="825.0" layoutY="77.0" mnemonicParsing="false" onAction="#setSearchBtn" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="查询" textFill="WHITE" />
             <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="764.0" layoutY="81.0">
                <image>
@@ -84,19 +84,9 @@
             <Button fx:id="saveGoodsInfoBtn" layoutX="611.0" layoutY="352.0" mnemonicParsing="false" onAction="#setSaveGoodsInfoBtn" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="保存" textFill="WHITE" />
          </children>
       </Pane>
-      <Pane layoutX="214.0" layoutY="282.0" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
+      <Pane layoutX="214.0" layoutY="282.0" onMouseClicked="#initialize" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
          <children>
-            <VBox layoutX="7.0" layoutY="54.0" prefHeight="369.0" prefWidth="182.0" style="-fx-border-color: #ff7575; -fx-background-radius: 23; -fx-border-radius: 15;">
-               <children>
-                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类1" textFill="#9f353a" />
-                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类2" textFill="#9f353a" />
-                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类3" textFill="#9f353a" />
-                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类4" textFill="#9f353a" />
-                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类5" textFill="#9f353a" />
-                  <RadioButton mnemonicParsing="false" prefHeight="42.0" prefWidth="213.0" text="分类6" textFill="#9f353a" />
-               </children>
-            </VBox>
-            <Pane layoutX="8.0" layoutY="6.0" prefHeight="42.0" prefWidth="180.0" style="-fx-border-color: #ff7575; -fx-border-radius: 12;">
+            <Pane layoutX="7.0" layoutY="31.0" prefHeight="42.0" prefWidth="180.0" style="-fx-border-color: #ff7575; -fx-border-radius: 12; -fx-background-color: FFECEC; -fx-background-radius: 12;">
                <children>
                   <ImageView fx:id="allSelectBtn" fitHeight="24.0" fitWidth="24.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#setAllSelectBtn">
                      <image>
@@ -125,6 +115,17 @@
                   </ImageView>
                </children>
             </Pane>
-         </children></Pane>
+            <Label fx:id="presentLocation" layoutX="76.0" layoutY="6.0" prefHeight="25.0" prefWidth="116.0" textFill="#000000a1" />
+            <Label layoutX="14.0" layoutY="8.0" prefHeight="23.0" prefWidth="65.0" text="当前位置:" textFill="#000000a1" />
+            <Pane layoutX="7.0" layoutY="80.0" prefHeight="348.0" prefWidth="180.0" style="-fx-background-color: #FFECEC; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ff7575;">
+               <children>
+                  <ScrollPane fx:id="vBox" layoutX="6.0" layoutY="7.0" prefHeight="334.0" prefWidth="167.0" style="-fx-background-color: transparent; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 1;">
+                     <content>
+                        <VBox minHeight="330.0" minWidth="165.0" />
+                     </content></ScrollPane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

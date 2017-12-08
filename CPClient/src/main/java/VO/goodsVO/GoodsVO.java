@@ -34,7 +34,8 @@ public class GoodsVO {
 	 */
 	double recentSellPrice;
 	
-	public GoodsVO(String goodsID,String goodsCategory,String goodsName,String goodsType,double goodsBuyPrice,double goodsSellPrice,double recentBuyPrice,double recentSellPrice) {
+	public GoodsVO(String goodsID,String goodsCategory,String goodsName,String goodsType
+			,double goodsBuyPrice,double goodsSellPrice,double recentBuyPrice,double recentSellPrice) {
 		this.goodsID = goodsID;
 		this.goodsCategory = goodsCategory;
 		this.goodsName = goodsName;

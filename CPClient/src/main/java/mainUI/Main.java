@@ -15,8 +15,7 @@ public class Main extends Application {
 	public void start(Stage stage) throws Exception
 	{
 
-		Platform.runLater(new Runnable() {
-			public void run() {
+		Platform.runLater(()-> {
 				try {
 //					new Welcome();
 					//new LoginWin();
@@ -27,7 +26,6 @@ public class Main extends Application {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
 		});
 	}
 }

@@ -11,15 +11,13 @@ public class CommonController {
 
     @FXML
     public void logOut() {
-        Platform.runLater(new Runnable() {
-            public void run() {
+        Platform.runLater(()-> {
                 try {
                     root.getScene().getWindow().hide();
                     new mainUI.LoginWin();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
         });
     }
 }

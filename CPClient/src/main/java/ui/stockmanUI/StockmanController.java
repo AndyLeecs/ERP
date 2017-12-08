@@ -2,6 +2,7 @@ package ui.stockmanUI;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -9,6 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import mainUI.LoginWin;
+
+import java.io.IOException;
+
 /**
  * 
  * @author julia98
@@ -21,7 +25,6 @@ public class StockmanController {
 	@FXML public MenuButton lookBtn;
 	@FXML public Button goodsManageBtn;
 	@FXML public Button draftBtn;
-	@FXML public ImageView logOutBtn;
 	
 	@FXML public MenuItem newPresentListBtn;
 	@FXML public MenuItem newStockOverflowListBtn;
@@ -33,8 +36,6 @@ public class StockmanController {
 	@FXML public MenuItem lookAlarmListBtn;
 	@FXML public MenuItem messageBtn;
 	@FXML public MenuItem personalInfoBtn;
-	
-	@FXML public Pane addNext;
 	
 	@FXML public void init() {
 	
@@ -84,32 +85,29 @@ public class StockmanController {
     	 
      }
      @FXML 
-     public void goodsManage() {
-    	 Platform.runLater(new Runnable() {
-    	     public void run() {
+     public void goodsManage() throws IOException{
+
+    	 Platform.runLater(()-> {
 		    try {
-				root.getScene().getWindow().hide();
 				new GoodsWin();
+				root.getScene().getWindow().hide();
 				//new ui.saleUI.SaleWin();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-	});  
+	});
      }
      
      @FXML 
      public void logOut() {
-    	     Platform.runLater(new Runnable() {
-    	    	     public void run() {
+    	     Platform.runLater(()-> {
 				    try {
-						root.getScene().getWindow().hide();
 						new LoginWin();
+						root.getScene().getWindow().hide();
 						//new ui.saleUI.SaleWin();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-				}
 			});   	 
      }
 }
