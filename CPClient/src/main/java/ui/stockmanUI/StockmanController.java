@@ -8,11 +8,9 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import mainUI.LoginWin;
-
-import java.io.IOException;
-
 /**
  * 
  * @author julia98
@@ -21,10 +19,12 @@ import java.io.IOException;
  */
 public class StockmanController {
 	@FXML public AnchorPane root;
+	@FXML public BorderPane centerPane;
 	@FXML public MenuButton newBtn;
 	@FXML public MenuButton lookBtn;
 	@FXML public Button goodsManageBtn;
 	@FXML public Button draftBtn;
+	@FXML public ImageView logOutBtn;
 	
 	@FXML public MenuItem newPresentListBtn;
 	@FXML public MenuItem newStockOverflowListBtn;
@@ -36,6 +36,9 @@ public class StockmanController {
 	@FXML public MenuItem lookAlarmListBtn;
 	@FXML public MenuItem messageBtn;
 	@FXML public MenuItem personalInfoBtn;
+	
+	@FXML public Pane addNext;
+	
 	
 	@FXML public void init() {
 	
@@ -85,29 +88,32 @@ public class StockmanController {
     	 
      }
      @FXML 
-     public void goodsManage() throws IOException{
-
-    	 Platform.runLater(()-> {
-		    try {
-				new GoodsWin();
-				root.getScene().getWindow().hide();
-				//new ui.saleUI.SaleWin();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-	});
+     public void goodsManage() {
+    	 Platform.runLater(new Runnable() {
+    	     public void run() {
+    	    	 try {
+			    	AnchorPane goodsroot = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Goods.fxml"));
+					centerPane.setCenter(goodsroot);
+	
+				 } catch (Exception e) {
+					e.printStackTrace();
+				 }
+    	     }
+    	 });  
      }
      
      @FXML 
      public void logOut() {
-    	     Platform.runLater(()-> {
+    	     Platform.runLater(new Runnable() {
+    	    	     public void run() {
 				    try {
-						new LoginWin();
 						root.getScene().getWindow().hide();
+						new LoginWin();
 						//new ui.saleUI.SaleWin();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
+				}
 			});   	 
      }
 }

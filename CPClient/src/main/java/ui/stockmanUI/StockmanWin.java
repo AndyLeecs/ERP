@@ -12,10 +12,10 @@ import javafx.stage.StageStyle;
 
 public class StockmanWin extends Stage{
 	@FXML AnchorPane root;
-	//@FXML AnchorPane root2;
 	
 	public StockmanWin() throws IOException{
 		root = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Stockman.fxml"));
+
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/css/stockmanUI/Stock.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
