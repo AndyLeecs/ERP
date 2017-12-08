@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e0aab2d-f4db-459d-ac8b-6c3286cc492f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/VO/goodsVO/TreeVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/Goods.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoosCategory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/NewGoodsORCategoryController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/NewGoodsORCategoryWin.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/NewGoodsORCategory.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/VO/goodsVO/GoodsVO.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/VO/goodsVO/GoodsVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsBLService_Driver.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsBLService_Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsBLService_Stub.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsBLService_Stub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/blservice/goodsblservice/GoodsBLService.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/blservice/goodsblservice/GoodsBLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/mainUI/Main.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/mainUI/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/ui/commonUI/CommonController.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/commonUI/CommonController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsController.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanController.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/resources/fxml/salesmanUI/SaleLook.fxml" afterPath="$PROJECT_DIR$/CPClient/src/main/resources/fxml/salesmanUI/SaleLook.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/Goods.fxml" afterPath="$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/Goods.fxml" />
-    </list>
+    <list default="true" id="7e0aab2d-f4db-459d-ac8b-6c3286cc492f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/CPCommon/target/" />
     <ignored path="$PROJECT_DIR$/CPServer/target/" />
@@ -46,8 +28,8 @@
       <file leaf-file-name="GoodsController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="329" column="1" lean-forward="true" selection-start-line="329" selection-start-column="1" selection-end-line="329" selection-end-column="1" />
+            <state relative-caret-position="104">
+              <caret line="310" column="0" lean-forward="true" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
               <folding>
                 <element signature="e#5503#5504#0" expanded="true" />
                 <element signature="e#5564#5565#0" expanded="true" />
@@ -101,10 +83,8 @@
             <state relative-caret-position="195">
               <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding>
-                <marker date="1512638921000" expanded="true" signature="8681:8708" ph="..." />
-                <marker date="1512638921000" expanded="true" signature="8681:8728" ph="..." />
-                <marker date="1512638921000" expanded="true" signature="8681:8749" ph="..." />
-                <marker date="1512638921000" expanded="true" signature="8681:8778" ph="..." />
+                <marker date="1512703862000" expanded="true" signature="8679:8685" ph="..." />
+                <marker date="1512703862000" expanded="true" signature="8679:8700" ph="..." />
               </folding>
             </state>
           </provider>
@@ -471,12 +451,12 @@
       <workItem from="1512475196944" duration="4090000" />
       <workItem from="1512479674657" duration="15717000" />
       <workItem from="1512544295738" duration="5152000" />
-      <workItem from="1512617434876" duration="19873000" />
+      <workItem from="1512617434876" duration="20221000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56200000" />
+    <option name="totallyTimeSpent" value="56548000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1436" height="877" extended-state="6" />
@@ -709,7 +689,7 @@
         <state relative-caret-position="120">
           <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
           <folding>
-            <marker date="1512475506000" expanded="true" signature="4185:4509" ph="..." />
+            <marker date="1512703576000" expanded="true" signature="4416:4740" ph="..." />
           </folding>
         </state>
       </provider>
@@ -909,10 +889,8 @@
         <state relative-caret-position="195">
           <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
-            <marker date="1512638921000" expanded="true" signature="8681:8708" ph="..." />
-            <marker date="1512638921000" expanded="true" signature="8681:8728" ph="..." />
-            <marker date="1512638921000" expanded="true" signature="8681:8749" ph="..." />
-            <marker date="1512638921000" expanded="true" signature="8681:8778" ph="..." />
+            <marker date="1512703862000" expanded="true" signature="8679:8685" ph="..." />
+            <marker date="1512703862000" expanded="true" signature="8679:8700" ph="..." />
           </folding>
         </state>
       </provider>
@@ -952,8 +930,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="329" column="1" lean-forward="true" selection-start-line="329" selection-start-column="1" selection-end-line="329" selection-end-column="1" />
+        <state relative-caret-position="104">
+          <caret line="310" column="0" lean-forward="true" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
           <folding>
             <element signature="e#5503#5504#0" expanded="true" />
             <element signature="e#5564#5565#0" expanded="true" />
