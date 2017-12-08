@@ -97,6 +97,7 @@ public class GoodsController {
         });
 
         MenuItem newCategoryBar = new MenuItem("新建分类");
+      
         newCategoryBar.setOnAction(e->{
             Platform.runLater(()->{
                 try {
@@ -105,20 +106,24 @@ public class GoodsController {
                     ex.printStackTrace();
                 }
             });
+            NewGoodsORCategoryController controller = new NewGoodsORCategoryController();
 
-            //通过命名来区分商品项和分类项 除此之外有别的方法则可用别的方法替换 （比如分类有文件夹图片区分）
-            //命名格式： 商品：小台灯 分类：彩灯
-            //判断当前节点是否可添加分类
-            TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
+            while(controller.getNewName() != "") {
 
-            if((selectItem.toString().contains("分类") && selectItem.isLeaf()) || (selectItem.toString().contains("分类") && selectItem.getChildren().toString().contains("分类"))) {
+                //通过命名来区分商品项和分类项 除此之外有别的方法则可用别的方法替换 （比如分类有文件夹图片区分）
+                //命名格式： 商品：小台灯 分类：彩灯
+                //判断当前节点是否可添加分类
+                TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
 
-                NewGoodsORCategoryController controller = new NewGoodsORCategoryController();
-                TreeItem<String> categoryTreeItem = new TreeItem<>(controller.getNewName());
+                if ((selectItem.toString().contains("分类") && selectItem.isLeaf()) || (selectItem.toString().contains("分类") && selectItem.getChildren().toString().contains("分类"))) {
 
-                selectItem.getChildren().add(categoryTreeItem);
-            }else{
-                System.out.print("此节点下不可添加分类");
+                    //NewGoodsORCategoryController controller = new NewGoodsORCategoryController();
+                    TreeItem<String> categoryTreeItem = new TreeItem<>(controller.getNewName());
+
+                    selectItem.getChildren().add(categoryTreeItem);
+                } else {
+                    System.out.print("此节点下不可添加分类");
+                }
             }
         });
 
@@ -156,7 +161,7 @@ public class GoodsController {
      */
     @FXML
     public void initialize(){
-        presentLocation.setText(setPresentLocation());
+        //presentLocation.setText(setPresentLocation());
         initTreeView();
     }
 

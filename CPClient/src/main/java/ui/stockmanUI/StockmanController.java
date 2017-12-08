@@ -11,6 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import mainUI.LoginWin;
+
+import java.io.IOException;
+
 /**
  * 
  * @author julia98
@@ -89,6 +92,14 @@ public class StockmanController {
      }
      @FXML 
      public void goodsManage() {
+		Platform.runLater(()->{
+			try {
+				new GoodsWin();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+		/*
     	 Platform.runLater(new Runnable() {
     	     public void run() {
     	    	 try {
@@ -99,13 +110,13 @@ public class StockmanController {
 					e.printStackTrace();
 				 }
     	     }
-    	 });  
+    	 });
+    	 */
      }
      
      @FXML 
      public void logOut() {
-    	     Platform.runLater(new Runnable() {
-    	    	     public void run() {
+    	     Platform.runLater(()-> {
 				    try {
 						root.getScene().getWindow().hide();
 						new LoginWin();
@@ -113,7 +124,6 @@ public class StockmanController {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-				}
 			});   	 
      }
 }

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e0aab2d-f4db-459d-ac8b-6c3286cc492f" name="Default" comment="" />
+    <list default="true" id="7e0aab2d-f4db-459d-ac8b-6c3286cc492f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsController.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanController.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/Goods.fxml" afterPath="$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/Goods.fxml" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/CPCommon/target/" />
     <ignored path="$PROJECT_DIR$/CPServer/target/" />
@@ -28,21 +33,21 @@
       <file leaf-file-name="GoodsController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="310" column="0" lean-forward="true" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+            <state relative-caret-position="202">
+              <caret line="167" column="8" lean-forward="false" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="8" />
               <folding>
-                <element signature="e#5503#5504#0" expanded="true" />
-                <element signature="e#5564#5565#0" expanded="true" />
+                <element signature="e#5717#5718#0" expanded="true" />
+                <element signature="e#5778#5779#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/mainUI/Main.java">
+      <file leaf-file-name="StockmanController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="219">
+              <caret line="100" column="11" lean-forward="true" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -80,11 +85,10 @@
       <file leaf-file-name="Goods.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/Goods.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="165">
+              <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
               <folding>
-                <marker date="1512703862000" expanded="true" signature="8679:8685" ph="..." />
-                <marker date="1512703862000" expanded="true" signature="8679:8700" ph="..." />
+                <marker date="1512732522000" expanded="true" signature="5858:7798" ph="..." />
               </folding>
             </state>
           </provider>
@@ -150,7 +154,6 @@
         <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPBLService.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/VO/goodsVO/GoodsVO.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/VO/goodsVO/CategoryVO.java" />
-        <option value="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanController.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/newGoodsORCategory.fxml" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/NewGoodsORCategoryWin.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/resources/fxml/salesmanUI/SaleLook.fxml" />
@@ -159,11 +162,12 @@
         <option value="$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/NewGoodsORCategory.fxml" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/goodsblservice/GoodsBLService.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/Goods.java" />
-        <option value="$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/Goods.fxml" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsBLService_Driver.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsBLService_Stub.java" />
-        <option value="$PROJECT_DIR$/CPClient/src/main/java/mainUI/Main.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/NewGoodsORCategoryController.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/mainUI/Main.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanController.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/Goods.fxml" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsController.java" />
       </list>
     </option>
@@ -175,8 +179,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="39" />
-    <option name="y" value="23" />
+    <option name="x" value="4" />
+    <option name="y" value="34" />
     <option name="width" value="1436" />
     <option name="height" value="877" />
   </component>
@@ -223,6 +227,32 @@
               <item name="CPClient" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0000" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0000" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mainUI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0000" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cute_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CPClient" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="0000" type="b2602c69:ProjectViewProjectNode" />
@@ -451,15 +481,15 @@
       <workItem from="1512475196944" duration="4090000" />
       <workItem from="1512479674657" duration="15717000" />
       <workItem from="1512544295738" duration="5152000" />
-      <workItem from="1512617434876" duration="20221000" />
+      <workItem from="1512617434876" duration="22880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56548000" />
+    <option name="totallyTimeSpent" value="59207000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1436" height="877" extended-state="6" />
+    <frame x="4" y="24" width="1436" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -480,7 +510,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3279503" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3279503" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -697,14 +727,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/NoticeWin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -868,34 +890,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/mainUI/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/goodsblservice/GoodsBLService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-16">
           <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/Goods.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <marker date="1512703862000" expanded="true" signature="8679:8685" ph="..." />
-            <marker date="1512703862000" expanded="true" signature="8679:8700" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Runnable.java">
@@ -914,6 +914,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/mainUI/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/StockmanController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="100" column="11" lean-forward="true" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/resources/fxml/stockmanUI/Goods.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding>
+            <marker date="1512732522000" expanded="true" signature="5858:7798" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/NewGoodsORCategoryController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -930,11 +959,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/GoodsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="310" column="0" lean-forward="true" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+        <state relative-caret-position="202">
+          <caret line="167" column="8" lean-forward="false" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="8" />
           <folding>
-            <element signature="e#5503#5504#0" expanded="true" />
-            <element signature="e#5564#5565#0" expanded="true" />
+            <element signature="e#5717#5718#0" expanded="true" />
+            <element signature="e#5778#5779#0" expanded="true" />
           </folding>
         </state>
       </provider>
