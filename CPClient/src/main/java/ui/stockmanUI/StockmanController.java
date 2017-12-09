@@ -95,6 +95,7 @@ public class StockmanController {
 		Platform.runLater(()->{
 			try {
 				new GoodsWin();
+				root.getScene().getWindow().hide();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

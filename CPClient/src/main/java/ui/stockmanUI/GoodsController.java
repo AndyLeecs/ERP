@@ -5,11 +5,13 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.Stack;
 
-public class GoodsController {
+public class GoodsController{
 
     @FXML public Label presentLocation;
 	@FXML public ImageView allSelectBtn;
@@ -36,16 +38,27 @@ public class GoodsController {
     @FXML public VBox vBox;
     private TreeItem rootTreeItem;
 
+    @FXML Pane notice;
+    @FXML Label noticeLabel;
+    @FXML private TextField name;
+    @FXML Button sureBtn;
+    @FXML Button cancelBtn;
+
+    Stack<TreeItem> stack = new Stack<>();//存放目录的引用 便于增减改名商品
+
     private String presentLocationStr = "根目录";
     
     private void initTreeView(){
         //在ScrollPane上配置并加入TreeView
-        rootTreeItem = new TreeItem("根目录");
+        rootTreeItem = new TreeItem("分类：根目录");
         rootTreeItem.setExpanded(true);
 
         for(int i =0;i<5;i++) {
-            TreeItem item = new TreeItem("目录" + i);
+            TreeItem item = new TreeItem("分类：" + i);
             rootTreeItem.getChildren().add(item);
+
+            TreeItem item1 = new TreeItem("商品：" + i);
+            item.getChildren().add(item1);
         }
 
         TreeView treeView = new TreeView<>(rootTreeItem);
@@ -58,101 +71,74 @@ public class GoodsController {
         MenuItem newGoodsBar = new MenuItem("新建商品");
         
         newGoodsBar.setOnAction(e->{
-            Platform.runLater(()->{
-                try {
-                    new ui.stockmanUI.NewGoodsORCategoryWin();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            });
 
             //通过命名来区分商品项和分类项 除此之外有别的方法则可用别的方法替换 （比如分类有文件夹图片区分）
             //命名格式： 商品：小台灯 分类：彩灯
             //判断当前节点是否可添加商品
             TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
 
-            if((selectItem.toString().contains("分类") && selectItem.isLeaf()) || (selectItem.toString().contains("分类") && selectItem.getChildren().toString().contains("商品"))) {
+            System.out.println("选中项文字 " + selectItem.getValue().toString());
+            System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
 
-                NewGoodsORCategoryController controller = new NewGoodsORCategoryController();
-                TreeItem<String> goodsTreeItem = new TreeItem<>(controller.getNewName());
+            if((selectItem.getValue().toString().contains("分类") && selectItem.isLeaf()) || (selectItem.getValue().toString().contains("分类") && selectItem.getChildren().toString().contains("商品"))) {
 
+                TreeItem<String> goodsTreeItem = new TreeItem<>("商品："+rootTreeItem.getChildren().size());
                 selectItem.getChildren().add(goodsTreeItem);
+                stack.push(goodsTreeItem);
+                noticeLabel.setText("新建商品");
+                notice.setVisible(true);
             }else{
-                System.out.print("此节点下不可添加商品");
+                System.out.println("此节点下不可添加商品");
             }
-
-            /*
-            switch (controller.getList().get(0)){
-                case "goods":
-                    TreeItem treeItem = new TreeItem(controller.getList().get(1));
-                    TreeView treeView1 = new TreeView(treeItem);
-                    vBox.getChildren().add(treeView1);
-
-                    break;
-                case "category":
-                    rootTreeItem.getChildren().add( new TreeItem<>(controller.getList().get(1)));
-                    break;
-            }*/
 
         });
 
         MenuItem newCategoryBar = new MenuItem("新建分类");
       
         newCategoryBar.setOnAction(e->{
-            Platform.runLater(()->{
-                try {
-                    new ui.stockmanUI.NewGoodsORCategoryWin();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            });
-            NewGoodsORCategoryController controller = new NewGoodsORCategoryController();
 
-            while(controller.getNewName() != "") {
 
                 //通过命名来区分商品项和分类项 除此之外有别的方法则可用别的方法替换 （比如分类有文件夹图片区分）
                 //命名格式： 商品：小台灯 分类：彩灯
                 //判断当前节点是否可添加分类
                 TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
 
+            System.out.println("选中项文字 " + selectItem.getValue().toString());
+            System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
+
                 if ((selectItem.toString().contains("分类") && selectItem.isLeaf()) || (selectItem.toString().contains("分类") && selectItem.getChildren().toString().contains("分类"))) {
 
-                    //NewGoodsORCategoryController controller = new NewGoodsORCategoryController();
-                    TreeItem<String> categoryTreeItem = new TreeItem<>(controller.getNewName());
+                    TreeItem<String> categoryTreeItem = new TreeItem<>("分类："+rootTreeItem.getChildren().size());
 
                     selectItem.getChildren().add(categoryTreeItem);
+                    stack.push(categoryTreeItem);
+                    noticeLabel.setText("新建分类");
+                    notice.setVisible(true);
                 } else {
-                    System.out.print("此节点下不可添加分类");
+                    System.out.println("此节点下不可添加分类");
                 }
-            }
         });
 
         MenuItem deleteBar = new MenuItem("删除");
         deleteBar.setOnAction(e ->{
             TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
-            rootTreeItem.getChildren().remove(selectItem);
+            selectItem.getParent().getChildren().remove(selectItem);
+            //rootTreeItem.getChildren().remove(selectItem);
         });
 
         MenuItem refactorBar = new MenuItem("改名");
         refactorBar.setOnAction(e->{
 
-            Platform.runLater(()->{
-                try {
-                    new ui.stockmanUI.NewGoodsORCategoryWin();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            });
-
-            NewGoodsORCategoryController controller = new NewGoodsORCategoryController();
             TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
-            selectItem.setValue(controller.getNewName());
+            stack.push(selectItem);
+            noticeLabel.setText("修改名称");
+            notice.setVisible(true);
         });
 
         menu.getItems().add(newGoodsBar);
-        menu.getItems().add(deleteBar);
         menu.getItems().add(newCategoryBar);
         menu.getItems().add(refactorBar);
+        menu.getItems().add(deleteBar);
         treeView.setContextMenu(menu);
     }
 
@@ -162,11 +148,8 @@ public class GoodsController {
     @FXML
     public void initialize(){
         //presentLocation.setText(setPresentLocation());
+        notice.setVisible(false);
         initTreeView();
-    }
-
-    private void init(){
-        presentLocation.setText(setPresentLocation());
     }
 
     /**
@@ -187,24 +170,6 @@ public class GoodsController {
      */
 	@FXML
     protected void setNewGoodsORCategoryBtn(){
-        Platform.runLater(()->{
-            try {
-                new ui.stockmanUI.NewGoodsORCategoryWin();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-
-        NewGoodsORCategoryController controller = new NewGoodsORCategoryController();
-        TreeItem item = new TreeItem(controller.getList().get(1));
-        switch (controller.getList().get(0)){
-            case "goods":
-
-                break;
-            case "category":
-                rootTreeItem.getChildren().add(item);
-                break;
-        }
 
 	}
 
@@ -309,13 +274,38 @@ public class GoodsController {
 
     }
 
-	//分离多个嵌套分类的方法
-    /*
-	public String getPresentLocation(String str){
-	    String tmp[] = presentLocation.getText().split("/");
+    /**
+     * 新建分类，新建商品，修改名称出现的提示框
+     * 其中stack存放TreeItem的引用
+     * 此方法只是修改对应目录名称，新建工作已在上一层做好
+     */
+    @FXML
+    public void onSureBtnClicked(){
+        String tmp = "";
+        switch (noticeLabel.getText()){
+            case "新建商品": tmp = "商品：";
+                stack.peek().setValue(tmp + "" + name.getText());
+            break;
+            case "新建分类": tmp = "分类：";
+                stack.peek().setValue(tmp + "" + name.getText());
+            break;
+            case "修改名称": tmp = stack.peek().getValue().toString();
+            System.out.println("原始名称为："+ tmp);
+            System.out.println(tmp.substring(0,3));
+                stack.peek().setValue(tmp.substring(0,3) + name.getText());
+            break;
+        }
+        notice.setVisible(false);
+        name.clear();
+        stack.pop();
+    }
 
-    }*/
-
+    @FXML
+    public void onCancelBtnClicked(){
+        notice.setVisible(false);
+        name.clear();
+        stack.pop();
+    }
     /**
      * 将输入的String类型的金额转化为double型
      * @param str
@@ -326,9 +316,7 @@ public class GoodsController {
 	        return Double.parseDouble(str);
         }else{
 	        String[] tmp = str.split(".");
-	        double ret = 0;
-
-	        ret = Double.parseDouble(tmp[0]) + Double.parseDouble(tmp[1])/(Math.pow(10,tmp[1].length()));
+	        double ret = Double.parseDouble(tmp[0]) + Double.parseDouble(tmp[1])/(Math.pow(10,tmp[1].length()));
 	        return ret;
         }
     }
