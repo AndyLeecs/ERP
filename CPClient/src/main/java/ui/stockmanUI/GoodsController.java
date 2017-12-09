@@ -7,6 +7,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class GoodsController{
@@ -40,6 +42,11 @@ public class GoodsController{
     @FXML private TextField name;
     @FXML Button sureBtn;
     @FXML Button cancelBtn;
+
+    @FXML VBox goodsVBox;
+    @FXML Pane goodsPane;
+    private String goodsTypeSearch = "";//保存模糊查找的类型
+    private ArrayList<GoodsVO> goodsVOArrayList = new ArrayList<>();//存放模糊查找到的商品列表
 
     Stack<TreeItem> stack = new Stack<>();//存放目录的引用 便于增减改名商品
     
@@ -219,8 +226,26 @@ public class GoodsController{
 	@FXML
     private void setSearchBtn(){
 	    if(searchField.getText()!=null){
-	        GoodsBLService goodsBLService = null;
-            goodsBLService.findGoods(searchField.getText(),"");
+	        GoodsBLService goodsBLService = null;//?
+
+	        switch (this.goodsTypeSearch){
+                case "商品名":
+                    this.goodsTypeSearch = "goodsName";
+                    break;
+                case "商品型号":
+                    this.goodsTypeSearch = "goodsType";
+                    break;
+                case "商品编号":
+                    this.goodsTypeSearch = "goodsID";
+                    break;
+            }
+            goodsVOArrayList = (ArrayList<GoodsVO>)goodsBLService.findGoods(searchField.getText(),this.goodsTypeSearch);
+	        for(int i =0;i<goodsVOArrayList.size();i++){
+	            Pane newGoodsPane = new Pane();
+
+	            newGoodsPane.getChildren().addAll(goodsPane);//修改
+	            goodsVBox.getChildren().add(goodsPane);
+            }
         }
 	}
 
@@ -260,16 +285,19 @@ public class GoodsController{
     @FXML
     public void onGoodsNameSearchBtnClicked(){
         searchField.setPromptText("模糊查找" + goodsNameSearchBtn.getText());
+        this.goodsTypeSearch = goodsNameSearchBtn.getText();
     }
 
     @FXML
     public void onGoodsTypeSearchBtnClicked(){
         searchField.setPromptText("模糊查找" + goodsTypeSearchBtn.getText());
+        this.goodsTypeSearch = goodsTypeSearchBtn.getText();
     }
 
     @FXML
     public void onGoodsIDSearchBtnClicked(){
         searchField.setPromptText("模糊查找" + goodsIDSearchBtn.getText());
+        this.goodsTypeSearch = goodsIDSearchBtn.getText();
     }
     /**
      * 将输入的String类型的金额转化为double型
