@@ -8,7 +8,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.collections.FXCollections?>
 
-<AnchorPane style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.GoodsController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.GoodsController">
    <children>
   <fx:include source="Stockman.fxml" />
       <Pane layoutX="216.0" layoutY="148.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
@@ -123,7 +123,7 @@
       <children>
          <Button fx:id="sureBtn" layoutX="145.0" layoutY="205.0" mnemonicParsing="false" onAction="#onSureBtnClicked" prefHeight="27.0" prefWidth="63.0" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-background-color: FF7575;" text="确认" textFill="WHITE" />
          <TextField fx:id="name" layoutX="153.0" layoutY="122.0" promptText="请输入名称" />
-         <Label fx:id="noticeLabel" layoutX="208.0" layoutY="49.0" text="新建" textFill="#682d1e">
+         <Label fx:id="noticeLabel" layoutX="195.0" layoutY="47.0" prefHeight="37.0" prefWidth="81.0" text="新建" textFill="#682d1e">
             <font>
                <Font size="28.0" />
             </font>

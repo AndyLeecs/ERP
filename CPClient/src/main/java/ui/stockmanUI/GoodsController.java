@@ -69,6 +69,7 @@ public class GoodsController{
         menu.setStyle("-fx-background-color: #FF7575");
 
         MenuItem newGoodsBar = new MenuItem("新建商品");
+        newGoodsBar.setGraphic(new ImageView("img/add.png"));
         
         newGoodsBar.setOnAction(e->{
 
@@ -94,7 +95,7 @@ public class GoodsController{
         });
 
         MenuItem newCategoryBar = new MenuItem("新建分类");
-      
+        newCategoryBar.setGraphic(new ImageView("img/folder.png"));
         newCategoryBar.setOnAction(e->{
 
 
@@ -120,6 +121,7 @@ public class GoodsController{
         });
 
         MenuItem deleteBar = new MenuItem("删除");
+        deleteBar.setGraphic(new ImageView("img/delete.png"));
         deleteBar.setOnAction(e ->{
             TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
             selectItem.getParent().getChildren().remove(selectItem);
@@ -127,6 +129,7 @@ public class GoodsController{
         });
 
         MenuItem refactorBar = new MenuItem("改名");
+        refactorBar.setGraphic(new ImageView("img/survey.png"));
         refactorBar.setOnAction(e->{
 
             TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();

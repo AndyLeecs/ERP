@@ -19,7 +19,8 @@ public class GoodsWin extends Stage{
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/css/stockmanUI/Stock.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
-		
+
+		this.setFullScreen(true);//全屏试一下
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);
 		this.show();
