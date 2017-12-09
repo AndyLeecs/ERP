@@ -1,25 +1,22 @@
 package ui.stockmanUI;
 
 import VO.goodsVO.GoodsVO;
-import javafx.application.Platform;
+import blservice.goodsblservice.GoodsBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
-import java.io.IOException;
 import java.util.Stack;
 
 public class GoodsController{
 
     @FXML public Label presentLocation;
-	@FXML public ImageView allSelectBtn;
-	@FXML public ImageView newGoodsORCategoryBtn;
-	@FXML public ImageView moveBtn;
-	@FXML public ImageView changeNameBtn;
-	@FXML public ImageView deleteBtn;
-	
+
+    @FXML public Button goodsNameSearchBtn;
+    @FXML public Button goodsTypeSearchBtn;
+    @FXML public Button goodsIDSearchBtn;
+
 	@FXML public ImageView editBtn;
 	@FXML public Button saveGoodsInfoBtn;
 	
@@ -45,8 +42,6 @@ public class GoodsController{
     @FXML Button cancelBtn;
 
     Stack<TreeItem> stack = new Stack<>();//存放目录的引用 便于增减改名商品
-
-    private String presentLocationStr = "根目录";
     
     private void initTreeView(){
         //在ScrollPane上配置并加入TreeView
@@ -55,6 +50,7 @@ public class GoodsController{
 
         for(int i =0;i<5;i++) {
             TreeItem item = new TreeItem("分类：" + i);
+            item.setGraphic(new ImageView("img/folderIcon.png"));
             rootTreeItem.getChildren().add(item);
 
             TreeItem item1 = new TreeItem("商品：" + i);
@@ -89,6 +85,7 @@ public class GoodsController{
                 noticeLabel.setText("新建商品");
                 notice.setVisible(true);
             }else{
+                presentLocation.setText("此节点下不可添加商品");
                 System.out.println("此节点下不可添加商品");
             }
 
@@ -110,12 +107,13 @@ public class GoodsController{
                 if ((selectItem.toString().contains("分类") && selectItem.isLeaf()) || (selectItem.toString().contains("分类") && selectItem.getChildren().toString().contains("分类"))) {
 
                     TreeItem<String> categoryTreeItem = new TreeItem<>("分类："+rootTreeItem.getChildren().size());
-
+                    categoryTreeItem.setGraphic(new ImageView("img/folderIcon.png"));
                     selectItem.getChildren().add(categoryTreeItem);
                     stack.push(categoryTreeItem);
                     noticeLabel.setText("新建分类");
                     notice.setVisible(true);
                 } else {
+                    presentLocation.setText("此节点下不可添加分类");
                     System.out.println("此节点下不可添加分类");
                 }
         });
@@ -125,7 +123,6 @@ public class GoodsController{
         deleteBar.setOnAction(e ->{
             TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
             selectItem.getParent().getChildren().remove(selectItem);
-            //rootTreeItem.getChildren().remove(selectItem);
         });
 
         MenuItem refactorBar = new MenuItem("改名");
@@ -150,55 +147,10 @@ public class GoodsController{
      */
     @FXML
     public void initialize(){
-        //presentLocation.setText(setPresentLocation());
         notice.setVisible(false);
         initTreeView();
     }
 
-    /**
-     * 回到根目录
-     */
-    @FXML
-    private void setAllSelectBtn(){
-
-	}
-
-    /**
-     * 1. 若当前为根目录 弹出提示框 新建分类还是新建商品
-     * 2. 若当前不为根目录 则判断当前目录为分类目录还是商品目录 若为商品目录则不能新建分类目录
-     * 3. 新建分类需填入分类名
-     * 4. 新建商品需填入商品名（单击确定之后 调用getGoodsID方法产生商品编号）
-     * 5. 当新建分类后 当前页面添加分类Btn 并设定fx：id 和事件响应方法（打开分类内为空）
-     * 6. 当新建商品后 当前页面添加商品Btn 并设定fx：id 和事件响应方法（商品信息为初始化信息）
-     */
-	@FXML
-    protected void setNewGoodsORCategoryBtn(){
-
-	}
-
-    /**
-     * 移动商品位置
-     */
-	@FXML
-    private void setMoveBtn(){
-
-	}
-
-    /**
-     * 改变商品名或分类名
-     */
-	@FXML
-    private void setChangeNameBtn(){
-
-	}
-
-    /**
-     * 删除商品或分类
-     */
-	@FXML
-    private void setDeleteBtn(){
-
-	}
 
     /**
      * 编辑商品信息
@@ -266,16 +218,11 @@ public class GoodsController{
      */
 	@FXML
     private void setSearchBtn(){
-
+	    if(searchField.getText()!=null){
+	        GoodsBLService goodsBLService = null;
+            goodsBLService.findGoods(searchField.getText(),"");
+        }
 	}
-
-    /**
-     * 设定当前位置
-     */
-    private String setPresentLocation(){
-		return presentLocationStr;
-
-    }
 
     /**
      * 新建分类，新建商品，修改名称出现的提示框
@@ -308,6 +255,21 @@ public class GoodsController{
         notice.setVisible(false);
         name.clear();
         stack.pop();
+    }
+
+    @FXML
+    public void onGoodsNameSearchBtnClicked(){
+        searchField.setPromptText("模糊查找" + goodsNameSearchBtn.getText());
+    }
+
+    @FXML
+    public void onGoodsTypeSearchBtnClicked(){
+        searchField.setPromptText("模糊查找" + goodsTypeSearchBtn.getText());
+    }
+
+    @FXML
+    public void onGoodsIDSearchBtnClicked(){
+        searchField.setPromptText("模糊查找" + goodsIDSearchBtn.getText());
     }
     /**
      * 将输入的String类型的金额转化为double型

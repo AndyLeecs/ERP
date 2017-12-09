@@ -29,9 +29,6 @@ public interface GoodsBLService {
 		public int getStoreInfo(GoodsVO vo);
 		*/
 
-	public class TreeVO {
-
-	}
 	public String newGoods(String name,String category);
 	public List findGoods(String info,String type);
 	public ResultMessage deleteGoods(String id);
