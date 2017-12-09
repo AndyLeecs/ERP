@@ -113,7 +113,7 @@
             </Label>
             <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="2.0">
                <image>
-                  <Image url="@/img/lamp1.JPG" />
+                  <Image url="@../../img/lamp1.JPG" />
                </image>
             </ImageView>
          </children>
@@ -146,14 +146,14 @@
             </Label>
             <ImageView fitHeight="200.0" fitWidth="200.0" layoutY="1.0">
                <image>
-                  <Image url="@/img/lamp1.JPG" />
+                  <Image url="@../../img/lamp1.JPG" />
                </image>
             </ImageView>
          </children>
       </Pane>
       <ImageView fx:id="clientImage" fitHeight="111.0" fitWidth="112.0" layoutX="51.0" layoutY="32.0" onMouseClicked="#onClientImageClicked" opacity="0.79">
          <image>
-            <Image url="@/img/client1.JPG" />
+            <Image url="@../../img/client1.JPG" />
          </image>
       </ImageView>
    </children>

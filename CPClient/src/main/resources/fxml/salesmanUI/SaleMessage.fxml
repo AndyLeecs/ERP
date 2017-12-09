@@ -19,7 +19,7 @@
             </Label>
             <ImageView layoutX="1168.0" layoutY="8.0">
                <image>
-                  <Image url="@/img/logOut.png" />
+                  <Image url="@../../img/logOut.png" />
                </image>
             </ImageView>
          </children>
