@@ -1,6 +1,7 @@
 package ui.stockmanUI;
 
 import VO.goodsVO.GoodsVO;
+import bl.goodsbl.Goods;
 import blservice.goodsblservice.GoodsBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -28,6 +29,7 @@ public class GoodsController{
 	@FXML public TextField goodsID;
     @FXML public TextField goodsName;
     @FXML public TextField goodsType;
+    @FXML public TextField goodsCategory;
     @FXML public TextField goodsBuyPrice;
     @FXML public TextField goodsSellPrice;
     @FXML public TextField recentBuyPrice;
@@ -46,6 +48,7 @@ public class GoodsController{
     @FXML VBox goodsVBox;
     @FXML Pane goodsPane;
     private String goodsTypeSearch = "";//保存模糊查找的类型
+    GoodsBLService goodsBLService = new Goods();//
     private ArrayList<GoodsVO> goodsVOArrayList = new ArrayList<>();//存放模糊查找到的商品列表
 
     Stack<TreeItem> stack = new Stack<>();//存放目录的引用 便于增减改名商品
@@ -130,6 +133,20 @@ public class GoodsController{
         deleteBar.setOnAction(e ->{
             TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
             selectItem.getParent().getChildren().remove(selectItem);
+
+            System.out.println("判断删除的是商品还是分类：" + selectItem.getValue().toString().substring(0,2));
+
+            switch (selectItem.getValue().toString().substring(0,2)){
+                case "商品":
+                    System.out.println("删除商品所属分类：" + selectItem.getParent().getValue().toString().substring(3)+ " 删除商品名称：" + selectItem.getValue().toString().substring(3));
+                    goodsBLService.deleteGoods(selectItem.getParent().getValue().toString().substring(3),selectItem.getValue().toString().substring(3));//
+                    break;
+
+                case "分类":
+                    System.out.println("删除分类名称：" + selectItem.getValue().toString().substring(3));
+                    goodsBLService.deleteGoodsCategory(selectItem.getValue().toString().substring(3));
+                    break;
+            }
         });
 
         MenuItem refactorBar = new MenuItem("改名");
@@ -196,6 +213,7 @@ public class GoodsController{
 
         goodsName.setStyle("-fx-background-color: transparent");
         goodsType.setStyle("-fx-background-color: transparent");
+        goodsCategory.setStyle("-fx-background-color: transparent");
         goodsBuyPrice.setStyle("-fx-background-color: transparent");
         goodsSellPrice.setStyle("-fx-background-color: transparent");
         goodsStoreNum.setStyle("-fx-background-color: transparent");
@@ -203,22 +221,20 @@ public class GoodsController{
         recentSellPrice.setStyle("-fx-background-color: transparent");
 
         GoodsVO goodsVO = new GoodsVO(goodsID.getText()
-                ,presentLocation.getText()
+                ,goodsCategory.getText()
                 ,goodsName.getText()
                 ,goodsType.getText()
                 ,changeStringToDouble(goodsBuyPrice.getText())
                 ,changeStringToDouble(goodsBuyPrice.getText())
                 ,changeStringToDouble(recentBuyPrice.getText())
                 ,changeStringToDouble(recentSellPrice.getText()));
+
+        if(goodsBLService.findGoods(goodsID.getText(),"goodsID") != null){
+            goodsBLService.initAndSaveGoods(goodsVO);
+        }else{
+            goodsBLService.modifyGoods(goodsVO);
+        }
     }
-
-    /**
-     * 模糊查找商品输入框
-     */
-	@FXML
-    private void setSearchField(){
-
-	}
 
     /**
      * 模糊查找商品确认按钮
@@ -226,8 +242,6 @@ public class GoodsController{
 	@FXML
     private void setSearchBtn(){
 	    if(searchField.getText()!=null){
-	        GoodsBLService goodsBLService = null;//?
-
 	        switch (this.goodsTypeSearch){
                 case "商品名":
                     this.goodsTypeSearch = "goodsName";
@@ -241,10 +255,58 @@ public class GoodsController{
             }
             goodsVOArrayList = (ArrayList<GoodsVO>)goodsBLService.findGoods(searchField.getText(),this.goodsTypeSearch);
 	        for(int i =0;i<goodsVOArrayList.size();i++){
-	            Pane newGoodsPane = new Pane();
+	            Pane newGoodsPane = new Pane(goodsPane);
 
-	            newGoodsPane.getChildren().addAll(goodsPane);//修改
-	            goodsVBox.getChildren().add(goodsPane);
+	            //复杂的新建商品页面逻辑
+
+                /*
+	            ImageView imageView = new ImageView("img/lamp1.JPG");
+	            imageView.setLayoutX(0);
+	            imageView.setLayoutY(0);
+
+	            Label label = new Label();
+	            label.setLayoutX(233);
+	            label.setLayoutY(41);
+	            label.setStyle("-fx-background-color:  #4F9D9D");
+
+	            Label newGoodsName = new Label(this.goodsName.getText());
+	            newGoodsName.setLayoutX(251);
+	            newGoodsName.setLayoutY(48);
+	            newGoodsName.setPrefSize(75,37);
+	            newGoodsName.setStyle("-fx-background-color: transparent");
+	            newGoodsName.setStyle("-fx-background-radius: 20");
+	            newGoodsName.setStyle("-fx-border-radius: 20");
+
+                Label newGoodsType = new Label(this.goodsType.getText());
+                newGoodsType.setLayoutX(251);
+                newGoodsType.setLayoutY(48);
+                newGoodsType.setPrefSize(75,37);
+                newGoodsType.setStyle("-fx-background-color: transparent");
+                newGoodsType.setStyle("-fx-background-radius: 20");
+                newGoodsType.setStyle("-fx-border-radius: 20");
+
+                Label newGoodsCategory = new Label(this.goodsCategory.getText());
+                newGoodsCategory.setLayoutX(251);
+                newGoodsCategory.setLayoutY(48);
+                newGoodsCategory.setPrefSize(75,37);
+                newGoodsCategory.setStyle("-fx-background-color: transparent");
+                newGoodsCategory.setStyle("-fx-background-radius: 20");
+                newGoodsCategory.setStyle("-fx-border-radius: 20");
+
+                Label newGoodsID = new Label(this.goodsID.getText());
+                newGoodsID.setLayoutX(251);
+                newGoodsID.setLayoutY(48);
+                newGoodsID.setPrefSize(75,37);
+                newGoodsID.setStyle("-fx-background-color: transparent");
+                newGoodsID.setStyle("-fx-background-radius: 20");
+                newGoodsID.setStyle("-fx-border-radius: 20");
+                */
+                //未完待续
+                //newGoodsPane.setStyle();
+
+	            goodsVBox.getChildren().add(newGoodsPane);
+
+	            //newGoodsPane.getChildren().addAll(goodsPane);//修改!!!!
             }
         }
 	}
@@ -260,14 +322,29 @@ public class GoodsController{
         switch (noticeLabel.getText()){
             case "新建商品": tmp = "商品：";
                 stack.peek().setValue(tmp + "" + name.getText());
+                goodsBLService.newGoods(name.getText(),stack.peek().getParent().getValue().toString().substring(0,3));
             break;
+
             case "新建分类": tmp = "分类：";
                 stack.peek().setValue(tmp + "" + name.getText());
+                goodsBLService.newGoodsCategory(name.getText(),"");
             break;
+
             case "修改名称": tmp = stack.peek().getValue().toString();
             System.out.println("原始名称为："+ tmp);
-            System.out.println(tmp.substring(0,3));
+            System.out.println("修改后为：" + tmp.substring(0,3));
                 stack.peek().setValue(tmp.substring(0,3) + name.getText());
+
+                if(tmp.substring(0,3).contains("分类"))
+                    goodsBLService.modifyGoodsCategory(name.getText());
+                else{
+                    System.out.println("原来商品名：" + tmp.substring(3) + "新商品名：" + name.getText());
+                    ArrayList<GoodsVO> arrayList = (ArrayList<GoodsVO>) goodsBLService.findGoods(tmp.substring(3),"goodsName");
+                    GoodsVO goodsVO = arrayList.get(0);
+                    goodsVO.setGoodsName(name.getText());
+                    goodsBLService.modifyGoods(goodsVO);
+
+                }
             break;
         }
         notice.setVisible(false);
@@ -299,6 +376,7 @@ public class GoodsController{
         searchField.setPromptText("模糊查找" + goodsIDSearchBtn.getText());
         this.goodsTypeSearch = goodsIDSearchBtn.getText();
     }
+
     /**
      * 将输入的String类型的金额转化为double型
      * @param str

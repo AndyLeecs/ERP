@@ -76,4 +76,8 @@ public class GoodsVO {
 		return recentSellPrice;
 	}
 
+	public void setGoodsName(String newGoodsName){
+	    this.goodsName = newGoodsName;
+    }
+
 }
