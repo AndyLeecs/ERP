@@ -112,33 +112,6 @@ public class GoodsController{
 
                     );
 
-        //treeView.setCellFactory((TreeView<String> p) -> new TextFieldTreeCellImpl());
-        /*
-            treeView.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
-                @Override
-                public TreeCell<String> call(TreeView<String> treeView) {
-                    return new TreeCell<String>() {
-                        @Override
-                        public void updateSelected(boolean selected) {
-                            super.updateSelected(selected);
-
-                            setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                @Override
-                                public void handle(MouseEvent event) {
-                                    if(getTreeItem().getValue().toString().contains("商品"))
-                                        getTreeItem().setValue("good");
-                                    /*
-                                    GoodsVO goosVO = goodsBLService.getGoods(getTreeItem().getValue().toString().substring(3),getTreeItem().getParent().getValue().toString().substring(3));
-                                    goodsVBox.getChildren().clear();//先清除VBox里的内容 再加载新的
-                                    newGoodsPane(goosVO);
-                                    */ /*
-                                }
-                            });
-                        }
-                    };
-                }
-            });*/
-
         //设置右键菜单
         ContextMenu menu = new ContextMenu();
         menu.setStyle("-fx-background-color: #FF7575");
