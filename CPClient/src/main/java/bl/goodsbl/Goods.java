@@ -1,7 +1,6 @@
 package bl.goodsbl;
 
 import VO.goodsVO.GoodsVO;
-import VO.goodsVO.TreeVO;
 import util.ResultMessage;
 
 import java.util.ArrayList;
@@ -68,6 +67,11 @@ public class Goods implements blservice.goodsblservice.GoodsBLService{
 
     @Override
     public ResultMessage modifyGoodsCategory(String category) {
+        return null;
+    }
+
+    @Override
+    public List getAllCategory() {
         return null;
     }
 }

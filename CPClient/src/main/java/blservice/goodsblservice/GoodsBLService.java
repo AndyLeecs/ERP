@@ -37,5 +37,5 @@ public interface GoodsBLService {
 	public ResultMessage newGoodsCategory(String category,String node);
 	public ResultMessage deleteGoodsCategory(String category);
 	public ResultMessage modifyGoodsCategory(String category);
-	//public TreeVO getAllGoodsAndCategory(); //直接删除此接口 没什么卵用 我在界面直接实现了树形显示 不需要这个接口了
+	public List getAllCategory();
 }
