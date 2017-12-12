@@ -4,11 +4,14 @@ import java.io.IOException;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import mainUI.LoginWin;
-import ui.stockmanUI.GoodsWin;
 
 /**     
 * @author 李安迪
@@ -26,6 +29,7 @@ public class ManagerController {
 	@FXML public MenuItem newPresentForSum;
 	@FXML public MenuItem showPresentForSum;
 
+	@FXML private PresentForSumListController presentForSumListController;
 	@FXML
 	public void onNewPresentForMembershipClicked(){
 		Platform.runLater(()->{
@@ -83,20 +87,38 @@ public class ManagerController {
 	}
 	@FXML
 	public void onShowPresentForSumClicked(){
-		Platform.runLater(()->{
-		try {
-			new PresentForSumListWin();
-			root.getScene().getWindow().hide();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	});
+//   	 Platform.runLater(new Runnable() {
+//	     public void run() {
+//	    	 try {
+	    	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/managerUI/PresentForSumList.fxml"));
+	    	        Parent root = null;
+					try {
+						root = loader.load();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	    	        PresentForSumListController controller = loader.getController();
+	    	        controller.setManagerController(this);
+
+//	    	        Scene scene = new Scene(root);
+//	    	        Stage stage = new Stage();
+//		    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSumList.fxml"));
+				centerPane.setCenter(root);
+
+//			 } catch (Exception e) {
+//				e.printStackTrace();
+//			 }
+//	     }
+//	 });
 	}
     
     @FXML 
     public void logOut() {
+    	
    	     Platform.runLater(()-> {
 				    try {
+				    	System.out.println("log out");
 						root.getScene().getWindow().hide();
 						new LoginWin();
 						//new ui.saleUI.SaleWin();
