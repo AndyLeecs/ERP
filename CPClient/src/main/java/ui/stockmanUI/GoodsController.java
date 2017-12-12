@@ -3,11 +3,15 @@ package ui.stockmanUI;
 import VO.goodsVO.GoodsVO;
 import bl.goodsbl.Goods;
 import blservice.goodsblservice.GoodsBLService;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,7 +41,7 @@ public class GoodsController{
     @FXML public TextField goodsStoreNum;
 
     @FXML public VBox vBox;
-    private TreeItem rootTreeItem;
+    private TreeItem<String> rootTreeItem;
 
     @FXML Pane notice;
     @FXML Label noticeLabel;
@@ -51,14 +55,19 @@ public class GoodsController{
     GoodsBLService goodsBLService = new Goods();//
     private ArrayList<GoodsVO> goodsVOArrayList = new ArrayList<>();//存放模糊查找到的商品列表
 
-    Stack<TreeItem> stack = new Stack<>();//存放目录的引用 便于增减改名商品
+    Stack<TreeItem<String>> stack = new Stack<>();//存放目录的引用 便于增减改名商品
 
     //初始TreeView 加载所有商品和分类
     private void initTreeView(){
+
+        presentLocation.addEventHandler(MouseEvent.MOUSE_CLICKED,event -> System.out.println("标签被点击"));
         //在ScrollPane上配置并加入TreeView
-        rootTreeItem = new TreeItem("分类：根目录");
+        rootTreeItem = new TreeItem<String>("分类：根目录");
         rootTreeItem.setExpanded(true);
 
+
+        //以下for循环 获取数据库中所有商品和分类并加载到TreeView中
+        /*
         ArrayList<String> newGoodsVOS = (ArrayList<String>) goodsBLService.getAllCategory();
         for(int i =0;i<newGoodsVOS.size();i++){
             TreeItem eachGoodsCategory = new TreeItem("分类：" + newGoodsVOS.get(i));
@@ -70,20 +79,65 @@ public class GoodsController{
                 TreeItem goods = new TreeItem("商品：" + sameCategoryGoods.get(j).getGoodsName());
                 eachGoodsCategory.getChildren().add(goods);
             }
-        }
+        }*/
         //以下为demo
-        /*
+
         for(int i =0;i<5;i++) {
-            TreeItem item = new TreeItem("分类：" + i);
+            TreeItem<String> item = new TreeItem<String>("分类：" + i);
             item.setGraphic(new ImageView("img/folderIcon.png"));
             rootTreeItem.getChildren().add(item);
-
-            TreeItem item1 = new TreeItem("商品：" + i);
+           
+            TreeItem<String> item1 = new TreeItem<String>("商品：" + i);
+           
             item.getChildren().add(item1);
-        }*/
 
-        TreeView treeView = new TreeView<>(rootTreeItem);
+        }
+
+        //以上为demo
+
+        TreeView<String> treeView = new TreeView<>(rootTreeItem);
         vBox.getChildren().add(treeView);
+        treeView.addEventHandler(MouseEvent.MOUSE_CLICKED,event ->
+                {
+                    TreeItem<String> goodsItem = treeView.getSelectionModel().getSelectedItem();
+                    System.out.println(goodsItem.getValue().toString() + "被点击");
+
+                    if(goodsItem.getValue().toString().contains("商品")) {
+                        System.out.println("是商品项 可以进行下一步操作");
+                        //为了测试运行结果 先注释下面一行从数据库获取对应商品信息的语句
+                        newGoodsPane(goodsBLService.getGoods(goodsItem.getValue().toString().substring(3),goodsItem.getParent().getValue().substring(3)));
+                    }
+
+                }
+
+                    );
+
+        //treeView.setCellFactory((TreeView<String> p) -> new TextFieldTreeCellImpl());
+        /*
+            treeView.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
+                @Override
+                public TreeCell<String> call(TreeView<String> treeView) {
+                    return new TreeCell<String>() {
+                        @Override
+                        public void updateSelected(boolean selected) {
+                            super.updateSelected(selected);
+
+                            setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                @Override
+                                public void handle(MouseEvent event) {
+                                    if(getTreeItem().getValue().toString().contains("商品"))
+                                        getTreeItem().setValue("good");
+                                    /*
+                                    GoodsVO goosVO = goodsBLService.getGoods(getTreeItem().getValue().toString().substring(3),getTreeItem().getParent().getValue().toString().substring(3));
+                                    goodsVBox.getChildren().clear();//先清除VBox里的内容 再加载新的
+                                    newGoodsPane(goosVO);
+                                    */ /*
+                                }
+                            });
+                        }
+                    };
+                }
+            });*/
 
         //设置右键菜单
         ContextMenu menu = new ContextMenu();
@@ -97,7 +151,7 @@ public class GoodsController{
             //通过命名来区分商品项和分类项 除此之外有别的方法则可用别的方法替换 （比如分类有文件夹图片区分）
             //命名格式： 商品：小台灯 分类：彩灯
             //判断当前节点是否可添加商品
-            TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
+            TreeItem<String> selectItem = (TreeItem<String>) treeView.getSelectionModel().getSelectedItem();
 
             System.out.println("选中项文字 " + selectItem.getValue().toString());
             System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
@@ -182,12 +236,14 @@ public class GoodsController{
     }
 
     /**
-     * 初始化页面时 更新当前位置
+     * 初始化页面
+     * 清除商品搜索项goodsVBox中的商品项
      */
     @FXML
     public void initialize(){
         notice.setVisible(false);
         initTreeView();
+        //goodsVBox.getChildren().clear();
     }
 
 
@@ -222,130 +278,7 @@ public class GoodsController{
             }
             goodsVOArrayList = (ArrayList<GoodsVO>)goodsBLService.findGoods(searchField.getText(),this.goodsTypeSearch);
 	        for(int i =0;i<goodsVOArrayList.size();i++){
-	            Pane newGoodsPane = new Pane(goodsPane);
-
-	            //复杂的新建商品页面逻辑
-
-	            ImageView imageView = new ImageView("img/lamp1.JPG");
-	            imageView.setLayoutX(0);
-	            imageView.setLayoutY(0);
-
-	            Label greenLabel = new Label();
-	            greenLabel.setLayoutX(233);
-	            greenLabel.setLayoutY(41);
-	            greenLabel.setStyle("-fx-background-color:  #4F9D9D");
-
-	            Label goodsIDLabel = new Label("商品编号");
-	            goodsIDLabel.setLayoutX(245);
-	            goodsIDLabel.setLayoutY(119);
-
-                Label goodsStoreLabel = new Label("库存数量");
-                goodsStoreLabel.setLayoutX(245);
-                goodsStoreLabel.setLayoutY(116);
-
-                Label goodsBuyPriceLabel = new Label("进价");
-                goodsBuyPriceLabel.setLayoutX(245);
-                goodsBuyPriceLabel.setLayoutY(119);
-
-                Label goodsSellPriceLabel = new Label("销售价");
-                goodsSellPriceLabel.setLayoutX(245);
-                goodsSellPriceLabel.setLayoutY(119);
-
-                Label recentBuyPriceLabel = new Label("最近进价");
-                recentBuyPriceLabel.setLayoutX(245);
-                recentBuyPriceLabel.setLayoutY(119);
-
-                Label recentSellPriceLabel = new Label("最近销售价");
-                recentSellPriceLabel.setLayoutX(245);
-                recentSellPriceLabel.setLayoutY(119);
-
-	            Label newGoodsName = new Label(goodsVOArrayList.get(i).getGoodsName());
-	            newGoodsName.setLayoutX(251);
-	            newGoodsName.setLayoutY(48);
-	            newGoodsName.setPrefSize(75,37);
-	            newGoodsName.setStyle("-fx-background-color: transparent");
-	            newGoodsName.setStyle("-fx-background-radius: 20");
-	            newGoodsName.setStyle("-fx-border-radius: 20");
-
-                Label newGoodsType = new Label(goodsVOArrayList.get(i).getGoodsType());
-                newGoodsType.setLayoutX(364);
-                newGoodsType.setLayoutY(62);
-                newGoodsType.setPrefSize(89,17);
-                newGoodsType.setStyle("-fx-background-color: transparent");
-                newGoodsType.setStyle("-fx-background-radius: 20");
-                newGoodsType.setStyle("-fx-border-radius: 20");
-
-                Label newGoodsCategory = new Label(goodsVOArrayList.get(i).getGoodsCategory());
-                newGoodsCategory.setLayoutX(470);
-                newGoodsCategory.setLayoutY(62);
-                newGoodsCategory.setPrefSize(75,37);
-                newGoodsCategory.setStyle("-fx-background-color: transparent");
-                newGoodsCategory.setStyle("-fx-background-radius: 20");
-                newGoodsCategory.setStyle("-fx-border-radius: 20");
-
-                Label newGoodsID = new Label(goodsVOArrayList.get(i).getGoodsID());
-                newGoodsID.setLayoutX(311);
-                newGoodsID.setLayoutY(114);
-                newGoodsID.setPrefSize(213,17);
-                newGoodsID.setStyle("-fx-background-color: transparent");
-                newGoodsID.setStyle("-fx-background-radius: 20");
-                newGoodsID.setStyle("-fx-border-radius: 20");
-
-                Label newGoodsInventory = new Label(" ");//后期获取商品库存
-                newGoodsInventory.setLayoutX(337);
-                newGoodsInventory.setLayoutY(154);
-                newGoodsInventory.setPrefSize(39,32);
-                newGoodsInventory.setStyle("-fx-background-color: transparent");
-                newGoodsInventory.setStyle("-fx-background-radius: 20");
-                newGoodsInventory.setStyle("-fx-border-radius: 20");
-
-                Label newGoodsBuyPrice = new Label("" + goodsVOArrayList.get(i).getGoodsBuyPrice());
-                newGoodsBuyPrice.setLayoutX(331);
-                newGoodsBuyPrice.setLayoutY(224);
-                newGoodsBuyPrice.setPrefSize(89,45);
-                newGoodsBuyPrice.setStyle("-fx-background-color: transparent");
-                newGoodsBuyPrice.setStyle("-fx-background-radius: 20");
-                newGoodsBuyPrice.setStyle("-fx-border-radius: 20");
-
-                Label newGoodsSellPrice = new Label("" + goodsVOArrayList.get(i).getGoodsSellPrice());
-                newGoodsSellPrice.setLayoutX(331);
-                newGoodsSellPrice.setLayoutY(297);
-                newGoodsSellPrice.setPrefSize(89,17);
-                newGoodsSellPrice.setStyle("-fx-background-color: transparent");
-                newGoodsSellPrice.setStyle("-fx-background-radius: 20");
-                newGoodsSellPrice.setStyle("-fx-border-radius: 20");
-
-                Label newRecentBuyPrice = new Label("" + goodsVOArrayList.get(i).recentBuyPrice());
-                newRecentBuyPrice.setLayoutX(556);
-                newRecentBuyPrice.setLayoutY(224);
-                newRecentBuyPrice.setPrefSize(89,17);
-                newRecentBuyPrice.setStyle("-fx-background-color: transparent");
-                newRecentBuyPrice.setStyle("-fx-background-radius: 20");
-                newRecentBuyPrice.setStyle("-fx-border-radius: 20");
-
-                Label newRecentSellPrice = new Label("" + goodsVOArrayList.get(i).recentSellPrice());
-                newRecentSellPrice.setLayoutX(556);
-                newRecentSellPrice.setLayoutY(297);
-                newRecentSellPrice.setPrefSize(89,17);
-                newRecentSellPrice.setStyle("-fx-background-color: transparent");
-                newRecentSellPrice.setStyle("-fx-background-radius: 20");
-                newRecentSellPrice.setStyle("-fx-border-radius: 20");
-
-                ImageView edit = new ImageView("img/edit.png");
-                edit.setLayoutX(631);
-                edit.setLayoutY(23);
-                edit.setFitHeight(25);
-                edit.setFitWidth(25);
-                edit.setOnMousePressed(event -> {
-                    try {
-                        new GoodsInfoEditWin();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-
-                newGoodsPane.setStyle("-fx-background-color: #FFB5B5");
-	            goodsVBox.getChildren().add(newGoodsPane);
+	            newGoodsPane(goodsVOArrayList.get(i));
             }
         }
 	}
@@ -414,5 +347,151 @@ public class GoodsController{
     public void onGoodsIDSearchBtnClicked(){
         searchField.setPromptText("模糊查找" + goodsIDSearchBtn.getText());
         this.goodsTypeSearch = goodsIDSearchBtn.getText();
+    }
+
+    public void newGoodsPane(GoodsVO goodsVO) {
+        //复杂的新建商品页面逻辑
+        Pane newGoodsPane = new Pane();
+
+        ImageView imageView = new ImageView("img/lamp1.JPG");
+        imageView.setLayoutX(0);
+        imageView.setLayoutY(0);
+
+        Label greenLabel = new Label();
+        greenLabel.setLayoutX(233);
+        greenLabel.setLayoutY(41);
+        greenLabel.setStyle("-fx-background-color:  #4F9D9D");
+
+        Label goodsIDLabel = new Label("商品编号");
+        goodsIDLabel.setLayoutX(245);
+        goodsIDLabel.setLayoutY(119);
+
+        Label goodsStoreLabel = new Label("库存数量");
+        goodsStoreLabel.setLayoutX(245);
+        goodsStoreLabel.setLayoutY(116);
+
+        Label goodsBuyPriceLabel = new Label("进价");
+        goodsBuyPriceLabel.setLayoutX(245);
+        goodsBuyPriceLabel.setLayoutY(119);
+
+        Label goodsSellPriceLabel = new Label("销售价");
+        goodsSellPriceLabel.setLayoutX(245);
+        goodsSellPriceLabel.setLayoutY(119);
+
+        Label recentBuyPriceLabel = new Label("最近进价");
+        recentBuyPriceLabel.setLayoutX(245);
+        recentBuyPriceLabel.setLayoutY(119);
+
+        Label recentSellPriceLabel = new Label("最近销售价");
+        recentSellPriceLabel.setLayoutX(245);
+        recentSellPriceLabel.setLayoutY(119);
+
+        Label newGoodsName = new Label(goodsVO.getGoodsName());
+        newGoodsName.setLayoutX(251);
+        newGoodsName.setLayoutY(48);
+        newGoodsName.setPrefSize(75, 37);
+        newGoodsName.setStyle("-fx-background-color: transparent");
+        newGoodsName.setStyle("-fx-background-radius: 20");
+        newGoodsName.setStyle("-fx-border-radius: 20");
+
+        Label newGoodsType = new Label(goodsVO.getGoodsType());
+        newGoodsType.setLayoutX(364);
+        newGoodsType.setLayoutY(62);
+        newGoodsType.setPrefSize(89, 17);
+        newGoodsType.setStyle("-fx-background-color: transparent");
+        newGoodsType.setStyle("-fx-background-radius: 20");
+        newGoodsType.setStyle("-fx-border-radius: 20");
+
+        Label newGoodsCategory = new Label(goodsVO.getGoodsCategory());
+        newGoodsCategory.setLayoutX(470);
+        newGoodsCategory.setLayoutY(62);
+        newGoodsCategory.setPrefSize(75, 37);
+        newGoodsCategory.setStyle("-fx-background-color: transparent");
+        newGoodsCategory.setStyle("-fx-background-radius: 20");
+        newGoodsCategory.setStyle("-fx-border-radius: 20");
+
+        Label newGoodsID = new Label(goodsVO.getGoodsID());
+        newGoodsID.setLayoutX(311);
+        newGoodsID.setLayoutY(114);
+        newGoodsID.setPrefSize(213, 17);
+        newGoodsID.setStyle("-fx-background-color: transparent");
+        newGoodsID.setStyle("-fx-background-radius: 20");
+        newGoodsID.setStyle("-fx-border-radius: 20");
+
+        Label newGoodsInventory = new Label(" ");//后期获取商品库存
+        newGoodsInventory.setLayoutX(337);
+        newGoodsInventory.setLayoutY(154);
+        newGoodsInventory.setPrefSize(39, 32);
+        newGoodsInventory.setStyle("-fx-background-color: transparent");
+        newGoodsInventory.setStyle("-fx-background-radius: 20");
+        newGoodsInventory.setStyle("-fx-border-radius: 20");
+
+        Label newGoodsBuyPrice = new Label("" + goodsVO.getGoodsBuyPrice());
+        newGoodsBuyPrice.setLayoutX(331);
+        newGoodsBuyPrice.setLayoutY(224);
+        newGoodsBuyPrice.setPrefSize(89, 45);
+        newGoodsBuyPrice.setStyle("-fx-background-color: transparent");
+        newGoodsBuyPrice.setStyle("-fx-background-radius: 20");
+        newGoodsBuyPrice.setStyle("-fx-border-radius: 20");
+
+        Label newGoodsSellPrice = new Label("" + goodsVO.getGoodsSellPrice());
+        newGoodsSellPrice.setLayoutX(331);
+        newGoodsSellPrice.setLayoutY(297);
+        newGoodsSellPrice.setPrefSize(89, 17);
+        newGoodsSellPrice.setStyle("-fx-background-color: transparent");
+        newGoodsSellPrice.setStyle("-fx-background-radius: 20");
+        newGoodsSellPrice.setStyle("-fx-border-radius: 20");
+
+        Label newRecentBuyPrice = new Label("" + goodsVO.recentBuyPrice());
+        newRecentBuyPrice.setLayoutX(556);
+        newRecentBuyPrice.setLayoutY(224);
+        newRecentBuyPrice.setPrefSize(89, 17);
+        newRecentBuyPrice.setStyle("-fx-background-color: transparent");
+        newRecentBuyPrice.setStyle("-fx-background-radius: 20");
+        newRecentBuyPrice.setStyle("-fx-border-radius: 20");
+
+        Label newRecentSellPrice = new Label("" + goodsVO.recentSellPrice());
+        newRecentSellPrice.setLayoutX(556);
+        newRecentSellPrice.setLayoutY(297);
+        newRecentSellPrice.setPrefSize(89, 17);
+        newRecentSellPrice.setStyle("-fx-background-color: transparent");
+        newRecentSellPrice.setStyle("-fx-background-radius: 20");
+        newRecentSellPrice.setStyle("-fx-border-radius: 20");
+
+        ImageView edit = new ImageView("img/edit.png");
+        edit.setLayoutX(631);
+        edit.setLayoutY(23);
+        edit.setFitHeight(25);
+        edit.setFitWidth(25);
+        edit.setOnMousePressed(event -> {
+            try {
+                new GoodsInfoEditWin();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        newGoodsPane.setStyle("-fx-background-color: #FFB5B5");
+        goodsVBox.getChildren().add(newGoodsPane);
+
+    }
+
+    private final class TextFieldTreeCellImpl extends TreeCell<String> {
+        public TextFieldTreeCellImpl() {
+        }
+
+        @Override
+        public void updateSelected(boolean selected){
+            super.updateSelected(selected);
+
+            if(selected && this.getText().contains("商品")){
+                initialize();//初始化清除vBox里的商品goodsPane
+                System.out.println(this.getText().substring(3) + "" + this.getParent().toString().substring(3));
+                GoodsVO goodsVO = goodsBLService.getGoods(this.getText().substring(3),this.getParent().toString().substring(3));
+                newGoodsPane(goodsVO);
+            }
+
+        }
+
     }
 }

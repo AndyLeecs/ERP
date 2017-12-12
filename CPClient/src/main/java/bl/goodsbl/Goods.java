@@ -41,6 +41,11 @@ public class Goods implements blservice.goodsblservice.GoodsBLService{
     }
 
     @Override
+    public GoodsVO getGoods(String name, String category) {
+        return null;
+    }
+
+    @Override
     public ResultMessage deleteGoods(String category, String name) {
         return null;
     }
