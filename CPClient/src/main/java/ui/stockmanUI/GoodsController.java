@@ -3,15 +3,12 @@ package ui.stockmanUI;
 import VO.goodsVO.GoodsVO;
 import bl.goodsbl.Goods;
 import blservice.goodsblservice.GoodsBLService;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,6 +38,7 @@ public class GoodsController{
     @FXML public TextField goodsStoreNum;
 
     @FXML public VBox vBox;
+    protected TreeView<String> treeView;
     private TreeItem<String> rootTreeItem;
 
     @FXML Pane notice;
@@ -95,7 +93,7 @@ public class GoodsController{
 
         //以上为demo
 
-        TreeView<String> treeView = new TreeView<>(rootTreeItem);
+        treeView = new TreeView<>(rootTreeItem);
         vBox.getChildren().add(treeView);
         treeView.addEventHandler(MouseEvent.MOUSE_CLICKED,event ->
                 {
@@ -265,12 +263,14 @@ public class GoodsController{
     public void onSureBtnClicked(){
         String tmp = "";
         switch (noticeLabel.getText()){
-            case "新建商品": tmp = "商品：";
+            case "新建商品":
+                tmp = "商品：";
                 stack.peek().setValue(tmp + "" + name.getText());
                 goodsBLService.newGoods(name.getText(),stack.peek().getParent().getValue().toString().substring(0,3));
             break;
 
-            case "新建分类": tmp = "分类：";
+            case "新建分类":
+                tmp = "分类：";
                 stack.peek().setValue(tmp + "" + name.getText());
                 //以下部分由于数据层没有搭好暂不能正常运行 故加注释
                 /*
@@ -285,20 +285,19 @@ public class GoodsController{
                 }*/
             break;
 
-            case "修改名称": tmp = stack.peek().getValue().toString();
-            System.out.println("原始名称为："+ tmp);
-            System.out.println("修改后为：" + tmp.substring(0,3));
+            case "修改名称":
+                tmp = stack.peek().getValue().toString();
+                System.out.println("原始名称为："+ tmp);
+                System.out.println("修改后为：" + tmp.substring(0,3));
                 stack.peek().setValue(tmp.substring(0,3) + name.getText());
 
-                if(tmp.substring(0,3).contains("分类"))
-                    goodsBLService.modifyGoodsCategory(name.getText());
-                else{
+                //惰性删除ui上该分类 对于数据库内数据不改动
+                if(tmp.substring(0,3).contains("商品")){
                     System.out.println("原来商品名：" + tmp.substring(3) + "新商品名：" + name.getText());
                     ArrayList<GoodsVO> arrayList = (ArrayList<GoodsVO>) goodsBLService.findGoods(tmp.substring(3),"goodsName");
                     GoodsVO goodsVO = arrayList.get(0);
                     goodsVO.setGoodsName(name.getText());
                     goodsBLService.modifyGoods(goodsVO);
-
                 }
             break;
         }
