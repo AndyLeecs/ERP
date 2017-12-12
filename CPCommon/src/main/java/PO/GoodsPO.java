@@ -14,9 +14,9 @@ public class GoodsPO implements Serializable{
 	/**
 	 * 商品分类
 	 */
-	String goodsSort;
+	String goodsCategory;
 	/**
-	 * 商品分类
+	 * 商品类型
 	 */
 	String goodsType;
 	/**
@@ -31,53 +31,89 @@ public class GoodsPO implements Serializable{
 	 * 最近进价
 	 */
 	double recentBuyPrice;
-	/**
-	 * 最近零售价
-	 */
-	double recentSellPrice;
-	
-//	public GoodsVO(String a,String b,String c,String d,String e,double f,double g,double h,double i) {
-//		goodsID = a;
-//		goodsSort = b;
-//		goodsName = c;
-//		goodsType = d;
-//		goodsCode = e;
-//		goodsBuyPrice = f;
-//		goodsSellPrice = g;
-//		recentBuyPrice = h;
-//		recentSellPrice = i;
-//	}
-//	
-//	public String getGoods() {
-//		return  goodsID;
-//	}
-//	
-//	public String getGoodsSort() {
-//		return goodsSort;
-//	}
-//	
-//	public String getGoodsType() {
-//		return goodsType;
-//	}
-//	
-//	public String getGoodsCode() {
-//		return goodsCode;
-//	}
-//	
-//	public double getGoodsBuyPrice() {
-//		return goodsBuyPrice;
-//	}
-//	
-//	public double getGoodsSellPrice() {
-//		return goodsSellPrice;
-//	}
-//	
-//	public double recentBuyPrice() {
-//		return recentBuyPrice;
-//	}
-//	
-//	public double recentSellPrice() {
-//		return recentSellPrice;
-//	}
+
+    /**
+     * 最近零售价
+     */
+    double recentSellPrice;
+
+    /**
+     * 数据库自动生成的id
+     */
+    private String autoId;
+
+    public double getRecentBuyPrice() {
+        return recentBuyPrice;
+    }
+
+    public void setRecentBuyPrice(double recentBuyPrice) {
+        this.recentBuyPrice = recentBuyPrice;
+    }
+
+    public Object getRecentSellPrice() {
+        return recentSellPrice;
+    }
+
+    public void setRecentSellPrice(double recentSellPrice) {
+        this.recentSellPrice = recentSellPrice;
+    }
+
+	public String getAutoId() {
+		return autoId;
+	}
+
+	public void setAutoId(String autoId) {
+		this.autoId = autoId;
+	}
+
+	public GoodsPO(String goodsID,String goodsCategory,String goodsName,String goodsType
+			,double goodsBuyPrice,double goodsSellPrice,double recentBuyPrice,double recentSellPrice) {
+		this.goodsID = goodsID;
+		this.goodsCategory = goodsCategory;
+		this.goodsName = goodsName;
+		this.goodsType = goodsType;
+		this.goodsBuyPrice = goodsBuyPrice;
+		this.goodsSellPrice = goodsSellPrice;
+		this.recentBuyPrice = recentBuyPrice;
+		this.recentSellPrice = recentSellPrice;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public String getGoodsID() {
+		return  goodsID;
+	}
+
+	public String getGoodsCategory() {
+		return goodsCategory;
+	}
+
+	public String getGoodsType() {
+		return goodsType;
+	}
+
+
+
+	public double getGoodsBuyPrice() {
+		return goodsBuyPrice;
+	}
+
+	public double getGoodsSellPrice() {
+		return goodsSellPrice;
+	}
+
+	public double recentBuyPrice() {
+		return recentBuyPrice;
+	}
+
+	public double recentSellPrice() {
+		return recentSellPrice;
+	}
+
+	public void setGoodsName(String newGoodsName){
+		this.goodsName = newGoodsName;
+	}
 
 }

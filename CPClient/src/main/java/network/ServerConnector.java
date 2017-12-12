@@ -7,7 +7,10 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dataService.VIPDataService.VIPDataService;
+import network.VIPRemoteHelper.VIPDataServiceHelper;
 import network.accountRemoteHelper.PaymentListDataServiceHelper;
+import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import network.storeRemoteHelper.StoreDataServiceHelper;
 
 /**
@@ -24,6 +27,8 @@ public class ServerConnector {
 //	SaleDataServiceHelper saleDataServiceHelper;		//安迪你的这两个再自己写一下吧，我就不帮你写啦，记得实现接口哦～
 //	PresentDataServiceHelper presentDataServiceHelper;
 //	PaymentListDataServiceHelper paymentListDataServiceHelper;
+	GoodsDataServiceHelper goodsDataServiceHelper;
+    VIPDataServiceHelper vipDataServiceHelper;
 	
 	public ServerConnector(){
 		addServices();
@@ -33,7 +38,8 @@ public class ServerConnector {
 	private void addServices(){
 		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
-		
+		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
+		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
 		//哈哈，巧妙的设计了一番，每个helper只需在这里add一下就行了
 	}
 	
@@ -61,10 +67,15 @@ public class ServerConnector {
 //		saleDataServiceHelper = SaleDataServiceHelper.getInstance();
 //		presentDataServiceHelper = PresentDataServiceHelper.getInstance();
 //		paymentListDataServiceHelper = PaymentListDataServiceHelper.getInstance();
+//      goodsDataServiceHelper = GoodsDataServiceHelper.getInstance();
+//      vipDataServiceHelper = VIPDataServiceHelper.getInstance();
+
 //		try {
 //			storeDataServiceHelper.setRemote(Naming.lookup(url+"StoreDataService"));
 //			saleDataServiceHelper.setRemote(Naming.lookup(url+"SaleDataService"));
 //			presentDataServiceHelper.setRemote(Naming.lookup(url+"PresentDataService"));
+//          goodsDataServiceHelper.setRemote(Naming.lookup(url+"GoodsDataService"));
+//          vipDataServiceHelper.setRemote(Naming.lookup(url+"VIPDataService"));
 //		} catch (MalformedURLException e) {
 //			e.printStackTrace();
 //		} catch (RemoteException e) {

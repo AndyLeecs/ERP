@@ -1,32 +1,15 @@
-package bl.goodsbl;
+package dataServiceImpl.goodsImpl;
 
-import VO.goodsVO.GoodsVO;
+import PO.GoodsPO;
+import dataService.goodsDataService.GoodsDataService;
 import util.ResultMessage;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Goods implements blservice.goodsblservice.GoodsBLService{
-
-    GoodsVO goodsVO1 = new GoodsVO("0"
-            ,"1"
-            ,"2"
-            ,"3"
-            ,4
-            ,5
-            ,6
-            ,7);
-
-    GoodsVO goodsVO2 = new GoodsVO("01"
-            ,"11"
-            ,"21"
-            ,"31"
-            ,41
-            ,51
-            ,61
-            ,71);
-
-
+/**
+ * Created by julia98 on 2017/12/13.
+ */
+public class GoodsDataServiceImpl implements GoodsDataService {
     @Override
     public String newGoods(String name, String category) {
         return null;
@@ -34,14 +17,11 @@ public class Goods implements blservice.goodsblservice.GoodsBLService{
 
     @Override
     public List findGoods(String info, String type) {
-        ArrayList<GoodsVO> goodsVOS = new ArrayList<>();
-        goodsVOS.add(goodsVO1);
-        goodsVOS.add(goodsVO2);
         return null;
     }
 
     @Override
-    public GoodsVO getGoods(String name, String category) {
+    public GoodsPO getGoods(String name, String category) {
         return null;
     }
 
@@ -51,12 +31,12 @@ public class Goods implements blservice.goodsblservice.GoodsBLService{
     }
 
     @Override
-    public ResultMessage modifyGoods(GoodsVO vo) {
+    public ResultMessage modifyGoods(GoodsPO vo) {
         return null;
     }
 
     @Override
-    public ResultMessage initAndSaveGoods(GoodsVO vo) {
+    public ResultMessage initAndSaveGoods(GoodsPO vo) {
         return null;
     }
 

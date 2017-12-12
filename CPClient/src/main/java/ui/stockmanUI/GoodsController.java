@@ -272,7 +272,17 @@ public class GoodsController{
 
             case "新建分类": tmp = "分类：";
                 stack.peek().setValue(tmp + "" + name.getText());
-                goodsBLService.newGoodsCategory(name.getText(),"");
+                //以下部分由于数据层没有搭好暂不能正常运行 故加注释
+                /*
+                ArrayList<String> arrayList = (ArrayList<String>) goodsBLService.getAllCategory();
+                for(int i = 0;i<arrayList.size();i++){
+                    if(name.getText().equals(arrayList.get(i))){
+                        noticeLabel.setText("分类名称重复，请换其他分类名称");
+                    }
+                    if(i == arrayList.size() - 1){
+                        stack.peek().setValue(tmp + "" + name.getText());
+                    }
+                }*/
             break;
 
             case "修改名称": tmp = stack.peek().getValue().toString();
@@ -446,25 +456,6 @@ public class GoodsController{
 
         newGoodsPane.setStyle("-fx-background-color: #FFB5B5");
         goodsVBox.getChildren().add(newGoodsPane);
-
-    }
-
-    private final class TextFieldTreeCellImpl extends TreeCell<String> {
-        public TextFieldTreeCellImpl() {
-        }
-
-        @Override
-        public void updateSelected(boolean selected){
-            super.updateSelected(selected);
-
-            if(selected && this.getText().contains("商品")){
-                initialize();//初始化清除vBox里的商品goodsPane
-                System.out.println(this.getText().substring(3) + "" + this.getParent().toString().substring(3));
-                GoodsVO goodsVO = goodsBLService.getGoods(this.getText().substring(3),this.getParent().toString().substring(3));
-                newGoodsPane(goodsVO);
-            }
-
-        }
 
     }
 }
