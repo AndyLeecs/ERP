@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e0aab2d-f4db-459d-ac8b-6c3286cc492f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/VO/VIPVO/VIPRM.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/VO/goodsVO/GoodsRM.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIP.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/VO/VIPVO/VIPVO.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/VO/VIPVO/VIPVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/Goods.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/Goods.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/NewGoodsORCategoryController.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/stockmanUI/NewGoodsORCategoryController.java" />
-    </list>
+    <list default="true" id="7e0aab2d-f4db-459d-ac8b-6c3286cc492f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/CPCommon/target/" />
     <ignored path="$PROJECT_DIR$/CPServer/target/" />
@@ -82,50 +74,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VIP.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VIP.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIP.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="623">
               <caret line="102" column="40" lean-forward="true" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VIPVO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/VIPVO/VIPVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-              <folding>
-                <element signature="e#1146#1147#0" expanded="true" />
-                <element signature="e#1173#1174#0" expanded="true" />
-                <element signature="e#1211#1212#0" expanded="true" />
-                <element signature="e#1245#1246#0" expanded="true" />
-                <element signature="e#1277#1278#0" expanded="true" />
-                <element signature="e#1305#1306#0" expanded="true" />
-                <element signature="e#1339#1340#0" expanded="true" />
-                <element signature="e#1369#1370#0" expanded="true" />
-                <element signature="e#1406#1407#0" expanded="true" />
-                <element signature="e#1439#1440#0" expanded="true" />
-                <element signature="e#1477#1478#0" expanded="true" />
-                <element signature="e#1501#1502#0" expanded="true" />
-                <element signature="e#1549#1550#0" expanded="true" />
-                <element signature="e#1584#1585#0" expanded="true" />
-                <element signature="e#1622#1623#0" expanded="true" />
-                <element signature="e#1657#1658#0" expanded="true" />
-                <element signature="e#1715#1716#0" expanded="true" />
-                <element signature="e#1760#1761#0" expanded="true" />
-                <element signature="e#1790#1791#0" expanded="true" />
-                <element signature="e#1811#1812#0" expanded="true" />
-                <element signature="e#1853#1854#0" expanded="true" />
-                <element signature="e#1882#1883#0" expanded="true" />
-                <element signature="e#1912#1913#0" expanded="true" />
-                <element signature="e#1931#1932#0" expanded="true" />
-                <element signature="e#1971#1972#0" expanded="true" />
-                <element signature="e#1996#1997#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -213,8 +168,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-41" />
-    <option name="y" value="25" />
+    <option name="x" value="-18" />
+    <option name="y" value="23" />
     <option name="width" value="1427" />
     <option name="height" value="877" />
   </component>
@@ -558,15 +513,15 @@
       <workItem from="1512475196944" duration="4090000" />
       <workItem from="1512479674657" duration="15717000" />
       <workItem from="1512544295738" duration="5152000" />
-      <workItem from="1512617434876" duration="93501000" />
+      <workItem from="1512617434876" duration="93666000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129828000" />
+    <option name="totallyTimeSpent" value="129993000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-41" y="25" width="1427" height="877" extended-state="0" />
+    <frame x="-18" y="23" width="1427" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1124,16 +1079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="102" column="40" lean-forward="true" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/VO/VIPVO/VIPVO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1165,6 +1110,16 @@
             <element signature="e#1931#1932#0" expanded="true" />
             <element signature="e#1971#1972#0" expanded="true" />
             <element signature="e#1996#1997#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="102" column="40" lean-forward="true" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
