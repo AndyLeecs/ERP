@@ -29,13 +29,12 @@ public class ManagerController {
 	@FXML public MenuItem newPresentForSum;
 	@FXML public MenuItem showPresentForSum;
 
-	@FXML private PresentForSumListController presentForSumListController;
 	@FXML
 	public void onNewPresentForMembershipClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForMembershipWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForMembership.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -45,8 +44,8 @@ public class ManagerController {
 	public void onNewPresentForSpecialPackageClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForSpecialPackageWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSpecialPackage.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -56,8 +55,8 @@ public class ManagerController {
 	public void onNewPresentForSumClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForSumWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -67,8 +66,8 @@ public class ManagerController {
 	public void onShowPresentForMembershipClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForMembershipListWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForMembershipList.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -78,8 +77,8 @@ public class ManagerController {
 	public void onShowPresentForSpecialPackageClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForSpecialPackageListWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSpecialPackageList.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -87,30 +86,17 @@ public class ManagerController {
 	}
 	@FXML
 	public void onShowPresentForSumClicked(){
-//   	 Platform.runLater(new Runnable() {
-//	     public void run() {
-//	    	 try {
-	    	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/managerUI/PresentForSumList.fxml"));
-	    	        Parent root = null;
-					try {
-						root = loader.load();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-	    	        PresentForSumListController controller = loader.getController();
-	    	        controller.setManagerController(this);
+   	 Platform.runLater(new Runnable() {
+	     public void run() {
+	    	 try {
+		    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSumList.fxml"));
+				centerPane.setCenter(presentroot);
 
-//	    	        Scene scene = new Scene(root);
-//	    	        Stage stage = new Stage();
-//		    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSumList.fxml"));
-				centerPane.setCenter(root);
-
-//			 } catch (Exception e) {
-//				e.printStackTrace();
-//			 }
-//	     }
-//	 });
+			 } catch (Exception e) {
+				e.printStackTrace();
+			 }
+	     }
+	 });
 	}
     
     @FXML 

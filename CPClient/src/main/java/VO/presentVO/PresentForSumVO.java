@@ -19,7 +19,7 @@ public class PresentForSumVO extends PresentVO{
 	/**
 	 * 总额
 	 */
-	int total;
+	double total;
 	/**
 	 *赠品列表
 	 */	
@@ -27,21 +27,53 @@ public class PresentForSumVO extends PresentVO{
 	/**
 	 * 赠送代金券金额
 	 */
-	int voucher;
+	double voucher;
 	
-	public String getPresentName(){
-		return this.presentName;
+	public PresentForSumVO(Date startTime, Date finishTime, double total,
+			List<GoodsInSaleVO> presentList, double voucher) {
+		super(startTime, finishTime);
+		this.total = total;
+		this.presentList = presentList;
+		this.voucher = voucher;
 	}
-
-	public PresentForSumVO(String id, String presentName, Date startTime, Date finishTime, PresentType sum, int total,
-			List<GoodsInSaleVO> presentList, int voucher) {
-		super(id, presentName, startTime, finishTime);
+	
+	public PresentForSumVO(String id, Date startTime, Date finishTime, PresentType sum, double total,
+			List<GoodsInSaleVO> presentList, double voucher) {
+		super(id,startTime, finishTime);
 		Sum = sum;
 		this.total = total;
 		this.presentList = presentList;
 		this.voucher = voucher;
 	}
 
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	public double getVoucher() {
+		return voucher;
+	}
+
+	public void setVoucher(int voucher) {
+		this.voucher = voucher;
+	}
+
+
+	public List<GoodsInSaleVO> getPresentList() {
+		return presentList;
+	}
+
+
+	public void setPresentList(List<GoodsInSaleVO> presentList) {
+		this.presentList = presentList;
+	}
+
+	
 
 	
 	

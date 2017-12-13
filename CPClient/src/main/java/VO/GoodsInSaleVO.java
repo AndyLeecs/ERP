@@ -4,7 +4,7 @@ package VO;
 /**     
 * @author 李安迪
 * @date 2017年10月26日
-* @description 销售中返回的商品信息，以供选择合适的赠送策略
+* @description 销售包和赠送包中的商品清单需要的商品简要信息
 */
 public class GoodsInSaleVO {
 	/**
@@ -18,5 +18,17 @@ public class GoodsInSaleVO {
 	/**
 	 * 商品数量
 	 */
-	String amount;
+	int amount = 1;
+	
+	public GoodsInSaleVO(String id, String goodsName, int amount) {
+		
+		this.id = id;
+		this.goodsName = goodsName;
+		this.amount = amount;
+	}
+
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 }

@@ -10,8 +10,8 @@ public enum State {
 	IsDraft(0),
 	IsCommitted(1),
 	IsApproved(2),
-	IsRefused(3);
-
+	IsRefused(3),
+	IsEditting(4);
 	
 	private final int state;
 	

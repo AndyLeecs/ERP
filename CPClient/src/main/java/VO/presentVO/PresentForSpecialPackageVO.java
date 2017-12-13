@@ -23,15 +23,12 @@ public class PresentForSpecialPackageVO extends PresentVO{
 	/**
 	 *降价金额
 	 */	
-	int priceReduction;
+	double priceReduction;
 	
-	public String getPresentName(){
-		return this.presentName;
-	}
 
 	public PresentForSpecialPackageVO(String id, String presentName, Date startTime, Date finishTime,
-			PresentType specialPackage, List<GoodsInSaleVO> goodsList, int priceReduction) {
-		super(id, presentName, startTime, finishTime);
+			PresentType specialPackage, List<GoodsInSaleVO> goodsList, double priceReduction) {
+		super(id, startTime, finishTime);
 		SpecialPackage = specialPackage;
 		this.goodsList = goodsList;
 		this.priceReduction = priceReduction;
