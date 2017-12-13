@@ -13,12 +13,14 @@ public class VIPVO {
       double collection_limit ;//应收额度
       double payment  ; //应付
       String executive; // 默认业务员
-      
+
+      double collecton_limit;
+
       public VIPVO(String name,String phoneNumber,String email,String address,String locationID){
-    	  this.address=address;
+          this.name=name;
     	  this.email=email;
     	  this.phoneNumber=phoneNumber;
-    	  this.name=name;
+          this.address=address;
     	  this.locationID=locationID;
     	  
       }
@@ -29,30 +31,51 @@ public class VIPVO {
 		return result;
     	  
       }
-      
-//	public double getCollection() {
-//		return collection;
-//	}
-//	public void setCollection(double collection) {
-//		this.collection = collection;
-//	}
-//	public double getCollecton_limit() {
-//		return collecton_limit;
-//	}
-//	public void setCollecton_limit(double collecton_limit) {
-//		this.collecton_limit = collecton_limit;
-//	}
-//	public double getPayment() {
-//		return payment;
-//	}
-//	public void setPayment(double payment) {
-//		this.payment = payment;
-//	}
-//	public Grade getLevel() {
-//		return grade;
-//	}
-//	public void setLevel(Grade grade) {
-//		this.grade = grade;
-//	}
-      
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getLocationID() {
+        return locationID;
+    }
+
+
+    public double getCollection() {
+		return collection;
+	}
+	public void setCollection(double collection) {
+		this.collection = collection;
+	}
+	public double getCollecton_limit() {
+        return collecton_limit;
+	}
+	public void setCollecton_limit(double collecton_limit) {
+		this.collecton_limit = collecton_limit;
+	}
+	public double getPayment() {
+		return payment;
+	}
+	public void setPayment(double payment) {
+		this.payment = payment;
+	}
+	public VIPGrade getLevel() {
+		return grade;
+	}
+	public void setLevel(VIPGrade grade) {
+		this.grade = grade;
+	}
+
 }

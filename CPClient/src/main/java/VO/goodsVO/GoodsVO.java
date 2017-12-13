@@ -45,8 +45,12 @@ public class GoodsVO {
 		this.recentBuyPrice = recentBuyPrice;
 		this.recentSellPrice = recentSellPrice;
 	}
-	
-	public String getGoods() {
+
+    public String getGoodsName() {
+        return goodsName;
+    }
+
+    public String getGoodsID() {
 		return  goodsID;
 	}
 	

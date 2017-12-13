@@ -19,6 +19,7 @@ public class NewGoodsORCategoryController {
     private static String goodsID = "";
 
     GoodsBLService goodsBLService;
+    GoodsController goodsController;
     private ArrayList<String> list = new ArrayList();
     private String newName = "";
 
@@ -30,28 +31,29 @@ public class NewGoodsORCategoryController {
         return list;
     }
 
-    /**
-     * 一个String存放名称
-     * @return
-     */
-    protected String getNewName() {
-        return newName;
-    }
-
     @FXML
     public void onSureBtnClicked(){
         if(name.getText() == null) return;
         switch (name.getText()) {
             case "商品":
                 type = "goods";
-                goodsID = goodsBLService.newGoods(name.getText(),"");
+                goodsID = goodsBLService.newGoods(name.getText(),goodsController.treeView.getSelectionModel().getSelectedItem().getParent().getValue().toString().substring(0,3));
                 this.newName = name.getText();
                 list.add(type);
+                break;
+
             case "商品分类":
                 type = "goodsCategory";
-                goodsBLService.newGoodsCategory(name.getText(),"");
+                TreeItem<String> currentNode = goodsController.treeView.getSelectionModel().getSelectedItem();
+                String tmp = name.getText();
+                while(!currentNode.getParent().getValue().contains("根节点")){
+                    tmp = currentNode.getParent().getValue().toString().substring(3) + "/" + tmp;
+                }
+                goodsBLService.newGoodsCategory(tmp);//这里路径要注意下是整个路径
                 this.newName = name.getText();
                 list.add(type);
+                break;
+
             default:
                 list.add(name.getText());
                 root.getScene().getWindow().hide();
