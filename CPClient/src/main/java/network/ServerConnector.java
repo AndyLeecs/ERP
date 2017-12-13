@@ -7,7 +7,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import network.VIPRemoteHelper.VIPDataServiceHelper;
 import network.accountRemoteHelper.PaymentListDataServiceHelper;
+import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
 import network.presentRemoteHelper.PresentForSpecialPackageDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
@@ -34,6 +36,9 @@ public class ServerConnector {
 		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
+		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
+		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
+		
 		//哈哈，巧妙的设计了一番，每个helper只需在这里add一下就行了
 	}
 	
