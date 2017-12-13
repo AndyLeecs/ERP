@@ -1,12 +1,19 @@
 package bl.goodsbl;
 
+import PO.GoodsPO;
 import VO.goodsVO.GoodsVO;
+import blservice.goodsblservice.GoodsBLService;
+import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import util.ResultMessage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Goods implements blservice.goodsblservice.GoodsBLService{
+/**
+ * Created by julia98 on 2017/12/11.
+ */
+public class Goods implements GoodsBLService {
+    GoodsDataServiceHelper goodsDataServiceHelper;
 
     GoodsVO goodsVO1 = new GoodsVO("0"
             ,"1"
@@ -78,5 +85,27 @@ public class Goods implements blservice.goodsblservice.GoodsBLService{
     @Override
     public List getAllCategory() {
         return null;
+    }
+
+    private GoodsPO voToPO(GoodsVO goodsVO){
+        return goodsVO == null ? null : new GoodsPO(goodsVO.getGoodsID()
+                ,goodsVO.getGoodsCategory()
+                ,goodsVO.getGoodsName()
+                ,goodsVO.getGoodsType()
+                ,goodsVO.getGoodsBuyPrice()
+                ,goodsVO.getGoodsSellPrice()
+                ,goodsVO.recentBuyPrice()
+                ,goodsVO.recentSellPrice());
+    }
+
+    private GoodsVO poToVO(GoodsPO goodsPO){
+        return goodsPO == null ? null : new GoodsVO(goodsPO.getGoodsID()
+                ,goodsPO.getGoodsCategory()
+                ,goodsPO.getGoodsName()
+                ,goodsPO.getGoodsType()
+                ,goodsPO.getGoodsBuyPrice()
+                ,goodsPO.getGoodsSellPrice()
+                ,goodsPO.recentBuyPrice()
+                ,goodsPO.recentSellPrice());
     }
 }

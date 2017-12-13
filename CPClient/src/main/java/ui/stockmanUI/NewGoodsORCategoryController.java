@@ -31,14 +31,6 @@ public class NewGoodsORCategoryController {
         return list;
     }
 
-    /**
-     * 一个String存放名称
-     * @return
-     */
-    protected String getNewName() {
-        return newName;
-    }
-
     @FXML
     public void onSureBtnClicked(){
         if(name.getText() == null) return;
