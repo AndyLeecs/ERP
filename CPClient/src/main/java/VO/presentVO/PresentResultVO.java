@@ -17,11 +17,11 @@ public class PresentResultVO {
 	/**
 	 * 价格折让
 	 */
-	int price_discount;
+	double price_discount;
 	/**
 	 * 赠送代金券金额
 	 */
-	int voucher;
+	double voucher;
 	/**
 	 *赠品列表
 	 */	
@@ -29,5 +29,5 @@ public class PresentResultVO {
 	/**
 	 *使用赠送策略后总价
 	 */	
-	int sum;
+	double sum;
 }

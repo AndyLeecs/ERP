@@ -14,6 +14,7 @@ public class PresentPO implements Serializable{
 	 * 策略编号
 	 */
 	int id;
+	
 	/**
 	 *开始时间
 	 */	

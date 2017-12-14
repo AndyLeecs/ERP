@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FFF7FB;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.managerUI.ManagerController">
-       <children>
-      <BorderPane fx:id="centerPane" layoutX="135.0" layoutY="95.0" prefHeight="705.0" prefWidth="1066.0" />
+    <children>
       <fx:include source="../commonUI/Background.fxml" />
       <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
          <children>
@@ -54,16 +53,16 @@
                <items>
                   <Menu mnemonicParsing="false" style="-fx-background-color: transparent;" text="新建">
                     <items>
-                      <MenuItem fx:id="newPresentForMembership" mnemonicParsing="false" style="-fx-background-color: transparent;" onAction="#onNewPresentForMembershipClicked" text="会员促销" />
-                        <MenuItem fx:id="newPresentForSpecialPackage" mnemonicParsing="false" style="-fx-background-color: transparent;" onAction="#onNewPresentForSpecialPackageClicked" text="特价包促销" />
-                        <MenuItem fx:id="newPresentForSum" mnemonicParsing="false" style="-fx-background-color: transparent;" onAction="#onNewPresentForSumClicked" text="满减促销" />
+                      <MenuItem fx:id="newPresentForMembership" mnemonicParsing="false" onAction="#onNewPresentForMembershipClicked" style="-fx-background-color: transparent;" text="会员促销" />
+                        <MenuItem fx:id="newPresentForSpecialPackage" mnemonicParsing="false" onAction="#onNewPresentForSpecialPackageClicked" style="-fx-background-color: transparent;" text="特价包促销" />
+                        <MenuItem fx:id="newPresentForSum" mnemonicParsing="false" onAction="#onNewPresentForSumClicked" style="-fx-background-color: transparent;" text="满减促销" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" style="-fx-background-color: transparent;" text="查看">
                      <items>
-                        <MenuItem fx:id="showPresentForMembership" mnemonicParsing="false" style="-fx-background-color: transparent;" onAction="#onShowPresentForMembershipClicked" text="会员促销" />
-                        <MenuItem fx:id="showPresentForSpecialPackage" mnemonicParsing="false" style="-fx-background-color: transparent;" onAction="#onShowPresentForSpecialPackageClicked" text="特价包促销" />
-                        <MenuItem fx:id="showPresentForSum" mnemonicParsing="false" style="-fx-background-color: transparent;" onAction="#onShowPresentForSumClicked" text="满减促销" />
+                        <MenuItem fx:id="showPresentForMembership" mnemonicParsing="false" onAction="#onShowPresentForMembershipClicked" style="-fx-background-color: transparent;" text="会员促销" />
+                        <MenuItem fx:id="showPresentForSpecialPackage" mnemonicParsing="false" onAction="#onShowPresentForSpecialPackageClicked" style="-fx-background-color: transparent;" text="特价包促销" />
+                        <MenuItem fx:id="showPresentForSum" mnemonicParsing="false" onAction="#onShowPresentForSumClicked" style="-fx-background-color: transparent;" text="满减促销" />
                      </items>
                   </Menu>
                </items>
@@ -75,5 +74,6 @@
             <DropShadow blurType="GAUSSIAN" color="#c74242cf" height="0.0" radius="6.2675" width="27.07" />
          </effect>
       </Circle>
+      <BorderPane fx:id="centerPane" layoutX="121.0" layoutY="95.0" prefHeight="705.0" prefWidth="1066.0" />
    </children>
 </AnchorPane>

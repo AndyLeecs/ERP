@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import VO.GoodsInSaleVO;
-import VO.VIPVO.VIPGrade;
+import util.VIPGrade;
 
 /**     
 * @author 李安迪
@@ -24,7 +24,7 @@ public class PresentForMembershipVO extends PresentVO{
 	/**
 	 *总额
 	 */	
-	int sum;
+	double sum;
 	/**
 	 *赠品列表
 	 */	
@@ -32,16 +32,16 @@ public class PresentForMembershipVO extends PresentVO{
 	/**
 	 *折让价格
 	 */	
-	int rebateInPresentForMembership;
+	double rebateInPresentForMembership;
 	/**
 	 *赠送代金券金额
 	 */	
-	int voucher;
+	double voucher;
 
 	public PresentForMembershipVO(String id, String presentName, Date startTime, Date finishTime,
-			PresentType membership, VIPGrade grade, int sum, List<GoodsInSaleVO> presentList,
-			int rebateInPresentForMembership, int voucher) {
-		super(id, presentName, startTime, finishTime);
+			PresentType membership, VIPGrade grade, double sum, List<GoodsInSaleVO> presentList,
+			double rebateInPresentForMembership, double voucher) {
+		super(id, startTime, finishTime);
 		Membership = membership;
 		this.grade = grade;
 		this.sum = sum;

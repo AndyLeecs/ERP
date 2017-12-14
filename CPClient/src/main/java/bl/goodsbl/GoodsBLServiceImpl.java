@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by julia98 on 2017/12/11.
  */
-public class Goods implements GoodsBLService {
+public class GoodsBLServiceImpl implements GoodsBLService {
     GoodsDataServiceHelper goodsDataServiceHelper;
 
     GoodsVO goodsVO1 = new GoodsVO("0"
@@ -51,7 +51,7 @@ public class Goods implements GoodsBLService {
     public GoodsVO getGoods(String name, String category) {
         return null;
     }
-
+    
     @Override
     public ResultMessage deleteGoods(String category, String name) {
         return null;
@@ -85,28 +85,5 @@ public class Goods implements GoodsBLService {
     @Override
     public List getAllCategory() {
         return null;
-    }
-    
-
-    private GoodsPO voToPO(GoodsVO goodsVO){
-        return goodsVO == null ? null : new GoodsPO(goodsVO.getGoodsID()
-                ,goodsVO.getGoodsCategory()
-                ,goodsVO.getGoodsName()
-                ,goodsVO.getGoodsType()
-                ,goodsVO.getGoodsBuyPrice()
-                ,goodsVO.getGoodsSellPrice()
-                ,goodsVO.recentBuyPrice()
-                ,goodsVO.recentSellPrice());
-    }
-
-    private GoodsVO poToVO(GoodsPO goodsPO){
-        return goodsPO == null ? null : new GoodsVO(goodsPO.getGoodsID()
-                ,goodsPO.getGoodsCategory()
-                ,goodsPO.getGoodsName()
-                ,goodsPO.getGoodsType()
-                ,goodsPO.getGoodsBuyPrice()
-                ,goodsPO.getGoodsSellPrice()
-                ,goodsPO.recentBuyPrice()
-                ,goodsPO.recentSellPrice());
     }
 }

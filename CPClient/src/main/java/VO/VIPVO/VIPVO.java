@@ -1,5 +1,7 @@
 package VO.VIPVO;
 
+import util.VIPGrade;
+
 public class VIPVO {
       public String id; //编号
       public VIPCategory category; //分类

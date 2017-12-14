@@ -1,6 +1,5 @@
 package bl.VIPbl;
 
-import PO.VIPPO;
 import VO.VIPVO.VIPVO;
 import blservice.VIPblservice.VIPBLService;
 import network.VIPRemoteHelper.VIPDataServiceHelper;
@@ -12,7 +11,7 @@ import java.util.List;
 /**
  * Created by julia98 on 2017/12/13.
  */
-public class VIP implements VIPBLService {
+public class VIPBLServiceImpl implements VIPBLService {
     VIPDataServiceHelper vipDataServiceHelper;
 
     /**
@@ -20,7 +19,7 @@ public class VIP implements VIPBLService {
      * 后置条件	系统显示客户电话和编号
      *
      * @param telephone
-     * @return VIP ID
+     * @return VIPBLServiceImpl ID
      */
     @Override
     public String newVIP(String telephone) {
@@ -85,21 +84,5 @@ public class VIP implements VIPBLService {
     @Override
     public List<VIPVO> getVIPInfo() {
         return null;
-    }
-
-    private VIPVO poToVO(VIPPO vipPO){
-        return vipPO == null ? null : new VIPVO(vipPO.getName()
-                ,vipPO.getPhoneNumber()
-                ,vipPO.getEmail()
-                ,vipPO.getAddress()
-                ,vipPO.getLocationID());
-    }
-
-    private VIPPO voToPO(VIPVO vipVO){
-        return vipVO == null ? null : new VIPPO(vipVO.getName()
-                ,vipVO.getPhoneNumber()
-                ,vipVO.getEmail()
-                ,vipVO.getAddress()
-                ,vipVO.getLocationID());
     }
 }

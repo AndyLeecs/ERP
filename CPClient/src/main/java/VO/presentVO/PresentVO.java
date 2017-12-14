@@ -8,14 +8,11 @@ import java.util.Date;
 * @description
 */
 public abstract class PresentVO {
+
 	/**
 	 * 策略编号
 	 */
-	String id;
-	/**
-	 * 策略名称
-	 */
-	String presentName;
+	int id;
 	/**
 	 *开始时间
 	 */	
@@ -24,23 +21,43 @@ public abstract class PresentVO {
 	 *结束时间
 	 */	
 	Date finishTime;
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPresentName() {
-		return presentName;
-	}
-	public void setPresentName(String presentName) {
-		this.presentName = presentName;
-	}
-	public PresentVO(String id, String presentName, Date startTime, Date finishTime) {
-		super();
-		this.id = id;
-		this.presentName = presentName;
+
+
+	public PresentVO(Date startTime, Date finishTime) {
 		this.startTime = startTime;
+		this.finishTime = finishTime;
+	}
+
+
+	/**
+	 * @param id
+	 * @param startTime
+	 * @param finishTime
+	 */
+	public PresentVO(int id, Date startTime, Date finishTime) {
+		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.startTime = startTime;
+		this.finishTime = finishTime;
+	}
+
+
+	public Date getStartTime() {
+		return startTime;
+	}
+
+
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+
+
+	public Date getFinishTime() {
+		return finishTime;
+	}
+
+
+	public void setFinishTime(Date finishTime) {
 		this.finishTime = finishTime;
 	}
 	

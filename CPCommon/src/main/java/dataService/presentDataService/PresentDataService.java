@@ -9,6 +9,7 @@ import PO.PresentForSpecialPackagePO;
 import PO.PresentForSumPO;
 import PO.PresentPO;
 import util.DataRM;
+import util.VIPGrade;
 
 /**     
 * @author 李安迪
@@ -22,7 +23,7 @@ public interface PresentDataService extends Remote,Serializable{
 	public DataRM deletePresentForMembership(String id);
 	public DataRM update(PresentForMembershipPO po);
 	public List<PresentForMembershipPO> getPresentForMembership();
-	//public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade);
+	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade);
 	
 	public DataRM insert(PresentForSpecialPackagePO po);
 	public DataRM deletePresentForSpecialPackage(String id);

@@ -22,6 +22,8 @@ public class ManagerWin extends Stage{
 	
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);
+		
+		this.setFullScreen(true);
 		this.show();
 	}
 	

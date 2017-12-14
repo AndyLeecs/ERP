@@ -4,11 +4,14 @@ import java.io.IOException;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import mainUI.LoginWin;
-import ui.stockmanUI.GoodsWin;
 
 /**     
 * @author 李安迪
@@ -30,8 +33,8 @@ public class ManagerController {
 	public void onNewPresentForMembershipClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForMembershipWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForMembership.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -41,8 +44,8 @@ public class ManagerController {
 	public void onNewPresentForSpecialPackageClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForSpecialPackageWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSpecialPackage.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -52,8 +55,8 @@ public class ManagerController {
 	public void onNewPresentForSumClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForSumWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -63,8 +66,8 @@ public class ManagerController {
 	public void onShowPresentForMembershipClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForMembershipListWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForMembershipList.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -74,8 +77,8 @@ public class ManagerController {
 	public void onShowPresentForSpecialPackageClicked(){
 		Platform.runLater(()->{
 		try {
-			new PresentForSpecialPackageListWin();
-			root.getScene().getWindow().hide();
+	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSpecialPackageList.fxml"));
+			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -83,20 +86,25 @@ public class ManagerController {
 	}
 	@FXML
 	public void onShowPresentForSumClicked(){
-		Platform.runLater(()->{
-		try {
-			new PresentForSumListWin();
-			root.getScene().getWindow().hide();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	});
+   	 Platform.runLater(new Runnable() {
+	     public void run() {
+	    	 try {
+		    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSumList.fxml"));
+				centerPane.setCenter(presentroot);
+
+			 } catch (Exception e) {
+				e.printStackTrace();
+			 }
+	     }
+	 });
 	}
     
     @FXML 
     public void logOut() {
+    	
    	     Platform.runLater(()-> {
 				    try {
+				    	System.out.println("log out");
 						root.getScene().getWindow().hide();
 						new LoginWin();
 						//new ui.saleUI.SaleWin();
