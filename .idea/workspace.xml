@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e0aab2d-f4db-459d-ac8b-6c3286cc492f" name="Default" comment="">
-<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPBLServiceImpl.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsBLServiceImpl.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsCategory.java" />
