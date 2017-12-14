@@ -1,60 +1,88 @@
-package dataService.VIPDataService;
-import PO.VIPPO;
+package bl.VIPbl;
+
+import VO.VIPVO.VIPVO;
+import blservice.VIPblservice.VIPBLService;
+import network.VIPRemoteHelper.VIPDataServiceHelper;
 import util.ResultMessage;
 
-import java.io.Serializable;
-import java.rmi.Remote;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface VIPDataService extends Remote,Serializable{
+/**
+ * Created by julia98 on 2017/12/13.
+ */
+public class VIPBLServiceImpl implements VIPBLService {
+    VIPDataServiceHelper vipDataServiceHelper;
+
     /**
      * 前置条件	用户选择新建客户
      * 后置条件	系统显示客户电话和编号
+     *
      * @param telephone
      * @return VIPBLServiceImpl ID
      */
-    public String newVIP(String telephone);
+    @Override
+    public String newVIP(String telephone) {
+        return null;
+    }
 
     /**
      * 前置条件	用户输入信息模糊查找客户
      * 后置条件	系统显示模糊查找后符合要求的客户列表
+     *
      * @param info
      * @param type
      * @return
      */
-    public ArrayList<VIPPO> findVIP(String info, String type);
+    @Override
+    public ArrayList<VIPVO> findVIP(String info, String type) {
+        return null;
+    }
 
     /**
      * 前置条件	用户选择删除客户
      * 后置条件	系统更新客户列表
+     *
      * @param id
      * @return
      */
-    public ResultMessage deleteVIP(String id);
+    @Override
+    public ResultMessage deleteVIP(String id) {
+        return null;
+    }
 
     /**
      * 前置条件	用户选择修改客户信息
      * 后置条件	系统更新客户信息
+     *
      * @param vo
      * @return
      */
-    public ResultMessage modifyVIP(VIPPO vo);
+    @Override
+    public ResultMessage modifyVIP(VIPVO vo) {
+        return null;
+    }
 
     /**
      * 前置条件	用户保存已初始化的客户信息
      * 后置条件	系统更新客户信息
+     *
      * @param vo
      * @return
      */
-    public ResultMessage initAndSaveVIP(VIPPO vo);
+    @Override
+    public ResultMessage initAndSaveVIP(VIPVO vo) {
+        return null;
+    }
 
     /**
      * 前置条件	用户选择查看所有客户信息
      * 后置条件	系统显示所有客户信息
+     *
      * @return
      */
-    public List<VIPPO> getVIPInfo();
-
+    @Override
+    public List<VIPVO> getVIPInfo() {
+        return null;
+    }
 }

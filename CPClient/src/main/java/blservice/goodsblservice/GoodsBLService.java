@@ -13,7 +13,7 @@ import util.ResultMessage;
 public interface GoodsBLService {
 
 	public String newGoods(String name,String category);
-	public List findGoods(String info,String type);
+	public List<GoodsVO> findGoods(String info,String type);
 	public GoodsVO getGoods(String name,String category);
 	public ResultMessage deleteGoods(String category,String name);//修改接口 把入口参数变更为分类名+商品名 之前为商品ID 我是在商品目录里面删除的 商品ID不利于调用
 	public ResultMessage modifyGoods(GoodsVO vo);

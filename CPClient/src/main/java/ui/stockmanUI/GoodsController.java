@@ -1,7 +1,7 @@
 package ui.stockmanUI;
 
 import VO.goodsVO.GoodsVO;
-import bl.goodsbl.Goods;
+import bl.goodsbl.GoodsBLServiceImpl;
 import blservice.goodsblservice.GoodsBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -50,7 +50,7 @@ public class GoodsController{
     @FXML VBox goodsVBox;
     @FXML Pane goodsPane;
     private String goodsTypeSearch = "";//保存模糊查找的类型
-    GoodsBLService goodsBLService = new Goods();//
+    GoodsBLService goodsBLService = new GoodsBLServiceImpl();//
     private ArrayList<GoodsVO> goodsVOArrayList = new ArrayList<>();//存放模糊查找到的商品列表
 
     Stack<TreeItem<String>> stack = new Stack<>();//存放目录的引用 便于增减改名商品

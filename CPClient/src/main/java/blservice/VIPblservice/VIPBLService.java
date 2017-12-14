@@ -16,7 +16,7 @@ public interface VIPBLService {
 	 * 前置条件	用户选择新建客户
      * 后置条件	系统显示客户电话和编号
 	 * @param telephone
-	 * @return VIP ID
+	 * @return VIPBLServiceImpl ID
 	 */
 	public String newVIP(String telephone);
 	
