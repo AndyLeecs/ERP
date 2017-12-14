@@ -13,6 +13,7 @@ public class GoodsUtility {
         while(goodsID.length() < 8){
             goodsID = "0" + goodsID;
         }
+        goodsID = "G" + goodsID;
         return goodsID;
     }
 }

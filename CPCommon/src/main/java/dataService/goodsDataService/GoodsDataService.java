@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface GoodsDataService extends Remote,Serializable {
     public String newGoods(String name,String category);
-    public List findGoods(String info, String type);
+    public List<GoodsPO> findGoods(String info, String type);
     public GoodsPO getGoods(String name, String category);
     public ResultMessage deleteGoods(String category, String name);
     public ResultMessage modifyGoods(GoodsPO vo);

@@ -13,6 +13,7 @@ public class VIPUtility {
         while(VIPID.length() < 8){
             VIPID = "0" + VIPID;
         }
+        VIPID = "V" + VIPID;
         return VIPID;
     }
 }

@@ -40,7 +40,7 @@ public class GoodsBLServiceImpl implements GoodsBLService {
     }
 
     @Override
-    public List findGoods(String info, String type) {
+    public List<GoodsVO> findGoods(String info, String type) {
         ArrayList<GoodsVO> goodsVOS = new ArrayList<>();
         goodsVOS.add(goodsVO1);
         goodsVOS.add(goodsVO2);
