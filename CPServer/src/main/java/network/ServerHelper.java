@@ -6,9 +6,13 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
+import dataService.VIPDataService.VIPDataService;
+import dataService.goodsDataService.GoodsDataService;
 import dataService.presentDataService.PresentDataService;
 import dataService.saleDataService.SaleDataService;
 import dataService.storeDataService.StoreDataService;
+import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
+import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleDataServiceImpl;
 import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
@@ -35,6 +39,14 @@ public class ServerHelper {
 			
 			SaleDataService saleDataService=new SaleDataServiceImpl();
 			Naming.bind("SaleDataService", saleDataService);
+			System.out.println("bind successed!");
+
+			GoodsDataService goodsDataService=new GoodsDataServiceImpl();
+			Naming.bind("goodsDateService",goodsDataService);
+			System.out.println("bind successed!");
+
+			VIPDataService vipDataService=new VIPDataServiceImpl();
+			Naming.bind("VIPDataService",vipDataService);
 			System.out.println("bind successed!");
 			//所有的service都要在这里绑定一下
 			
