@@ -8,6 +8,7 @@ import PO.PresentForSumPO;
 import PO.PresentPO;
 import dataService.presentDataService.PresentDataService;
 import util.DataRM;
+import util.VIPGrade;
 
 /**     
 * @author 李安迪
@@ -147,6 +148,15 @@ public class PresentDataServiceImpl implements PresentDataService {
 	 */
 	@Override
 	public List<PresentForSumPO> getPresentForSum(int sum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see dataService.presentDataService.PresentDataService#getPresentForMembership(util.VIPGrade)
+	 */
+	@Override
+	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade) {
 		// TODO Auto-generated method stub
 		return null;
 	}

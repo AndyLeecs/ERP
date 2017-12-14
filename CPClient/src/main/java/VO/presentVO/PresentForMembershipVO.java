@@ -13,10 +13,10 @@ import util.VIPGrade;
 */
 public class PresentForMembershipVO extends PresentVO{
 
-	/**
-	 * 策略类型
-	 */
-	PresentType Membership;
+//	/**
+//	 * 策略类型
+//	 */
+//	PresentType Membership;
 	/**
 	 *会员级别
 	 */	
@@ -38,11 +38,10 @@ public class PresentForMembershipVO extends PresentVO{
 	 */	
 	double voucher;
 
-	public PresentForMembershipVO(String id, String presentName, Date startTime, Date finishTime,
-			PresentType membership, VIPGrade grade, double sum, List<GoodsInSaleVO> presentList,
+	public PresentForMembershipVO(int id, String presentName, Date startTime, Date finishTime,
+			 VIPGrade grade, double sum, List<GoodsInSaleVO> presentList,
 			double rebateInPresentForMembership, double voucher) {
 		super(id, startTime, finishTime);
-		Membership = membership;
 		this.grade = grade;
 		this.sum = sum;
 		this.presentList = presentList;

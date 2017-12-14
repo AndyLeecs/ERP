@@ -12,7 +12,7 @@ import util.VIPGrade;
 * @description
 */
 public interface PresentForMembershipDataService {
-	public DataRM insert(PresentForMembershipPO po);
+	public String insert();
 	public DataRM deletePresentForMembership(String id);
 	public DataRM update(PresentForMembershipPO po);
 	public List<PresentForMembershipPO> getPresentForMembership();

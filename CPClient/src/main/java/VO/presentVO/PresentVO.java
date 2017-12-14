@@ -23,11 +23,6 @@ public abstract class PresentVO {
 	Date finishTime;
 
 
-	public PresentVO(Date startTime, Date finishTime) {
-		this.startTime = startTime;
-		this.finishTime = finishTime;
-	}
-
 
 	/**
 	 * @param id
@@ -59,6 +54,16 @@ public abstract class PresentVO {
 
 	public void setFinishTime(Date finishTime) {
 		this.finishTime = finishTime;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

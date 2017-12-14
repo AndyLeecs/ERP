@@ -1,6 +1,9 @@
 package blservice.presentblservice;
 
+import java.util.List;
+
 import VO.presentVO.PresentForSpecialPackageVO;
+import util.DataRM;
 import util.ResultMessage;
 
 /**     
@@ -9,7 +12,8 @@ import util.ResultMessage;
 * @description
 */
 public interface PresentForSpecialPackageBLService {
-	public ResultMessage addPresentForSpecialPackage(PresentForSpecialPackageVO vo);
-	public ResultMessage deletePresentForSpecialPackage(String id);
-	public ResultMessage savePresentForSpecialPackage(PresentForSpecialPackageVO vo);
+	public List<PresentForSpecialPackageVO> getAll();
+	public int getId();
+	public DataRM delete(int id);
+	public DataRM save(PresentForSpecialPackageVO vo);
 }

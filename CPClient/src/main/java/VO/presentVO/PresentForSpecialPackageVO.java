@@ -12,10 +12,10 @@ import VO.GoodsInSaleVO;
 */
 public class PresentForSpecialPackageVO extends PresentVO{
 
-	/**
-	 * 策略类型
-	 */
-	PresentType SpecialPackage;
+//	/**
+//	 * 策略类型
+//	 */
+//	PresentType SpecialPackage;
 	/**
 	 *商品列表，每个策略里只有一个特价包
 	 */	
@@ -26,10 +26,10 @@ public class PresentForSpecialPackageVO extends PresentVO{
 	double priceReduction;
 	
 
-	public PresentForSpecialPackageVO(String id, String presentName, Date startTime, Date finishTime,
-			PresentType specialPackage, List<GoodsInSaleVO> goodsList, double priceReduction) {
+	public PresentForSpecialPackageVO(int id, String presentName, Date startTime, Date finishTime,
+			List<GoodsInSaleVO> goodsList, double priceReduction) {
 		super(id, startTime, finishTime);
-		SpecialPackage = specialPackage;
+//		SpecialPackage = specialPackage;
 		this.goodsList = goodsList;
 		this.priceReduction = priceReduction;
 	}

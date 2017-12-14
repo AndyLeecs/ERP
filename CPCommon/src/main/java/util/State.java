@@ -11,7 +11,8 @@ public enum State {
 	IsCommitted(1),
 	IsApproved(2),
 	IsRefused(3),
-	IsEditting(4);
+	IsEditting(4),
+	IsDeleted(5);
 	
 	private final int state;
 	

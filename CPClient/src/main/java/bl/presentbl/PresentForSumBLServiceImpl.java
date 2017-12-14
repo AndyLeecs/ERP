@@ -1,7 +1,10 @@
 package bl.presentbl;
 
+import java.util.List;
+
 import VO.presentVO.PresentForSumVO;
 import blservice.presentblservice.PresentForSumBLService;
+import util.DataRM;
 import util.ResultMessage;
 
 /**     
@@ -12,30 +15,40 @@ import util.ResultMessage;
 public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 
 	/* (non-Javadoc)
-	 * @see blservice.presentblservice.PresentForSumBLService#addPresentForSum(VO.presentVO.PresentForSumVO)
+	 * @see blservice.presentblservice.PresentForSumBLService#getAll()
 	 */
 	@Override
-	public ResultMessage addPresentForSum(PresentForSumVO vo) {
+	public List<PresentForSumVO> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/* (non-Javadoc)
-	 * @see blservice.presentblservice.PresentForSumBLService#deletePresentForSum(java.lang.String)
+	 * @see blservice.presentblservice.PresentForSumBLService#getId()
 	 */
 	@Override
-	public ResultMessage deletePresentForSum(String id) {
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see blservice.presentblservice.PresentForSumBLService#delete(int)
+	 */
+	@Override
+	public DataRM delete(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/* (non-Javadoc)
-	 * @see blservice.presentblservice.PresentForSumBLService#savePresentForSum(VO.presentVO.PresentForSumVO)
+	 * @see blservice.presentblservice.PresentForSumBLService#save(VO.presentVO.PresentForSumVO)
 	 */
 	@Override
-	public ResultMessage savePresentForSum(PresentForSumVO vo) {
+	public DataRM save(PresentForSumVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

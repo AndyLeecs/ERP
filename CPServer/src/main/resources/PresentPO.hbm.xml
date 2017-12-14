@@ -15,7 +15,7 @@
 				<index column="index_"></index><!-- 注意index是数据库中的关键字要避免与其冲突，此处index_对应元素在List中的索引 -->  
 				<one-to-many class="PO.GoodsInSalePO" />
 			</list>
-
+		<property name="state"/>
 		<!-- 体现了子类的继承关系 -->
 		<joined-subclass name="PO.PresentForMembershipPO">
 			<!-- 注意这里表明了子类和父类的共有属性 -->

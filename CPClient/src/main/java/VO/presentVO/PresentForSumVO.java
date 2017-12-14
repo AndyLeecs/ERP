@@ -12,10 +12,10 @@ import VO.GoodsInSaleVO;
 */
 public class PresentForSumVO extends PresentVO{
 
-	/**
-	 * 策略类型
-	 */
-	PresentType Sum;
+//	/**
+//	 * 策略类型
+//	 */
+//	PresentType Sum;
 	/**
 	 * 总额
 	 */
@@ -29,22 +29,15 @@ public class PresentForSumVO extends PresentVO{
 	 */
 	double voucher;
 	
-	public PresentForSumVO(Date startTime, Date finishTime, double total,
+	public PresentForSumVO(int id,Date startTime, Date finishTime, double total,
 			List<GoodsInSaleVO> presentList, double voucher) {
-		super(startTime, finishTime);
+		super(id,startTime, finishTime);
 		this.total = total;
 		this.presentList = presentList;
 		this.voucher = voucher;
 	}
 	
-	public PresentForSumVO(String id, Date startTime, Date finishTime, PresentType sum, double total,
-			List<GoodsInSaleVO> presentList, double voucher) {
-		super(id,startTime, finishTime);
-		Sum = sum;
-		this.total = total;
-		this.presentList = presentList;
-		this.voucher = voucher;
-	}
+
 
 
 	public double getTotal() {

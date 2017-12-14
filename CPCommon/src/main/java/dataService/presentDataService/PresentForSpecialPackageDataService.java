@@ -11,7 +11,7 @@ import util.DataRM;
 * @description
 */
 public interface PresentForSpecialPackageDataService {
-	public DataRM insert(PresentForSpecialPackagePO po);
+	public String insert();
 	public DataRM deletePresentForSpecialPackage(String id);
 	public DataRM update(PresentForSpecialPackagePO po);
 	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage();

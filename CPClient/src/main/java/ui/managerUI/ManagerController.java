@@ -55,7 +55,15 @@ public class ManagerController {
 	public void onNewPresentForSumClicked(){
 		Platform.runLater(()->{
 		try {
-	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
+   		 Strategy strategy = new PresentForSumNewStrategy();
+   		 PresentForSumController controller = 
+   				    new PresentForSumController(strategy,this);
+   		 FXMLLoader loader = new FXMLLoader(
+   				    getClass().getResource(
+   				        "/fxml/managerUI/PresentForSum.fxml"));
+   				loader.setController(controller);
+   				AnchorPane presentroot = loader.load();
+//	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
 			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,6 +97,7 @@ public class ManagerController {
    	 Platform.runLater(new Runnable() {
 	     public void run() {
 	    	 try {
+
 		    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSumList.fxml"));
 				centerPane.setCenter(presentroot);
 

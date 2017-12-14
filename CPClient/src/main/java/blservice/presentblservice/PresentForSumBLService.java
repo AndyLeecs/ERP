@@ -1,6 +1,10 @@
 package blservice.presentblservice;
 
+import java.util.List;
+
+import VO.presentVO.PresentForSpecialPackageVO;
 import VO.presentVO.PresentForSumVO;
+import util.DataRM;
 import util.ResultMessage;
 
 /**     
@@ -9,7 +13,8 @@ import util.ResultMessage;
 * @description
 */
 public interface PresentForSumBLService {
-	public ResultMessage addPresentForSum(PresentForSumVO vo);
-	public ResultMessage deletePresentForSum(String id);
-	public ResultMessage savePresentForSum(PresentForSumVO vo);
+	public List<PresentForSumVO> getAll();
+	public int getId();
+	public DataRM delete(int id);
+	public DataRM save(PresentForSumVO vo);
 }
