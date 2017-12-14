@@ -1,5 +1,6 @@
 package ui.managerUI;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -179,11 +180,11 @@ public class PresentForSumController implements SinglePresentController{
 	    	service = PresentBLFactory.getPresentForSumBLService();
 		}		
 		@FXML
-	    @Override
 	    public void initialize(){
 	    	
 	    	System.out.println("init");
 	    	
+	    	textFieldList = new ArrayList<TextField>();
 	    	//加入文本框列表
 	    	textFieldList.add(startYearField);
 	    	textFieldList.add(startMonthField);
@@ -208,15 +209,23 @@ public class PresentForSumController implements SinglePresentController{
 			/**
 			 * 检查合法性
 			 */
-			
+		    //清空提示信息
+		    nullErrorMessage.setText("");
+		    dateErrorMessage.setText("");
+		    totalErrorMessage.setText("");
+		    voucherErrorMessage.setText("");
+		    
 			//检查非空字段
 		    for(TextField f:textFieldList){
-		    	if(f.getText() == null || f.getText().length() == 0){
+//		    	System.out.println(f);
+//		    	assert(f != null);
+		    	String s = f.getText();
+		    	if(s == null || s.length() == 0){
 		    		nullErrorMessage.setText(nullError);
 		    		return;	
 		    	}
 		    }
-		    
+
 			//检查日期合法性
 		    Date startTime = new Date();
 		    Date finishTime = new Date();
@@ -228,12 +237,16 @@ public class PresentForSumController implements SinglePresentController{
 					Integer.parseInt(finishMonthField.getText()),Integer.parseInt(finishDayField.getText()));
 			}catch(Exception e){
 				dateErrorMessage.setText(dateError);
+				System.out.println("can not convert to date");
 				return;
 			}
 			
 			if(!DateUtil.validStartAndFinish(startTime, finishTime))
 			{
 				dateErrorMessage.setText(dateError);
+				System.out.println(startTime);
+				System.out.println(finishTime);
+				System.out.println("not valid start and finish");
 				return;
 			}
 			//检查总额合法性
@@ -270,7 +283,8 @@ public class PresentForSumController implements SinglePresentController{
 		//确认
 		@Override
 		public boolean showConfirmDialog(){
-			Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION,"exit?");
+			System.out.println("confirming");
+			Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION,"确认此项操作？");
 		    Optional<ButtonType> result = confirmation.showAndWait();
 		    if(result.isPresent() && result.get() == ButtonType.OK){
 		        return true;

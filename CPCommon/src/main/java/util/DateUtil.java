@@ -28,7 +28,8 @@ public class DateUtil {
 	
 	@SuppressWarnings("deprecation")
 	public static int getDay(Date date){
-		return date.getDay();
+		return date.getDate();
+		
 	}
 	@SuppressWarnings("deprecation")
 	public static Date getDate(int year,int month,int day){
@@ -49,9 +50,13 @@ public class DateUtil {
 	 * @return 日期是否合法
 	 */
 	public static boolean validDate(Date date){
+		System.out.println(date);
+    	
 		int year = getYear(date);
 		int month = getMonth(date);
 		int day = getDay(date);
+		
+		System.out.println(day+"");
 		
 		if(month<1 || month >12){
 			return false;
@@ -65,6 +70,8 @@ public class DateUtil {
         }  
         int monthLength = monthLengths[month];  
         if(day<1 || day>monthLength){  
+
+        	System.out.println("not valid single time");
             return false;     
         }  
         return true;  
@@ -85,8 +92,11 @@ public class DateUtil {
     private static boolean validDateOrder(Date startTime,Date finishTime){
     	if(startTime.before(finishTime))
     		return true;
-    	else
+    	else{
+    		System.out.println("not valid order");
     		return false;
+    		
+    	}
     }
 
 }
