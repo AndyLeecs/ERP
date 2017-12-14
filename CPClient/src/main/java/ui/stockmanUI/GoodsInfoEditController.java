@@ -1,12 +1,11 @@
 package ui.stockmanUI;
 
 import VO.goodsVO.GoodsVO;
-import bl.goodsbl.Goods;
+import bl.goodsbl.GoodsBLServiceImpl;
 import blservice.goodsblservice.GoodsBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 
 
 /**
@@ -24,7 +23,7 @@ public class GoodsInfoEditController {
     @FXML public TextField recentSellPrice;
     @FXML public Button saveGoodsInfoBtn;
 
-    GoodsBLService goodsBLService = new Goods();
+    GoodsBLService goodsBLService = new GoodsBLServiceImpl();
 
     @FXML
     public void initialize(){

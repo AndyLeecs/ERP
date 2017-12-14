@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.GoodsController">
    <children>
   <fx:include source="Stockman.fxml" />
@@ -104,8 +102,7 @@
             <Pane layoutX="8.0" layoutY="6.0" prefHeight="42.0" prefWidth="180.0" style="-fx-border-color: #ff7575; -fx-border-radius: 12;">
                <children>
                   <Label fx:id="presentLocation" layoutX="49.0" layoutY="13.0" prefHeight="17.0" prefWidth="113.0" />
-                  <Label layoutX="-3.0" layoutY="13.0" />
-                  <Label fx:id="presentLocation" layoutX="11.0" layoutY="10.0" prefHeight="23.0" prefWidth="159.0" text="提示" textFill="#9f353a" />
+                  <Label layoutX="11.0" layoutY="10.0" prefHeight="23.0" prefWidth="31.0" text="提示" textFill="#9f353a" />
                </children>
             </Pane>
          </children></Pane>
@@ -113,9 +110,9 @@
       <children>
          <Button fx:id="sureBtn" layoutX="145.0" layoutY="205.0" mnemonicParsing="false" onAction="#onSureBtnClicked" prefHeight="27.0" prefWidth="63.0" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-background-color: FF7575;" text="确认" textFill="WHITE" />
          <TextField fx:id="name" layoutX="153.0" layoutY="122.0" promptText="请输入名称" />
-         <Label fx:id="noticeLabel" layoutX="195.0" layoutY="47.0" prefHeight="37.0" prefWidth="81.0" text="新建" textFill="#682d1e">
+         <Label fx:id="noticeLabel" layoutX="180.0" layoutY="48.0" prefHeight="37.0" prefWidth="113.0" text="新建" textAlignment="CENTER" textFill="#682d1e">
             <font>
-               <Font size="28.0" />
+               <Font size="24.0" />
             </font>
          </Label>
          <Button fx:id="cancelBtn" layoutX="264.0" layoutY="205.0" mnemonicParsing="false" onAction="#onCancelBtnClicked" prefHeight="27.0" prefWidth="63.0" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-background-color: FF7575;" text="取消" textFill="WHITE" />

@@ -104,7 +104,7 @@ public class StockmanController {
     	 Platform.runLater(new Runnable() {
     	     public void run() {
     	    	 try {
-			    	AnchorPane goodsroot = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Goods.fxml"));
+			    	AnchorPane goodsroot = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/GoodsBLServiceImpl.fxml"));
 					centerPane.setCenter(goodsroot);
 	
 				 } catch (Exception e) {

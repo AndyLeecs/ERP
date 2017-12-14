@@ -18,7 +18,7 @@ public class VIPBL_Stub implements VIPBLService {
 	@Override
 	public String newVIP(String phoneNumber) {
 		// TODO Auto-generated method stub
-		System.out.println("New VIP Success!");
+		System.out.println("New VIPBLServiceImpl Success!");
 		return id;
 	}
 
@@ -53,7 +53,7 @@ public class VIPBL_Stub implements VIPBLService {
 	@Override
 	public ArrayList<VIPVO> getVIPInfo() {
 		// TODO Auto-generated method stub
-		System.out.println("Get VIP Info Success!");
+		System.out.println("Get VIPBLServiceImpl Info Success!");
 		ArrayList<VIPVO> test = new ArrayList<VIPVO>();
 		test.add(testVIPVO);
 		return test;
