@@ -1,5 +1,7 @@
 package bl.goodsbl;
 
+import VO.goodsVO.GoodsVO;
+
 import java.util.List;
 
 /**
@@ -13,21 +15,21 @@ public interface GoodsFuzzySearch {
      * @param idInfo
      * @return 符合条件的商品列表
      */
-    public List getGoodsInID(String idInfo);
+    public List<GoodsVO> getGoodsInID(String idInfo);
 
     /**
      * 以商品名称模糊查找
      * @param goodsNameInfo
      * @return 符合条件的商品列表
      */
-    public List getGoodsInGoodsName(String goodsNameInfo);
+    public List<GoodsVO> getGoodsInGoodsName(String goodsNameInfo);
 
     /**
      * 以商品分类模糊查找
      * @param goodsCategoryInfo
      * @return 符合条件的商品列表
      */
-    public List getGoodsInCategory(String goodsCategoryInfo);
+    public List<GoodsVO> getGoodsInCategory(String goodsCategoryInfo);
 
 
 }

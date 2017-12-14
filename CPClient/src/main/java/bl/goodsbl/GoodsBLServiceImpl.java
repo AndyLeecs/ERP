@@ -1,6 +1,5 @@
 package bl.goodsbl;
 
-import PO.GoodsPO;
 import VO.goodsVO.GoodsVO;
 import blservice.goodsblservice.GoodsBLService;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
