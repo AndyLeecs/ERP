@@ -1,7 +1,10 @@
 package bl.presentbl;
 
+import java.util.List;
+
 import VO.presentVO.PresentForSpecialPackageVO;
 import blservice.presentblservice.PresentForSpecialPackageBLService;
+import util.DataRM;
 import util.ResultMessage;
 
 /**     
@@ -12,30 +15,40 @@ import util.ResultMessage;
 public class PresentForSpecialPackageBLServiceImpl implements PresentForSpecialPackageBLService {
 
 	/* (non-Javadoc)
-	 * @see blservice.presentblservice.PresentForSpecialPackageBLService#addPresentForSpecialPackage(VO.presentVO.PresentForSpecialPackageVO)
+	 * @see blservice.presentblservice.PresentForSpecialPackageBLService#getAll()
 	 */
 	@Override
-	public ResultMessage addPresentForSpecialPackage(PresentForSpecialPackageVO vo) {
+	public List<PresentForSpecialPackageVO> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/* (non-Javadoc)
-	 * @see blservice.presentblservice.PresentForSpecialPackageBLService#deletePresentForSpecialPackage(java.lang.String)
+	 * @see blservice.presentblservice.PresentForSpecialPackageBLService#getId()
 	 */
 	@Override
-	public ResultMessage deletePresentForSpecialPackage(String id) {
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see blservice.presentblservice.PresentForSpecialPackageBLService#delete(int)
+	 */
+	@Override
+	public DataRM delete(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/* (non-Javadoc)
-	 * @see blservice.presentblservice.PresentForSpecialPackageBLService#savePresentForSpecialPackage(VO.presentVO.PresentForSpecialPackageVO)
+	 * @see blservice.presentblservice.PresentForSpecialPackageBLService#save(VO.presentVO.PresentForSpecialPackageVO)
 	 */
 	@Override
-	public ResultMessage savePresentForSpecialPackage(PresentForSpecialPackageVO vo) {
+	public DataRM save(PresentForSpecialPackageVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

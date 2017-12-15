@@ -1,6 +1,10 @@
 package blservice.presentblservice;
 
+import java.util.List;
+
 import VO.presentVO.PresentForMembershipVO;
+import VO.presentVO.PresentForSpecialPackageVO;
+import util.DataRM;
 import util.ResultMessage;
 
 /**     
@@ -9,7 +13,8 @@ import util.ResultMessage;
 * @description
 */
 public interface PresentForMembershipBLService {
-	public ResultMessage addPresentForMembership(PresentForMembershipVO vo);
-	public ResultMessage deletePresentForMembership(String id);
-	public ResultMessage savePresentForMembership(PresentForMembershipVO vo);
+	public List<PresentForMembershipVO> getAll();
+	public int getId();
+	public DataRM delete(int id);
+	public DataRM save(PresentForMembershipVO vo);
 }

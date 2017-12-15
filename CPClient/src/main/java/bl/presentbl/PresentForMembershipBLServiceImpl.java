@@ -1,7 +1,10 @@
 package bl.presentbl;
 
+import java.util.List;
+
 import VO.presentVO.PresentForMembershipVO;
 import blservice.presentblservice.PresentForMembershipBLService;
+import util.DataRM;
 import util.ResultMessage;
 
 /**     
@@ -12,30 +15,41 @@ import util.ResultMessage;
 public class PresentForMembershipBLServiceImpl implements PresentForMembershipBLService {
 
 	/* (non-Javadoc)
-	 * @see blservice.presentblservice.PresentForMembershipBLService#addPresentForMembership(VO.presentVO.PresentForMembershipVO)
+	 * @see blservice.presentblservice.PresentForMembershipBLService#getAll()
 	 */
 	@Override
-	public ResultMessage addPresentForMembership(PresentForMembershipVO vo) {
+	public List<PresentForMembershipVO> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/* (non-Javadoc)
-	 * @see blservice.presentblservice.PresentForMembershipBLService#deletePresentForMembership(java.lang.String)
+	 * @see blservice.presentblservice.PresentForMembershipBLService#getId()
 	 */
 	@Override
-	public ResultMessage deletePresentForMembership(String id) {
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see blservice.presentblservice.PresentForMembershipBLService#delete(int)
+	 */
+	@Override
+	public DataRM delete(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/* (non-Javadoc)
-	 * @see blservice.presentblservice.PresentForMembershipBLService#savePresentForMembership(VO.presentVO.PresentForMembershipVO)
+	 * @see blservice.presentblservice.PresentForMembershipBLService#save(VO.presentVO.PresentForMembershipVO)
 	 */
 	@Override
-	public ResultMessage savePresentForMembership(PresentForMembershipVO vo) {
+	public DataRM save(PresentForMembershipVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 }

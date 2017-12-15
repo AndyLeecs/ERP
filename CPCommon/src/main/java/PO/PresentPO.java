@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import util.PresentState;
+
 /**     
 * @author 李安迪
 * @date 2017年10月27日
@@ -28,8 +30,18 @@ public class PresentPO implements Serializable{
 	 */	
 	List<GoodsInSalePO> presentList;
 
+	PresentState state;
+public PresentState getState() {
+		return state;
+	}
 
-//	public PresentPO(String id, Date startTime, Date finishTime) {
+
+	public void setState(PresentState state) {
+		this.state = state;
+	}
+
+
+	//	public PresentPO(String id, Date startTime, Date finishTime) {
 //		super();
 //		this.id = id;
 //		this.startTime = startTime;
@@ -37,11 +49,17 @@ public class PresentPO implements Serializable{
 //	}
 	public PresentPO(){
 	}
-	public PresentPO(Date startTime, Date finishTime,List<GoodsInSalePO> presentList) {
+	
+
+
+	public PresentPO(int id, Date startTime, Date finishTime, List<GoodsInSalePO> presentList, PresentState state) {
+		this.id = id;
 		this.startTime = startTime;
 		this.finishTime = finishTime;
 		this.presentList = presentList;
+		this.state = state;
 	}
+
 
 	public List<GoodsInSalePO> getPresentList() {
 		return presentList;
@@ -83,6 +101,6 @@ public class PresentPO implements Serializable{
 	public void setFinishTime(Date finishTime) {
 		this.finishTime = finishTime;
 	}
-	
+
 	
 }

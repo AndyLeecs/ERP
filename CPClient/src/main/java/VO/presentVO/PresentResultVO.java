@@ -11,9 +11,9 @@ import VO.GoodsInSaleVO;
 */
 public class PresentResultVO {
 	/**
-	 * 策略名称列表
+	 * 策略id列表,点击id可以查看详情
 	 */
-	List<String> presentName;
+	List<Integer> presentId;
 	/**
 	 * 价格折让
 	 */

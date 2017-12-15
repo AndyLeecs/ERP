@@ -31,36 +31,66 @@ public class ManagerController {
 
 	@FXML
 	public void onNewPresentForMembershipClicked(){
+		if(centerPane.getCenter() == null){
 		Platform.runLater(()->{
 		try {
-	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForMembership.fxml"));
+   		 Strategy strategy = new PresentForMembershipNewStrategy();
+   		 PresentForMembershipController controller = 
+   				    new PresentForMembershipController(strategy,this);
+   		 FXMLLoader loader = new FXMLLoader(
+   				    getClass().getResource(
+   				        "/fxml/managerUI/PresentForMembership.fxml"));
+   				loader.setController(controller);
+   				AnchorPane presentroot = loader.load();
+//	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
 			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	});
+		}
 	}
 	@FXML
 	public void onNewPresentForSpecialPackageClicked(){
+		if(centerPane.getCenter() == null){
 		Platform.runLater(()->{
 		try {
-	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSpecialPackage.fxml"));
+   		 Strategy strategy = new PresentForSpecialPackageNewStrategy();
+   		 PresentForSpecialPackageController controller = 
+   				    new PresentForSpecialPackageController(strategy,this);
+   		 FXMLLoader loader = new FXMLLoader(
+   				    getClass().getResource(
+   				        "/fxml/managerUI/PresentForSpecialPackage.fxml"));
+   				loader.setController(controller);
+   				AnchorPane presentroot = loader.load();
+//	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
 			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	});
+		}
 	}
 	@FXML
 	public void onNewPresentForSumClicked(){
+		if(centerPane.getCenter() == null){
 		Platform.runLater(()->{
 		try {
-	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
+   		 Strategy strategy = new PresentForSumNewStrategy();
+   		 PresentForSumController controller = 
+   				    new PresentForSumController(strategy,this);
+   		 FXMLLoader loader = new FXMLLoader(
+   				    getClass().getResource(
+   				        "/fxml/managerUI/PresentForSum.fxml"));
+   				loader.setController(controller);
+   				AnchorPane presentroot = loader.load();
+//	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
 			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	});
+		}
 	}
 	@FXML
 	public void onShowPresentForMembershipClicked(){
@@ -89,6 +119,7 @@ public class ManagerController {
    	 Platform.runLater(new Runnable() {
 	     public void run() {
 	    	 try {
+
 		    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSumList.fxml"));
 				centerPane.setCenter(presentroot);
 

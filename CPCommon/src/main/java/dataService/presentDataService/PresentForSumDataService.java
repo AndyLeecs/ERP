@@ -11,7 +11,7 @@ import util.DataRM;
 * @description
 */
 public interface PresentForSumDataService {
-	public DataRM insert(PresentForSumPO po);
+	public String insert();
 	public DataRM deletePresentForSum(String id);
 	public DataRM update(PresentForSumPO po);
 	public List<PresentForSumPO> getPresentForSum();

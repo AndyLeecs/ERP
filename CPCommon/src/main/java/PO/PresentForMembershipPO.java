@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import util.PresentState;
+
 /**     
 * @author 李安迪
 * @date 2017年10月26日
@@ -11,9 +13,9 @@ import java.util.List;
 */
 public class PresentForMembershipPO extends PresentPO implements Serializable{
 	public PresentForMembershipPO(){}
-	public PresentForMembershipPO(Date startTime, Date finishTime,List<GoodsInSalePO> presentList, MemberGrade grade, double sum,
-			 double rebateInPresentForMembership, double voucher) {
-		super(startTime, finishTime,presentList);
+	public PresentForMembershipPO(int id,Date startTime, Date finishTime, double sum, List<GoodsInSalePO> presentList,
+			PresentState state,double voucher,MemberGrade grade,double rebateInPresentForMembership) {
+		super(id,startTime, finishTime,presentList,state);
 		this.grade = grade;
 		this.sum = sum;
 		this.rebateInPresentForMembership = rebateInPresentForMembership;
