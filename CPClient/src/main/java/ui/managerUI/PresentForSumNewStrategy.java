@@ -28,7 +28,11 @@ public class PresentForSumNewStrategy implements Strategy{
 		
 		int id = service.getId();
 		
+		if(id>=0)
 		sumController.setId(id);
+		else{
+			controller.showInformationDialog(DataRM.FAILED);
+		}
 
 		
 	    

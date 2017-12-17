@@ -1,22 +1,32 @@
 package ui.managerUI;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
 
 import VO.GoodsInSaleVO;
+import VO.goodsVO.GoodsVO;
 import VO.presentVO.PresentForSumVO;
 import VO.presentVO.PresentVO;
+import bl.goodsbl.GoodsFuzzySearch;
+import bl.goodsbl.GoodsFuzzySearchImpl;
 import bl.presentbl.PresentBLFactory;
+import bl.utility.GoodsTransGoodsInSale;
 import blservice.presentblservice.PresentForSumBLService;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import ui.commonUI.GoodsSearchResultWin;
 import util.DataRM;
 import util.DateUtil;
 import util.NumberUtil;
@@ -33,7 +43,7 @@ public class PresentForSumController implements SinglePresentController{
 		
 		@FXML protected TextField searchField;
 		@FXML protected Button searchBtn;
-		@FXML protected Pane presentListPane;
+		@FXML protected VBox presentListVBox;
 		
 		@FXML protected TextField startYearField;
 	    @FXML protected TextField startMonthField;
@@ -59,6 +69,8 @@ public class PresentForSumController implements SinglePresentController{
 	    
 	    private PresentForSumBLService service;
 	    private Strategy strategy;
+	    private GoodsFuzzySearch fuzzySearch;
+	    
 	    //暂存vo，传递给strategy
 	    private PresentVO vo;
 	    @FXML private ManagerController managerController;
@@ -84,6 +96,10 @@ public class PresentForSumController implements SinglePresentController{
     	 *赠品列表,临时作为静态变量保证程序不崩
     	 */	
     	List<GoodsInSaleVO> presentList;
+    	/**
+    	 * 待选择的商品列表
+    	 */
+    	List<GoodsInSaleVO> goodsList;
 //    	/**
 //    	 * 赠送代金券金额
 //    	 */
@@ -150,14 +166,28 @@ public class PresentForSumController implements SinglePresentController{
 //		public void setTotal(double total) {
 //			this.total = total;
 //		}
+		@Override
+		public void addToPresentList(GoodsInSaleVO vo){
+				this.presentList.add(vo);
+				this.presentList = new ArrayList<GoodsInSaleVO>(new LinkedHashSet<GoodsInSaleVO>(this.presentList));
+				this.refresh();
+				System.out.println(this.presentList);
+		}
+		@Override
+		public void deleteFromPresentList(GoodsInSaleVO vo){
+			this.presentList.remove(vo);
+			this.refresh();
+		}
+		@Override
+		public List<GoodsInSaleVO> getPresentList() {
+			return presentList;
+		}
 //
-//		public List<GoodsInSaleVO> getPresentList() {
-//			return presentList;
-//		}
-//
-//		public void setPresentList(List<GoodsInSaleVO> presentList) {
-//			this.presentList = presentList;
-//		}
+		@Override
+		public void setPresentList(List<GoodsInSaleVO> presentList) {
+			this.presentList = presentList;
+			this.refresh();
+		}
 //
 //		public double getVoucher() {
 //			return voucher;
@@ -172,12 +202,18 @@ public class PresentForSumController implements SinglePresentController{
 			this.managerController = managerController;
 			this.vo = null;
 	    	service = PresentBLFactory.getPresentForSumBLService();
+	    	fuzzySearch = new GoodsFuzzySearchImpl();
+	    	this.goodsList = new ArrayList<GoodsInSaleVO>();
+	    	this.presentList = new ArrayList<GoodsInSaleVO>();
 		}
 		public PresentForSumController(Strategy strategy,ManagerController managerController,PresentVO vo){
 			this.strategy = strategy;
 			this.managerController = managerController;
 			this.vo = vo;
 	    	service = PresentBLFactory.getPresentForSumBLService();
+	    	fuzzySearch = new GoodsFuzzySearchImpl();
+	    	this.goodsList = new ArrayList<GoodsInSaleVO>();
+	    	this.presentList = new ArrayList<GoodsInSaleVO>();
 		}		
 		@FXML
 	    public void initialize(){
@@ -200,6 +236,8 @@ public class PresentForSumController implements SinglePresentController{
 	    	
 	    	//把vo清空
 	    	vo = null;
+	    	
+	    
 	    }
 				
 		@FXML
@@ -313,10 +351,43 @@ public class PresentForSumController implements SinglePresentController{
 		@Override
 		public void search(){
 			System.out.println("search goods");
+			//获得关键字
+			String message = searchField.getText();
+			System.out.println("search message is "+ message);
+			if(message != null && message.length() != 0){
+			//查找，分别用三种模糊查找，然后合并得到的商品列表结果
+			List<GoodsVO> temp = new ArrayList<GoodsVO>();
+			temp.addAll(fuzzySearch.getGoodsInID(message));
+			temp.addAll(fuzzySearch.getGoodsInGoodsName(message));
+			temp.addAll(fuzzySearch.getGoodsInCategory(message));
 			
+			//去重
+			temp = new ArrayList<GoodsVO>(new LinkedHashSet<>(temp));
+			
+			goodsList = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(temp);
+			
+//			List<GoodsInSaleVO> listById = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(fuzzySearch.getGoodsInID(message));
+//			List<GoodsInSaleVO> listByName = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(fuzzySearch.getGoodsInGoodsName(message));
+//			List<GoodsInSaleVO> listByCategory = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(fuzzySearch.getGoodsInCategory(message));
+//			goodsList.addAll(listById);
+//			goodsList.addAll(listByName);
+//			goodsList.addAll(listByCategory);
+//			//去重
+//			goodsList = new ArrayList<GoodsInSaleVO>(new LinkedHashSet<>(goodsList));
+//			System.out.println(goodsList);
+			
+			try {
+				new GoodsSearchResultWin(goodsList,this);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			}
+
 		}
 		
-		
+		@Override
 		public void showInformationDialog(DataRM rm){
 			if(rm == DataRM.SUCCESS){
 				Alert information = new Alert(Alert.AlertType.INFORMATION,"请继续努力工作吧~");
@@ -333,9 +404,34 @@ public class PresentForSumController implements SinglePresentController{
 				System.err.println("DataRM is not success or failed");
 			}
 		}
-		
-		
 
-		
-		
+		/* (non-Javadoc)
+		 * @see ui.managerUI.SinglePresentController#refresh()
+		 */
+		@Override
+		public void refresh() {
+			presentListVBox.getChildren().clear();
+			// TODO Auto-generated method stub
+			for(GoodsInSaleVO vo : presentList){
+	   		 PresentCellController controller = 
+	   				    new PresentCellController(this,vo);
+	   		 FXMLLoader loader = new FXMLLoader(
+	   				    getClass().getResource(
+	   				        "/fxml/commonUI/PresentCell.fxml"));
+	   				loader.setController(controller);
+	   				AnchorPane presentroot = null;
+					try {
+						presentroot = loader.load();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					if(presentroot == null)
+						System.out.println("presentroot is null");
+					if(presentListVBox == null)
+						System.out.println("presentListVBox is null");
+//		    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
+				presentListVBox.getChildren().add(presentroot);
+			}
+		}	
 }

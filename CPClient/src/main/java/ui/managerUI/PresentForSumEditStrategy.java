@@ -51,7 +51,7 @@ public class PresentForSumEditStrategy implements Strategy{
 	    }
         
         //显示赠品列表
-	    
+	    controller.setPresentList(presentList);
 	}
 
 	/* (non-Javadoc)

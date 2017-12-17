@@ -31,13 +31,13 @@ public class ServerConnector {
 	}
 	
 	private void addServices(){
-		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
-		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
-		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
-		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
-		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
-		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
 		
 		//哈哈，巧妙的设计了一番，每个helper只需在这里add一下就行了
 	}
@@ -49,6 +49,7 @@ public class ServerConnector {
 			
 			try {
 				helper.setRemote(Naming.lookup(url+serviceName));
+				System.out.println("connectDataService");
 			} catch (MalformedURLException e) {
 				System.out.println(serviceName + "connectedFailed");
 				e.printStackTrace();

@@ -1,5 +1,8 @@
 package dataService.presentDataService;
 
+import java.io.Serializable;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.List;
 
 import PO.PresentForSumPO;
@@ -10,10 +13,10 @@ import util.DataRM;
 * @date 2017年12月13日
 * @description
 */
-public interface PresentForSumDataService {
-	public String insert();
-	public DataRM deletePresentForSum(String id);
-	public DataRM update(PresentForSumPO po);
-	public List<PresentForSumPO> getPresentForSum();
-	public List<PresentForSumPO> getPresentForSum(int sum);
+public interface PresentForSumDataService extends Remote,Serializable{
+	public int insert() throws RemoteException;
+	public DataRM deletePresentForSum(int id) throws RemoteException;
+	public DataRM update(PresentForSumPO po) throws RemoteException;
+	public List<PresentForSumPO> getPresentForSum() throws RemoteException;
+	public List<PresentForSumPO> getPresentForSum(double sum) throws RemoteException;
 }

@@ -9,11 +9,13 @@ import java.rmi.registry.LocateRegistry;
 import dataService.VIPDataService.VIPDataService;
 import dataService.goodsDataService.GoodsDataService;
 import dataService.presentDataService.PresentDataService;
+import dataService.presentDataService.PresentForSumDataService;
 import dataService.saleDataService.SaleDataService;
 import dataService.storeDataService.StoreDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentDataServiceImpl;
+import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleDataServiceImpl;
 import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
 
@@ -36,6 +38,9 @@ public class ServerHelper {
 			PresentDataService presentDataService=new PresentDataServiceImpl();
 			Naming.bind("PresentDataService", presentDataService);
 			System.out.println("bind succeeded!");
+			
+			PresentForSumDataService presentForSumDataService = new PresentForSumDataServiceImpl();
+			Naming.bind("PresentForSumDataService", presentForSumDataService);
 			
 			SaleDataService saleDataService=new SaleDataServiceImpl();
 			Naming.bind("SaleDataService", saleDataService);

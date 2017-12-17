@@ -7,6 +7,8 @@ public class GoodsPO implements Serializable{
 	 * 商品编号
 	 */
 	String goodsID;
+
+
 	/**
 	 * 商品名称
 	 */
@@ -85,9 +87,27 @@ public class GoodsPO implements Serializable{
 	public String getGoodsID() {
 		return  goodsID;
 	}
-
+	public void setGoodsID(String goodsID) {
+		this.goodsID = goodsID;
+	}
 	public String getGoodsCategory() {
 		return goodsCategory;
+	}
+
+	public void setGoodsCategory(String goodsCategory) {
+		this.goodsCategory = goodsCategory;
+	}
+
+	public void setGoodsType(String goodsType) {
+		this.goodsType = goodsType;
+	}
+
+	public void setGoodsBuyPrice(double goodsBuyPrice) {
+		this.goodsBuyPrice = goodsBuyPrice;
+	}
+
+	public void setGoodsSellPrice(double goodsSellPrice) {
+		this.goodsSellPrice = goodsSellPrice;
 	}
 
 	public String getGoodsType() {

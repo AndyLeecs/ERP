@@ -8,4 +8,12 @@ package ui.managerUI;
 */
 public class PresentForSpecialPackageController {
 
+	/**
+	 * @param strategy
+	 * @param managerController
+	 */
+	public PresentForSpecialPackageController(Strategy strategy, ManagerController managerController) {
+		// TODO Auto-generated constructor stub
+	}
+
 }
