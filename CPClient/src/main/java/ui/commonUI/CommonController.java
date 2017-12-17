@@ -14,7 +14,7 @@ public class CommonController {
         Platform.runLater(()-> {
                 try {
                     root.getScene().getWindow().hide();
-                    new mainUI.LoginWin();
+                    new ui.mainUI.loginUI.LoginWin();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

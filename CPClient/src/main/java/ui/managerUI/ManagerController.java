@@ -11,7 +11,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import mainUI.LoginWin;
+import ui.mainUI.loginUI.LoginWin;
 
 /**     
 * @author 李安迪

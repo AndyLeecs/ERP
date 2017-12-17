@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import mainUI.LoginWin;
+import ui.mainUI.loginUI.LoginWin;
 
 import java.io.IOException;
 

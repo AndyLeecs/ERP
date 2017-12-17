@@ -1,4 +1,4 @@
-package ui.accountantUI;
+package ui.mainUI.accountantUI;
 
 public class AccountantWinController {
 
