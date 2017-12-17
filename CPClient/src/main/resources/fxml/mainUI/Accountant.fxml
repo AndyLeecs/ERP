@@ -9,56 +9,32 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FFF7FB;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.mainUI.accountantUI.AccountantWinController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FFF7FB" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.mainUI.accountantUI.AccountantWinController">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" />
-      <Pane layoutX="-4.0" prefHeight="97.0" prefWidth="1207.0" style="-fx-background-color: #FFECEC;">
-         <children>
-            <Label layoutX="206.0" layoutY="20.0" text="CuteProject" textFill="#9f353a">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="1136.0" layoutY="13.0" text="注销" textFill="#9f353a">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane layoutX="177.0" layoutY="121.0" opacity="0.39" prefHeight="646.0" prefWidth="978.0">
-         <children>
-            <Label layoutX="413.0" layoutY="290.0" prefHeight="82.0" prefWidth="152.0" text="WELCOME" textAlignment="CENTER" textOverrun="CLIP">
-               <font>
-                  <Font size="28.0" />
-               </font>
-            </Label>
-            <BorderPane fx:id="centerPane" prefHeight="646.0" prefWidth="978.0" />
-         </children>
-      </Pane>
+      <fx:include source="../commonUI/Background.fxml" />
          
       <VBox layoutX="13.0" layoutY="74.0" prefHeight="730.0" prefWidth="122.0" style="-fx-background-color: #ff7575;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" textFill="#9f353a" />
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" textFill="#9f353a" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="122.0" textFill="#9f353a" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="124.0" textFill="#9f353a" />
             <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" text="      新建">
                <items>
-	               <MenuItem mnemonicParsing="false" text="收款单" />
-	               <MenuItem mnemonicParsing="false" text="付款单" />
-	               <MenuItem mnemonicParsing="false" text="现金费用单" />
+	               <MenuItem fx:id="newCollectionList" mnemonicParsing="false" onAction="#onNewCollectionListBtnClicked" text="收款单" />
+	               <MenuItem fx:id="newPaymentList" mnemonicParsing="false" onAction="#onNewPaymentListBtnClicked" text="付款单" />
+	               <MenuItem fx:id="newCashExpenseList" mnemonicParsing="false" onAction="#onNewCashExpenseListBtnClicked" text="现金费用单" />
                </items>
                <font>
                   <Font size="18.0" />
                </font>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0"  text="      查看">
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" text="      查看">
                <font>
                   <Font size="18.0" />
                </font>
                <items>
-                  <MenuItem mnemonicParsing="false" text="付款单" />
-                  <MenuItem mnemonicParsing="false" text="收款单" />
-                  <MenuItem mnemonicParsing="false" text="现金费用单" />
+                  <MenuItem fx:id="openCollectionCommitted" mnemonicParsing="false" onAction="#onOpenCollectionCommittedBtnClicked" text="收款单" />
+                  <MenuItem fx:id="openPaymentCommitted" mnemonicParsing="false" onAction="#onOpenPaymentCommittedBtnClicked" text="付款单" />
+                  <MenuItem fx:id="openCashExpenseCommitted" mnemonicParsing="false" onAction="#onOpenCashExpenseCommittedBtnClicked" text="现金费用单" />
                </items>
             </MenuButton>
             <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" text="      草稿">
@@ -66,12 +42,12 @@
                   <Font size="18.0" />
                </font>
                <items>
-                  <MenuItem mnemonicParsing="false" text="付款单" />
-                  <MenuItem mnemonicParsing="false" text="收款单" />
-                  <MenuItem mnemonicParsing="false" text="现金费用单" />
+                  <MenuItem fx:id="openCollectionDraft" mnemonicParsing="false" onAction="#onOpenCollectionDraftBtnClicked" text="收款单" />
+                  <MenuItem fx:id="openPaymentDraft" mnemonicParsing="false" onAction="#onOpenPaymentDraftBtnClicked" text="付款单" />
+                  <MenuItem fx:id="openCashExpenseDraft" mnemonicParsing="false" onAction="#onOpenCashExpenseDraftBtnClicked" text="现金费用单" />
                </items>
             </MenuButton>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" text="期初建账" >
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" text="期初建账">
                <font>
                   <Font size="18.0" />
                </font>
