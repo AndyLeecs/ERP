@@ -1,32 +1,23 @@
 package bl.goodsbl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import VO.goodsVO.CategoryVO;
-import VO.goodsVO.GoodsVO;
-import blservice.goodsblservice.GoodsBLService;
-
-/**     
+/**
 * @author 李安迪
 * @date 2017年10月22日
 * @description
 */
 /*public class GoodsBLService_Driver {
 	
-	List<CategoryVO> l = new ArrayList<CategoryVO> ();
+	List<GoodsCategoryVO> l = new ArrayList<GoodsCategoryVO> ();
 	Map<String,String> child = new HashMap<String,String>();
 
 	Map<String,String> goods = null;
-	CategoryVO Categoryvo = new CategoryVO("", null, null, child, child);
+	GoodsCategoryVO Categoryvo = new GoodsCategoryVO("", null, null, child, child);
 	GoodsVO goodsvo = new GoodsVO(null, null, null, null,  0, 0, 0, 0);
 	
 	
 public void drive(GoodsBLService goodsBLService){
 	child.put("00000", "小台灯");
-	l.add(new CategoryVO("00001", "台灯", "00002", child,
+	l.add(new GoodsCategoryVO("00001", "台灯", "00002", child,
 			goods));
 	
 	if(!(goodsBLService.addCategory(Categoryvo)))

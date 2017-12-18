@@ -1,15 +1,26 @@
 package dataServiceImpl.goodsImpl;
 
+import PO.GoodsCategoryPO;
 import PO.GoodsPO;
+import dataHelper.BasicUtil;
+import dataHelper.HibernateUtil;
 import dataService.goodsDataService.GoodsDataService;
 import util.ResultMessage;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 /**
  * Created by julia98 on 2017/12/13.
  */
 public class GoodsDataServiceImpl implements GoodsDataService {
+    BasicUtil<GoodsPO> goodsUtil;
+    BasicUtil<GoodsCategoryPO> categoryUtil;
+
+    public GoodsDataServiceImpl() throws RemoteException {
+
+        goodsUtil = new HibernateUtil<GoodsPO>(GoodsPO.class);
+    }
     @Override
     public String newGoods(String name, String category) {
         return null;
@@ -17,46 +28,60 @@ public class GoodsDataServiceImpl implements GoodsDataService {
 
     @Override
     public List findGoods(String info, String type) {
-        return null;
+        switch (type){
+            case "goodsName":
+                break;
+            case "goodsType":
+                break;
+            case "goodsID":
+                break;
+        }
+
+        return goodsUtil.fuzzyQuery(info, type);
     }
 
     @Override
     public GoodsPO getGoods(String name, String category) {
-        return null;
+        return goodsUtil.exactQuery(name,category).get(0);//只需获取一个确切的商品信息 这里方法存疑
     }
 
     @Override
     public ResultMessage deleteGoods(String category, String name) {
-        return null;
+        return ResultMessage.SUCCESS;
     }
 
     @Override
-    public ResultMessage modifyGoods(GoodsPO vo) {
-        return null;
+    public ResultMessage modifyGoods(GoodsPO po) {
+        goodsUtil.update(po);
+        return ResultMessage.SUCCESS;
     }
 
     @Override
-    public ResultMessage initAndSaveGoods(GoodsPO vo) {
-        return null;
+    public ResultMessage initAndSaveGoods(GoodsPO po) {
+        goodsUtil.insert(po);
+        return ResultMessage.SUCCESS;
     }
 
     @Override
-    public ResultMessage newGoodsCategory(String category) {
-        return null;
+    public ResultMessage newGoodsCategory(GoodsCategoryPO po) {
+        categoryUtil.insert(po);
+        return ResultMessage.SUCCESS;
     }
 
     @Override
-    public ResultMessage deleteGoodsCategory(String category) {
-        return null;
+    public ResultMessage deleteGoodsCategory(String category, String parent) {
+        return ResultMessage.SUCCESS;
     }
 
     @Override
-    public ResultMessage modifyGoodsCategory(String categoryNew, String categoryOld) {
-        return null;
+    public ResultMessage modifyGoodsCategory(String categoryNew, String categoryOld, String parent) {
+        //categoryUtil.update();
+        return ResultMessage.SUCCESS;
     }
 
     @Override
-    public List getAllCategory() {
-        return null;
+    public List getAllCategory(String node) {
+        //if(node == "") 返回全部分类
+        return categoryUtil.fuzzyQuery("parentName",node);
     }
 }

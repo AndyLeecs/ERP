@@ -9,6 +9,7 @@ import java.util.List;
  * Created by julia98 on 2017/12/15.
  */
 public class GoodsFuzzySearchImpl implements GoodsFuzzySearch{
+    GoodsBLServiceImpl goodsBLService = new GoodsBLServiceImpl();
     GoodsVO goodsVO1 = new GoodsVO("00000000"
             ,"台灯"
             ,"学习台灯"
@@ -38,6 +39,7 @@ public class GoodsFuzzySearchImpl implements GoodsFuzzySearch{
         goodsVOArrayList.add(goodsVO1);
         goodsVOArrayList.add(goodsVO2);
         return goodsVOArrayList;
+        //return goodsBLService.findGoods(idInfo,"goodsID");
     }
 
     /**
@@ -51,6 +53,7 @@ public class GoodsFuzzySearchImpl implements GoodsFuzzySearch{
         goodsVOArrayList.add(goodsVO1);
         goodsVOArrayList.add(goodsVO2);
         return goodsVOArrayList;
+        //return goodsBLService.findGoods(goodsNameInfo,"goodsName");
     }
 
     /**
@@ -64,5 +67,6 @@ public class GoodsFuzzySearchImpl implements GoodsFuzzySearch{
         goodsVOArrayList.add(goodsVO1);
         goodsVOArrayList.add(goodsVO2);
         return goodsVOArrayList;
+        //return goodsBLService.findGoods(goodsCategoryInfo,"goodsCategory");
     }
 }

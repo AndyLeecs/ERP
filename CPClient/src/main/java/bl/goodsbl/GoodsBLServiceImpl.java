@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class GoodsBLServiceImpl implements GoodsBLService {
     GoodsDataServiceHelper goodsDataServiceHelper;
+    Goods goods = new Goods();
 
     GoodsVO goodsVO1 = new GoodsVO("0"
             ,"1"
@@ -35,7 +36,7 @@ public class GoodsBLServiceImpl implements GoodsBLService {
 
     @Override
     public String newGoods(String name, String category) {
-        return null;
+        return goods.newGoods(name,category);
     }
 
     @Override
@@ -67,22 +68,22 @@ public class GoodsBLServiceImpl implements GoodsBLService {
     }
 
     @Override
-    public ResultMessage newGoodsCategory(String category) {
+    public ResultMessage newGoodsCategory(String category, String parent) {
         return null;
     }
 
     @Override
-    public ResultMessage deleteGoodsCategory(String category) {
+    public ResultMessage deleteGoodsCategory(String category, String parent) {
         return null;
     }
 
     @Override
-    public ResultMessage modifyGoodsCategory(String categoryNew, String categoryOld) {
+    public ResultMessage modifyGoodsCategory(String categoryNew, String categoryOld, String parent) {
         return null;
     }
 
     @Override
-    public List getAllCategory() {
+    public List getAllCategory(String node) {
         return null;
     }
 }

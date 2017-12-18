@@ -8,28 +8,35 @@ import java.util.Map;
 * @date 2017年10月22日
 * @description
 */
-public class CategoryPO implements Serializable{
-		/**
-		 * 商品分类编号
-		 */
-	    String id;
-		/**
-		 * 名称
-		 */	    
-	    String name;
-		/**
-		 * 父节点编号
-		 */
-	    String parentID;
-		/**
-		 * 子节点列表
-		 */
-	    Map<String, String> childCategoryList;
-		/**
-		 * 分类下商品列表
-		 */
-	    Map<String, String> goods;
-	    
+public class GoodsCategoryPO implements Serializable{
+	String goodsCategoryName;
+    String parentName;
+    private String autoId;//sql自动生成
+
+    public String getGoodsCategoryName() {
+        return goodsCategoryName;
+    }
+
+    public void setGoodsCategoryName(String goodsCategoryName) {
+        this.goodsCategoryName = goodsCategoryName;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
+	public String getAutoId() {
+		return autoId;
+	}
+
+	public void setAutoId(String autoId) {
+		this.autoId = autoId;
+	}
+
 //		public CategoryVO(String id, String name, String parentID, Map<String, String> childCategoryList,
 //				Map<String, String> goods) {
 //			super();

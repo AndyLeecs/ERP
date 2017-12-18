@@ -65,19 +65,39 @@ public class GoodsController{
 
 
         //以下for循环 获取数据库中所有商品和分类并加载到TreeView中
-        /*
-        ArrayList<String> newGoodsVOS = (ArrayList<String>) goodsBLService.getAllCategory();
-        for(int i =0;i<newGoodsVOS.size();i++){
-            TreeItem eachGoodsCategory = new TreeItem("分类：" + newGoodsVOS.get(i));
-            eachGoodsCategory.setGraphic(new ImageView("img/folderIcon.png"));
-            rootTreeItem.getChildren().add(eachGoodsCategory);
+/*
+        ArrayList<String> rootCategoryNames = (ArrayList<String>) goodsBLService.getAllCategory("根目录");
+        for(int i =0;i<rootCategoryNames.size();i++){
+            TreeItem rootCategory = new TreeItem("分类：" + rootCategoryNames.get(i));
+            rootCategory.setGraphic(new ImageView("img/folderIcon.png"));
+            rootTreeItem.getChildren().add(rootCategory);
+            TreeItem tmpNode = rootCategory;
 
-            ArrayList<GoodsVO> sameCategoryGoods = (ArrayList<GoodsVO>) goodsBLService.findGoods(newGoodsVOS.get(i),"goodsCategory");
+            //若存在子分类
+            while(goodsBLService.getAllCategory(rootCategoryNames.get(i)) != null){
+                ArrayList<String> sonCategoryNames = (ArrayList<String>) goodsBLService.getAllCategory(rootCategoryNames.get(i));
+                for(int j = 0;j<sonCategoryNames.size();j++) {
+                    TreeItem sonCategory = new TreeItem("分类：" + sonCategoryNames.get(j));
+                    sonCategory.setGraphic(new ImageView("img/folderIcon.png"));
+                    tmpNode.getChildren().add(sonCategory);
+
+                    while (goodsBLService.findGoods(sonCategoryNames.get(j),"goodsCategory") != null){
+                        ArrayList<GoodsVO> sonCategoryGoods = (ArrayList<GoodsVO>) goodsBLService.findGoods(rootCategoryNames.get(i),"goodsCategory");
+                        for(int j = 0;j<sonCategoryGoods.size();j++){
+                            TreeItem goods = new TreeItem("商品：" + sonCategoryGoods.get(j).getGoodsName());
+                            sonCategory.getChildren().add(goods);
+                        }
+                    }
+                    tmpNode = sonCategory;
+                }
+            }
+            ArrayList<GoodsVO> sameCategoryGoods = (ArrayList<GoodsVO>) goodsBLService.findGoods(rootCategoryNames.get(i),"goodsCategory");
             for(int j = 0;j<sameCategoryGoods.size();j++){
                 TreeItem goods = new TreeItem("商品：" + sameCategoryGoods.get(j).getGoodsName());
-                eachGoodsCategory.getChildren().add(goods);
+                rootCategory.getChildren().add(goods);
             }
-        }*/
+        }
+        */
         //以下为demo
 
         for(int i =0;i<5;i++) {
@@ -274,7 +294,7 @@ public class GoodsController{
                 stack.peek().setValue(tmp + "" + name.getText());
                 //以下部分由于数据层没有搭好暂不能正常运行 故加注释
                 /*
-                ArrayList<String> arrayList = (ArrayList<String>) goodsBLService.getAllCategory();
+                ArrayList<String> arrayList = (ArrayList<String>) goodsBLService.getAllCategory(""); //参数为空 表示返回所有分类名
                 for(int i = 0;i<arrayList.size();i++){
                     if(name.getText().equals(arrayList.get(i))){
                         noticeLabel.setText("分类名称重复，请换其他分类名称");

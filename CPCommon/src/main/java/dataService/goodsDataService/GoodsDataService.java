@@ -1,4 +1,5 @@
 package dataService.goodsDataService;
+import PO.GoodsCategoryPO;
 import PO.GoodsPO;
 import util.ResultMessage;
 
@@ -14,9 +15,9 @@ public interface GoodsDataService extends Remote,Serializable {
     public ResultMessage deleteGoods(String category, String name);
     public ResultMessage modifyGoods(GoodsPO vo);
     public ResultMessage initAndSaveGoods(GoodsPO vo);
-    public ResultMessage newGoodsCategory(String category);
-    public ResultMessage deleteGoodsCategory(String category);
-    public ResultMessage modifyGoodsCategory(String categoryNew,String categoryOld);
-    public List getAllCategory();
+    public ResultMessage newGoodsCategory(GoodsCategoryPO po);
+    public ResultMessage deleteGoodsCategory(String category, String parent);
+    public ResultMessage modifyGoodsCategory(String categoryNew,String categoryOld, String parent);
+    public List getAllCategory(String node);
 
 }
