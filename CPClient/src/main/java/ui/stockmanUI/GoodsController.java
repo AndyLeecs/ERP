@@ -204,7 +204,7 @@ public class GoodsController{
 
                 case "分类":
                     System.out.println("删除分类名称：" + selectItem.getValue().toString().substring(3));
-                    goodsBLService.deleteGoodsCategory(selectItem.getValue().toString().substring(3));
+                    goodsBLService.deleteGoodsCategory(selectItem.getValue().toString().substring(3),selectItem.getParent().getValue().toString().substring(3));
                     break;
             }
         });
