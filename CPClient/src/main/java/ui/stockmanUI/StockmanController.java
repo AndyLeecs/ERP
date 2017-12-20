@@ -2,9 +2,6 @@ package ui.stockmanUI;
 
 import java.io.IOException;
 
-import org.controlsfx.control.MaskerPane;
-import org.controlsfx.control.spreadsheet.SpreadsheetView;
-
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -46,9 +43,7 @@ public class StockmanController {
 	
 	
 	@FXML public void init() {
-		ssv.setLayoutX(100);
-		ssv.setLayoutY(100);
-		root.getChildren().add(ssv);
+	
 	
 	}
 	
@@ -95,10 +90,6 @@ public class StockmanController {
      @FXML public void draft() {
     	 
      }
-     
-     //Dialog d = new Dialog();
-     SpreadsheetView ssv = new SpreadsheetView();
-     MaskerPane mp = new MaskerPane();
     
      
      @FXML 

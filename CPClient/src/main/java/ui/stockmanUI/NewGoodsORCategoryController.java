@@ -49,7 +49,7 @@ public class NewGoodsORCategoryController {
                 while(!currentNode.getParent().getValue().contains("根节点")){
                     tmp = currentNode.getParent().getValue().toString().substring(3) + "/" + tmp;
                 }
-                goodsBLService.newGoodsCategory(tmp);//这里路径要注意下是整个路径
+                //goodsBLService.newGoodsCategory(tmp);//这里路径要注意下是整个路径
                 this.newName = name.getText();
                 list.add(type);
                 break;
