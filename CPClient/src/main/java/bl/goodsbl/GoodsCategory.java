@@ -1,5 +1,7 @@
 package bl.goodsbl;
 
+import PO.GoodsCategoryPO;
+import VO.goodsVO.GoodsCategoryVO;
 import dataService.goodsDataService.GoodsDataService;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import util.ResultMessage;
@@ -13,20 +15,20 @@ import java.util.ArrayList;
 public class GoodsCategory {
     GoodsDataService goodsDataService = GoodsDataServiceHelper.getInstance().getGoodsDataService();
 
-    public ResultMessage newGoodsCategory(String category, String parent){
-        goodsDataService.newGoodsCategory(category);
+    public ResultMessage newGoodsCategory(GoodsCategoryVO vo){
+        goodsDataService.newGoodsCategory(voToPO(vo));
         return ResultMessage.SUCCESS;
 
     }
 
-    public ResultMessage deleteGoodsCategory(String category, String parent){
-        goodsDataService.deleteGoodsCategory(category);
+    public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo){
+        goodsDataService.deleteGoodsCategory(voToPO(vo));
         return ResultMessage.SUCCESS;
 
     }
 
-    public ResultMessage modifyGoodsCategory(String categoryNew,String categoryOld, String parent){
-        goodsDataService.modifyGoodsCategory(categoryNew, categoryOld);
+    public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO, GoodsCategoryVO newVO){
+        goodsDataService.modifyGoodsCategory(voToPO(oldVO),voToPO(newVO));
         return ResultMessage.SUCCESS;
 
     }
@@ -34,4 +36,9 @@ public class GoodsCategory {
     public ArrayList<String> getAllCategory(String node){
         return (ArrayList<String>) goodsDataService.getAllCategory(node);
     }
+
+    private GoodsCategoryPO voToPO(GoodsCategoryVO vo){
+        return vo ==null?null:new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName());
+    }
+
 }

@@ -13,6 +13,11 @@ public class GoodsCategoryPO implements Serializable{
     String parentName;
     private String autoId;//sql自动生成
 
+    public GoodsCategoryPO(String goodsCategoryName, String parentName) {
+        this.goodsCategoryName = goodsCategoryName;
+        this.parentName = parentName;
+    }
+
     public String getGoodsCategoryName() {
         return goodsCategoryName;
     }

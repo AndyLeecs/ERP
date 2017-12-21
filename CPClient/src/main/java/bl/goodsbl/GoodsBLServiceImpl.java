@@ -1,5 +1,6 @@
 package bl.goodsbl;
 
+import VO.goodsVO.GoodsCategoryVO;
 import VO.goodsVO.GoodsVO;
 import blservice.goodsblservice.GoodsBLService;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
@@ -68,17 +69,17 @@ public class GoodsBLServiceImpl implements GoodsBLService {
     }
 
     @Override
-    public ResultMessage newGoodsCategory(String category, String parent) {
+    public ResultMessage newGoodsCategory(GoodsCategoryVO vo) {
         return null;
     }
 
     @Override
-    public ResultMessage deleteGoodsCategory(String category, String parent) {
+    public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo) {
         return null;
     }
 
     @Override
-    public ResultMessage modifyGoodsCategory(String categoryNew, String categoryOld, String parent) {
+    public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO, GoodsCategoryVO newVO) {
         return null;
     }
 

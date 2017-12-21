@@ -16,8 +16,8 @@ public interface GoodsDataService extends Remote,Serializable {
     public ResultMessage modifyGoods(GoodsPO vo);
     public ResultMessage initAndSaveGoods(GoodsPO vo);
     public ResultMessage newGoodsCategory(GoodsCategoryPO po);
-    public ResultMessage deleteGoodsCategory(String category, String parent);
-    public ResultMessage modifyGoodsCategory(String categoryNew,String categoryOld, String parent);
+    public ResultMessage deleteGoodsCategory(GoodsCategoryPO po);
+    public ResultMessage modifyGoodsCategory(GoodsCategoryPO oldVO,GoodsCategoryPO newVO);
     public List getAllCategory(String node);
 
 }

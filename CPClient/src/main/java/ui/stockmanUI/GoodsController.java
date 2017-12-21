@@ -1,7 +1,9 @@
 package ui.stockmanUI;
 
+import VO.goodsVO.GoodsCategoryVO;
 import VO.goodsVO.GoodsVO;
 import bl.goodsbl.GoodsBLServiceImpl;
+import bl.goodsbl.GoodsCategory;
 import blservice.goodsblservice.GoodsBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -55,6 +57,26 @@ public class GoodsController{
 
     Stack<TreeItem<String>> stack = new Stack<>();//存放目录的引用 便于增减改名商品
 
+    //初始化节点的方法
+    private void setNode(TreeItem<String> node){
+        ArrayList<String> list = (ArrayList<String>) goodsBLService.getAllCategory(node.getValue().toString().substring(3));
+        if(list != null){
+            for(int i =0;i<list.size();i++){
+                TreeItem<String> son = new TreeItem<>("分类：" + list.get(i));
+                son.setGraphic(new ImageView("img/folderIcon.png"));
+                node.getChildren().add(son);
+                setNode(son);
+            }
+        }else{
+            ArrayList<GoodsVO> goods = (ArrayList<GoodsVO>) goodsBLService.findGoods(node.getValue().toString().substring(3),"goodsCategory");
+            if(goods!=null) {
+                for (int i = 0; i < goods.size(); i++) {
+                    node.getChildren().add(new TreeItem<>("商品：" + goods.get(i).getGoodsName()));
+                }
+            }
+        }
+    }
+
     //初始TreeView 加载所有商品和分类
     private void initTreeView(){
 
@@ -63,43 +85,9 @@ public class GoodsController{
         rootTreeItem = new TreeItem<String>("分类：根目录");
         rootTreeItem.setExpanded(true);
 
-
-        //以下for循环 获取数据库中所有商品和分类并加载到TreeView中
-/*
-        ArrayList<String> rootCategoryNames = (ArrayList<String>) goodsBLService.getAllCategory("根目录");
-        for(int i =0;i<rootCategoryNames.size();i++){
-            TreeItem rootCategory = new TreeItem("分类：" + rootCategoryNames.get(i));
-            rootCategory.setGraphic(new ImageView("img/folderIcon.png"));
-            rootTreeItem.getChildren().add(rootCategory);
-            TreeItem tmpNode = rootCategory;
-
-            //若存在子分类
-            while(goodsBLService.getAllCategory(rootCategoryNames.get(i)) != null){
-                ArrayList<String> sonCategoryNames = (ArrayList<String>) goodsBLService.getAllCategory(rootCategoryNames.get(i));
-                for(int j = 0;j<sonCategoryNames.size();j++) {
-                    TreeItem sonCategory = new TreeItem("分类：" + sonCategoryNames.get(j));
-                    sonCategory.setGraphic(new ImageView("img/folderIcon.png"));
-                    tmpNode.getChildren().add(sonCategory);
-
-                    while (goodsBLService.findGoods(sonCategoryNames.get(j),"goodsCategory") != null){
-                        ArrayList<GoodsVO> sonCategoryGoods = (ArrayList<GoodsVO>) goodsBLService.findGoods(rootCategoryNames.get(i),"goodsCategory");
-                        for(int j = 0;j<sonCategoryGoods.size();j++){
-                            TreeItem goods = new TreeItem("商品：" + sonCategoryGoods.get(j).getGoodsName());
-                            sonCategory.getChildren().add(goods);
-                        }
-                    }
-                    tmpNode = sonCategory;
-                }
-            }
-            ArrayList<GoodsVO> sameCategoryGoods = (ArrayList<GoodsVO>) goodsBLService.findGoods(rootCategoryNames.get(i),"goodsCategory");
-            for(int j = 0;j<sameCategoryGoods.size();j++){
-                TreeItem goods = new TreeItem("商品：" + sameCategoryGoods.get(j).getGoodsName());
-                rootCategory.getChildren().add(goods);
-            }
-        }
-        */
+        setNode(rootTreeItem);
         //以下为demo
-
+/*
         for(int i =0;i<5;i++) {
             TreeItem<String> item = new TreeItem<String>("分类：" + i);
             item.setGraphic(new ImageView("img/folderIcon.png"));
@@ -110,7 +98,7 @@ public class GoodsController{
             item.getChildren().add(item1);
 
         }
-
+*/
         //以上为demo
 
         treeView = new TreeView<>(rootTreeItem);
@@ -204,7 +192,8 @@ public class GoodsController{
 
                 case "分类":
                     System.out.println("删除分类名称：" + selectItem.getValue().toString().substring(3));
-                    goodsBLService.deleteGoodsCategory(selectItem.getValue().toString().substring(3),selectItem.getParent().getValue().toString().substring(3));
+                    GoodsCategoryVO goodsCategoryVO = new GoodsCategoryVO(selectItem.getValue().toString().substring(3),selectItem.getParent().getValue().toString().substring(3));
+                    goodsBLService.deleteGoodsCategory(goodsCategoryVO);
                     break;
             }
         });
@@ -292,6 +281,8 @@ public class GoodsController{
             case "新建分类":
                 tmp = "分类：";
                 stack.peek().setValue(tmp + "" + name.getText());
+                GoodsCategoryVO goodsCategoryVO = new GoodsCategoryVO(name.getText(),stack.peek().getParent().getValue().toString().substring(3));
+                goodsBLService.newGoodsCategory(goodsCategoryVO);
                 //以下部分由于数据层没有搭好暂不能正常运行 故加注释
                 /*
                 ArrayList<String> arrayList = (ArrayList<String>) goodsBLService.getAllCategory(""); //参数为空 表示返回所有分类名
@@ -310,6 +301,13 @@ public class GoodsController{
                 System.out.println("原始名称为："+ tmp);
                 System.out.println("修改后为：" + tmp.substring(0,3));
                 stack.peek().setValue(tmp.substring(0,3) + name.getText());
+                if(tmp.substring(0,3).contains("分类")){
+                    System.out.println("原来分类名：" + tmp.substring(3) + "新分类名：" + name.getText());
+                    GoodsCategoryVO goodsCategoryVOOld = new GoodsCategoryVO(tmp,stack.peek().getParent().getValue().substring(3));
+                    GoodsCategoryVO goodsCategoryVONew = new GoodsCategoryVO(name.getText(),stack.peek().getParent().getValue().substring(3));
+                    goodsBLService.modifyGoodsCategory(goodsCategoryVOOld,goodsCategoryVONew);
+
+                }
 
                 //惰性删除ui上该分类 对于数据库内数据不改动
                 if(tmp.substring(0,3).contains("商品")){

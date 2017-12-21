@@ -21,7 +21,7 @@ public interface GoodsBLService {
 	public ResultMessage modifyGoods(GoodsVO vo);
 	public ResultMessage initAndSaveGoods(GoodsVO vo);
 	public ResultMessage newGoodsCategory(GoodsCategoryVO vo);//category包含新建分类整个路径 （如果是嵌套分类的话）
-	public ResultMessage deleteGoodsCategory(String category,String parent);
-	public ResultMessage modifyGoodsCategory(String categoryNew,String categoryOld,String parent);
+	public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo);
+	public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO,GoodsCategoryVO newVO);
 	public List getAllCategory(String node);
 }
