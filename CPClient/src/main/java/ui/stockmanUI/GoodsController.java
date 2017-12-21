@@ -263,6 +263,15 @@ public class GoodsController{
         }
 	}
 
+	//临时包装一下刚生成的只有id和名称的商品
+    GoodsVO tmpVO = new GoodsVO("0"
+            ,"商品分类"
+            ,"商品名称"
+            ,"商品种类"
+            ,0
+            ,0
+            ,0
+            ,0);
     /**
      * 新建分类，新建商品，修改名称出现的提示框
      * 其中stack存放TreeItem的引用
@@ -275,7 +284,11 @@ public class GoodsController{
             case "新建商品":
                 tmp = "商品：";
                 stack.peek().setValue(tmp + "" + name.getText());
-                goodsBLService.newGoods(name.getText(),stack.peek().getParent().getValue().toString().substring(0,3));
+                String id = goodsBLService.newGoodsID();
+                tmpVO.setGoodsID(id);
+                tmpVO.setGoodsName(name.getText());
+                tmpVO.setGoodsCategory(stack.peek().getParent().getValue().toString().substring(0,3));
+                goodsBLService.initAndSaveGoods(tmpVO);
             break;
 
             case "新建分类":

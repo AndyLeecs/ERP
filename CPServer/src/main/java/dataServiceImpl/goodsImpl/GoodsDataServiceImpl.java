@@ -21,8 +21,9 @@ public class GoodsDataServiceImpl implements GoodsDataService {
 
         goodsUtil = new HibernateUtil<GoodsPO>(GoodsPO.class);
     }
+    //要写一个生成商品id的方法
     @Override
-    public String newGoods(String name, String category) {
+    public String newGoodsID() {
         return null;
     }
 
@@ -69,14 +70,13 @@ public class GoodsDataServiceImpl implements GoodsDataService {
     }
 
     @Override
-    public ResultMessage deleteGoodsCategory(String category, String parent) {
-        return ResultMessage.SUCCESS;
+    public ResultMessage deleteGoodsCategory(GoodsCategoryPO po) {
+        return null;
     }
 
     @Override
-    public ResultMessage modifyGoodsCategory(String categoryNew, String categoryOld, String parent) {
-        //categoryUtil.update();
-        return ResultMessage.SUCCESS;
+    public ResultMessage modifyGoodsCategory(GoodsCategoryPO oldVO, GoodsCategoryPO newVO) {
+        return null;
     }
 
     @Override

@@ -36,8 +36,8 @@ public class GoodsBLServiceImpl implements GoodsBLService {
 
 
     @Override
-    public String newGoods(String name, String category) {
-        return goods.newGoods(name,category);
+    public String newGoodsID() {
+        return goods.newGoodsID();
     }
 
     @Override
