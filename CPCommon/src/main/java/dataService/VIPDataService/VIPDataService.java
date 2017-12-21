@@ -12,10 +12,9 @@ public interface VIPDataService extends Remote,Serializable{
     /**
      * 前置条件	用户选择新建客户
      * 后置条件	系统显示客户电话和编号
-     * @param telephone
      * @return VIPBLServiceImpl ID
      */
-    public String newVIP(String telephone);
+    public String newVIPID();
 
     /**
      * 前置条件	用户输入信息模糊查找客户
@@ -25,6 +24,14 @@ public interface VIPDataService extends Remote,Serializable{
      * @return
      */
     public ArrayList<VIPPO> findVIP(String info, String type);
+
+    /**
+     * 前置条件	用户选择获取客户信息
+     * 后置条件	系统显示客户信息
+     * @param id
+     * @return
+     */
+    public VIPPO getVIP(String id);
 
     /**
      * 前置条件	用户选择删除客户

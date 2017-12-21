@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -85,9 +87,9 @@ public class GoodsController{
         rootTreeItem = new TreeItem<String>("分类：根目录");
         rootTreeItem.setExpanded(true);
 
-        setNode(rootTreeItem);
+        //setNode(rootTreeItem);
         //以下为demo
-/*
+
         for(int i =0;i<5;i++) {
             TreeItem<String> item = new TreeItem<String>("分类：" + i);
             item.setGraphic(new ImageView("img/folderIcon.png"));
@@ -98,7 +100,7 @@ public class GoodsController{
             item.getChildren().add(item1);
 
         }
-*/
+
         //以上为demo
 
         treeView = new TreeView<>(rootTreeItem);
@@ -110,6 +112,7 @@ public class GoodsController{
 
                     if(goodsItem.getValue().toString().contains("商品")) {
                         System.out.println("是商品项 可以进行下一步操作");
+                        goodsVBox.getChildren().clear();
                         //为了测试运行结果 先注释下面一行从数据库获取对应商品信息的语句
                         newGoodsPane(goodsBLService.getGoods(goodsItem.getValue().toString().substring(3),goodsItem.getParent().getValue().substring(3)));
                     }
@@ -257,13 +260,14 @@ public class GoodsController{
                     break;
             }
             goodsVOArrayList = (ArrayList<GoodsVO>)goodsBLService.findGoods(searchField.getText(),this.goodsTypeSearch);
+	        goodsVBox.getChildren().clear();
 	        for(int i =0;i<goodsVOArrayList.size();i++){
 	            newGoodsPane(goodsVOArrayList.get(i));
             }
         }
 	}
 
-	//临时包装一下刚生成的只有id和名称的商品
+	//临时包装一下刚生成的只有id，名称和种类的商品
     GoodsVO tmpVO = new GoodsVO("0"
             ,"商品分类"
             ,"商品名称"
@@ -325,8 +329,7 @@ public class GoodsController{
                 //惰性删除ui上该分类 对于数据库内数据不改动
                 if(tmp.substring(0,3).contains("商品")){
                     System.out.println("原来商品名：" + tmp.substring(3) + "新商品名：" + name.getText());
-                    ArrayList<GoodsVO> arrayList = (ArrayList<GoodsVO>) goodsBLService.findGoods(tmp.substring(3),"goodsName");
-                    GoodsVO goodsVO = arrayList.get(0);
+                    GoodsVO goodsVO = goodsBLService.getGoods(tmp.substring(3),stack.peek().getParent().getValue().toString().substring(3));
                     goodsVO.setGoodsName(name.getText());
                     goodsBLService.modifyGoods(goodsVO);
                 }
@@ -364,64 +367,102 @@ public class GoodsController{
 
     public void newGoodsPane(GoodsVO goodsVO) {
         //复杂的新建商品页面逻辑
-        Pane newGoodsPane = new Pane();
+        Pane newPane = new Pane();
+        newPane.setPrefSize(663,435);
+        newPane.setLayoutX(0);
+        newPane.setLayoutY(0);
 
         ImageView imageView = new ImageView("img/lamp1.JPG");
         imageView.setLayoutX(0);
         imageView.setLayoutY(0);
+        imageView.setFitWidth(200);
+        imageView.setFitHeight(200);
+        newPane.getChildren().add(imageView);
 
         Label greenLabel = new Label();
         greenLabel.setLayoutX(233);
         greenLabel.setLayoutY(41);
+        greenLabel.setPrefSize(12,37);
         greenLabel.setStyle("-fx-background-color:  #4F9D9D");
+        newPane.getChildren().add(greenLabel);
 
         Label goodsIDLabel = new Label("商品编号");
         goodsIDLabel.setLayoutX(245);
         goodsIDLabel.setLayoutY(119);
+        goodsIDLabel.setPrefSize(52,17);
+        goodsIDLabel.setFont(Font.font(13));
+        goodsIDLabel.setTextFill(Color.gray(0,0.63));
+        newPane.getChildren().add(goodsIDLabel);
 
         Label goodsStoreLabel = new Label("库存数量");
         goodsStoreLabel.setLayoutX(245);
-        goodsStoreLabel.setLayoutY(116);
+        goodsStoreLabel.setLayoutY(161);
+        goodsStoreLabel.setPrefSize(52,17);
+        goodsStoreLabel.setFont(Font.font(13));
+        goodsStoreLabel.setTextFill(Color.gray(0,0.63));
+        newPane.getChildren().add(goodsStoreLabel);
 
         Label goodsBuyPriceLabel = new Label("进价");
-        goodsBuyPriceLabel.setLayoutX(245);
-        goodsBuyPriceLabel.setLayoutY(119);
+        goodsBuyPriceLabel.setLayoutX(258);
+        goodsBuyPriceLabel.setLayoutY(238);
+        goodsBuyPriceLabel.setPrefSize(52,17);
+        goodsBuyPriceLabel.setFont(Font.font(13));
+        goodsBuyPriceLabel.setTextFill(Color.gray(0,0.63));
+        newPane.getChildren().add(goodsBuyPriceLabel);
 
         Label goodsSellPriceLabel = new Label("销售价");
-        goodsSellPriceLabel.setLayoutX(245);
-        goodsSellPriceLabel.setLayoutY(119);
+        goodsSellPriceLabel.setLayoutX(251);
+        goodsSellPriceLabel.setLayoutY(300);
+        goodsSellPriceLabel.setPrefSize(39,36);
+        goodsSellPriceLabel.setFont(Font.font(13));
+        goodsSellPriceLabel.setTextFill(Color.gray(0,0.63));
+        newPane.getChildren().add(goodsSellPriceLabel);
 
         Label recentBuyPriceLabel = new Label("最近进价");
-        recentBuyPriceLabel.setLayoutX(245);
-        recentBuyPriceLabel.setLayoutY(119);
+        recentBuyPriceLabel.setLayoutX(462);
+        recentBuyPriceLabel.setLayoutY(238);
+        recentBuyPriceLabel.setPrefSize(52,17);
+        recentBuyPriceLabel.setFont(Font.font(13));
+        recentBuyPriceLabel.setTextFill(Color.gray(0,0.63));
+        newPane.getChildren().add(recentBuyPriceLabel);
 
         Label recentSellPriceLabel = new Label("最近销售价");
-        recentSellPriceLabel.setLayoutX(245);
-        recentSellPriceLabel.setLayoutY(119);
+        recentSellPriceLabel.setLayoutX(462);
+        recentSellPriceLabel.setLayoutY(311);
+        recentSellPriceLabel.setPrefSize(65,17);
+        recentSellPriceLabel.setFont(Font.font(13));
+        recentSellPriceLabel.setTextFill(Color.gray(0,0.63));
+        newPane.getChildren().add(recentSellPriceLabel);
 
         Label newGoodsName = new Label(goodsVO.getGoodsName());
         newGoodsName.setLayoutX(251);
         newGoodsName.setLayoutY(48);
         newGoodsName.setPrefSize(75, 37);
+        newGoodsName.setFont(Font.font(18));
         newGoodsName.setStyle("-fx-background-color: transparent");
         newGoodsName.setStyle("-fx-background-radius: 20");
         newGoodsName.setStyle("-fx-border-radius: 20");
+        newPane.getChildren().add(newGoodsName);
 
         Label newGoodsType = new Label(goodsVO.getGoodsType());
         newGoodsType.setLayoutX(364);
         newGoodsType.setLayoutY(62);
-        newGoodsType.setPrefSize(89, 17);
+        newGoodsType.setPrefSize(89, 32);
+        newGoodsType.setFont(Font.font(16));
         newGoodsType.setStyle("-fx-background-color: transparent");
         newGoodsType.setStyle("-fx-background-radius: 20");
         newGoodsType.setStyle("-fx-border-radius: 20");
+        newPane.getChildren().add(newGoodsType);
 
         Label newGoodsCategory = new Label(goodsVO.getGoodsCategory());
         newGoodsCategory.setLayoutX(470);
         newGoodsCategory.setLayoutY(62);
-        newGoodsCategory.setPrefSize(75, 37);
+        newGoodsCategory.setPrefSize(89, 32);
+        newGoodsCategory.setFont(Font.font(16));
         newGoodsCategory.setStyle("-fx-background-color: transparent");
         newGoodsCategory.setStyle("-fx-background-radius: 20");
         newGoodsCategory.setStyle("-fx-border-radius: 20");
+        newPane.getChildren().add(newGoodsCategory);
 
         Label newGoodsID = new Label(goodsVO.getGoodsID());
         newGoodsID.setLayoutX(311);
@@ -430,46 +471,57 @@ public class GoodsController{
         newGoodsID.setStyle("-fx-background-color: transparent");
         newGoodsID.setStyle("-fx-background-radius: 20");
         newGoodsID.setStyle("-fx-border-radius: 20");
+        newPane.getChildren().add(newGoodsID);
 
         Label newGoodsInventory = new Label(" ");//后期获取商品库存
         newGoodsInventory.setLayoutX(337);
         newGoodsInventory.setLayoutY(154);
         newGoodsInventory.setPrefSize(39, 32);
+        newGoodsInventory.setFont(Font.font(16));
         newGoodsInventory.setStyle("-fx-background-color: transparent");
         newGoodsInventory.setStyle("-fx-background-radius: 20");
         newGoodsInventory.setStyle("-fx-border-radius: 20");
+        newPane.getChildren().add(newGoodsInventory);
 
         Label newGoodsBuyPrice = new Label("" + goodsVO.getGoodsBuyPrice());
         newGoodsBuyPrice.setLayoutX(331);
         newGoodsBuyPrice.setLayoutY(224);
         newGoodsBuyPrice.setPrefSize(89, 45);
+        newGoodsBuyPrice.setFont(Font.font(24));
         newGoodsBuyPrice.setStyle("-fx-background-color: transparent");
         newGoodsBuyPrice.setStyle("-fx-background-radius: 20");
         newGoodsBuyPrice.setStyle("-fx-border-radius: 20");
+        newPane.getChildren().add(newGoodsBuyPrice);
 
         Label newGoodsSellPrice = new Label("" + goodsVO.getGoodsSellPrice());
         newGoodsSellPrice.setLayoutX(331);
         newGoodsSellPrice.setLayoutY(297);
         newGoodsSellPrice.setPrefSize(89, 17);
+        newGoodsSellPrice.setFont(Font.font(24));
         newGoodsSellPrice.setStyle("-fx-background-color: transparent");
         newGoodsSellPrice.setStyle("-fx-background-radius: 20");
         newGoodsSellPrice.setStyle("-fx-border-radius: 20");
+        newPane.getChildren().add(newGoodsSellPrice);
 
         Label newRecentBuyPrice = new Label("" + goodsVO.recentBuyPrice());
         newRecentBuyPrice.setLayoutX(556);
         newRecentBuyPrice.setLayoutY(224);
         newRecentBuyPrice.setPrefSize(89, 17);
+        newRecentBuyPrice.setFont(Font.font(24));
         newRecentBuyPrice.setStyle("-fx-background-color: transparent");
         newRecentBuyPrice.setStyle("-fx-background-radius: 20");
         newRecentBuyPrice.setStyle("-fx-border-radius: 20");
+        newPane.getChildren().add(newRecentBuyPrice);
 
         Label newRecentSellPrice = new Label("" + goodsVO.recentSellPrice());
         newRecentSellPrice.setLayoutX(556);
         newRecentSellPrice.setLayoutY(297);
         newRecentSellPrice.setPrefSize(89, 17);
+        newRecentSellPrice.setFont(Font.font(24));
         newRecentSellPrice.setStyle("-fx-background-color: transparent");
         newRecentSellPrice.setStyle("-fx-background-radius: 20");
         newRecentSellPrice.setStyle("-fx-border-radius: 20");
+        newPane.getChildren().add(newRecentSellPrice);
 
         ImageView edit = new ImageView("img/edit.png");
         edit.setLayoutX(631);
@@ -483,9 +535,10 @@ public class GoodsController{
                 e.printStackTrace();
             }
         });
+        newPane.getChildren().add(edit);
 
-        newGoodsPane.setStyle("-fx-background-color: #FFB5B5");
-        goodsVBox.getChildren().add(newGoodsPane);
-
+        newPane.setStyle("-fx-background-color: #FFB5B5");
+        System.out.println("new Pane init Success!");
+        goodsVBox.getChildren().add(newPane);
     }
 }

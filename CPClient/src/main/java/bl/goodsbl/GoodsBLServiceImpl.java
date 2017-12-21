@@ -15,24 +15,25 @@ import java.util.List;
 public class GoodsBLServiceImpl implements GoodsBLService {
     GoodsDataServiceHelper goodsDataServiceHelper;
     Goods goods = new Goods();
+    GoodsCategory goodsCategory = new GoodsCategory();
 
-    GoodsVO goodsVO1 = new GoodsVO("0"
-            ,"1"
-            ,"2"
-            ,"3"
-            ,4
-            ,5
-            ,6
-            ,7);
+    GoodsVO goodsVO1 = new GoodsVO("00000001"
+            ,"分类1"
+            ,"名称1"
+            ,"类型1"
+            ,100
+            ,200
+            ,100
+            ,200);
 
-    GoodsVO goodsVO2 = new GoodsVO("01"
-            ,"11"
-            ,"21"
-            ,"31"
-            ,41
-            ,51
-            ,61
-            ,71);
+    GoodsVO goodsVO2 = new GoodsVO("00000002"
+            ,"分类2"
+            ,"名称2"
+            ,"类型2"
+            ,100
+            ,200
+            ,100
+            ,200);
 
 
     @Override
@@ -45,46 +46,47 @@ public class GoodsBLServiceImpl implements GoodsBLService {
         ArrayList<GoodsVO> goodsVOS = new ArrayList<>();
         goodsVOS.add(goodsVO1);
         goodsVOS.add(goodsVO2);
-        return null;
+        return goodsVOS;
+        //return goods.findGoods(info, type);
     }
 
     @Override
     public GoodsVO getGoods(String name, String category) {
-        return null;
+        return goods.getGoods(name, category);
     }
     
     @Override
     public ResultMessage deleteGoods(String category, String name) {
-        return null;
+        return goods.deleteGoods(category, name);
     }
 
     @Override
     public ResultMessage modifyGoods(GoodsVO vo) {
-        return null;
+        return goods.modifyGoods(vo);
     }
 
     @Override
     public ResultMessage initAndSaveGoods(GoodsVO vo) {
-        return null;
+        return goods.initAndSaveGoods(vo);
     }
 
     @Override
     public ResultMessage newGoodsCategory(GoodsCategoryVO vo) {
-        return null;
+        return goodsCategory.newGoodsCategory(vo);
     }
 
     @Override
     public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo) {
-        return null;
+        return goodsCategory.deleteGoodsCategory(vo);
     }
 
     @Override
     public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO, GoodsCategoryVO newVO) {
-        return null;
+        return goodsCategory.modifyGoodsCategory(oldVO, newVO);
     }
 
     @Override
     public List getAllCategory(String node) {
-        return null;
+        return goodsCategory.getAllCategory(node);
     }
 }

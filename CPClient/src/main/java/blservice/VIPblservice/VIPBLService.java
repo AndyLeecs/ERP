@@ -15,11 +15,18 @@ public interface VIPBLService {
 	/**
 	 * 前置条件	用户选择新建客户
      * 后置条件	系统显示客户电话和编号
-	 * @param telephone
-	 * @return VIPBLServiceImpl ID
+	 * @return VIP ID
 	 */
-	public String newVIP(String telephone);
-	
+	public String newVIPID();
+
+    /**
+     * 前置条件	用户选择获取客户信息
+     * 后置条件	系统显示客户信息
+     * @param id
+     * @return
+     */
+	public VIPVO getVIP(String id);
+
 	/**
 	 * 前置条件	用户输入信息模糊查找客户
 	 * 后置条件	系统显示模糊查找后符合要求的客户列表

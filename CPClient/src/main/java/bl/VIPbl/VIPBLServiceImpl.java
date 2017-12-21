@@ -26,6 +26,11 @@ public class VIPBLServiceImpl implements VIPBLService {
         return null;
     }
 
+    @Override
+    public VIPVO getVIP(String id) {
+        return null;
+    }
+
     /**
      * 前置条件	用户输入信息模糊查找客户
      * 后置条件	系统显示模糊查找后符合要求的客户列表

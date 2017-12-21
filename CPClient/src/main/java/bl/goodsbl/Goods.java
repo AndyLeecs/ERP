@@ -29,7 +29,8 @@ public class Goods {
     }
 
     public GoodsVO getGoods(String name,String category){
-        return poToVO(goodsDataService.getGoods(name,category));
+       	return goodsVO;//tmp try
+        //return poToVO(goodsDataService.getGoods(name,category));
 
     }
 
