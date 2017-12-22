@@ -2,10 +2,14 @@ package dataServiceImpl.presentImpl;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 import PO.PresentForSumPO;
 import dataHelper.BasicUtil;
+import dataHelper.CriterionClause;
+import dataHelper.CriterionClauseGenerator;
+import dataHelper.HibernateCriterionClauseGenerator;
 import dataHelper.HibernateUtil;
 import dataService.presentDataService.PresentForSumDataService;
 import util.DataRM;
@@ -20,10 +24,12 @@ public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements
 
 	
 	BasicUtil<PresentForSumPO> util;
+	CriterionClauseGenerator criterionClauseGenerator;
 	
 	public PresentForSumDataServiceImpl() throws RemoteException{
 
 		util = new HibernateUtil<PresentForSumPO>(PresentForSumPO.class);
+		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
 	}
 	/* (non-Javadoc)
 	 * @see dataService.presentDataService.PresentForSumDataService#insert()
@@ -60,17 +66,25 @@ public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements
 	 */
 	@Override
 	public List<PresentForSumPO> getPresentForSum() throws RemoteException {
-		// TODO Auto-generated method stub
-		return util.exactQuery("", "");
+		// TODO Auto-generated method stub		
+		List<CriterionClause> l = new ArrayList<CriterionClause>();
+		l = criterionClauseGenerator.generateExactCriterion(l,"state", PresentState.SAVE);
+		System.out.println(l);
+		return util.Query(l);
 	}
 
 	/* (non-Javadoc)
 	 * @see dataService.presentDataService.PresentForSumDataService#getPresentForSum(int)
+	 * 
 	 */
 	@Override
 	public List<PresentForSumPO> getPresentForSum(double sum) throws RemoteException {
 		// TODO Auto-generated method stub
-		return util.geQuery("sum", sum);
+		List<CriterionClause> l = new ArrayList<CriterionClause>();
+		l = criterionClauseGenerator.generateGeCriterion(l,"sum", sum);
+		l = criterionClauseGenerator.generateExactCriterion(l,"state", PresentState.SAVE);
+		l = criterionClauseGenerator.generateCurrentTimeInRangeCriterion(l);
+		return util.Query(l);
 	}
 
 }
