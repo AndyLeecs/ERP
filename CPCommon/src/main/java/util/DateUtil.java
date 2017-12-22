@@ -18,22 +18,23 @@ public class DateUtil {
 	
 	@SuppressWarnings("deprecation")
 	public static int getYear(Date date){
-		return date.getYear()+1990;
+		return date.getYear()+1900;
 	}
 	
 	@SuppressWarnings("deprecation")
 	public static int getMonth(Date date){
-		return date.getMonth();
+		return date.getMonth()+1;
 	}
 	
 	@SuppressWarnings("deprecation")
 	public static int getDay(Date date){
-		return date.getDate();
+		return date.getDate()+1;
 		
 	}
 	@SuppressWarnings("deprecation")
 	public static Date getDate(int year,int month,int day){
-		return new Date(year,month,day);
+		
+		return new Date(year-1900,month-1,day);
 	}	
 	/**
 	 * 
@@ -59,6 +60,7 @@ public class DateUtil {
 		System.out.println(day+"");
 		
 		if(month<1 || month >12){
+			System.out.println("not valid single time for month error");
 			return false;
 		}
 		

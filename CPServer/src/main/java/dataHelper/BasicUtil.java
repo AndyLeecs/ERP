@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.rmi.Remote;
 import java.util.List;
 
+import org.hibernate.criterion.Criterion;
+
 import util.DataRM;
 
 /**     
@@ -44,33 +46,47 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	 */
 	public DataRM update(Object po);
 
+//	/**
+//	 * 模糊查询
+//	 * @param field
+//	 * @param value
+//	 * @return
+//	 */ 
+//	List<T> fuzzyQuery(String field, String value);
+//	/**精确查询
+//	 * @param field
+//	 * @param value
+//	 * @return
+//	 */
+//	List<T> exactQuery(String field, Object value);
+//	/**
+//	 * 返回field域大于等于value的po
+//	 * @param field
+//	 * @param value
+//	 * @return
+//	 */
+//	List<T> geQuery(String field, Object value);
+//	/**
+//	 * 同一个field，多种value都可以的精确查询
+//	 * @param field
+//	 * @param values
+//	 * @return
+//	 */
+//	List<T> exactQuery(String field, Object[] values);
+//	/*
+//	 * @param criterionList
+//	 * @return
+//	 */
+	List<T> Query(List<CriterionClause> criterionList);
+
 	/**
-	 * 模糊查询
-	 * @param field
-	 * @param value
-	 * @return
-	 */ 
-	List<T> fuzzyQuery(String field, String value);
-	/**精确查询
-	 * @param field
-	 * @param value
+	 * @param criterionParentList 查找端的限制条件
+	 * @param criterionChildList 级联端的限制条件
+	 * @param string 被级联的属性
 	 * @return
 	 */
-	List<T> exactQuery(String field, Object value);
-	/**
-	 * 返回field域大于等于value的po
-	 * @param field
-	 * @param value
-	 * @return
-	 */
-	List<T> geQuery(String field, Object value);
-	/**
-	 * 同一个field，多种value都可以的精确查询
-	 * @param field
-	 * @param values
-	 * @return
-	 */
-	List<T> exactQuery(String field, Object[] values);
+	List<T> CascadeQuery(List<CriterionClause> criterionParentList, List<CriterionClause> criterionChildList,
+			String string);
 	
 	
 }

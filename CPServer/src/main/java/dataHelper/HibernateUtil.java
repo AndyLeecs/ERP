@@ -1,5 +1,6 @@
 package dataHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.OptimisticLockException;
@@ -10,7 +11,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 
@@ -141,56 +144,65 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         
         return rm;
         }
-	@Override
-	public List<T> fuzzyQuery(String field, String value){
-		Criterion s = null;
-		value = "%"+value+"%";
-		//如果查询域为空，整表查询
-		if(!field.isEmpty())
-		s = Restrictions.like(field,value);
-		return Query(s);
-	}
-
-	@Override
-	public List<T> exactQuery(String field, Object value){
-		Criterion s = null;
-		//如果查询域为空，整表查询
-		if(!field.isEmpty())
-		s = Restrictions.like(field,value);
-		return Query(s);
-	}
-	
-	@Override
-	public List<T> geQuery(String field, Object value){
-		Criterion s = null;
-		if(!field.isEmpty())
-		s = Restrictions.ge(field,value);
-		return Query(s);
-	}
-	
-	@Override
-	public List<T> exactQuery(String field, Object[] values){
-		Criterion s = null;
-		if(!field.isEmpty())
-		s = Restrictions.in(field, values);
-		return Query(s);
-	}
+//	@Override
+//	public List<T> fuzzyQuery(String field, String value){
+//		Criterion s = null;
+//		value = "%"+value+"%";
+//		//如果查询域为空，整表查询
+//		if(!field.isEmpty())
+//		s = Restrictions.like(field,value);
+//		return Query(s);
+//	}
+//
+//	@Override
+//	public List<T> exactQuery(String field, Object value){
+//		Criterion s = null;
+//		//如果查询域为空，整表查询
+//		if(!field.isEmpty())
+//		s = Restrictions.like(field,value);
+//		return Query(s);
+//	}
+//	
+//	@Override
+//	public List<T> geQuery(String field, Object value){
+//		Criterion s = null;
+//		if(!field.isEmpty())
+//		s = Restrictions.ge(field,value);
+//		return Query(s);
+//	}
+//	
+//	@Override
+//	public List<T> exactQuery(String field, Object[] values){
+//		Criterion s = null;
+//		if(!field.isEmpty())
+//		s = Restrictions.in(field, values);
+//		return Query(s);
+//	}
+//	
 	/* (non-Javadoc)
-	 * @see dataHelper.BasicUtil#likePatternQuery(java.lang.String, java.lang.String)
+	 * @see dataHelper.CriterionClauseGenerator#generateCascadeCriterion(java.util.List, java.lang.String, java.lang.String, java.util.List)
 	 */
-	
-	private List<T> Query(Criterion s) {
+	@Override
+	public List<T> CascadeQuery(List<CriterionClause> criterionParentList,List<CriterionClause> criterionChildList, String string) {
 		// TODO Auto-generated method stub
 		session = sessionFactory.openSession();
 		transaction = null;
 		List<T> list = null;
-	try{
-		transaction = session.beginTransaction();
-        Criteria criteria = session.createCriteria(type.getName());
-        if(s!=null)
-        criteria.add(s);
-        list = criteria.list();
-        transaction.commit();
+	try{		
+		Criteria criteria = session.createCriteria(type.getName(), "parent");
+        for(CriterionClause s : criterionParentList)
+       {if (s!=null)
+        criteria.add(s.getCriterion());
+       }
+		criteria.createAlias("parent."+string, "child");
+        for(CriterionClause s : criterionChildList)
+       {if (s!=null)
+        criteria.add(s.getCriterion());
+       }
+//		c.add(Restrictions.eq("child."+string2", "blue");
+		criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+		list = criteria.list();
+		transaction.commit();
         session.close();
         return list;
     } catch (HibernateException e) {
@@ -203,7 +215,35 @@ public class HibernateUtil<T> implements BasicUtil<T>{
     }finally{
     	session.close();
     }
-		
+	}
+	
+	@Override
+	public List<T> Query(List<CriterionClause> criterionList){
+		session = sessionFactory.openSession();
+		transaction = null;
+		List<T> list = null;
+	try{
+		transaction = session.beginTransaction();
+        Criteria criteria = session.createCriteria(type.getName());
+        for(CriterionClause s : criterionList)
+       {if (s!=null)
+        criteria.add(s.getCriterion());
+       }
+        list = criteria.list();
+        transaction.commit();
+        session.close();
+        return list;
+    } catch (HibernateException e) {
+    	if(transaction != null)
+    	{
+    		transaction.rollback();
+    	}
+    	System.out.println("hibernate Exception in query");
+    	e.printStackTrace();
+    	return null;
+    }finally{
+    	session.close();
+    }
 	}
 
 	/* (non-Javadoc)

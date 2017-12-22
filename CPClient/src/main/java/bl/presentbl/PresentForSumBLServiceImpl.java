@@ -30,18 +30,21 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 	public List<PresentForSumVO> getAll() {
 		// TODO Auto-generated method stub
 		List<PresentForSumPO> polist;
+		List<PresentForSumVO> volist = new ArrayList<PresentForSumVO>();
 		try {
 			polist = presentForSumDataService.getPresentForSum();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
+			System.out.println("remote exception");
 			return null;
+	//		return volist;
 		}
-		List<PresentForSumVO> volist = new ArrayList<PresentForSumVO>();
+		
 		
 		for(PresentForSumPO po : polist){
 			volist.add(poToVo(po));
 		}
-		
+		System.out.println("volist"+volist);
 		return volist;
 	}
 
@@ -52,9 +55,15 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 	public int getId() {
 		// TODO Auto-generated method stub
 		try {
-			return presentForSumDataService.insert();
+			int id = 0;
+			id = presentForSumDataService.insert();
+			System.out.println(id);
+			return id;
+		//	return presentForSumDataService.insert();
+			
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
+			System.out.println("remote exception");
 			e.printStackTrace();
 			return -1;
 		}

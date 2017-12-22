@@ -7,13 +7,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import network.VIPRemoteHelper.VIPDataServiceHelper;
-import network.accountRemoteHelper.PaymentListDataServiceHelper;
-import network.goodsRemoteHelper.GoodsDataServiceHelper;
-import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
-import network.presentRemoteHelper.PresentForSpecialPackageDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
-import network.storeRemoteHelper.StoreDataServiceHelper;
 
 /**
  * 连接服务器的类，在这里将每个DataService与对应的RemoteHelper进行连接
