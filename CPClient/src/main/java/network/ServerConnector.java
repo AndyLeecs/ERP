@@ -6,7 +6,6 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
-
 import bl.presentbl.PresentForSumBLServiceImpl;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
 
@@ -62,7 +61,5 @@ public class ServerConnector {
 	
 	public static void main(String [] args){
 		new ServerConnector();
-		PresentForSumBLServiceImpl p = new PresentForSumBLServiceImpl();
-		p.getId();
 	}
 }

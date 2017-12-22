@@ -1,12 +1,13 @@
 package util;
 
+import java.io.Serializable;
 
 /**     
 * @author 李安迪
 * @date 2017年10月26日
 * @description 用户等级，分为5个等级
 */
-public enum VIPGrade {
+public enum VIPGrade implements Serializable{
 
 	GradeOne(1),
 	GradeTwo(2),
