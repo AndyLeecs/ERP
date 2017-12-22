@@ -1,4 +1,4 @@
-package mainUI;
+package ui.mainUI.loginUI;
 
 import java.io.IOException;
 

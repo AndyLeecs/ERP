@@ -64,7 +64,6 @@ public class ServerHelper {
 		} 
 	}
 	
-	//现在pom报错，无法测试
 	public static void main(String []args){
 		new ServerHelper();
 	}

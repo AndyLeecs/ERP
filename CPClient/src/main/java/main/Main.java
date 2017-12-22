@@ -1,4 +1,4 @@
-package mainUI;
+package main;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -19,8 +19,10 @@ public class Main extends Application {
 				try {
 //					new Welcome();
 					//new LoginWin();
-					//new ui.saleUI.SaleWin();
-					//new ui.stockmanUI.StockmanWin();
+
+//					new ui.salesmanUI.SaleWin();
+//					new ui.stockmanUI.StockmanWin();
+					new ui.mainUI.accountantUI.AccountantWin();
 					//new ui.managerUI.ManagerWin();
 					new ui.stockmanUI.GoodsWin();
 

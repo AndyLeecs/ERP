@@ -1,4 +1,4 @@
-package ui.accountantUI;
+package ui.mainUI.accountantUI;
 
 import java.io.IOException;
 
@@ -14,9 +14,9 @@ public class AccountantWin extends Stage{
 	@FXML
 	AnchorPane root;
 	public AccountantWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("Accountant.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/fxml/mainUI/Accountant.fxml"));
 		Scene scene = new Scene(root);
-//		scene.getStylesheets().add(getClass().getResource("Accountant.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/css/mainUI/mainUI.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);

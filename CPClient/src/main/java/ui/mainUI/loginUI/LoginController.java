@@ -1,4 +1,4 @@
-package mainUI;
+package ui.mainUI.loginUI;
 
 import java.io.IOException;
 import java.util.Timer;
@@ -91,7 +91,7 @@ public class LoginController {
 					break;
 				}
 				case Accountant:{
-					new ui.accountantUI.AccountantWin();
+					new ui.mainUI.accountantUI.AccountantWin();
 					break;
 				}
 				case GeneralManager:{

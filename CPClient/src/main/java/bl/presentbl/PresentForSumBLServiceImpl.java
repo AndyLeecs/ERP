@@ -55,6 +55,7 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 			return presentForSumDataService.insert();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
+			System.out.println("remote exception");
 			e.printStackTrace();
 			return -1;
 		}
