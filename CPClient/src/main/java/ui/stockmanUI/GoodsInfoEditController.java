@@ -3,15 +3,18 @@ package ui.stockmanUI;
 import VO.goodsVO.GoodsVO;
 import bl.goodsbl.GoodsBLServiceImpl;
 import blservice.goodsblservice.GoodsBLService;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 
 /**
  * Created by julia98 on 2017/12/11.
  */
 public class GoodsInfoEditController {
+    @FXML public AnchorPane root;
     @FXML public TextField goodsName;
     @FXML public TextField goodsType;
     @FXML public TextField goodsID;
@@ -61,11 +64,10 @@ public class GoodsInfoEditController {
                 ,changeStringToDouble(recentBuyPrice.getText())
                 ,changeStringToDouble(recentSellPrice.getText()));
 
-        if(goodsBLService.findGoods(goodsID.getText(),"goodsID") != null){
-            goodsBLService.initAndSaveGoods(goodsVO);
-        }else{
-            goodsBLService.modifyGoods(goodsVO);
-        }
+        goodsBLService.modifyGoods(goodsVO);
+        Platform.runLater(()->{
+            root.getScene().getWindow().hide();
+        });
     }
 
     /**

@@ -15,11 +15,10 @@ public class VIPDataServiceImpl implements VIPDataService {
      * 前置条件	用户选择新建客户
      * 后置条件	系统显示客户电话和编号
      *
-     * @param telephone
-     * @return VIPBLServiceImpl ID
+     * @return VIPB ID
      */
     @Override
-    public String newVIP(String telephone) {
+    public String newVIPID() {
         return null;
     }
 
@@ -33,6 +32,18 @@ public class VIPDataServiceImpl implements VIPDataService {
      */
     @Override
     public ArrayList<VIPPO> findVIP(String info, String type) {
+        return null;
+    }
+
+    /**
+     * 前置条件	用户选择获取客户信息
+     * 后置条件	系统显示客户信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public VIPPO getVIP(String id) {
         return null;
     }
 

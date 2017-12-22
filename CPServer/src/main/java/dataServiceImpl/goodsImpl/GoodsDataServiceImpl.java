@@ -20,10 +20,12 @@ public class GoodsDataServiceImpl implements GoodsDataService {
     public GoodsDataServiceImpl() throws RemoteException {
 
         goodsUtil = new HibernateUtil<GoodsPO>(GoodsPO.class);
+        categoryUtil = new HibernateUtil<GoodsCategoryPO>(GoodsCategoryPO.class);
     }
+    //要写一个生成商品id的方法
     @Override
-    public String newGoods(String name, String category) {
-        return null;
+    public String newGoodsID() {
+        return "00000001";//
     }
 
     @Override
@@ -47,11 +49,13 @@ public class GoodsDataServiceImpl implements GoodsDataService {
 
     @Override
     public ResultMessage deleteGoods(String category, String name) {
+        //这里没找到删除数据的操作
         return ResultMessage.SUCCESS;
     }
 
     @Override
     public ResultMessage modifyGoods(GoodsPO po) {
+        //这里更新商品信息的思路就是用现有新信息找到id 然后删掉原来的 插入现在的数据 不过还不知道这个update方法是不是已经做了我想做的事情
         goodsUtil.update(po);
         return ResultMessage.SUCCESS;
     }
@@ -69,19 +73,21 @@ public class GoodsDataServiceImpl implements GoodsDataService {
     }
 
     @Override
-    public ResultMessage deleteGoodsCategory(String category, String parent) {
+    public ResultMessage deleteGoodsCategory(GoodsCategoryPO po) {
+        //这里没有找到删除数据的方法
         return ResultMessage.SUCCESS;
     }
 
     @Override
-    public ResultMessage modifyGoodsCategory(String categoryNew, String categoryOld, String parent) {
-        //categoryUtil.update();
-        return ResultMessage.SUCCESS;
+    public ResultMessage modifyGoodsCategory(GoodsCategoryPO oldPO, GoodsCategoryPO newPO) {
+        //更新数据是这个操作么
+        categoryUtil.update(newPO);
+        return null;
     }
 
     @Override
     public List getAllCategory(String node) {
-        //if(node == "") 返回全部分类
+        //if(node == "") 返回全部分类 需求是新建分类时判断重复
         return categoryUtil.fuzzyQuery("parentName",node);
     }
 }

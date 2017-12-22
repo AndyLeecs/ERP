@@ -15,19 +15,8 @@ import java.util.ArrayList;
 public class Goods {
     GoodsDataService goodsDataService = GoodsDataServiceHelper.getInstance().getGoodsDataService();
 
-    /**
-     * 新建商品
-     * @param name
-     * @param category
-     * @return 商品ID
-     */
-    public String newGoods(String name, String category){
-        GoodsUtility goodsUtility = new GoodsUtility();
-        String id = goodsUtility.generateGoodsID();
-        goodsVO.setGoodsName(name);
-        goodsVO.setGoodsID(id);
-        goodsDataService.initAndSaveGoods(voToPO(goodsVO));
-        return id;
+    public String newGoodsID(){
+        return null;
     }
 
     public ArrayList<GoodsVO> findGoods(String info, String type){
@@ -40,7 +29,8 @@ public class Goods {
     }
 
     public GoodsVO getGoods(String name,String category){
-        return poToVO(goodsDataService.getGoods(name,category));
+       	return goodsVO;//tmp try
+        //return poToVO(goodsDataService.getGoods(name,category));
 
     }
 

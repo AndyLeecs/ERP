@@ -20,7 +20,7 @@ public class GoodsWin extends Stage{
 		scene.getStylesheets().add(getClass().getResource("/css/stockmanUI/Stock.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 
-		this.setFullScreen(true);//全屏试一下
+		this.setFullScreen(false);//全屏试一下
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);
 		this.show();

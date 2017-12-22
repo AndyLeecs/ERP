@@ -87,4 +87,8 @@ public class GoodsVO {
 	public void setGoodsID(String goodsID) {
 		this.goodsID = goodsID;
 	}
+
+    public void setGoodsCategory(String goodsCategory) {
+        this.goodsCategory = goodsCategory;
+    }
 }
