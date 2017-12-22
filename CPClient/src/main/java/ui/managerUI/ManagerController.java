@@ -28,7 +28,7 @@ public class ManagerController {
 	@FXML public MenuItem showPresentForSpecialPackage;
 	@FXML public MenuItem newPresentForSum;
 	@FXML public MenuItem showPresentForSum;
-
+/*
 	@FXML
 	public void onNewPresentForMembershipClicked(){
 		if(centerPane.getCenter() == null){
@@ -144,4 +144,5 @@ public class ManagerController {
 					}
 			});   	 
     }
+    */
 }

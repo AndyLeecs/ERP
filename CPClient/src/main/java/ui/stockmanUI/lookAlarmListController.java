@@ -33,19 +33,23 @@ public class lookAlarmListController {
     StoreBLService blService=new StoreblController();
     int alpointer=0;
     private void refresh(){
-        al=blService.openAlarmList();
+       // al=blService.openAlarmList();
     }
     private void deleteAlarmListVO(AlarmListVO vo){
         //删除一张报警单
         //blService.deleteAlarmList( vo);
-        init();
+//        init();
 
     }
-    private void init(){
+    
+    @FXML
+    private void initialize(){
         //初始化界面数据
         refresh();
         if(al.size()-alpointer==0){
-            pane1.setVisible(false);
+            System.out.println(pane1==null);
+        	pane1.setVisible(false);
+            
             pane2.setVisible(false);
         }else if(al.size()-alpointer==1){
             pane1.setVisible(true);
@@ -77,8 +81,8 @@ public class lookAlarmListController {
     }
 
      public lookAlarmListController(){
-        init();  //构造方法，界面自动初始化
-         InfoLabel.setText("");
+//        init();  //构造方法，界面自动初始化
+//         InfoLabel.setText("");
      }
      @FXML
     public void toNext(){
