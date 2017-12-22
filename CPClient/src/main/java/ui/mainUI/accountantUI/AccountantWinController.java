@@ -1,10 +1,18 @@
 package ui.mainUI.accountantUI;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 public class AccountantWinController {
+	
+	@FXML AnchorPane root;
 
+	
 	@FXML MenuItem newCollectionList;
 	@FXML MenuItem newPaymentList;
 	@FXML MenuItem newCashExpenseList;
@@ -15,15 +23,30 @@ public class AccountantWinController {
 	@FXML MenuItem openPaymentDraft;
 	@FXML MenuItem openCashExpenseDraft;
 	
+	@FXML BorderPane centerPane;
 	
 	
+	
 
-	@FXML public void onNewCollectionListBtnClicked() {}
+	@FXML public void onNewCollectionListBtnClicked() {
+		//TODO
+		AnchorPane collectionListRoot;
+		try {
+			collectionListRoot = FXMLLoader.load(getClass().getResource("/fxml/accountUI/CollectionList.fxml"));
+			collectionListRoot.getStylesheets().add(getClass().getResource("/css/forms/Forms.css").toExternalForm());
+			centerPane.getChildren().add(collectionListRoot);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 
 
-	@FXML public void onNewPaymentListBtnClicked() {}
+	@FXML public void onNewPaymentListBtnClicked() {
+		//TODO
+	}
 
 
 
@@ -33,30 +56,42 @@ public class AccountantWinController {
 
 
 
-	@FXML public void onOpenCollectionCommittedBtnClicked() {}
+	@FXML public void onOpenCollectionCommittedBtnClicked() {
+		//TODO
+	}
 
 
 
 
-	@FXML public void onOpenPaymentCommittedBtnClicked() {}
+	@FXML public void onOpenPaymentCommittedBtnClicked() {
+		//TODO
+	}
 
 
 
 
-	@FXML public void onOpenCashExpenseCommittedBtnClicked() {}
+	@FXML public void onOpenCashExpenseCommittedBtnClicked() {
+		//TODO
+	}
 
 
 
 
-	@FXML public void onOpenCollectionDraftBtnClicked() {}
+	@FXML public void onOpenCollectionDraftBtnClicked() {
+		//TODO
+	}
 
 
 
 
-	@FXML public void onOpenPaymentDraftBtnClicked() {}
+	@FXML public void onOpenPaymentDraftBtnClicked() {
+		//TODO
+	}
 
 
 
 
-	@FXML public void onOpenCashExpenseDraftBtnClicked() {}
+	@FXML public void onOpenCashExpenseDraftBtnClicked() {
+		//TODO
+	}
 }
