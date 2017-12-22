@@ -17,12 +17,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="574.0" layoutY="26.0" prefHeight="27.0" prefWidth="177.0" text="SKD-yyyymmdd-00000">
+            <Label fx:id = "listID" layoutX="574.0" layoutY="26.0" prefHeight="27.0" prefWidth="177.0" text="SKD-yyyymmdd-00000">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="802.0" layoutY="28.0" prefHeight="23.0" prefWidth="105.0" text="操作员名字">
+            <Label fx:id = "operator" layoutX="802.0" layoutY="28.0" prefHeight="23.0" prefWidth="105.0" text="操作员名字">
                <font>
                   <Font size="15.0" />
                </font>

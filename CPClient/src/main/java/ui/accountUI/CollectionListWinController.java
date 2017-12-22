@@ -2,18 +2,34 @@ package ui.accountUI;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
+import ui.commonUI.ParentController;
+import ui.commonUI.SonController;
+import javafx.scene.control.Label;
 
-public class CollectionListWinController {
+public class CollectionListWinController implements SonController{
+	
+	ParentController parentController;
 	
 	@FXML
 	AnchorPane root;
 	
+	@FXML Label listID;
+	@FXML Label operator;
+	
 	@FXML
-	void initialize(){
-		System.out.println("initbegin");
-//		root.getStylesheets().add(getClass().getResource("/css/forms/Forms.css").toExternalForm());
+	public void initialize(){
 		
-		System.out.println("inited");
 	}
 
+	public void setParentController(ParentController controller){
+		parentController = controller;
+	};
+	
+	public void setListID(String id){
+		listID.setText(id);
+	}
+	
+	public void setOperator(String name){
+		operator.setText(name);
+	}
 }

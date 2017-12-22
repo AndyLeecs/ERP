@@ -55,4 +55,8 @@ public class User {
 		return type;
 	}
 	
+	public String getUserName(){
+		return name;
+	}
+	
 }

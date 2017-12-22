@@ -3,6 +3,7 @@ package main;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
+import ui.mainUI.loginUI.LoginWin;
 
 public class Main extends Application {
 
@@ -18,12 +19,12 @@ public class Main extends Application {
 		Platform.runLater(()-> {
 				try {
 //					new Welcome();
-					//new LoginWin();
+//					new LoginWin();
 
 //					new ui.salesmanUI.SaleWin();
 //					new ui.stockmanUI.StockmanWin();
 					new ui.mainUI.accountantUI.AccountantWin();
-					//new ui.managerUI.ManagerWin();
+//					new ui.managerUI.ManagerWin();
 //					new ui.stockmanUI.GoodsWin();
 
 				} catch (Exception e) {

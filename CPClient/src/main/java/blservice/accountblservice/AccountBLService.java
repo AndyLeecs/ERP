@@ -10,13 +10,17 @@ import VO.accountVO.FinanceListVO;
 import VO.accountVO.InitAccountVO;
 import VO.accountVO.PaymentListVO;
 import VO.goodsVO.GoodsVO;
+import util.CommitListRM;
+import util.DeleteListRM;
 import util.ResultMessage;
+import util.SaveListRM;
 /**
- * 这个接口应该是没用了
+ * 这个接口作为测试时的桩接口用
+ * 实际没有用了
  * @author  julia98
  * @author  zxy			
  */
-public interface AccountBLService {
+public interface AccountBLService extends FinanceListService{
 	
 	/*
 	 * 期初建账相关
@@ -70,15 +74,15 @@ public interface AccountBLService {
 	
 	
 	//保存单据
-	public ResultMessage savePaymentList(PaymentListVO vo);
-	public ResultMessage saveCollectionList(CollectionListVO vo);
-	public ResultMessage saveCashExpenseList(CashExpenseListVO vo);
+	public SaveListRM savePaymentList(PaymentListVO vo);
+	public SaveListRM saveCollectionList(CollectionListVO vo);
+	public SaveListRM saveCashExpenseList(CashExpenseListVO vo);
 	
 	
 	//删除单据
-	public ResultMessage deletePaymentList(String id);
-	public ResultMessage deleteCollectionList(String id);
-	public ResultMessage deleteCashExpenseList(String id);
+	public DeleteListRM deletePaymentList(String id);
+	public DeleteListRM deleteCollectionList(String id);
+	public DeleteListRM deleteCashExpenseList(String id);
 	
 	//查找会员
 	public List<VIPVO> findVIP(String info);
@@ -86,9 +90,9 @@ public interface AccountBLService {
 	//查找账户的方法上面已声明过
 	
 	//提交单据
-	public ResultMessage commitPaymentList(PaymentListVO vo);
-	public ResultMessage commitCollectionList(CollectionListVO vo);
-	public ResultMessage commitCashExpenseList(CashExpenseListVO vo);
+	public CommitListRM commitPaymentList(PaymentListVO vo);
+	public CommitListRM commitCollectionList(CollectionListVO vo);
+	public CommitListRM commitCashExpenseList(CashExpenseListVO vo);
 	
 	
 }
