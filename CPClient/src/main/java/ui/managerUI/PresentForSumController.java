@@ -3,7 +3,6 @@ package ui.managerUI;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
@@ -36,7 +35,7 @@ import util.NumberUtil;
 * @date 2017年12月12日
 * @description
 */
-public class PresentForSumController implements SinglePresentController{
+public class PresentForSumController implements SinglePresentEditableController{
 		
 		@FXML protected Button cancelBtn;
 		@FXML protected Button saveBtn;
@@ -289,7 +288,7 @@ public class PresentForSumController implements SinglePresentController{
 			}
 			//检查总额合法性
 			String totalInString = totalField.getText();
-			int total = 0;
+			double total = 0;
 			
 			if(!NumberUtil.isNotNegative(totalInString)){
 				totalErrorMessage.setText(totalError);
@@ -297,7 +296,7 @@ public class PresentForSumController implements SinglePresentController{
 			}
 			//检查赠券金额合法性
 			String voucherInString = voucherField.getText();
-			int voucher = 0;
+			double voucher = 0;
 			if(!NumberUtil.isNotNegative(voucherInString)){
 				voucherErrorMessage.setText(voucherError);
 				return;
@@ -413,11 +412,11 @@ public class PresentForSumController implements SinglePresentController{
 			presentListVBox.getChildren().clear();
 			// TODO Auto-generated method stub
 			for(GoodsInSaleVO vo : presentList){
-	   		 PresentCellController controller = 
-	   				    new PresentCellController(this,vo);
+	   		 PresentEditCellController controller = 
+	   				    new PresentEditCellController(this,vo);
 	   		 FXMLLoader loader = new FXMLLoader(
 	   				    getClass().getResource(
-	   				        "/fxml/commonUI/PresentCell.fxml"));
+	   				        "/fxml/managerUI/PresentCell.fxml"));
 	   				loader.setController(controller);
 	   				AnchorPane presentroot = null;
 					try {

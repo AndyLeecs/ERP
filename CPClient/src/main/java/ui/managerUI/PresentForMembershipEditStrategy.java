@@ -23,7 +23,7 @@ public class PresentForMembershipEditStrategy implements Strategy{
 	 * @see ui.managerUI.Strategy#cancel(ui.managerUI.SinglePresentController)
 	 */
 	@Override
-	public DataRM cancel(SinglePresentController controller) {
+	public DataRM cancel(SinglePresentEditableController controller) {
 		// TODO Auto-generated method stub
 		return null;
 	}

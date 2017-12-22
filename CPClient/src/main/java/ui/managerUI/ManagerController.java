@@ -94,9 +94,17 @@ public class ManagerController {
 	}
 	@FXML
 	public void onShowPresentForMembershipClicked(){
+		if(centerPane.getCenter() == null){
 		Platform.runLater(()->{
 		try {
-	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForMembershipList.fxml"));
+   		 PresentForSumListController controller = 
+   				    new PresentForSumListController(this);
+   		 FXMLLoader loader = new FXMLLoader(
+   				    getClass().getResource(
+   				        "/fxml/managerUI/PresentForMembershipList.fxml"));
+   				loader.setController(controller);
+   				AnchorPane presentroot = loader.load();
+//	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
 			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,29 +113,43 @@ public class ManagerController {
 	}
 	@FXML
 	public void onShowPresentForSpecialPackageClicked(){
+		if(centerPane.getCenter() == null){
 		Platform.runLater(()->{
 		try {
-	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSpecialPackageList.fxml"));
+   		 PresentForSumListController controller = 
+   				    new PresentForSumListController(this);
+   		 FXMLLoader loader = new FXMLLoader(
+   				    getClass().getResource(
+   				        "/fxml/managerUI/PresentForSpecialPackageList.fxml"));
+   				loader.setController(controller);
+   				AnchorPane presentroot = loader.load();
+//	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
 			centerPane.setCenter(presentroot);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	});
+		}
 	}
 	@FXML
 	public void onShowPresentForSumClicked(){
-   	 Platform.runLater(new Runnable() {
-	     public void run() {
-	    	 try {
-
-		    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSumList.fxml"));
-				centerPane.setCenter(presentroot);
-
-			 } catch (Exception e) {
-				e.printStackTrace();
-			 }
-	     }
-	 });
+		if(centerPane.getCenter() == null){
+		Platform.runLater(()->{
+		try {
+   		 PresentForSumListController controller = 
+   				    new PresentForSumListController(this);
+   		 FXMLLoader loader = new FXMLLoader(
+   				    getClass().getResource(
+   				        "/fxml/managerUI/PresentForSumList.fxml"));
+   				loader.setController(controller);
+   				AnchorPane presentroot = loader.load();
+//	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
+			centerPane.setCenter(presentroot);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	});
+		}
 	}
     
     @FXML 
@@ -137,7 +159,7 @@ public class ManagerController {
 				    try {
 				    	System.out.println("log out");
 						root.getScene().getWindow().hide();
-						new LoginWin();
+						new ui.mainUI.loginUI.LoginWin();
 						//new ui.saleUI.SaleWin();
 					} catch (Exception e) {
 						e.printStackTrace();
