@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import util.PresentState;
+import util.VIPGrade;
 
 /**     
 * @author 李安迪
@@ -14,7 +15,7 @@ import util.PresentState;
 public class PresentForMembershipPO extends PresentPO implements Serializable{
 	public PresentForMembershipPO(){}
 	public PresentForMembershipPO(int id,Date startTime, Date finishTime, double sum, List<GoodsInSalePO> presentList,
-			PresentState state,double voucher,MemberGrade grade,double rebateInPresentForMembership) {
+			PresentState state,double voucher,VIPGrade grade,double rebateInPresentForMembership) {
 		super(id,startTime, finishTime,presentList,state);
 		this.grade = grade;
 		this.sum = sum;
@@ -24,7 +25,7 @@ public class PresentForMembershipPO extends PresentPO implements Serializable{
 	/**
 	 *会员级别
 	 */	
-	MemberGrade grade;
+	VIPGrade grade;
 	/**
 	 *总额
 	 */	
@@ -38,10 +39,10 @@ public class PresentForMembershipPO extends PresentPO implements Serializable{
 	 *赠送代金券金额
 	 */	
 	double voucher;
-	public MemberGrade getGrade() {
+	public VIPGrade getGrade() {
 		return grade;
 	}
-	public void setGrade(MemberGrade grade) {
+	public void setGrade(VIPGrade grade) {
 		this.grade = grade;
 	}
 	public double getSum() {

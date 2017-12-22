@@ -38,7 +38,47 @@ public class PresentForMembershipVO extends PresentVO{
 	 */	
 	double voucher;
 
-	public PresentForMembershipVO(int id, String presentName, Date startTime, Date finishTime,
+	public VIPGrade getGrade() {
+		return grade;
+	}
+
+	public void setGrade(VIPGrade grade) {
+		this.grade = grade;
+	}
+
+	public double getSum() {
+		return sum;
+	}
+
+	public void setSum(double sum) {
+		this.sum = sum;
+	}
+
+	public List<GoodsInSaleVO> getPresentList() {
+		return presentList;
+	}
+
+	public void setPresentList(List<GoodsInSaleVO> presentList) {
+		this.presentList = presentList;
+	}
+
+	public double getRebateInPresentForMembership() {
+		return rebateInPresentForMembership;
+	}
+
+	public void setRebateInPresentForMembership(double rebateInPresentForMembership) {
+		this.rebateInPresentForMembership = rebateInPresentForMembership;
+	}
+
+	public double getVoucher() {
+		return voucher;
+	}
+
+	public void setVoucher(double voucher) {
+		this.voucher = voucher;
+	}
+
+	public PresentForMembershipVO(int id,  Date startTime, Date finishTime,
 			 VIPGrade grade, double sum, List<GoodsInSaleVO> presentList,
 			double rebateInPresentForMembership, double voucher) {
 		super(id, startTime, finishTime);
