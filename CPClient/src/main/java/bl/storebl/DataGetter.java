@@ -2,7 +2,7 @@ package bl.storebl;
 
 import VO.storeVO.*;
 import dataService.storeDataService.StoreDataService;
-
+import dataService.storeDataService.StoreDataService_Stub;
 import util.StoreListType;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class DataGetter {
     * 等数据库写好了再用它去调用数据库的实现就可以（事实上二者最终可以合并）
     *  王瑞华 161250143 2017年12月2日
      */
-	StoreDataService sds;
+	StoreDataService sds=new StoreDataService_Stub();
      LinkedList<AlarmListVO> getAllAlarmList(){
          LinkedList<AlarmListVO> voList=new LinkedList<AlarmListVO>();
          LinkedList<AlarmListPO> poList=sds.getAlarmListPO();

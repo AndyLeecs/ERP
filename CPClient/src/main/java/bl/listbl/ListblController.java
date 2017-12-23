@@ -9,6 +9,7 @@ import bl.storebl.StoreBussinessSituation_Impl;
 import VO.listVO.ListRM;
 import blservice.listblservice.Listblservice;
 import dataService.listDataService.ListDataService;
+import dataService.listDataService.ListDataService_Stub;
 import util.GreatListType;
 import java.util.ArrayList;
 import PO.InfoListPO;
@@ -24,7 +25,7 @@ public class ListblController implements Listblservice {
 	
 
     //单据红冲的接口还没加，但理论上应该是我来写
-    ListDataService listDataService;
+    ListDataService listDataService=new ListDataService_Stub();
     @Override
     public ArrayList<InfoListVO> openInfoList() {
     	
