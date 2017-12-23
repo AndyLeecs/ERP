@@ -1,83 +1,134 @@
 package VO.VIPVO;
 
-import util.VIPGrade;
-
 public class VIPVO {
       public String id; //编号
       public VIPCategory category; //分类
-      VIPGrade grade ; //级别
-      String name ; //姓名
-      String phoneNumber ;//电话号码
-      String email ; //电子邮箱
+      VIPGrade grade; //级别
+      String name; //姓名
+      String phoneNumber;//电话号码
+      String email; //电子邮箱
       String address; //地址
-      String locationID ; //邮编
+      String postCode; //邮编
       double collection;//应收
-      double collection_limit ;//应收额度
-      double payment  ; //应付
-      String executive; // 默认业务员
+      double collectionLimit;//应收额度
+      double payment; //应付
+      String clerk; // 默认业务员
 
-      double collecton_limit;
-
-      public VIPVO(String name,String phoneNumber,String email,String address,String locationID){
+      public VIPVO(String id, VIPCategory category, VIPGrade grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
+          this.id = id;
+          this.category = category;
+          this.grade = grade;
           this.name=name;
-    	  this.email=email;
     	  this.phoneNumber=phoneNumber;
+          this.email=email;
           this.address=address;
-    	  this.locationID=locationID;
-    	  
+    	  this.postCode = postCode;
+    	  this.collection = collection;
+    	  this.collectionLimit = collectionLimit;
+    	  this.payment = payment;
+    	  this.clerk = clerk;
       }
       
       @Override
       public String toString() {
-    	  String result = "ID:" + id + "Category:" + category + "Grade:" + grade + "Name:" + name + "PhoneNumber:" + phoneNumber + "email:" + email + "Address:" + address + "LocationID:" + locationID + "Collection:" + collection + "CollectionLimit:" + collection_limit + "Payment:" + payment + "Executive:" + executive;
-		return result;
-    	  
+    	  String result = "ID:" + id + "Category:" + category + "Grade:" + grade + "Name:" + name + "PhoneNumber:" + phoneNumber + "email:" + email + "Address:" + address + "LocationID:" + postCode + "Collection:" + collection + "CollectionLimit:" + collectionLimit + "Payment:" + payment + "Executive:" + clerk;
+    	  return result;
       }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public VIPCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(VIPCategory category) {
+        this.category = category;
+    }
+
+    public VIPGrade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(VIPGrade grade) {
+        this.grade = grade;
+    }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public String getLocationID() {
-        return locationID;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
 
     public double getCollection() {
-		return collection;
-	}
-	public void setCollection(double collection) {
-		this.collection = collection;
-	}
-	public double getCollecton_limit() {
-        return collecton_limit;
-	}
-	public void setCollecton_limit(double collecton_limit) {
-		this.collecton_limit = collecton_limit;
-	}
-	public double getPayment() {
-		return payment;
-	}
-	public void setPayment(double payment) {
-		this.payment = payment;
-	}
-	public VIPGrade getLevel() {
-		return grade;
-	}
-	public void setLevel(VIPGrade grade) {
-		this.grade = grade;
-	}
+        return collection;
+    }
+
+    public void setCollection(double collection) {
+        this.collection = collection;
+    }
+
+    public double getCollectionLimit() {
+        return collectionLimit;
+    }
+
+    public void setCollectionLimit(double collectionLimit) {
+        this.collectionLimit = collectionLimit;
+    }
+
+    public double getPayment() {
+        return payment;
+    }
+
+    public void setPayment(double payment) {
+        this.payment = payment;
+    }
+
+    public String getClerk() {
+        return clerk;
+    }
+
+    public void setClerk(String clerk) {
+        this.clerk = clerk;
+    }
 
 }

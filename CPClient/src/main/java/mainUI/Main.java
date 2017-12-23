@@ -22,7 +22,8 @@ public class Main extends Application {
 					//new ui.saleUI.SaleWin();
 					//new ui.stockmanUI.StockmanWin();
 					//new ui.managerUI.ManagerWin();
-					new ui.stockmanUI.GoodsWin();
+					//new ui.stockmanUI.GoodsWin();
+					new ui.salesmanUI.VIPWin();
 
 				} catch (Exception e) {
 					e.printStackTrace();

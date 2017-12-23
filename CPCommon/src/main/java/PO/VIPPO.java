@@ -1,33 +1,42 @@
 package PO;
 
+import util.VIPCategory;
+import util.VIPGrade;
+
 import java.io.Serializable;
 
 public class VIPPO implements Serializable{
 
     public String id; //编号
-    public String category; //分类
-    int grade ; //级别
-    String name ; //姓名
-    String phoneNumber ;//电话号码
-    String email ; //电子邮箱
+    public VIPCategory category; //分类
+    VIPGrade grade; //级别
+    String name; //姓名
+    String phoneNumber;//电话号码
+    String email; //电子邮箱
     String address; //地址
-    String locationID ; //邮编
-    double  collection;//应收
-    double collecton_limit ;//应收额度
-    double payment  ; //应付
-    String executive; // 默认业务员
+    String postCode; //邮编
+    double collection;//应收
+    double collectionLimit;//应收额度
+    double payment; //应付
+    String clerk; // 默认业务员
     private String autoId; //数据库自动生成的id
 
     public VIPPO() {
     }
 
-	public VIPPO(String name,String phoneNumber,String email,String address,String locationID){
-  	  this.address=address;
-   	  this.email=email;
-  	  this.phoneNumber=phoneNumber;
-  	  this.name=name;
-  	  this.locationID=locationID;
-
+    public VIPPO(String id, VIPCategory category, VIPGrade grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
+        this.id = id;
+        this.category = category;
+        this.grade = grade;
+        this.name=name;
+        this.phoneNumber=phoneNumber;
+        this.email=email;
+        this.address=address;
+        this.postCode = postCode;
+        this.collection = collection;
+        this.collectionLimit = collectionLimit;
+        this.payment = payment;
+        this.clerk = clerk;
     }
 
     public String getId() {
@@ -38,19 +47,19 @@ public class VIPPO implements Serializable{
         this.id = id;
     }
 
-    public String getCategory() {
+    public VIPCategory getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(VIPCategory category) {
         this.category = category;
     }
 
-    public int getGrade() {
+    public VIPGrade getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(VIPGrade grade) {
         this.grade = grade;
     }
 
@@ -86,12 +95,12 @@ public class VIPPO implements Serializable{
         this.address = address;
     }
 
-    public String getLocationID() {
-        return locationID;
+    public String getPostCode() {
+        return postCode;
     }
 
-    public void setLocationID(String locationID) {
-        this.locationID = locationID;
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 
     public double getCollection() {
@@ -102,12 +111,12 @@ public class VIPPO implements Serializable{
         this.collection = collection;
     }
 
-    public double getCollecton_limit() {
-        return collecton_limit;
+    public double getCollectionLimit() {
+        return collectionLimit;
     }
 
-    public void setCollecton_limit(double collecton_limit) {
-        this.collecton_limit = collecton_limit;
+    public void setCollectionLimit(double collectionLimit) {
+        this.collectionLimit = collectionLimit;
     }
 
     public double getPayment() {
@@ -118,12 +127,12 @@ public class VIPPO implements Serializable{
         this.payment = payment;
     }
 
-    public String getExecutive() {
-        return executive;
+    public String getClerk() {
+        return clerk;
     }
 
-    public void setExecutive(String executive) {
-        this.executive = executive;
+    public void setClerk(String clerk) {
+        this.clerk = clerk;
     }
 
     public String getAutoId() {

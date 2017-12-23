@@ -14,7 +14,7 @@ public class VIP {
                 ,vipPO.getPhoneNumber()
                 ,vipPO.getEmail()
                 ,vipPO.getAddress()
-                ,vipPO.getLocationID());
+                ,vipPO.getPostCode());
     }
 
     private VIPPO voToPO(VIPVO vipVO){
@@ -22,6 +22,6 @@ public class VIP {
                 ,vipVO.getPhoneNumber()
                 ,vipVO.getEmail()
                 ,vipVO.getAddress()
-                ,vipVO.getLocationID());
+                ,vipVO.getPostCode());
     }
 }

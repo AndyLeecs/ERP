@@ -14,7 +14,7 @@ import util.ResultMessage;
 public interface VIPBLService {
 	/**
 	 * 前置条件	用户选择新建客户
-     * 后置条件	系统显示客户电话和编号
+     * 后置条件	系统显示客户编号
 	 * @return VIP ID
 	 */
 	public String newVIPID();

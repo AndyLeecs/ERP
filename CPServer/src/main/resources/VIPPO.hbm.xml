@@ -11,10 +11,10 @@
         <property name="collection"/>
         <property name="collecton_limit"/>
         <property name="email"/>
-        <property name="executive"/>
+        <property name="getClerk"/>
         <property name="grade"/>
         <property name="id"/>
-        <property name="locationID"/>
+        <property name="postCode"/>
         <property name="name"/>
         <property name="payment"/>
         <property name="phoneNumber"/>
