@@ -96,20 +96,21 @@ public class ManagerController {
 	public void onShowPresentForMembershipClicked(){
 		if(centerPane.getCenter() == null){
 		Platform.runLater(()->{
-		try {
-   		 PresentForSumListController controller = 
-   				    new PresentForSumListController(this);
-   		 FXMLLoader loader = new FXMLLoader(
-   				    getClass().getResource(
-   				        "/fxml/managerUI/PresentForMembershipList.fxml"));
-   				loader.setController(controller);
-   				AnchorPane presentroot = loader.load();
-//	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
-			centerPane.setCenter(presentroot);
-		} catch (Exception e) {
-			e.printStackTrace();
+			try {
+	   		 PresentForSumListController controller = 
+	   				    new PresentForSumListController(this);
+	   		 FXMLLoader loader = new FXMLLoader(
+	   				    getClass().getResource(
+	   				        "/fxml/managerUI/PresentForMembershipList.fxml"));
+	   				loader.setController(controller);
+	   				AnchorPane presentroot = loader.load();
+	//	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
+				centerPane.setCenter(presentroot);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			});
 		}
-	});
 	}
 	@FXML
 	public void onShowPresentForSpecialPackageClicked(){
