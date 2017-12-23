@@ -1,10 +1,15 @@
 package bl.storebl;
 
+import PO.AlarmListPO;
+import PO.PresentListPO;
+import PO.ReportListPO;
+import PO.StoreLogPO;
 import PO.StorePO;
 import VO.listVO.ListRM;
 import VO.storeVO.AlarmListVO;
 import VO.storeVO.PresentListVO;
 import VO.storeVO.ReportListVO;
+import VO.storeVO.StoreLogVO;
 import VO.storeVO.StoreVO;
 import VO.storeVO.storeRM;
 import dataService.storeDataService.StoreDataService;
@@ -57,27 +62,117 @@ public class DataSetter {
 	
 	public storeRM subStore(String id,int subber){
 		//向数据库减少某种商品的数量
-		return null;
+		//在调用这个方法之前已经进行了前置条件检查，所以是一定会成功的。
+		StoreVO vo=dg.getStoreVO(id);
+		StorePO po=new StorePO();
+		po.alarmNum=vo.alarmNum;
+		po.ID=vo.ID;
+		
+		po.name=vo.name;
+		po.averagePrice=vo.averagePrice;//商品在减少时均价不会变化。
+		po.Num=vo.Num-subber;
+		if(sds.replaceStoreItem(po)){
+		    return storeRM.SUCCESS;
+		}else{
+			return storeRM.ID_NOT_EXIST;
+		}
 	}
 	
 	public void insertAlarmListVO (AlarmListVO vo){
 		//向数据库插入库存报警单值对象
-		
+		AlarmListPO po=new AlarmListPO();
+		po.alarmNum=vo.alarmNum;
+		po.currentNum=vo.currentNum;
+		po.goodsID=vo.goodsID;
+		po.listID=vo.listID;
+		po.goodsName=vo.goodsName;
+		sds.addAlarmList(po);
 	}
 	
 	public ListRM insertReportListVO(ReportListVO vo){
-		return ListRM.SUCCESS;
+		ReportListPO po=new ReportListPO();
+		po.actualNum=vo.actualNum;
+		po.delta=vo.delta;
+		po.goodsID=vo.goodsID;
+		po.GoodsName=vo.GoodsName;
+		po.st=vo.st;
+		po.statetype=vo.statetype;
+		po.time=vo.time;
+		po.Num=vo.Num;
+		po.operator=vo.operator;
+		po.listID=vo.listID;
+		if(sds.insertReportList(po)){
+			
+			return ListRM.SUCCESS;
+		}else {
+			return ListRM.WRONG_LISTTYPE;
+		}
 		//向数据库中插入库存报告单的值对象（保存状态为草稿）
 	}
 	public ListRM insertPresentListVO(PresentListVO vo){
-		return  ListRM.SUCCESS;
+		PresentListPO po=new PresentListPO ();
+		po.id=vo.id;
+		po.name=vo.name;
+		po.listID=vo.listID;
+		po.num=vo.num;
+		po.operator=vo.operator;
+		po.time=vo.time;
+		po.statetype=vo.statetype;
+		po.VIPname=vo.VIPname;
+           if(sds.insertPresentList(po)){
+			
+			return ListRM.SUCCESS;
+		}else {
+			return ListRM.WRONG_LISTTYPE;
+		}
 	}
 	
 	public ListRM replaceReportListVO(ReportListVO vo){
-		return ListRM.SUCCESS;
+		ReportListPO po=new ReportListPO();
+		po.actualNum=vo.actualNum;
+		po.delta=vo.delta;
+		po.goodsID=vo.goodsID;
+		po.GoodsName=vo.GoodsName;
+		po.st=vo.st;
+		po.statetype=vo.statetype;
+		po.time=vo.time;
+		po.Num=vo.Num;
+		po.operator=vo.operator;
+		po.listID=vo.listID;
+		if(sds.replaceReportList(po)){
+			
+			return ListRM.SUCCESS;
+		}else {
+			return ListRM.WRONG_LISTTYPE;
+		}
+		
 		//向数据库中插入库存报告单的值对象（保存状态为草稿）
 	}
 	public ListRM replacePresentListVO(PresentListVO vo){
-		return  ListRM.SUCCESS;
+		PresentListPO po=new PresentListPO ();
+		po.id=vo.id;
+		po.name=vo.name;
+		po.listID=vo.listID;
+		po.num=vo.num;
+		po.operator=vo.operator;
+		po.time=vo.time;
+		po.statetype=vo.statetype;
+		po.VIPname=vo.VIPname;
+           if(sds.replacePresentList(po)){
+			
+			return ListRM.SUCCESS;
+		}else {
+			return ListRM.WRONG_LISTTYPE;
+		}
+	}
+	public void addStoreLog(StoreLogVO vo){
+		StoreLogPO po=new StoreLogPO();
+		po.id=vo.id;
+		po.name=vo.name;
+		po.num=vo.num;
+		po.time=vo.time;
+		po.type=vo.type;
+		po.price=vo.price;
+		sds.addStoreLogPO(po);
 	}
 }

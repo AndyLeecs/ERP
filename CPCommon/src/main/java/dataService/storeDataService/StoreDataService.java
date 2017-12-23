@@ -8,6 +8,7 @@ import PO.AlarmListPO;
 import PO.PresentListPO;
 import PO.ReportListPO;
 import PO.State;
+import PO.StoreLogPO;
 import PO.StorePO;
 import util.StoreListType;
 public interface StoreDataService extends Remote,Serializable{
@@ -21,9 +22,16 @@ public interface StoreDataService extends Remote,Serializable{
   public ArrayList<ReportListPO> getReportListPO(StoreListType type, State st);
   public PresentListPO getSinglePresentList(String id);
   public ReportListPO getSingleReportList(String id);
+  public ArrayList<StoreLogPO> getStoreLogPO(String beginTime,String endTime);
   
   //----------------------------------------------
   
   public boolean insertStoreItem(StorePO po);
   public boolean replaceStoreItem(StorePO po);//替换一个数据表项，如果表项不存在，则不能成功替换。
+  public void addAlarmList(AlarmListPO po);//新增一个库存报警单
+  public boolean insertReportList(ReportListPO po);
+  public boolean replaceReportList(ReportListPO po);
+  public boolean insertPresentList(PresentListPO po);
+  public boolean replacePresentList(PresentListPO po);
+  public void addStoreLogPO(StoreLogPO po);
 }

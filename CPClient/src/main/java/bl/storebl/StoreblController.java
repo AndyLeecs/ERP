@@ -87,7 +87,8 @@ public class StoreblController implements StoreBLService{
 
     @Override
     public storeCheckVO store_check(String begintime, String endTime) {
-        return null;
+    	storeCheckVO vo=new storeCheckVO(getter.getLogs(begintime, endTime));
+        return vo;
     }
 
     @Override

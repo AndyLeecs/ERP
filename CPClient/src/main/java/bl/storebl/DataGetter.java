@@ -13,6 +13,7 @@ import PO.AlarmListPO;
 import PO.PresentListPO;
 import PO.ReportListPO;
 import PO.State;
+import PO.StoreLogPO;
 import PO.StorePO;
 
 public class DataGetter {
@@ -128,5 +129,21 @@ public class DataGetter {
     	PresentListVO vo=new PresentListVO(po.listID, po.id,po.num , po.name, po.VIPname);
 		return vo;
     	
+    }
+    
+    public ArrayList<StoreLogVO> getLogs(String beginTime,String endTime){
+    	ArrayList<StoreLogPO> poArr=sds.getStoreLogPO(beginTime,endTime);
+    	ArrayList<StoreLogVO> voArr=new ArrayList<StoreLogVO>();
+    	for(int i=0;i<poArr.size();i++){
+    		StoreLogVO vo=new StoreLogVO();
+    		vo.id=poArr.get(i).id;
+    		vo.name=poArr.get(i).name;
+    		vo.num=poArr.get(i).num;
+    		vo.price=poArr.get(i).price;
+    		vo.time=poArr.get(i).time;
+    		vo.type=poArr.get(i).type;
+    		voArr.add(vo);
+    	}
+    	return voArr;
     }
 }
