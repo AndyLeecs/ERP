@@ -1,4 +1,4 @@
-package ui.accountantUI;
+package ui.accountUI;
 
 import java.io.IOException;
 
@@ -10,17 +10,16 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class AccountantWin extends Stage{
+public class CollectionListWin extends Stage{
 	@FXML
 	AnchorPane root;
-	public AccountantWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("Accountant.fxml"));
+	public CollectionListWin() throws IOException{
+		root = FXMLLoader.load(getClass().getResource("/fxml/accountUI/CollectionList.fxml"));
 		Scene scene = new Scene(root);
-//		scene.getStylesheets().add(getClass().getResource("Accountant.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/css/forms/Forms.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);
 		this.show();
 	}
-	
 }

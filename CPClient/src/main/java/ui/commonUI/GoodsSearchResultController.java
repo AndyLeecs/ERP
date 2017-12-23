@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import ui.managerUI.SinglePresentController;
+import ui.managerUI.SinglePresentEditableController;
 
 /**     
 * @author 李安迪
@@ -29,11 +29,11 @@ public class GoodsSearchResultController {
 	private List<GoodsInSaleVO> list;
 	private List<GoodsSearchResultCellController> cellList;
 //	private List<GoodsInSaleVO> returnList;
-	private SinglePresentController singlePresentController;
+	private SinglePresentEditableController singlePresentEditableController;
 	
-	public GoodsSearchResultController(List<GoodsInSaleVO> list,SinglePresentController controller){
+	public GoodsSearchResultController(List<GoodsInSaleVO> list,SinglePresentEditableController controller){
 		this.list = list;
-		this.singlePresentController = controller;
+		this.singlePresentEditableController = controller;
 		this.cellList = new ArrayList<GoodsSearchResultCellController>();
 	}
 	@FXML void initialize(){
@@ -65,7 +65,7 @@ public class GoodsSearchResultController {
 	@FXML public void onSureBtnClicked(){
 		for(GoodsSearchResultCellController controller: cellList){
 			if(controller.checkBox.isSelected())
-				singlePresentController.addToPresentList(controller.vo);
+				singlePresentEditableController.addToPresentList(controller.vo);
 		}
 
 		root.getScene().getWindow().hide();

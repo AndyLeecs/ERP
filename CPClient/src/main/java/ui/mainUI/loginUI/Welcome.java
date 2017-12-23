@@ -1,4 +1,4 @@
-package mainUI;
+package ui.mainUI.loginUI;
 
 import javafx.application.Application;
 import javafx.application.Platform;

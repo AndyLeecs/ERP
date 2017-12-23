@@ -1,0 +1,38 @@
+
+.background {
+	-fx-background-color:#100
+	
+}
+
+.root {
+	-fx-background-color:#100
+}
+
+#root {
+	-fx-background-color:#100
+}
+
+.pane{
+	-fx-background-color:#100
+}
+
+/*
+ * 上面的四个都无效，不知道为什么。。
+ * 如果解决不了最后只能在每个fxml里都写了。
+ */
+.button {
+	-fx-background-radius :23;
+	-fx-border-radius:23;
+	-fx-border-color: #a15858;
+     -fx-text-fill: #9f353a
+}
+
+.button:hover {
+	-fx-text-fill: white;
+}
+
+
+.label:hover {
+	-fx-text-fill: white;
+}
+

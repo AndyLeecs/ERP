@@ -10,5 +10,5 @@ import util.DataRM;
 */
 public interface Strategy {
 	void initData(SinglePresentController controller,PresentVO vo);
-	DataRM cancel(SinglePresentController controller);
+	DataRM cancel(SinglePresentEditableController controller);
 }

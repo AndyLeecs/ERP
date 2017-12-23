@@ -7,10 +7,10 @@ import java.util.List;
 import PO.SaleListPO;
 import PO.SaleReturnListPO;
 import PO.SalesmanListPO;
-import PO.State;
 import PO.StockListPO;
 import PO.StockReturnListPO;
 import util.DataRM;
+import util.State;
 
 public interface SaleDataService extends Remote,Serializable{
 	public List<SalesmanListPO> get(State state);

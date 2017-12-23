@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 * @date 2017年12月15日
 * @description
 */
-public class PresentCellController {
+public class PresentEditCellController {
 	@FXML Label name;
 	@FXML TextField amount;
 	@FXML Button deleteBtn;
@@ -20,11 +20,11 @@ public class PresentCellController {
 	
 	private GoodsInSaleVO vo;
 	
-	private SinglePresentController controller;
+	private SinglePresentEditableController controller;
 	/**
 	 * @param presentForSumController
 	 */
-	public PresentCellController(SinglePresentController controller,GoodsInSaleVO vo) {
+	public PresentEditCellController(SinglePresentEditableController controller,GoodsInSaleVO vo) {
 		// TODO Auto-generated constructor stub
 		this.controller = controller;
 		this.vo = vo;

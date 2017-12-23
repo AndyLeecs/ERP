@@ -1,4 +1,4 @@
-package mainUI;
+package ui.mainUI.loginUI;
 
 import VO.userVO.UserVO;
 import bl.userbl.UserBLService_Stub;
@@ -53,6 +53,10 @@ public class User {
 	
 	public UserType getUserType(){
 		return type;
+	}
+	
+	public String getUserName(){
+		return name;
 	}
 	
 }

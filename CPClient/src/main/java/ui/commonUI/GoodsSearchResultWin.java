@@ -12,16 +12,17 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import ui.managerUI.PresentForSumController;
+import ui.managerUI.SinglePresentEditableController;
 
 /**     
 * @author 李安迪
 * @date 2017年12月14日
-* @description 由于使用了javafx自带的弹出框，
+* @description 
 */
 public class GoodsSearchResultWin extends Stage{
 	@FXML AnchorPane root;
 	
-	public GoodsSearchResultWin(List<GoodsInSaleVO> goodsList,PresentForSumController presentForSumController) throws IOException{
+	public GoodsSearchResultWin(List<GoodsInSaleVO> goodsList,SinglePresentEditableController presentForSumController) throws IOException{
 		
 		try {
 	   		 GoodsSearchResultController controller = 
