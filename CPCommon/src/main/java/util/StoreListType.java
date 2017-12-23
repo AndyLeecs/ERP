@@ -1,4 +1,4 @@
-package VO.storeVO;
+package util;
 
 import util.ListType;
 

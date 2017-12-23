@@ -3,7 +3,7 @@ package bl.storebl;
 import java.util.List;
 
 import VO.storeVO.AlarmListVO;
-import VO.storeVO.StoreListType;
+import util.StoreListType;
 import VO.storeVO.StoreVO;
 import VO.storeVO.storeRM;
 

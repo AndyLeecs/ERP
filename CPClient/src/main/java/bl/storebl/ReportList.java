@@ -3,8 +3,7 @@ package bl.storebl;
 import VO.listVO.InfoListVO;
 
 import VO.storeVO.ReportListVO;
-import VO.storeVO.StoreListType;
-
+import util.StoreListType;
 import util.GreatListType;
 import util.ResultMessage;
 

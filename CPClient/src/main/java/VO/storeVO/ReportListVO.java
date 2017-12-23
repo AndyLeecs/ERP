@@ -1,8 +1,11 @@
 package VO.storeVO;
 
+import PO.State;
+import util.StoreListType;
+
 public class ReportListVO {
    public  StoreListType st;
-   public StateType statetype;
+   public State statetype;
     public int actualNum;
     public int Num;
    public  int delta;

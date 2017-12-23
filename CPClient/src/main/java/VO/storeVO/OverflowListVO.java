@@ -1,5 +1,7 @@
 package VO.storeVO;
 
+import PO.State;
+
 public class OverflowListVO {
     //库存报溢单值对象
     String listID;
@@ -8,7 +10,7 @@ public class OverflowListVO {
     int actualNum;
     int Num;
     int delta;
-    StateType st;
+    State st;
 
 
 }
