@@ -12,8 +12,11 @@ public class ReportListVO {
    public  String goodsID;
    public  String listID;
    public  String GoodsName;
+   
+   public String time;//操作时间
+   public String operator;//操作员
 
-    ReportListVO(int actualNum,int Num,String goodsID,String listID,String GoodsName){
+   public  ReportListVO(int actualNum,int Num,String goodsID,String listID,String GoodsName){
         this.actualNum=actualNum;
         this.Num=Num;
         this.GoodsName=GoodsName;

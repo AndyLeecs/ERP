@@ -10,6 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import PO.AlarmListPO;
+import PO.PresentListPO;
+import PO.ReportListPO;
 import PO.State;
 import PO.StorePO;
 
@@ -34,11 +36,29 @@ public class DataGetter {
          return voList;
      }
      ArrayList<ReportListVO> getReportList(StoreListType type, State st){
-             return null;
+         ArrayList<ReportListVO> voList=new      ArrayList<ReportListVO>();
+         ArrayList<ReportListPO> poList=sds.getReportListPO(type, st);
+         
+         for(int i=poList.size()-1;i>=0;i--){
+        	 ReportListVO vo=new ReportListVO (poList.get(i).actualNum, poList.get(i).Num, poList.get(i).goodsID, poList.get(i).listID, poList.get(i).GoodsName);
+        	 vo.operator=poList.get(i).operator;
+        	 vo.time=poList.get(i).time;
+        	 voList.add(vo);
+         }
+             return voList;
      }
     ArrayList<PresentListVO> getPresentList(State st){
-
-         return null;
+        ArrayList<PresentListPO> poList=sds.getPresentListPO(st);
+        ArrayList<PresentListVO> voList=new ArrayList<PresentListVO>();
+        for(int i=poList.size()-1;i>=0;i--){
+       	 //倒序处理一下，最近的单据最先显示
+        PresentListVO vo=new PresentListVO(poList.get(i).listID, poList.get(i).id,poList.get(i).num , poList.get(i).name, poList.get(i).VIPname);
+        vo.setTime(poList.get(i).time);
+        vo.setOperator(poList.get(i).operator);
+        
+        voList.add(vo);
+        }
+         return voList;
     }
 
     public String calcID(StoreListType lt) {
@@ -93,14 +113,20 @@ public class DataGetter {
     	
     	return vo;
     }
-    public ReportListVO getReportListVO(String id){
+   public ReportListVO getReportListVO(String id){
     	//查找单个库存报告单对象
-		return null;
+	   ReportListPO po=sds.getSingleReportList(id);
+	   ReportListVO vo=new ReportListVO (po.actualNum, po.Num, po.goodsID, po.listID, po.GoodsName);
+	   vo.time=po.time;
+	   vo.operator=po.operator;
+		return vo;
     	
     }
     public PresentListVO getPresentListVO(String id){
     	//查找单个库存赠送单对象
-		return null;
+    	PresentListPO po=sds.getSinglePresentList(id);
+    	PresentListVO vo=new PresentListVO(po.listID, po.id,po.num , po.name, po.VIPname);
+		return vo;
     	
     }
 }
