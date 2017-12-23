@@ -32,15 +32,20 @@
       </Pane>
       <Pane layoutX="6.0" layoutY="118.0" prefHeight="476.0" prefWidth="921.0">
          <children>
-            <Pane prefHeight="116.0" prefWidth="921.0">
+            <Pane layoutY="6.0" prefHeight="59.0" prefWidth="921.0">
                <children>
-                  <Label layoutX="70.0" layoutY="48.0" prefHeight="23.0" prefWidth="41.0" text="客户" textFill="#938c8c">
+                  <Label layoutX="70.0" layoutY="19.0" prefHeight="23.0" prefWidth="41.0" text="客户" textFill="#938c8c">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Button layoutX="532.0" layoutY="46.0" mnemonicParsing="false" text="选择" />
-                  <TextField layoutX="206.0" layoutY="46.0" />
+                  <Button layoutX="348.0" layoutY="17.0" mnemonicParsing="false" text="选择" />
+                  <TextField layoutX="136.0" layoutY="16.0" />
+                  <Label layoutX="479.0" layoutY="18.0" prefHeight="23.0" prefWidth="78.0" text="银行账户" textFill="#938c8c">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <ScrollPane layoutX="27.0" layoutY="90.0" prefHeight="287.0" prefWidth="748.0">
@@ -48,13 +53,11 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="746.0">
                      <children>
                         <TableView fx:id="TransferListTableView" opacity="0.68" prefHeight="287.0" prefWidth="746.0" style="-fx-background-color: transparent;">
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
                            <columns>
-                              <TableColumn fx:id="account" prefWidth="-1.0" text="银行账户" />
-                              <TableColumn fx:id="amount" prefWidth="-1.0" text="转账金额" />
-                              <TableColumn fx:id="note" prefWidth="-1.0" text="备注" />
+                              <TableColumn fx:id="account" prefWidth="292.0" text="银行账户" />
+                              <TableColumn fx:id="amount" prefWidth="204.0" text="转账金额" />
+                              <TableColumn fx:id="note" prefWidth="170.0" text="备注" />
+                              <TableColumn fx:id="deleted" prefWidth="79.0" text="删除" />
                            </columns>
                         </TableView>
                      </children>
@@ -63,8 +66,24 @@
             </ScrollPane>
             <Pane layoutY="379.0" prefHeight="97.0" prefWidth="921.0">
                <children>
-                  <Button layoutX="518.0" layoutY="35.0" mnemonicParsing="false" text="保存" />
-                  <Button layoutX="738.0" layoutY="35.0" mnemonicParsing="false" text="提交" />
+                  <Button layoutX="518.0" layoutY="35.0" mnemonicParsing="false" text="保存">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
+                  <Button layoutX="738.0" layoutY="35.0" mnemonicParsing="false" text="提交">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
+                  <Label layoutX="193.0" layoutY="39.0" prefHeight="26.0" prefWidth="54.0" text="总额">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="293.0" layoutY="39.0" prefHeight="26.0" prefWidth="105.0" text="\$1000" textFill="#e12121">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>
