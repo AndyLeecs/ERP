@@ -114,6 +114,17 @@ public class DataGetter {
     	
     	return vo;
     }
+    public ArrayList<StoreVO> getAllStoreVO(){
+    	ArrayList<StorePO> poArr=sds.getAllStorePO();
+    	ArrayList<StoreVO> voArr=new ArrayList<StoreVO>();
+    	
+    	for(int i=0;i<poArr.size();i++){
+    		StoreVO vo=new StoreVO(poArr.get(i).name,poArr.get(i).ID,poArr.get(i).alarmNum,poArr.get(i).Num);
+    		vo.averagePrice=poArr.get(i).averagePrice;
+    		voArr.add(vo);
+    	}
+    	return voArr;
+    }
    public ReportListVO getReportListVO(String id){
     	//查找单个库存报告单对象
 	   ReportListPO po=sds.getSingleReportList(id);

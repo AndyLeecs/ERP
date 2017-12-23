@@ -39,6 +39,6 @@ public interface StoreBLService {
 	public ListRM savePresentList ( PresentListVO vo);
 	public ListRM commit (StoreListType type , String ID);
 	 public storeCheckVO store_check(String begintime,String endTime);
-	 public storeInventoryVO store_inventory(String day);
+	 public storeInventoryVO store_inventory();
 	
 }

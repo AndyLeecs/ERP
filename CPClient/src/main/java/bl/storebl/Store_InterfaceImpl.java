@@ -1,8 +1,11 @@
 package bl.storebl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import VO.storeVO.AlarmListVO;
+import VO.storeVO.StoreLogVO;
 import util.GreatListType;
 import util.StoreListType;
 import VO.storeVO.StoreVO;
@@ -31,6 +34,15 @@ public class Store_InterfaceImpl implements Store_Interface {
 			return storeRM.ID_NOT_EXIST;
 		}else{
 			//重点：在这一步触发记录操作，为库存查看和库存盘点做准备
+			StoreLogVO vo=new StoreLogVO();
+			vo.id=id;
+			StoreVO storevo=dg.getStoreVO(id);
+			vo.name=storevo.name;
+			vo.time=calcTime();
+			vo.price=price;
+			vo.num=adder;
+			vo.type=type;
+			ds.addStoreLog(vo);
 		return ds.addStore(id, adder,price);
 		}
 	}
@@ -45,6 +57,17 @@ public class Store_InterfaceImpl implements Store_Interface {
 			storeRM r=dg.checkAlarm(id, subber);
 			switch(r){
 			case SUCCESS:
+				
+				StoreLogVO vo=new StoreLogVO();
+				vo.id=id;
+				StoreVO storevo=dg.getStoreVO(id);
+				vo.name=storevo.name;
+				vo.time=calcTime();
+				vo.price=storevo.averagePrice;
+				vo.num=subber;
+				vo.type=type;
+				ds.addStoreLog(vo);
+				
 				ds.subStore(id, subber);
 				return storeRM.SUCCESS;
 				
@@ -53,6 +76,17 @@ public class Store_InterfaceImpl implements Store_Interface {
 				// 触发库存报警单
 				StoreVO v1=dg.getStoreVO(id);
 				ds.insertAlarmListVO(new AlarmListVO(v1.alarmNum,v1.Num,dg.calcID(StoreListType.ALARM),v1.ID,v1.name));
+				
+				StoreLogVO vo1=new StoreLogVO();
+				vo1.id=id;
+				vo1.time=calcTime();
+				vo1.price=v1.averagePrice;
+				vo1.name=v1.name;
+				vo1.num=subber;
+				vo1.type=type;
+				ds.addStoreLog(vo1);
+				
+				
 				return storeRM.SUCCESS;
 			case STORE_NOT_ENOUGH:
 				return r;
@@ -80,6 +114,12 @@ public class Store_InterfaceImpl implements Store_Interface {
 		}
 		}
 		return res;
+	}
+	
+	private String calcTime(){
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		String s=df.format(new Date());
+		return s;
 	}
 
 }

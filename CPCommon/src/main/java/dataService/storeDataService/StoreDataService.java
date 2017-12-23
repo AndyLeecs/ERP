@@ -23,6 +23,7 @@ public interface StoreDataService extends Remote,Serializable{
   public PresentListPO getSinglePresentList(String id);
   public ReportListPO getSingleReportList(String id);
   public ArrayList<StoreLogPO> getStoreLogPO(String beginTime,String endTime);
+  public ArrayList<StorePO> getAllStorePO();
   
   //----------------------------------------------
   
@@ -34,4 +35,5 @@ public interface StoreDataService extends Remote,Serializable{
   public boolean insertPresentList(PresentListPO po);
   public boolean replacePresentList(PresentListPO po);
   public void addStoreLogPO(StoreLogPO po);
+  
 }

@@ -5,6 +5,7 @@ import VO.listVO.ListRM;
 import VO.storeVO.*;
 import blservice.storeblservice.StoreBLService;
 import util.StoreListType;
+import bl.goodsbl.GetGoodsInfo_Impl;
 import bl.storebl.DataGetter;
 
 import java.util.ArrayList;
@@ -92,7 +93,17 @@ public class StoreblController implements StoreBLService{
     }
 
     @Override
-    public storeInventoryVO store_inventory(String day) {
-        return null;
+    public storeInventoryVO store_inventory() {
+    	GetGoodsInfo getgoodsinfo=new GetGoodsInfo_Impl();
+    	storeInventoryVO vo=new storeInventoryVO();
+    	vo.storeVO_Arr=getter.getAllStoreVO();
+    	
+    	ArrayList<String> id=new ArrayList<String>();
+    	for(int i=0;i<vo.storeVO_Arr.size();i++){
+    		id.add(vo.storeVO_Arr.get(i).ID);
+    	}
+    	vo.Date=getgoodsinfo.getDate_byID(id);
+    	vo.Model=getgoodsinfo.getDate_byID(id);
+        return vo;
     }
 }
