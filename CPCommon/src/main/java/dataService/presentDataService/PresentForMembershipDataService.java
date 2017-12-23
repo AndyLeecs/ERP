@@ -1,5 +1,8 @@
 package dataService.presentDataService;
 
+import java.io.Serializable;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.List;
 
 import PO.PresentForMembershipPO;
@@ -11,10 +14,11 @@ import util.VIPGrade;
 * @date 2017年12月13日
 * @description
 */
-public interface PresentForMembershipDataService {
-	public String insert();
-	public DataRM deletePresentForMembership(String id);
-	public DataRM update(PresentForMembershipPO po);
-	public List<PresentForMembershipPO> getPresentForMembership();
-	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade);
-}
+public interface PresentForMembershipDataService extends Remote,Serializable {
+	public int insert() throws RemoteException;
+	public DataRM deletePresentForMembership(int id) throws RemoteException;
+	public DataRM update(PresentForMembershipPO po) throws RemoteException;
+	public List<PresentForMembershipPO> getPresentForMembership() throws RemoteException;
+	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade) throws RemoteException;
+
+} 

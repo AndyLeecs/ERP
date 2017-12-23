@@ -1,9 +1,9 @@
 package network.VIPRemoteHelper;
 
+import java.rmi.Remote;
+
 import dataService.VIPDataService.VIPDataService;
 import network.DataServiceHelper;
-
-import java.rmi.Remote;
 
 /**
  * Created by julia98 on 2017/12/13.

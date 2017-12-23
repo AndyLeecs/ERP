@@ -30,7 +30,7 @@ public class PresentPO implements Serializable{
 	 */	
 	List<GoodsInSalePO> presentList;
 
-	PresentState state;
+	PresentState state = PresentState.EDIT;
 public PresentState getState() {
 		return state;
 	}
@@ -68,13 +68,13 @@ public PresentState getState() {
 		this.presentList = presentList;
 	}
 
-	private int getId() {
+	public int getId() {
 		return id;
 	}
 
 
 
-	private void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

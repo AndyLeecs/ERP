@@ -1,12 +1,13 @@
 package util;
 
+import java.io.Serializable;
 
 /**     
 * @author 李安迪
 * @date 2017年11月9日
 * @description 单据状态
 */
-public enum State {
+public enum State implements Serializable{
 	IsDraft(0),
 	IsCommitted(1),
 	IsApproved(2),

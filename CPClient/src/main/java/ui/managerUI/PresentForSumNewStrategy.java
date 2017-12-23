@@ -28,7 +28,11 @@ public class PresentForSumNewStrategy implements Strategy{
 		
 		int id = service.getId();
 		
+		if(id>=0)
 		sumController.setId(id);
+		else{
+			sumController.showInformationDialog(DataRM.FAILED);
+		}
 
 		
 	    
@@ -38,7 +42,7 @@ public class PresentForSumNewStrategy implements Strategy{
 	 * @see ui.managerUI.Strategy#cancel(ui.managerUI.SinglePresentController)
 	 */
 	@Override
-	public DataRM cancel(SinglePresentController controller) {
+	public DataRM cancel(SinglePresentEditableController controller) {
 		// TODO Auto-generated method stub
 		PresentForSumController sumController = (PresentForSumController)controller;
 		

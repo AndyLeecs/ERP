@@ -7,6 +7,8 @@ import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 
+import VO.goodsVO.GoodsCategoryVO;
+
 
 public class NewGoodsORCategoryController {
     @FXML private AnchorPane root;
@@ -49,7 +51,8 @@ public class NewGoodsORCategoryController {
                 while(!currentNode.getParent().getValue().contains("根节点")){
                     tmp = currentNode.getParent().getValue().toString().substring(3) + "/" + tmp;
                 }
-                goodsBLService.newGoodsCategory(tmp);//这里路径要注意下是整个路径
+                GoodsCategoryVO goodsCategoryVO = new GoodsCategoryVO(tmp,"");
+                goodsBLService.newGoodsCategory(goodsCategoryVO);//这里路径包含当前分类和父分类
                 this.newName = name.getText();
                 list.add(type);
                 break;

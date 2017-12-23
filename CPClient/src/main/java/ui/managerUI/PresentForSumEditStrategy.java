@@ -51,14 +51,14 @@ public class PresentForSumEditStrategy implements Strategy{
 	    }
         
         //显示赠品列表
-	    
+	    controller.setPresentList(presentList);
 	}
 
 	/* (non-Javadoc)
 	 * @see ui.managerUI.Strategy#cancel(ui.managerUI.SinglePresentController)
 	 */
 	@Override
-	public DataRM cancel(SinglePresentController controller) {
+	public DataRM cancel(SinglePresentEditableController controller) {
 		// TODO Auto-generated method stub
 		return DataRM.SUCCESS;
 	}

@@ -1,11 +1,19 @@
 package bl.presentbl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
+import PO.GoodsInSalePO;
+import PO.PresentForSumPO;
+import VO.GoodsInSaleVO;
 import VO.presentVO.PresentForSumVO;
+import bl.utility.GoodsInSaleVoTransPo;
 import blservice.presentblservice.PresentForSumBLService;
+import dataService.presentDataService.PresentForSumDataService;
+import network.presentRemoteHelper.PresentForSumDataServiceHelper;
 import util.DataRM;
-import util.ResultMessage;
+import util.PresentState;
 
 /**     
 * @author 李安迪
@@ -14,13 +22,30 @@ import util.ResultMessage;
 */
 public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 
+	PresentForSumDataService presentForSumDataService = PresentForSumDataServiceHelper.getInstance().getPresentForSumDataService();
 	/* (non-Javadoc)
 	 * @see blservice.presentblservice.PresentForSumBLService#getAll()
 	 */
 	@Override
 	public List<PresentForSumVO> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		List<PresentForSumPO> polist;
+		List<PresentForSumVO> volist = new ArrayList<PresentForSumVO>();
+		try {
+			polist = presentForSumDataService.getPresentForSum();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			System.out.println("remote exception");
+			return null;
+	//		return volist;
+		}
+		
+		
+		for(PresentForSumPO po : polist){
+			volist.add(poToVo(po));
+		}
+		System.out.println("volist"+volist);
+		return volist;
 	}
 
 	/* (non-Javadoc)
@@ -29,7 +54,19 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 	@Override
 	public int getId() {
 		// TODO Auto-generated method stub
-		return 0;
+		try {
+			int id = 0;
+			id = presentForSumDataService.insert();
+			System.out.println(id);
+			return id;
+		//	return presentForSumDataService.insert();
+			
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			System.out.println("remote exception");
+			e.printStackTrace();
+			return -1;
+		}
 	}
 
 	/* (non-Javadoc)
@@ -38,7 +75,13 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 	@Override
 	public DataRM delete(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		try {
+			return presentForSumDataService.deletePresentForSum(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return DataRM.FAILED;
+		}
 	}
 
 	/* (non-Javadoc)
@@ -47,8 +90,39 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 	@Override
 	public DataRM save(PresentForSumVO vo) {
 		// TODO Auto-generated method stub
-		return null;
+		try {
+			return presentForSumDataService.update(voToPo(vo));
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return DataRM.FAILED;
+		}
 	}
 
+	private PresentForSumVO poToVo(PresentForSumPO po){
+		List<GoodsInSalePO> polist = po.getPresentList();
+		List<GoodsInSaleVO> volist = new ArrayList<GoodsInSaleVO>();
+		for(GoodsInSalePO i:polist){
+			volist.add(GoodsInSaleVoTransPo.GoodsInSalePoToVo(i));
+		}
+		
+		return new PresentForSumVO(po.getId(),po.getStartTime(), po.getFinishTime(), po.getSum(),volist, po.getSum());
+	}
+	
+	private PresentForSumPO voToPo(PresentForSumVO vo){
+		
+		
+		List<GoodsInSaleVO> volist = vo.getPresentList();
+		List<GoodsInSalePO> polist = new ArrayList<GoodsInSalePO>();
+		
+		if(volist == null)
+			polist = null;
+		else{
+		for(GoodsInSaleVO i:volist){
+			polist.add(GoodsInSaleVoTransPo.GoodsInSaleVoToPo(i));
+		}
+		}
+		return new PresentForSumPO(vo.getId(), vo.getStartTime(), vo.getFinishTime(), vo.getTotal(), polist, PresentState.SAVE, vo.getVoucher());
+	}
 
 }

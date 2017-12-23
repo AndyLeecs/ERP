@@ -1,16 +1,19 @@
 package ui.managerUI;
 
+import java.util.List;
+
+import VO.GoodsInSaleVO;
 
 /**     
 * @author 李安迪
-* @date 2017年12月14日
-* @description 单个赠送策略需要实现的接口
+* @date 2017年12月19日
+* @description 单个赠送策略的单独界面和cell界面都实现这个接口
 */
 public interface SinglePresentController {
-	void initialize();
-	void save();
-	boolean showConfirmDialog();
-	void back();
-//	void cancel();
-	void search();
+
+	/**
+	 * @param presentList
+	 */
+	void setPresentList(List<GoodsInSaleVO> presentList);
+
 }

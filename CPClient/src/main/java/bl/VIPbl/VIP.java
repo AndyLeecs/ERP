@@ -10,18 +10,32 @@ import VO.VIPVO.VIPVO;
 public class VIP {
 
     private VIPVO poToVO(VIPPO vipPO){
-        return vipPO == null ? null : new VIPVO(vipPO.getName()
+        return vipPO == null ? null : new VIPVO(vipPO.getId()
+                ,vipPO.getCategory()
+                ,vipPO.getGrade()
+                ,vipPO.getName()
                 ,vipPO.getPhoneNumber()
                 ,vipPO.getEmail()
                 ,vipPO.getAddress()
-                ,vipPO.getLocationID());
+                ,vipPO.getPostCode()
+                ,vipPO.getCollection()
+                ,vipPO.getCollectionLimit()
+                ,vipPO.getPayment()
+                ,vipPO.getClerk());
     }
 
     private VIPPO voToPO(VIPVO vipVO){
-        return vipVO == null ? null : new VIPPO(vipVO.getName()
+        return vipVO == null ? null : new VIPPO(vipVO.getId()
+                ,vipVO.getCategory()
+                ,vipVO.getGrade()
+                ,vipVO.getName()
                 ,vipVO.getPhoneNumber()
                 ,vipVO.getEmail()
                 ,vipVO.getAddress()
-                ,vipVO.getLocationID());
+                ,vipVO.getPostCode()
+                ,vipVO.getCollection()
+                ,vipVO.getCollectionLimit()
+                ,vipVO.getPayment()
+                ,vipVO.getClerk());
     }
 }

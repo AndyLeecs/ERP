@@ -12,8 +12,8 @@ import util.PresentState;
 * @description 赠送策略。特价包
 */
 public class PresentForSpecialPackagePO extends PresentPO implements Serializable{
-	public PresentForSpecialPackagePO(int id,Date startTime, Date finishTime, double sum, List<GoodsInSalePO> presentList,
-			PresentState state,double voucher,double priceReduction) {
+	public PresentForSpecialPackagePO(int id,Date startTime, Date finishTime, List<GoodsInSalePO> presentList,
+			PresentState state,double priceReduction) {
 		super(id,startTime, finishTime,presentList,state);
 		this.priceReduction = priceReduction;
 	}

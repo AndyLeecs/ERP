@@ -1,8 +1,9 @@
 package ui.stockmanUI;
 
+import java.io.IOException;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -10,9 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import mainUI.LoginWin;
-
-import java.io.IOException;
+import ui.mainUI.loginUI.LoginWin;
 
 /**
  * 
@@ -44,6 +43,7 @@ public class StockmanController {
 	
 	
 	@FXML public void init() {
+	
 	
 	}
 	
@@ -97,6 +97,8 @@ public class StockmanController {
      @FXML public void draft() {
     	 
      }
+    
+     
      @FXML 
      public void goodsManage() {
 		Platform.runLater(()->{

@@ -1,22 +1,13 @@
 package bl.goodsbl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import VO.goodsVO.CategoryVO;
-import VO.goodsVO.GoodsVO;
-import blservice.goodsblservice.GoodsBLService;
-
-/**     
+/**
 * @author 李安迪
 * @date 2017年10月22日
 * @description
 */
 /*public class GoodsBLService_Stub implements GoodsBLService{
 
-	//CategoryVO	
+	//GoodsCategoryVO
     String id;
     String name;
     String ParentID;
@@ -57,17 +48,17 @@ import blservice.goodsblservice.GoodsBLService;
 	}
 
 	/* (non-Javadoc)
-	 * @see goodsblservice.GoodsBLService#getChildCategory(VO.CategoryVO)
+	 * @see goodsblservice.GoodsBLService#getChildCategory(VO.GoodsCategoryVO)
 	 */
-	/*public List<CategoryVO> getChildCategory(CategoryVO vo) {
+	/*public List<GoodsCategoryVO> getChildCategory(GoodsCategoryVO vo) {
 		// TODO Auto-generated method stub
-		List<CategoryVO> l = new ArrayList<CategoryVO> ();
+		List<GoodsCategoryVO> l = new ArrayList<GoodsCategoryVO> ();
 		Map<String,String> child = new HashMap<String,String>();
 		child.put("00000", "小台灯");
 		Map<String,String> goods = null;
 		
 		
-		l.add(new CategoryVO("00001", "台灯", "00002", child,
+		l.add(new GoodsCategoryVO("00001", "台灯", "00002", child,
 				goods));
 		
 		return l;
@@ -83,33 +74,33 @@ import blservice.goodsblservice.GoodsBLService;
 	}
 
 	/* (non-Javadoc)
-	 * @see goodsblservice.GoodsBLService#addCategory(VO.CategoryVO)
+	 * @see goodsblservice.GoodsBLService#addCategory(VO.GoodsCategoryVO)
 	 */
-	/*public boolean addCategory(CategoryVO vo) {
+	/*public boolean addCategory(GoodsCategoryVO vo) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	/* (non-Javadoc)
-	 * @see goodsblservice.GoodsBLService#deleteCategory(VO.CategoryVO)
+	 * @see goodsblservice.GoodsBLService#deleteCategory(VO.GoodsCategoryVO)
 	 */
-	/*public boolean deleteCategory(CategoryVO vo) {
+	/*public boolean deleteCategory(GoodsCategoryVO vo) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	/* (non-Javadoc)
-	 * @see goodsblservice.GoodsBLService#modifyCategory(VO.CategoryVO)
+	 * @see goodsblservice.GoodsBLService#modifyCategory(VO.GoodsCategoryVO)
 	 */
-	/*public boolean modifyCategory(CategoryVO vo) {
+	/*public boolean modifyCategory(GoodsCategoryVO vo) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	/* (non-Javadoc)
-	 * @see goodsblservice.GoodsBLService#getNewGoodsNumber(VO.CategoryVO)
+	 * @see goodsblservice.GoodsBLService#getNewGoodsNumber(VO.GoodsCategoryVO)
 	 */
-	/*public String getNewGoodsNumber(CategoryVO vo) {
+	/*public String getNewGoodsNumber(GoodsCategoryVO vo) {
 		// TODO Auto-generated method stub
 		return "233";
 	}

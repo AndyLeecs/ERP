@@ -12,7 +12,10 @@ import VO.accountVO.InitAccountVO;
 import VO.accountVO.PaymentListVO;
 import VO.goodsVO.GoodsVO;
 import blservice.accountblservice.AccountBLService;
+import util.CommitListRM;
+import util.DeleteListRM;
 import util.ResultMessage;
+import util.SaveListRM;
 
 public class AccountBLService_Stub implements AccountBLService{
 	
@@ -133,33 +136,33 @@ public class AccountBLService_Stub implements AccountBLService{
 	}
 
 	@Override
-	public ResultMessage savePaymentList(PaymentListVO vo) {
-		return ResultMessage.SUCCESS;
+	public SaveListRM savePaymentList(PaymentListVO vo) {
+		return SaveListRM.SUCCESS;
 	}
 
 	@Override
-	public ResultMessage saveCollectionList(CollectionListVO vo) {
-		return ResultMessage.SUCCESS;
+	public SaveListRM saveCollectionList(CollectionListVO vo) {
+		return SaveListRM.SUCCESS;
 	}
 
 	@Override
-	public ResultMessage saveCashExpenseList(CashExpenseListVO vo) {
-		return ResultMessage.SUCCESS;
+	public SaveListRM saveCashExpenseList(CashExpenseListVO vo) {
+		return SaveListRM.SUCCESS;
 	}
 
 	@Override
-	public ResultMessage deletePaymentList(String id) {
-		return ResultMessage.SUCCESS;
+	public DeleteListRM deletePaymentList(String id) {
+		return DeleteListRM.SUCCESS;
 	}
 
 	@Override
-	public ResultMessage deleteCollectionList(String id) {
-		return ResultMessage.SUCCESS;
+	public DeleteListRM deleteCollectionList(String id) {
+		return  DeleteListRM.SUCCESS;
 	}
 
 	@Override
-	public ResultMessage deleteCashExpenseList(String id) {
-		return ResultMessage.SUCCESS;
+	public DeleteListRM deleteCashExpenseList(String id) {
+		return  DeleteListRM.SUCCESS;
 	}
 
 	@Override
@@ -170,18 +173,18 @@ public class AccountBLService_Stub implements AccountBLService{
 	}
 
 	@Override
-	public ResultMessage commitPaymentList(PaymentListVO vo) {
-		return ResultMessage.SUCCESS;
+	public CommitListRM commitPaymentList(PaymentListVO vo) {
+		return CommitListRM.SUCCESS;
 	}
 
 	@Override
-	public ResultMessage commitCollectionList(CollectionListVO vo) {
-		return ResultMessage.SUCCESS;
+	public CommitListRM commitCollectionList(CollectionListVO vo) {
+		return CommitListRM.SUCCESS;
 	}
 
 	@Override
-	public ResultMessage commitCashExpenseList(CashExpenseListVO vo) {
-		return ResultMessage.SUCCESS;
+	public CommitListRM commitCashExpenseList(CashExpenseListVO vo) {
+		return CommitListRM.SUCCESS;
 	}
 	
 	

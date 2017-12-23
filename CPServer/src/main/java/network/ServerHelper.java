@@ -9,11 +9,13 @@ import java.rmi.registry.LocateRegistry;
 import dataService.VIPDataService.VIPDataService;
 import dataService.goodsDataService.GoodsDataService;
 import dataService.presentDataService.PresentDataService;
+import dataService.presentDataService.PresentForSumDataService;
 import dataService.saleDataService.SaleDataService;
 import dataService.storeDataService.StoreDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentDataServiceImpl;
+import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleDataServiceImpl;
 import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
 
@@ -37,17 +39,20 @@ public class ServerHelper {
 			Naming.bind("PresentDataService", presentDataService);
 			System.out.println("bind succeeded!");
 			
-			SaleDataService saleDataService=new SaleDataServiceImpl();
-			Naming.bind("SaleDataService", saleDataService);
-			System.out.println("bind succeeded!");
-
-			GoodsDataService goodsDataService=new GoodsDataServiceImpl();
-			Naming.bind("goodsDateService",goodsDataService);
-			System.out.println("bind succeeded!");
-
-			VIPDataService vipDataService=new VIPDataServiceImpl();
-			Naming.bind("VIPDataService",vipDataService);
-			System.out.println("bind succeeded!");
+			PresentForSumDataService presentForSumDataService = new PresentForSumDataServiceImpl();
+			Naming.bind("PresentForSumDataService", presentForSumDataService);
+			
+//			SaleDataService saleDataService=new SaleDataServiceImpl();
+//			Naming.bind("SaleDataService", saleDataService);
+//			System.out.println("bind succeeded!");
+//
+//			GoodsDataService goodsDataService=new GoodsDataServiceImpl();
+//			Naming.bind("goodsDateService",goodsDataService);
+//			System.out.println("bind succeeded!");
+//
+//			VIPDataService vipDataService=new VIPDataServiceImpl();
+//			Naming.bind("VIPDataService",vipDataService);
+//			System.out.println("bind succeeded!");
 			//所有的service都要在这里绑定一下
 			
 		} catch (RemoteException e) {
@@ -59,7 +64,6 @@ public class ServerHelper {
 		} 
 	}
 	
-	//现在pom报错，无法测试
 	public static void main(String []args){
 		new ServerHelper();
 	}

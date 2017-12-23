@@ -84,4 +84,11 @@ public class GoodsVO {
 	    this.goodsName = newGoodsName;
     }
 
+	public void setGoodsID(String goodsID) {
+		this.goodsID = goodsID;
+	}
+
+    public void setGoodsCategory(String goodsCategory) {
+        this.goodsCategory = goodsCategory;
+    }
 }

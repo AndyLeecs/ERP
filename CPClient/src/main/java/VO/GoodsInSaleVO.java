@@ -27,7 +27,15 @@ public class GoodsInSaleVO {
 		this.amount = amount;
 	}
 
-
+	public String getId(){
+		return id;
+	}
+	public String getGoodsName(){
+		return goodsName;
+	}
+	public int getAmount(){
+		return amount;
+	}
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
