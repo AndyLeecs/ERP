@@ -61,6 +61,7 @@ public class AccountantWinController implements ParentController{
 
 	@FXML public void onOpenCollectionCommittedBtnClicked() {
 		//TODO
+		
 	}
 
 
