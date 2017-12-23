@@ -2,8 +2,8 @@ package VO.VIPVO;
 
 public class VIPVO {
       public String id; //编号
-      public VIPCategory category; //分类
-      VIPGrade grade; //级别
+      public String category; //分类
+      String grade; //级别
       String name; //姓名
       String phoneNumber;//电话号码
       String email; //电子邮箱
@@ -14,7 +14,7 @@ public class VIPVO {
       double payment; //应付
       String clerk; // 默认业务员
 
-      public VIPVO(String id, VIPCategory category, VIPGrade grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
+      public VIPVO(String id, String category, String grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
           this.id = id;
           this.category = category;
           this.grade = grade;
@@ -43,19 +43,19 @@ public class VIPVO {
         this.id = id;
     }
 
-    public VIPCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(VIPCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
-    public VIPGrade getGrade() {
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(VIPGrade grade) {
+    public void setGrade(String grade) {
         this.grade = grade;
     }
 

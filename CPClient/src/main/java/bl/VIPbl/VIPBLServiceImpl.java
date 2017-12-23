@@ -14,20 +14,44 @@ import java.util.List;
 public class VIPBLServiceImpl implements VIPBLService {
     VIPDataServiceHelper vipDataServiceHelper;
 
+    VIPVO vipvo1 = new VIPVO("00000001"
+            ,"分类1"
+            ,"级别1"
+            ,"姓名1"
+            ,"18800000000"
+            ,"123456789@qq.com"
+            ,"地址1"
+            ,"210046"
+            ,100
+            ,1000
+            ,100
+            ,"业务员1");
+
+    VIPVO vipvo2 = new VIPVO("00000002"
+            ,"分类2"
+            ,"级别2"
+            ,"姓名2"
+            ,"18800000001"
+            ,"223456789@qq.com"
+            ,"地址2"
+            ,"210046"
+            ,200
+            ,2000
+            ,200
+            ,"业务员1");
     /**
      * 前置条件	用户选择新建客户
      * 后置条件	系统显示客户电话和编号
      *
-     * @param telephone
      * @return VIPBLServiceImpl ID
      */
     @Override
-    public String newVIP(String telephone) {
+    public String newVIPID() {
         return null;
     }
 
     @Override
-    public VIPVO getVIP(String id) {
+    public VIPVO getVIP(String name) {
         return null;
     }
 
@@ -41,7 +65,10 @@ public class VIPBLServiceImpl implements VIPBLService {
      */
     @Override
     public ArrayList<VIPVO> findVIP(String info, String type) {
-        return null;
+        ArrayList<VIPVO> vipvos = new ArrayList<>();
+        vipvos.add(vipvo1);
+        vipvos.add(vipvo2);
+        return vipvos;
     }
 
     /**

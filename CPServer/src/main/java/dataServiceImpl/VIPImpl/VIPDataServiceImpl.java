@@ -39,11 +39,11 @@ public class VIPDataServiceImpl implements VIPDataService {
      * 前置条件	用户选择获取客户信息
      * 后置条件	系统显示客户信息
      *
-     * @param id
+     * @param name
      * @return
      */
     @Override
-    public VIPPO getVIP(String id) {
+    public VIPPO getVIP(String name) {
         return null;
     }
 

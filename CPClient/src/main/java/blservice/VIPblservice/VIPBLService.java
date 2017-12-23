@@ -22,10 +22,10 @@ public interface VIPBLService {
     /**
      * 前置条件	用户选择获取客户信息
      * 后置条件	系统显示客户信息
-     * @param id
+     * @param name
      * @return
      */
-	public VIPVO getVIP(String id);
+	public VIPVO getVIP(String name);
 
 	/**
 	 * 前置条件	用户输入信息模糊查找客户

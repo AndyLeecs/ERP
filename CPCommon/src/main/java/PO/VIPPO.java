@@ -8,8 +8,8 @@ import java.io.Serializable;
 public class VIPPO implements Serializable{
 
     public String id; //编号
-    public VIPCategory category; //分类
-    VIPGrade grade; //级别
+    public String category; //分类
+    String grade; //级别
     String name; //姓名
     String phoneNumber;//电话号码
     String email; //电子邮箱
@@ -24,7 +24,7 @@ public class VIPPO implements Serializable{
     public VIPPO() {
     }
 
-    public VIPPO(String id, VIPCategory category, VIPGrade grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
+    public VIPPO(String id, String category, String grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
         this.id = id;
         this.category = category;
         this.grade = grade;
@@ -47,19 +47,19 @@ public class VIPPO implements Serializable{
         this.id = id;
     }
 
-    public VIPCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(VIPCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
-    public VIPGrade getGrade() {
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(VIPGrade grade) {
+    public void setGrade(String grade) {
         this.grade = grade;
     }
 

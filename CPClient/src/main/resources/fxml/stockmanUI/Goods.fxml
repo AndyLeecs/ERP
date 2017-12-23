@@ -101,7 +101,7 @@
          </children></Pane>
       <Pane layoutX="216.0" layoutY="310.0" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
          <children>
-            <VBox fx:id="vBox" layoutX="7.0" layoutY="54.0" prefHeight="369.0" prefWidth="182.0" style="-fx-border-color: #ff7575; -fx-background-radius: 23; -fx-border-radius: 15;" />
+            <VBox fx:id="vBox" layoutX="7.0" layoutY="54.0" minHeight="369.0" minWidth="182.0" style="-fx-border-color: #ff7575; -fx-background-radius: 23; -fx-border-radius: 15;" />
             <Pane layoutX="8.0" layoutY="6.0" prefHeight="42.0" prefWidth="180.0" style="-fx-border-color: #ff7575; -fx-border-radius: 12;">
                <children>
                   <Label fx:id="presentLocation" layoutX="49.0" layoutY="13.0" prefHeight="17.0" prefWidth="113.0" />
