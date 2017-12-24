@@ -4,10 +4,13 @@ package bl.storebl;
 import VO.listVO.ListRM;
 import VO.storeVO.*;
 import blservice.storeblservice.StoreBLService;
-
+import util.StoreListType;
+import bl.goodsbl.GetGoodsInfo_Impl;
 import bl.storebl.DataGetter;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+import util.State;
 
 public class StoreblController implements StoreBLService{
     //控制器，负责分发库存类的职责
@@ -21,13 +24,13 @@ public class StoreblController implements StoreBLService{
     }
 
     @Override
-    public List<ReportListVO> openReportList(StoreListType lt, StateType st) {
+    public ArrayList<ReportListVO> openReportList(StoreListType lt, State st) {
         //查看库存报告单
         return getter.getReportList(lt,st);
     }
 
     @Override
-    public List<PresentListVO> openPresentList(StateType st) {
+    public ArrayList<PresentListVO> openPresentList(State st) {
         //查看赠送单
         return getter.getPresentList(st);
     }
@@ -47,14 +50,14 @@ public class StoreblController implements StoreBLService{
     public ListRM saveReportList( ReportListVO vo) {
     	//保存草稿单：
     	//再次说明：保存并提交这个操作需要手动调用保存并手动调用提交
-    	vo.statetype=StateType.DRAFT;
+    	vo.statetype=State.IsDraft;
         return setter.insertReportListVO(vo);
     }
 
 
     @Override
     public ListRM savePresentList(PresentListVO vo) {
-    	vo.statetype=StateType.DRAFT;
+    	vo.statetype=State.IsDraft;
         return setter.insertPresentListVO(vo);
     }
 
@@ -64,7 +67,7 @@ public class StoreblController implements StoreBLService{
             PresentListVO vo =getter.getPresentListVO(ID);
             PresentList pl=new PresentList(vo);
             pl.commit();
-            vo.statetype=StateType.ON_APPROVE;
+            vo.statetype=State.IsCommitted;
             setter.replacePresentListVO(vo);
             return ListRM.SUCCESS;
             
@@ -72,7 +75,7 @@ public class StoreblController implements StoreBLService{
     		ReportListVO vo=getter.getReportListVO(ID);
     		ReportList rl=new ReportList(vo);
     		rl.commit();
-    		vo.statetype=StateType.ON_APPROVE;
+    		vo.statetype=State.IsCommitted;
     		setter.replaceReportListVO(vo);
     		
     		return ListRM.SUCCESS;
@@ -85,11 +88,22 @@ public class StoreblController implements StoreBLService{
 
     @Override
     public storeCheckVO store_check(String begintime, String endTime) {
-        return null;
+    	storeCheckVO vo=new storeCheckVO(getter.getLogs(begintime, endTime));
+        return vo;
     }
 
     @Override
-    public storeInventoryVO store_inventory(String day) {
-        return null;
+    public storeInventoryVO store_inventory() {
+    	GetGoodsInfo getgoodsinfo=new GetGoodsInfo_Impl();
+    	storeInventoryVO vo=new storeInventoryVO();
+    	vo.storeVO_Arr=getter.getAllStoreVO();
+    	
+    	ArrayList<String> id=new ArrayList<String>();
+    	for(int i=0;i<vo.storeVO_Arr.size();i++){
+    		id.add(vo.storeVO_Arr.get(i).ID);
+    	}
+    	vo.Date=getgoodsinfo.getDate_byID(id);
+    	vo.Model=getgoodsinfo.getDate_byID(id);
+        return vo;
     }
 }

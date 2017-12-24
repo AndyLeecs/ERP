@@ -14,29 +14,24 @@ import javafx.scene.layout.AnchorPane;
 public class VIPInfoEditController {
     @FXML
     public AnchorPane root;
-    @FXML public TextField goodsName;
-    @FXML public TextField goodsType;
-    @FXML public TextField goodsID;
-    @FXML public TextField goodsCategory;
-    @FXML public TextField goodsStoreNum;
-    @FXML public TextField goodsSellPrice;
-    @FXML public TextField goodsBuyPrice;
-    @FXML public TextField recentBuyPrice;
-    @FXML public TextField recentSellPrice;
-    @FXML public Button saveGoodsInfoBtn;
+    @FXML public TextField vipName;
+    @FXML public TextField vipType;
+    @FXML public TextField vipID;
+    @FXML public TextField vipCategory;
+    @FXML public Button saveVIPInfoBtn;
 
     VIPBLService vipBLService = new VIPBLServiceImpl();
 
     @FXML
     public void initialize(){
-        goodsName.setEditable(true);
+        vipName.setEditable(true);
 
-        goodsName.setStyle("-fx-background-color: #FFECEC");
+        vipName.setStyle("-fx-background-color: #FFECEC");
     }
 
     @FXML
-    public void setSaveGoodsInfoBtn(){
-        goodsName.setStyle("-fx-background-color: transparent");
+    public void setSaveVIPInfoBtn(){
+        vipName.setStyle("-fx-background-color: transparent");
 
 /*        VIPVO vipVO = new VIPVO();
 

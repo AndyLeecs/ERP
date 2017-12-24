@@ -11,7 +11,7 @@
          <content>
             <VBox fx:id="goodsVBox" minHeight="435.0" minWidth="706.0">
                <children>
-                  <Pane fx:id="goodsPane" maxWidth="713.0" prefHeight="435.0" prefWidth="663.0" style="-fx-background-color: #FFB5B5;">
+                  <Pane fx:id="goodsPane" prefHeight="435.0" prefWidth="663.0" style="-fx-background-color: #FFB5B5;">
                      <children>
                         <Label layoutX="483.0" layoutY="21.0" />
                         <ImageView fx:id="editBtn" fitHeight="25.0" fitWidth="25.0" layoutX="631.0" layoutY="23.0" onMouseClicked="#setEditBtn">

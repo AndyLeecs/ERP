@@ -8,7 +8,7 @@ import network.DataServiceHelper;
 public class StoreDataServiceHelper implements DataServiceHelper{
 
 	private StoreDataService storeDataService;
-	private static final String serviceName = "StoreListDataService";
+	private static final String serviceName = "StoreDataService";
 	
 	private static StoreDataServiceHelper storeRemoteHelper = new StoreDataServiceHelper();
 	public static StoreDataServiceHelper getInstance(){

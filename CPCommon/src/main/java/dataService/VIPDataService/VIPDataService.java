@@ -28,18 +28,18 @@ public interface VIPDataService extends Remote,Serializable{
     /**
      * 前置条件	用户选择获取客户信息
      * 后置条件	系统显示客户信息
-     * @param id
+     * @param name
      * @return
      */
-    public VIPPO getVIP(String id);
+    public VIPPO getVIP(String name);
 
     /**
      * 前置条件	用户选择删除客户
      * 后置条件	系统更新客户列表
-     * @param id
+     * @param name
      * @return
      */
-    public ResultMessage deleteVIP(String id);
+    public ResultMessage deleteVIP(String name);
 
     /**
      * 前置条件	用户选择修改客户信息

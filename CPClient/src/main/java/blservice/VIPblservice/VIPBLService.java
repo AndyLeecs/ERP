@@ -14,7 +14,7 @@ import util.ResultMessage;
 public interface VIPBLService {
 	/**
 	 * 前置条件	用户选择新建客户
-     * 后置条件	系统显示客户电话和编号
+     * 后置条件	系统显示客户编号
 	 * @return VIP ID
 	 */
 	public String newVIPID();
@@ -22,10 +22,10 @@ public interface VIPBLService {
     /**
      * 前置条件	用户选择获取客户信息
      * 后置条件	系统显示客户信息
-     * @param id
+     * @param name
      * @return
      */
-	public VIPVO getVIP(String id);
+	public VIPVO getVIP(String name);
 
 	/**
 	 * 前置条件	用户输入信息模糊查找客户
@@ -39,10 +39,10 @@ public interface VIPBLService {
 	/**
 	 * 前置条件	用户选择删除客户
 	 * 后置条件	系统更新客户列表
-	 * @param id
+	 * @param name
 	 * @return
 	 */
-	public ResultMessage deleteVIP(String id);
+	public ResultMessage deleteVIP(String name);
 	
 	/**
 	 * 前置条件	用户选择修改客户信息
