@@ -91,7 +91,7 @@ public class lookAlarmListController {
             InfoLabel.setText("没有下一页了哦！");
         }else{
             alpointer+=2;
-            init();
+            initialize();
             InfoLabel.setText("");
         }
      }
@@ -103,7 +103,7 @@ public class lookAlarmListController {
               InfoLabel.setText("没有上一页了哦！");
           }else{
               alpointer-=2;
-              init();
+              initialize();
               InfoLabel.setText("");
           }
      }

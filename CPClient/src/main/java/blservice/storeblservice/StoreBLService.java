@@ -2,7 +2,7 @@ package blservice.storeblservice;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import PO.State;
+import util.State;
 import VO.listVO.ListRM;
 import VO.storeVO.*;
 import util.StoreListType;

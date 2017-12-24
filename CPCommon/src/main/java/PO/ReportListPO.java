@@ -1,5 +1,6 @@
 package PO;
 
+import util.State;
 import util.StoreListType;
 
 public class ReportListPO {

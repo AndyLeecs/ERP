@@ -1,6 +1,6 @@
 package VO.storeVO;
 
-import PO.State;
+import util.State;
 
 public class OverflowListVO {
     //库存报溢单值对象

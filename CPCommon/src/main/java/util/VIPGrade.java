@@ -7,10 +7,10 @@ import java.io.Serializable;
 * @date 2017年10月26日
 * @description 用户等级，分为5个等级
 */
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 public enum VIPGrade {
 	ONE,TWO,THREE,FOUR,FIVE;
-=======
+//=======*/
 public enum VIPGrade implements Serializable{
 
 	GradeOne(1),
@@ -28,5 +28,5 @@ public enum VIPGrade implements Serializable{
 	public int getGrade(){
 		return this.grade;
 	}
->>>>>>> 5cbce2e1e7b8c65f6d45b0d9724961e850fccd5a
+//>>>>>>> 5cbce2e1e7b8c65f6d45b0d9724961e850fccd5a
 }

@@ -1,4 +1,4 @@
-package mainUI;
+package main;
 
 import javafx.application.Application;
 import javafx.application.Platform;

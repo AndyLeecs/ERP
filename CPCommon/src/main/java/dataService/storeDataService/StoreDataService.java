@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import PO.AlarmListPO;
 import PO.PresentListPO;
 import PO.ReportListPO;
-import PO.State;
+import util.State;
 import PO.StoreLogPO;
 import PO.StorePO;
 import util.StoreListType;
