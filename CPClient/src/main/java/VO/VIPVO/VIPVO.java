@@ -13,8 +13,11 @@ public class VIPVO {
       double collectionLimit;//应收额度
       double payment; //应付
       String clerk; // 默认业务员
+    private String VIPID;
+    private String VIPName;
+    private String VIPCategory;
 
-      public VIPVO(String id, String category, String grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
+    public VIPVO(String id, String category, String grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
           this.id = id;
           this.category = category;
           this.grade = grade;
@@ -130,5 +133,4 @@ public class VIPVO {
     public void setClerk(String clerk) {
         this.clerk = clerk;
     }
-
 }

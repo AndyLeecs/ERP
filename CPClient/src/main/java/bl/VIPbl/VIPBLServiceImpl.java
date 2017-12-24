@@ -75,11 +75,11 @@ public class VIPBLServiceImpl implements VIPBLService {
      * 前置条件	用户选择删除客户
      * 后置条件	系统更新客户列表
      *
-     * @param id
+     * @param name
      * @return
      */
     @Override
-    public ResultMessage deleteVIP(String id) {
+    public ResultMessage deleteVIP(String name) {
         return null;
     }
 

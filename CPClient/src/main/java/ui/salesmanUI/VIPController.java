@@ -9,12 +9,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Created by julia98 on 2017/12/22.
@@ -24,6 +26,9 @@ public class VIPController {
     @FXML public Button vipNameSearchBtn;
     @FXML public Button vipPhoneNumberSearchBtn;
     @FXML public Button vipIDSearchBtn;
+    @FXML public Pane notice;
+    @FXML public Label noticeLabel;
+    @FXML public TextField name;
 
     @FXML public VBox vBox;
     @FXML public VBox vipVBox;
@@ -50,6 +55,33 @@ public class VIPController {
     VIPBLService vipBLService = new VIPBLServiceImpl();
     protected TreeView<String> treeView;
     private TreeItem<String> rootTreeItem;
+    Stack<TreeItem<String>> stack = new Stack<>();//存放目录的引用 便于增减改名会员
+
+    //初始化节点的方法
+    private void setNode(TreeItem<String> node) {
+        TreeItem<String> son1 = new TreeItem<>("分类：" + "供货商");
+        son1.setGraphic(new ImageView("img/folderIcon.png"));
+        node.getChildren().add(son1);
+
+        TreeItem<String> son2 = new TreeItem<>("分类：" + "经销商");
+        son2.setGraphic(new ImageView("img/folderIcon.png"));
+        node.getChildren().add(son2);
+
+
+        ArrayList<VIPVO> vips1 = (ArrayList<VIPVO>) vipBLService.findVIP("供货商", "vipCategory");
+        if (vips1 != null) {
+            for (int i = 0; i < vips1.size(); i++) {
+                node.getChildren().add(new TreeItem<>("商品：" + vips1.get(i).getName()));
+            }
+        }
+
+        ArrayList<VIPVO> vips2 = (ArrayList<VIPVO>) vipBLService.findVIP("经销商", "vipCategory");
+        if (vips2 != null) {
+            for (int i = 0; i < vips2.size(); i++) {
+                node.getChildren().add(new TreeItem<>("商品：" + vips2.get(i).getName()));
+            }
+        }
+    }
 
     public void setTextFieldUnable(){
         vipID.setEditable(false);
@@ -69,25 +101,35 @@ public class VIPController {
     public void initialize(){
         initTreeView();
         setTextFieldUnable();
+        notice.setVisible(false);
     }
     //初始TreeView 加载所有商品和分类
     private void initTreeView() {
 
         presentLocation.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> System.out.println("标签被点击"));
         //在ScrollPane上配置并加入TreeView
-        rootTreeItem = new TreeItem<String>("分类：根目录");
+        rootTreeItem = new TreeItem<String>("根目录");
         rootTreeItem.setExpanded(true);
 
         //setNode(rootTreeItem);
         //以下为demo
 
-        for (int i = 0; i < 5; i++) {
-            TreeItem<String> item = new TreeItem<String>("分类：" + i);
-            item.setGraphic(new ImageView("img/folderIcon.png"));
-            rootTreeItem.getChildren().add(item);
+        TreeItem<String> item1 = new TreeItem<String>("分类：" + "供货商");
+        item1.setGraphic(new ImageView("img/folderIcon.png"));
+        rootTreeItem.getChildren().add(item1);
 
-            TreeItem<String> item1 = new TreeItem<String>("会员：" + i);
-            item.getChildren().add(item1);
+        TreeItem<String> item2 = new TreeItem<String>("分类：" + "经销商");
+        item2.setGraphic(new ImageView("img/folderIcon.png"));
+        rootTreeItem.getChildren().add(item2);
+
+        for (int i = 0; i < 5; i++) {
+            TreeItem<String> item3 = new TreeItem<String>("会员：" + i);
+            item1.getChildren().add(item3);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            TreeItem<String> item3 = new TreeItem<String>("会员：" + i);
+            item2.getChildren().add(item3);
         }
 
         //以上为demo
@@ -107,6 +149,82 @@ public class VIPController {
                     }
                 }
         );
+
+        //设置右键菜单
+        ContextMenu menu = new ContextMenu();
+        menu.setStyle("-fx-background-color: #FF7575");
+
+        MenuItem newVIPBar = new MenuItem("新建会员");
+        newVIPBar.setGraphic(new ImageView("img/add.png"));
+
+        newVIPBar.setOnAction(e->{
+
+            //通过命名来区分商品项和分类项 除此之外有别的方法则可用别的方法替换 （比如分类有文件夹图片区分）
+            //命名格式： 商品：小台灯 分类：彩灯
+            //判断当前节点是否可添加商品
+            TreeItem<String> selectItem = (TreeItem<String>) treeView.getSelectionModel().getSelectedItem();
+
+            System.out.println("选中项文字 " + selectItem.getValue().toString());
+            System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
+
+            if((selectItem.getValue().toString().contains("分类") && selectItem.isLeaf()) || (selectItem.getValue().toString().contains("分类") && selectItem.getChildren().toString().contains("会员"))) {
+
+                TreeItem<String> vipTreeItem = new TreeItem<>("会员："+rootTreeItem.getChildren().size());
+                selectItem.getChildren().add(vipTreeItem);
+                stack.push(vipTreeItem);
+                noticeLabel.setText("新建会员");
+                notice.setVisible(true);
+            }else{
+                presentLocation.setText("此节点下不可添加会员");
+                System.out.println("此节点下不可添加会员");
+            }
+
+        });
+
+        MenuItem deleteBar = new MenuItem("删除");
+        deleteBar.setGraphic(new ImageView("img/delete.png"));
+        deleteBar.setOnAction(e ->{
+            TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
+            selectItem.getParent().getChildren().remove(selectItem);
+
+            System.out.println("判断删除的是会员还是分类：" + selectItem.getValue().toString().substring(0,2));
+
+            switch (selectItem.getValue().toString().substring(0,2)){
+                case "会员":
+                    System.out.println("删除会员所属分类：" + selectItem.getParent().getValue().toString().substring(3)+ " 删除会员名称：" + selectItem.getValue().toString().substring(3));
+                    vipBLService.deleteVIP(selectItem.getValue().toString().substring(3));
+                    break;
+
+                case "分类":
+                    System.out.println("删除分类名称：" + selectItem.getValue().toString().substring(3));
+                    break;
+            }
+        });
+
+        MenuItem refactorBar = new MenuItem("改名");
+        refactorBar.setGraphic(new ImageView("img/survey.png"));
+        refactorBar.setOnAction(e->{
+
+            //判断当前节点是否可添加商品
+            TreeItem<String> selectItem = (TreeItem<String>) treeView.getSelectionModel().getSelectedItem();
+
+            System.out.println("选中项文字 " + selectItem.getValue().toString());
+            System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
+
+            if(selectItem.getValue().toString().substring(0,2) == "会员") {
+                stack.push(selectItem);
+                noticeLabel.setText("修改名称");
+                notice.setVisible(true);
+            }else{
+                presentLocation.setText("此节点下不可修改名称");
+                System.out.println("此节点下不可修改名称");
+            }
+        });
+
+        menu.getItems().add(newVIPBar);
+        menu.getItems().add(refactorBar);
+        menu.getItems().add(deleteBar);
+        treeView.setContextMenu(menu);
     }
 
         /**
@@ -162,6 +280,69 @@ public class VIPController {
     public void onVIPPhoneNumberSearchBtnClicked(){
         searchField.setPromptText("模糊查找" + vipPhoneNumberSearchBtn.getText());
         this.vipTypeSearch = vipPhoneNumberSearchBtn.getText();
+    }
+
+    VIPVO tmpVO = new VIPVO("00000001"
+            ,"分类1"
+            ,"级别1"
+            ,"姓名1"
+            ,"18800000000"
+            ,"123456789@qq.com"
+            ,"地址1"
+            ,"210046"
+            ,100
+            ,1000
+            ,100
+            ,"业务员1");
+
+    /**
+     * 新建分类，新建商品，修改名称出现的提示框
+     * 其中stack存放TreeItem的引用
+     * 此方法只是修改对应目录名称，新建工作已在上一层做好
+     */
+    @FXML
+    public void onSureBtnClicked(){
+        String tmp = "";
+        switch (noticeLabel.getText()){
+            case "新建会员":
+                tmp = "会员：";
+                stack.peek().setValue(tmp + "" + name.getText());
+                String id = vipBLService.newVIPID();
+                tmpVO.setId(id);
+                tmpVO.setName(name.getText());
+                tmpVO.setCategory(stack.peek().getParent().getValue().toString().substring(0,3));
+                vipBLService.initAndSaveVIP(tmpVO);
+                break;
+
+        case "修改名称":
+                tmp = stack.peek().getValue().toString();
+                System.out.println("原始名称为："+ tmp);
+                System.out.println("修改后为：" + tmp.substring(0,3));
+                stack.peek().setValue(tmp.substring(0,3) + name.getText());
+                if(tmp.substring(0,3).contains("分类")){
+                    System.out.println("原来分类名：" + tmp.substring(3) + "新分类名：" + name.getText());
+
+                }
+
+                //惰性删除ui上该分类 对于数据库内数据不改动
+                if(tmp.substring(0,3).contains("会员")){
+                    System.out.println("原来会员名VIP：" + tmp.substring(3) + "新会员名：" + name.getText());
+                    VIPVO vipVO = vipBLService.getVIP(tmp.substring(3));
+                    vipVO.setName(name.getText());
+                    vipBLService.modifyVIP(vipVO);
+                }
+                break;
+        }
+        notice.setVisible(false);
+        name.clear();
+        stack.pop();
+    }
+
+    @FXML
+    public void onCancelBtnClicked(){
+        notice.setVisible(false);
+        name.clear();
+        stack.pop();
     }
 
     private void newVIPPane(VIPVO vipvo){
@@ -222,7 +403,7 @@ public class VIPController {
         vipAddressLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipAddressLabel,3,3);
 
-        Label vipEmailLabel = new Label("地址");
+        Label vipEmailLabel = new Label("邮编");
         vipEmailLabel.setPrefSize(123,39);
         vipEmailLabel.setFont(Font.font(13));
         vipEmailLabel.setTextFill(Color.gray(0,0.63));
@@ -352,9 +533,34 @@ public class VIPController {
         clerk.setPrefSize(123,27);
         gridPane.add(clerk,1,8);
 
-        Label tmpLabel = new Label();
-        tmpLabel.setPrefSize(123,39);
-        gridPane.addColumn(2,tmpLabel,tmpLabel,tmpLabel,tmpLabel,tmpLabel,tmpLabel,tmpLabel,tmpLabel);
+        Label tmpLabel0 = new Label();
+        tmpLabel0.setPrefSize(123,39);
+        
+        Label tmpLabel1 = new Label();
+        tmpLabel1.setPrefSize(123,39);
+        
+        Label tmpLabel2 = new Label();
+        tmpLabel2.setPrefSize(123,39);
+        
+        Label tmpLabel3 = new Label();
+        tmpLabel3.setPrefSize(123,39);
+        
+        Label tmpLabel4 = new Label();
+        tmpLabel4.setPrefSize(123,39);
+        
+        Label tmpLabel5 = new Label();
+        tmpLabel5.setPrefSize(123,39);
+        
+        Label tmpLabel6 = new Label();
+        tmpLabel6.setPrefSize(123,39);
+        
+        Label tmpLabel7 = new Label();
+        tmpLabel7.setPrefSize(123,39);
+        
+        Label tmpLabel8 = new Label();
+        tmpLabel8.setPrefSize(123,39);
+  
+        gridPane.addColumn(2,tmpLabel0,tmpLabel1,tmpLabel2,tmpLabel3,tmpLabel4,tmpLabel5,tmpLabel6,tmpLabel7,tmpLabel8);
 
         System.out.println("new Pane init Success!");
     }

@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.salesmanUI.VIPController">
    <children>
       <fx:include source="Sale.fxml" />
@@ -118,5 +114,18 @@
                    </children>
                </Pane>
            </children></Pane>
+
+       <Pane fx:id="notice" layoutX="363.0" layoutY="243.0" prefHeight="317.0" prefWidth="471.0" style="-fx-background-color: #fffafe; -fx-background-radius: 15; -fx-border-color: #ffefef; -fx-border-radius: 15; -fx-border-width: 3;" visible="false">
+           <children>
+               <Button fx:id="sureBtn" layoutX="145.0" layoutY="205.0" mnemonicParsing="false" onAction="#onSureBtnClicked" prefHeight="27.0" prefWidth="63.0" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-background-color: FF7575;" text="确认" textFill="WHITE" />
+               <TextField fx:id="name" layoutX="153.0" layoutY="122.0" promptText="请输入名称" />
+               <Label fx:id="noticeLabel" layoutX="180.0" layoutY="48.0" prefHeight="37.0" prefWidth="113.0" text="新建" textAlignment="CENTER" textFill="#682d1e">
+                   <font>
+                       <Font size="24.0" />
+                   </font>
+               </Label>
+               <Button fx:id="cancelBtn" layoutX="264.0" layoutY="205.0" mnemonicParsing="false" onAction="#onCancelBtnClicked" prefHeight="27.0" prefWidth="63.0" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-background-color: FF7575;" text="取消" textFill="WHITE" />
+           </children>
+       </Pane>
    </children>
 </AnchorPane>
