@@ -1,4 +1,4 @@
-package bl.storebl;
+/*package bl.storebl;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -8,7 +8,7 @@ import VO.ListVO;
 import VO.listVO.ListRM;
 import VO.storeVO.*;
 import blservice.storeblservice.StoreBLService;
-import util.ListType;
+import util.ListType;*/
 
 /**     
 * @author 李安迪

@@ -1,6 +1,7 @@
 package VO.storeVO;
 
-import java.util.List;
+import java.util.ArrayList;
+import PO.State;
 
 /**     
 * @author 李安迪
@@ -8,18 +9,28 @@ import java.util.List;
 * @description
 */
 public class PresentListVO {
-   public List<String >id ; //赠品ID
+   public ArrayList<String >id ; //赠品ID
    public String listID;  //单据编号
-   public List<Integer > num;//赠品数量
-   public List<String >name ;//赠品名字
+   public ArrayList<Integer > num;//赠品数量
+   public ArrayList<String >name ;//赠品名字
    public String VIPname ; // 赠送的对象
-   public StateType statetype;
+   public State statetype;
    
-   public PresentListVO(String listID,List<String > id,List<Integer > num, List<String >name,String VIPname){
+   public String time;//操作时间
+   public String operator;//操作员
+   
+   public PresentListVO(String listID,ArrayList<String > id,ArrayList<Integer > num, ArrayList<String >name,String VIPname){
 	   this.listID=listID;
 	   this.id=id;
 	   this.name=name;
 	   this.num=num;
 	   this.VIPname=VIPname;
+   }
+   
+   public void setOperator(String s){
+	   operator=s;
+   }
+   public void setTime(String s){
+	   time=s;
    }
 }

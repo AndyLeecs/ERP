@@ -76,7 +76,14 @@ public class StockmanController {
      }
      
      @FXML public void lookAlarmList() {
-    	 
+    	 Platform.runLater(()->{
+ 			try {
+ 				new lookAlarmListWin();
+ 				root.getScene().getWindow().hide();
+ 			} catch (IOException e) {
+ 				e.printStackTrace();
+ 			}
+ 		});
      }
      
      @FXML public void message() {

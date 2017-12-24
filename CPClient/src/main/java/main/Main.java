@@ -1,4 +1,4 @@
-package main;
+package mainUI;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -21,9 +21,12 @@ public class Main extends Application {
 					//new LoginWin();
 					//new ui.saleUI.SaleWin();
 					//new ui.stockmanUI.StockmanWin();
+					new ui.managerUI.LookListWin();
+					//new ui.stockmanUI.StockmanWin();
 					//new ui.managerUI.ManagerWin();
 					//new ui.stockmanUI.GoodsWin();
 					new ui.salesmanUI.VIPWin();
+
 
 				} catch (Exception e) {
 					e.printStackTrace();

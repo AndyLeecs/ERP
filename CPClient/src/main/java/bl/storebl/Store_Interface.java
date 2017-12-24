@@ -2,6 +2,7 @@ package bl.storebl;
 
 import VO.storeVO.StoreVO;
 import VO.storeVO.storeRM;
+import util.GreatListType;
 
 import java.util.List;
 
@@ -11,9 +12,9 @@ public interface Store_Interface {
 
     public storeRM addStoreItem(StoreVO vo);
 
-    public storeRM plusNumber(String id,int adder);
+    public storeRM plusNumber(String id,int adder,GreatListType type,double price);
 
-    public storeRM minusNumber(String id,int subber);
+    public storeRM minusNumber(String id,int subber,GreatListType type);
 
     /**
      * @param id  要出库的商品ID的列表
