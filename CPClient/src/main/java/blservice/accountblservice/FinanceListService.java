@@ -2,7 +2,6 @@ package blservice.accountblservice;
 
 import java.util.List;
 
-import VO.VIPVO.VIPVO;
 import VO.accountVO.AccountVO;
 import VO.accountVO.CashExpenseListVO;
 import VO.accountVO.CollectionListVO;

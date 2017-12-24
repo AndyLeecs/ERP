@@ -21,7 +21,7 @@ public class AccountBLService_Stub implements AccountBLService{
 	
 	protected static final GoodsVO goodsvo = null;
 	protected static final VIPVO vipvo = null;
-	protected static final AccountVO accountvo = null;
+	protected static final AccountVO accountvo = new AccountVO("老张",10000);
 	protected static final CollectionListVO collectionListvo = null;
 	protected static final PaymentListVO paymentListvo = null;
 	protected static final CashExpenseListVO cashExpenseListvo = null;

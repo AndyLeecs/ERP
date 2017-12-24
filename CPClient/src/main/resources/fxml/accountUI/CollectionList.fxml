@@ -39,25 +39,35 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Button layoutX="348.0" layoutY="17.0" mnemonicParsing="false" text="选择" />
-                  <TextField layoutX="136.0" layoutY="16.0" />
+                  <Button layoutX="128.0" layoutY="17.0" mnemonicParsing="false" text="选择" />
+                  <Label fx:id="VIPName" layoutX="210.0" layoutY="16.0" prefHeight="27.0" prefWidth="92.0" text="客户名字">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="VIPID" layoutX="322.0" layoutY="16.0" prefHeight="27.0" prefWidth="92.0" text="客户编号">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
                   <Label layoutX="479.0" layoutY="18.0" prefHeight="23.0" prefWidth="78.0" text="银行账户" textFill="#938c8c">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
+                  <ComboBox fx:id="AccountComboBox" layoutX="580.0" layoutY="16.0" onAction="#OnAccountSelected" prefHeight="27.0" prefWidth="167.0" />
                </children>
             </Pane>
-            <ScrollPane layoutX="27.0" layoutY="90.0" prefHeight="287.0" prefWidth="748.0">
+            <ScrollPane hbarPolicy="NEVER" layoutX="87.0" layoutY="90.0" prefHeight="287.0" prefWidth="697.0">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="746.0">
-                     <children>
-                        <TableView fx:id="TransferListTableView" opacity="0.68" prefHeight="287.0" prefWidth="746.0" style="-fx-background-color: transparent;">
+                <AnchorPane prefHeight="276.0" prefWidth="696.0">
+                	<children>
+                        <TableView fx:id="TransferListTableView" layoutX="2.0" opacity="0.68" prefHeight="276.0" prefWidth="693.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0">
                            <columns>
                               <TableColumn fx:id="account" prefWidth="292.0" text="银行账户" />
-                              <TableColumn fx:id="amount" prefWidth="204.0" text="转账金额" />
+                              <TableColumn fx:id="amount" prefWidth="180.0" text="转账金额" />
                               <TableColumn fx:id="note" prefWidth="170.0" text="备注" />
-                              <TableColumn fx:id="deleted" prefWidth="79.0" text="删除" />
+                              <TableColumn fx:id="deleted" prefWidth="50.0" text="删除" />
                            </columns>
                         </TableView>
                      </children>
@@ -66,11 +76,11 @@
             </ScrollPane>
             <Pane layoutY="379.0" prefHeight="97.0" prefWidth="921.0">
                <children>
-                  <Button layoutX="518.0" layoutY="35.0" mnemonicParsing="false" text="保存">
+                  <Button layoutX="518.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#onSaveBtnClicked" text="保存">
                      <font>
                         <Font size="18.0" />
                      </font></Button>
-                  <Button layoutX="738.0" layoutY="35.0" mnemonicParsing="false" text="提交">
+                  <Button layoutX="738.0" layoutY="35.0" mnemonicParsing="false" onAction="#onCommitBtnClicked" text="提交">
                      <font>
                         <Font size="18.0" />
                      </font></Button>
@@ -79,7 +89,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="293.0" layoutY="39.0" prefHeight="26.0" prefWidth="105.0" text="\$1000" textFill="#e12121">
+                  <Label fx:id="totalAmount" layoutX="293.0" layoutY="39.0" prefHeight="26.0" prefWidth="105.0" text="0" textFill="#e12121">
                      <font>
                         <Font size="20.0" />
                      </font>

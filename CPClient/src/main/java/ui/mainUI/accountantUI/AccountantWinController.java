@@ -9,7 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import ui.commonUI.ListWinController;
+import ui.accountUI.FinanceListWinController;
 import ui.commonUI.ParentController;
 import ui.mainUI.loginUI.User;
 
@@ -30,10 +30,10 @@ public class AccountantWinController implements ParentController{
 	
 	@FXML BorderPane centerPane;
 	
+	FinanceListService financeListService = AccountBLFactory.getFinanceListService();
 	
 	private static final String FORM_CSS_PATH = "/css/forms/Forms.css";
 	
-	FinanceListService financeListService = AccountBLFactory.getFinanceListService();
 	
 
 	@FXML public void onNewCollectionListBtnClicked() {
@@ -61,6 +61,7 @@ public class AccountantWinController implements ParentController{
 
 	@FXML public void onOpenCollectionCommittedBtnClicked() {
 		//TODO
+		
 		
 	}
 
@@ -105,6 +106,7 @@ public class AccountantWinController implements ParentController{
 	@Override
 	public void CloseSonWin() {
 		centerPane.getChildren().removeAll();		
+		financeListService = AccountBLFactory.getFinanceListService(); 	//刷新一下service
 	}
 	
 	
@@ -115,21 +117,24 @@ public class AccountantWinController implements ParentController{
 			return;
 		}
 		
-		AnchorPane ListRoot;
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-			ListRoot = loader.load();
-			ListWinController ListWinController = loader.getController();
+			loader.load();
+
+			FinanceListWinController ListWinController = loader.getController();
 			ListWinController.setParentController(this);
 			ListWinController.setListID(id);
 			ListWinController.setOperator(User.getInstance().getUserName());
+			ListWinController.setService(financeListService);
+			ListWinController.init();
 			
+			AnchorPane ListRoot;
+			ListRoot = loader.getRoot();
 			if(cssPath != null)
 				ListRoot.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
-			
 			centerPane.getChildren().removeAll();
 			centerPane.getChildren().add(ListRoot);
-
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -16,7 +16,7 @@ public class VIPVO {
       double payment  ; //应付
       String executive; // 默认业务员
 
-      double collecton_limit;
+      double collecton_limit;		//TODO 这个拼错了，注意改一下
 
       public VIPVO(String name,String phoneNumber,String email,String address,String locationID){
           this.name=name;

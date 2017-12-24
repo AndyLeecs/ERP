@@ -5,9 +5,10 @@ import javafx.scene.control.Label;
 
 public class ListWinController implements SonController{
 	ParentController parentController;
+	
 
-	@FXML Label listID;
-	@FXML Label operator;
+	@FXML protected Label listID;
+	@FXML protected Label operator;
 	
 
 	public void setParentController(ParentController controller){
@@ -21,4 +22,6 @@ public class ListWinController implements SonController{
 	public void setOperator(String name){
 		operator.setText(name);
 	}
+	
+	public void init(){}
 }
