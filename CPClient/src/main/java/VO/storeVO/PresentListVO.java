@@ -1,7 +1,7 @@
 package VO.storeVO;
 
 import java.util.ArrayList;
-import PO.State;
+import util.State;
 
 /**     
 * @author 李安迪

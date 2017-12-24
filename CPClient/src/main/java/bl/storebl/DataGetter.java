@@ -3,6 +3,7 @@ package bl.storebl;
 import VO.storeVO.*;
 import dataService.storeDataService.StoreDataService;
 import dataService.storeDataService.StoreDataService_Stub;
+import network.storeRemoteHelper.StoreDataServiceHelper;
 import util.StoreListType;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 import PO.AlarmListPO;
 import PO.PresentListPO;
 import PO.ReportListPO;
-import PO.State;
+import util.State;
 import PO.StoreLogPO;
 import PO.StorePO;
 
@@ -25,6 +26,11 @@ public class DataGetter {
     *  王瑞华 161250143 2017年12月2日
      */
 	StoreDataService sds=new StoreDataService_Stub();
+	/*
+	 * RMI操作
+	StoreDataServiceHelper helper=StoreDataServiceHelper.getInstance();
+	StoreDataService sds1=helper.getStoreDataService();
+	*/
      LinkedList<AlarmListVO> getAllAlarmList(){
          LinkedList<AlarmListVO> voList=new LinkedList<AlarmListVO>();
          LinkedList<AlarmListPO> poList=sds.getAlarmListPO();

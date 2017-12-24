@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import bl.presentbl.PresentForSumBLServiceImpl;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
+import network.storeRemoteHelper.StoreDataServiceHelper;
 
 /**
  * 连接服务器的类，在这里将每个DataService与对应的RemoteHelper进行连接
@@ -25,7 +26,7 @@ public class ServerConnector {
 	}
 	
 	private void addServices(){
-//		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
+		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());

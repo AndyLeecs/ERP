@@ -10,7 +10,7 @@ import bl.storebl.DataGetter;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import PO.State;
+import util.State;
 
 public class StoreblController implements StoreBLService{
     //控制器，负责分发库存类的职责

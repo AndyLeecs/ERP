@@ -15,7 +15,7 @@ import dataService.storeDataService.StoreDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentDataServiceImpl;
-import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
+//import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleDataServiceImpl;
 import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
 
@@ -39,8 +39,9 @@ public class ServerHelper {
 			Naming.bind("PresentDataService", presentDataService);
 			System.out.println("bind succeeded!");
 			
-			PresentForSumDataService presentForSumDataService = new PresentForSumDataServiceImpl();
-			Naming.bind("PresentForSumDataService", presentForSumDataService);
+	//		PresentForSumDataService presentForSumDataService = new PresentForSumDataServiceImpl();
+	//		Naming.bind("PresentForSumDataService", presentForSumDataService); 
+			//这一段有红叉，所以先注释掉，请解决了再撤销
 			
 //			SaleDataService saleDataService=new SaleDataServiceImpl();
 //			Naming.bind("SaleDataService", saleDataService);

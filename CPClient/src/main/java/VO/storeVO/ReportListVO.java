@@ -1,6 +1,6 @@
 package VO.storeVO;
 
-import PO.State;
+import util.State;
 import util.StoreListType;
 
 public class ReportListVO {
