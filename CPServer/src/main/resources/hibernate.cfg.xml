@@ -39,5 +39,10 @@
         <mapping resource="GoodsPO.hbm.xml" />
 		<mapping resource="GoodsCategoryPO.hbm.xml"/>
         <mapping resource="VIPPO.hbm.xml" />
+
+		<mapping resource="StorePO.hbm.xml" />
+		<mapping resource="StoreLogPO.hbm.xml" />
+		<mapping resource="PresentListPO.hbm.xml" />
+		<mapping resource="AlarmListPO.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

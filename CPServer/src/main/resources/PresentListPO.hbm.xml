@@ -2,21 +2,17 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="PO.VIPPO">
+    <class name="PO.PresentListPO">
         <id name="autoId">
             <generator class="native"></generator>
         </id>
-        <property name="address"/>
-        <property name="category"/>
-        <property name="collection"/>
-        <property name="collectionLimit"/>
-        <property name="email"/>
-        <property name="clerk"/>
-        <property name="grade"/>
         <property name="id"/>
-        <property name="postCode"/>
+        <property name="num"/>
         <property name="name"/>
-        <property name="payment"/>
-        <property name="phoneNumber"/>
+        <property name="VIPname"/>
+        <property name="statetype"/>
+        <property name="time"/>
+        <property name="operator"/>
+
     </class>
 </hibernate-mapping>
