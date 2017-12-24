@@ -16,7 +16,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
@@ -31,9 +30,9 @@ public class CollectionListWinController extends FinanceListWinController{
 	
 	@FXML TableView<TransferItem> TransferListTableView;
 	@FXML TableColumn<TransferItem,String> account;
-	@FXML TableColumn<TransferItem,Double> amount;
+	@FXML TableColumn<TransferItem,String> amount;
 	@FXML TableColumn<TransferItem,String> note;
-	@FXML TableColumn<TransferItem,Boolean> deleted;
+	@FXML TableColumn<TransferItem,String> deleted;
 
 	@FXML ComboBox<String> AccountComboBox;
 
@@ -61,78 +60,86 @@ public class CollectionListWinController extends FinanceListWinController{
 	@FXML 
 	public void OnAccountSelected() {
 		String newAccount = AccountComboBox.getValue();
+		if(newAccount == null || newAccount.equals("")) return;
 		Iterator<TransferItem> iterator = transferItem.iterator();
 		while(iterator.hasNext()){
 			TransferItem item = iterator.next();
 			if(item.getAccount().equals(newAccount))	//此账户已经选择过了
 				return;
 		}
-		transferItem.add(new TransferItem(newAccount,0,"",false));
+		transferItem.add(new TransferItem(newAccount,0,""));
 	}
 	
 	
 	private void initTableView(){
-		account.setCellValueFactory(new PropertyValueFactory<TransferItem, String>("account"));
-//		account.setCellFactory(TextFieldTableCell.forTableColumn());	//account不可在TableView中修改
 		
-		amount.setCellValueFactory(new PropertyValueFactory<TransferItem, Double>("amount"));
-		//TODO 这个不能用。double没有默认的回调函数，暂时不知道怎么搞		//实在不行就把类型改为String
-//		amount.setCellFactory(
-//				new Callback<TableColumn<TransferItem, Double>, TableCell<TransferItem, Double>>() {
-//	                 public TableCell<TransferItem, Double> call(TableColumn<TransferItem, Double> p) {
-//	                    return new TableCell<TransferItem, Double>();		
-//	                 }
-//	             });
-//		amount.setEditable(true);
+		initAccountTableColumn();
+		initAmountTableColumn();
+		initNoteTableColumn();
+		initDeleteTableColumn();
+		
+		TransferListTableView.setItems(transferItem);
+	    TransferListTableView.setEditable(true);
+		
+	    //TODO 测试用，以后删掉
+	    transferItem.add(new TransferItem("1 ", 100,"dv"));
+	    transferItem.add(new TransferItem("老张", 100,"dv"));
+	    transferItem.add(new TransferItem("我 ", 100,"dv"));
+
+
+	}
+	
+	private void initAccountTableColumn(){
+		//account不可在TableView中修改
+		account.setCellValueFactory(new PropertyValueFactory<TransferItem, String>("account"));
+	}
+	
+	private void initAmountTableColumn(){
+		amount.setCellValueFactory(new PropertyValueFactory<TransferItem, String>("amount"));
+		amount.setCellFactory(TextFieldTableCell.forTableColumn());
 		amount.setOnEditCommit(
-			    new EventHandler<CellEditEvent<TransferItem, Double>>() {
+			    new EventHandler<CellEditEvent<TransferItem, String>>() {
 			        @Override
-			        public void handle(CellEditEvent<TransferItem, Double> t) {
-			            ((TransferItem) t.getTableView().getItems().get(
-			                t.getTablePosition().getRow())
-			                ).setAmount(t.getNewValue());
+			        public void handle(CellEditEvent<TransferItem, String> t) {
+			        	TransferItem item = (TransferItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+				        item.setAmount(t.getNewValue());	
+			            double total = transferItem.stream()
+			            						   .map(e -> Double.parseDouble(e.getAmount()))
+			            						   .reduce(0.0, (a,b)->a+b);			//真的爽(其实从效率上讲不见得比用iterator好)
+			            totalAmount.setText(String.valueOf(total));
 			        }
 			    }
 			);
-		
+	}
+	
+	private void initNoteTableColumn(){
 		note.setCellValueFactory(new PropertyValueFactory<TransferItem, String>("note"));
 		note.setCellFactory(TextFieldTableCell.forTableColumn());
 		note.setOnEditCommit(
 		    new EventHandler<CellEditEvent<TransferItem, String>>() {
 		        @Override
 		        public void handle(CellEditEvent<TransferItem, String> t) {
-		            ((TransferItem) t.getTableView().getItems().get(
-		                t.getTablePosition().getRow())
-		                ).setNote(t.getNewValue());
+		            TransferItem item = (TransferItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+		            item.setNote(t.getNewValue());	
 		        }
 		    }
 		);
-		
-		//TODO 想实现点一下能删除，不知道怎么做
-		deleted.setCellValueFactory(new PropertyValueFactory<TransferItem, Boolean>("deleted"));
-		deleted.setCellFactory(CheckBoxTableCell.forTableColumn(deleted));
+	}
+	
+	private void initDeleteTableColumn(){
+		deleted.setCellValueFactory(new PropertyValueFactory<TransferItem, String>("deleted"));
+		deleted.setCellFactory(TextFieldTableCell.forTableColumn());
 		deleted.setOnEditStart(
-			    new EventHandler<CellEditEvent<TransferItem, Boolean>>() {
+			    new EventHandler<CellEditEvent<TransferItem, String>>() {
 			        @Override
-			        public void handle(CellEditEvent<TransferItem, Boolean> t) {
-			        	System.out.println("in");		//没有效果
-			            transferItem.remove((TransferItem) t.getTableView().getItems().get(
-			                t.getTablePosition().getRow())
-			                );
-			            System.out.println("remove");
+			        public void handle(CellEditEvent<TransferItem, String> t) {
+			        	TransferItem item = (TransferItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+				        double total = Double.parseDouble(totalAmount.getText()) - Double.parseDouble(item.getAmount());
+				        totalAmount.setText(String.valueOf(total));
+			            transferItem.remove(item);
 			        }
 			    }
 			);
-		
-		TransferListTableView.setItems(transferItem);
-		
-	    TransferListTableView.setEditable(true);
-		
-	    transferItem.add(new TransferItem("1 ", 100,"dv",false));
-	    transferItem.add(new TransferItem("老张", 100,"dv",false));
-	    transferItem.add(new TransferItem("我 ", 100,"dv",false));
-
-
 	}
 	
 	private void initComboBox(){

@@ -55,7 +55,7 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="AccountComboBox" layoutX="580.0" layoutY="16.0" onAction="#OnAccountSelected" prefHeight="27.0" prefWidth="167.0" />
+                  <ComboBox fx:id="AccountComboBox" layoutX="580.0" layoutY="16.0" onMouseClicked="#OnAccountSelected" prefHeight="27.0" prefWidth="167.0" />
                </children>
             </Pane>
             <ScrollPane hbarPolicy="NEVER" layoutX="87.0" layoutY="90.0" prefHeight="287.0" prefWidth="697.0">

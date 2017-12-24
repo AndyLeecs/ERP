@@ -1,21 +1,23 @@
 package ui.accountUI;
 
 import VO.accountVO.TransferItemVO;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class TransferItem{
 	private final SimpleStringProperty account;
-	private final SimpleDoubleProperty amount;
+	private final SimpleStringProperty amount;
 	private final SimpleStringProperty note;
-	private final SimpleBooleanProperty deleted;
+	private final SimpleStringProperty deleted;		//删除按钮所在列
 	
-	public TransferItem(String account, double amount, String note, boolean deleted){
+	public TransferItem(String account, String amount, String note){
 		this.account = new SimpleStringProperty(account);
-		this.amount = new SimpleDoubleProperty(amount);
+		this.amount = new SimpleStringProperty(amount);
 		this.note = new SimpleStringProperty(note);
-		this.deleted = new SimpleBooleanProperty(deleted);
+		this.deleted = new SimpleStringProperty("delete");
+	}
+	
+	public TransferItem(String account, double amount, String note){
+		this(account, String.valueOf(amount), note);
 	}
 
 	public String getAccount() {
@@ -26,11 +28,11 @@ public class TransferItem{
 		this.account.set(account);
 	}
 	
-	public double getAmount(){
+	public String getAmount(){
 		return amount.get();
 	}
 	
-	public void setAmount(double amount){
+	public void setAmount(String amount){
 		this.amount.set(amount);
 	}
 	
@@ -42,16 +44,16 @@ public class TransferItem{
 		this.note.set(note);
 	}
 	
-	public Boolean getDeleted(){
+	public String getDeleted(){
 		return deleted.get();
 	}
 	
-	public void setDeleted(boolean deleted){
+	public void setDeleted(String deleted){
 		this.deleted.set(deleted);
 	}
 	
 	public TransferItemVO toVO(){
-		return new TransferItemVO(account.get(),amount.get(),note.get());
+		return new TransferItemVO(account.get(),Double.parseDouble(amount.get()),note.get());
 	}
 	
 }
