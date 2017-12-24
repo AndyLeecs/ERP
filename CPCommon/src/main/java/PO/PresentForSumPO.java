@@ -1,6 +1,7 @@
 package PO;
 
 import java.io.Serializable;
+import java.rmi.Remote;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,15 @@ import util.PresentState;
 * @description 赠送策略，针对总价
 */
 public class PresentForSumPO extends PresentPO implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5139108421227021591L;
+	/**
+	 * 
+	 */
+
 	public PresentForSumPO(){}
 	public PresentForSumPO(int id,Date startTime, Date finishTime, double sum, List<GoodsInSalePO> presentList,
 			PresentState state,double voucher) {
