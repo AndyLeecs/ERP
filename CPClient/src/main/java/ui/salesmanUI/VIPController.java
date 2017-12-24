@@ -166,6 +166,7 @@ public class VIPController {
 
     private void newVIPPane(VIPVO vipvo){
         AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setPrefSize(703,480);
         anchorPane.setStyle("-fx-background-color: #FFB5B5");
         vipVBox.getChildren().add(anchorPane);
         GridPane gridPane = new GridPane();
@@ -180,55 +181,55 @@ public class VIPController {
         greenLabel.setStyle("-fx-background-color:  #4F9D9D");
         gridPane.add(greenLabel,0,0);
 
-        Label vipInfoLabel = new Label("客户信息");
+        Label vipInfoLabel = new Label("   客户信息");
         vipInfoLabel.setPrefSize(98,23);
         vipInfoLabel.setFont(Font.font(18));
         gridPane.add(vipInfoLabel,0,0);
 
         Label vipNameLabel = new Label("姓名");
-        vipNameLabel.setPrefSize(52,17);
+        vipNameLabel.setPrefSize(123,39);
         vipNameLabel.setFont(Font.font(13));
         vipNameLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipNameLabel,0,1);
 
         Label vipIDLabel = new Label("编号");
-        vipIDLabel.setPrefSize(52,17);
+        vipIDLabel.setPrefSize(123,39);
         vipIDLabel.setFont(Font.font(13));
         vipIDLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipIDLabel,3,1);
 
         Label vipCategoryLabel = new Label("分类");
-        vipCategoryLabel.setPrefSize(52,17);
+        vipCategoryLabel.setPrefSize(123,39);
         vipCategoryLabel.setFont(Font.font(13));
         vipCategoryLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipCategoryLabel,0,2);
 
         Label vipGradeLabel = new Label("分类");
-        vipGradeLabel.setPrefSize(52,17);
+        vipGradeLabel.setPrefSize(123,39);
         vipGradeLabel.setFont(Font.font(13));
         vipGradeLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipGradeLabel,3,2);
 
         Label vipPhoneNumberLabel = new Label("电话");
-        vipPhoneNumberLabel.setPrefSize(52,17);
+        vipPhoneNumberLabel.setPrefSize(123,39);
         vipPhoneNumberLabel.setFont(Font.font(13));
         vipPhoneNumberLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipPhoneNumberLabel,0,3);
 
         Label vipAddressLabel = new Label("地址");
-        vipAddressLabel.setPrefSize(52,17);
+        vipAddressLabel.setPrefSize(123,39);
         vipAddressLabel.setFont(Font.font(13));
         vipAddressLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipAddressLabel,3,3);
 
         Label vipEmailLabel = new Label("地址");
-        vipEmailLabel.setPrefSize(52,17);
+        vipEmailLabel.setPrefSize(123,39);
         vipEmailLabel.setFont(Font.font(13));
         vipEmailLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipEmailLabel,0,4);
 
         Label vipPostCodeLabel = new Label("邮编");
-        vipPostCodeLabel.setPrefSize(52,17);
+        vipPostCodeLabel.setPrefSize(123,39);
         vipPostCodeLabel.setFont(Font.font(13));
         vipPostCodeLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipPostCodeLabel,3,4);
@@ -238,31 +239,31 @@ public class VIPController {
         greenLabel2.setStyle("-fx-background-color:  #4F9D9D");
         gridPane.add(greenLabel2,0,6);
 
-        Label vipCollectPaymentLabel = new Label("应收应付");
+        Label vipCollectPaymentLabel = new Label("   应收应付");
         vipCollectPaymentLabel.setPrefSize(98,23);
         vipCollectPaymentLabel.setFont(Font.font(18));
         gridPane.add(vipCollectPaymentLabel,0,6);
 
         Label vipCollectLimitLabel = new Label("应收额度");
-        vipCollectLimitLabel.setPrefSize(52,17);
+        vipCollectLimitLabel.setPrefSize(123,39);
         vipCollectLimitLabel.setFont(Font.font(13));
         vipCollectLimitLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipCollectLimitLabel,0,7);
 
         Label vipCollectLabel = new Label("应收");
-        vipCollectLabel.setPrefSize(52,17);
+        vipCollectLabel.setPrefSize(123,39);
         vipCollectLabel.setFont(Font.font(13));
         vipCollectLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipCollectLabel,3,7);
 
         Label vipClerkLabel = new Label("业务员");
-        vipClerkLabel.setPrefSize(52,17);
+        vipClerkLabel.setPrefSize(123,39);
         vipClerkLabel.setFont(Font.font(13));
         vipClerkLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipClerkLabel,0,8);
 
         Label vipPaymentLabel = new Label("业务员");
-        vipPaymentLabel.setPrefSize(52,17);
+        vipPaymentLabel.setPrefSize(123,39);
         vipPaymentLabel.setFont(Font.font(13));
         vipPaymentLabel.setTextFill(Color.gray(0,0.63));
         gridPane.add(vipPaymentLabel,3,8);
@@ -270,7 +271,6 @@ public class VIPController {
         ImageView edit = new ImageView("img/edit.png");
         edit.setFitHeight(25);
         edit.setFitWidth(25);
-        gridPane.add(edit,4,0);
         edit.setOnMousePressed(event -> {
             try {
                 new VIPInfoEditWin();
@@ -278,54 +278,83 @@ public class VIPController {
                 e.printStackTrace();
             }
         });
+        gridPane.add(edit,4,0);
 
         TextField vipID = new TextField();
         vipID.setText(vipvo.getId());
+        vipID.setEditable(false);
+        vipID.setPrefSize(123,27);
         gridPane.add(vipID,4,1);
 
         TextField vipCategory = new TextField();
         vipCategory.setText(vipvo.getCategory());
+        vipCategory.setEditable(false);
+        vipCategory.setPrefSize(123,27);
         gridPane.add(vipCategory,1,2);
 
         TextField vipGrade = new TextField();
         vipGrade.setText(vipvo.getGrade());
+        vipGrade.setEditable(false);
+        vipGrade.setPrefSize(123,27);
         gridPane.add(vipGrade,4,2);
 
         TextField vipName = new TextField();
         vipName.setText(vipvo.getName());
+        vipName.setEditable(false);
+        vipName.setPrefSize(123,27);;
         gridPane.add(vipName,1,1);
 
         TextField vipPhoneNumber = new TextField();
         vipPhoneNumber.setText(vipvo.getPhoneNumber());
+        vipPhoneNumber.setEditable(false);
+        vipPhoneNumber.setPrefSize(123,27);;
         gridPane.add(vipPhoneNumber,1,3);
 
         TextField vipEmail = new TextField();
         vipEmail.setText(vipvo.getEmail());
+        vipEmail.setEditable(false);
+        vipEmail.setPrefSize(123,27);
         gridPane.add(vipEmail,1,4);
 
         TextField vipAddress = new TextField();
         vipAddress.setText(vipvo.getAddress());
+        vipAddress.setEditable(false);
+        vipAddress.setPrefSize(123,27);;
         gridPane.add(vipAddress,4,3);
 
         TextField vipPostCode = new TextField();
         vipPostCode.setText(vipvo.getPostCode());
+        vipPostCode.setEditable(false);
+        vipPostCode.setPrefSize(123,27);
         gridPane.add(vipPostCode,4,4);
 
         TextField collection = new TextField();
         collection.setText(""+vipvo.getCollection());
+        collection.setEditable(false);
+        collection.setPrefSize(123,27);
         gridPane.add(collection,4,7);
 
         TextField collectionLimit = new TextField();
         collectionLimit.setText(""+vipvo.getCollectionLimit());
+        collectionLimit.setEditable(false);
+        collectionLimit.setPrefSize(123,27);
         gridPane.add(collectionLimit,1,7);
 
         TextField payment = new TextField();
         payment.setText(""+vipvo.getPayment());
+        payment.setEditable(false);
+        payment.setPrefSize(123,27);;
         gridPane.add(payment,4,8);
 
         TextField clerk = new TextField();
         clerk.setText(vipvo.getClerk());
+        clerk.setEditable(false);
+        clerk.setPrefSize(123,27);
         gridPane.add(clerk,1,8);
+
+        Label tmpLabel = new Label();
+        tmpLabel.setPrefSize(123,39);
+        gridPane.addColumn(2,tmpLabel,tmpLabel,tmpLabel,tmpLabel,tmpLabel,tmpLabel,tmpLabel,tmpLabel);
 
         System.out.println("new Pane init Success!");
     }

@@ -46,7 +46,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="45.0" prefWidth="145.0" text="默认业务员" textAlignment="CENTER" textFill="#938c8c" GridPane.rowIndex="8" />
+                              <Label prefHeight="45.0" prefWidth="145.0" text="业务员" textAlignment="CENTER" textFill="#938c8c" GridPane.rowIndex="8" />
                               <Label prefHeight="45.0" prefWidth="145.0" text="分类" textFill="#938c8c" GridPane.rowIndex="2" />
                               <Label prefHeight="45.0" prefWidth="145.0" text="地址" textAlignment="CENTER" textFill="#938c8c" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                               <TextField fx:id="vipName" opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -110,7 +110,7 @@
 
        <Pane layoutX="216.0" layoutY="310.0" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
            <children>
-               <VBox fx:id="vBox" layoutX="7.0" layoutY="54.0" minHeight="369.0" minWidth="182.0" style="-fx-border-color: #ff7575; -fx-background-radius: 23; -fx-border-radius: 15;" />
+               <VBox fx:id="vBox" layoutX="7.0" layoutY="54.0" prefHeight="369.0" prefWidth="182.0" style="-fx-border-color: #ff7575; -fx-background-radius: 23; -fx-border-radius: 15;" />
                <Pane layoutX="8.0" layoutY="6.0" prefHeight="42.0" prefWidth="180.0" style="-fx-border-color: #ff7575; -fx-border-radius: 12;">
                    <children>
                        <Label fx:id="presentLocation" layoutX="40.0" layoutY="10.0" prefHeight="20.0" prefWidth="132.0" />

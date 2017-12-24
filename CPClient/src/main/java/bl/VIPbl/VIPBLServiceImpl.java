@@ -52,7 +52,7 @@ public class VIPBLServiceImpl implements VIPBLService {
 
     @Override
     public VIPVO getVIP(String name) {
-        return null;
+        return vipvo1;
     }
 
     /**
