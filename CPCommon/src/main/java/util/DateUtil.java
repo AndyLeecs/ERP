@@ -1,5 +1,8 @@
 package util;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**     
@@ -28,14 +31,40 @@ public class DateUtil {
 	
 	@SuppressWarnings("deprecation")
 	public static int getDay(Date date){
-		return date.getDate()-1;
+		return date.getDate();
 		
 	}
 	@SuppressWarnings("deprecation")
 	public static Date getDate(int year,int month,int day){
 		
-		return new Date(year-1900,month-1,day+1);
+		return new Date(year-1900,month-1,day);
 	}	
+	
+	/**
+	 * 
+	 * @param listID XXX-yyyyMMdd-XXX格式的字符串
+	 * @return 对应的Date对象
+	 */
+	public static Date getDateFromListID(String listID){
+		String date = listID.substring(listID.indexOf('-')+1, listID.lastIndexOf('-'));
+		return getDate(date);
+	}
+	
+	/**
+	 * 
+	 * @param date yyyyMMdd格式的字符串
+	 * @return 对应的Date类型的对象
+	 */
+	public static Date getDate(String date){
+		DateFormat df = new SimpleDateFormat("yyyyMMdd");
+		try {
+			return df.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	/**
 	 * 
 	 * @param startTime

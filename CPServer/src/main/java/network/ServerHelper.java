@@ -41,9 +41,9 @@ public class ServerHelper {
 			Naming.bind("StoreDataService", storeDataService);
 			System.out.println("bind succeeded!");
 
-			ListDataService listDataService=new ListDataServiceImpl();
-			Naming.bind("ListDataService",listDataService);
-			System.out.println("表单类数据库绑定成功！");
+//			ListDataService listDataService=new ListDataServiceImpl();
+//			Naming.bind("ListDataService",listDataService);
+//			System.out.println("表单类数据库绑定成功！");
 
 
 			PresentDataService presentDataService=new PresentDataServiceImpl();

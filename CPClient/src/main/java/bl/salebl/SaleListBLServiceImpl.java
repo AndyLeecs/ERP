@@ -3,18 +3,15 @@ package bl.salebl;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.GoodsInSalePO;
 import PO.SaleListPO;
 import PO.SalesmanItemPO;
 import PO.SalesmanListPO;
-import VO.GoodsInSaleVO;
 import VO.saleVO.SaleListVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
-import bl.utility.GoodsInSaleVoTransPo;
 import dataService.saleDataService.SaleUniDataService;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
-import util.State;
+import util.DateUtil;
 
 /**     
 * @author 李安迪
@@ -41,7 +38,7 @@ public class SaleListBLServiceImpl extends SaleUniBLServiceImpl{
 			polist.add(itemVoToPo(i));
 		}
 		}
-		return new SaleListPO(svo.getId(),svo.getState(),svo.getDay(),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher());
+		return new SaleListPO(svo.getId(),svo.getState(),DateUtil.getDateFromListID(svo.getId()),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher());
 	}
 
 
@@ -63,7 +60,7 @@ public class SaleListBLServiceImpl extends SaleUniBLServiceImpl{
 		}
 		}
 		//留了一个空项，看以后是存操作员的id还是名称
-		return new SaleListVO(spo.getId(), spo.getOperator(), null, spo.getState(), spo.getDay(),spo.getMemberID(), spo.getMemberName(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher());
+		return new SaleListVO(spo.getId(), spo.getOperator(), null, spo.getState(),spo.getMemberID(), spo.getMemberName(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher());
 	}
 
 	

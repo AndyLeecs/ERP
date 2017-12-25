@@ -1,6 +1,7 @@
 package VO.accountVO;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import util.State;
@@ -19,6 +20,7 @@ public class CollectionListVO extends FinanceListVO{
 		this.transferItem = new ArrayList<TransferItemVO>(transferItem);
 		setTotalAmount(totalAmount);
 		setState(state);
+//		setDay(day);
 	}
 	
 	

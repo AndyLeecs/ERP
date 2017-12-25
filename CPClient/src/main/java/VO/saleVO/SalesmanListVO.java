@@ -1,6 +1,5 @@
 package VO.saleVO;
 
-import java.util.Date;
 import java.util.List;
 
 import VO.ListVO;
@@ -82,10 +81,10 @@ public abstract class SalesmanListVO extends ListVO{
 	public void setSum(double sum) {
 		this.sum = sum;
 	}
-	public SalesmanListVO(String id, String operator, String operatorId, State state, Date day,String memberID,
+	public SalesmanListVO(String id, String operator, String operatorId, State state,String memberID,
 			String memberName, String realOperator, String warehouse, String notes, List<SalesmanItemVO> saleListItems,
 			double sum) {
-		super(id, operator, operatorId, state,day);
+		super(id, operator, operatorId, state);
 		this.memberID = memberID;
 		this.memberName = memberName;
 		this.realOperator = realOperator;

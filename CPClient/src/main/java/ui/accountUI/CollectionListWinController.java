@@ -73,6 +73,7 @@ public class CollectionListWinController extends FinanceListWinController{
 				return;
 		}
 		transferItem.add(new TransferItem(newAccount,0,""));
+		System.out.println("in");
 	}
 	
 	

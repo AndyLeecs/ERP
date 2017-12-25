@@ -1,6 +1,5 @@
 package VO.saleVO;
 
-import java.util.Date;
 import java.util.List;
 
 import util.State;
@@ -25,10 +24,10 @@ public class StockListVO extends SalesmanListVO{
 	 * @param saleListItems
 	 * @param sum
 	 */
-	public StockListVO(String id, String operator, String operatorId, State state, Date day, String memberID,
+	public StockListVO(String id, String operator, String operatorId, State state, String memberID,
 			String memberName, String realOperator, String warehouse, String notes, List<SalesmanItemVO> saleListItems,
 			double sum) {
-		super(id, operator, operatorId, state, day, memberID, memberName, realOperator, warehouse, notes, saleListItems, sum);
+		super(id, operator, operatorId, state, memberID, memberName, realOperator, warehouse, notes, saleListItems, sum);
 		// TODO Auto-generated constructor stub
 	}
 
