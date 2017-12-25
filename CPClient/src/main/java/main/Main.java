@@ -21,11 +21,12 @@ public class Main extends Application {
 					//new LoginWin();
 					//new ui.saleUI.SaleWin();
 					//new ui.stockmanUI.StockmanWin();
-					new ui.managerUI.LookListWin();
+//					new ui.managerUI.LookListWin();
+					new ui.mainUI.accountantUI.AccountantWin();
 					//new ui.stockmanUI.StockmanWin();
-					//new ui.managerUI.ManagerWin();
+//					new ui.managerUI.ManagerWin();
 					//new ui.stockmanUI.GoodsWin();
-					new ui.salesmanUI.VIPWin();
+//					new ui.salesmanUI.VIPWin();
 
 
 				} catch (Exception e) {

@@ -28,6 +28,8 @@ public class PresentForSumEditStrategy implements Strategy{
 		
 		PresentForSumController sumController = (PresentForSumController)controller;
 		PresentForSumVO sumVO = (PresentForSumVO)vo;
+		
+		System.out.println(sumVO.getId());
 		//解析vo
 		sumController.setId(sumVO.getId());
 		Date startTime = sumVO.getStartTime();

@@ -132,9 +132,12 @@ public class test{
 			
 //			System.out.println(presentForSumDataService);
 //			System.out.println(presentForSumDataService.deletePresentForSum(45));
-			polist = presentForSumDataService.getPresentForSum();
+//			presentForSumDataService.getPresentForSum();
+			System.out.println(presentForSumDataService.getPresentForSum());
+//			presentForSumDataService.foo();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
 			System.out.println("remote exception");
 	//		return volist;
 		}

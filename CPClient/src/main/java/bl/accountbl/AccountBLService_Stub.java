@@ -10,24 +10,32 @@ import VO.accountVO.CollectionListVO;
 import VO.accountVO.FinanceListVO;
 import VO.accountVO.InitAccountVO;
 import VO.accountVO.PaymentListVO;
+import VO.accountVO.TransferItemVO;
 import VO.goodsVO.GoodsVO;
 import blservice.accountblservice.AccountBLService;
 import util.CommitListRM;
 import util.DeleteListRM;
 import util.ResultMessage;
 import util.SaveListRM;
+import util.State;
 
 public class AccountBLService_Stub implements AccountBLService{
 	
 	protected static final GoodsVO goodsvo = null;
 	protected static final VIPVO vipvo = null;
-	protected static final AccountVO accountvo = null;
-	protected static final CollectionListVO collectionListvo = null;
+	protected static final AccountVO accountvo = new AccountVO("老张",10000);
+	protected static final TransferItemVO transferItemvo = new TransferItemVO("老张",1000,"首付款");
+	protected static final List<TransferItemVO> transferItemvoList = new ArrayList<TransferItemVO>();
+	static {
+		transferItemvoList.add(transferItemvo);
+	}
+	protected static final CollectionListVO collectionListvo = 
+			new CollectionListVO("SKD-20171111-00011","007","大师","小王",transferItemvoList,1000,State.IsApproved);
 	protected static final PaymentListVO paymentListvo = null;
 	protected static final CashExpenseListVO cashExpenseListvo = null;
-	protected static final String collectionListID = "FKD-20171111-00011";
+	protected static final String collectionListID = "SKD-20171111-00011";
 	protected static final String paymentListID = "FKD-20171111-00011";
-	protected static final String cashExpenseListID = "FKD-20171111-00011";
+	protected static final String cashExpenseListID = "XJFYD-20171111-00011";
 	
 	@Override
 	public List<GoodsVO> getGoodsInfo() {
@@ -97,7 +105,7 @@ public class AccountBLService_Stub implements AccountBLService{
 	@Override
 	public List<CollectionListVO> openCollectionDraft() {
 		List<CollectionListVO> list = new ArrayList<CollectionListVO>();
-		list.add(collectionListvo);
+		list.add(collectionListvo);		
 		return list;
 	}
 
@@ -127,7 +135,17 @@ public class AccountBLService_Stub implements AccountBLService{
 
 	@Override
 	public List<CollectionListVO> openCollectionComitted() {
-		return null;
+		List<CollectionListVO> list = new ArrayList<CollectionListVO>();
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+
+		System.out.println(list.size());
+		return list;
 	}
 
 	@Override

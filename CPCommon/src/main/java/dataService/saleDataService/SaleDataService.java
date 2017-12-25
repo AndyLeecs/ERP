@@ -38,6 +38,4 @@ public interface SaleDataService extends Remote,Serializable{
 	public DataRM deleteStockReturnList(String id);
 	public DataRM update(StockReturnListPO po);
 	public List<StockReturnListPO> getStockReturnList(State state);
-
-
 }

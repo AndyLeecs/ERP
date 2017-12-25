@@ -8,14 +8,20 @@ import java.rmi.registry.LocateRegistry;
 
 import dataService.VIPDataService.VIPDataService;
 import dataService.goodsDataService.GoodsDataService;
+import dataService.listDataService.ListDataService;
 import dataService.presentDataService.PresentDataService;
+import dataService.presentDataService.PresentForMembershipDataService;
+import dataService.presentDataService.PresentForSpecialPackageDataService;
 import dataService.presentDataService.PresentForSumDataService;
 import dataService.saleDataService.SaleDataService;
 import dataService.storeDataService.StoreDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
+import dataServiceImpl.listImpl.ListDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentDataServiceImpl;
-//import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
+import dataServiceImpl.presentImpl.PresentForMembershipDataServiceImpl;
+import dataServiceImpl.presentImpl.PresentForSpecialPackageDataServiceImpl;
+import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleDataServiceImpl;
 import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
 
@@ -35,14 +41,23 @@ public class ServerHelper {
 			Naming.bind("StoreDataService", storeDataService);
 			System.out.println("bind succeeded!");
 
+			ListDataService listDataService=new ListDataServiceImpl();
+			Naming.bind("ListDataService",listDataService);
+			System.out.println("表单类数据库绑定成功！");
+
+
 			PresentDataService presentDataService=new PresentDataServiceImpl();
 			Naming.bind("PresentDataService", presentDataService);
 			System.out.println("bind succeeded!");
 			
-	//		PresentForSumDataService presentForSumDataService = new PresentForSumDataServiceImpl();
-	//		Naming.bind("PresentForSumDataService", presentForSumDataService); 
-			//这一段有红叉，所以先注释掉，请解决了再撤销
+			PresentForSumDataService presentForSumDataService = new PresentForSumDataServiceImpl();
+			Naming.bind("PresentForSumDataService", presentForSumDataService);
+	
+			PresentForMembershipDataService presentForMembershipDataService = new PresentForMembershipDataServiceImpl();
+			Naming.bind("PresentForMembershipDataService", presentForMembershipDataService);
 			
+			PresentForSpecialPackageDataService presentForSpecialPackageDataService = new PresentForSpecialPackageDataServiceImpl();
+			Naming.bind("PresentForSpecialPackageDataService", presentForSpecialPackageDataService);
 //			SaleDataService saleDataService=new SaleDataServiceImpl();
 //			Naming.bind("SaleDataService", saleDataService);
 //			System.out.println("bind succeeded!");

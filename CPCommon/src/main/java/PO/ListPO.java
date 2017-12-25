@@ -1,32 +1,80 @@
 package PO;
 
-import java.io.Serializable;
+import java.util.Date;
+
+import util.State;
 
 /**     
 * @author 李安迪
-* @date 2017年10月27日
+* @date 2017年10月27日 
+* @date 2017\12\25
 * @description 单据类继承的抽象类
+* 
 */
 public abstract class ListPO{
 	/**
 	 * 单据编号
 	 */
-	String id;
+	private String id;
 	/**
 	 * 操作员名称
 	 */
-	String operator;
+	private String operator;
 	/**
 	 * 操作员编号
 	 */
-	String operatorId;
+	private String operatorId;
+
 	/**
-	 * 审批状态
+	 * 单据状态
 	 */
-	boolean isApproved;
+	private State state;
+
 	/**
-	 * 通过状态
+	 * 日期
 	 */
-	boolean isRefused;	
+	private Date day;
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getOperator() {
+		return operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
+	}
+
+	public String getOperatorId() {
+		return operatorId;
+	}
+
+	public void setOperatorId(String operatorId) {
+		this.operatorId = operatorId;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+	
+	public Date getDay() {
+		return day;
+	}
+
+	public void setDay(Date day) {
+		this.day = day;
+	}
+
+	
 	
 }

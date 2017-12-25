@@ -5,12 +5,10 @@
 }
 
 .root {
-	-fx-background-color:#100
+	-fx-background-color:#FFF7FB
 }
 
-#root {
-	-fx-background-color:#100
-}
+
 
 .pane{
 	-fx-background-color:#100

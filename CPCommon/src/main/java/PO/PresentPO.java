@@ -13,6 +13,16 @@ import util.PresentState;
 */
 public class PresentPO implements Serializable{
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2942592583007803647L;
+
+	/**
+	 * 
+	 */
+	
+
+	/**
 	 * 策略编号
 	 */
 	int id;

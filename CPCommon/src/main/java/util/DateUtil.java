@@ -28,13 +28,13 @@ public class DateUtil {
 	
 	@SuppressWarnings("deprecation")
 	public static int getDay(Date date){
-		return date.getDate()+1;
+		return date.getDate()-1;
 		
 	}
 	@SuppressWarnings("deprecation")
 	public static Date getDate(int year,int month,int day){
 		
-		return new Date(year-1900,month-1,day);
+		return new Date(year-1900,month-1,day+1);
 	}	
 	/**
 	 * 

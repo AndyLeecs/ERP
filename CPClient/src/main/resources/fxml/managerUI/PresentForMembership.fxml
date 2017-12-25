@@ -120,9 +120,9 @@
       <Pane fx:id="presentListPane" layoutY="159.0" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
          <children>
             <Label layoutX="62.0" layoutY="14.0" text="赠品清单" />
-            <ScrollPane layoutY="44.0" opacity="0.0" prefViewportHeight="391.0" prefViewportWidth="196.0">
+            <ScrollPane layoutY="44.0" prefHeight="393.0" prefViewportHeight="391.0" prefViewportWidth="196.0" prefWidth="196.0">
                <content>
-                  <VBox fx:id="presentListVBox" layoutY="44.0" prefHeight="391.0" prefWidth="196.0" />
+                  <VBox fx:id="presentListVBox" layoutY="44.0" prefHeight="391.0" prefWidth="200.0" />
                </content>
             </ScrollPane>
          </children></Pane>

@@ -13,8 +13,11 @@ import javafx.stage.StageStyle;
 public class CollectionListWin extends Stage{
 	@FXML
 	AnchorPane root;
-	public CollectionListWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("/fxml/accountUI/CollectionList.fxml"));
+	public CollectionListWin(CollectionListWinController controller) throws IOException{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/accountUI/CollectionList.fxml"));
+		loader.setController(controller);
+		root = loader.load();
+		controller.init();
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/css/forms/Forms.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
