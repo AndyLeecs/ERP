@@ -1,5 +1,7 @@
 package VO;
 
+import java.util.Date;
+
 import util.State;
 //加一个分支推上去
 /**     
@@ -26,4 +28,64 @@ public class ListVO {
 	 */
 	
 	State state;
+Date day;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getOperator() {
+		return operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
+	}
+
+	public String getOperatorId() {
+		return operatorId;
+	}
+
+	public void setOperatorId(String operatorId) {
+		this.operatorId = operatorId;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	//保持兼容性，实际不用
+	public ListVO(String id, String operator, String operatorId, State state) {
+		super();
+		this.id = id;
+		this.operator = operator;
+		this.operatorId = operatorId;
+		this.state = state;
+	}
+	public Date getDay() {
+		return day;
+	}
+
+	public void setDay(Date day) {
+		this.day = day;
+	}
+
+	public ListVO(String id, String operator, String operatorId, State state, Date day) {
+		super();
+		this.id = id;
+		this.operator = operator;
+		this.operatorId = operatorId;
+		this.state = state;
+		this.day = day;
+	}
+	
+	
 }

@@ -11,10 +11,10 @@ import util.State;
 * @description
 */
 public class SaleReturnListPO extends SalesmanListPO implements Serializable{
-	/**
-	 * 单据编号
-	 */
-	String id;
+//	/**
+//	 * 单据编号
+//	 */
+//	String id;
 	/**
 	 * 折让前总额
 	 */
@@ -29,26 +29,37 @@ public class SaleReturnListPO extends SalesmanListPO implements Serializable{
 	double voucher;
 	public SaleReturnListPO(){}
 	
-	public SaleReturnListPO(State state, String memberID, String memberName, String operator, String warehouse, String notes,
-			List<SalesmanItemPO> saleListItems, double sum, String id, double sumBeforeRebate, double rebate,
-			double voucher) {
-		super(state, memberID, memberName, operator, warehouse, notes, saleListItems, sum);
-		this.id = id;
+//	public SaleReturnListPO(State state, String memberID, String memberName, String operator, String warehouse, String notes,
+//			List<SalesmanItemPO> saleListItems, double sum, String id, double sumBeforeRebate, double rebate,
+//			double voucher) {
+//		super(state, memberID, memberName, operator, warehouse, notes, saleListItems, sum);
+//		this.id = id;
+//		this.sumBeforeRebate = sumBeforeRebate;
+//		this.rebate = rebate;
+//		this.voucher = voucher;
+//	}
+
+
+
+	//	public String getId(){
+////		return "0001";
+//		return this.id;
+//	}
+//	public void setId(String id){
+//		this.id = id;
+//	}
+	public double getSumBeforeRebate() {
+		return sumBeforeRebate;
+	}
+	public SaleReturnListPO(String id, State state, Date day, String memberID, String memberName, String operator,
+			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum,
+			double sumBeforeRebate, double rebate, double voucher) {
+		super(id, state, day, memberID, memberName, operator, realOperator, warehouse, notes, saleListItems, sum);
 		this.sumBeforeRebate = sumBeforeRebate;
 		this.rebate = rebate;
 		this.voucher = voucher;
 	}
 
-	public String getId(){
-//		return "0001";
-		return this.id;
-	}
-	public void setId(String id){
-		this.id = id;
-	}
-	public double getSumBeforeRebate() {
-		return sumBeforeRebate;
-	}
 	public void setSumBeforeRebate(double sumBeforeRebate) {
 		this.sumBeforeRebate = sumBeforeRebate;
 	}

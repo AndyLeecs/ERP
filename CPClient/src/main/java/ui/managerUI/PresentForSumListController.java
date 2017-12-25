@@ -8,6 +8,7 @@ import bl.presentbl.PresentBLFactory;
 import blservice.presentblservice.PresentForSumBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -18,6 +19,7 @@ import javafx.scene.layout.VBox;
 */
 public class PresentForSumListController {
 	@FXML VBox vBox;
+	@FXML Button backBtn;
 	private PresentForSumBLService service;
  @FXML private ManagerController managerController;
  	private List<PresentForSumVO> presentForSumList;
@@ -61,7 +63,7 @@ public class PresentForSumListController {
 	public void refresh() {
 		vBox.getChildren().clear();
 		// TODO Auto-generated method stub
-		
+		if(presentForSumList != null)
 		for(PresentForSumVO vo : presentForSumList){
    		 PresentForSumCellController controller = 
    				    new PresentForSumCellController(this,vo);
@@ -77,7 +79,16 @@ public class PresentForSumListController {
 					e.printStackTrace();
 				}
 //	    	AnchorPane presentroot = FXMLLoader.load(getClass().getResource("/fxml/managerUI/PresentForSum.fxml"));
-			vBox.getChildren().add(presentroot);
+
+				vBox.getChildren().add(presentroot);
+				System.out.println("after adding children");
 		}
+		System.out.println(vBox.getChildren());
 	}	
+	
+	@FXML
+	public void back(){
+		this.managerController.centerPane.getChildren().removeAll();
+	}
+
 }

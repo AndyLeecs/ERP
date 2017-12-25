@@ -287,10 +287,18 @@ public class PresentForSpecialPackageController implements SinglePresentEditable
 		String rebateInString = rebateField.getText();
 		double rebate = 0;
 		
-		if(!NumberUtil.isNotNegative(rebateInString)){
-			rebateErrorMessage.setText(rebateError);
-			return;
-		}
+		try{
+//			if(!NumberUtil.isNotNegative(totalInString)){
+//				totalErrorMessage.setText(totalError);
+//				
+//				return;
+//			}else{
+//				
+//			}
+				rebate = Double.parseDouble(rebateInString);
+			}catch(Exception e){
+				rebateErrorMessage.setText(rebateError);
+			}
 
 		
 		

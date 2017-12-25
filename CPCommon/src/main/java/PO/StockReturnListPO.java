@@ -1,6 +1,7 @@
 package PO;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import util.State;
@@ -10,23 +11,29 @@ import util.State;
 * @description
 */
 public class StockReturnListPO extends SalesmanListPO implements Serializable{
-	/*
-	 * 单据编号
-	 */
-	String id;
+//	/*
+//	 * 单据编号
+//	 */
+//	String id;
 	public StockReturnListPO(){}
-	public StockReturnListPO(State state, String memberID, String memberName, String operator, String warehouse, String notes,
-			List<SalesmanItemPO> saleListItems, double sum, String id) {
-		super(state, memberID, memberName, operator, warehouse, notes, saleListItems, sum);
-		this.id = id;
-	}
+//	public StockReturnListPO(State state, String memberID, String memberName, String operator, String warehouse, String notes,
+//			List<SalesmanItemPO> saleListItems, double sum, String id) {
+//		super(state, memberID, memberName, operator, warehouse, notes, saleListItems, sum);
+//		this.id = id;
+//	}
+//
+//
+//	public String getId() {
+//		return id;
+//	}
+//
+//	public void setId(String id) {
+//		this.id = id;
+//	}
 
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
+	public StockReturnListPO(String id, State state, Date day, String memberID, String memberName, String operator,
+			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum) {
+		super(id, state, day, memberID, memberName, operator, realOperator, warehouse, notes, saleListItems, sum);
+		// TODO Auto-generated constructor stub
 	}
 }

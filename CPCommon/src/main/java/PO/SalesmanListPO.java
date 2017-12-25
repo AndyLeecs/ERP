@@ -10,10 +10,19 @@ import java.util.List;
 import util.State;
 
 public class SalesmanListPO  implements Serializable{
-	 /**
-	  * 数据库id
-	  */
-	int id;
+//	 /**
+//	  * 数据库id
+//	  */
+//	int id;
+	String id;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	/**
 	 * 单据状态
 	 */
@@ -32,9 +41,12 @@ public class SalesmanListPO  implements Serializable{
 	  */
 	 String memberName;
 	 /**
-	  * 业务员名字
+	  * 操作员id?
 	  */
 	 String operator;
+	 //业务员id
+	 String realOperator;
+	 
 	 // ListState state;
 	 /**
 	  * 仓库名字
@@ -52,32 +64,36 @@ public class SalesmanListPO  implements Serializable{
 	  * 最终金额
 	  */
 	 double sum;
-	 public SalesmanListPO(State state,String memberID, String memberName, String operator, String warehouse, String notes,
-				List<SalesmanItemPO> saleListItems, double sum) {
-			super();
-			this.day = new Date();//获取默认时间
-			this.state = state;
-			this.memberID = memberID;
-			this.memberName = memberName;
-			this.operator = operator;
-			this.warehouse = warehouse;
-			this.notes = notes;
-			SaleListItems = saleListItems;
-			this.sum = sum;
-		}
 
-	 public SalesmanListPO(){}
 
-	private int getId() {
-		return id;
-	}
-	private void setId(int id) {
+	 public SalesmanListPO(String id, State state, Date day, String memberID, String memberName, String operator,
+			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum) {
+		super();
 		this.id = id;
+		this.state = state;
+		this.day = day;
+		this.memberID = memberID;
+		this.memberName = memberName;
+		this.operator = operator;
+		this.realOperator = realOperator;
+		this.warehouse = warehouse;
+		this.notes = notes;
+		SaleListItems = saleListItems;
+		this.sum = sum;
 	}
-	private Date getDay() {
+
+	public SalesmanListPO(){}
+
+//	private int getId() {
+//		return id;
+//	}
+//	private void setId(int id) {
+//		this.id = id;
+//	}
+	public Date getDay() {
 		return day;
 	}
-	private void setDay(Date day) {
+	public void setDay(Date day) {
 		this.day = day;
 	}
 	public String getMemberID() {
@@ -128,6 +144,15 @@ public class SalesmanListPO  implements Serializable{
 	public void setState(State state) {
 		this.state = state;
 	}
+
+	public String getRealOperator() {
+		return realOperator;
+	}
+
+	public void setRealOperator(String realOperator) {
+		this.realOperator = realOperator;
+	}
+	 
 	 
 //	  double priceBeforeDiscount; //折让前总额
 //	  double discount;//销售人员折让

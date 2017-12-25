@@ -3,16 +3,18 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="PO.SalesmanListPO">
-		<id name="id">
+<!--  	<id name="id"> -->
 			<!-- 对于父类，主键的生成采用了简单的增长模式 -->
-			<generator class="native" />
-		</id>
+ <!--			<generator class="native" /> -->
+<!--		</id> -->
 		<!-- 单据中存了日期 -->
+		<id name = "id"/>
 		<property name="day"/>
 		<property name="state"/>
 		<property name="memberID" />
 		<property name="memberName" />
 		<property name="operator"/>
+		<property name="realOperator"/>
 		<property name="warehouse"/>
 		<property name="notes"/>
 					<!-- 组分中包括的集合 -->
@@ -27,7 +29,6 @@
 		<joined-subclass name="PO.SaleListPO">
 			<!-- 注意这里表明了子类和父类的共有属性 -->
 			<key column="parentId" />
-			<property name="id"/>
 			<property name="sumBeforeRebate" />
 			<property name="rebate" />
 			<property name="voucher" />
@@ -36,7 +37,6 @@
 		<joined-subclass name="PO.SaleReturnListPO">
 			<!-- 注意这里表明了子类和父类的共有属性 -->
 			<key column="parentId" />
-			<property name="id" />
 			<property name="sumBeforeRebate" />
 			<property name="rebate" />
 			<property name="voucher" />
@@ -45,13 +45,11 @@
 		<joined-subclass name="PO.StockListPO">
 			<!-- 注意这里表明了子类和父类的共有属性 -->
 			<key column="parentId" />
-			<property name="id" />
 		</joined-subclass>
 		
 		<joined-subclass name="PO.StockReturnListPO">
 			<!-- 注意这里表明了子类和父类的共有属性 -->
 			<key column="parentId" />
-			<property name="id" />
 		</joined-subclass>
 		
 	</class>
