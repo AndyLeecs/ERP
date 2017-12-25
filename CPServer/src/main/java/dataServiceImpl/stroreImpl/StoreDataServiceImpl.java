@@ -97,15 +97,15 @@ public class StoreDataServiceImpl implements  StoreDataService {
 	@Override
 	public boolean insertStoreItem(StorePO po) {
 		HibernateUtil_Green<StorePO> util= new HibernateUtil_Green<StorePO>(StorePO.class);
-        util.insert(po);
-		return true;//这个返回值应该操作一下。以后再改吧。
+        return util.insert(po);
+
 	}
 
 	@Override
 	public boolean replaceStoreItem(StorePO po) {
 		HibernateUtil_Green<StorePO> util= new HibernateUtil_Green<StorePO>(StorePO.class);
-		util.update(po);
-		return true;
+		return util.update(po);
+
 	}
 
 	@Override
@@ -118,29 +118,29 @@ public class StoreDataServiceImpl implements  StoreDataService {
 	@Override
 	public boolean insertReportList(ReportListPO po) {
 		HibernateUtil_Green<ReportListPO> util=new HibernateUtil_Green<ReportListPO>(ReportListPO.class);
-		util.insert(po);
-		return true;
+		return util.insert(po);
+
 	}
 
 	@Override
 	public boolean replaceReportList(ReportListPO po) {
 		HibernateUtil_Green<ReportListPO> util=new HibernateUtil_Green<ReportListPO>(ReportListPO.class);
-		util.update(po);
-		return true;
+		return util.update(po);
+
 	}
 
 	@Override
 	public boolean insertPresentList(PresentListPO po) {
 		HibernateUtil_Green<PresentListPO> util= new HibernateUtil_Green<PresentListPO>(PresentListPO.class);
-		util.insert(po);
-		return true;
+		return util.insert(po);
+
 	}
 
 	@Override
 	public boolean replacePresentList(PresentListPO po) {
 		HibernateUtil_Green<PresentListPO> util= new HibernateUtil_Green<PresentListPO>(PresentListPO.class);
-		util.update(po);
-		return true;
+		return util.update(po);
+
 	}
 
 	@Override

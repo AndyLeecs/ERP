@@ -39,8 +39,9 @@ public class HibernateUtil_Green<T> {
     }
 
 
-    public void delete(String id){
+    public boolean delete(String id){
         //按照ID删除数据表项(需要把ID设为主键，下同)
+        boolean res=true;
         session=sessionFactory.openSession();
         Transaction tx=null;
         try {
@@ -52,14 +53,16 @@ public class HibernateUtil_Green<T> {
                 tx.rollback();
                 System.out.println("删除失败");
             }
+            res=false;
         }finally {
             session.close();
         }
-
+         return res;
     }
 
-    public void update(T po){
+    public boolean update(T po){
         //按照ID替换数据表项，因为ID作为主键不会变，所以替换应该是成功的
+        boolean res=true;
         session=sessionFactory.openSession();
         Transaction tx=null;
         try {
@@ -72,10 +75,12 @@ public class HibernateUtil_Green<T> {
                 System.out.println("更新失败");
 
             }
+            res=false;
 
         }finally {
             session.close();
         }
+        return res;
     }
 
     public T get(String id){
@@ -100,8 +105,9 @@ public class HibernateUtil_Green<T> {
         return po;
     }
 
-    public void insert(T po){
+    public boolean insert(T po){
         //新增一个PO
+        boolean res=true;
         session=sessionFactory.openSession();
         Transaction tx=null;
         try {
@@ -114,11 +120,11 @@ public class HibernateUtil_Green<T> {
                 System.out.println("新增失败");
 
             }
-
+          res=false;
         }finally {
             session.close();
         }
-
+        return res;
     }
 
     public List<T> getList(){
