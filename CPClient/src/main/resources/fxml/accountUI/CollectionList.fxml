@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.accountUI.CollectionListWinController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="79.0" prefWidth="921.0">
          <children>
@@ -39,7 +39,7 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Button layoutX="128.0" layoutY="17.0" mnemonicParsing="false" text="选择" />
+                  <Button fx:id="selectVIPBtn" layoutX="128.0" layoutY="17.0" mnemonicParsing="false" text="选择" />
                   <Label fx:id="VIPName" layoutX="210.0" layoutY="16.0" prefHeight="27.0" prefWidth="92.0" text="客户名字">
                      <font>
                         <Font size="15.0" />
@@ -50,7 +50,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="479.0" layoutY="18.0" prefHeight="23.0" prefWidth="78.0" text="银行账户" textFill="#938c8c">
+                  <Label fx:id="accountLabel" layoutX="479.0" layoutY="18.0" prefHeight="23.0" prefWidth="78.0" text="银行账户" textFill="#938c8c">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -76,11 +76,11 @@
             </ScrollPane>
             <Pane layoutY="379.0" prefHeight="97.0" prefWidth="921.0">
                <children>
-                  <Button layoutX="518.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#onSaveBtnClicked" text="保存">
+                  <Button fx:id="saveBtn" layoutX="518.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#onSaveBtnClicked" text="保存">
                      <font>
                         <Font size="18.0" />
                      </font></Button>
-                  <Button layoutX="738.0" layoutY="35.0" mnemonicParsing="false" onAction="#onCommitBtnClicked" text="提交">
+                  <Button fx:id="commitBtn" layoutX="738.0" layoutY="35.0" mnemonicParsing="false" onAction="#onCommitBtnClicked" text="提交">
                      <font>
                         <Font size="18.0" />
                      </font></Button>

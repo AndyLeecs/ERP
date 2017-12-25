@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -37,11 +38,15 @@ public class CollectionListWinController extends FinanceListWinController{
 
 	@FXML ComboBox<String> AccountComboBox;
 
+	@FXML Label accountLabel;
 	@FXML Label totalAmount;
+	@FXML Button selectVIPBtn;
+	@FXML Button saveBtn;
+	@FXML Button commitBtn;
 
 	
-	private final ObservableList<TransferItem> transferItem = FXCollections.observableArrayList();
-	private List<String> accountList = new ArrayList<String>();
+	final ObservableList<TransferItem> transferItem = FXCollections.observableArrayList();
+	List<String> accountList = new ArrayList<String>();
 
 	@FXML Label VIPName;
 
@@ -82,9 +87,9 @@ public class CollectionListWinController extends FinanceListWinController{
 	    TransferListTableView.setEditable(true);
 		
 	    //TODO 测试用，以后删掉
-	    transferItem.add(new TransferItem("1 ", 100,"dv"));
-	    transferItem.add(new TransferItem("老张", 100,"dv"));
-	    transferItem.add(new TransferItem("我 ", 100,"dv"));
+//	    transferItem.add(new TransferItem("1 ", 100,"dv"));
+//	    transferItem.add(new TransferItem("老张", 100,"dv"));
+//	    transferItem.add(new TransferItem("我 ", 100,"dv"));
 
 
 	}

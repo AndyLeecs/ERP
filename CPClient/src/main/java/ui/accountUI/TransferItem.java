@@ -16,6 +16,10 @@ public class TransferItem{
 		this.deleted = new SimpleStringProperty("delete");
 	}
 	
+	public TransferItem(TransferItemVO vo){
+		this(vo.getAccount(),String.valueOf(vo.getAmount()),vo.getNote());
+	}
+	
 	public TransferItem(String account, double amount, String note){
 		this(account, String.valueOf(amount), note);
 	}

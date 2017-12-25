@@ -1,6 +1,9 @@
 package ui.accountUI;
 
+import java.io.IOException;
+
 import VO.accountVO.CollectionListVO;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import ui.commonUI.ListWinController;
@@ -29,6 +32,20 @@ public class CollectionListBriefController extends ListWinController{
 		collectionListVO = vo;
 	}
 
-	@FXML public void onOpenListBtnClicked() {}
+	@FXML public void onOpenListBtnClicked() {
+		CollectionListWinLookController controller = new CollectionListWinLookController();
+		controller.setCollectionListVO(collectionListVO);
+		Platform.runLater(new Runnable() {
+	        @Override
+	        public void run() {
+	        	try {
+	    			new CollectionListWin(controller);
+	    		} catch (IOException e) {
+	    			e.printStackTrace();
+	    		}
+	        }
+	   });
+		
+	}
 
 }
