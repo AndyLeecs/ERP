@@ -1,5 +1,6 @@
 package blservice.VIPblservice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public interface VIPBLService {
      * @param name
      * @return
      */
-	public VIPVO getVIP(String name);
+	public VIPVO getVIP(String name) throws RemoteException;
 
 	/**
 	 * 前置条件	用户输入信息模糊查找客户
@@ -34,7 +35,7 @@ public interface VIPBLService {
 	 * @param type
 	 * @return
 	 */
-	public List findVIP(String info,String type);
+	public List findVIP(String info,String type) throws RemoteException;
 
 	/**
 	 * 前置条件	用户选择删除客户
@@ -42,7 +43,7 @@ public interface VIPBLService {
 	 * @param name
 	 * @return
 	 */
-	public ResultMessage deleteVIP(String name);
+	public ResultMessage deleteVIP(String name) throws RemoteException;
 	
 	/**
 	 * 前置条件	用户选择修改客户信息

@@ -24,7 +24,7 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
         categoryUtil = new HibernateUtil<GoodsCategoryPO>(GoodsCategoryPO.class);
         criterionClauseGenerator = new HibernateCriterionClauseGenerator();
     }
-    
+
     @Override
     public String newGoodsID() {
         return ""+goodsUtil.insertForAuto(new GoodsPO());

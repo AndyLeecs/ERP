@@ -9,6 +9,7 @@ import dataService.goodsDataService.GoodsDataService;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import util.ResultMessage;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +23,7 @@ public class Goods {
         return null;
     }
 
-    public ArrayList<GoodsVO> findGoods(String info, String type){
+    public ArrayList<GoodsVO> findGoods(String info, String type) throws RemoteException {
         ArrayList<GoodsPO> findGoodsList = (ArrayList<GoodsPO>) goodsDataService.findGoods(info,type);
         ArrayList<GoodsVO> retFindGoodsList = new ArrayList<>();
         for(int i = 0;i<findGoodsList.size();i++){
@@ -36,7 +37,7 @@ public class Goods {
         //return poToVO(goodsDataService.getGoods(name,category));
     }
 
-    public ResultMessage deleteGoods(String category, String name){
+    public ResultMessage deleteGoods(String category, String name) throws RemoteException {
         goodsDataService.deleteGoods(category,name);
         return ResultMessage.SUCCESS;
 

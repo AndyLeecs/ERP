@@ -1,10 +1,15 @@
 package bl.VIPbl;
 
+import PO.VIPPO;
 import VO.VIPVO.VIPVO;
 import blservice.VIPblservice.VIPBLService;
+import dataService.VIPDataService.VIPDataService;
+import dataService.goodsDataService.GoodsDataService;
 import network.VIPRemoteHelper.VIPDataServiceHelper;
+import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import util.ResultMessage;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +18,7 @@ import java.util.List;
  */
 public class VIPBLServiceImpl implements VIPBLService {
     VIPDataServiceHelper vipDataServiceHelper;
+    VIPDataService vipDataService = VIPDataServiceHelper.getInstance().getVIPDataService();
 
     VIPVO vipvo1 = new VIPVO("00000001"
             ,"分类1"
@@ -47,12 +53,13 @@ public class VIPBLServiceImpl implements VIPBLService {
      */
     @Override
     public String newVIPID() {
-        return null;
+        return vipDataService.newVIPID();
     }
 
     @Override
-    public VIPVO getVIP(String name) {
-        return vipvo1;
+    public VIPVO getVIP(String name) throws RemoteException {
+        return vipvo1;//这个是假的
+        //return poToVO(vipDataService.getVIP(name));//这个是真的
     }
 
     /**
@@ -64,11 +71,19 @@ public class VIPBLServiceImpl implements VIPBLService {
      * @return
      */
     @Override
-    public ArrayList<VIPVO> findVIP(String info, String type) {
+    public ArrayList<VIPVO> findVIP(String info, String type) throws RemoteException {
         ArrayList<VIPVO> vipvos = new ArrayList<>();
         vipvos.add(vipvo1);
         vipvos.add(vipvo2);
-        return vipvos;
+        return vipvos;//这个是假的
+        //以下是真的
+        /*
+        ArrayList<VIPPO> list = (ArrayList<VIPPO>) vipDataService.findVIP(info,type);
+        ArrayList<VIPVO> ret = new ArrayList<>();
+        for(int i =0;i<list.size();i++){
+            ret.add(poToVO(list.get(i)));
+        }
+        return ret;*/
     }
 
     /**
@@ -79,8 +94,9 @@ public class VIPBLServiceImpl implements VIPBLService {
      * @return
      */
     @Override
-    public ResultMessage deleteVIP(String name) {
-        return null;
+    public ResultMessage deleteVIP(String name) throws RemoteException {
+        vipDataService.deleteVIP(name);
+        return ResultMessage.SUCCESS;
     }
 
     /**
@@ -92,7 +108,8 @@ public class VIPBLServiceImpl implements VIPBLService {
      */
     @Override
     public ResultMessage modifyVIP(VIPVO vo) {
-        return null;
+        vipDataService.modifyVIP(voToPO(vo));
+        return ResultMessage.SUCCESS;
     }
 
     /**
@@ -104,6 +121,38 @@ public class VIPBLServiceImpl implements VIPBLService {
      */
     @Override
     public ResultMessage initAndSaveVIP(VIPVO vo) {
-        return null;
+        vipDataService.initAndSaveVIP(voToPO(vo));
+        return ResultMessage.SUCCESS;
+    }
+
+    private VIPVO poToVO(VIPPO vipPO){
+        return vipPO == null ? null : new VIPVO(vipPO.getId()
+                ,vipPO.getCategory()
+                ,vipPO.getGrade()
+                ,vipPO.getName()
+                ,vipPO.getPhoneNumber()
+                ,vipPO.getEmail()
+                ,vipPO.getAddress()
+                ,vipPO.getPostCode()
+                ,vipPO.getCollection()
+                ,vipPO.getCollectionLimit()
+                ,vipPO.getPayment()
+                ,vipPO.getClerk());
+    }
+
+    private VIPPO voToPO(VIPVO vipVO){
+        return vipVO == null ? null : new VIPPO(vipVO.getId()
+                ,vipVO.getCategory()
+                ,vipVO.getGrade()
+                ,vipVO.getName()
+                ,vipVO.getPhoneNumber()
+                ,vipVO.getEmail()
+                ,vipVO.getAddress()
+                ,vipVO.getPostCode()
+                ,vipVO.getCollection()
+                ,vipVO.getCollectionLimit()
+                ,vipVO.getPayment()
+                ,vipVO.getClerk()
+                ,null);
     }
 }

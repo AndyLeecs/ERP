@@ -2,6 +2,7 @@ package bl.VIPbl;
 
 import VO.VIPVO.VIPVO;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 /**
@@ -15,19 +16,19 @@ public interface VIPFuzzySearch {
      * @param idInfo
      * @return 符合条件的会员列表
      */
-    public List<VIPVO> getVIPInID(String idInfo);
+    public List<VIPVO> getVIPInID(String idInfo) throws RemoteException;
 
     /**
      * 以会员姓名模糊查找
      * @param nameInfo
      * @return 符合条件的会员列表
      */
-    public List<VIPVO> getVIPInName(String nameInfo);
+    public List<VIPVO> getVIPInName(String nameInfo) throws RemoteException;
 
     /**
      * 以会员电话模糊查找
      * @param phoneNumberInfo
      * @return 符合条件的会员列表
      */
-    public List<VIPVO> getVIPInPhoneNumber(String phoneNumberInfo);
+    public List<VIPVO> getVIPInPhoneNumber(String phoneNumberInfo) throws RemoteException;
 }
