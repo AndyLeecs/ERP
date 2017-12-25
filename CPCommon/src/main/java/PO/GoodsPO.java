@@ -1,5 +1,7 @@
 package PO;
 
+import util.GoodsUtil;
+
 import java.io.Serializable;
 
 public class GoodsPO implements Serializable{
@@ -7,8 +9,6 @@ public class GoodsPO implements Serializable{
 	 * 商品编号
 	 */
 	String goodsID;
-
-
 	/**
 	 * 商品名称
 	 */
@@ -44,7 +44,15 @@ public class GoodsPO implements Serializable{
      */
     private String autoId;
 
-    public double getRecentBuyPrice() {
+    /**
+     * 商品状态 即是否被删除
+     */
+    private GoodsUtil state;
+
+	public GoodsPO() {
+	}
+
+	public double getRecentBuyPrice() {
         return recentBuyPrice;
     }
 
@@ -52,7 +60,7 @@ public class GoodsPO implements Serializable{
         this.recentBuyPrice = recentBuyPrice;
     }
 
-    public Object getRecentSellPrice() {
+    public double getRecentSellPrice() {
         return recentSellPrice;
     }
 
@@ -68,8 +76,8 @@ public class GoodsPO implements Serializable{
 		this.autoId = autoId;
 	}
 
-	public GoodsPO(String goodsID,String goodsCategory,String goodsName,String goodsType
-			,double goodsBuyPrice,double goodsSellPrice,double recentBuyPrice,double recentSellPrice) {
+	public GoodsPO(String goodsID, String goodsCategory, String goodsName, String goodsType
+			, double goodsBuyPrice, double goodsSellPrice, double recentBuyPrice, double recentSellPrice, GoodsUtil state) {
 		this.goodsID = goodsID;
 		this.goodsCategory = goodsCategory;
 		this.goodsName = goodsName;
@@ -78,18 +86,29 @@ public class GoodsPO implements Serializable{
 		this.goodsSellPrice = goodsSellPrice;
 		this.recentBuyPrice = recentBuyPrice;
 		this.recentSellPrice = recentSellPrice;
+		this.state = state;
 	}
 
-	public String getGoodsName() {
+    public void setState(GoodsUtil state) {
+        this.state = state;
+    }
+
+    public GoodsUtil getState() {
+        return state;
+    }
+
+    public String getGoodsName() {
 		return goodsName;
 	}
 
 	public String getGoodsID() {
 		return  goodsID;
 	}
+
 	public void setGoodsID(String goodsID) {
 		this.goodsID = goodsID;
 	}
+
 	public String getGoodsCategory() {
 		return goodsCategory;
 	}

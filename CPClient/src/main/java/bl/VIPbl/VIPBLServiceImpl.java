@@ -106,15 +106,4 @@ public class VIPBLServiceImpl implements VIPBLService {
     public ResultMessage initAndSaveVIP(VIPVO vo) {
         return null;
     }
-
-    /**
-     * 前置条件	用户选择查看所有客户信息
-     * 后置条件	系统显示所有客户信息
-     *
-     * @return
-     */
-    @Override
-    public List<VIPVO> getVIPInfo() {
-        return null;
-    }
 }

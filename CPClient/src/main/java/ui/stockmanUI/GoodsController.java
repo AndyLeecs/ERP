@@ -54,7 +54,7 @@ public class GoodsController{
     @FXML VBox goodsVBox;
     @FXML Pane goodsPane;
     private String goodsTypeSearch = "";//保存模糊查找的类型
-    GoodsBLService goodsBLService = new GoodsBLServiceImpl();//
+    GoodsBLService goodsBLService = new GoodsBLServiceImpl();
     private ArrayList<GoodsVO> goodsVOArrayList = new ArrayList<>();//存放模糊查找到的商品列表
 
     Stack<TreeItem<String>> stack = new Stack<>();//存放目录的引用 便于增减改名商品

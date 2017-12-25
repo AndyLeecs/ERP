@@ -1,5 +1,7 @@
 package PO;
 
+import util.GoodsUtil;
+
 import java.io.Serializable;
 import java.util.Map;
 
@@ -11,11 +13,24 @@ import java.util.Map;
 public class GoodsCategoryPO implements Serializable{
 	String goodsCategoryName;
     String parentName;
-    private String autoId;//sql自动生成
+    private int autoId;
+    private GoodsUtil state;
 
-    public GoodsCategoryPO(String goodsCategoryName, String parentName) {
+    public GoodsCategoryPO(String goodsCategoryName, String parentName, GoodsUtil state) {
         this.goodsCategoryName = goodsCategoryName;
         this.parentName = parentName;
+        this.state = state;
+    }
+
+    public GoodsCategoryPO() {
+    }
+
+    public void setState(GoodsUtil state) {
+        this.state = state;
+    }
+
+    public GoodsUtil getState() {
+        return state;
     }
 
     public String getGoodsCategoryName() {
@@ -34,11 +49,11 @@ public class GoodsCategoryPO implements Serializable{
         this.parentName = parentName;
     }
 
-	public String getAutoId() {
+	public int getAutoId() {
 		return autoId;
 	}
 
-	public void setAutoId(String autoId) {
+	public void setAutoId(int autoId) {
 		this.autoId = autoId;
 	}
 

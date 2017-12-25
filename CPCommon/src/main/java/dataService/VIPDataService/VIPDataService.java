@@ -23,7 +23,7 @@ public interface VIPDataService extends Remote,Serializable{
      * @param type
      * @return
      */
-    public ArrayList<VIPPO> findVIP(String info, String type);
+    public List findVIP(String info, String type) throws RemoteException;
 
     /**
      * 前置条件	用户选择获取客户信息
@@ -31,7 +31,7 @@ public interface VIPDataService extends Remote,Serializable{
      * @param name
      * @return
      */
-    public VIPPO getVIP(String name);
+    public VIPPO getVIP(String name) throws RemoteException;
 
     /**
      * 前置条件	用户选择删除客户
@@ -39,7 +39,7 @@ public interface VIPDataService extends Remote,Serializable{
      * @param name
      * @return
      */
-    public ResultMessage deleteVIP(String name);
+    public ResultMessage deleteVIP(String name) throws RemoteException;
 
     /**
      * 前置条件	用户选择修改客户信息
@@ -56,12 +56,5 @@ public interface VIPDataService extends Remote,Serializable{
      * @return
      */
     public ResultMessage initAndSaveVIP(VIPPO vo);
-
-    /**
-     * 前置条件	用户选择查看所有客户信息
-     * 后置条件	系统显示所有客户信息
-     * @return
-     */
-    public List<VIPPO> getVIPInfo();
 
 }

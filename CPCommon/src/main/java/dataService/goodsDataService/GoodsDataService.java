@@ -10,14 +10,14 @@ import java.util.List;
 
 public interface GoodsDataService extends Remote,Serializable {
     public String newGoodsID();
-    public List<GoodsPO> findGoods(String info, String type);
-    public GoodsPO getGoods(String name, String category);
-    public ResultMessage deleteGoods(String category, String name);
+    public List<GoodsPO> findGoods(String info, String type) throws RemoteException;
+    public GoodsPO getGoods(String name, String category) throws RemoteException;
+    public ResultMessage deleteGoods(String category, String name) throws RemoteException;
     public ResultMessage modifyGoods(GoodsPO vo);
     public ResultMessage initAndSaveGoods(GoodsPO po);
     public ResultMessage newGoodsCategory(GoodsCategoryPO po);
     public ResultMessage deleteGoodsCategory(GoodsCategoryPO po);
     public ResultMessage modifyGoodsCategory(GoodsCategoryPO oldVO,GoodsCategoryPO newVO);
-    public List getAllCategory(String node);
+    public List getAllCategory(String node) throws RemoteException;
 
 }

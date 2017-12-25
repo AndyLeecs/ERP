@@ -36,6 +36,7 @@ public class VIP {
                 ,vipVO.getCollection()
                 ,vipVO.getCollectionLimit()
                 ,vipVO.getPayment()
-                ,vipVO.getClerk());
+                ,vipVO.getClerk()
+                ,null);
     }
 }

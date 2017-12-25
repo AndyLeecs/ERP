@@ -79,7 +79,9 @@ public class Goods {
                 ,goodsVO.getGoodsBuyPrice()
                 ,goodsVO.getGoodsSellPrice()
                 ,goodsVO.recentBuyPrice()
-                ,goodsVO.recentSellPrice());
+                ,goodsVO.recentSellPrice()
+                ,null
+        );
     }
 
     private GoodsVO poToVO(GoodsPO goodsPO){

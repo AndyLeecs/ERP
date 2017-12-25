@@ -2,6 +2,7 @@ package PO;
 
 import util.VIPCategory;
 import util.VIPGrade;
+import util.VIPUtil;
 
 import java.io.Serializable;
 
@@ -20,11 +21,12 @@ public class VIPPO implements Serializable{
     double payment; //应付
     String clerk; // 默认业务员
     private String autoId; //数据库自动生成的id
+    public VIPUtil state;//客户状态 是否被删除
 
     public VIPPO() {
     }
 
-    public VIPPO(String id, String category, String grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
+    public VIPPO(String id, String category, String grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk, VIPUtil state){
         this.id = id;
         this.category = category;
         this.grade = grade;
@@ -37,6 +39,15 @@ public class VIPPO implements Serializable{
         this.collectionLimit = collectionLimit;
         this.payment = payment;
         this.clerk = clerk;
+        this.state = state;
+    }
+
+    public void setState(VIPUtil state) {
+        this.state = state;
+    }
+
+    public VIPUtil getState() {
+        return state;
     }
 
     public String getId() {

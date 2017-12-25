@@ -25,6 +25,4 @@ public interface CriterionClauseGenerator extends Remote,Serializable{
 	public List<CriterionClause> generateExactAsChildCriterion(List<CriterionClause> l,String field,List values)throws RemoteException;
 //	//添加查询条件为模糊查找多值，需要时再添加
 //	public List<CriterionClause> generateFuzzyCriterion(List<CriterionClause> l,String field,Object value);
-
-	
 }

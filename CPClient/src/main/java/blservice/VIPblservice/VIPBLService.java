@@ -34,7 +34,7 @@ public interface VIPBLService {
 	 * @param type
 	 * @return
 	 */
-	public ArrayList<VIPVO> findVIP(String info,String type);
+	public List findVIP(String info,String type);
 
 	/**
 	 * 前置条件	用户选择删除客户
@@ -59,12 +59,5 @@ public interface VIPBLService {
 	 * @return
 	 */
 	public ResultMessage initAndSaveVIP(VIPVO vo);
-	
-	/**
-	 * 前置条件	用户选择查看所有客户信息
-	 * 后置条件	系统显示所有客户信息
-	 * @return
-	 */
-	public List<VIPVO> getVIPInfo();
 	
 }
