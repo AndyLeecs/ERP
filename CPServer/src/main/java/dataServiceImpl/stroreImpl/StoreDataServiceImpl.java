@@ -7,21 +7,25 @@ import PO.PresentListPO;
 import PO.ReportListPO;
 import PO.StoreLogPO;
 import PO.StorePO;
+import dataHelper.HibernateUtil;
+import dataHelper.HibernateUtil_Green;
 import util.State;
 import dataService.storeDataService.StoreDataService;
 import util.StoreListType;
 public class StoreDataServiceImpl implements  StoreDataService {
 
+
 	@Override
 	public boolean checkID(String id) {
-		// TODO Auto-generated method stub
+		// 这个方法应该是库存项专用的，不过也可以把它改成通用的
 		return false;
 	}
 
 	@Override
 	public StorePO getStorePO(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil_Green<StorePO> util=new HibernateUtil_Green<StorePO>(StorePO.class);
+		StorePO po=util.get(id);
+		return po;
 	}
 
 	@Override
@@ -32,32 +36,49 @@ public class StoreDataServiceImpl implements  StoreDataService {
 
 	@Override
 	public LinkedList<AlarmListPO> getAlarmListPO() {
-		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil_Green<AlarmListPO> util= new HibernateUtil_Green<AlarmListPO>(AlarmListPO.class);
+		LinkedList<AlarmListPO> list=(LinkedList<AlarmListPO>) util.getList();
+		return list;
 	}
 
 	@Override
 	public ArrayList<PresentListPO> getPresentListPO(State st) {
-		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil_Green<PresentListPO> util= new HibernateUtil_Green<PresentListPO>(PresentListPO.class);
+		ArrayList<PresentListPO> list= (ArrayList<PresentListPO>) util.getList();
+		ArrayList<PresentListPO> list1=new ArrayList<PresentListPO> ();
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).statetype.equals(st)){
+				list1.add(list.get(i));
+			}
+		}
+		return list1;
 	}
 
 	@Override
 	public ArrayList<ReportListPO> getReportListPO(StoreListType type, State st) {
-		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil_Green<ReportListPO> util=new HibernateUtil_Green<ReportListPO>(ReportListPO.class);
+		ArrayList<ReportListPO> list =(ArrayList<ReportListPO>) util.getList();
+		ArrayList<ReportListPO> list1=new ArrayList<ReportListPO>();
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).statetype.equals(st)&&list.get(i).st.equals(type)){
+				list1.add(list.get(i));
+			}
+		}
+		return list1;
 	}
 
 	@Override
 	public PresentListPO getSinglePresentList(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil_Green<PresentListPO> util= new HibernateUtil_Green<PresentListPO>(PresentListPO.class);
+		PresentListPO po=util.get(id);
+		return po;
 	}
 
 	@Override
 	public ReportListPO getSingleReportList(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil_Green<ReportListPO> util=new HibernateUtil_Green<ReportListPO>(ReportListPO.class);
+		ReportListPO po=util.get(id);
+		return po;
 	}
 
 	@Override
@@ -68,55 +89,64 @@ public class StoreDataServiceImpl implements  StoreDataService {
 
 	@Override
 	public ArrayList<StorePO> getAllStorePO() {
-		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil_Green<StorePO> util= new HibernateUtil_Green<StorePO>(StorePO.class);
+		ArrayList<StorePO> poList=(ArrayList<StorePO>)util.getList();
+		return poList;
 	}
 
 	@Override
 	public boolean insertStoreItem(StorePO po) {
-		// TODO Auto-generated method stub
-		return false;
+		HibernateUtil_Green<StorePO> util= new HibernateUtil_Green<StorePO>(StorePO.class);
+        util.insert(po);
+		return true;//这个返回值应该操作一下。以后再改吧。
 	}
 
 	@Override
 	public boolean replaceStoreItem(StorePO po) {
-		// TODO Auto-generated method stub
-		return false;
+		HibernateUtil_Green<StorePO> util= new HibernateUtil_Green<StorePO>(StorePO.class);
+		util.update(po);
+		return true;
 	}
 
 	@Override
 	public void addAlarmList(AlarmListPO po) {
-		// TODO Auto-generated method stub
+		HibernateUtil_Green<AlarmListPO> util= new HibernateUtil_Green<AlarmListPO>(AlarmListPO.class);
+		util.insert(po);
 		
 	}
 
 	@Override
 	public boolean insertReportList(ReportListPO po) {
-		// TODO Auto-generated method stub
-		return false;
+		HibernateUtil_Green<ReportListPO> util=new HibernateUtil_Green<ReportListPO>(ReportListPO.class);
+		util.insert(po);
+		return true;
 	}
 
 	@Override
 	public boolean replaceReportList(ReportListPO po) {
-		// TODO Auto-generated method stub
-		return false;
+		HibernateUtil_Green<ReportListPO> util=new HibernateUtil_Green<ReportListPO>(ReportListPO.class);
+		util.update(po);
+		return true;
 	}
 
 	@Override
 	public boolean insertPresentList(PresentListPO po) {
-		// TODO Auto-generated method stub
-		return false;
+		HibernateUtil_Green<PresentListPO> util= new HibernateUtil_Green<PresentListPO>(PresentListPO.class);
+		util.insert(po);
+		return true;
 	}
 
 	@Override
 	public boolean replacePresentList(PresentListPO po) {
-		// TODO Auto-generated method stub
-		return false;
+		HibernateUtil_Green<PresentListPO> util= new HibernateUtil_Green<PresentListPO>(PresentListPO.class);
+		util.update(po);
+		return true;
 	}
 
 	@Override
 	public void addStoreLogPO(StoreLogPO po) {
-		// TODO Auto-generated method stub
+		HibernateUtil_Green<StoreLogPO> util= new HibernateUtil_Green<StoreLogPO>(StoreLogPO.class);
+		util.insert(po);
 		
 	}
     

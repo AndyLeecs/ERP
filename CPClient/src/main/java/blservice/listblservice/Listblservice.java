@@ -14,8 +14,8 @@ public interface Listblservice {
     * 王瑞华 161250143 2017年12月1日
      */
     public ArrayList<InfoListVO> openInfoList();//经营历程表查看
-    public ArrayList<InfoListVO> openApprovd();//查看已经审批通过的经营历程表
+    public ArrayList<InfoListVO> openApproved();//查看已经审批通过的经营历程表
     public ArrayList<SalesDetailListVO> openSaleDetailList(); //销售明细表查看
     public BussinessSituationListVO openBussinessSituationList(); //经营情况表查看
-    public ListRM toExcle (GreatListType type ,String id); // 表单导出
+    public ListRM toExcel (GreatListType type ,String id); // 表单导出
 }

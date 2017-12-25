@@ -1,6 +1,14 @@
 package dataHelper;
 
-public class HibernateUtil_Green {
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import java.util.List;
+
+public class HibernateUtil_Green<T> {
     /*
     * 专家的架构写的太精妙了，以至于我不敢在她源代码上狗尾续貂
     * 总的来说我有以下几个问题：
@@ -21,4 +29,122 @@ public class HibernateUtil_Green {
     * 膜一发专家，架构写的很有美感。
     * 王瑞华，2017，圣诞节凌晨
      */
+    private Class<T> type;
+    private SessionFactory sessionFactory;
+    private Session session = null;
+
+    public HibernateUtil_Green(Class<T> type) {
+        this.type = type;
+        sessionFactory = new Configuration().configure().buildSessionFactory();
+    }
+
+
+    public void delete(String id){
+        //按照ID删除数据表项(需要把ID设为主键，下同)
+        session=sessionFactory.openSession();
+        Transaction tx=null;
+        try {
+            tx=session.beginTransaction();
+            session.delete((T)session.get(type.getName(),id));
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+                System.out.println("删除失败");
+            }
+        }finally {
+            session.close();
+        }
+
+    }
+
+    public void update(T po){
+        //按照ID替换数据表项，因为ID作为主键不会变，所以替换应该是成功的
+        session=sessionFactory.openSession();
+        Transaction tx=null;
+        try {
+            tx=session.beginTransaction();
+            session.update(po);
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+                System.out.println("更新失败");
+
+            }
+
+        }finally {
+            session.close();
+        }
+    }
+
+    public T get(String id){
+        //按照id返回单个PO
+        session=sessionFactory.openSession();
+        Transaction tx=null;
+        T po=null;
+        try {
+            tx=session.beginTransaction();
+            po=(T)session.get(type.getName(),id);
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+                System.out.println("获取失败");
+
+            }
+
+        }finally {
+            session.close();
+        }
+        return po;
+    }
+
+    public void insert(T po){
+        //新增一个PO
+        session=sessionFactory.openSession();
+        Transaction tx=null;
+        try {
+            tx=session.beginTransaction();
+            session.save(po);
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+                System.out.println("新增失败");
+
+            }
+
+        }finally {
+            session.close();
+        }
+
+    }
+
+    public List<T> getList(){
+        //返回一组对象
+        session=sessionFactory.openSession();
+        Transaction tx=null;
+        List<T> list=null;
+        try {
+            tx=session.beginTransaction();
+            String s0="FROM "+type.getName();
+            list=session.createQuery(s0).list();
+          /*  for(int i=0;i<list.size();i++){
+                System.out.print(list.get(i));
+            }*/
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+                System.out.println("新增失败");
+
+            }
+
+        }finally {
+            session.close();
+        }
+        return list;
+
+    }
 }
