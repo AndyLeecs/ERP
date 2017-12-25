@@ -6,6 +6,7 @@ import blservice.goodsblservice.GoodsBLService;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import util.ResultMessage;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class GoodsBLServiceImpl implements GoodsBLService {
     }
     
     @Override
-    public ResultMessage deleteGoods(String category, String name) {
+    public ResultMessage deleteGoods(String category, String name) throws RemoteException {
         return goods.deleteGoods(category, name);
     }
 

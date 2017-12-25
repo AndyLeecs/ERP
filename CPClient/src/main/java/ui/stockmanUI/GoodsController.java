@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -190,7 +191,11 @@ public class GoodsController{
             switch (selectItem.getValue().toString().substring(0,2)){
                 case "商品":
                     System.out.println("删除商品所属分类：" + selectItem.getParent().getValue().toString().substring(3)+ " 删除商品名称：" + selectItem.getValue().toString().substring(3));
-                    goodsBLService.deleteGoods(selectItem.getParent().getValue().toString().substring(3),selectItem.getValue().toString().substring(3));//
+                    try {
+                        goodsBLService.deleteGoods(selectItem.getParent().getValue().toString().substring(3),selectItem.getValue().toString().substring(3));//
+                    } catch (RemoteException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
 
                 case "分类":
