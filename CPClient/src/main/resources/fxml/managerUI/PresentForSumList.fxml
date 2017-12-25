@@ -20,8 +20,9 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <Button fx:id="BackBtn" layoutX="842.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-border-color: #9f353a;" onAction="#back" text="返回" textFill="#9f353a"/>
          </children></Pane>
-      <ScrollPane layoutX="7.0" layoutY="158.0" opacity="0.0" prefViewportHeight="432.0" prefViewportWidth="908.0">
+      <ScrollPane layoutX="7.0" layoutY="158.0" prefViewportHeight="432.0" prefViewportWidth="908.0">
          <content>
             <VBox fx:id="vBox" layoutX="7.0" layoutY="158.0" prefHeight="432.0" prefWidth="908.0" />
          </content>

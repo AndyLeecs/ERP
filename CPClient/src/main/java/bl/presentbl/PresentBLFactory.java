@@ -10,14 +10,14 @@ import blservice.presentblservice.PresentForSumBLService;
 * @description
 */
 public class PresentBLFactory {
-	public synchronized static PresentForSumBLService getPresentForSumBLService(){
+	public static PresentForSumBLService getPresentForSumBLService(){
 		return new PresentForSumBLServiceImpl();
 	}
-	public synchronized static PresentForSpecialPackageBLService getPresentForSpecialPackageBLService(){
+	public static PresentForSpecialPackageBLService getPresentForSpecialPackageBLService(){
 		return new PresentForSpecialPackageBLServiceImpl();
 	}
 	
-	public synchronized static PresentForMembershipBLService getPresentForMembershipBLService(){
+	public static PresentForMembershipBLService getPresentForMembershipBLService(){
 		return new PresentForMembershipBLServiceImpl();
 	}
 }

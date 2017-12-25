@@ -4,9 +4,16 @@ package VO.saleVO;
 /**     
 * @author 李安迪
 * @date 2017年10月27日
-* @description 销售人员狐狸的单据中的商品项
+* @description 销售人员的单据中的商品项
 */
-public abstract class SalesmanItemVO {
+public class SalesmanItemVO {
+	int autoId;
+	public int getAutoId() {
+		return autoId;
+	}
+	public void setAutoId(int autoId) {
+		this.autoId = autoId;
+	}
 	/**
 	 * 商品编号
 	 */
@@ -35,4 +42,61 @@ public abstract class SalesmanItemVO {
 	 * 备注
 	 */
 	String notes;
+
+	public SalesmanItemVO(int autoId, String id, String name, String type, double price, double amount, double sum,
+			String notes) {
+		super();
+		this.autoId = autoId;
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.price = price;
+		this.amount = amount;
+		this.sum = sum;
+		this.notes = notes;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	public double getSum() {
+		return sum;
+	}
+	public void setSum(double sum) {
+		this.sum = sum;
+	}
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+	
+	
 }

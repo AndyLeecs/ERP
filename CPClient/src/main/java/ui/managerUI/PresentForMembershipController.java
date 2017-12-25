@@ -30,6 +30,7 @@ import ui.commonUI.GoodsSearchResultWin;
 import util.DataRM;
 import util.DateUtil;
 import util.NumberUtil;
+import util.VIPGrade;
 
 /**     
 * @author 李安迪
@@ -56,7 +57,7 @@ public class PresentForMembershipController implements SinglePresentEditableCont
 	    @FXML protected TextField voucherField;
 	    @FXML protected TextField rebateField;
 	    
-	    @FXML protected ChoiceBox gradeChoiceBox;
+	    @FXML protected ChoiceBox<String> gradeChoiceBox;
 	    
 	    @FXML protected Label nullErrorMessage;
 	    @FXML protected Label dateErrorMessage;
@@ -297,28 +298,54 @@ public class PresentForMembershipController implements SinglePresentEditableCont
 			String totalInString = totalField.getText();
 			double total = 0;
 			
-			if(!NumberUtil.isNotNegative(totalInString)){
-				totalErrorMessage.setText(totalError);
-				return;
-			}
+			try{
+//				if(!NumberUtil.isNotNegative(totalInString)){
+//					totalErrorMessage.setText(totalError);
+//					
+//					return;
+//				}else{
+//					
+//				}
+					total = Double.parseDouble(totalInString);
+				}catch(Exception e){
+					totalErrorMessage.setText(totalError);
+				}
 			//检查赠券金额合法性
 			String voucherInString = voucherField.getText();
 			double voucher = 0;
-			if(!NumberUtil.isNotNegative(voucherInString)){
-				voucherErrorMessage.setText(voucherError);
-				return;
-			}
+			try{
+//				if(!NumberUtil.isNotNegative(totalInString)){
+//					totalErrorMessage.setText(totalError);
+//					
+//					return;
+//				}else{
+//					
+//				}
+					voucher = Double.parseDouble(voucherInString);
+				}catch(Exception e){
+					voucherErrorMessage.setText(voucherError);
+				}
 
 			//检查折让金额合法性
 			String rebateInString = rebateField.getText();
 			double rebate = 0;
-			if(!NumberUtil.isNotNegative(rebateInString)){
-				rebateErrorMessage.setText(rebateError);
-				return;
-			}
+			try{
+//				if(!NumberUtil.isNotNegative(totalInString)){
+//					totalErrorMessage.setText(totalError);
+//					
+//					return;
+//				}else{
+//					
+//				}
+					rebate = Double.parseDouble(rebateInString);
+				}catch(Exception e){
+					rebateErrorMessage.setText(rebateError);
+				}
+			//检查会员等级合法性
+			VIPGrade vipGrade = VIPGrade.getVIPGradeByString(gradeChoiceBox.getValue());
 			
 			//打包成vo
-			PresentForMembershipVO vo = new PresentForMembershipVO(id,startTime, finishTime,null, total, presentList,voucher, rebate);
+			PresentForMembershipVO vo = new PresentForMembershipVO(id,startTime, finishTime,vipGrade, total, presentList,voucher, rebate);
 			
 			//确认操作
 			
@@ -387,7 +414,7 @@ public class PresentForMembershipController implements SinglePresentEditableCont
 //			goodsList.addAll(listByCategory);
 //			//去重
 //			goodsList = new ArrayList<GoodsInSaleVO>(new LinkedHashSet<>(goodsList));
-//			System.out.println(goodsList);
+			System.out.println(goodsList);
 			
 			try {
 				new GoodsSearchResultWin(goodsList,this);

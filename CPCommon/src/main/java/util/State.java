@@ -8,21 +8,31 @@ import java.io.Serializable;
 * @description 单据状态
 */
 public enum State implements Serializable{
-	IsDraft(0),
-	IsCommitted(1),
-	IsApproved(2),
-	IsRefused(3),
-	IsEditting(4),
-	IsDeleted(5);
+	IsDraft(0,"草稿"),
+	IsCommitted(1,"已提交"),
+	IsApproved(2,"已通过审批"),
+	IsRefused(3,"已拒绝"),
+	IsEditting(4,"编辑中"),
+	IsDeleted(5,"已删除");
 	
 	private final int state;
+	private final String stateName;
 	
-	State(int state){
+	State(int state, String name){
 		this.state = state;
+		this.stateName = name;
 	}
 	
 	public int getState(){
-		return this.state;
+		return state;
+	}
+
+	public String getStateName() {
+		return stateName;
+	}
+	
+	public String toString(){
+		return stateName;
 	}
 	
 	

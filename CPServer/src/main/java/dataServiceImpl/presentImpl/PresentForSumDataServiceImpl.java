@@ -70,7 +70,13 @@ public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements
 		List<CriterionClause> l = new ArrayList<CriterionClause>();
 		l = criterionClauseGenerator.generateExactCriterion(l,"state", PresentState.SAVE);
 		System.out.println(l);
-		return util.Query(l);
+		System.out.println("before query");
+		List<PresentForSumPO> list =  util.Query(l);
+		System.out.println("before return");
+		System.out.println(list);
+		return list;
+//		return new ArrayList<PresentForSumPO>();
+		
 	}
 
 	/* (non-Javadoc)
@@ -86,5 +92,6 @@ public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements
 		l = criterionClauseGenerator.generateCurrentTimeInRangeCriterion(l);
 		return util.Query(l);
 	}
+	
 
 }

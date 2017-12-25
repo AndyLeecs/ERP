@@ -234,7 +234,7 @@ public class PresentForSumController implements SinglePresentEditableController{
 	    	strategy.initData(this, vo);
 	    	
 	    	//把vo清空
-	    	vo = null;
+	    	
 	    	
 	    
 	    }
@@ -289,19 +289,33 @@ public class PresentForSumController implements SinglePresentEditableController{
 			//检查总额合法性
 			String totalInString = totalField.getText();
 			double total = 0;
-			
-			if(!NumberUtil.isNotNegative(totalInString)){
+			try{
+//			if(!NumberUtil.isNotNegative(totalInString)){
+//				totalErrorMessage.setText(totalError);
+//				
+//				return;
+//			}else{
+//				
+//			}
+				total = Double.parseDouble(totalInString);
+			}catch(Exception e){
 				totalErrorMessage.setText(totalError);
-				return;
 			}
 			//检查赠券金额合法性
 			String voucherInString = voucherField.getText();
 			double voucher = 0;
-			if(!NumberUtil.isNotNegative(voucherInString)){
-				voucherErrorMessage.setText(voucherError);
-				return;
-			}
-			
+			try{
+//				if(!NumberUtil.isNotNegative(totalInString)){
+//					totalErrorMessage.setText(totalError);
+//					
+//					return;
+//				}else{
+//					
+//				}
+					voucher = Double.parseDouble(voucherInString);
+				}catch(Exception e){
+					voucherErrorMessage.setText(voucherError);
+				}
 			
 			//打包成vo
 			PresentForSumVO vo = new PresentForSumVO(id,startTime, finishTime,total, presentList,voucher);
