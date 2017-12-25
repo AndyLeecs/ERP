@@ -21,6 +21,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import util.CommitListRM;
 import util.SaveListRM;
+import util.State;
 
 public class CollectionListWinController extends FinanceListWinController{
 	
@@ -48,7 +49,6 @@ public class CollectionListWinController extends FinanceListWinController{
 	
 	
 
-	//不用fxml注入的initialize方法，因为那个会在加载fxml时就调用
 	public void init(){
 		
 		initComboBox();
@@ -155,7 +155,7 @@ public class CollectionListWinController extends FinanceListWinController{
 	@FXML 
 	public void onSaveBtnClicked() {
 		
-		CollectionListVO vo = createCollectionListVO();
+		CollectionListVO vo = createCollectionListVO(State.IsDraft);
 		
 		SaveListRM saverm = financeListService.saveCollectionList(vo);
 		switch(saverm){
@@ -168,10 +168,10 @@ public class CollectionListWinController extends FinanceListWinController{
 
 	@FXML 
 	public void onCommitBtnClicked() {
-		System.out.println(transferItem.get(1).getNote());
-		System.out.println(transferItem.get(1).getAmount());
-
-		CollectionListVO vo = createCollectionListVO();
+		if(transferItem.isEmpty()){
+			//TODO 提示转账列表不能为空
+		}
+		CollectionListVO vo = createCollectionListVO(State.IsCommitted);
 		CommitListRM commitrm = financeListService.commitCollectionList(vo);
 		switch(commitrm){
 		case SUCCESS:
@@ -182,14 +182,15 @@ public class CollectionListWinController extends FinanceListWinController{
 	}
 	
 	//创建当前界面对应的VO
-	private CollectionListVO createCollectionListVO(){
+	private CollectionListVO createCollectionListVO(State state){
 		return new CollectionListVO(
 				listID.getText(),
 				VIPID.getText(),
 				VIPName.getText(),
 				operator.getText(),
 				transferItem.stream().map(e -> e.toVO()).collect(Collectors.toList()),		//装一下B，虽然没人看的到
-				Double.parseDouble(totalAmount.getText())
+				Double.parseDouble(totalAmount.getText()),
+				state
 				);
 	}
 

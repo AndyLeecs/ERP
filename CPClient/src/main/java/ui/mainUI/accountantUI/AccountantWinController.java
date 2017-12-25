@@ -10,6 +10,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import ui.accountUI.FinanceListWinController;
+import ui.accountUI.OpenCollectionCommitedListController;
+import ui.accountUI.OpenFinanceListController;
 import ui.commonUI.ParentController;
 import ui.mainUI.loginUI.User;
 
@@ -61,6 +63,25 @@ public class AccountantWinController implements ParentController{
 
 	@FXML public void onOpenCollectionCommittedBtnClicked() {
 		//TODO
+		String fxmlPath = "/fxml/commonUI/OpenListOfForms.fxml";
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/commonUI/OpenListOfForms.fxml"));
+			OpenFinanceListController openfinanceListController = new OpenCollectionCommitedListController(); 
+			loader.setController(openfinanceListController);
+			loader.load();
+
+			openfinanceListController.setParentController(this);
+			openfinanceListController.setService(financeListService);
+			openfinanceListController.init();
+			
+			AnchorPane ListRoot = loader.getRoot();
+			
+			centerPane.getChildren().removeAll();
+			centerPane.getChildren().add(ListRoot);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		
 	}

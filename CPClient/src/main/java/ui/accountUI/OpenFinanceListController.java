@@ -1,12 +1,13 @@
 package ui.accountUI;
 
 import blservice.accountblservice.FinanceListService;
-import ui.commonUI.ListWinController;
+import ui.commonUI.OpenListWinController;
 
-public abstract class FinanceListWinController extends ListWinController{
+public abstract class OpenFinanceListController extends OpenListWinController{
 	protected FinanceListService financeListService;
 	
 	public void setService(FinanceListService FListService){
 		financeListService = FListService;
 	}
+	
 }
