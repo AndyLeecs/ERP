@@ -2,6 +2,9 @@ package bl.goodsbl;
 
 import PO.GoodsPO;
 import VO.goodsVO.GoodsVO;
+import VO.storeVO.StoreVO;
+import bl.storebl.Store_Interface;
+import bl.storebl.Store_InterfaceImpl;
 import dataService.goodsDataService.GoodsDataService;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import util.ResultMessage;
@@ -31,7 +34,6 @@ public class Goods {
     public GoodsVO getGoods(String name,String category){
        	return goodsVO;//tmp try
         //return poToVO(goodsDataService.getGoods(name,category));
-
     }
 
     public ResultMessage deleteGoods(String category, String name){
@@ -48,7 +50,8 @@ public class Goods {
 
     public ResultMessage initAndSaveGoods(GoodsVO vo){
         goodsDataService.initAndSaveGoods(voToPO(vo));
-
+        Store_Interface store_interface = new Store_InterfaceImpl();
+        store_interface.addStoreItem(voToStoreVO(goodsVO));
         return ResultMessage.SUCCESS;
 
     }
@@ -62,6 +65,11 @@ public class Goods {
             ,0
             ,0
             ,0);
+
+    private StoreVO voToStoreVO(GoodsVO goodsVO){
+        StoreVO storeVO = new StoreVO(goodsVO.getGoodsName(),goodsVO.getGoodsID(),5,0);
+        return storeVO;
+    }
 
     private GoodsPO voToPO(GoodsVO goodsVO){
         return goodsVO == null ? null : new GoodsPO(goodsVO.getGoodsID()
