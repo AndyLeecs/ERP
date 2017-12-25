@@ -44,19 +44,18 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 //    /**
 //     * 初始化Session
 //     */
-//    private void setUpSession() {
-//        session = sessionFactory.openSession();
-//        session.beginTransaction();
-//       
-//    }
+   private void setUpSession() {
+       session = sessionFactory.openSession();
+     session.beginTransaction();
+   }
 //
 //    /**
 //     * 提交事务及关闭session
 //     */
-//    private void commitAndClose() {
-//        session.getTransaction().commit();
-//        session.close();
-//    }
+  private void commitAndClose() {
+        session.getTransaction().commit();
+        session.close();
+    }
 
 
 	/* (non-Javadoc)

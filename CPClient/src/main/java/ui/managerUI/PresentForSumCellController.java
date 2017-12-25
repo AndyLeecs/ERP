@@ -1,6 +1,7 @@
 package ui.managerUI;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +41,20 @@ public class PresentForSumCellController implements SinglePresentController{
     PresentForSumVO vo;
     Strategy strategy;
 	private List<GoodsInSaleVO> presentList;
+	
+    protected List<TextField> textFieldList;
+	/**
+     * 界面保存但不显示策略id
+     */
+    int id;
     
+    public int getId(){
+    	return this.id;
+    }
+    
+    public void setId(int id){
+    	this.id = id;
+    }
     /**
 	 * @param presentForSumListController
 	 * @param vo
@@ -49,11 +63,22 @@ public class PresentForSumCellController implements SinglePresentController{
 		// TODO Auto-generated constructor stub
 		this.controller = controller;
 		this.vo = vo;
-		this.strategy = new PresentForSumEditStrategy();
+		this.strategy = new PresentForSumCellStrategy();
 	}
 
 
 	@FXML void initialize(){
+    	textFieldList = new ArrayList<TextField>();
+    	//加入文本框列表
+    	textFieldList.add(startYearField);
+    	textFieldList.add(startMonthField);
+    	textFieldList.add(startDayField);
+    	textFieldList.add(finishYearField);
+    	textFieldList.add(finishMonthField);
+    	textFieldList.add(finishDayField);
+    	textFieldList.add(totalField);
+    	textFieldList.add(voucherField);
+    	
     	strategy.initData(this, vo);
     }
 
@@ -89,7 +114,7 @@ public class PresentForSumCellController implements SinglePresentController{
 		try {
    		 Strategy strategy = new PresentForSumEditStrategy();
    		 PresentForSumController controller = 
-   				    new PresentForSumController(strategy,this.controller.getManagerController());
+   				    new PresentForSumController(strategy,this.controller.getManagerController(),vo);
    		 FXMLLoader loader = new FXMLLoader(
    				    getClass().getResource(
    				        "/fxml/managerUI/PresentForSum.fxml"));

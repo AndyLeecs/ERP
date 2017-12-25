@@ -10,10 +10,11 @@ import VO.saleVO.SaleReturnListVO;
 import VO.saleVO.SaleVO;
 import VO.saleVO.SalesmanListType;
 import VO.saleVO.SalesmanListVO;
-import VO.storeVO.StockListVO;
-import VO.storeVO.StockReturnListVO;
+import VO.saleVO.StockListVO;
+import VO.saleVO.StockReturnListVO;
 import util.ResultMessage;
 
+//弃用了的大的service，注意使用时参照界面的，注意这里面竟然没有删除
 public interface SaleBLService{
 	public List<GoodsVO> findGoods(String info);
 	

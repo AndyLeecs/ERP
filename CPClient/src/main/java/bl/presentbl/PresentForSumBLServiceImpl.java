@@ -29,16 +29,17 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 	@Override
 	public List<PresentForSumVO> getAll() {
 		// TODO Auto-generated method stub
-		List<PresentForSumPO> polist;
+		List<PresentForSumPO> polist = new ArrayList<PresentForSumPO>();
 		List<PresentForSumVO> volist = new ArrayList<PresentForSumVO>();
 		try {
 			polist = presentForSumDataService.getPresentForSum();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
-			System.out.println("remote exception");
+			e.printStackTrace();
 			return null;
 	//		return volist;
 		}
+		System.out.println("polist"+polist);
 		
 		
 		for(PresentForSumPO po : polist){
@@ -106,7 +107,7 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 			volist.add(GoodsInSaleVoTransPo.GoodsInSalePoToVo(i));
 		}
 		
-		return new PresentForSumVO(po.getId(),po.getStartTime(), po.getFinishTime(), po.getSum(),volist, po.getSum());
+		return new PresentForSumVO(po.getId(),po.getStartTime(), po.getFinishTime(), po.getSum(),volist, po.getVoucher());
 	}
 	
 	private PresentForSumPO voToPo(PresentForSumVO vo){

@@ -5,7 +5,7 @@ import java.util.List;
 import PO.SaleListPO;
 import PO.SaleReturnListPO;
 import PO.SalesmanListPO;
-import PO.State;
+import util.State;
 import PO.StockListPO;
 import PO.StockReturnListPO;
 import dataService.saleDataService.SaleDataService;

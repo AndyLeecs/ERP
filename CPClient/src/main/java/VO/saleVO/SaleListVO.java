@@ -1,5 +1,9 @@
 package VO.saleVO;
 
+import java.util.Date;
+import java.util.List;
+
+import util.State;
 
 /**     
 * @author 李安迪
@@ -7,10 +11,7 @@ package VO.saleVO;
 * @description 销售单
 */
 public class SaleListVO extends SalesmanListVO{
-	/**
-	 * 单据类型
-	 */
-	SalesmanListType SaleList;
+	SalesmanListType type = SalesmanListType.SaleList;
 	/**
 	 * 折让前总额
 	 */
@@ -23,5 +24,35 @@ public class SaleListVO extends SalesmanListVO{
 	 * 使用代金券金额
 	 */
 	double voucher;
+
+	public double getSumBeforeRebate() {
+		return sumBeforeRebate;
+	}
+	public void setSumBeforeRebate(double sumBeforeRebate) {
+		this.sumBeforeRebate = sumBeforeRebate;
+	}
+	public double getRebate() {
+		return rebate;
+	}
+	public void setRebate(double rebate) {
+		this.rebate = rebate;
+	}
+	public double getVoucher() {
+		return voucher;
+	}
+	public void setVoucher(double voucher) {
+		this.voucher = voucher;
+	}
+	public SaleListVO(String id, String operator, String operatorId, State state, Date day,String memberID, String memberName,
+			String operator2, String warehouse, String notes, List<SalesmanItemVO> saleListItems, double sum,
+			double sumBeforeRebate, double rebate, double voucher) {
+		super(id, operator, operatorId, state, day, memberID, memberName, operator2, warehouse, notes, saleListItems, sum);
+		this.sumBeforeRebate = sumBeforeRebate;
+		this.rebate = rebate;
+		this.voucher = voucher;
+	}
+
+	
+	
 	
 }

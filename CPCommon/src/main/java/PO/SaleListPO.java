@@ -1,6 +1,7 @@
 package PO;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import util.State;
@@ -11,10 +12,10 @@ import util.State;
 * @description
 */
 public class SaleListPO extends SalesmanListPO implements Serializable{
-	/**
-	 * 单据编号
-	 */
-	String id;
+//	/**
+//	 * 单据编号
+//	 */
+//	String id;
 	/**
 	 * 折让前总额
 	 */
@@ -31,15 +32,20 @@ public class SaleListPO extends SalesmanListPO implements Serializable{
 	
 
 
-	public SaleListPO(State state, String memberID, String memberName, String operator, String warehouse, String notes,
-			List<SalesmanItemPO> saleListItems, double sum, String id, double sumBeforeRebate, double rebate,
-			double voucher) {
-		super(state, memberID, memberName, operator, warehouse, notes, saleListItems, sum);
-		this.id = id;
+
+
+
+	public SaleListPO(String id, State state, Date day, String memberID, String memberName, String operator,
+			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum,
+			double sumBeforeRebate, double rebate, double voucher) {
+		super(id, state, day, memberID, memberName, operator, realOperator, warehouse, notes, saleListItems, sum);
 		this.sumBeforeRebate = sumBeforeRebate;
 		this.rebate = rebate;
 		this.voucher = voucher;
 	}
+
+
+
 
 
 
@@ -62,12 +68,12 @@ public class SaleListPO extends SalesmanListPO implements Serializable{
 		this.voucher = voucher;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+//	public String getId() {
+//		return id;
+//	}
+//
+//	public void setId(String id) {
+//		this.id = id;
+//	}
 	
 }
