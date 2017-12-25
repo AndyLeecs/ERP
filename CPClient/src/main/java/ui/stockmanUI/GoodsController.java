@@ -473,7 +473,7 @@ public class GoodsController{
         newGoodsID.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsID);
 
-        Label newGoodsInventory = new Label(" ");//后期获取商品库存
+        Label newGoodsInventory = new Label(" "); //后期获取商品库存
         newGoodsInventory.setLayoutX(337);
         newGoodsInventory.setLayoutY(154);
         newGoodsInventory.setPrefSize(39, 32);
