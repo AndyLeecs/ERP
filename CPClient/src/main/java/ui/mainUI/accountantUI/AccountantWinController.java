@@ -37,13 +37,12 @@ public class AccountantWinController implements ParentController{
 	
 	FinanceListService financeListService = AccountBLFactory.getFinanceListService();
 	
-	private static final String FORM_CSS_PATH = "/css/forms/Forms.css";
 	
 	
 
 	@FXML public void onNewCollectionListBtnClicked() {
 		String id = financeListService.newCollectionList();
-		loadNewList(id,new CollectionListWinController(),"/fxml/accountUI/CollectionList.fxml",FORM_CSS_PATH);
+		loadNewList(id,new CollectionListWinController(),"/fxml/accountUI/CollectionList.fxml");
 	}
 
 
@@ -51,41 +50,21 @@ public class AccountantWinController implements ParentController{
 
 	@FXML public void onNewPaymentListBtnClicked() {
 		String id = financeListService.newPaymentList();
-		loadNewList(id,new PaymentListWinController(),"/fxml/accountUI/PaymentList.fxml",FORM_CSS_PATH);
+		loadNewList(id,new PaymentListWinController(),"/fxml/accountUI/PaymentList.fxml");
 	}
 
 
 
 	@FXML public void onNewCashExpenseListBtnClicked() {
 		String id = financeListService.newCashExpenseList();
-		loadNewList(id,new CashExpenseListWinController(),"/fxml/accountUI/CashExpenseList.fxml",FORM_CSS_PATH);
+		loadNewList(id,new CashExpenseListWinController(),"/fxml/accountUI/CashExpenseList.fxml");
 	}
 
 
 
 
 	@FXML public void onOpenCollectionCommittedBtnClicked() {
-		//TODO
-		String fxmlPath = "/fxml/commonUI/OpenListOfForms.fxml";
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/commonUI/OpenListOfForms.fxml"));
-			OpenFinanceListController openfinanceListController = new OpenCollectionCommitedListController(); 
-			loader.setController(openfinanceListController);
-			loader.load();
-
-			openfinanceListController.setParentController(this);
-			openfinanceListController.setService(financeListService);
-			openfinanceListController.init();
-			
-			AnchorPane ListRoot = loader.getRoot();
-			
-			centerPane.getChildren().removeAll();
-			centerPane.getChildren().add(ListRoot);
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+		loadOpenList(new OpenCollectionCommitedListController());
 		
 	}
 
@@ -135,7 +114,7 @@ public class AccountantWinController implements ParentController{
 	
 	
 	
-	private void loadNewList(String id,FinanceListWinController ListWinController, String fxmlPath,String cssPath){
+	private void loadNewList(String id,FinanceListWinController ListWinController, String fxmlPath){
 		if(id == null){
 			//TODO 提示单据已满的界面
 			return;
@@ -155,8 +134,27 @@ public class AccountantWinController implements ParentController{
 
 			AnchorPane ListRoot;
 			ListRoot = loader.getRoot();
-			if(cssPath != null)
-				ListRoot.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
+			
+			centerPane.getChildren().removeAll();
+			centerPane.getChildren().add(ListRoot);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void loadOpenList(OpenFinanceListController openfinanceListController){
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/commonUI/OpenListOfForms.fxml"));
+			loader.setController(openfinanceListController);
+			loader.load();
+
+			openfinanceListController.setParentController(this);
+			openfinanceListController.setService(financeListService);
+			openfinanceListController.init();
+			
+			AnchorPane ListRoot = loader.getRoot();
+			
 			centerPane.getChildren().removeAll();
 			centerPane.getChildren().add(ListRoot);
 			
