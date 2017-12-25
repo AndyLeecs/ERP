@@ -2,6 +2,7 @@ package ui.accountUI;
 
 import VO.accountVO.CollectionListVO;
 import VO.accountVO.TransferItemVO;
+import javafx.application.Platform;
 
 public class CollectionListWinLookController extends CollectionListWinController{
 	private CollectionListVO collectionListVO;
@@ -29,6 +30,17 @@ public class CollectionListWinLookController extends CollectionListWinController
 		this.collectionListVO = collectionListVO;
 	}
 	
+	
+	public void onCommitBtnClicked() {
+		 Platform.runLater(()-> {
+             try {
+                 root.getScene().getWindow().hide();
+             } catch (Exception e) {
+                 e.printStackTrace();
+             }
+     });
+		
+	}
 	
 	
 }
