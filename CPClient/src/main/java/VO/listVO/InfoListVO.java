@@ -9,12 +9,12 @@ public class InfoListVO {
     public String operator; //操作人员
     public String note; //备注
     public State  state;
-    public InfoListVO (String id,GreatListType type,String operator,String note, State state){
+    public InfoListVO (String id,GreatListType type,String operator,String note){
         this.id=id;
         this.note=note;
         this.type=type;
         this.operator=operator;
-        this.state=state;
+        
     }
 
 //  王瑞华 制作

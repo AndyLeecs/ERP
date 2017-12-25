@@ -33,7 +33,7 @@ public class ListblController implements Listblservice {
     	ArrayList<InfoListVO> arr1 =new ArrayList<InfoListVO>();
     	for(int i=arr0.size()-1;i>=0;i--){
     		//倒序操作一下，使得最近加进来的VO靠前显示
-    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note,arr0.get(i).state);
+    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note);
     		arr1.add(v);
     	}
         return arr1;
@@ -77,7 +77,7 @@ public class ListblController implements Listblservice {
     	ArrayList<InfoListVO> arr1 =new ArrayList<InfoListVO>();
     	for(int i=arr0.size()-1;i>=0;i--){
     		//倒序操作一下，使得最近加进来的VO靠前显示
-    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note,arr0.get(i).state);
+    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note);
     		arr1.add(v);
     	}
         return arr1;

@@ -1,63 +1,25 @@
 package PO;
 
+import  javax.persistence.*;
+
+@Entity
+@Table(name="AlarmListPO")
 public class AlarmListPO {
-    public int alarmNum;
-
-    public int getAlarmNum() {
-        return alarmNum;
-    }
-
-    public void setAlarmNum(int alarmNum) {
-        this.alarmNum = alarmNum;
-    }
-
-    public  int currentNum;
-
-    public int getCurrentNum() {
-        return currentNum;
-    }
-
-    public void setCurrentNum(int currentNum) {
-        this.currentNum = currentNum;
-    }
-
+    @Id @GeneratedValue
+    @Column(name="id")
     public  String listID;
 
-    public String getListID() {
-        return listID;
-    }
+    @Column(name="alarmNum")
+    public int alarmNum;
 
-    public void setListID(String listID) {
-        this.listID = listID;
-    }
+    @Column(name="currentNum")
+    public  int currentNum;
 
+    @Column(name="goodsID")
     public  String goodsID;
 
-    public String getGoodsID() {
-        return goodsID;
-    }
 
-    public void setGoodsID(String goodsID) {
-        this.goodsID = goodsID;
-    }
-
+    @Column(name="goodsName")
     public String goodsName;
 
-    public String getGoodsName() {
-        return goodsName;
-    }
-
-    public void setGoodsName(String goodsName) {
-        this.goodsName = goodsName;
-    }
-
-    private String autoId;
-
-    public String getAutoId() {
-        return autoId;
-    }
-
-    public void setAutoId(String autoId) {
-        this.autoId = autoId;
-    }
 }
