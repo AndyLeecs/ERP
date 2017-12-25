@@ -226,21 +226,21 @@ public class GoodsController{
     public void initialize(){
         notice.setVisible(false);
         initTreeView();
-        //goodsVBox.getChildren().clear();
+        goodsVBox.getChildren().clear();
     }
 
 
     /**
      * 编辑商品信息
      */
-	@FXML
+	/*@FXML
     private void setEditBtn(){
         try {
             new GoodsInfoEditWin();
         } catch (IOException e) {
             e.printStackTrace();
         }
-	}
+	}*/
 
     /**
      * 模糊查找商品确认按钮
@@ -528,9 +528,12 @@ public class GoodsController{
         edit.setLayoutY(23);
         edit.setFitHeight(25);
         edit.setFitWidth(25);
+        edit.setAccessibleHelp(goodsVO.getGoodsName() + "/" + goodsVO.getGoodsCategory());
+        System.out.println(edit.getAccessibleHelp());
         edit.setOnMousePressed(event -> {
             try {
-                new GoodsInfoEditWin();
+                GoodsInfoEditController.goods = edit.getAccessibleHelp();
+                new GoodsInfoEditWin(edit.getAccessibleHelp());
             } catch (IOException e) {
                 e.printStackTrace();
             }

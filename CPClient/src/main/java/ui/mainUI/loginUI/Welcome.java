@@ -34,8 +34,9 @@ public class Welcome extends Application {
         				public void run() {
         					try {
         						stage.close();
-        						new LoginWin();
-        						new ui.salesmanUI.VIPWin();
+        						//new LoginWin();
+        						//new ui.salesmanUI.VIPWin();
+        						new ui.stockmanUI.StockmanWin();
         					} catch (Exception e) {
         						e.printStackTrace();
         					}

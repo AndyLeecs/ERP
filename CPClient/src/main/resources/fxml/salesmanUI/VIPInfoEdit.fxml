@@ -42,19 +42,19 @@
                                         <Label prefHeight="45.0" prefWidth="145.0" text="默认业务员" textAlignment="CENTER" textFill="#938c8c" GridPane.rowIndex="8" />
                                         <Label prefHeight="45.0" prefWidth="145.0" text="分类" textFill="#938c8c" GridPane.rowIndex="2" />
                                         <Label prefHeight="45.0" prefWidth="145.0" text="地址" textAlignment="CENTER" textFill="#938c8c" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                        <TextField opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                        <TextField opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                        <TextField opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                        <TextField opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                        <TextField opacity="0.61" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                                        <TextField fx:id="name" opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="category" opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <TextField fx:id="phoneNumber" opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <TextField fx:id="email" opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <TextField fx:id="collection" opacity="0.61" GridPane.columnIndex="4" GridPane.rowIndex="7" />
                                         <Label prefHeight="45.0" prefWidth="145.0" text="编号" textFill="#938c8c" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                        <TextField opacity="0.65" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                        <TextField fx:id="id" opacity="0.65" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                                         <Label prefHeight="45.0" prefWidth="145.0" text="电子邮箱" textAlignment="CENTER" textFill="#938c8c" GridPane.rowIndex="4" />
-                                        <TextField opacity="0.61" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                        <TextField fx:id="address" opacity="0.61" GridPane.columnIndex="4" GridPane.rowIndex="3" />
                                         <Label prefHeight="45.0" prefWidth="145.0" text="级别" textFill="#938c8c" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                         <Label prefHeight="45.0" prefWidth="145.0" text="邮编" textAlignment="CENTER" textFill="#938c8c" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                        <TextField opacity="0.65" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                                        <TextField opacity="0.61" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                        <TextField fx:id="postcode" opacity="0.65" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                        <TextField fx:id="grade" opacity="0.61" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                                         <Label prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" GridPane.rowIndex="6" />
                                         <Label text="     应收应付" GridPane.rowIndex="6">
                                             <font>
@@ -62,11 +62,11 @@
                                             </font>
                                         </Label>
                                         <Label prefHeight="45.0" prefWidth="145.0" text="应收额度" textAlignment="CENTER" textFill="#938c8c" GridPane.rowIndex="7" />
-                                        <TextField opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                        <TextField fx:id="collectionLimit" opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                         <Label prefHeight="45.0" prefWidth="145.0" text="应收" textAlignment="CENTER" textFill="#938c8c" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-                                        <TextField opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                        <TextField fx:id="clerk" opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                                         <Label prefHeight="45.0" prefWidth="145.0" text="应付" textAlignment="CENTER" textFill="#938c8c" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-                                        <TextField opacity="0.61" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                                        <TextField fx:id="payment" opacity="0.61" GridPane.columnIndex="4" GridPane.rowIndex="8" />
                                     </children>
                                 </GridPane>
                         <Button fx:id="saveVIPInfoBtn" layoutX="526.0" layoutY="408.0" mnemonicParsing="false" onAction="#setSaveVIPInfoBtn" prefHeight="27.0" prefWidth="56.0" style="-fx-background-color: #ff7575; -fx-background-radius: 23; -fx-border-radius: 23;" text="保存" textFill="#fcfcfc" />

@@ -48,6 +48,7 @@ public class Goods {
 
     public ResultMessage initAndSaveGoods(GoodsVO vo){
         goodsDataService.initAndSaveGoods(voToPO(vo));
+
         return ResultMessage.SUCCESS;
 
     }

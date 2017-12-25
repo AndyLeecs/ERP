@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.GoodsController">
    <children>
   <fx:include source="Stockman.fxml" />
@@ -14,7 +16,7 @@
                   <Pane fx:id="goodsPane" prefHeight="435.0" prefWidth="663.0" style="-fx-background-color: #FFB5B5;">
                      <children>
                         <Label layoutX="483.0" layoutY="21.0" />
-                        <ImageView fx:id="editBtn" fitHeight="25.0" fitWidth="25.0" layoutX="631.0" layoutY="23.0" onMouseClicked="#setEditBtn">
+                        <ImageView fx:id="editBtn" fitHeight="25.0" fitWidth="25.0" layoutX="631.0" layoutY="23.0">
                            <image>
                               <Image url="@../../img/edit.png" />
                            </image>
