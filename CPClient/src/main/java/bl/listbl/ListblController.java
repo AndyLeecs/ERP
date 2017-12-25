@@ -66,13 +66,13 @@ public class ListblController implements Listblservice {
     }
 
     @Override
-    public ListRM toExcle(GreatListType type, String id) {
+    public ListRM toExcel (GreatListType type, String id) {
 
         return ListRM.WRONG_LISTTYPE;
     }
 
 	@Override
-	public ArrayList<InfoListVO> openApprovd() {
+	public ArrayList<InfoListVO> openApproved() {
 		ArrayList<InfoListPO> arr0 =listDataService.openApproved();
     	ArrayList<InfoListVO> arr1 =new ArrayList<InfoListVO>();
     	for(int i=arr0.size()-1;i>=0;i--){

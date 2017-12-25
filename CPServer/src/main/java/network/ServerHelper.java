@@ -8,6 +8,7 @@ import java.rmi.registry.LocateRegistry;
 
 import dataService.VIPDataService.VIPDataService;
 import dataService.goodsDataService.GoodsDataService;
+import dataService.listDataService.ListDataService;
 import dataService.presentDataService.PresentDataService;
 import dataService.presentDataService.PresentForMembershipDataService;
 import dataService.presentDataService.PresentForSpecialPackageDataService;
@@ -16,6 +17,7 @@ import dataService.saleDataService.SaleDataService;
 import dataService.storeDataService.StoreDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
+import dataServiceImpl.listImpl.ListDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForMembershipDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForSpecialPackageDataServiceImpl;
@@ -38,6 +40,11 @@ public class ServerHelper {
 			StoreDataService storeDataService=new StoreDataServiceImpl();
 			Naming.bind("StoreDataService", storeDataService);
 			System.out.println("bind succeeded!");
+
+			ListDataService listDataService=new ListDataServiceImpl();
+			Naming.bind("ListDataService",listDataService);
+			System.out.println("表单类数据库绑定成功！");
+
 
 			PresentDataService presentDataService=new PresentDataServiceImpl();
 			Naming.bind("PresentDataService", presentDataService);
