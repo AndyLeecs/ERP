@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.salesmanUI.VIPController">
    <children>
       <fx:include source="Sale.fxml" />
@@ -70,7 +74,7 @@
                               <TextField fx:id="clerk" opacity="0.65" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                               <Label prefHeight="45.0" prefWidth="145.0" text="应付" textAlignment="CENTER" textFill="#938c8c" GridPane.columnIndex="3" GridPane.rowIndex="8" />
                               <TextField fx:id="payment" opacity="0.61" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-                              <ImageView fx:id="editBtn" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#setEditBtn" GridPane.columnIndex="4">
+                              <ImageView fx:id="editBtn" fitHeight="25.0" fitWidth="25.0" GridPane.columnIndex="4">
                                  <image>
                                     <Image url="@../../img/edit.png" />
                                  </image>

@@ -25,11 +25,13 @@ public class GoodsInfoEditController {
     @FXML public TextField recentBuyPrice;
     @FXML public TextField recentSellPrice;
     @FXML public Button saveGoodsInfoBtn;
-
+    public static GoodsVO _goodsVO;
+    public static String goods;
     GoodsBLService goodsBLService = new GoodsBLServiceImpl();
 
     @FXML
     public void initialize(){
+        init(goods);
         goodsName.setEditable(true);
         goodsType.setEditable(true);
         goodsBuyPrice.setEditable(true);
@@ -43,6 +45,22 @@ public class GoodsInfoEditController {
         goodsSellPrice.setStyle("-fx-background-color: #FFECEC");
         recentBuyPrice.setStyle("-fx-background-color: #FFECEC");
         recentSellPrice.setStyle("-fx-background-color: #FFECEC");
+
+        goodsName.setText(_goodsVO.getGoodsName());
+        goodsType.setText(_goodsVO.getGoodsType());
+        goodsID.setText(_goodsVO.getGoodsID());
+        goodsCategory.setText(_goodsVO.getGoodsCategory());
+        goodsSellPrice.setText(""+_goodsVO.getGoodsSellPrice());
+        goodsBuyPrice.setText(""+_goodsVO.getGoodsBuyPrice());
+        recentBuyPrice.setText(""+_goodsVO.recentBuyPrice());
+        recentSellPrice.setText(""+_goodsVO.recentSellPrice());
+    }
+
+    public void init(String goods){
+        System.out.println("controller" + goods);
+        GoodsVO goodsVO = goodsBLService.getGoods(goods.substring(0,goods.indexOf('/')),goods.substring(goods.indexOf('/')+1,goods.length()));
+        System.out.println(goodsVO.getGoodsName());
+        _goodsVO = goodsVO;
     }
 
     @FXML

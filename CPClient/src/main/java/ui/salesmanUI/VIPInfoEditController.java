@@ -1,5 +1,7 @@
 package ui.salesmanUI;
 
+import VO.VIPVO.VIPVO;
+import VO.goodsVO.GoodsVO;
 import bl.VIPbl.VIPBLServiceImpl;
 import blservice.VIPblservice.VIPBLService;
 import javafx.application.Platform;
@@ -12,30 +14,59 @@ import javafx.scene.layout.AnchorPane;
  * Created by julia98 on 2017/12/22.
  */
 public class VIPInfoEditController {
-    @FXML
-    public AnchorPane root;
-    @FXML public TextField vipName;
-    @FXML public TextField vipType;
-    @FXML public TextField vipID;
-    @FXML public TextField vipCategory;
+    @FXML public AnchorPane root;
+    @FXML public TextField name;
+    @FXML public TextField id;
+    @FXML public TextField category;
+    @FXML public TextField grade;
+    @FXML public TextField phoneNumber;
+    @FXML public TextField address;
+    @FXML public TextField email;
+    @FXML public TextField postcode;
+    @FXML public TextField collectionLimit;
+    @FXML public TextField collection;
+    @FXML public TextField clerk;
+    @FXML public TextField payment;
     @FXML public Button saveVIPInfoBtn;
 
     VIPBLService vipBLService = new VIPBLServiceImpl();
 
-    @FXML
-    public void initialize(){
-        vipName.setEditable(true);
 
-        vipName.setStyle("-fx-background-color: #FFECEC");
+    public void init(String vip) {
+        System.out.println(vip);
+        VIPVO vipVO = vipBLService.getVIP(vip);
+        name.setText(vipVO.getName());
+        id.setText(vipVO.getId());
+        category.setText(vipVO.getCategory());
+        grade.setText(vipVO.getGrade());
+        phoneNumber.setText(vipVO.getPhoneNumber());
+        address.setText(vipVO.getAddress());
+        email.setText(vipVO.getEmail());
+        postcode.setText(vipVO.getPostCode());
+        collectionLimit.setText(""+vipVO.getCollectionLimit());
+        collection.setText(""+vipVO.getCollection());
+        clerk.setText(vipVO.getClerk());
+        payment.setText(""+vipVO.getPayment());
+
     }
 
     @FXML
     public void setSaveVIPInfoBtn(){
-        vipName.setStyle("-fx-background-color: transparent");
+        VIPVO vipvo = new VIPVO(id.getText()
+                ,category.getText()
+                ,grade.getText()
+                ,name.getText()
+                ,phoneNumber.getText()
+                ,email.getText()
+                ,address.getText()
+                ,postcode.getText()
+                ,Double.parseDouble(collection.getText())
+                ,Double.parseDouble(collectionLimit.getText())
+                ,Double.parseDouble(payment.getText())
+                ,clerk.getText()
+        );
 
-/*        VIPVO vipVO = new VIPVO();
-
-        vipBLService.modifyVIP(vipVO);*/
+        vipBLService.modifyVIP(vipvo);
         Platform.runLater(()->{
             root.getScene().getWindow().hide();
         });

@@ -3,6 +3,7 @@ package dataServiceImpl.goodsImpl;
 import PO.GoodsCategoryPO;
 import PO.GoodsPO;
 import dataHelper.BasicUtil;
+import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateUtil;
 import dataService.goodsDataService.GoodsDataService;
 import util.ResultMessage;
@@ -16,6 +17,7 @@ import java.util.List;
 public class GoodsDataServiceImpl implements GoodsDataService {
     BasicUtil<GoodsPO> goodsUtil;
     BasicUtil<GoodsCategoryPO> categoryUtil;
+    CriterionClauseGenerator criterionClauseGenerator;
 
     public GoodsDataServiceImpl() throws RemoteException {
 
@@ -25,7 +27,7 @@ public class GoodsDataServiceImpl implements GoodsDataService {
     //要写一个生成商品id的方法
     @Override
     public String newGoodsID() {
-        return "00000001";//
+        return ""+goodsUtil.insertForAuto(new GoodsPO("","","","",0,0,0,0));
     }
 
     @Override
@@ -39,7 +41,7 @@ public class GoodsDataServiceImpl implements GoodsDataService {
                 break;
         }
 
-        return goodsUtil.fuzzyQuery(info, type);
+        return null;
     }
 
     @Override

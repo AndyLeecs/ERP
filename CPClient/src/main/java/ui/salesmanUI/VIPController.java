@@ -102,6 +102,7 @@ public class VIPController {
         initTreeView();
         setTextFieldUnable();
         notice.setVisible(false);
+        vipVBox.getChildren().clear();
     }
     //初始TreeView 加载所有商品和分类
     private void initTreeView() {
@@ -230,14 +231,14 @@ public class VIPController {
         /**
          * 编辑会员信息
          */
-    @FXML
+    /*@FXML
     private void setEditBtn(){
         try {
             new VIPInfoEditWin();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * 模糊查找会员确认按钮
@@ -271,6 +272,7 @@ public class VIPController {
     }
 
     @FXML
+
     public void onVIPIDSearchBtnClicked(){
         searchField.setPromptText("模糊查找" + vipIDSearchBtn.getText());
         this.vipTypeSearch = vipIDSearchBtn.getText();
@@ -452,9 +454,10 @@ public class VIPController {
         ImageView edit = new ImageView("img/edit.png");
         edit.setFitHeight(25);
         edit.setFitWidth(25);
+        edit.setAccessibleHelp(vipvo.getName());
         edit.setOnMousePressed(event -> {
             try {
-                new VIPInfoEditWin();
+                new VIPInfoEditWin(edit.getAccessibleHelp());
             } catch (IOException e) {
                 e.printStackTrace();
             }
