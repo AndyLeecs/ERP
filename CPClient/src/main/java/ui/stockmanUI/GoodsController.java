@@ -3,7 +3,6 @@ package ui.stockmanUI;
 import VO.goodsVO.GoodsCategoryVO;
 import VO.goodsVO.GoodsVO;
 import bl.goodsbl.GoodsBLServiceImpl;
-import bl.goodsbl.GoodsCategory;
 import blservice.goodsblservice.GoodsBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -61,7 +60,7 @@ public class GoodsController{
     Stack<TreeItem<String>> stack = new Stack<>();//存放目录的引用 便于增减改名商品
 
     //初始化节点的方法
-    private void setNode(TreeItem<String> node){
+    private void setNode(TreeItem<String> node) throws RemoteException{
         ArrayList<String> list = (ArrayList<String>) goodsBLService.getAllCategory(node.getValue().toString().substring(3));
         if(list != null){
             for(int i =0;i<list.size();i++){
@@ -81,16 +80,16 @@ public class GoodsController{
     }
 
     //初始TreeView 加载所有商品和分类
-    private void initTreeView(){
+    private void initTreeView() throws RemoteException{
 
         presentLocation.addEventHandler(MouseEvent.MOUSE_CLICKED,event -> System.out.println("标签被点击"));
         //在ScrollPane上配置并加入TreeView
         rootTreeItem = new TreeItem<String>("分类：根目录");
         rootTreeItem.setExpanded(true);
 
-        //setNode(rootTreeItem);
+        setNode(rootTreeItem);
         //以下为demo
-
+/*
         for(int i =0;i<5;i++) {
             TreeItem<String> item = new TreeItem<String>("分类：" + i);
             item.setGraphic(new ImageView("img/folderIcon.png"));
@@ -101,7 +100,7 @@ public class GoodsController{
             item.getChildren().add(item1);
 
         }
-
+*/
         //以上为demo
 
         treeView = new TreeView<>(rootTreeItem);
@@ -226,9 +225,10 @@ public class GoodsController{
     /**
      * 初始化页面
      * 清除商品搜索项goodsVBox中的商品项
+     * @throws RemoteException 
      */
     @FXML
-    public void initialize(){
+    public void initialize() throws RemoteException{
         notice.setVisible(false);
         initTreeView();
         goodsVBox.getChildren().clear();

@@ -11,6 +11,7 @@ import util.ResultMessage;
  * @author julia98
  *
  */
+/*
 public class VIPBL_Driver {
 	String id = "00000001";
 	String phoneNumber = "18812345678";
@@ -69,3 +70,4 @@ public class VIPBL_Driver {
 	}
 
 }
+*/

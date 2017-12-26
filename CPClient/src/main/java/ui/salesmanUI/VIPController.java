@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -58,7 +59,7 @@ public class VIPController {
     Stack<TreeItem<String>> stack = new Stack<>();//存放目录的引用 便于增减改名会员
 
     //初始化节点的方法
-    private void setNode(TreeItem<String> node) {
+    private void setNode(TreeItem<String> node) throws RemoteException {
         TreeItem<String> son1 = new TreeItem<>("分类：" + "供货商");
         son1.setGraphic(new ImageView("img/folderIcon.png"));
         node.getChildren().add(son1);
@@ -146,7 +147,12 @@ public class VIPController {
                         System.out.println("是会员项 可以进行下一步操作");
                         vipVBox.getChildren().clear();
                         //为了测试运行结果 先注释下面一行从数据库获取对应商品信息的语句
-                        newVIPPane(vipBLService.getVIP(vipItem.getValue().toString().substring(3)));
+                        try {
+							newVIPPane(vipBLService.getVIP(vipItem.getValue().toString().substring(3)));
+						} catch (RemoteException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
                     }
                 }
         );
@@ -193,7 +199,12 @@ public class VIPController {
             switch (selectItem.getValue().toString().substring(0,2)){
                 case "会员":
                     System.out.println("删除会员所属分类：" + selectItem.getParent().getValue().toString().substring(3)+ " 删除会员名称：" + selectItem.getValue().toString().substring(3));
-                    vipBLService.deleteVIP(selectItem.getValue().toString().substring(3));
+				try {
+					vipBLService.deleteVIP(selectItem.getValue().toString().substring(3));
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
                     break;
 
                 case "分类":
@@ -242,9 +253,10 @@ public class VIPController {
 
     /**
      * 模糊查找会员确认按钮
+     * @throws RemoteException 
      */
     @FXML
-    private void setSearchBtn(){
+    private void setSearchBtn() throws RemoteException{
         if(searchField.getText()!=null){
             switch (this.vipTypeSearch){
                 case "客户名":
@@ -301,9 +313,10 @@ public class VIPController {
      * 新建分类，新建商品，修改名称出现的提示框
      * 其中stack存放TreeItem的引用
      * 此方法只是修改对应目录名称，新建工作已在上一层做好
+     * @throws RemoteException 
      */
     @FXML
-    public void onSureBtnClicked(){
+    public void onSureBtnClicked() throws RemoteException{
         String tmp = "";
         switch (noticeLabel.getText()){
             case "新建会员":

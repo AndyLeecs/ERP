@@ -10,6 +10,7 @@ import util.ResultMessage;
  * @author julia98
  *
  */
+/*
 public class VIPBL_Stub implements VIPBLService {
 	String id = "00000001";
 	
@@ -60,3 +61,4 @@ public class VIPBL_Stub implements VIPBLService {
 	}
 
 }
+*/

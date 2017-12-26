@@ -87,7 +87,7 @@ public class GoodsBLServiceImpl implements GoodsBLService {
     }
 
     @Override
-    public List getAllCategory(String node) {
+    public List getAllCategory(String node) throws RemoteException {
         return goodsCategory.getAllCategory(node);
     }
 }
