@@ -6,6 +6,7 @@ import dataService.goodsDataService.GoodsDataService;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import util.ResultMessage;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -33,12 +34,12 @@ public class GoodsCategory {
 
     }
 
-    public ArrayList<String> getAllCategory(String node){
+    public ArrayList<String> getAllCategory(String node) throws RemoteException{
         return (ArrayList<String>) goodsDataService.getAllCategory(node);
     }
 
     private GoodsCategoryPO voToPO(GoodsCategoryVO vo){
-        return vo ==null?null:new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName());
+        return vo ==null?null:new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName(),null);
     }
 
 }

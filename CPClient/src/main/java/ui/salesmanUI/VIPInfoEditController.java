@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.rmi.RemoteException;
+
 /**
  * Created by julia98 on 2017/12/22.
  */
@@ -32,7 +34,7 @@ public class VIPInfoEditController {
     VIPBLService vipBLService = new VIPBLServiceImpl();
 
 
-    public void init(String vip) {
+    public void init(String vip) throws RemoteException {
         System.out.println(vip);
         VIPVO vipVO = vipBLService.getVIP(vip);
         name.setText(vipVO.getName());

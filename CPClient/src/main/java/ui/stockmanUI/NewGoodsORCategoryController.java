@@ -39,7 +39,7 @@ public class NewGoodsORCategoryController {
         switch (name.getText()) {
             case "商品":
                 type = "goods";
-                goodsID = goodsBLService.newGoods(name.getText(),goodsController.treeView.getSelectionModel().getSelectedItem().getParent().getValue().toString().substring(0,3));
+                //goodsID = goodsBLService.newGoods(name.getText(),goodsController.treeView.getSelectionModel().getSelectedItem().getParent().getValue().toString().substring(0,3));
                 this.newName = name.getText();
                 list.add(type);
                 break;

@@ -32,9 +32,9 @@ public class Goods {
         return retFindGoodsList;
     }
 
-    public GoodsVO getGoods(String name,String category){
-       	return goodsVO;//tmp try
-        //return poToVO(goodsDataService.getGoods(name,category));
+    public GoodsVO getGoods(String name,String category) throws RemoteException {
+       	//return goodsVO;//tmp try
+        return poToVO(goodsDataService.getGoods(name,category));
     }
 
     public ResultMessage deleteGoods(String category, String name) throws RemoteException {
