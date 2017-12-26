@@ -93,7 +93,7 @@ public class GoodsInfoEditController {
      * @param str
      * @return
      */
-    private double changeStringToDouble(String str){
+    private double changeStringToDouble(String str){		//TODO Double.parseDouble 是小数也可以直接转的
         if(!str.contains(".")){
             return Double.parseDouble(str);
         }else{
