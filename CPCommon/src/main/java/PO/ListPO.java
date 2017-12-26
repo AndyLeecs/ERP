@@ -11,7 +11,7 @@ import util.State;
 * @description 单据类继承的抽象类
 * 
 */
-public abstract class ListPO{
+public class ListPO{
 	/**
 	 * 单据编号
 	 */
