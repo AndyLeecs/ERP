@@ -13,6 +13,8 @@ import java.util.Date;
 public class DateUtil {
 	
 
+	private static final String dateFormat = "yyyyMMdd";
+	private static final DateFormat df = new SimpleDateFormat(dateFormat);
 	/**
 	 * 
 	 * @param date
@@ -56,7 +58,7 @@ public class DateUtil {
 	 * @return 对应的Date类型的对象
 	 */
 	public static Date getDate(String date){
-		DateFormat df = new SimpleDateFormat("yyyyMMdd");
+		
 		try {
 			return df.parse(date);
 		} catch (ParseException e) {
@@ -64,6 +66,16 @@ public class DateUtil {
 		}
 		return null;
 	}
+	
+	/**
+	 * 
+	 * @return yyyyMMdd格式的日期字符串
+	 */
+	public static String getCurrentDate(){
+		Date date = new Date();
+		return df.format(date);
+	}
+	
 	
 	/**
 	 * 
