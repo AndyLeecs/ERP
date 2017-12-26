@@ -14,30 +14,13 @@ public class StoreList implements Approvable {
  * 王瑞华 161250143 2017年12月1日
 */
 	InfoList infoList =new InfoList_Impl();
-    @Override
-    public boolean check() {
-        return false;
-    }
 
-    @Override
-    public void replace() {
+	@Override
+	public ListRM Approve(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    }
-
-    @Override
-    public void refresh() {
-
-    }
-
-    @Override
-    public String fail() {
-        return null;
-    }
-
-    @Override
-    public ListRM toExcel(String id) {
-        return null;
-    }
 
 
 }

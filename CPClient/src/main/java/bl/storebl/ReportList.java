@@ -34,4 +34,5 @@ public class ReportList extends StoreList  {
         //写一下商品名称和商品数量就行
         return ResultMessage.SUCCESS;
     }
+
 }

@@ -10,13 +10,19 @@ public class SalesDetailListVO {
 
 	public double  sum;//总额（折让前）
 	
-	public SalesDetailListVO(String day,String goodsName ,String model,int num,double price){
+	public String VIP;  //客户
+	public String Operator; //操作员
+	
+	public SalesDetailListVO(String day,String goodsName ,String model,int num,double price,String VIP,String operator){
 		this.day=day;
 		this.goodsName=goodsName;
 		this.model=model;
 		this.num=num;
 		this.price=price;
 		sum=num*price;
+		
+		this.VIP=VIP;
+		this.Operator=operator;
 		
 	}
 	
