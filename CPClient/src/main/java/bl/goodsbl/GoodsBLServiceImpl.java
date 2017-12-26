@@ -52,7 +52,7 @@ public class GoodsBLServiceImpl implements GoodsBLService {
     }
 
     @Override
-    public GoodsVO getGoods(String name, String category) {
+    public GoodsVO getGoods(String name, String category) throws RemoteException {
         return goods.getGoods(name, category);
     }
     

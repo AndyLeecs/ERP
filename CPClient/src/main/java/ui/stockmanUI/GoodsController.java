@@ -114,7 +114,12 @@ public class GoodsController{
                         System.out.println("是商品项 可以进行下一步操作");
                         goodsVBox.getChildren().clear();
                         //为了测试运行结果 先注释下面一行从数据库获取对应商品信息的语句
-                        newGoodsPane(goodsBLService.getGoods(goodsItem.getValue().toString().substring(3),goodsItem.getParent().getValue().substring(3)));
+                        try {
+							newGoodsPane(goodsBLService.getGoods(goodsItem.getValue().toString().substring(3),goodsItem.getParent().getValue().substring(3)));
+						} catch (RemoteException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
                     }
 
                 }
@@ -285,9 +290,10 @@ public class GoodsController{
      * 新建分类，新建商品，修改名称出现的提示框
      * 其中stack存放TreeItem的引用
      * 此方法只是修改对应目录名称，新建工作已在上一层做好
+     * @throws RemoteException 
      */
     @FXML
-    public void onSureBtnClicked(){
+    public void onSureBtnClicked() throws RemoteException{
         String tmp = "";
         switch (noticeLabel.getText()){
             case "新建商品":
