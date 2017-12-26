@@ -39,7 +39,7 @@ public class ServerHelper {
 			
 			StoreDataService storeDataService=new StoreDataServiceImpl();
 			Naming.bind("StoreDataService", storeDataService);
-			System.out.println("bind succeeded!");
+			System.out.println("store bind succeeded!");
 
 //			ListDataService listDataService=new ListDataServiceImpl();
 //			Naming.bind("ListDataService",listDataService);
