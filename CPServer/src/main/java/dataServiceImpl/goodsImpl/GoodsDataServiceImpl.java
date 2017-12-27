@@ -62,7 +62,9 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
         criterionClauseGenerator.generateFuzzyCriterion(l,"name",name);
         criterionClauseGenerator.generateFuzzyCriterion(l,"category",category);
         criterionClauseGenerator.generateFuzzyCriterion(l,"state",GoodsUtil.EXIST);
-        return goodsUtil.Query(l).get(0);//只需获取一个确切的商品信息 这里方法存疑
+        GoodsPO po = goodsUtil.Query(l).get(0);
+        System.out.println(po.getState());
+        return po;//只需获取一个确切的商品信息 这里方法存疑
     }
 
     @Override
