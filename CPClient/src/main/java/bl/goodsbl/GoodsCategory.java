@@ -16,8 +16,13 @@ import java.util.ArrayList;
 public class GoodsCategory {
     GoodsDataService goodsDataService = GoodsDataServiceHelper.getInstance().getGoodsDataService();
 
-    public ResultMessage newGoodsCategory(GoodsCategoryVO vo) throws RemoteException{
-        goodsDataService.newGoodsCategory(voToPO(vo));
+    public ResultMessage newGoodsCategory(GoodsCategoryVO vo){
+        try {
+			goodsDataService.newGoodsCategory(voToPO(vo));
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return ResultMessage.SUCCESS;
 
     }
@@ -44,7 +49,7 @@ public class GoodsCategory {
     }
 
     private GoodsCategoryPO voToPO(GoodsCategoryVO vo){
-        return vo ==null?null:new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName(),null);
+        return vo ==null?null:new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName(),0);
     }
 
 }

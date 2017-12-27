@@ -49,8 +49,13 @@ public class Goods {
 
     }
 
-    public ResultMessage initAndSaveGoods(GoodsVO vo) throws RemoteException{
-        goodsDataService.initAndSaveGoods(voToPO(vo));
+    public ResultMessage initAndSaveGoods(GoodsVO vo) {
+        try {
+			goodsDataService.initAndSaveGoods(voToPO(vo));
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         Store_Interface store_interface = new Store_InterfaceImpl();
         store_interface.addStoreItem(voToStoreVO(goodsVO));
         return ResultMessage.SUCCESS;

@@ -36,7 +36,9 @@ public class Welcome extends Application {
         						stage.close();
         						//new LoginWin();
         						//new ui.salesmanUI.VIPWin();
-        						new ui.stockmanUI.StockmanWin();
+        						//new ui.stockmanUI.StockmanWin();
+        						new ui.managerUI.ManagerWin();
+        						
         					} catch (Exception e) {
         						e.printStackTrace();
         					}
