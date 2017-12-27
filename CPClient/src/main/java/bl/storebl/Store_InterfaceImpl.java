@@ -4,7 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import VO.listVO.ListRM;
 import VO.storeVO.AlarmListVO;
+import VO.storeVO.PresentListVO;
 import VO.storeVO.StoreLogVO;
 import util.GreatListType;
 import util.StoreListType;
@@ -120,6 +122,23 @@ public class Store_InterfaceImpl implements Store_Interface {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		String s=df.format(new Date());
 		return s;
+	}
+
+	@Override
+	public StoreVO getStoreVO(String id) {
+		
+		return dg.getStoreVO(id);
+	}
+
+	@Override
+	public boolean createPresentList_auto(PresentListVO vo) {
+		String id=dg.calcID(StoreListType.PRESENT);
+		vo.listID=id;
+		if( ds.insertPresentListVO(vo).equals(ListRM.SUCCESS)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }
