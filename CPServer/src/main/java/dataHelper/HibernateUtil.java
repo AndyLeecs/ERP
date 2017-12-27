@@ -66,7 +66,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 	/* (non-Javadoc)
 	 * @see dataHelper.BasicUtil#insert(java.lang.Object)
 	 * 此方法并不是正确的实现，需要的人自己实现一下吧		//TODO ？？？现在对不对？我看没啥问题，并且这个方法已经被人用过了。如果没有问题，请把注释删掉
-	 *   //RE：不知道对不对，我本来是想写一个单据类的insert方法的，如果有人把这个方法当做是获得一个int转为string的autoid的话显然是没有问题的
+	 *   //RE：不知道对不对，我本来是想写一个单据类的insert方法的，如果有人把这个方法当做是获得一个int转为string的autoid的话显然是没有问题的，在不使用它的返回值的情况下也是没有问题的
 	 */
 	@Override
 	public String insert(Object po) {
