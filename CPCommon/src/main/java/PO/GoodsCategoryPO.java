@@ -18,9 +18,9 @@ public class GoodsCategoryPO implements Serializable{
 	String goodsCategoryName;
     String parentName;
     private int autoId;
-    private GoodsUtil state = GoodsUtil.EXIST;
+    private int state = GoodsUtil.EXIST.ordinal();
 
-    public GoodsCategoryPO(String goodsCategoryName, String parentName, GoodsUtil state) {
+    public GoodsCategoryPO(String goodsCategoryName, String parentName, int state) {
         this.goodsCategoryName = goodsCategoryName;
         this.parentName = parentName;
         this.state = state;
@@ -29,11 +29,11 @@ public class GoodsCategoryPO implements Serializable{
     public GoodsCategoryPO() {
     }
 
-    public void setState(GoodsUtil state) {
+    public void setState(int state) {
         this.state = state;
     }
 
-    public GoodsUtil getState() {
+    public int getState() {
         return state;
     }
 

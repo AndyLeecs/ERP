@@ -22,7 +22,6 @@ import dataServiceImpl.presentImpl.PresentDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForMembershipDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForSpecialPackageDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
-import dataServiceImpl.saleImpl.SaleDataServiceImpl;
 import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
 
 public class ServerHelper {
@@ -37,15 +36,10 @@ public class ServerHelper {
 			LocateRegistry.createRegistry(port);
 			System.out.println("successful connection");
 			
-<<<<<<< HEAD
+
 //			StoreDataService storeDataService=new StoreDataServiceImpl();
 //			Naming.bind("StoreDataService", storeDataService);
 //			System.out.println("bind succeeded!");
-=======
-			StoreDataService storeDataService=new StoreDataServiceImpl();
-			Naming.bind("StoreDataService", storeDataService);
-			System.out.println("store bind succeeded!");
->>>>>>> ab98ed4837346d217f0357d118545de1961b15ba
 
 //			ListDataService listDataService=new ListDataServiceImpl();
 //			Naming.bind("ListDataService",listDataService);

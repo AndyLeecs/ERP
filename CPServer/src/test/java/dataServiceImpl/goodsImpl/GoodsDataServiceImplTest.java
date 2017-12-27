@@ -13,10 +13,10 @@ import java.util.List;
  * Created by julia98 on 2017/12/26.
  */
 public class GoodsDataServiceImplTest {
-    GoodsCategoryPO po = new GoodsCategoryPO("水晶灯","根节点",GoodsUtil.EXIST);
-    GoodsCategoryPO po2 = new GoodsCategoryPO("豪华水晶灯","水晶灯",GoodsUtil.EXIST);
-    GoodsCategoryPO po3 = new GoodsCategoryPO("节能灯","根节点",GoodsUtil.EXIST);
-    GoodsCategoryPO po4 = new GoodsCategoryPO("123a","abc",GoodsUtil.EXIST);
+    GoodsCategoryPO po = new GoodsCategoryPO("水晶灯","根节点",GoodsUtil.EXIST.ordinal());
+    GoodsCategoryPO po2 = new GoodsCategoryPO("豪华水晶灯2","水晶灯",GoodsUtil.EXIST.ordinal());
+    GoodsCategoryPO po3 = new GoodsCategoryPO("节能灯1","根节点",GoodsUtil.EXIST.ordinal());
+    GoodsCategoryPO po4 = new GoodsCategoryPO("123a","abc",GoodsUtil.EXIST.ordinal());
     List<GoodsCategoryPO> poList;
     
     @org.junit.Test
@@ -64,7 +64,7 @@ public class GoodsDataServiceImplTest {
 
     @org.junit.Test
     public void getAllCategory() throws Exception {
-    	    assertEquals("",new GoodsDataServiceImpl().getAllCategory("水晶灯").get(0));
+    	    assertEquals("豪华水晶灯2",new GoodsDataServiceImpl().getAllCategory("水晶灯").get(0));
     }
 
 }
