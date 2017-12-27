@@ -27,7 +27,7 @@ public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements
 	
 	BasicUtil<PresentForSumPO> util;
 	CriterionClauseGenerator criterionClauseGenerator;
-	OrderClauseGenerator orderClauseGenerator;
+	OrderClauseGenerator orderClauseGenerator;		//TODO 记得初始化
 	
 	public PresentForSumDataServiceImpl() throws RemoteException{
 

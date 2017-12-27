@@ -249,7 +249,7 @@ public class SalesmanController implements ParentController {
 	@Override
 	public void CloseSonWin() {
 		// TODO Auto-generated method stub
-		centerPane.getChildren().removeAll();
+    	this.centerPane.setCenter(null);
 		
 	}
 	

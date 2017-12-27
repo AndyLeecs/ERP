@@ -15,6 +15,10 @@ public abstract class SalesmanListVO extends ListVO{
 	  */
 	 String memberName;
 	 /**
+	  * 客户等级
+	  */
+	 
+	 /**
 	  * 业务员名字
 	  */
 	 String realOperator;
@@ -92,6 +96,5 @@ public abstract class SalesmanListVO extends ListVO{
 		this.notes = notes;
 		SaleListItems = saleListItems;
 		this.sum = sum;
-	}
-	 
+	} 
 }

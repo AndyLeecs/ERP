@@ -42,30 +42,9 @@ public class HibernateUtil<T> implements BasicUtil<T>{
     	sessionFactory = new Configuration().configure().buildSessionFactory();
     }
     
-//这段代码没有处理transaction回滚等操作,故删去,session和transaction的基础建立只有固定的两句话，故没有封装成方法
-//    /**
-//     * 初始化Session
-//     */
-   private void setUpSession() {
-       session = sessionFactory.openSession();
-     session.beginTransaction();
-   }
-//
-//    /**
-//     * 提交事务及关闭session
-//     */
-  private void commitAndClose() {
-        session.getTransaction().commit();
-        session.close();
-    }
 
-
-	/* (non-Javadoc)
-	 * @see dataHelper.BasicUtil#insertForAuto(java.lang.Object)
-	 */
 	@Override
 	public int insertForAuto(Object po) {
-		// TODO Auto-generated method stub
 		session = sessionFactory.openSession();
 		transaction = null;
 		int id = -1;
@@ -76,24 +55,22 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         } catch (HibernateException e) {
         	if(transaction!=null){
         		transaction.rollback();
-        		e.printStackTrace();
         	}
+    		e.printStackTrace();
         }finally{
            		session.close();
-        	}
+        }
         
         return id;
-        }
-	
+    }
 	
 
 	/* (non-Javadoc)
 	 * @see dataHelper.BasicUtil#insert(java.lang.Object)
-	 * 此方法并不是正确的实现，需要的人自己实现一下吧
+	 * 此方法并不是正确的实现，需要的人自己实现一下吧		//TODO ？？？现在对不对？我看没啥问题，并且这个方法已经被人用过了。如果没有问题，请把注释删掉
 	 */
 	@Override
 	public String insert(Object po) {
-		// TODO Auto-generated method stub
 		session = sessionFactory.openSession();
 		transaction = null;
 		String id = "";
@@ -105,21 +82,47 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         } catch (HibernateException e) {
         	if(transaction!=null){
         		transaction.rollback();
-        		e.printStackTrace();
         	}
+    		e.printStackTrace();
+        	return null;
         }finally{
            		session.close();
-        	}
+        }
         
         return id;
 	}
+	
+	public DataRM delete(String id){
+		session = sessionFactory.openSession();
+		transaction = null;
+		DataRM rm = DataRM.SUCCESS;
+        try {
+        	transaction = session.beginTransaction();
+            session.delete(session.get(type.getName(),id));
+            transaction.commit();
+        }catch (OptimisticLockException e) {
+        	if(transaction!=null){
+        		transaction.rollback();
+        		rm = DataRM.NOT_EXIST;
+        	}
+    		e.printStackTrace();
+        	rm = DataRM.FAILED;
+        }catch(HibernateException e){
+        	if(transaction!=null){
+        		transaction.rollback();
+        	}
+    		e.printStackTrace();
+        	rm = DataRM.FAILED;
+        }finally{
+           	session.close();
+        }
+        
+        return rm;
+	}
 
-	/* (non-Javadoc)
-	 * @see dataHelper.BasicUtil#update(java.lang.Object)
-	 */
+	
 	@Override
 	public DataRM update(Object po) {
-		// TODO Auto-generated method stub
 		session = sessionFactory.openSession();
 		transaction = null;
 		DataRM rm = DataRM.SUCCESS;
@@ -130,22 +133,23 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         } catch (OptimisticLockException e) {
         	if(transaction!=null){
         		transaction.rollback();
-        		e.printStackTrace();
-        		rm = DataRM.NOT_EXIST;
+        		rm = DataRM.NOT_EXIST;				//TODO 这个是这么回事吗？请在此处回复我一下
         	}
+        	e.printStackTrace();
+        	rm = DataRM.FAILED;
         }catch(HibernateException e){
         	if(transaction!=null){
         		transaction.rollback();
-        		e.printStackTrace();
-        		rm = DataRM.FAILED;
         	}
-        
+    		e.printStackTrace();
+    		rm = DataRM.FAILED;
+
         }finally{
            		session.close();
-        	}
+        }
         
         return rm;
-        }
+	}
 //	@Override
 //	public List<T> fuzzyQuery(String field, String value){
 //		Criterion s = null;
@@ -181,12 +185,9 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 //		return Query(s);
 //	}
 //	
-	/* (non-Javadoc)
-	 * @see dataHelper.CriterionClauseGenerator#generateCascadeCriterion(java.util.List, java.lang.String, java.lang.String, java.util.List)
-	 */
+	
 	@Override
 	public List<T> CascadeQuery(List<CriterionClause> criterionParentList,List<CriterionClause> criterionChildList, String string) {
-		// TODO Auto-generated method stub
 		session = sessionFactory.openSession();
 		transaction = null;
 		List<T> list = null;
@@ -278,12 +279,9 @@ public class HibernateUtil<T> implements BasicUtil<T>{
     }
 	}
 	
-	/* (non-Javadoc)
-	 * @see dataHelper.BasicUtil#get(int)
-	 */
+	
 	@Override
 	public Object get(int id) {
-		// TODO Auto-generated method stub
 		session = sessionFactory.openSession();
 		transaction = null;
 		Object o = null;
@@ -303,12 +301,8 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         return o;
 	}
 
-	/* (non-Javadoc)
-	 * @see dataHelper.BasicUtil#get(java.lang.String)
-	 */
 	@Override
 	public Object get(String id) {
-		// TODO Auto-generated method stub
 		session = sessionFactory.openSession();
 		transaction = null;
 		Object o = null;
@@ -326,6 +320,12 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         	}
         
         return o;
+	}
+	
+	@Override
+	public T getLastRow(){
+		//TODO 不会实现。请专家操刀一下
+		return null;
 	}
 
 

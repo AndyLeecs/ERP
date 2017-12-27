@@ -43,9 +43,13 @@
 		<mapping resource="GoodsCategoryPO.hbm.xml"/>
         <mapping resource="VIPPO.hbm.xml" />
 
+		
+		<!-- for package account -->
+		<mapping resource="TransferItemPO.hbm.xml" />
 
 
-
+		<mapping resource="ListPO.hbm.xml" />
+		
 
 	</session-factory>
 </hibernate-configuration>
