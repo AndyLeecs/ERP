@@ -88,6 +88,6 @@ public class PresentForMembershipListController {
 	
 	
 	@FXML public void back(){
-		this.managerController.centerPane.getChildren().removeAll();
+    	this.managerController.centerPane.setCenter(null);
 	}
 }

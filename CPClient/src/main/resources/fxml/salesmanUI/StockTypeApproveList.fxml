@@ -42,7 +42,11 @@
               <content>
                 <AnchorPane maxHeight="250.0" maxWidth="700.0" minHeight="250.0" minWidth="700.0" prefHeight="250.0" prefWidth="700.0">
                      <children>
-                        <VBox fx:id="goodsListVBox" prefHeight="250.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <VBox prefHeight="250.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <fx:include source="TableHead.fxml" />
+                              <VBox fx:id="goodsListVBox" prefHeight="252.0" prefWidth="700.0" />
+                           </children></VBox>
                      </children>
                   </AnchorPane>
               </content>
