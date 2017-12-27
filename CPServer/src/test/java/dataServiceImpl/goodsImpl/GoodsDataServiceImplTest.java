@@ -41,7 +41,12 @@ public class GoodsDataServiceImplTest {
 
     @org.junit.Test
     public void getGoods() throws Exception {
+<<<<<<< HEAD
     	//assertEquals(goodsPO,new GoodsDataServiceImpl().getGoods("商品名称", "商品分类"));
+=======
+    	new GoodsDataServiceImpl().initAndSaveGoods(goodsPO);
+    	assertEquals(goodsPO,new GoodsDataServiceImpl().getGoods("商品名称", "商品分类"));
+>>>>>>> a87c6d19354d7c6b7403236f9fddef17c3a31791
     }
 
     @org.junit.Test
