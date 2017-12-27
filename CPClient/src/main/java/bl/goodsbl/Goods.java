@@ -78,7 +78,7 @@ public class Goods {
     }
 
     private GoodsPO voToPO(GoodsVO goodsVO){
-        return goodsVO == null ? null : new GoodsPO(goodsVO.getGoodsID()
+        GoodsPO po = new GoodsPO(goodsVO.getGoodsID()
                 ,goodsVO.getGoodsCategory()
                 ,goodsVO.getGoodsName()
                 ,goodsVO.getGoodsType()
@@ -88,16 +88,20 @@ public class Goods {
                 ,goodsVO.recentSellPrice()
                 ,null
         );
+        po.setAutoId(goodsVO.getAutoId());
+        return po;
     }
 
     private GoodsVO poToVO(GoodsPO goodsPO){
-        return goodsPO == null ? null : new GoodsVO(goodsPO.getGoodsID()
+        GoodsVO vo = new GoodsVO(goodsPO.getGoodsID()
                 ,goodsPO.getGoodsCategory()
                 ,goodsPO.getGoodsName()
                 ,goodsPO.getGoodsType()
                 ,goodsPO.getGoodsBuyPrice()
                 ,goodsPO.getGoodsSellPrice()
-                ,goodsPO.recentBuyPrice()
-                ,goodsPO.recentSellPrice());
+                ,goodsPO.getRecentBuyPrice()
+                ,goodsPO.getRecentSellPrice());
+        vo.setAutoId(goodsPO.getAutoId());
+        return vo;
     }
 }

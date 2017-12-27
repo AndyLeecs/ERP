@@ -1,6 +1,9 @@
 
 package ui.salesmanUI;
 
+import java.util.List;
+
+import VO.VIPVO.VIPVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,6 +39,22 @@ public class StockTypeNewListController extends SalesmanListWinController {
 	
 	@FXML
 	void cancel(){
+		
+	}
+	/* (non-Javadoc)
+	 * @see ui.salesmanUI.SalesmanListWinController#getVIPList(java.lang.String, java.util.List)
+	 */
+	@Override
+	public void getVIPList(String message, List<VIPVO> temp) {
+		// TODO Auto-generated method stub
+		
+	}
+	/* (non-Javadoc)
+	 * @see ui.salesmanUI.SalesmanListWinController#refresh()
+	 */
+	@Override
+	public void refresh() {
+		// TODO Auto-generated method stub
 		
 	}
 }

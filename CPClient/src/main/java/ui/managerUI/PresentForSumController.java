@@ -78,19 +78,6 @@ public class PresentForSumController implements SinglePresentEditableController{
          * 界面保存但不显示策略id
          */
         int id;
-//        
-//    	/**
-//    	 *开始时间
-//    	 */	
-//    	Date startTime;
-//    	/**
-//    	 *结束时间
-//    	 */	
-//    	Date finishTime;
-//    	/**
-//    	 * 总额
-//    	 */
-//    	double total;
     	/**
     	 *赠品列表,临时作为静态变量保证程序不崩
     	 */	
@@ -99,17 +86,7 @@ public class PresentForSumController implements SinglePresentEditableController{
     	 * 待选择的商品列表
     	 */
     	List<GoodsInSaleVO> goodsList;
-//    	/**
-//    	 * 赠送代金券金额
-//    	 */
-//    	double voucher;
-//       
-//	    public void setManagerController(ManagerController managerController){
-//	    	this.managerController = managerController;
-//	    }
-    	
-       
-        
+
         public PresentForSumBLService getService() {
 			return service;
 		}
@@ -142,29 +119,6 @@ public class PresentForSumController implements SinglePresentEditableController{
 			this.id = id;
 		}
 
-//		public Date getStartTime() {
-//			return startTime;
-//		}
-//
-//		public void setStartTime(Date startTime) {
-//			this.startTime = startTime;
-//		}
-//
-//		public Date getFinishTime() {
-//			return finishTime;
-//		}
-//
-//		public void setFinishTime(Date finishTime) {
-//			this.finishTime = finishTime;
-//		}
-//
-//		public double getTotal() {
-//			return total;
-//		}
-//
-//		public void setTotal(double total) {
-//			this.total = total;
-//		}
 		@Override
 		public void addToPresentList(GoodsInSaleVO vo){
 				this.presentList.add(vo);
@@ -187,14 +141,6 @@ public class PresentForSumController implements SinglePresentEditableController{
 			this.presentList = presentList;
 			this.refresh();
 		}
-//
-//		public double getVoucher() {
-//			return voucher;
-//		}
-//
-//		public void setVoucher(double voucher) {
-//			this.voucher = voucher;
-//		}
 
 		public PresentForSumController(Strategy strategy,ManagerController managerController){
 			this.strategy = strategy;
@@ -232,11 +178,6 @@ public class PresentForSumController implements SinglePresentEditableController{
 	    	
 	    	//初始化数值
 	    	strategy.initData(this, vo);
-	    	
-	    	//把vo清空
-	    	
-	    	
-	    
 	    }
 				
 		@FXML
@@ -305,13 +246,6 @@ public class PresentForSumController implements SinglePresentEditableController{
 			String voucherInString = voucherField.getText();
 			double voucher = 0;
 			try{
-//				if(!NumberUtil.isNotNegative(totalInString)){
-//					totalErrorMessage.setText(totalError);
-//					
-//					return;
-//				}else{
-//					
-//				}
 					voucher = Double.parseDouble(voucherInString);
 				}catch(Exception e){
 					voucherErrorMessage.setText(voucherError);

@@ -117,7 +117,7 @@ public abstract SalesmanListVO poToVo(SalesmanListPO po);
  */
 public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
 	// TODO Auto-generated method stub
-	return new SalesmanItemPO(i.getAutoId(),i.getId(),i.getName(),i.getType(),i.getAmount(),i.getPrice(),i.getSum(),i.getNotes());
+	return new SalesmanItemPO(i.getAutoId(),i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 }
 
 
@@ -127,7 +127,7 @@ public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
  */
 public SalesmanItemVO itemPoToVo(SalesmanItemPO i) {
 	// TODO Auto-generated method stub
-	return new SalesmanItemVO(i.getAutoId(),i.getId(),i.getName(),i.getType(),i.getAmount(),i.getPrice(),i.getSum(),i.getNotes());
+	return new SalesmanItemVO(i.getAutoId(),i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 }
 
 

@@ -223,23 +223,16 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 	@Override
 	public List<T> Query(List<CriterionClause> criterionList){
 		session = sessionFactory.openSession();
-		System.out.println(" test1" );
 		transaction = null;
 		List<T> list = null;
 	try{
 		transaction = session.beginTransaction();
-		System.out.println(" test2" );
         Criteria criteria = session.createCriteria(type.getName());
-        System.out.println(" test3" );
         for(CriterionClause s : criterionList)
        {if (s!=null)
-    	   System.out.println(" test4" );
         criteria.add(s.getCriterion());
        }
-        System.out.println(" test5" );
-      
         list = criteria.list();
-        System.out.println(" test6" );//
         transaction.commit();
         session.close();
         return list;

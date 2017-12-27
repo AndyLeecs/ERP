@@ -3,6 +3,7 @@ package dataServiceImpl.goodsImpl;
 import PO.GoodsCategoryPO;
 import PO.GoodsPO;
 import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
+
 import util.GoodsUtil;
 import util.ResultMessage;
 
@@ -14,13 +15,21 @@ import java.util.List;
  * Created by julia98 on 2017/12/26.
  */
 public class GoodsDataServiceImplTest {
-    GoodsCategoryPO po = new GoodsCategoryPO("水晶灯","根节点",GoodsUtil.EXIST.ordinal());
-    GoodsCategoryPO po2 = new GoodsCategoryPO("豪华水晶灯2","水晶灯",GoodsUtil.EXIST.ordinal());
-    GoodsCategoryPO po3 = new GoodsCategoryPO("节能灯1","根节点",GoodsUtil.EXIST.ordinal());
-    GoodsCategoryPO po4 = new GoodsCategoryPO("123a","abc",GoodsUtil.EXIST.ordinal());
-    GoodsPO goodsPO = new GoodsPO("0"
+    GoodsCategoryPO po = new GoodsCategoryPO("水晶灯","根节点",GoodsUtil.EXIST);
+    GoodsCategoryPO po2 = new GoodsCategoryPO("豪华水晶灯2","水晶灯",GoodsUtil.EXIST);
+    GoodsCategoryPO po3 = new GoodsCategoryPO("节能灯1","根节点",GoodsUtil.EXIST);
+    GoodsCategoryPO po4 = new GoodsCategoryPO("123a","abc",GoodsUtil.EXIST);
+    GoodsPO goodsPO = new GoodsPO("1"
             ,"商品分类"
             ,"商品名称"
+            ,"商品种类"
+            ,0
+            ,0
+            ,0
+            ,0,GoodsUtil.EXIST);
+    GoodsPO goodsPO2 = new GoodsPO("2"
+            ,"商品分类"
+            ,"护眼灯"
             ,"商品种类"
             ,0
             ,0
@@ -36,30 +45,32 @@ public class GoodsDataServiceImplTest {
 
     @org.junit.Test
     public void findGoods() throws Exception {
-    //	assertEquals("",new GoodsDataServiceImpl().findGoods("水晶灯", "goodsName"));
+    //	assertEquals(goodsPO2,new GoodsDataServiceImpl().findGoods("护眼灯", "goodsName"));
+    //	assertEquals(goodsPO2,new GoodsDataServiceImpl().findGoods("2", "goodsID"));
     }
 
     @org.junit.Test
-    public void getGoods() throws Exception {
-<<<<<<< HEAD
-    	//assertEquals(goodsPO,new GoodsDataServiceImpl().getGoods("商品名称", "商品分类"));
-=======
-    	new GoodsDataServiceImpl().initAndSaveGoods(goodsPO);
-    	assertEquals(goodsPO,new GoodsDataServiceImpl().getGoods("商品名称", "商品分类"));
->>>>>>> a87c6d19354d7c6b7403236f9fddef17c3a31791
+    public void getGoods() throws Exception {  
+    //	assertEquals(goodsPO,new GoodsDataServiceImpl().getGoods("商品名称", "商品分类"));
     }
 
     @org.junit.Test
     public void deleteGoods() throws Exception {
+    //	assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().deleteGoods("商品分类", "护眼灯"));
     }
 
     @org.junit.Test
     public void modifyGoods() throws Exception {
+    	GoodsDataServiceImpl g = new GoodsDataServiceImpl();
+    GoodsPO	po = (GoodsPO)g.findGoods("护眼灯", "goodsName").get(0);
+    po.setGoodsCategory("学习灯");
+    po.setGoodsID("1001");
+    	assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().modifyGoods(po));
     }
 
     @org.junit.Test
     public void initAndSaveGoods() throws Exception {
-    	//assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().initAndSaveGoods(goodsPO));
+    	//assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().initAndSaveGoods(goodsPO2));
     }
 
     @org.junit.Test
@@ -71,15 +82,21 @@ public class GoodsDataServiceImplTest {
 
     @org.junit.Test
     public void deleteGoodsCategory() throws Exception {
+    //	GoodsDataServiceImpl g = new GoodsDataServiceImpl();
+    //GoodsCategoryPO po =	(GoodsCategoryPO)g.getAllCategory("根节点").get(0);
+    	//assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().deleteGoodsCategory(po));
     }
 
     @org.junit.Test
     public void modifyGoodsCategory() throws Exception {
+    	//GoodsDataServiceImpl g = new GoodsDataServiceImpl();
+    //GoodsCategoryPO po =	(GoodsCategoryPO)g.getAllCategory("根节点").get(0);
+    //po.setGoodsCategoryName("节能灯2");
+    	//assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().modifyGoodsCategory(null, po));
     }
 
     @org.junit.Test
     public void getAllCategory() throws Exception {
-    	    assertEquals("豪华水晶灯2",new GoodsDataServiceImpl().getAllCategory("水晶灯").get(0));
+    	   // assertEquals("节能灯1",new GoodsDataServiceImpl().getAllCategory("根节点").get(0));
     }
-
 }

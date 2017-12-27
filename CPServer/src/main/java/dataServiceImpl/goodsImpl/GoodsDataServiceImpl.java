@@ -41,16 +41,16 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
         List<CriterionClause> l = new ArrayList<CriterionClause>();
         switch (type){
             case "goodsName":
-                criterionClauseGenerator.generateFuzzyCriterion(l,"goodsName",type);
-                criterionClauseGenerator.generateFuzzyCriterion(l,"state",GoodsUtil.EXIST);
+                criterionClauseGenerator.generateFuzzyCriterion(l,"goodsName",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
                 break;
             case "goodsType":
-                criterionClauseGenerator.generateFuzzyCriterion(l,"goodsType",type);
-                criterionClauseGenerator.generateFuzzyCriterion(l,"state",GoodsUtil.EXIST);
+                criterionClauseGenerator.generateFuzzyCriterion(l,"goodsType",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
                 break;
             case "goodsID":
-                criterionClauseGenerator.generateFuzzyCriterion(l,"goodsID",type);
-                criterionClauseGenerator.generateFuzzyCriterion(l,"state",GoodsUtil.EXIST);
+                criterionClauseGenerator.generateFuzzyCriterion(l,"goodsID",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
                 break;
         }
         return goodsUtil.Query(l);
@@ -62,7 +62,7 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
         criterionClauseGenerator.generateFuzzyCriterion(l,"goodsName",name);
         criterionClauseGenerator.generateFuzzyCriterion(l,"goodsCategory",category);
         criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
-        GoodsPO po = goodsUtil.Query(l).get(0);
+        GoodsPO po = goodsUtil.Query(l).get(goodsUtil.Query(l).size()-1);
         System.out.println(po.getState());
         return po;//只需获取一个确切的商品信息 这里方法存疑
     }
@@ -70,10 +70,12 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     @Override
     public ResultMessage deleteGoods(String category, String name) throws RemoteException {
         List<CriterionClause> l = new ArrayList<CriterionClause>();
-        criterionClauseGenerator.generateFuzzyCriterion(l,"name",name);
-        criterionClauseGenerator.generateFuzzyCriterion(l,"category",category);
-        criterionClauseGenerator.generateFuzzyCriterion(l,"state",GoodsUtil.EXIST);
-        goodsUtil.Query(l).get(0).setState(GoodsUtil.DELETE);
+        criterionClauseGenerator.generateFuzzyCriterion(l,"goodsName",name);
+        criterionClauseGenerator.generateFuzzyCriterion(l,"goodsCategory",category);
+        criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
+        GoodsPO po = goodsUtil.Query(l).get(goodsUtil.Query(l).size()-1);
+        po.setState(GoodsUtil.DELETE);
+        modifyGoods(po);
         return ResultMessage.SUCCESS;
     }
 
@@ -92,15 +94,17 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
 
     @Override
     public ResultMessage newGoodsCategory(GoodsCategoryPO po) throws RemoteException{
-    	po.setState(GoodsUtil.EXIST.ordinal());
+    	po.setState(GoodsUtil.EXIST);
         categoryUtil.insert(po);
         return ResultMessage.SUCCESS;
     }
 
     @Override
     public ResultMessage deleteGoodsCategory(GoodsCategoryPO po) throws RemoteException{
+    	System.out.println(po.getAutoId());
         GoodsCategoryPO goodsCategoryPO = (GoodsCategoryPO)(categoryUtil.get(po.getAutoId()));
-        goodsCategoryPO.setState(GoodsUtil.DELETE.ordinal());
+        goodsCategoryPO.setState(GoodsUtil.DELETE);
+        modifyGoodsCategory(null,goodsCategoryPO);
         return ResultMessage.SUCCESS;
     }
 
@@ -114,13 +118,13 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     public List getAllCategory(String node) throws RemoteException {
         List<CriterionClause> l = new ArrayList<CriterionClause>();
         criterionClauseGenerator.generateFuzzyCriterion(l,"parentName",node);
-        criterionClauseGenerator.generateFuzzyCriterion(l,"state",GoodsUtil.EXIST.ordinal());
+        criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
         List<GoodsCategoryPO> list = categoryUtil.Query(l);
-        System.out.println(list.size());
-        ArrayList<String> ret = new ArrayList<>();
-        for(int i =0;i<list.size();i++){
-            ret.add(list.get(i).getGoodsCategoryName());
-        }
-        return ret;
+        //System.out.println(list.size());
+        //ArrayList<String> ret = new ArrayList<>();
+        //for(int i =0;i<list.size();i++){
+         //   ret.add(list.get(i).getGoodsCategoryName());
+        //}
+        return list;
     }
 }

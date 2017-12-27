@@ -6,6 +6,7 @@ import java.util.List;
 import VO.presentVO.PresentForSumVO;
 import bl.presentbl.PresentBLFactory;
 import blservice.presentblservice.PresentForSumBLService;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -88,7 +89,16 @@ public class PresentForSumListController {
 	
 	@FXML
 	public void back(){
-		this.managerController.centerPane.getChildren().removeAll();
+  	     Platform.runLater(()-> {
+				    try {
+				    	System.out.println("return");
+				    	this.managerController.centerPane.setCenter(null);
+//				    	this.managerController.centerPane.getChildren().removeAll();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+			});  
+		
 	}
 
 }

@@ -33,7 +33,7 @@ public class SalesmanItemVO {
 	/**
 	 * 数量
 	 */
-	double amount;
+	int amount;
 	/**
 	 * 金额
 	 */
@@ -43,7 +43,7 @@ public class SalesmanItemVO {
 	 */
 	String notes;
 
-	public SalesmanItemVO(int autoId, String id, String name, String type, double price, double amount, double sum,
+	public SalesmanItemVO(int autoId, String id, String name, String type, double price, int amount, double sum,
 			String notes) {
 		super();
 		this.autoId = autoId;
@@ -79,10 +79,10 @@ public class SalesmanItemVO {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public double getAmount() {
+	public int getAmount() {
 		return amount;
 	}
-	public void setAmount(double amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 	public double getSum() {
