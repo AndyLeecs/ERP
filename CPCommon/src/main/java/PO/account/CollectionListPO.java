@@ -17,7 +17,7 @@ public class CollectionListPO extends FinanceListPO{
 		this.VIPID = VIPID;
 		this.VIPName = VIPName;
 		setOperator(operator);
-		this.transferItem = new ArrayList<TransferItemPO>(transferItem);
+		setTransferItem(transferItem);
 		setTotalAmount(totalAmount);
 		setState(state);
 	}
@@ -37,10 +37,15 @@ public class CollectionListPO extends FinanceListPO{
 	}
 	
 	public List<TransferItemPO> getTransferItem() {
+		if(transferItem == null)
+			return null;
 		return new ArrayList<TransferItemPO>(transferItem);
 	}
 	public void setTransferItem(List<TransferItemPO> transferItem) {
-		this.transferItem = new ArrayList<TransferItemPO>(transferItem);
+		if(transferItem == null)
+			this.transferItem = null;
+		else
+			this.transferItem = new ArrayList<TransferItemPO>(transferItem);
 	}
 	
 	
