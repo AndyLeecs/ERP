@@ -38,4 +38,48 @@ public interface VIPFuzzySearch {
      * @return 符合条件的会员列表
      */
     public List<VIPVO> getVIPInType(String categoryInfo) throws RemoteException;
+
+    /**
+     * 在进货商中以会员ID模糊查找
+     * @param idInfo
+     * @return 符合条件的会员列表
+     */
+    public List<VIPVO> getVIPInIDOnlySeller(String idInfo) throws RemoteException;
+
+    /**
+     * 在进货商中以会员姓名模糊查找
+     * @param nameInfo
+     * @return 符合条件的会员列表
+     */
+    public List<VIPVO> getVIPInNameOnlySeller(String nameInfo) throws RemoteException;
+
+    /**
+     * 在销售商中以会员电话模糊查找
+     * @param phoneNumberInfo
+     * @return 符合条件的会员列表
+     */
+    public List<VIPVO> getVIPInPhoneNumberOnlySeller(String phoneNumberInfo) throws RemoteException;
+
+    /**
+     * 在销售商中以会员ID模糊查找
+     * @param idInfo
+     * @return 符合条件的会员列表
+     */
+    public List<VIPVO> getVIPInIDOnlyRetailer(String idInfo) throws RemoteException;
+
+    /**
+     * 在销售商中以会员姓名模糊查找
+     * @param nameInfo
+     * @return 符合条件的会员列表
+     */
+    public List<VIPVO> getVIPInNameOnlyRetailer(String nameInfo) throws RemoteException;
+
+    /**
+     * 在销售商中以会员电话模糊查找
+     * @param phoneNumberInfo
+     * @return 符合条件的会员列表
+     */
+    public List<VIPVO> getVIPInPhoneNumberOnlyRetailer(String phoneNumberInfo) throws RemoteException;
+
+
 }

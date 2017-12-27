@@ -33,6 +33,10 @@ public class GoodsVO {
 	 * 最近零售价
 	 */
 	double recentSellPrice;
+	/**
+	 * 数据库主键
+	 */
+	int autoId;
 	
 	public GoodsVO(String goodsID,String goodsCategory,String goodsName,String goodsType
 			,double goodsBuyPrice,double goodsSellPrice,double recentBuyPrice,double recentSellPrice) {
@@ -45,6 +49,14 @@ public class GoodsVO {
 		this.recentBuyPrice = recentBuyPrice;
 		this.recentSellPrice = recentSellPrice;
 	}
+
+    public int getAutoId() {
+        return autoId;
+    }
+
+    public void setAutoId(int autoId) {
+        this.autoId = autoId;
+    }
 
     public String getGoodsName() {
         return goodsName;
