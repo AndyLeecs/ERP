@@ -59,9 +59,9 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     @Override
     public GoodsPO getGoods(String name, String category) throws RemoteException {
         List<CriterionClause> l = new ArrayList<CriterionClause>();
-        criterionClauseGenerator.generateFuzzyCriterion(l,"name",name);
-        criterionClauseGenerator.generateFuzzyCriterion(l,"category",category);
-        criterionClauseGenerator.generateFuzzyCriterion(l,"state",GoodsUtil.EXIST);
+        criterionClauseGenerator.generateFuzzyCriterion(l,"goodsName",name);
+        criterionClauseGenerator.generateFuzzyCriterion(l,"goodsCategory",category);
+        criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
         GoodsPO po = goodsUtil.Query(l).get(0);
         System.out.println(po.getState());
         return po;//只需获取一个确切的商品信息 这里方法存疑

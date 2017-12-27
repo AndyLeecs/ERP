@@ -1,18 +1,53 @@
 package bl.salebl;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 import VO.listVO.SalesDetailListVO;
+import VO.saleVO.SaleListVO;
+import VO.saleVO.SalesmanItemVO;
 import bl.listbl.GetSalesDetails;
+import util.DateUtil;
 
 public class GetSalesDetailsImpl implements GetSalesDetails{
 
+	SaleListBLServiceImpl impl = new SaleListBLServiceImpl();
+	
 	@Override
 	public ArrayList<SalesDetailListVO> getSalesDetail() {
-	     
-		return null;
+	    List<SaleListVO> list = (List)impl.openAllDraft();
+		return SaleToDetail(list);
+	}
+//表单查看中得到销售明细表需要的操作
+	
+	private ArrayList<SalesDetailListVO> SaleToDetail(List<SaleListVO> list){
+		ArrayList<SalesDetailListVO> detailList = new ArrayList<SalesDetailListVO>();
+		
+		if(list == null || list.isEmpty())
+			return detailList;
+		
+		for(SaleListVO vo: list){
+			detailList.addAll(SaleToDetail(vo));
+		}
+		
+		return detailList;
+	}
+	
+	private ArrayList<SalesDetailListVO> SaleToDetail(SaleListVO vo){
+			String id = vo.getId();
+			String day = DateUtil.getDateFromListIDAsString(id);
+			String operator = vo.getOperator();
+			String VIP = vo.getMemberName();
+			List<SalesmanItemVO> goodsList = vo.getSaleListItems();
+			
+			ArrayList<SalesDetailListVO> list = new ArrayList<SalesDetailListVO>();
+			
+			for(SalesmanItemVO i : goodsList){
+				list.add(new SalesDetailListVO(day,i.getName(),i.getType(),i.getAmount(),i.getPrice(),VIP,operator));
+			}
+			
+			return list;
+		//		return new SalesDetailListVO(DateUtil.getDateFromListIDAsString(vo.getId()),vo.get);
 	}
 //表单查看中得到销售明细表需要的操作
 	
@@ -27,5 +62,5 @@ public class GetSalesDetailsImpl implements GetSalesDetails{
 	 * 
 		
 	 */
-	
+//	re:使用了yyyymmdd的字符串
 }

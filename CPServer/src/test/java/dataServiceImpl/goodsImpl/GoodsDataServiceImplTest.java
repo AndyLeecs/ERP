@@ -41,6 +41,7 @@ public class GoodsDataServiceImplTest {
 
     @org.junit.Test
     public void getGoods() throws Exception {
+    	new GoodsDataServiceImpl().initAndSaveGoods(goodsPO);
     	assertEquals(goodsPO,new GoodsDataServiceImpl().getGoods("商品名称", "商品分类"));
     }
 
