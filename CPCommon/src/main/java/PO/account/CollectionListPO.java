@@ -11,6 +11,7 @@ public class CollectionListPO extends FinanceListPO{
 	private List<TransferItemPO> transferItem;
 	
 	
+	public CollectionListPO(){}
 	public CollectionListPO(String listID, String VIPID, String VIPName, String operator, List<TransferItemPO> transferItem, double totalAmount, State state){
 		setId(listID);
 		this.VIPID = VIPID;

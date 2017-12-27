@@ -85,11 +85,10 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         return id;
         }
 	
-	
 
 	/* (non-Javadoc)
 	 * @see dataHelper.BasicUtil#insert(java.lang.Object)
-	 * 此方法并不是正确的实现，需要的人自己实现一下吧
+	 * 此方法并不是正确的实现，需要的人自己实现一下吧		//TODO ？？？现在对不对？我看没啥问题，并且这个方法已经被人用过了。如果没有问题，请把注释删掉
 	 */
 	@Override
 	public String insert(Object po) {
