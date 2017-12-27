@@ -48,6 +48,8 @@ public class DateUtil {
 	 * @return 对应的Date对象
 	 */
 	public static Date getDateFromListID(String listID){
+		if(listID == null)
+			return null;
 		String date = listID.substring(listID.indexOf('-')+1, listID.lastIndexOf('-'));
 		return getDate(date);
 	}
@@ -58,6 +60,8 @@ public class DateUtil {
 	 * @return yyyyMMdd格式的字符串
 	 */
 	public static String getDateFromListIDAsString(String listID){
+		if(listID == null)
+			return null;
 		String date = listID.substring(listID.indexOf('-')+1, listID.lastIndexOf('-'));
 		return date;
 	}
