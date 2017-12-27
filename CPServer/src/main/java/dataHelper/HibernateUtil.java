@@ -33,8 +33,6 @@ public class HibernateUtil<T> implements BasicUtil<T>{
     private Session session = null;
     private Transaction transaction = null;
 
-//    public SessionFactory sessionFactory;
-//    public Session session;//用public简易测试
     private Class<T> type;
     
     public HibernateUtil(Class<T> type) {
@@ -68,6 +66,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 	/* (non-Javadoc)
 	 * @see dataHelper.BasicUtil#insert(java.lang.Object)
 	 * 此方法并不是正确的实现，需要的人自己实现一下吧		//TODO ？？？现在对不对？我看没啥问题，并且这个方法已经被人用过了。如果没有问题，请把注释删掉
+	 *   //RE：不知道对不对，我本来是想写一个单据类的insert方法的，如果有人把这个方法当做是获得一个int转为string的autoid的话显然是没有问题的
 	 */
 	@Override
 	public String insert(Object po) {
@@ -133,7 +132,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         } catch (OptimisticLockException e) {
         	if(transaction!=null){
         		transaction.rollback();
-        		rm = DataRM.NOT_EXIST;				//TODO 这个是这么回事吗？请在此处回复我一下
+        		rm = DataRM.NOT_EXIST;				//TODO 这个是这么回事吗？请在此处回复我一下 re:不知道
         	}
         	e.printStackTrace();
         	rm = DataRM.FAILED;
@@ -324,8 +323,31 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 	
 	@Override
 	public T getLastRow(){
-		//TODO 不会实现。请专家操刀一下
-		return null;
+		session = sessionFactory.openSession();
+		transaction = null;
+		List<T> list = null;
+	try{
+		transaction = session.beginTransaction();
+        Criteria criteria = session.createCriteria(type.getName());
+        list = criteria.list();
+        T po = null;
+        if(list!=null&&(!list.isEmpty())){
+        po = list.get(list.size()-1);
+        }
+        transaction.commit();
+        session.close();
+        return po;
+    } catch (HibernateException e) {
+    	if(transaction != null)
+    	{
+    		transaction.rollback();
+    	}
+    	System.out.println("hibernate Exception in query");
+    	e.printStackTrace();
+    	return null;
+    }finally{
+    	session.close();
+    }
 	}
 
 

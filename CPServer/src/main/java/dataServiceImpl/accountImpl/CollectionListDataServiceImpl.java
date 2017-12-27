@@ -33,7 +33,7 @@ public class CollectionListDataServiceImpl extends UnicastRemoteObject implement
 		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
 		orderClauseGenerator = new HibernateOrderClauseGenerator();
 	}
-	
+	//TODO: 不知道直接写一个通用的方法可以吗？
 	public static final int LIST_MAX_NUM = 99999;
 	@Override
 	public String getNewListId()  throws RemoteException{
