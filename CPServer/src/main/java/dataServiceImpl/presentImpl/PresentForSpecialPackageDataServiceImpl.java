@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import PO.GoodsInSalePO;
 import PO.PresentForSpecialPackagePO;
 import PO.PresentForSumPO;
 import dataHelper.BasicUtil;
@@ -70,19 +71,38 @@ public class PresentForSpecialPackageDataServiceImpl extends UnicastRemoteObject
 		l = criterionClauseGenerator.generateExactCriterion(l,"state", PresentState.SAVE);
 		return util.Query(l);
 	}
-
 	/* (non-Javadoc)
-	 * @see dataService.presentDataService.PresentForSumDataService#getPresentForSum(int)
+	 * @see dataService.presentDataService.PresentForSpecialPackageDataService#getPresentForSpecialPackage(java.util.List)
 	 */
 	@Override
-	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage(List<String> GoodsID) throws RemoteException {
+	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage(List<GoodsInSalePO> goodsList)
+			throws RemoteException {
 		// TODO Auto-generated method stub
+		String id;
+		List<String> idList = new ArrayList<String>();
+		for(GoodsInSalePO po : goodsList){
+			idList.add(po.getId());
+		}
 		List<CriterionClause> criterionChildList = new ArrayList<CriterionClause>();
-		criterionChildList = criterionClauseGenerator.generateExactAsChildCriterion(criterionChildList,"id",(List)GoodsID);
+		criterionChildList = criterionClauseGenerator.generateExactAsChildCriterion(criterionChildList,"id",(List)idList);
 		List<CriterionClause> criterionParentList = new ArrayList<CriterionClause>();
 		criterionParentList = criterionClauseGenerator.generateExactCriterion(criterionParentList,"state", PresentState.SAVE);
 		criterionParentList = criterionClauseGenerator.generateCurrentTimeInRangeCriterion(criterionParentList);
 		return util.CascadeQuery(criterionParentList, criterionChildList,"presentList");
 	}
+
+	/* (non-Javadoc)
+	 * @see dataService.presentDataService.PresentForSumDataService#getPresentForSum(int)
+	 */
+//	@Override
+//	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage(List<String> GoodsID) throws RemoteException {
+//		// TODO Auto-generated method stub
+//		List<CriterionClause> criterionChildList = new ArrayList<CriterionClause>();
+//		criterionChildList = criterionClauseGenerator.generateExactAsChildCriterion(criterionChildList,"id",(List)GoodsID);
+//		List<CriterionClause> criterionParentList = new ArrayList<CriterionClause>();
+//		criterionParentList = criterionClauseGenerator.generateExactCriterion(criterionParentList,"state", PresentState.SAVE);
+//		criterionParentList = criterionClauseGenerator.generateCurrentTimeInRangeCriterion(criterionParentList);
+//		return util.CascadeQuery(criterionParentList, criterionChildList,"presentList");
+//	}
 
 }

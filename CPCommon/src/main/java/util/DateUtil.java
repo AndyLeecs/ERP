@@ -54,6 +54,15 @@ public class DateUtil {
 	
 	/**
 	 * 
+	 * @param listID XXX-yyyyMMdd-XXX格式的字符串
+	 * @return 对应的Date对象
+	 */
+	public static String getDateFromListIDAsString(String listID){
+		String date = listID.substring(listID.indexOf('-')+1, listID.lastIndexOf('-'));
+		return date;
+	}
+	/**
+	 * 
 	 * @param date yyyyMMdd格式的字符串
 	 * @return 对应的Date类型的对象
 	 */

@@ -14,9 +14,11 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 
+import PO.SalesmanListPO;
 import util.DataRM;
 
 /**     
@@ -245,11 +247,66 @@ public class HibernateUtil<T> implements BasicUtil<T>{
     }
 	}
 
+	@Override
+	public List<T> Query(List<CriterionClause> criterionList,OrderClause order){
+		session = sessionFactory.openSession();
+		transaction = null;
+		List<T> list = null;
+	try{
+		transaction = session.beginTransaction();
+        Criteria criteria = session.createCriteria(type.getName());
+        for(CriterionClause s : criterionList)
+       {if (s!=null)
+        criteria.add(s.getCriterion());
+       }
+        criteria.addOrder(order.getOrder());
+        list = criteria.list();
+        transaction.commit();
+        session.close();
+        return list;
+    } catch (HibernateException e) {
+    	if(transaction != null)
+    	{
+    		transaction.rollback();
+    	}
+    	System.out.println("hibernate Exception in query");
+    	e.printStackTrace();
+    	return null;
+    }finally{
+    	session.close();
+    }
+	}
+	
 	/* (non-Javadoc)
 	 * @see dataHelper.BasicUtil#get(int)
 	 */
 	@Override
 	public Object get(int id) {
+		// TODO Auto-generated method stub
+		session = sessionFactory.openSession();
+		transaction = null;
+		Object o = null;
+        try {
+        	transaction = session.beginTransaction();
+            o = session.get(type.getName(), id);
+            transaction.commit();
+        } catch (HibernateException e) {
+        	if(transaction!=null){
+        		transaction.rollback();
+        		e.printStackTrace();
+        	}
+        }finally{
+           		session.close();
+        	}
+        
+        return o;
+	}
+
+	/* (non-Javadoc)
+	 * @see dataHelper.BasicUtil#get(java.lang.String)
+	 */
+	@Override
+	public Object get(String id) {
 		// TODO Auto-generated method stub
 		session = sessionFactory.openSession();
 		transaction = null;

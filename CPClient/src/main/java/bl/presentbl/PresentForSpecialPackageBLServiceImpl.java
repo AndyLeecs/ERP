@@ -45,6 +45,32 @@ public class PresentForSpecialPackageBLServiceImpl implements PresentForSpecialP
 		return volist;
 	}
 
+	/**
+	 * @param specialPackage
+	 * @return
+	 */
+	public List<PresentForSpecialPackageVO> getWithMinSpecialPackage(List<GoodsInSaleVO> goodsList) {
+		// TODO Auto-generated method stub
+		List<PresentForSpecialPackagePO> polist;
+		try {
+			List<GoodsInSalePO> goodsPoList = new ArrayList<GoodsInSalePO>();
+			for(GoodsInSaleVO vo :goodsList){
+			goodsPoList.add(GoodsInSaleVoTransPo.GoodsInSaleVoToPo(vo));
+			}
+			polist = presentForSpecialPackageDataService.getPresentForSpecialPackage(goodsPoList);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+		List<PresentForSpecialPackageVO> volist = new ArrayList<PresentForSpecialPackageVO>();
+		
+		for(PresentForSpecialPackagePO po : polist){
+			volist.add(poToVo(po));
+		}
+		
+		return volist;
+	}
+	}
 	/* (non-Javadoc)
 	 * @see blservice.presentblservice.PresentForSumBLService#getId()
 	 */
@@ -90,7 +116,7 @@ public class PresentForSpecialPackageBLServiceImpl implements PresentForSpecialP
 		}
 	}
 
-	private PresentForSpecialPackageVO poToVo(PresentForSpecialPackagePO po){
+	protected PresentForSpecialPackageVO poToVo(PresentForSpecialPackagePO po){
 		List<GoodsInSalePO> polist = po.getPresentList();
 		List<GoodsInSaleVO> volist = new ArrayList<GoodsInSaleVO>();
 		for(GoodsInSalePO i:polist){
@@ -100,7 +126,7 @@ public class PresentForSpecialPackageBLServiceImpl implements PresentForSpecialP
 		return new PresentForSpecialPackageVO(po.getId(),po.getStartTime(), po.getFinishTime(), volist, po.getPriceReduction());
 	}
 	
-	private PresentForSpecialPackagePO voToPo(PresentForSpecialPackageVO vo){
+	protected PresentForSpecialPackagePO voToPo(PresentForSpecialPackageVO vo){
 		
 		
 		List<GoodsInSaleVO> volist = vo.getPresentList();
@@ -115,6 +141,8 @@ public class PresentForSpecialPackageBLServiceImpl implements PresentForSpecialP
 		}
 		return new PresentForSpecialPackagePO(vo.getId(), vo.getStartTime(), vo.getFinishTime(), polist, PresentState.SAVE, vo.getPriceReduction());
 	}
+
+
 
 
 }

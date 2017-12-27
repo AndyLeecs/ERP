@@ -35,10 +35,10 @@ public class SaleListPO extends SalesmanListPO implements Serializable{
 
 
 
-	public SaleListPO(String id, State state, Date day, String memberID, String memberName, String operator,
+	public SaleListPO(String id, State state, Date day, String memberID, String memberName,String operator,String operatorId,
 			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum,
 			double sumBeforeRebate, double rebate, double voucher) {
-		super(id, state, day, memberID, memberName, operator, realOperator, warehouse, notes, saleListItems, sum);
+		super(id, state, day, memberID, memberName,operator,operatorId,realOperator, warehouse, notes, saleListItems, sum);
 		this.sumBeforeRebate = sumBeforeRebate;
 		this.rebate = rebate;
 		this.voucher = voucher;

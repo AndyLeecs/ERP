@@ -49,6 +49,28 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 		return volist;
 	}
 
+	protected List<PresentForSumVO> getWithMinSum(double sum) {
+		// TODO Auto-generated method stub
+		List<PresentForSumPO> polist = new ArrayList<PresentForSumPO>();
+		List<PresentForSumVO> volist = new ArrayList<PresentForSumVO>();
+		try {
+			polist = presentForSumDataService.getPresentForSum(sum);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+	//		return volist;
+		}
+		System.out.println("polist"+polist);
+		
+		
+		for(PresentForSumPO po : polist){
+			volist.add(poToVo(po));
+		}
+		System.out.println("volist"+volist);
+		return volist;
+	}
+	
 	/* (non-Javadoc)
 	 * @see blservice.presentblservice.PresentForSumBLService#getId()
 	 */
@@ -57,6 +79,7 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 		// TODO Auto-generated method stub
 		try {
 			int id = 0;
+			System.out.println(presentForSumDataService);
 			id = presentForSumDataService.insert();
 			System.out.println(id);
 			return id;
@@ -99,8 +122,9 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 			return DataRM.FAILED;
 		}
 	}
+	
 
-	private PresentForSumVO poToVo(PresentForSumPO po){
+	protected PresentForSumVO poToVo(PresentForSumPO po){
 		List<GoodsInSalePO> polist = po.getPresentList();
 		List<GoodsInSaleVO> volist = new ArrayList<GoodsInSaleVO>();
 		for(GoodsInSalePO i:polist){
@@ -110,7 +134,7 @@ public class PresentForSumBLServiceImpl implements PresentForSumBLService {
 		return new PresentForSumVO(po.getId(),po.getStartTime(), po.getFinishTime(), po.getSum(),volist, po.getVoucher());
 	}
 	
-	private PresentForSumPO voToPo(PresentForSumVO vo){
+	protected PresentForSumPO voToPo(PresentForSumVO vo){
 		
 		
 		List<GoodsInSaleVO> volist = vo.getPresentList();

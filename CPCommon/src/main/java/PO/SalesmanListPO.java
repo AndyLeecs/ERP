@@ -31,6 +31,14 @@ public class SalesmanListPO  implements Serializable{
 	  * 日期，精确到天
 	  */	
 	Date day;
+	/**
+	 * 操作员名称
+	 */
+	private String operator;
+	/**
+	 * 操作员编号
+	 */
+	private String operatorId;
 
 	/**
 	  * 客户编号
@@ -40,11 +48,8 @@ public class SalesmanListPO  implements Serializable{
 	  * 客户名
 	  */
 	 String memberName;
-	 /**
-	  * 操作员id?
-	  */
-	 String operator;
-	 //业务员id
+
+	 //业务员名字
 	 String realOperator;
 	 
 	 // ListState state;
@@ -66,15 +71,16 @@ public class SalesmanListPO  implements Serializable{
 	 double sum;
 
 
-	 public SalesmanListPO(String id, State state, Date day, String memberID, String memberName, String operator,
-			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum) {
+	 public SalesmanListPO(String id, State state, Date day, String memberID, String memberName,String operator,String operatorId
+			,String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum) {
 		super();
 		this.id = id;
 		this.state = state;
 		this.day = day;
+		this.operator = operator;
+		this.operatorId = operator;
 		this.memberID = memberID;
 		this.memberName = memberName;
-		this.operator = operator;
 		this.realOperator = realOperator;
 		this.warehouse = warehouse;
 		this.notes = notes;
@@ -82,67 +88,52 @@ public class SalesmanListPO  implements Serializable{
 		this.sum = sum;
 	}
 
-	public SalesmanListPO(){}
-
-//	private int getId() {
-//		return id;
-//	}
-//	private void setId(int id) {
-//		this.id = id;
-//	}
-	public Date getDay() {
-		return day;
-	}
-	public void setDay(Date day) {
-		this.day = day;
-	}
-	public String getMemberID() {
-		return memberID;
-	}
-	public void setMemberID(String memberID) {
-		this.memberID = memberID;
-	}
-	public String getMemberName() {
-		return memberName;
-	}
-	public void setMemberName(String memberName) {
-		this.memberName = memberName;
-	}
-	public String getOperator() {
-		return operator;
-	}
-	public void setOperator(String operator) {
-		this.operator = operator;
-	}
-	public String getWarehouse() {
-		return warehouse;
-	}
-	public void setWarehouse(String warehouse) {
-		this.warehouse = warehouse;
-	}
-	public String getNotes() {
-		return notes;
-	}
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-	public List<SalesmanItemPO> getSaleListItems() {
-		return SaleListItems;
-	}
-	public void setSaleListItems(List<SalesmanItemPO> saleListItems) {
-		SaleListItems = saleListItems;
-	}
-	public double getSum() {
-		return sum;
-	}
-	public void setSum(double sum) {
-		this.sum = sum;
-	}
 	public State getState() {
 		return state;
 	}
+
 	public void setState(State state) {
 		this.state = state;
+	}
+
+	public Date getDay() {
+		return day;
+	}
+
+	public void setDay(Date day) {
+		this.day = day;
+	}
+
+	public String getOperator() {
+		return operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
+	}
+
+	public String getOperatorId() {
+		return operatorId;
+	}
+
+	public void setOperatorId(String operatorId) {
+		this.operatorId = operatorId;
+	}
+
+	public String getMemberID() {
+		return memberID;
+	}
+
+	public void setMemberID(String memberID) {
+		this.memberID = memberID;
+	}
+
+	public String getMemberName() {
+		return memberName;
+	}
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 
 	public String getRealOperator() {
@@ -152,10 +143,40 @@ public class SalesmanListPO  implements Serializable{
 	public void setRealOperator(String realOperator) {
 		this.realOperator = realOperator;
 	}
-	 
-	 
-//	  double priceBeforeDiscount; //折让前总额
-//	  double discount;//销售人员折让
-//	  double voucher;//代金券数额
-//	  double finalPrice;
+
+	public String getWarehouse() {
+		return warehouse;
+	}
+
+	public void setWarehouse(String warehouse) {
+		this.warehouse = warehouse;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public List<SalesmanItemPO> getSaleListItems() {
+		return SaleListItems;
+	}
+
+	public void setSaleListItems(List<SalesmanItemPO> saleListItems) {
+		SaleListItems = saleListItems;
+	}
+
+	public double getSum() {
+		return sum;
+	}
+
+	public void setSum(double sum) {
+		this.sum = sum;
+	}
+
+	public SalesmanListPO(){}
+
+
 }

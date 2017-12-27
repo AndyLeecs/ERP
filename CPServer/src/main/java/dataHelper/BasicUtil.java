@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.hibernate.criterion.Criterion;
 
+import PO.PresentForSumPO;
+import PO.SaleListPO;
+import PO.SalesmanListPO;
 import util.DataRM;
 
 /**     
@@ -87,6 +90,17 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	 */
 	List<T> CascadeQuery(List<CriterionClause> criterionParentList, List<CriterionClause> criterionChildList,
 			String string);
+	/**
+	 * @param id
+	 * @return 获得该业务id对应的po实体
+	 */
+	public Object get(String id);
+	/**
+	 * @param l
+	 * @param o
+	 * @return
+	 */
+	public List<T> Query(List<CriterionClause> l, OrderClause o);
 	
 	
 }

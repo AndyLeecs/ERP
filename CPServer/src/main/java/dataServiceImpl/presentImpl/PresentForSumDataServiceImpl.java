@@ -11,6 +11,8 @@ import dataHelper.CriterionClause;
 import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
 import dataHelper.HibernateUtil;
+import dataHelper.OrderClause;
+import dataHelper.OrderClauseGenerator;
 import dataService.presentDataService.PresentForSumDataService;
 import util.DataRM;
 import util.PresentState;
@@ -25,6 +27,7 @@ public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements
 	
 	BasicUtil<PresentForSumPO> util;
 	CriterionClauseGenerator criterionClauseGenerator;
+	OrderClauseGenerator orderClauseGenerator;
 	
 	public PresentForSumDataServiceImpl() throws RemoteException{
 
@@ -51,7 +54,7 @@ public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements
 		po.setState(PresentState.DELETE);
 		return util.update(po);
 	}
-
+//
 	/* (non-Javadoc)
 	 * @see dataService.presentDataService.PresentForSumDataService#update(PO.PresentForSumPO)
 	 */
@@ -87,10 +90,14 @@ public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements
 	public List<PresentForSumPO> getPresentForSum(double sum) throws RemoteException {
 		// TODO Auto-generated method stub
 		List<CriterionClause> l = new ArrayList<CriterionClause>();
-		l = criterionClauseGenerator.generateGeCriterion(l,"sum", sum);
+		l = criterionClauseGenerator.generateLeCriterion(l,"sum", sum);
+//		l = criterionClauseGenerator.generateExactCriterion(l,"sum", sum);
 		l = criterionClauseGenerator.generateExactCriterion(l,"state", PresentState.SAVE);
 		l = criterionClauseGenerator.generateCurrentTimeInRangeCriterion(l);
-		return util.Query(l);
+		
+		OrderClause o = orderClauseGenerator.generateDescOrder("sum");
+		
+		return util.Query(l,o);
 	}
 	
 

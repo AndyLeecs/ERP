@@ -1,8 +1,13 @@
 package bl.presentbl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import VO.GoodsInSaleVO;
 import VO.presentVO.PresentResultVO;
 import VO.saleVO.SaleVO;
 import blservice.presentblservice.PresentBLInfo;
+import util.VIPGrade;
 
 /**     
 * @author 李安迪
@@ -10,14 +15,45 @@ import blservice.presentblservice.PresentBLInfo;
 * @description
 */
 public class PresentBLInfoImpl implements PresentBLInfo{
-
+	/**
+	 * 会员级别
+	 */
+	VIPGrade grade;
+	/**
+	 * 商品列表
+	 */
+	List<GoodsInSaleVO> goodsList;
+	/**
+	 * 总额
+	 */
+	double sum;
+	
+	PresentResultVO result;
+	
+	PresentForSumHandler sumHandler = new PresentForSumHandler();
+	PresentForSpecialPackageHandler packageHandler = new PresentForSpecialPackageHandler();
+	PresentForMembershipHandler membershipHandler = new PresentForMembershipHandler();
+	
 	/* (non-Javadoc)
 	 * @see blservice.presentblservice.PresentBLInfo#findPresent(VO.saleVO.SaleVO)
 	 */
 	@Override
 	public PresentResultVO findPresent(SaleVO vo) {
 		// TODO Auto-generated method stub
-		return null;
+		//拆包vo
+		this.goodsList = vo.getGoodsList();
+		this.grade = vo.getGrade();
+		this.sum = vo.getSum();
+		
+		result = new PresentResultVO(new ArrayList<Integer>(), sum, goodsList, sum);
+		
+		result = packageHandler.handle(goodsList,result);
+		result = sumHandler.handle(sum,result);
+		result = membershipHandler.handle(grade,result);
+		
+		return result;
+		
+		
 	}
 
 }

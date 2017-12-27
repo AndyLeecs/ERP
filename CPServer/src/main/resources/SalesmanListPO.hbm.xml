@@ -14,6 +14,7 @@
 		<property name="memberID" />
 		<property name="memberName" />
 		<property name="operator"/>
+		<property name="operatorId"/>
 		<property name="realOperator"/>
 		<property name="warehouse"/>
 		<property name="notes"/>

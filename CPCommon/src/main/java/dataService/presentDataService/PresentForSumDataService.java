@@ -18,5 +18,6 @@ public interface PresentForSumDataService extends Remote,Serializable{
 	public DataRM deletePresentForSum(int id) throws RemoteException;
 	public DataRM update(PresentForSumPO po) throws RemoteException;
 	public List<PresentForSumPO> getPresentForSum() throws RemoteException;
+	//获得降序排列的结果集
 	public List<PresentForSumPO> getPresentForSum(double sum) throws RemoteException;
 }

@@ -33,9 +33,9 @@ public class StockListPO extends SalesmanListPO implements Serializable{
 //	}
 //	
 
-	public StockListPO(String id, State state, Date day, String memberID, String memberName, String operator,
+	public StockListPO(String id, State state, Date day, String memberID, String memberName,String operator,String operatorId,
 			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum) {
-		super(id, state, day, memberID, memberName, operator, realOperator, warehouse, notes, saleListItems, sum);
+		super(id, state, day, memberID, memberName,operator,operatorId, realOperator, warehouse, notes, saleListItems, sum);
 		// TODO Auto-generated constructor stub
 	}
 }

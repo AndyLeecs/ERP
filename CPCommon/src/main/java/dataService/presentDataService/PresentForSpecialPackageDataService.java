@@ -5,7 +5,9 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import PO.GoodsInSalePO;
 import PO.PresentForSpecialPackagePO;
+import VO.GoodsInSaleVO;
 import util.DataRM;
 
 /**     
@@ -18,5 +20,6 @@ public interface PresentForSpecialPackageDataService extends Remote,Serializable
 	public DataRM deletePresentForSpecialPackage(int id) throws RemoteException;
 	public DataRM update(PresentForSpecialPackagePO po) throws RemoteException;
 	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage() throws RemoteException;
-	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage(List<String> GoodsID) throws RemoteException;
+	//获得按降价金额降序排列的结果集
+	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage(List<GoodsInSalePO> goodsList) throws RemoteException;
 }

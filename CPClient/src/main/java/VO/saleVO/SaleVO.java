@@ -22,5 +22,31 @@ public class SaleVO {
 	/**
 	 * 总额
 	 */
-	int sum;
+	double sum;
+	public VIPGrade getGrade() {
+		return grade;
+	}
+	public void setGrade(VIPGrade grade) {
+		this.grade = grade;
+	}
+	public List<GoodsInSaleVO> getGoodsList() {
+		return goodsList;
+	}
+	public void setGoodsList(List<GoodsInSaleVO> goodsList) {
+		this.goodsList = goodsList;
+	}
+	public double getSum() {
+		return sum;
+	}
+	public void setSum(double sum) {
+		this.sum = sum;
+	}
+	public SaleVO(VIPGrade grade, List<GoodsInSaleVO> goodsList, double sum) {
+		super();
+		this.grade = grade;
+		this.goodsList = goodsList;
+		this.sum = sum;
+	}
+	
+	
 }

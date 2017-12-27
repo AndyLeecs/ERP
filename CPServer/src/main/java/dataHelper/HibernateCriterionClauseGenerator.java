@@ -28,6 +28,18 @@ public class HibernateCriterionClauseGenerator implements CriterionClauseGenerat
 		l.add(new CriterionClause(Restrictions.ge(field,value)));
 		return l;
 	}
+	
+	/* (non-Javadoc)
+	 * @see dataHelper.CriterionClause#generateLeCriterion(java.lang.String, java.lang.Object)
+	 */
+	@Override
+	public List<CriterionClause> generateLeCriterion(List<CriterionClause> l,String field, Object value) throws RemoteException {
+		// TODO Auto-generated method stub
+		if(l == null)
+			l = new ArrayList<CriterionClause>();
+		l.add(new CriterionClause(Restrictions.le(field,value)));
+		return l;
+	}
 
 	/* (non-Javadoc)
 	 * @see dataHelper.CriterionClause#generateExactCriterion(java.lang.String, java.lang.Object)

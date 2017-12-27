@@ -12,6 +12,8 @@ import dataHelper.CriterionClause;
 import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
 import dataHelper.HibernateUtil;
+import dataHelper.OrderClause;
+import dataHelper.OrderClauseGenerator;
 import dataService.presentDataService.PresentForMembershipDataService;
 import util.DataRM;
 import util.PresentState;
@@ -29,6 +31,7 @@ public class PresentForMembershipDataServiceImpl extends UnicastRemoteObject imp
 	 */
 	BasicUtil<PresentForMembershipPO> util;
 	CriterionClauseGenerator criterionClauseGenerator;
+	OrderClauseGenerator orderClauseGenerator;
 	
 	public PresentForMembershipDataServiceImpl() throws RemoteException{
 
@@ -79,6 +82,7 @@ public class PresentForMembershipDataServiceImpl extends UnicastRemoteObject imp
 	/* (non-Javadoc)
 	 * @see dataService.presentDataService.PresentForSumDataService#getPresentForSum(int)
 	 * 注意获取的是某一特定等级的促销策略，而不是这个等级及以上的
+	 * 要求总额达到一定金额
 	 */
 	@Override
 	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade) throws RemoteException {
@@ -87,7 +91,12 @@ public class PresentForMembershipDataServiceImpl extends UnicastRemoteObject imp
 		l = criterionClauseGenerator.generateExactCriterion(l,"grade", grade);
 		l = criterionClauseGenerator.generateExactCriterion(l,"state", PresentState.SAVE);
 		l = criterionClauseGenerator.generateCurrentTimeInRangeCriterion(l);
-		return util.Query(l);
+		
+		
+		OrderClause o = orderClauseGenerator.generateDescOrder("voucher");
+		
+		return util.Query(l,o);
+//		return util.Query(l);
 	}
 
 

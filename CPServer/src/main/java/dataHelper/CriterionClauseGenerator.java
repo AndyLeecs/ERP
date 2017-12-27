@@ -13,6 +13,8 @@ import java.util.List;
 public interface CriterionClauseGenerator extends Remote,Serializable{
 	//添加查询条件为大于等于单值
 	public List<CriterionClause> generateGeCriterion(List<CriterionClause> l, String field,Object value) throws RemoteException;
+	//添加查询条件为小于等于单值
+	public List<CriterionClause> generateLeCriterion(List<CriterionClause> l, String field,Object value) throws RemoteException;
 	//添加查询条件为精确查找单值
 	public List<CriterionClause> generateExactCriterion(List<CriterionClause> l,String field,Object value) throws RemoteException;
 	//添加查询条件为模糊查找单值
@@ -25,4 +27,6 @@ public interface CriterionClauseGenerator extends Remote,Serializable{
 	public List<CriterionClause> generateExactAsChildCriterion(List<CriterionClause> l,String field,List values)throws RemoteException;
 //	//添加查询条件为模糊查找多值，需要时再添加
 //	public List<CriterionClause> generateFuzzyCriterion(List<CriterionClause> l,String field,Object value);
+
+	
 }

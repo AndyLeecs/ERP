@@ -14,6 +14,7 @@ import dataService.presentDataService.PresentForMembershipDataService;
 import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
 import util.DataRM;
 import util.PresentState;
+import util.VIPGrade;
 
 /**     
 * @author 李安迪
@@ -48,6 +49,27 @@ public class PresentForMembershipBLServiceImpl implements PresentForMembershipBL
 		return volist;
 	}
 
+	/**
+	 * @param grade
+	 * @return
+	 */
+	public List<PresentForMembershipVO> getWithMinMembership(VIPGrade grade) {
+		// TODO Auto-generated method stub
+		List<PresentForMembershipPO> polist;
+		try {
+			polist = presentForMembershipDataService.getPresentForMembership(grade);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+		List<PresentForMembershipVO> volist = new ArrayList<PresentForMembershipVO>();
+		
+		for(PresentForMembershipPO po : polist){
+			volist.add(poToVo(po));
+		}
+		
+		return volist;
+	}
 	/* (non-Javadoc)
 	 * @see blservice.presentblservice.PresentForSumBLService#getId()
 	 */
@@ -93,7 +115,7 @@ public class PresentForMembershipBLServiceImpl implements PresentForMembershipBL
 		}
 	}
 
-	private PresentForMembershipVO poToVo(PresentForMembershipPO po){
+	protected PresentForMembershipVO poToVo(PresentForMembershipPO po){
 		List<GoodsInSalePO> polist = po.getPresentList();
 		List<GoodsInSaleVO> volist = new ArrayList<GoodsInSaleVO>();
 		for(GoodsInSalePO i:polist){
@@ -103,7 +125,7 @@ public class PresentForMembershipBLServiceImpl implements PresentForMembershipBL
 		return new PresentForMembershipVO(po.getId(),po.getStartTime(), po.getFinishTime(), po.getGrade(),po.getSum(),volist, po.getRebateInPresentForMembership(),po.getVoucher());
 	}
 	
-	private PresentForMembershipPO voToPo(PresentForMembershipVO vo){
+	protected PresentForMembershipPO voToPo(PresentForMembershipVO vo){
 		
 		
 		List<GoodsInSaleVO> volist = vo.getPresentList();
@@ -118,6 +140,8 @@ public class PresentForMembershipBLServiceImpl implements PresentForMembershipBL
 		}
 		return new PresentForMembershipPO(vo.getId(),vo.getStartTime(), vo.getFinishTime(), vo.getSum(),polist,PresentState.SAVE,vo.getVoucher(),vo.getGrade(),vo.getRebateInPresentForMembership());
 	}
+
+
 
 
 }
