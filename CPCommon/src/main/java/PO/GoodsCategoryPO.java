@@ -18,9 +18,9 @@ public class GoodsCategoryPO implements Serializable{
 	String goodsCategoryName;
     String parentName;
     private int autoId;
-    private int state = GoodsUtil.EXIST.ordinal();
+    private GoodsUtil state = GoodsUtil.EXIST;
 
-    public GoodsCategoryPO(String goodsCategoryName, String parentName, int state) {
+    public GoodsCategoryPO(String goodsCategoryName, String parentName, GoodsUtil state) {
         this.goodsCategoryName = goodsCategoryName;
         this.parentName = parentName;
         this.state = state;
@@ -29,11 +29,11 @@ public class GoodsCategoryPO implements Serializable{
     public GoodsCategoryPO() {
     }
 
-    public void setState(int state) {
+    public void setState(GoodsUtil state) {
         this.state = state;
     }
 
-    public int getState() {
+    public GoodsUtil getState() {
         return state;
     }
 
@@ -59,5 +59,40 @@ public class GoodsCategoryPO implements Serializable{
 
 	public void setAutoId(int autoId) {
 		this.autoId = autoId;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + autoId;
+		result = prime * result + ((goodsCategoryName == null) ? 0 : goodsCategoryName.hashCode());
+		result = prime * result + ((parentName == null) ? 0 : parentName.hashCode());
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		return result;		
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GoodsCategoryPO other = (GoodsCategoryPO) obj;
+		if (goodsCategoryName == null) {
+			if (other.goodsCategoryName != null)
+				return false;
+		} else if (!goodsCategoryName.equals(other.goodsCategoryName))
+			return false;
+		if (parentName == null) {
+			if (other.parentName != null)
+				return false;
+		} else if (!parentName.equals(other.parentName))
+			return false;
+		if (state != other.state)
+			return false;
+		return true;
 	}
 }

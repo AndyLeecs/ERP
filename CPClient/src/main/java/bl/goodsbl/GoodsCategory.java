@@ -49,7 +49,7 @@ public class GoodsCategory {
     }
 
     private GoodsCategoryPO voToPO(GoodsCategoryVO vo){
-        return vo ==null?null:new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName(),0);
+        return vo ==null?null:new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName(),null);
     }
 
 }

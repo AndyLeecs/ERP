@@ -97,7 +97,7 @@ public class Goods {
                 ,goodsPO.getGoodsType()
                 ,goodsPO.getGoodsBuyPrice()
                 ,goodsPO.getGoodsSellPrice()
-                ,goodsPO.recentBuyPrice()
-                ,goodsPO.recentSellPrice());
+                ,goodsPO.getRecentBuyPrice()
+                ,goodsPO.getRecentSellPrice());
     }
 }
