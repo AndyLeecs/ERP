@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import ui.mainUI.loginUI.LoginWin;
+import util.StoreListType;
 
 /**
  * 
@@ -78,8 +79,9 @@ public class StockmanController {
      @FXML public void lookAlarmList() {
     	 Platform.runLater(()->{
  			try {
- 				new lookAlarmListWin();
+ 				StoreListWin win=new StoreListWin();
  				root.getScene().getWindow().hide();
+ 		        win.controller.set(StoreListType.ALARM);
  			} catch (IOException e) {
  				e.printStackTrace();
  			}
