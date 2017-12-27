@@ -3,31 +3,17 @@ package bl.listbl;
 import VO.listVO.ListRM;
 
 public interface Approvable {
-    // 这个接口是所有需要审批的单据必须实现的接口。
-    /*
-    * 这里我解释一下单据通过审批之后的逻辑：
-    * 1，任何单据过审批之后，调用自己包内的check方法，检查修改后各项数据的合法性
-    * 2， 如果数据不合法，调用fail方法，返回相应内容或进行相关处理
-    * 3，如果数据合法，调用replace方法替换掉数据库内的原有单据，并调用refresh方法改写其他数据库中的各项数据
-    * 这里onApprove 方法给定了审批时的逻辑关系
-    * fail 方法中，规定返回的string 是错误信息
-     */
-
-    public  boolean check();
-    public void replace();
-    public void refresh();
-    public String fail();
-    public ListRM toExcel(String  id);//把某一项表单导出excel.所有能够被审批的表单都必须实现这个方法。
-    public default String onApprove(){
-        if(check()){
-            replace();
-            refresh();  
-            return "success";
-        }else{
-
-            return fail();
-        }
-        //这里写成default ，目的是规定审批操作的流程。
-        // 对于具体的单据，在replace和refresh里面调用其他方法，操作数据，所以这两个方法本身是无参数的。（参数也不方便统一）
-    }
+    //每个可审批的单据需要实现的接口。
+	public ListRM Approve(String id);
+	/*
+	 * 每一种可审批的单据对上面这个方法都要实现一下。
+	 * 在单个单据审批时，自己的单据在界面层与逻辑层间有一个审批方法，审批方法调用这个方法的实现来完成。
+	 * 在批量审批的时候，我通过这个接口找到你们对应的实现，并完成审批。
+	 */
+	
+	/*
+	 * 提交单据的时候要调用InfoList 的Register 方法
+	 * 审批成功通过或被拒绝需要调用Modify方法，库存不足的时候不用调用
+	 * 检查一组商品库存的方法写在Store_Interface接口里
+	 */
 }
