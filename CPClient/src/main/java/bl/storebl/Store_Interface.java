@@ -1,6 +1,7 @@
 
 package bl.storebl;
 
+import VO.storeVO.PresentListVO;
 import VO.storeVO.StoreVO;
 import VO.storeVO.storeRM;
 import util.GreatListType;
@@ -23,4 +24,8 @@ public interface Store_Interface {
      * @return  返回对操作是否能成功的预判
      */
     public boolean check(List<String> id,List<Integer> subber);
+    
+    public StoreVO getStoreVO(String id); //根据商品id 返回对应商品的库存VO
+    
+    public boolean createPresentList_auto(PresentListVO vo);//单据编号不用填，单据状态填已经过审
 }
