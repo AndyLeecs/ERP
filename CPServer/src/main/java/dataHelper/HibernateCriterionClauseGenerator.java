@@ -49,7 +49,7 @@ public class HibernateCriterionClauseGenerator implements CriterionClauseGenerat
 		// TODO Auto-generated method stub
 		if(l == null)
 			l = new ArrayList<CriterionClause>();
-		 l.add(new CriterionClause(Restrictions.like(field,value)));
+		 l.add(new CriterionClause(Restrictions.eq(field,value)));
 		return l;
 	}
 
