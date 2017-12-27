@@ -13,6 +13,7 @@ import javafx.stage.StageStyle;
 public class StockmanWin extends Stage{
 	@FXML AnchorPane root;
 	
+	
 	public StockmanWin() throws IOException{
 		root = FXMLLoader.load(getClass().getResource("/fxml/stockmanUI/Stockman.fxml"));
 
