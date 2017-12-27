@@ -44,4 +44,15 @@ public class VIPFuzzySearchImpl implements VIPFuzzySearch{
     public List<VIPVO> getVIPInPhoneNumber(String phoneNumberInfo) throws RemoteException {
         return vipblService.findVIP(phoneNumberInfo,"phoneNumber");
     }
+
+    /**
+     * 以会员分类模糊查找
+     *
+     * @param categoryInfo
+     * @return 符合条件的会员列表
+     */
+    @Override
+    public List<VIPVO> getVIPInType(String categoryInfo) throws RemoteException {
+        return vipblService.findVIP(categoryInfo,"category");
+    }
 }

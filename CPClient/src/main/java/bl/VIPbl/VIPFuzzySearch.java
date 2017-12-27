@@ -31,4 +31,11 @@ public interface VIPFuzzySearch {
      * @return 符合条件的会员列表
      */
     public List<VIPVO> getVIPInPhoneNumber(String phoneNumberInfo) throws RemoteException;
+
+    /**
+     * 以会员分类模糊查找
+     * @param categoryInfo
+     * @return 符合条件的会员列表
+     */
+    public List<VIPVO> getVIPInType(String categoryInfo) throws RemoteException;
 }
