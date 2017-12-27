@@ -28,7 +28,7 @@ GoodsVO vo;
 	/**
 	 * @param vo
 	 */
-	public GoodsSearchResultCellForSalesmanController(GoodsInSaleVO showVo, GoodsVO vo) {
+	public GoodsSearchResultCellForSalesmanController(GoodsVO vo) {
 		// TODO Auto-generated constructor stub
 		this.vo = vo;
 	}

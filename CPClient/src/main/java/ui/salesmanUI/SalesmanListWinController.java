@@ -203,6 +203,12 @@ public abstract class SalesmanListWinController{
 	    	return false;
 	     }
 	}
+	/**
+	 * 更新商品列表
+	 */
+	public void refresh(){
+		
+	}
 //	public void setParentController(ParentController controller){
 //		parentController = controller;
 //	};

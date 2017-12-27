@@ -70,7 +70,7 @@ public class PresentForSpecialPackageBLServiceImpl implements PresentForSpecialP
 		
 		return volist;
 	}
-	}
+	
 	/* (non-Javadoc)
 	 * @see blservice.presentblservice.PresentForSumBLService#getId()
 	 */
