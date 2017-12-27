@@ -2,7 +2,6 @@ package dataServiceImpl.goodsImpl;
 
 import PO.GoodsCategoryPO;
 import PO.GoodsPO;
-import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
 
 import util.GoodsUtil;
 import util.ResultMessage;
@@ -66,11 +65,6 @@ public class GoodsDataServiceImplTest {
     po.setGoodsCategory("学习灯");
     po.setGoodsID("1001");
     	assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().modifyGoods(po));
-    }
-
-    @org.junit.Test
-    public void initAndSaveGoods() throws Exception {
-    	//assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().initAndSaveGoods(goodsPO2));
     }
 
     @org.junit.Test

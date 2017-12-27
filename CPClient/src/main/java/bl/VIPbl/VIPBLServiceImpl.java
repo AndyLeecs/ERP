@@ -53,8 +53,8 @@ public class VIPBLServiceImpl implements VIPBLService {
      * @throws RemoteException 
      */
     @Override
-    public String newVIPID() throws RemoteException {
-        return vipDataService.newVIPID();
+    public String newVIPID(VIPVO vo) throws RemoteException {
+        return vipDataService.newVIPID(voToPO(vo));
     }
 
     @Override
@@ -114,22 +114,8 @@ public class VIPBLServiceImpl implements VIPBLService {
         return ResultMessage.SUCCESS;
     }
 
-    /**
-     * 前置条件	用户保存已初始化的客户信息
-     * 后置条件	系统更新客户信息
-     *
-     * @param vo
-     * @return
-     * @throws RemoteException 
-     */
-    @Override
-    public ResultMessage initAndSaveVIP(VIPVO vo) throws RemoteException {
-        vipDataService.initAndSaveVIP(voToPO(vo));
-        return ResultMessage.SUCCESS;
-    }
-
     private VIPVO poToVO(VIPPO vipPO){
-        return vipPO == null ? null : new VIPVO(vipPO.getId()
+        VIPVO vo = new VIPVO(vipPO.getId()
                 ,vipPO.getCategory()
                 ,vipPO.getGrade()
                 ,vipPO.getName()
@@ -141,10 +127,13 @@ public class VIPBLServiceImpl implements VIPBLService {
                 ,vipPO.getCollectionLimit()
                 ,vipPO.getPayment()
                 ,vipPO.getClerk());
+        vo.setAutoId(vipPO.getAutoId());
+        vo.setState(vipPO.getState());
+        return vo;
     }
 
     private VIPPO voToPO(VIPVO vipVO){
-        return vipVO == null ? null : new VIPPO(vipVO.getId()
+       VIPPO po = new VIPPO(vipVO.getId()
                 ,vipVO.getCategory()
                 ,vipVO.getGrade()
                 ,vipVO.getName()
@@ -157,5 +146,8 @@ public class VIPBLServiceImpl implements VIPBLService {
                 ,vipVO.getPayment()
                 ,vipVO.getClerk()
                 ,null);
+       po.setAutoId(vipVO.getAutoId());
+       po.setState(vipVO.getState());
+       return po;
     }
 }

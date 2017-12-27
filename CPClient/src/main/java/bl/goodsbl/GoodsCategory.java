@@ -48,8 +48,26 @@ public class GoodsCategory {
         return (ArrayList<String>) goodsDataService.getAllCategory(node);
     }
 
+    public GoodsCategoryVO getCategory(String goodsCategoryName,String parentName) throws RemoteException {
+        return poToVO(goodsDataService.getCategory(goodsCategoryName,parentName));
+    }
+
+    public int newGoodsCategoryAutoId() throws RemoteException {
+        return goodsDataService.newGoodsCategoryAutoId();
+    }
+
     private GoodsCategoryPO voToPO(GoodsCategoryVO vo){
-        return vo ==null?null:new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName(),null);
+        GoodsCategoryPO po = new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName(),null);
+        po.setAutoId(vo.getAutoId());
+        po.setState(vo.getState());
+        return po;
+    }
+
+    private GoodsCategoryVO poToVO(GoodsCategoryPO po){
+        GoodsCategoryVO vo = new GoodsCategoryVO(po.getGoodsCategoryName(),po.getParentName());
+        vo.setAutoId(po.getAutoId());
+        vo.setState(po.getState());
+        return vo;
     }
 
 }

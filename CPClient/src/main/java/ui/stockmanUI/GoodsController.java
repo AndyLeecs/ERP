@@ -200,7 +200,7 @@ public class GoodsController{
                 case "商品":
                     System.out.println("删除商品所属分类：" + selectItem.getParent().getValue().toString().substring(3)+ " 删除商品名称：" + selectItem.getValue().toString().substring(3));
                     try {
-                        goodsBLService.deleteGoods(selectItem.getParent().getValue().toString().substring(3),selectItem.getValue().toString().substring(3));//
+                        goodsBLService.deleteGoods(selectItem.getParent().getValue().toString().substring(3),selectItem.getValue().toString().substring(3));
                     } catch (RemoteException e1) {
                         e1.printStackTrace();
                     }
@@ -208,13 +208,12 @@ public class GoodsController{
 
                 case "分类":
                     System.out.println("删除分类名称：" + selectItem.getValue().toString().substring(3));
-                    GoodsCategoryVO goodsCategoryVO = new GoodsCategoryVO(selectItem.getValue().toString().substring(3),selectItem.getParent().getValue().toString().substring(3));
-				try {
-					goodsBLService.deleteGoodsCategory(goodsCategoryVO);
-				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+                    try {
+                        GoodsCategoryVO goodsCategoryVO = goodsBLService.getCategory(selectItem.getValue().toString().substring(3),selectItem.getParent().getValue().toString().substring(3));
+                        goodsBLService.deleteGoodsCategory(goodsCategoryVO);
+                    } catch (RemoteException e1) {
+                        e1.printStackTrace();
+                    }
                     break;
             }
         });
@@ -305,23 +304,25 @@ public class GoodsController{
     @FXML
     public void onSureBtnClicked() throws RemoteException{
         String tmp = "";
-        switch (noticeLabel.getText()){
+        switch (noticeLabel.getText()) {
             case "新建商品":
                 tmp = "商品：";
                 stack.peek().setValue(tmp + "" + name.getText());
-                String id = goodsBLService.newGoodsID();
-                tmpVO.setGoodsID(id);
                 tmpVO.setGoodsName(name.getText());
-                tmpVO.setGoodsCategory(stack.peek().getParent().getValue().toString().substring(0,3));
-                goodsBLService.initAndSaveGoods(tmpVO);
-            break;
+                tmpVO.setGoodsCategory(stack.peek().getParent().getValue().toString().substring(3));
+                String id = goodsBLService.newGoodsID(tmpVO);
+                GoodsVO vo = goodsBLService.getGoods(name.getText(), stack.peek().getParent().getValue().toString().substring(3));
+                vo.setGoodsID(id);
+                goodsBLService.modifyGoods(vo);
+                break;
 
             case "新建分类":
                 tmp = "分类：";
                 stack.peek().setValue(tmp + "" + name.getText());
-                GoodsCategoryVO goodsCategoryVO = new GoodsCategoryVO(name.getText(),stack.peek().getParent().getValue().toString().substring(3));
+                GoodsCategoryVO goodsCategoryVO = new GoodsCategoryVO(name.getText(), stack.peek().getParent().getValue().toString().substring(3));
+                goodsCategoryVO.setAutoId(goodsBLService.newGoodsCategoryAutoId());
                 goodsBLService.newGoodsCategory(goodsCategoryVO);
-                //以下部分由于数据层没有搭好暂不能正常运行 故加注释
+                //以下部分是控制分类名不重复的代码 先不考虑
                 /*
                 ArrayList<String> arrayList = (ArrayList<String>) goodsBLService.getAllCategory(""); //参数为空 表示返回所有分类名
                 for(int i = 0;i<arrayList.size();i++){
@@ -332,29 +333,27 @@ public class GoodsController{
                         stack.peek().setValue(tmp + "" + name.getText());
                     }
                 }*/
-            break;
+                break;
 
             case "修改名称":
                 tmp = stack.peek().getValue().toString();
-                System.out.println("原始名称为："+ tmp);
-                System.out.println("修改后为：" + tmp.substring(0,3));
-                stack.peek().setValue(tmp.substring(0,3) + name.getText());
-                if(tmp.substring(0,3).contains("分类")){
+                System.out.println("原始名称为：" + tmp);
+                System.out.println("修改后为：" + tmp.substring(0, 3));
+                stack.peek().setValue(tmp.substring(0, 3) + name.getText());
+                if (tmp.substring(0, 3).contains("分类")) {
                     System.out.println("原来分类名：" + tmp.substring(3) + "新分类名：" + name.getText());
-                    GoodsCategoryVO goodsCategoryVOOld = new GoodsCategoryVO(tmp,stack.peek().getParent().getValue().substring(3));
-                    GoodsCategoryVO goodsCategoryVONew = new GoodsCategoryVO(name.getText(),stack.peek().getParent().getValue().substring(3));
-                    goodsBLService.modifyGoodsCategory(goodsCategoryVOOld,goodsCategoryVONew);
-
+                    GoodsCategoryVO goodsCategoryVONew = goodsBLService.getCategory(tmp.substring(3), stack.peek().getParent().getValue().substring(3));
+                    goodsCategoryVONew.setGoodsCategoryName(name.getText());
+                    goodsBLService.modifyGoodsCategory(null, goodsCategoryVONew);
                 }
 
-                //惰性删除ui上该分类 对于数据库内数据不改动
-                if(tmp.substring(0,3).contains("商品")){
+                if (tmp.substring(0, 3).contains("商品")) {
                     System.out.println("原来商品名：" + tmp.substring(3) + "新商品名：" + name.getText());
-                    GoodsVO goodsVO = goodsBLService.getGoods(tmp.substring(3),stack.peek().getParent().getValue().toString().substring(3));
+                    GoodsVO goodsVO = goodsBLService.getGoods(tmp.substring(3), stack.peek().getParent().getValue().toString().substring(3));
                     goodsVO.setGoodsName(name.getText());
                     goodsBLService.modifyGoods(goodsVO);
                 }
-            break;
+                break;
         }
         notice.setVisible(false);
         name.clear();

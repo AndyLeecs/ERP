@@ -89,6 +89,7 @@ public class Goods {
                 ,null
         );
         po.setAutoId(goodsVO.getAutoId());
+        po.setState(goodsVO.getState());
         return po;
     }
 
@@ -102,6 +103,7 @@ public class Goods {
                 ,goodsPO.getRecentBuyPrice()
                 ,goodsPO.getRecentSellPrice());
         vo.setAutoId(goodsPO.getAutoId());
+        vo.setState(goodsPO.getState());
         return vo;
     }
 }

@@ -21,7 +21,7 @@ public class VIPPO implements Serializable{
     double payment; //应付
     String clerk; // 默认业务员
     private int autoId; //数据库自动生成的id
-    public VIPUtil state;//客户状态 是否被删除
+    public VIPUtil state = VIPUtil.EXIST;//客户状态 是否被删除
 
     public VIPPO() {
     }

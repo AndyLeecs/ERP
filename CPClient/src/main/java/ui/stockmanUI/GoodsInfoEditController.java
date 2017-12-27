@@ -27,7 +27,7 @@ public class GoodsInfoEditController {
     @FXML public TextField recentBuyPrice;
     @FXML public TextField recentSellPrice;
     @FXML public Button saveGoodsInfoBtn;
-    public static GoodsVO _goodsVO;
+    public GoodsVO goodsVO;
     public static String goods;
     GoodsBLService goodsBLService = new GoodsBLServiceImpl();
 
@@ -48,21 +48,20 @@ public class GoodsInfoEditController {
         recentBuyPrice.setStyle("-fx-background-color: #FFECEC");
         recentSellPrice.setStyle("-fx-background-color: #FFECEC");
 
-        goodsName.setText(_goodsVO.getGoodsName());
-        goodsType.setText(_goodsVO.getGoodsType());
-        goodsID.setText(_goodsVO.getGoodsID());
-        goodsCategory.setText(_goodsVO.getGoodsCategory());
-        goodsSellPrice.setText(""+_goodsVO.getGoodsSellPrice());
-        goodsBuyPrice.setText(""+_goodsVO.getGoodsBuyPrice());
-        recentBuyPrice.setText(""+_goodsVO.recentBuyPrice());
-        recentSellPrice.setText(""+_goodsVO.recentSellPrice());
+        goodsName.setText(goodsVO.getGoodsName());
+        goodsType.setText(goodsVO.getGoodsType());
+        goodsID.setText(goodsVO.getGoodsID());
+        goodsCategory.setText(goodsVO.getGoodsCategory());
+        goodsSellPrice.setText(""+ goodsVO.getGoodsSellPrice());
+        goodsBuyPrice.setText(""+ goodsVO.getGoodsBuyPrice());
+        recentBuyPrice.setText(""+ goodsVO.recentBuyPrice());
+        recentSellPrice.setText(""+ goodsVO.recentSellPrice());
     }
 
     public void init(String goods) throws RemoteException{
         System.out.println("controller" + goods);
-        GoodsVO goodsVO = goodsBLService.getGoods(goods.substring(0,goods.indexOf('/')),goods.substring(goods.indexOf('/')+1,goods.length()));
+        goodsVO = goodsBLService.getGoods(goods.substring(0,goods.indexOf('/')),goods.substring(goods.indexOf('/')+1,goods.length()));
         System.out.println(goodsVO.getGoodsName());
-        _goodsVO = goodsVO;
     }
 
     @FXML
@@ -75,33 +74,17 @@ public class GoodsInfoEditController {
         recentBuyPrice.setStyle("-fx-background-color: transparent");
         recentSellPrice.setStyle("-fx-background-color: transparent");
 
-        GoodsVO goodsVO = new GoodsVO(goodsID.getText()
-                ,goodsCategory.getText()
-                ,goodsName.getText()
-                ,goodsType.getText()
-                ,changeStringToDouble(goodsBuyPrice.getText())
-                ,changeStringToDouble(goodsBuyPrice.getText())
-                ,changeStringToDouble(recentBuyPrice.getText())
-                ,changeStringToDouble(recentSellPrice.getText()));
+        goodsVO.setGoodsName(goodsName.getText());
+        goodsVO.setGoodsType(goodsType.getText());
+        goodsVO.setGoodsCategory(goodsCategory.getText());
+        goodsVO.setGoodsBuyPrice(Double.parseDouble(goodsBuyPrice.getText()));
+        goodsVO.setGoodsSellPrice(Double.parseDouble(goodsSellPrice.getText()));
+        goodsVO.setRecentBuyPrice(Double.parseDouble(recentBuyPrice.getText()));
+        goodsVO.setRecentSellPrice(Double.parseDouble(recentSellPrice.getText()));
 
         goodsBLService.modifyGoods(goodsVO);
         Platform.runLater(()->{
             root.getScene().getWindow().hide();
         });
-    }
-
-    /**
-     * 将输入的String类型的金额转化为double型
-     * @param str
-     * @return
-     */
-    private double changeStringToDouble(String str){		//TODO Double.parseDouble 是小数也可以直接转的
-        if(!str.contains(".")){
-            return Double.parseDouble(str);
-        }else{
-            String[] tmp = str.split(".");
-            double ret = Double.parseDouble(tmp[0]) + Double.parseDouble(tmp[1])/(Math.pow(10,tmp[1].length()));
-            return ret;
-        }
     }
 }

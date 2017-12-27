@@ -72,14 +72,14 @@ public class VIPController {
         ArrayList<VIPVO> vips1 = (ArrayList<VIPVO>) vipBLService.findVIP("供货商", "vipCategory");
         if (vips1 != null) {
             for (int i = 0; i < vips1.size(); i++) {
-                node.getChildren().add(new TreeItem<>("商品：" + vips1.get(i).getName()));
+                son1.getChildren().add(new TreeItem<>("商品：" + vips1.get(i).getName()));
             }
         }
 
         ArrayList<VIPVO> vips2 = (ArrayList<VIPVO>) vipBLService.findVIP("经销商", "vipCategory");
         if (vips2 != null) {
             for (int i = 0; i < vips2.size(); i++) {
-                node.getChildren().add(new TreeItem<>("商品：" + vips2.get(i).getName()));
+                son2.getChildren().add(new TreeItem<>("商品：" + vips2.get(i).getName()));
             }
         }
     }
@@ -148,11 +148,11 @@ public class VIPController {
                         vipVBox.getChildren().clear();
                         //为了测试运行结果 先注释下面一行从数据库获取对应商品信息的语句
                         try {
-							newVIPPane(vipBLService.getVIP(vipItem.getValue().toString().substring(3)));
-						} catch (RemoteException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+                            newVIPPane(vipBLService.getVIP(vipItem.getValue().toString().substring(3)));
+                        } catch (RemoteException e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
+                        }
                     }
                 }
         );
@@ -166,9 +166,6 @@ public class VIPController {
 
         newVIPBar.setOnAction(e->{
 
-            //通过命名来区分商品项和分类项 除此之外有别的方法则可用别的方法替换 （比如分类有文件夹图片区分）
-            //命名格式： 商品：小台灯 分类：彩灯
-            //判断当前节点是否可添加商品
             TreeItem<String> selectItem = (TreeItem<String>) treeView.getSelectionModel().getSelectedItem();
 
             System.out.println("选中项文字 " + selectItem.getValue().toString());
@@ -196,19 +193,20 @@ public class VIPController {
 
             System.out.println("判断删除的是会员还是分类：" + selectItem.getValue().toString().substring(0,2));
 
-            switch (selectItem.getValue().toString().substring(0,2)){
+            switch (selectItem.getValue().toString().substring(0,2)) {
                 case "会员":
-                    System.out.println("删除会员所属分类：" + selectItem.getParent().getValue().toString().substring(3)+ " 删除会员名称：" + selectItem.getValue().toString().substring(3));
-				try {
-					vipBLService.deleteVIP(selectItem.getValue().toString().substring(3));
-				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+                    System.out.println("删除会员所属分类：" + selectItem.getParent().getValue().toString().substring(3) + " 删除会员名称：" + selectItem.getValue().toString().substring(3));
+                    try {
+                        vipBLService.deleteVIP(selectItem.getValue().toString().substring(3));
+                    } catch (RemoteException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
                     break;
 
                 case "分类":
-                    System.out.println("删除分类名称：" + selectItem.getValue().toString().substring(3));
+                    presentLocation.setText("此节点下不可删除");
+                    System.out.println("此节点下不可删除");
                     break;
             }
         });
@@ -310,37 +308,38 @@ public class VIPController {
             ,"业务员1");
 
     /**
-     * 新建分类，新建商品，修改名称出现的提示框
+     * 新建会员，修改名称出现的提示框
      * 其中stack存放TreeItem的引用
      * 此方法只是修改对应目录名称，新建工作已在上一层做好
      * @throws RemoteException 
      */
     @FXML
-    public void onSureBtnClicked() throws RemoteException{
+    public void onSureBtnClicked() throws RemoteException {
         String tmp = "";
-        switch (noticeLabel.getText()){
+        switch (noticeLabel.getText()) {
             case "新建会员":
                 tmp = "会员：";
                 stack.peek().setValue(tmp + "" + name.getText());
-                String id = vipBLService.newVIPID();
-                tmpVO.setId(id);
                 tmpVO.setName(name.getText());
-                tmpVO.setCategory(stack.peek().getParent().getValue().toString().substring(0,3));
-                vipBLService.initAndSaveVIP(tmpVO);
+                tmpVO.setCategory(stack.peek().getParent().getValue().toString().substring(3));
+                String id = vipBLService.newVIPID(tmpVO);
+                VIPVO vo = vipBLService.getVIP(name.getText());
+                vo.setId(id);
+                vipBLService.modifyVIP(vo);
                 break;
 
-        case "修改名称":
+            case "修改名称":
                 tmp = stack.peek().getValue().toString();
-                System.out.println("原始名称为："+ tmp);
-                System.out.println("修改后为：" + tmp.substring(0,3));
-                stack.peek().setValue(tmp.substring(0,3) + name.getText());
-                if(tmp.substring(0,3).contains("分类")){
-                    System.out.println("原来分类名：" + tmp.substring(3) + "新分类名：" + name.getText());
+                System.out.println("原始名称为：" + tmp);
+                System.out.println("修改后为：" + tmp.substring(0, 3));
 
+                if (tmp.substring(0, 3).contains("分类")) {
+                    noticeLabel.setText("分类名不可修改");
                 }
 
                 //惰性删除ui上该分类 对于数据库内数据不改动
-                if(tmp.substring(0,3).contains("会员")){
+                if (tmp.substring(0, 3).contains("会员")) {
+                    stack.peek().setValue(tmp.substring(0, 3) + name.getText());
                     System.out.println("原来会员名VIP：" + tmp.substring(3) + "新会员名：" + name.getText());
                     VIPVO vipVO = vipBLService.getVIP(tmp.substring(3));
                     vipVO.setName(name.getText());
@@ -470,6 +469,7 @@ public class VIPController {
         edit.setAccessibleHelp(vipvo.getName());
         edit.setOnMousePressed(event -> {
             try {
+                VIPInfoEditController.vip = edit.getAccessibleHelp();
                 new VIPInfoEditWin(edit.getAccessibleHelp());
             } catch (IOException e) {
                 e.printStackTrace();
