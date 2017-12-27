@@ -1,6 +1,7 @@
 package PO.account;
 
 public class TransferItemPO {
+	private int autoId;	//数据库中自动生成的id
 	private String account;
 	private double amount;
 	private String note;
@@ -27,5 +28,11 @@ public class TransferItemPO {
 	}
 	public void setNote(String note) {
 		this.note = note;
+	}
+	public int getAutoId() {
+		return autoId;
+	}
+	public void setAutoId(int autoId) {
+		this.autoId = autoId;
 	}
 }

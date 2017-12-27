@@ -4,11 +4,6 @@ import java.io.Serializable;
 import java.rmi.Remote;
 import java.util.List;
 
-import org.hibernate.criterion.Criterion;
-
-import PO.PresentForSumPO;
-import PO.SaleListPO;
-import PO.SalesmanListPO;
 import util.DataRM;
 
 /**     
@@ -39,6 +34,9 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	 * @param id 自动生成的id
 	 * @return 该id的po实体
 	 */
+	
+	public DataRM delete(String id);
+	
 	public Object get(int id);
 	/**
 	 * @param o
@@ -101,6 +99,12 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	 * @return
 	 */
 	public List<T> Query(List<CriterionClause> l, OrderClause o);
+	
+	/**
+	 * 
+	 * @return	表中最后一条记录
+	 */
+	public T getLastRow();
 	
 	
 }

@@ -44,20 +44,24 @@ public class DateUtil {
 	
 	/**
 	 * 
-	 * @param listID XXX-yyyyMMdd-XXX格式的字符串
+	 * @param listID XX-yyyyMMdd-XX格式的字符串
 	 * @return 对应的Date对象
 	 */
 	public static Date getDateFromListID(String listID){
+		if(listID == null)
+			return null;
 		String date = listID.substring(listID.indexOf('-')+1, listID.lastIndexOf('-'));
 		return getDate(date);
 	}
 	
 	/**
 	 * 
-	 * @param listID XXX-yyyyMMdd-XXX格式的字符串
-	 * @return 对应的Date对象
+	 * @param listID XX-yyyyMMdd-XX格式的字符串
+	 * @return yyyyMMdd格式的字符串
 	 */
 	public static String getDateFromListIDAsString(String listID){
+		if(listID == null)
+			return null;
 		String date = listID.substring(listID.indexOf('-')+1, listID.lastIndexOf('-'));
 		return date;
 	}

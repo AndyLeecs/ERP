@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="PO.ListPO">
+		<id name="id">
+		<!--  以单据编号为主键	-->
+		</id>
+		<property name="operator"/>
+		<property name="operatorId"/>
+		<property name="state"/>
+		<property name="day"/>
+		
+		<joined-subclass name="PO.account.FinanceListPO">
+			<key column="listId"/>
+			<property name="totalAmount"/>
+			
+			<joined-subclass name="PO.account.CollectionListPO">
+				<key column="listId" />
+				<property name="VIPID"/>
+				<property name="VIPName"/>
+				
+				<list name="transferItem" cascade ="all" lazy = "false">
+					<key column="collectionListId" />
+					<index column="indexInList" />
+					<one-to-many class="PO.account.TransferItemPO" />
+				</list>
+				
+			</joined-subclass>
+			
+		</joined-subclass>
+		
+	</class>
+</hibernate-mapping>

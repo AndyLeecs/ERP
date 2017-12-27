@@ -22,8 +22,9 @@ public enum VIPGrade implements Serializable{
 	}
 	
     public static VIPGrade getVIPGradeByString(String s) {
+    	int i = Integer.parseInt(s);
         for (VIPGrade vipGrade : VIPGrade.values()) {
-            if (s.equals(vipGrade.grade))
+            if (i == vipGrade.grade)
                 return vipGrade;
         }
         return null;
