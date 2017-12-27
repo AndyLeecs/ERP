@@ -87,7 +87,7 @@ public class GoodsController{
         rootTreeItem = new TreeItem<String>("分类：根目录");
         rootTreeItem.setExpanded(true);
 
-        setNode(rootTreeItem);
+        //setNode(rootTreeItem);
         //以下为demo
 /*
         for(int i =0;i<5;i++) {
@@ -205,7 +205,12 @@ public class GoodsController{
                 case "分类":
                     System.out.println("删除分类名称：" + selectItem.getValue().toString().substring(3));
                     GoodsCategoryVO goodsCategoryVO = new GoodsCategoryVO(selectItem.getValue().toString().substring(3),selectItem.getParent().getValue().toString().substring(3));
-                    goodsBLService.deleteGoodsCategory(goodsCategoryVO);
+				try {
+					goodsBLService.deleteGoodsCategory(goodsCategoryVO);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
                     break;
             }
         });
@@ -254,9 +259,10 @@ public class GoodsController{
 
     /**
      * 模糊查找商品确认按钮
+     * @throws RemoteException 
      */
 	@FXML
-    private void setSearchBtn(){
+    private void setSearchBtn() throws RemoteException{
 	    if(searchField.getText()!=null){
 	        switch (this.goodsTypeSearch){
                 case "商品名":

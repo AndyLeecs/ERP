@@ -20,7 +20,7 @@ public class VIPPO implements Serializable{
     double collectionLimit;//应收额度
     double payment; //应付
     String clerk; // 默认业务员
-    private String autoId; //数据库自动生成的id
+    private int autoId; //数据库自动生成的id
     public VIPUtil state;//客户状态 是否被删除
 
     public VIPPO() {
@@ -146,11 +146,11 @@ public class VIPPO implements Serializable{
         this.clerk = clerk;
     }
 
-    public String getAutoId() {
+    public int getAutoId() {
         return autoId;
     }
 
-    public void setAutoId(String autoId) {
+    public void setAutoId(int autoId) {
         this.autoId = autoId;
     }
       

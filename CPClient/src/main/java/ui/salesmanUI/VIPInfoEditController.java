@@ -53,7 +53,7 @@ public class VIPInfoEditController {
     }
 
     @FXML
-    public void setSaveVIPInfoBtn(){
+    public void setSaveVIPInfoBtn() throws RemoteException{
         VIPVO vipvo = new VIPVO(id.getText()
                 ,category.getText()
                 ,grade.getText()

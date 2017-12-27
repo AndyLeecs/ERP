@@ -50,9 +50,10 @@ public class VIPBLServiceImpl implements VIPBLService {
      * 后置条件	系统显示客户电话和编号
      *
      * @return VIPBLServiceImpl ID
+     * @throws RemoteException 
      */
     @Override
-    public String newVIPID() {
+    public String newVIPID() throws RemoteException {
         return vipDataService.newVIPID();
     }
 
@@ -105,9 +106,10 @@ public class VIPBLServiceImpl implements VIPBLService {
      *
      * @param vo
      * @return
+     * @throws RemoteException 
      */
     @Override
-    public ResultMessage modifyVIP(VIPVO vo) {
+    public ResultMessage modifyVIP(VIPVO vo) throws RemoteException {
         vipDataService.modifyVIP(voToPO(vo));
         return ResultMessage.SUCCESS;
     }
@@ -118,9 +120,10 @@ public class VIPBLServiceImpl implements VIPBLService {
      *
      * @param vo
      * @return
+     * @throws RemoteException 
      */
     @Override
-    public ResultMessage initAndSaveVIP(VIPVO vo) {
+    public ResultMessage initAndSaveVIP(VIPVO vo) throws RemoteException {
         vipDataService.initAndSaveVIP(voToPO(vo));
         return ResultMessage.SUCCESS;
     }

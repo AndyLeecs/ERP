@@ -31,7 +31,7 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
      * @return VIPB ID
      */
     @Override
-    public String newVIPID() {
+    public String newVIPID() throws RemoteException{
         return ""+util.insertForAuto(new GoodsPO());
     }
 
@@ -101,7 +101,7 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
      * @return
      */
     @Override
-    public ResultMessage modifyVIP(VIPPO po) {
+    public ResultMessage modifyVIP(VIPPO po) throws RemoteException{
         po.setState(VIPUtil.EXIST);
         util.update(po);
         return ResultMessage.SUCCESS;
@@ -115,7 +115,7 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
      * @return
      */
     @Override
-    public ResultMessage initAndSaveVIP(VIPPO po) {
+    public ResultMessage initAndSaveVIP(VIPPO po) throws RemoteException{
         po.setState(VIPUtil.EXIST);
         util.insert(po);
         return ResultMessage.SUCCESS;

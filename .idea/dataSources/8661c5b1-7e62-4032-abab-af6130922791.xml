@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Cpdb@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="CPdb">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="GoodsCategoryPO"/>
+    <table id="8" parent="2" name="GoodsInSalePO"/>
+    <table id="9" parent="2" name="GoodsPO"/>
+    <table id="10" parent="2" name="OperationPO"/>
+    <table id="11" parent="2" name="PresentForMembershipPO"/>
+    <table id="12" parent="2" name="PresentForSpecialPackagePO"/>
+    <table id="13" parent="2" name="PresentForSumPO"/>
+    <table id="14" parent="2" name="PresentPO"/>
+    <table id="15" parent="2" name="SaleListPO"/>
+    <table id="16" parent="2" name="SaleReturnListPO"/>
+    <table id="17" parent="2" name="SalesmanItemPO"/>
+    <table id="18" parent="2" name="SalesmanListPO"/>
+    <table id="19" parent="2" name="StockListPO"/>
+    <table id="20" parent="2" name="StockReturnListPO"/>
+    <table id="21" parent="2" name="VIPPO"/>
+    <column id="22" parent="7" name="autoId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="7" name="goodsCategoryName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="24" parent="7" name="parentName">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="25" parent="7" name="state">
+      <Position>4</Position>
+      <DataType>tinyblob|0</DataType>
+    </column>
+    <key id="26" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>autoId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="8" name="autoId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="8" name="id">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="29" parent="8" name="goodsName">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="30" parent="8" name="amount">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="31" parent="8" name="presentStrategyid">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="32" parent="8" name="index_">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="33" parent="8" name="FK44xw3ne9sbos5tvaml79bwipo">
+      <ColNames>presentStrategyid</ColNames>
+    </index>
+    <key id="34" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>autoId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="35" parent="8" name="FK44xw3ne9sbos5tvaml79bwipo">
+      <ColNames>presentStrategyid</ColNames>
+      <RefSchemaName>cpdb</RefSchemaName>
+      <RefTableName>PresentPO</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="36" parent="9" name="autoId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="37" parent="9" name="goodsName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="38" parent="9" name="goodsID">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="39" parent="9" name="goodsCategory">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="40" parent="9" name="goodsType">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="41" parent="9" name="goodsBuyPrice">
+      <Position>6</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="42" parent="9" name="goodsSellPrice">
+      <Position>7</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="43" parent="9" name="recentBuyPrice">
+      <Position>8</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="44" parent="9" name="recentSellPrice">
+      <Position>9</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="45" parent="9" name="state">
+      <Position>10</Position>
+      <DataType>tinyblob|0</DataType>
+    </column>
+    <key id="46" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>autoId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="47" parent="10" name="opID">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="10" name="time">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="49" parent="10" name="operator">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="50" parent="10" name="opCategory">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="51" parent="10" name="operation">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="52" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>opID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="53" parent="11" name="parentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="11" name="grade">
+      <Position>2</Position>
+      <DataType>tinyblob|0</DataType>
+    </column>
+    <column id="55" parent="11" name="sum">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="56" parent="11" name="rebateInPresentForMembership">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="57" parent="11" name="voucher">
+      <Position>5</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="58" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>parentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="59" parent="11" name="FK9usrdulwllj780muw6urq8wrj">
+      <ColNames>parentId</ColNames>
+      <RefSchemaName>cpdb</RefSchemaName>
+      <RefTableName>PresentPO</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="60" parent="12" name="parentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="12" name="priceReduction">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="62" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>parentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="63" parent="12" name="FK1hvl3xfqik69t931yomth6kdw">
+      <ColNames>parentId</ColNames>
+      <RefSchemaName>cpdb</RefSchemaName>
+      <RefTableName>PresentPO</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="64" parent="13" name="parentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="13" name="sum">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="66" parent="13" name="voucher">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="67" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>parentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="68" parent="13" name="FKh4cki6tk91qk88pu7ny1thgf">
+      <ColNames>parentId</ColNames>
+      <RefSchemaName>cpdb</RefSchemaName>
+      <RefTableName>PresentPO</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="69" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="70" parent="14" name="startTime">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="71" parent="14" name="finishTime">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="72" parent="14" name="state">
+      <Position>4</Position>
+      <DataType>tinyblob|0</DataType>
+    </column>
+    <key id="73" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="74" parent="15" name="parentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="15" name="id">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="76" parent="15" name="sumBeforeRebate">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="77" parent="15" name="rebate">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="78" parent="15" name="voucher">
+      <Position>5</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="79" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>parentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="80" parent="15" name="FKmg3oiuwu7w9s5nvlhput73d72">
+      <ColNames>parentId</ColNames>
+      <RefSchemaName>cpdb</RefSchemaName>
+      <RefTableName>SalesmanListPO</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="81" parent="16" name="parentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="16" name="id">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="83" parent="16" name="sumBeforeRebate">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="84" parent="16" name="rebate">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="85" parent="16" name="voucher">
+      <Position>5</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="86" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>parentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="87" parent="16" name="FKgr1emxlr3irvp4jiwyloegipl">
+      <ColNames>parentId</ColNames>
+      <RefSchemaName>cpdb</RefSchemaName>
+      <RefTableName>SalesmanListPO</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="88" parent="17" name="autoId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="89" parent="17" name="id">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="90" parent="17" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="91" parent="17" name="type">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="92" parent="17" name="price">
+      <Position>5</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="93" parent="17" name="amount">
+      <Position>6</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="94" parent="17" name="sum">
+      <Position>7</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="95" parent="17" name="notes">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="96" parent="17" name="salesmanListid">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="97" parent="17" name="index_">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="98" parent="17" name="FKih9mcyuoll3ia8mqi5wfj96ps">
+      <ColNames>salesmanListid</ColNames>
+    </index>
+    <key id="99" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>autoId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="100" parent="17" name="FKih9mcyuoll3ia8mqi5wfj96ps">
+      <ColNames>salesmanListid</ColNames>
+      <RefSchemaName>cpdb</RefSchemaName>
+      <RefTableName>SalesmanListPO</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="101" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="102" parent="18" name="day">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="103" parent="18" name="state">
+      <Position>3</Position>
+      <DataType>tinyblob|0</DataType>
+    </column>
+    <column id="104" parent="18" name="memberID">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="105" parent="18" name="memberName">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="106" parent="18" name="operator">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="107" parent="18" name="warehouse">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="108" parent="18" name="notes">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="109" parent="18" name="sum">
+      <Position>9</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="110" parent="18" name="realOperator">
+      <Position>10</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="111" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="112" parent="19" name="parentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="19" name="id">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="114" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>parentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="115" parent="19" name="FKfvpk5otcpno61fk6p3m574vkd">
+      <ColNames>parentId</ColNames>
+      <RefSchemaName>cpdb</RefSchemaName>
+      <RefTableName>SalesmanListPO</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="116" parent="20" name="parentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="117" parent="20" name="id">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="118" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>parentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="119" parent="20" name="FKe7f1m51ac5wfg53k833xg4nhd">
+      <ColNames>parentId</ColNames>
+      <RefSchemaName>cpdb</RefSchemaName>
+      <RefTableName>SalesmanListPO</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="120" parent="21" name="autoId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="121" parent="21" name="address">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="122" parent="21" name="category">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="123" parent="21" name="collection">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="124" parent="21" name="collectionLimit">
+      <Position>5</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="125" parent="21" name="email">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="126" parent="21" name="clerk">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="127" parent="21" name="grade">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="128" parent="21" name="id">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="129" parent="21" name="postCode">
+      <Position>10</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="130" parent="21" name="name">
+      <Position>11</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="131" parent="21" name="payment">
+      <Position>12</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="132" parent="21" name="phoneNumber">
+      <Position>13</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="133" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>autoId</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

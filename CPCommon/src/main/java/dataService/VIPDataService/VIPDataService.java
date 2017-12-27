@@ -14,7 +14,7 @@ public interface VIPDataService extends Remote,Serializable{
      * 后置条件	系统显示客户电话和编号
      * @return VIPBLServiceImpl ID
      */
-    public String newVIPID();
+    public String newVIPID() throws RemoteException;
 
     /**
      * 前置条件	用户输入信息模糊查找客户
@@ -47,7 +47,7 @@ public interface VIPDataService extends Remote,Serializable{
      * @param vo
      * @return
      */
-    public ResultMessage modifyVIP(VIPPO vo);
+    public ResultMessage modifyVIP(VIPPO vo) throws RemoteException;
 
     /**
      * 前置条件	用户保存已初始化的客户信息
@@ -55,6 +55,6 @@ public interface VIPDataService extends Remote,Serializable{
      * @param vo
      * @return
      */
-    public ResultMessage initAndSaveVIP(VIPPO vo);
+    public ResultMessage initAndSaveVIP(VIPPO vo) throws RemoteException;
 
 }

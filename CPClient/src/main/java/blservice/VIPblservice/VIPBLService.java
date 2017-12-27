@@ -18,7 +18,7 @@ public interface VIPBLService {
      * 后置条件	系统显示客户编号
 	 * @return VIP ID
 	 */
-	public String newVIPID();
+	public String newVIPID() throws RemoteException;
 
     /**
      * 前置条件	用户选择获取客户信息
@@ -51,7 +51,7 @@ public interface VIPBLService {
 	 * @param vo
 	 * @return
 	 */
-	public ResultMessage modifyVIP(VIPVO vo);
+	public ResultMessage modifyVIP(VIPVO vo) throws RemoteException;
 	
 	/**
 	 * 前置条件	用户保存已初始化的客户信息
@@ -59,6 +59,6 @@ public interface VIPBLService {
 	 * @param vo
 	 * @return
 	 */
-	public ResultMessage initAndSaveVIP(VIPVO vo);
+	public ResultMessage initAndSaveVIP(VIPVO vo) throws RemoteException;
 	
 }

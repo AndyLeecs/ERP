@@ -6,6 +6,10 @@ import java.io.Serializable;
 
 public class GoodsPO implements Serializable{
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2924438681701363693L;
+	/**
 	 * 商品编号
 	 */
 	String goodsID;
@@ -42,7 +46,7 @@ public class GoodsPO implements Serializable{
     /**
      * 数据库自动生成的id
      */
-    private String autoId;
+    private int autoId;
 
     /**
      * 商品状态 即是否被删除
@@ -68,11 +72,11 @@ public class GoodsPO implements Serializable{
         this.recentSellPrice = recentSellPrice;
     }
 
-	public String getAutoId() {
+	public int getAutoId() {
 		return autoId;
 	}
 
-	public void setAutoId(String autoId) {
+	public void setAutoId(int autoId) {
 		this.autoId = autoId;
 	}
 
