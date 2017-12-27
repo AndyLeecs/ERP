@@ -1,5 +1,7 @@
 package ui.stockmanUI;
 
+import java.rmi.RemoteException;
+
 import VO.goodsVO.GoodsVO;
 import bl.goodsbl.GoodsBLServiceImpl;
 import blservice.goodsblservice.GoodsBLService;
@@ -30,7 +32,7 @@ public class GoodsInfoEditController {
     GoodsBLService goodsBLService = new GoodsBLServiceImpl();
 
     @FXML
-    public void initialize(){
+    public void initialize() throws RemoteException{
         init(goods);
         goodsName.setEditable(true);
         goodsType.setEditable(true);
@@ -56,7 +58,7 @@ public class GoodsInfoEditController {
         recentSellPrice.setText(""+_goodsVO.recentSellPrice());
     }
 
-    public void init(String goods){
+    public void init(String goods) throws RemoteException{
         System.out.println("controller" + goods);
         GoodsVO goodsVO = goodsBLService.getGoods(goods.substring(0,goods.indexOf('/')),goods.substring(goods.indexOf('/')+1,goods.length()));
         System.out.println(goodsVO.getGoodsName());
@@ -64,7 +66,7 @@ public class GoodsInfoEditController {
     }
 
     @FXML
-    public void setSaveGoodsInfoBtn(){
+    public void setSaveGoodsInfoBtn() throws RemoteException{
         goodsName.setStyle("-fx-background-color: transparent");
         goodsType.setStyle("-fx-background-color: transparent");
         goodsCategory.setStyle("-fx-background-color: transparent");

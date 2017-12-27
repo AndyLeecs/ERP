@@ -97,7 +97,8 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 		String id = "";
         try {
         	transaction = session.beginTransaction();
-            id = (String)session.save(type.getName(), po);
+            //id = (String)session.save(type.getName(), po);
+            id = ""+session.save(type.getName(), po);
             transaction.commit();
         } catch (HibernateException e) {
         	if(transaction!=null){

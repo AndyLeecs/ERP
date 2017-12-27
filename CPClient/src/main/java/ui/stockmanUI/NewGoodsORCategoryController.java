@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import VO.goodsVO.GoodsCategoryVO;
@@ -34,7 +35,7 @@ public class NewGoodsORCategoryController {
     }
 
     @FXML
-    public void onSureBtnClicked(){
+    public void onSureBtnClicked() throws RemoteException{
         if(name.getText() == null) return;
         switch (name.getText()) {
             case "商品":

@@ -16,25 +16,30 @@ import java.util.ArrayList;
 public class GoodsCategory {
     GoodsDataService goodsDataService = GoodsDataServiceHelper.getInstance().getGoodsDataService();
 
-    public ResultMessage newGoodsCategory(GoodsCategoryVO vo){
+    public ResultMessage newGoodsCategory(GoodsCategoryVO vo) throws RemoteException{
         goodsDataService.newGoodsCategory(voToPO(vo));
         return ResultMessage.SUCCESS;
 
     }
 
-    public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo){
+    public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo) throws RemoteException{
         goodsDataService.deleteGoodsCategory(voToPO(vo));
         return ResultMessage.SUCCESS;
 
     }
 
-    public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO, GoodsCategoryVO newVO){
+    public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO, GoodsCategoryVO newVO) throws RemoteException{
         goodsDataService.modifyGoodsCategory(voToPO(oldVO),voToPO(newVO));
         return ResultMessage.SUCCESS;
 
     }
 
     public ArrayList<String> getAllCategory(String node) throws RemoteException{
+    	//加一行输出
+    	System.out.println("bl.goodsbl.GoodsCategory 获取所有商品分类");
+    	for(int i =0;i<goodsDataService.getAllCategory(node).size();i++) {
+    		System.out.println(goodsDataService.getAllCategory(node).get(i));
+    	}
         return (ArrayList<String>) goodsDataService.getAllCategory(node);
     }
 

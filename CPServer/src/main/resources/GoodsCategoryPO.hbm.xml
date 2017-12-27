@@ -8,5 +8,6 @@
         </id>
         <property name="goodsCategoryName"/>
         <property name="parentName"/>
+        <property name="state"/>
     </class>
 </hibernate-mapping>
