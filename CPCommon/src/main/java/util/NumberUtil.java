@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 /**     
 * @author 李安迪
 * @date 2017年12月12日
-* @description 考虑弃用这个类，直接用Double.parseDouble等方法
+* @description 考虑弃用这个类，直接用Double.parseDouble等方法		//不要弃用，可以留着欣赏用
 */
 public class NumberUtil {
     private static boolean isMatch(String regex, String original){  

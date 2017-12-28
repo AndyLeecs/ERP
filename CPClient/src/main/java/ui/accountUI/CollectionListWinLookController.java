@@ -22,6 +22,7 @@ public class CollectionListWinLookController extends CollectionListWinController
 		accountLabel.setVisible(false);
 		commitBtn.setText("关闭");
 		saveBtn.setVisible(false);
+		closeBtn.setVisible(false);
 		selectVIPBtn.setVisible(false);
 		
 	}

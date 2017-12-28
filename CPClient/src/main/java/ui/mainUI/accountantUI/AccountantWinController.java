@@ -108,7 +108,8 @@ public class AccountantWinController implements ParentController{
 
 	@Override
 	public void CloseSonWin() {
-		centerPane.getChildren().removeAll();		
+		centerPane.setCenter(null);
+//		centerPane.getChildren().removeAll();		
 		financeListService = AccountBLFactory.getFinanceListService(); 	//刷新一下service
 	}
 	
@@ -135,8 +136,7 @@ public class AccountantWinController implements ParentController{
 			AnchorPane ListRoot;
 			ListRoot = loader.getRoot();
 			
-			centerPane.getChildren().removeAll();
-			centerPane.getChildren().add(ListRoot);
+			centerPane.setCenter(ListRoot);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
