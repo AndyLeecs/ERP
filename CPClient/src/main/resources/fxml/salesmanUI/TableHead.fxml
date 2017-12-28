@@ -9,45 +9,45 @@
    <children>
       <HBox maxHeight="-Infinity" maxWidth="700.0" minHeight="-Infinity" minWidth="700.0" prefHeight="30.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="idLabel" prefHeight="30.0" prefWidth="102.0" text="商品编号" wrapText="true" >
+            <Label fx:id="idLabel" prefHeight="30.0" prefWidth="102.0" text="商品编号" wrapText="true">
                 <font>
                   <Font size="14.0" />
                </font>
                </Label>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <Label fx:id="nameLabel" prefHeight="30.0" prefWidth="83.0" text="名称" wrapText="true" >
+            <Label fx:id="nameLabel" prefHeight="30.0" prefWidth="83.0" text="名称" wrapText="true">
                            <font>
                   <Font size="14.0" />
                </font>
                </Label>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <Label fx:id="typeLabel" prefHeight="30.0" prefWidth="60.0" text="型号" >
+            <Label fx:id="typeLabel" prefHeight="30.0" prefWidth="60.0" text="型号">
                           <font>
                   <Font size="14.0" />
                </font>
                </Label>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <Label prefHeight="30.0" prefWidth="56.0" text="×" >
+            <Label prefHeight="30.0" prefWidth="56.0" text="×">
                            <font>
                   <Font size="14.0" />
                </font>
                </Label>
-            <TextField fx:id="amountTextField" editable="false" maxHeight="42.0" minHeight="10.0" prefHeight="30.0" prefWidth="75.0" text="数量" >
+            <TextField fx:id="amountTextField" editable="false" maxHeight="42.0" minHeight="10.0" prefHeight="30.0" prefWidth="75.0" text="数量">
                           <font>
                   <Font size="14.0" />
                </font>
                </TextField>
-            <TextField fx:id="priceTextField" editable="false" minHeight="15.0" prefHeight="30.0" prefWidth="81.0" text="单价" >
+            <TextField fx:id="priceTextField" editable="false" minHeight="15.0" prefHeight="30.0" prefWidth="81.0" text="单价">
                            <font>
                   <Font size="14.0" />
                </font>
                </TextField>
-            <Label fx:id="sumLabel" prefHeight="30.0" prefWidth="61.0" text="金额" >
+            <Label fx:id="sumLabel" prefHeight="30.0" prefWidth="61.0" text="金额">
                            <font>
                   <Font size="14.0" />
                </font>
                </Label>
-            <TextField fx:id="singleNotesTextField" editable="false" minHeight="15.0" prefHeight="30.0" prefWidth="263.0" text="备注" >
+            <TextField fx:id="notesTextField" editable="false" minHeight="15.0" prefHeight="30.0" prefWidth="263.0" text="备注">
                            <font>
                   <Font size="14.0" />
                </font>

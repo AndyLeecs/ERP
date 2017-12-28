@@ -3,6 +3,7 @@ package ui.salesmanUI;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
+import VO.goodsVO.GoodsVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -58,6 +59,15 @@ public class SaleTypeEditListController extends SaleTypeListController {
 	 */
 	@Override
 	public void refresh() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see ui.salesmanUI.SalesmanListWinController#showSearchGoodsWin(java.util.List)
+	 */
+	@Override
+	public void showSearchGoodsWin(List<GoodsVO> temp) {
 		// TODO Auto-generated method stub
 		
 	}

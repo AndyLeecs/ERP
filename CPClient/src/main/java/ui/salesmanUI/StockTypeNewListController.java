@@ -1,20 +1,23 @@
 
 package ui.salesmanUI;
 
-import java.util.List;
+import java.util.ArrayList;
 
-import VO.VIPVO.VIPVO;
+import VO.goodsVO.GoodsVO;
+import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import ui.commonUI.ParentController;
+import ui.mainUI.loginUI.User;
 
 /**     
 * @author 李安迪
 * @date 2017年12月24日
 * @description
 */
-public class StockTypeNewListController extends SalesmanListWinController {
+public abstract class StockTypeNewListController extends StockTypeListController {
 	@FXML protected Button commitBtn;
 	@FXML protected Button saveBtn;
 	@FXML protected Button cancelBtn;
@@ -25,36 +28,19 @@ public class StockTypeNewListController extends SalesmanListWinController {
 	 */
 	public StockTypeNewListController(ParentController parentController, SaleUniBLService uniBLService, String id) {
 		super(parentController, uniBLService,id);
-		// TODO Auto-generated constructor stub
 	}
+
 	@FXML
-	void commit(){
-		
+	void initialize(){
+		super.initialize();
+		operator.setText(User.getInstance().getUserName());
+		operatorId = User.getInstance().getId();
+		operatorGrade = User.getInstance().getGrade();
 	}
-	
-	@FXML
-	void save(){
-		
-	}
-	
 	@FXML
 	void cancel(){
-		
+		uniBLService.delete(id);
 	}
-	/* (non-Javadoc)
-	 * @see ui.salesmanUI.SalesmanListWinController#getVIPList(java.lang.String, java.util.List)
-	 */
-	@Override
-	public void getVIPList(String message, List<VIPVO> temp) {
-		// TODO Auto-generated method stub
-		
-	}
-	/* (non-Javadoc)
-	 * @see ui.salesmanUI.SalesmanListWinController#refresh()
-	 */
-	@Override
-	public void refresh() {
-		// TODO Auto-generated method stub
-		
-	}
+
+
 }

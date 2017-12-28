@@ -8,7 +8,7 @@ import java.io.Serializable;
 * @description 单据状态
 */
 public enum State implements Serializable{
-	IsDraft(0,"草稿"),
+	IsDraft(0,"草稿单"),
 	IsCommitted(1,"已提交"),
 	IsApproved(2,"已通过审批"),
 	IsRefused(3,"已拒绝"),

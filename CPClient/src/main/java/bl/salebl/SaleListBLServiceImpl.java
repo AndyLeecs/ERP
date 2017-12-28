@@ -38,7 +38,8 @@ public class SaleListBLServiceImpl extends SaleUniBLServiceImpl{
 			polist.add(itemVoToPo(i));
 		}
 		}
-		return new SaleListPO(svo.getId(),svo.getState(),DateUtil.getDateFromListID(svo.getId()),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher());
+		return new SaleListPO(svo.getId(),svo.getState(),DateUtil.getDateFromListID(svo.getId()),svo.getOperatorGrade(),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher());
+//		return new SaleListPO(svo.getId(),svo.getState(),DateUtil.getDateFromListID(svo.getId()),svo.getOperatorGrade(),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher());
 	}
 
 
@@ -60,7 +61,7 @@ public class SaleListBLServiceImpl extends SaleUniBLServiceImpl{
 		}
 		}
 		//留了一个空项，看以后是存操作员的id还是名称
-		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getMemberID(), spo.getMemberName(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher());
+		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(),spo.getMemberID(), spo.getMemberName(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher());
 	}
 
 	

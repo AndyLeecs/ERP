@@ -1,6 +1,7 @@
 package ui.salesmanUI;
 
 import VO.goodsVO.GoodsVO;
+import VO.saleVO.SalesmanItemVO;
 import javafx.fxml.FXML;
 
 /**     
@@ -14,14 +15,9 @@ public class SaleTypeEditCellController extends SalesmanEditCellController {
 	 * @param salesmanListWinController
 	 * @param vo
 	 */
-	public SaleTypeEditCellController(SalesmanListWinController salesmanListWinController, GoodsVO vo) {
+	public SaleTypeEditCellController(SalesmanListWinController salesmanListWinController, SalesmanItemVO vo) {
 		super(salesmanListWinController, vo);
 		// TODO Auto-generated constructor stub
-	}
-	
-	@FXML void initialize(){
-		super.initialize();
-		priceTextField.setText(vo.getGoodsSellPrice()+"");
 	}
 
 

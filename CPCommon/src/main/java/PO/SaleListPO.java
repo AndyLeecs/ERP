@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import util.State;
+import util.UserGrade;
 
 /**     
 * @author 李安迪
@@ -35,10 +36,10 @@ public class SaleListPO extends SalesmanListPO implements Serializable{
 
 
 
-	public SaleListPO(String id, State state, Date day, String memberID, String memberName,String operator,String operatorId,
+	public SaleListPO(String id, State state, Date day, UserGrade operatorGrade,String memberID, String memberName,String operator,String operatorId,
 			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum,
 			double sumBeforeRebate, double rebate, double voucher) {
-		super(id, state, day, memberID, memberName,operator,operatorId,realOperator, warehouse, notes, saleListItems, sum);
+		super(id, state, day, operatorGrade,memberID, memberName,operator,operatorId,realOperator, warehouse, notes, saleListItems, sum);
 		this.sumBeforeRebate = sumBeforeRebate;
 		this.rebate = rebate;
 		this.voucher = voucher;

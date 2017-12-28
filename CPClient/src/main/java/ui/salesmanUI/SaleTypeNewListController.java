@@ -3,12 +3,10 @@ package ui.salesmanUI;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
+import VO.goodsVO.GoodsVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import ui.commonUI.ParentController;
 
 /**     
@@ -16,7 +14,7 @@ import ui.commonUI.ParentController;
 * @date 2017年12月24日
 * @description
 */
-public class SaleTypeNewListController extends SaleTypeListController {
+public abstract class SaleTypeNewListController extends SaleTypeListController {
 
 	
 
@@ -66,4 +64,6 @@ public class SaleTypeNewListController extends SaleTypeListController {
 		// TODO Auto-generated method stub
 		
 	}
+	
+
 }

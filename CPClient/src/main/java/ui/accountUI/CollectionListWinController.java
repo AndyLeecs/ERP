@@ -194,7 +194,7 @@ public class CollectionListWinController extends FinanceListWinController{
 				VIPID.getText(),
 				VIPName.getText(),
 				operator.getText(),
-				transferItem.stream().map(e -> e.toVO()).collect(Collectors.toList()),		//装一下B，虽然没人看的到
+				transferItem.stream().map(e -> e.toVO()).collect(Collectors.toList()),		//请不要乱写注释
 				Double.parseDouble(totalAmount.getText()),
 				state
 				);

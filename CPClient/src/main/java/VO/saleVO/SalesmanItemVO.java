@@ -7,13 +7,6 @@ package VO.saleVO;
 * @description 销售人员的单据中的商品项
 */
 public class SalesmanItemVO {
-	int autoId;
-	public int getAutoId() {
-		return autoId;
-	}
-	public void setAutoId(int autoId) {
-		this.autoId = autoId;
-	}
 	/**
 	 * 商品编号
 	 */
@@ -43,10 +36,9 @@ public class SalesmanItemVO {
 	 */
 	String notes;
 
-	public SalesmanItemVO(int autoId, String id, String name, String type, double price, int amount, double sum,
+	public SalesmanItemVO(String id, String name, String type, double price, int amount, double sum,
 			String notes) {
 		super();
-		this.autoId = autoId;
 		this.id = id;
 		this.name = name;
 		this.type = type;

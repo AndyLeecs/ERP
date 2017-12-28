@@ -34,9 +34,9 @@
                   <Font size="18.0" />
                </font>
                <items>
-                  <MenuItem fx:id="lookPresentListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="ui.saleUI.Sale.css" text="库存赠送单" />
-                  <MenuItem fx:id="lookStockOverflowListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报溢单" />
-                  <MenuItem fx:id="lookStockLostListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报损单" />
+                  <MenuItem fx:id="lookPresentListBtn" mnemonicParsing="false" onAction="#lookPresentList" style="-fx-background-color: transparent;" styleClass="ui.saleUI.Sale.css" text="库存赠送单" />
+                  <MenuItem fx:id="lookStockOverflowListBtn" mnemonicParsing="false" onAction="#lookStockOverflowList" style="-fx-background-color: transparent;" text="库存报溢单" />
+                  <MenuItem fx:id="lookStockLostListBtn" mnemonicParsing="false" onAction="#lookStockLostList" style="-fx-background-color: transparent;" text="库存报损单" />
                   <MenuItem fx:id="lookAlarmListBtn" mnemonicParsing="false" onAction="#lookAlarmList" style="-fx-background-color: transparent;" text="库存报警单" />
                </items>
             </MenuButton>

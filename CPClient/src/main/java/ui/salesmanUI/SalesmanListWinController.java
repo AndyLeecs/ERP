@@ -8,10 +8,12 @@ import java.util.Optional;
 
 import VO.VIPVO.VIPVO;
 import VO.goodsVO.GoodsVO;
+import VO.saleVO.SalesmanItemVO;
 import bl.VIPbl.VIPFuzzySearch;
 import bl.VIPbl.VIPFuzzySearchImpl;
 import bl.goodsbl.GoodsFuzzySearch;
 import bl.goodsbl.GoodsFuzzySearchImpl;
+import bl.utility.GoodsVOTrans;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +26,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import ui.commonUI.ParentController;
 import util.DataRM;
+import util.UserGrade;
 
 /**     
 * @author 李安迪
@@ -42,12 +45,15 @@ public abstract class SalesmanListWinController{
 	/**
 	 * 已选择的商品列表
 	 */
-	protected List<GoodsVO> chosenList;
+	protected List<SalesmanItemVO> chosenList;
+	protected List<SalesmanEditCellController> controllerList;
 	
 	@FXML protected AnchorPane root;
 	
 	@FXML protected Label listID;
 	@FXML protected Label operator;
+	@FXML protected String operatorId;
+	@FXML protected UserGrade operatorGrade;
 	
 	@FXML protected Label totalAmount;
 	
@@ -65,8 +71,8 @@ public abstract class SalesmanListWinController{
 	@FXML protected VBox goodsListVBox;
 	
 	@FXML protected Label nullErrorMessage;
-	protected static final String nullError = "请填写所有字段";
-
+	protected static final String nullError = "请填写并选择所有项";
+	
 	@FXML protected Label numberErrorMessage;
 	protected static final String numberError = "数字格式错误";
 	
@@ -79,7 +85,8 @@ public abstract class SalesmanListWinController{
 		this.id = id;
 		goodsFuzzySearch = new GoodsFuzzySearchImpl();
 		vipFuzzySearch = new VIPFuzzySearchImpl();
-		this.chosenList = new ArrayList<GoodsVO>();
+		this.chosenList = new ArrayList<SalesmanItemVO>();
+		this.controllerList = new ArrayList<SalesmanEditCellController>();
 	}
 	
 	/**
@@ -109,17 +116,12 @@ public abstract class SalesmanListWinController{
 		//去重
 		temp = avoidDup(temp);
 		
-		try {
-			new GoodsSearchResultForSalesmanWin(temp,this);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		showSearchGoodsWin(temp);
 		}
 
 	}
 
+	public abstract void showSearchGoodsWin(List<GoodsVO> temp);
 	/**
 	 * @param temp
 	 * @return 去重后的list
@@ -144,7 +146,6 @@ public abstract class SalesmanListWinController{
 		try {
 			new VIPSearchResultWin(temp,this);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -172,30 +173,55 @@ public abstract class SalesmanListWinController{
 	/**
 	 * 添加到商品清单
 	 */
-	protected void addToList(GoodsVO vo){
+	protected void addToList(SalesmanItemVO vo){
 		this.chosenList.add(vo);
 		//去重
-		this.chosenList = new ArrayList<GoodsVO>(new LinkedHashSet<GoodsVO>(this.chosenList));
+		this.chosenList = new ArrayList<SalesmanItemVO>(new LinkedHashSet<SalesmanItemVO>(this.chosenList));
 		this.refresh();
 	}
 	/**
 	 * 从商品清单中删除
 	 */
-	protected void deleteFromchosenList(GoodsVO vo){
+	protected void deleteFromchosenList(SalesmanItemVO vo){
 		this.chosenList.remove(vo);
 		this.refresh();
 	}
 	
-	public List<GoodsVO> getchosenList() {
+	public List<SalesmanItemVO> getchosenList() {
 		return chosenList;
 	}
 //
 	
-	public void setchosenList(List<GoodsVO> chosenList) {
+	public void setchosenList(List<SalesmanItemVO> chosenList) {
 		this.chosenList = chosenList;
 		this.refresh();
 	}
 	
+	public void check(){
+		/**
+		 * 检查合法性
+		 */
+		nullErrorMessage.setText("");
+		numberErrorMessage.setText("");
+		//检查是否选择了会员
+		//检查是否选择了商品
+		if(VIPID.getText().isEmpty()||chosenList.isEmpty())
+			nullErrorMessage.setText(nullError);
+		//检查商品清单合法性
+		checkList();
+	}
+	
+//	public abstract void checkList();
+	//检查赠品清单合法性
+	public void checkList(){
+	for(SalesmanEditCellController c :controllerList){
+		if(!c.isValid())
+		{
+			numberErrorMessage.setText(numberError);
+			return;
+		}
+	}
+	}
 	/**
 	 * 返回父界面
 	 */
@@ -242,22 +268,7 @@ public abstract class SalesmanListWinController{
 	 * 更新商品列表
 	 */
 	public abstract void refresh();
-//	//在子类里写具体的实现
-//	public void refresh(){
-//
-//		goodsListVBox.getChildren().clear();
-//		// TODO Auto-generated method stub
-//		for(GoodsVO vo : chosenList){
-//   		 SalesmanEditCellController controller = 
-//   				    new SalesmanEditCellController(this,vo);
-//   		 FXMLLoader loader = new FXMLLoader(
-//   				    getClass().getResource(
-//   				        cellUrl));
-//   				loader.setController(controller);
-//   				addChildrenForVBox(loader);
-//		}
-//	
-//	}
+
 	/**
 	 * @param loader
 	 */
@@ -276,9 +287,12 @@ public abstract class SalesmanListWinController{
 	 * @param vo
 	 */
 	public void setVIP(VIPVO vo) {
-		// TODO Auto-generated method stub
 		VIPID.setText(vo.getId());
 		VIPName.setText(vo.getName());
-		//存会员等级
+		//TODO 销售类单据存会员等级
+		
 	}
+	
+
+
 }

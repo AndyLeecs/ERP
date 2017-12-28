@@ -18,8 +18,11 @@ public class GetSalesDetailsImpl implements GetSalesDetails{
 	    List<SaleListVO> list = (List)impl.openAllDraft();
 		return SaleToDetail(list);
 	}
-//表单查看中得到销售明细表需要的操作
-	
+	/**
+	 * 
+	 * @param list 所有销售记录
+	 * @return 所有销售明细记录
+	 */
 	private ArrayList<SalesDetailListVO> SaleToDetail(List<SaleListVO> list){
 		ArrayList<SalesDetailListVO> detailList = new ArrayList<SalesDetailListVO>();
 		
@@ -33,6 +36,11 @@ public class GetSalesDetailsImpl implements GetSalesDetails{
 		return detailList;
 	}
 	
+	/**
+	 * 
+	 * @param vo 一条销售记录
+	 * @return 多条销售明细记录
+	 */
 	private ArrayList<SalesDetailListVO> SaleToDetail(SaleListVO vo){
 			String id = vo.getId();
 			String day = DateUtil.getDateFromListIDAsString(id);
@@ -47,7 +55,6 @@ public class GetSalesDetailsImpl implements GetSalesDetails{
 			}
 			
 			return list;
-		//		return new SalesDetailListVO(DateUtil.getDateFromListIDAsString(vo.getId()),vo.get);
 	}
 //表单查看中得到销售明细表需要的操作
 	

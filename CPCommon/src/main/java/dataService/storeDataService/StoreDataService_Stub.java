@@ -60,9 +60,30 @@ public class StoreDataService_Stub implements StoreDataService{
 		po2.goodsID="G16_20171223T";
 		po2.goodsName="小熊维尼";
 		po2.listID="KCBJD_20171223002";
+		AlarmListPO po3=new AlarmListPO();
+		po3.alarmNum=5;
+		po3.currentNum=4;
+		po3.goodsID="G444444444";
+		po3.goodsName="小灯1";
+		po3.listID="KCBJD_111444111444111";
+		AlarmListPO po4=new AlarmListPO();
+		po4.alarmNum=10;
+		po4.currentNum=1;
+		po4.goodsID="22222";
+		po4.listID="L112233";
+		po4.goodsName="大灯";
+		AlarmListPO po5=new AlarmListPO();
+		po5.alarmNum=45;
+		po5.currentNum=6;
+		po5.goodsID="G44477";
+		po5.goodsName="小灯2";
+		po5.listID="L_20170228_0011";
 		LinkedList<AlarmListPO> list=new LinkedList<AlarmListPO>();
 		list.add(po1);
 		list.add(po2);
+		list.add(po3);
+		list.add(po4);
+		list.add(po5);
 		return list;
 	}
 
@@ -70,8 +91,11 @@ public class StoreDataService_Stub implements StoreDataService{
 	public ArrayList<PresentListPO> getPresentListPO(State st) {
 		// 返回一组库存赠送单的值对象
 		PresentListPO po1=new PresentListPO ();
+		po1.id=new ArrayList<String>();
 		po1.id.add("G20171223_001");
+		po1.name=new ArrayList<String>();
 		po1.name.add("小熊维尼");
+		po1.num=new ArrayList<Integer>();
 		po1.num.add(10);
 		po1.statetype=st;
 		po1.listID="KCZSD_20171223_001";

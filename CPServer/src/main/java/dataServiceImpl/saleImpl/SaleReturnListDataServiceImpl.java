@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import PO.SaleListPO;
 import PO.SaleReturnListPO;
 import PO.SalesmanListPO;
 import dataHelper.BasicUtil;
@@ -41,8 +42,7 @@ public class SaleReturnListDataServiceImpl extends UnicastRemoteObject implement
 	@Override
 	public String insert() throws RemoteException {
 		// TODO Auto-generated method stub
-		return util.insert(new SaleReturnListPO());
-	}
+		return util.getNewListId("XSTHD", new SaleReturnListPO());	}
 
 	/* (non-Javadoc)
 	 * @see dataService.saleDataService.SaleUniDataService#delete(java.lang.String)

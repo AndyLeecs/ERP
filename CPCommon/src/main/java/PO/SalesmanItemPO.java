@@ -38,9 +38,8 @@ public class SalesmanItemPO  implements Serializable{
 	 */
 	String notes;
 	public SalesmanItemPO(){}
-	public SalesmanItemPO(int autoId,String id, String name, String type, double price, int amount, double sum, String notes) {
+	public SalesmanItemPO(String id, String name, String type, double price, int amount, double sum, String notes) {
 		super();
-		this.autoId = autoId;
 		this.id = id;
 		this.name = name;
 		this.type = type;
@@ -49,7 +48,7 @@ public class SalesmanItemPO  implements Serializable{
 		this.sum = sum;
 		this.notes = notes;
 	}
-	public int getAutoId() {
+	private int getAutoId() {
 		return autoId;
 	}
 	private void setAutoId(int autoId) {
