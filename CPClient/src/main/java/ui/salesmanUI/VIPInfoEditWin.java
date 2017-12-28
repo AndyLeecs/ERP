@@ -25,8 +25,8 @@ public class VIPInfoEditWin extends Stage {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/css/stockmanUI/Stock.css").toExternalForm());
         scene.setFill(Color.TRANSPARENT);
-        VIPInfoEditController vipInfoEditController = new VIPInfoEditController();
-        vipInfoEditController.init(vip);
+        //VIPInfoEditController vipInfoEditController = new VIPInfoEditController();
+        //vipInfoEditController.init(vip);
 
         this.setScene(scene);
         this.initStyle(StageStyle.DECORATED);

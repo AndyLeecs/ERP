@@ -58,6 +58,10 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
                 criterionClauseGenerator.generateFuzzyCriterion(l,"id",info);
                 criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
                 break;
+            case"category":
+             	criterionClauseGenerator.generateFuzzyCriterion(l,"category",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
+                break;
         }
         return util.Query(l);
     }
