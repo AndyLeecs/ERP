@@ -17,7 +17,6 @@ import dataHelper.OrderClause;
 import dataHelper.OrderClauseGenerator;
 import dataService.accountDataService.CollectionListDataService;
 import util.DataRM;
-import util.DateUtil;
 import util.State;
 
 public class CollectionListDataServiceImpl extends UnicastRemoteObject implements CollectionListDataService {
@@ -33,32 +32,10 @@ public class CollectionListDataServiceImpl extends UnicastRemoteObject implement
 		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
 		orderClauseGenerator = new HibernateOrderClauseGenerator();
 	}
-	//TODO: 不知道直接写一个通用的方法可以吗？
-	public static final int LIST_MAX_NUM = 99999;
+	
 	@Override
 	public String getNewListId()  throws RemoteException{
-		CollectionListPO lastpo = basicUtil.getLastRow();
-		String currentDate = DateUtil.getCurrentDate();
-		String newId = "SDK"+"-"+currentDate + "-";
-		if(lastpo == null){		//表空
-			newId +="00001";
-		}
-		String lastId = lastpo.getId();
-		String date = DateUtil.getDateFromListIDAsString(lastId);
-		if(!currentDate.equals(date)){		//今天的第一张单子
-			newId += "00001";
-		}
-		else{
-			int num = Integer.parseInt(lastId.substring(lastId.lastIndexOf('-')+1));
-			if(num == LIST_MAX_NUM)
-				return null;
-			newId += String.valueOf(++num);
-		}
-		CollectionListPO po = new CollectionListPO();
-		po.setId(newId);
-		po.setState(State.IsEditting);
-		basicUtil.insert(po);
-		return newId;
+		return basicUtil.getNewListId("SKD", new CollectionListPO());
 		
 	}
 	
@@ -101,13 +78,11 @@ public class CollectionListDataServiceImpl extends UnicastRemoteObject implement
 	}
 
 	@Override
-	public List<ListPO> getList(State state) throws RemoteException {
+	public List<CollectionListPO> getList(State state) throws RemoteException {
 		List<CriterionClause> l = new ArrayList<CriterionClause>();
 		l = criterionClauseGenerator.generateExactCriterion(l,"state", state);
 		OrderClause o = orderClauseGenerator.generateDescOrder("day");
-//		return basicUtil.Query(l, o);	//返回值不兼容。。太尴尬了
-		return null;
-		
+		return basicUtil.Query(l, o);	
 	}
 
 }
