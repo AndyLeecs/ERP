@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PO.StockListPO;
+import PO.SaleListPO;
 import PO.SalesmanListPO;
 import dataHelper.BasicUtil;
 import dataHelper.CriterionClause;
@@ -42,8 +43,7 @@ public class StockListDataServiceImpl extends UnicastRemoteObject implements Sal
 	@Override
 	public String insert() throws RemoteException {
 		// TODO Auto-generated method stub
-		return util.insert(new StockListPO());
-	}
+		return util.getNewListId("JHD", new StockListPO());	}
 
 	/* (non-Javadoc)
 	 * @see dataService.saleDataService.SaleUniDataService#delete(java.lang.String)

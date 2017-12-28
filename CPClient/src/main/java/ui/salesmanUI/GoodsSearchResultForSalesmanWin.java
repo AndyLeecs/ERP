@@ -5,7 +5,7 @@ package ui.salesmanUI;
 import java.io.IOException;
 import java.util.List;
 
-
+import VO.saleVO.SalesmanItemVO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,7 +24,7 @@ import ui.managerUI.SinglePresentEditableController;
 public class GoodsSearchResultForSalesmanWin extends Stage{
 	@FXML AnchorPane root;
 	
-	public GoodsSearchResultForSalesmanWin(List<VO.goodsVO.GoodsVO> goodsList,SalesmanListWinController parentController) throws IOException{
+	public GoodsSearchResultForSalesmanWin(List<SalesmanItemVO> goodsList,SalesmanListWinController parentController) throws IOException{
 		
 		try {
 	   		 GoodsSearchResultForSalesmanController controller = 
@@ -32,7 +32,7 @@ public class GoodsSearchResultForSalesmanWin extends Stage{
 	   		 System.out.println(controller);
 	   		 FXMLLoader loader = new FXMLLoader(
 	   				    getClass().getResource(
-	   				        "/fxml/commonUI/GoodsSearchResult.fxml"));
+	   				        "/fxml/commonUI/SearchResult.fxml"));
 	   		 System.out.println(loader);
 	   				loader.setController(controller);
 	   				root = loader.load();

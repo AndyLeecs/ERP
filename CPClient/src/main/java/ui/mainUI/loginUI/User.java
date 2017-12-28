@@ -12,14 +12,14 @@ public class User {
 	private PersonalInfoService service;
 	private static User user;
 	
-	boolean loggedIn = false;		//是否登录，不知道有没有用。。
+	boolean loggedIn = false;		//是否登录，不知道有没有用。。re:按照现在的逻辑，如果在登出后getinstance的话，还是可以获得一个user对象的？
 	
 	private String id;
 	private	String name;
 	private	UserType type = UserType.Salesman;				
 	private	UserGrade grade;			//用户等级（经理，普通）
 	private	UserPermission permission;		//权限等级
-											//为了安全，密码不让界面层持有，不过userVO里是否要有密码？
+											//为了安全，密码不让界面层持有，不过userVO里是否要有密码？re：有密码的意义不是太大吧
 	private User(){
 		service = new UserBLService_Stub();
 	}
@@ -58,5 +58,14 @@ public class User {
 	public String getUserName(){
 		return name;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public UserGrade getGrade() {
+		return grade;
+	}
+
 	
 }

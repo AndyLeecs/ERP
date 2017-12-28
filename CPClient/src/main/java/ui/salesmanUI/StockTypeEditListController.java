@@ -13,7 +13,7 @@ import ui.commonUI.ParentController;
 * @date 2017年12月26日
 * @description
 */
-public class StockTypeEditListController extends StockTypeListController {
+public abstract class StockTypeEditListController extends StockTypeListController {
 	@FXML protected Button commitBtn;
 	@FXML protected Button saveBtn;
 	@FXML protected Button cancelBtn;
@@ -27,36 +27,11 @@ public class StockTypeEditListController extends StockTypeListController {
 		// TODO Auto-generated constructor stub
 	}
 
-	@FXML
-	void commit(){
-		
-	}
-	
-	@FXML
-	void save(){
-		
-	}
+
 	
 	@FXML
 	void cancel(){
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see ui.salesmanUI.SalesmanListWinController#getVIPList(java.lang.String, java.util.List)
-	 */
-	@Override
-	public void getVIPList(String message, List<VIPVO> temp) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	/* (non-Javadoc)
-	 * @see ui.salesmanUI.SalesmanListWinController#refresh()
-	 */
-	@Override
-	public void refresh() {
-		// TODO Auto-generated method stub
-		
-	}
 }

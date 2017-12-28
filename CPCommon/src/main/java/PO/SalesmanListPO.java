@@ -1,44 +1,17 @@
 package PO;
 
 import java.io.Serializable;
-
-
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import util.State;
+import util.UserGrade;
 
-public class SalesmanListPO  implements Serializable{
-//	 /**
-//	  * 数据库id
-//	  */
-//	int id;
-	String id;
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
+public class SalesmanListPO extends ListPO{
 	/**
-	 * 单据状态
+	 * 操作员等级
 	 */
-	State state;
-	 /**
-	  * 日期，精确到天
-	  */	
-	Date day;
-	/**
-	 * 操作员名称
-	 */
-	private String operator;
-	/**
-	 * 操作员编号
-	 */
-	private String operatorId;
+	private UserGrade operatorGrade;
 
 	/**
 	  * 客户编号
@@ -70,15 +43,11 @@ public class SalesmanListPO  implements Serializable{
 	  */
 	 double sum;
 
-
-	 public SalesmanListPO(String id, State state, Date day, String memberID, String memberName,String operator,String operatorId
+	 public SalesmanListPO(){};
+	 public SalesmanListPO(String id, State state, Date day,UserGrade operatorGrade, String memberID, String memberName,String operator,String operatorId
 			,String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum) {
-		super();
-		this.id = id;
-		this.state = state;
-		this.day = day;
-		this.operator = operator;
-		this.operatorId = operator;
+		super(id,operator,operatorId,state,day);
+		this.operatorGrade = operatorGrade;
 		this.memberID = memberID;
 		this.memberName = memberName;
 		this.realOperator = realOperator;
@@ -88,36 +57,12 @@ public class SalesmanListPO  implements Serializable{
 		this.sum = sum;
 	}
 
-	public State getState() {
-		return state;
+	public UserGrade getOperatorGrade() {
+		return operatorGrade;
 	}
 
-	public void setState(State state) {
-		this.state = state;
-	}
-
-	public Date getDay() {
-		return day;
-	}
-
-	public void setDay(Date day) {
-		this.day = day;
-	}
-
-	public String getOperator() {
-		return operator;
-	}
-
-	public void setOperator(String operator) {
-		this.operator = operator;
-	}
-
-	public String getOperatorId() {
-		return operatorId;
-	}
-
-	public void setOperatorId(String operatorId) {
-		this.operatorId = operatorId;
+	public void setOperatorGrade(UserGrade operatorGrade) {
+		this.operatorGrade = operatorGrade;
 	}
 
 	public String getMemberID() {
@@ -176,7 +121,7 @@ public class SalesmanListPO  implements Serializable{
 		this.sum = sum;
 	}
 
-	public SalesmanListPO(){}
+	
 
 
 }

@@ -3,6 +3,7 @@ package ui.salesmanUI;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
+import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -61,5 +62,14 @@ public class StockTypeApproveListController extends StockTypeListController {
 	public void refresh() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	/* (non-Javadoc)
+	 * @see ui.salesmanUI.StockTypeListController#getVOFromUI()
+	 */
+	@Override
+	public SalesmanListVO getVOFromUI() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

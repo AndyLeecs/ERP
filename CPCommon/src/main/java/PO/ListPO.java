@@ -75,6 +75,16 @@ public class ListPO{
 		this.day = day;
 	}
 
+	public ListPO(){};
+	public ListPO(String id, String operator, String operatorId, State state, Date day) {
+		super();
+		this.id = id;
+		this.operator = operator;
+		this.operatorId = operatorId;
+		this.state = state;
+		this.day = day;
+	}
+
 	
 	
 }

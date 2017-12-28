@@ -13,6 +13,7 @@ import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import dataService.saleDataService.SaleUniDataService;
 import util.DataRM;
+import util.State;
 
 /**     
 * @author 李安迪
@@ -63,6 +64,7 @@ public abstract class SaleUniBLServiceImpl implements SaleUniBLService {
 	public DataRM save(SalesmanListVO vo) {
 		// TODO Auto-generated method stub
 		try {
+			vo.setState(State.IsDraft);
 			return service.save(voToPo(vo));
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -78,6 +80,7 @@ public abstract class SaleUniBLServiceImpl implements SaleUniBLService {
 	public DataRM commit(SalesmanListVO vo) {
 		// TODO Auto-generated method stub
 		try {
+			vo.setState(State.IsCommitted);
 			return service.commit(voToPo(vo));
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -117,7 +120,7 @@ public abstract SalesmanListVO poToVo(SalesmanListPO po);
  */
 public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
 	// TODO Auto-generated method stub
-	return new SalesmanItemPO(i.getAutoId(),i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
+	return new SalesmanItemPO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 }
 
 
@@ -127,7 +130,7 @@ public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
  */
 public SalesmanItemVO itemPoToVo(SalesmanItemPO i) {
 	// TODO Auto-generated method stub
-	return new SalesmanItemVO(i.getAutoId(),i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
+	return new SalesmanItemVO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 }
 
 
