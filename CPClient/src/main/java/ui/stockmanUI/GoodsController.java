@@ -60,25 +60,24 @@ public class GoodsController{
     Stack<TreeItem<String>> stack = new Stack<>();//存放目录的引用 便于增减改名商品
 
     //初始化节点的方法
-    private void setNode(TreeItem<String> node) throws RemoteException{
+    private void setNode(TreeItem<String> node) throws RemoteException {
         ArrayList<GoodsCategoryVO> listVO = (ArrayList<GoodsCategoryVO>) goodsBLService.getAllCategory(node.getValue().toString().substring(3));
         ArrayList<String> list = new ArrayList<String>();
-        for(int i =0;i<listVO.size();i++) {
-        	list.add(listVO.get(i).getGoodsCategoryName());
+        for (int i = 0; i < listVO.size(); i++) {
+            list.add(listVO.get(i).getGoodsCategoryName());
         }
-        if(list != null){
-            for(int i =0;i<list.size();i++){
+        if (list != null) {
+            for (int i = 0; i < list.size(); i++) {
                 TreeItem<String> son = new TreeItem<>("分类：" + list.get(i));
                 son.setGraphic(new ImageView("img/folderIcon.png"));
                 node.getChildren().add(son);
-                setNode(son);
-            }
-        }else{
-            ArrayList<GoodsVO> goods = (ArrayList<GoodsVO>) goodsBLService.findGoods(node.getValue().toString().substring(3),"goodsCategory");
-            if(goods!=null) {
-                for (int i = 0; i < goods.size(); i++) {
-                    node.getChildren().add(new TreeItem<>("商品：" + goods.get(i).getGoodsName()));
+                ArrayList<GoodsVO> goods = (ArrayList<GoodsVO>) goodsBLService.findGoods(son.getValue().toString().substring(3), "goodsCategory");         
+                if (goods != null) {
+                    for (int j = 0; j < goods.size(); j++) {
+                        son.getChildren().add(new TreeItem<>("商品：" + goods.get(j).getGoodsName()));
+                    }
                 }
+                setNode(son);
             }
         }
     }
@@ -91,7 +90,8 @@ public class GoodsController{
         rootTreeItem = new TreeItem<String>("分类：根目录");
         rootTreeItem.setExpanded(true);
 
-        //setNode(rootTreeItem);
+        setNode(rootTreeItem);
+        System.out.println("init TreeView Succeeded!");
         //以下为demo
 /*
         for(int i =0;i<5;i++) {
@@ -192,8 +192,7 @@ public class GoodsController{
         deleteBar.setGraphic(new ImageView("img/delete.png"));
         deleteBar.setOnAction(e ->{
             TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
-            selectItem.getParent().getChildren().remove(selectItem);
-
+           
             System.out.println("判断删除的是商品还是分类：" + selectItem.getValue().toString().substring(0,2));
 
             switch (selectItem.getValue().toString().substring(0,2)){
@@ -216,6 +215,7 @@ public class GoodsController{
                     }
                     break;
             }
+            selectItem.getParent().getChildren().remove(selectItem);
         });
 
         MenuItem refactorBar = new MenuItem("改名");
@@ -312,8 +312,11 @@ public class GoodsController{
                 tmpVO.setGoodsCategory(stack.peek().getParent().getValue().toString().substring(3));
                 String id = goodsBLService.newGoodsID(tmpVO);
                 GoodsVO vo = goodsBLService.getGoods(name.getText(), stack.peek().getParent().getValue().toString().substring(3));
+                System.out.println("新生成的id："+id);
                 vo.setGoodsID(id);
+                
                 goodsBLService.modifyGoods(vo);
+                //System.out.println("判断id是否改变：" + vo.getGoodsID());
                 break;
 
             case "新建分类":
@@ -495,7 +498,7 @@ public class GoodsController{
         newGoodsID.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsID);
 
-        Label newGoodsInventory = new Label(" "); //后期获取商品库存
+        Label newGoodsInventory = new Label("5 "); //后期获取商品库存
         newGoodsInventory.setLayoutX(337);
         newGoodsInventory.setLayoutY(154);
         newGoodsInventory.setPrefSize(39, 32);

@@ -28,22 +28,34 @@ public class GoodsCategory {
 
     }
 
-    public ArrayList<String> getAllCategory(String node) throws RemoteException{
+    public ArrayList<GoodsCategoryVO> getAllCategory(String node) throws RemoteException{
     	//加一行输出
     	System.out.println("bl.goodsbl.GoodsCategory 获取所有商品分类");
-    	for(int i =0;i<goodsDataService.getAllCategory(node).size();i++) {
-    		System.out.println(goodsDataService.getAllCategory(node).get(i));
-    	}
-        ArrayList<String> allCategory = (ArrayList<String>) goodsDataService.getAllCategory(node);
-		return allCategory;
+    	//for(int i =0;i<goodsDataService.getAllCategory(node).size();i++) {
+    	//	System.out.println(goodsDataService.getAllCategory(node).get(i));
+    	//}
+    	ArrayList<GoodsCategoryVO> list = new ArrayList<>();
+        ArrayList<GoodsCategoryPO> allCategory = (ArrayList<GoodsCategoryPO>) goodsDataService.getAllCategory(node);
+		for(int i =0;i<allCategory.size();i++) {
+			list.add(poToVO(allCategory.get(i)));
+		}
+        return list;
     }
 
     public GoodsCategoryVO getCategory(String goodsCategoryName,String parentName) throws RemoteException {
         return poToVO(goodsDataService.getCategory(goodsCategoryName,parentName));
     }
 
-    public int newGoodsCategoryAutoId(GoodsCategoryVO vo) throws RemoteException {
-        return goodsDataService.newGoodsCategoryAutoId(voToPO(vo));
+    public int newGoodsCategoryAutoId(GoodsCategoryVO vo)  {
+        try {
+        	System.out.println(voToPO(vo).getGoodsCategoryName());
+        	System.out.println(goodsDataService);
+			return goodsDataService.newGoodsCategoryAutoId(voToPO(vo));
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;
     }
 
     private GoodsCategoryPO voToPO(GoodsCategoryVO vo){

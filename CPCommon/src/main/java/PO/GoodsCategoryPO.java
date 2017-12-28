@@ -3,7 +3,6 @@ package PO;
 import util.GoodsUtil;
 
 import java.io.Serializable;
-import java.util.Map;
 
 /**     
 * @author 李安迪

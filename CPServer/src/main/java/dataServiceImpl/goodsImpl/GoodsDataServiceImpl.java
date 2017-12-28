@@ -34,11 +34,12 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     @Override
     public int newGoodsCategoryAutoId(GoodsCategoryPO po) throws RemoteException {
     	    po.setState(GoodsUtil.EXIST);
-        return goodsUtil.insertForAuto(po);
+        return categoryUtil.insertForAuto(po);
     }
 
     @Override
     public String newGoodsID(GoodsPO po) throws RemoteException{
+     	po.setState(GoodsUtil.EXIST);
         return ""+goodsUtil.insertForAuto(po);
     }
 
@@ -56,6 +57,10 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
                 break;
             case "goodsID":
                 criterionClauseGenerator.generateFuzzyCriterion(l,"goodsID",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
+                break;
+            case "goodsCategory":
+             	criterionClauseGenerator.generateFuzzyCriterion(l,"goodsCategory",info);
                 criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
                 break;
         }

@@ -66,7 +66,7 @@ public class Goods {
         return storeVO;
     }
 
-    private GoodsPO voToPO(GoodsVO goodsVO){
+    public GoodsPO voToPO(GoodsVO goodsVO){
         GoodsPO po = new GoodsPO(goodsVO.getGoodsID()
                 ,goodsVO.getGoodsCategory()
                 ,goodsVO.getGoodsName()
@@ -82,7 +82,7 @@ public class Goods {
         return po;
     }
 
-    private GoodsVO poToVO(GoodsPO goodsPO){
+    public GoodsVO poToVO(GoodsPO goodsPO){
         GoodsVO vo = new GoodsVO(goodsPO.getGoodsID()
                 ,goodsPO.getGoodsCategory()
                 ,goodsPO.getGoodsName()

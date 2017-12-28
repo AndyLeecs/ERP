@@ -99,23 +99,23 @@ public class VIPController {
         clerk.setEditable(false);
     }
 
-    public void initialize(){
+    public void initialize() throws RemoteException{
         initTreeView();
         setTextFieldUnable();
         notice.setVisible(false);
         vipVBox.getChildren().clear();
     }
     //初始TreeView 加载所有商品和分类
-    private void initTreeView() {
+    private void initTreeView() throws RemoteException {
 
         presentLocation.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> System.out.println("标签被点击"));
         //在ScrollPane上配置并加入TreeView
         rootTreeItem = new TreeItem<String>("根目录");
         rootTreeItem.setExpanded(true);
 
-        //setNode(rootTreeItem);
+        setNode(rootTreeItem);
         //以下为demo
-
+/*
         TreeItem<String> item1 = new TreeItem<String>("分类：" + "供货商");
         item1.setGraphic(new ImageView("img/folderIcon.png"));
         rootTreeItem.getChildren().add(item1);
@@ -133,7 +133,7 @@ public class VIPController {
             TreeItem<String> item3 = new TreeItem<String>("会员：" + i);
             item2.getChildren().add(item3);
         }
-
+*/
         //以上为demo
 
         treeView = new TreeView<>(rootTreeItem);
