@@ -16,25 +16,14 @@ import java.util.ArrayList;
 public class GoodsCategory {
     GoodsDataService goodsDataService = GoodsDataServiceHelper.getInstance().getGoodsDataService();
 
-    public ResultMessage newGoodsCategory(GoodsCategoryVO vo){
-        try {
-			goodsDataService.newGoodsCategory(voToPO(vo));
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        return ResultMessage.SUCCESS;
-
-    }
-
     public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo) throws RemoteException{
         goodsDataService.deleteGoodsCategory(voToPO(vo));
         return ResultMessage.SUCCESS;
 
     }
 
-    public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO, GoodsCategoryVO newVO) throws RemoteException{
-        goodsDataService.modifyGoodsCategory(voToPO(oldVO),voToPO(newVO));
+    public ResultMessage modifyGoodsCategory(GoodsCategoryVO newVO) throws RemoteException{
+        goodsDataService.modifyGoodsCategory(voToPO(newVO));
         return ResultMessage.SUCCESS;
 
     }
@@ -45,15 +34,16 @@ public class GoodsCategory {
     	for(int i =0;i<goodsDataService.getAllCategory(node).size();i++) {
     		System.out.println(goodsDataService.getAllCategory(node).get(i));
     	}
-        return (ArrayList<String>) goodsDataService.getAllCategory(node);
+        ArrayList<String> allCategory = (ArrayList<String>) goodsDataService.getAllCategory(node);
+		return allCategory;
     }
 
     public GoodsCategoryVO getCategory(String goodsCategoryName,String parentName) throws RemoteException {
         return poToVO(goodsDataService.getCategory(goodsCategoryName,parentName));
     }
 
-    public int newGoodsCategoryAutoId() throws RemoteException {
-        return goodsDataService.newGoodsCategoryAutoId();
+    public int newGoodsCategoryAutoId(GoodsCategoryVO vo) throws RemoteException {
+        return goodsDataService.newGoodsCategoryAutoId(voToPO(vo));
     }
 
     private GoodsCategoryPO voToPO(GoodsCategoryVO vo){

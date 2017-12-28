@@ -320,8 +320,10 @@ public class GoodsController{
                 tmp = "分类：";
                 stack.peek().setValue(tmp + "" + name.getText());
                 GoodsCategoryVO goodsCategoryVO = new GoodsCategoryVO(name.getText(), stack.peek().getParent().getValue().toString().substring(3));
-                goodsCategoryVO.setAutoId(goodsBLService.newGoodsCategoryAutoId());
-                goodsBLService.newGoodsCategory(goodsCategoryVO);
+                int autoId = goodsBLService.newGoodsCategoryAutoId(goodsCategoryVO);
+                GoodsCategoryVO gcvo = goodsBLService.getCategory(name.getText(), stack.peek().getParent().getValue().toString().substring(3));
+                gcvo.setAutoId(autoId);
+                goodsBLService.modifyGoodsCategory(gcvo);
                 //以下部分是控制分类名不重复的代码 先不考虑
                 /*
                 ArrayList<String> arrayList = (ArrayList<String>) goodsBLService.getAllCategory(""); //参数为空 表示返回所有分类名
@@ -344,7 +346,7 @@ public class GoodsController{
                     System.out.println("原来分类名：" + tmp.substring(3) + "新分类名：" + name.getText());
                     GoodsCategoryVO goodsCategoryVONew = goodsBLService.getCategory(tmp.substring(3), stack.peek().getParent().getValue().substring(3));
                     goodsCategoryVONew.setGoodsCategoryName(name.getText());
-                    goodsBLService.modifyGoodsCategory(null, goodsCategoryVONew);
+                    goodsBLService.modifyGoodsCategory(goodsCategoryVONew);
                 }
 
                 if (tmp.substring(0, 3).contains("商品")) {

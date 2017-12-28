@@ -19,8 +19,10 @@ import java.util.ArrayList;
 public class Goods {
     GoodsDataService goodsDataService = GoodsDataServiceHelper.getInstance().getGoodsDataService();
 
-    public String newGoodsID(){
-        return null;
+    public String newGoodsID(GoodsVO vo) throws RemoteException{
+    	    Store_Interface store_interface = new Store_InterfaceImpl();
+        store_interface.addStoreItem(voToStoreVO(goodsVO));
+        return goodsDataService.newGoodsID(voToPO(vo));
     }
 
     public ArrayList<GoodsVO> findGoods(String info, String type) throws RemoteException {
@@ -45,19 +47,6 @@ public class Goods {
 
     public ResultMessage modifyGoods(GoodsVO vo) throws RemoteException{
         goodsDataService.modifyGoods(voToPO(vo));
-        return ResultMessage.SUCCESS;
-
-    }
-
-    public ResultMessage initAndSaveGoods(GoodsVO vo) {
-        try {
-			goodsDataService.initAndSaveGoods(voToPO(vo));
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        Store_Interface store_interface = new Store_InterfaceImpl();
-        store_interface.addStoreItem(voToStoreVO(goodsVO));
         return ResultMessage.SUCCESS;
 
     }
