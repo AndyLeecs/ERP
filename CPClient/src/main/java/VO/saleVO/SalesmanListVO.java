@@ -4,9 +4,14 @@ import java.util.List;
 
 import VO.ListVO;
 import util.State;
+import util.UserGrade;
 
 public abstract class SalesmanListVO extends ListVO{
-	 /**
+	/**
+	 * 操作员等级 
+	 */
+	UserGrade operatorGrade;
+	/**
 	  * 客户编号
 	  */
 	 String memberID;
@@ -85,10 +90,11 @@ public abstract class SalesmanListVO extends ListVO{
 	public void setSum(double sum) {
 		this.sum = sum;
 	}
-	public SalesmanListVO(String id, String operator, String operatorId, State state,String memberID,
+	public SalesmanListVO(String id, String operator, String operatorId, State state,UserGrade operatorGrade,String memberID,
 			String memberName, String realOperator, String warehouse, String notes, List<SalesmanItemVO> saleListItems,
 			double sum) {
 		super(id, operator, operatorId, state);
+		this.operatorGrade = operatorGrade;
 		this.memberID = memberID;
 		this.memberName = memberName;
 		this.realOperator = realOperator;
@@ -96,5 +102,11 @@ public abstract class SalesmanListVO extends ListVO{
 		this.notes = notes;
 		SaleListItems = saleListItems;
 		this.sum = sum;
+	}
+	public UserGrade getOperatorGrade() {
+		return operatorGrade;
+	}
+	public void setOperatorGrade(UserGrade operatorGrade) {
+		this.operatorGrade = operatorGrade;
 	} 
 }

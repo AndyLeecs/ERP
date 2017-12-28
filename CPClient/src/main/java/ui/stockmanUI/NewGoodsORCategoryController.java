@@ -53,7 +53,10 @@ public class NewGoodsORCategoryController {
                     tmp = currentNode.getParent().getValue().toString().substring(3) + "/" + tmp;
                 }
                 GoodsCategoryVO goodsCategoryVO = new GoodsCategoryVO(tmp,"");
-                goodsBLService.newGoodsCategory(goodsCategoryVO);//这里路径包含当前分类和父分类
+                int autoId = goodsBLService.newGoodsCategoryAutoId(goodsCategoryVO);
+                GoodsCategoryVO gcvo = goodsBLService.getCategory(tmp,currentNode.getParent().getValue().toString().substring(3));
+                gcvo.setAutoId(autoId);
+                goodsBLService.modifyGoodsCategory(gcvo);
                 this.newName = name.getText();
                 list.add(type);
                 break;

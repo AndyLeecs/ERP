@@ -45,7 +45,7 @@ public class SaleListDataServiceImpl extends UnicastRemoteObject implements Sale
 	@Override
 	public String insert() throws RemoteException {
 		// TODO Auto-generated method stub
-		return util.insert(new SaleListPO());
+		return util.getNewListId("XSD", new SaleListPO());
 	}
 
 	/* (non-Javadoc)

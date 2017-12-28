@@ -2,8 +2,10 @@ package dataHelper;
 
 import java.io.Serializable;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.List;
 
+import PO.ListPO;
 import util.DataRM;
 
 /**     
@@ -21,20 +23,21 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	 * 失败-返回-1
 	 */
 	public int insertForAuto(Object po);
+	
 	/**
-	 * id为业务id时的新增方法
+	 * id为String时的新增方法
 	 * @param po 
 	 * @return
-	 * 成功-返回业务id
-	 * 失败-返回空串
+	 * 成功-返回String类型的业务id
+	 * 失败-返回空串或null
 	 */
 	public String insert(Object po);
+	
 	/**
 	 * 
 	 * @param id 自动生成的id
 	 * @return 该id的po实体
 	 */
-	
 	public DataRM delete(String id);
 	
 	public Object get(int id);
@@ -105,6 +108,14 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	 * @return	表中最后一条记录
 	 */
 	public T getLastRow();
+	
+	/**
+	 * 请注意，若使用此方法，需要相应单据的po继承ListPO(不知道hbm用不用也体现，我理解是不需要的，不确定)
+	 * @param prefix 单据编号的前缀
+	 * @param po 空的单据po
+	 * @return 新生成的id
+	 */
+	public String getNewListId(String prefix, ListPO po);
 	
 	
 }

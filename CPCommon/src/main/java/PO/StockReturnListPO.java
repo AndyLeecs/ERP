@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import util.State;
+import util.UserGrade;
 /**     
 * @author 李安迪
 * @date 2017年10月27日
@@ -31,9 +32,9 @@ public class StockReturnListPO extends SalesmanListPO implements Serializable{
 //		this.id = id;
 //	}
 
-	public StockReturnListPO(String id, State state, Date day, String memberID, String memberName, String operator,String operatorId,
+	public StockReturnListPO(String id, State state, Date day, UserGrade operatorGrade,String memberID, String memberName, String operator,String operatorId,
 			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum) {
-		super(id, state, day, memberID, memberName, operator,operatorId,realOperator, warehouse, notes, saleListItems, sum);
+		super(id, state, day, operatorGrade,memberID, memberName, operator,operatorId,realOperator, warehouse, notes, saleListItems, sum);
 		// TODO Auto-generated constructor stub
 	}
 }

@@ -5,6 +5,7 @@ import VO.goodsVO.GoodsVO;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 
 /**     
 * @author 李安迪
@@ -17,8 +18,9 @@ public class VIPSearchResultCellController {
 	@FXML public Label id;
 	@FXML public Label name;
 	@FXML public Label grade;
-	@FXML public CheckBox checkBox;
+	@FXML public RadioButton checkBox;
 	
+	private VIPSearchResultController controller;
 	
 	@FXML
 	void initialize(){
@@ -28,10 +30,23 @@ public class VIPSearchResultCellController {
 	}
 	/**
 	 * @param vo
+	 * @param vipSearchResultController 
 	 */
-	public VIPSearchResultCellController(VIPVO vo) {
+	public VIPSearchResultCellController(VIPVO vo, VIPSearchResultController vipSearchResultController) {
 		// TODO Auto-generated constructor stub
 		this.vo = vo;
+		this.controller = vipSearchResultController;
 	}
 
+	@FXML
+	public void onSelected(){
+		for(VIPSearchResultCellController controller: this.controller.cellList){
+			if(controller.checkBox.isSelected() && (!controller.checkBox.equals(this.checkBox))){
+				//TODO 检查这个checkbox是不是能由equals识别
+				controller.checkBox.setSelected(false);
+			}
+		}
+
+
+	}
 }

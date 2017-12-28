@@ -1,5 +1,7 @@
 package VO.goodsVO;
 
+import util.GoodsUtil;
+
 public class GoodsVO {
 	/**
 	 * 商品编号
@@ -37,6 +39,10 @@ public class GoodsVO {
 	 * 数据库主键
 	 */
 	int autoId;
+    /**
+     * 商品状态 即是否被删除
+     */
+	GoodsUtil state = GoodsUtil.EXIST;
 	
 	public GoodsVO(String goodsID,String goodsCategory,String goodsName,String goodsType
 			,double goodsBuyPrice,double goodsSellPrice,double recentBuyPrice,double recentSellPrice) {
@@ -49,6 +55,14 @@ public class GoodsVO {
 		this.recentBuyPrice = recentBuyPrice;
 		this.recentSellPrice = recentSellPrice;
 	}
+
+    public void setState(GoodsUtil state) {
+        this.state = state;
+    }
+
+    public GoodsUtil getState() {
+        return state;
+    }
 
     public int getAutoId() {
         return autoId;
@@ -73,9 +87,7 @@ public class GoodsVO {
 	public String getGoodsType() {
 		return goodsType;
 	}
-	
 
-	
 	public double getGoodsBuyPrice() {
 		return goodsBuyPrice;
 	}
@@ -96,11 +108,39 @@ public class GoodsVO {
 	    this.goodsName = newGoodsName;
     }
 
-	public void setGoodsID(String goodsID) {
-		this.goodsID = goodsID;
+    public void setGoodsType(String goodsType) {
+        this.goodsType = goodsType;
+    }
+
+    public void setGoodsID(String id) {
+		this.goodsID = id;
 	}
 
     public void setGoodsCategory(String goodsCategory) {
         this.goodsCategory = goodsCategory;
+    }
+
+    public void setGoodsBuyPrice(double goodsBuyPrice) {
+        this.goodsBuyPrice = goodsBuyPrice;
+    }
+
+    public void setGoodsSellPrice(double goodsSellPrice) {
+        this.goodsSellPrice = goodsSellPrice;
+    }
+
+    public void setRecentBuyPrice(double recentBuyPrice) {
+        this.recentBuyPrice = recentBuyPrice;
+    }
+
+    public void setRecentSellPrice(double recentSellPrice) {
+        this.recentSellPrice = recentSellPrice;
+    }
+
+    public double getRecentBuyPrice() {
+        return recentBuyPrice;
+    }
+
+    public double getRecentSellPrice() {
+        return recentSellPrice;
     }
 }

@@ -1,6 +1,7 @@
 package bl.listbl;
 
 public interface SalesBussinessSituation {
+	//出错时返回-1
 	/*
 	 * 把所有销售单遍历一遍，累加一下每张单据的折让后金额，返回加起来的数值
 	 */

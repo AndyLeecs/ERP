@@ -3,6 +3,7 @@ package VO.saleVO;
 import java.util.List;
 
 import util.State;
+import util.UserGrade;
 
 /**     
 * @author 李安迪
@@ -42,10 +43,10 @@ public class SaleListVO extends SalesmanListVO{
 	public void setVoucher(double voucher) {
 		this.voucher = voucher;
 	}
-	public SaleListVO(String id, String operator, String operatorId, State state,String memberID, String memberName,
+	public SaleListVO(String id, String operator, String operatorId, State state,UserGrade operatorGrade,String memberID, String memberName,
 			String operator2, String warehouse, String notes, List<SalesmanItemVO> saleListItems, double sum,
 			double sumBeforeRebate, double rebate, double voucher) {
-		super(id, operator, operatorId, state, memberID, memberName, operator2, warehouse, notes, saleListItems, sum);
+		super(id, operator, operatorId, state, operatorGrade,memberID, memberName, operator2, warehouse, notes, saleListItems, sum);
 		this.sumBeforeRebate = sumBeforeRebate;
 		this.rebate = rebate;
 		this.voucher = voucher;

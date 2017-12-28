@@ -1,5 +1,7 @@
 package VO.goodsVO;
 
+import util.GoodsUtil;
+
 /**
 * @author 李安迪
 * @date 2017年10月22日
@@ -8,8 +10,18 @@ package VO.goodsVO;
 public class GoodsCategoryVO {
 	String goodsCategoryName;
 	String parentName;
+	int autoId;
+	GoodsUtil state = GoodsUtil.EXIST;
 
-	public String getGoodsCategoryName() {
+    public GoodsUtil getState() {
+        return state;
+    }
+
+    public void setState(GoodsUtil state) {
+        this.state = state;
+    }
+
+    public String getGoodsCategoryName() {
 		return goodsCategoryName;
 	}
 
@@ -29,4 +41,12 @@ public class GoodsCategoryVO {
 	this.goodsCategoryName = goodsCategoryName;
 	this.parentName = parentName;
 	}
+
+    public void setAutoId(int autoId) {
+        this.autoId = autoId;
+    }
+
+    public int getAutoId() {
+        return autoId;
+    }
 }

@@ -1,6 +1,5 @@
 package dataHelper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.OptimisticLockException;
@@ -12,14 +11,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.CriteriaSpecification;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.criterion.SimpleExpression;
 
-import PO.SalesmanListPO;
+import PO.ListPO;
 import util.DataRM;
+import util.DateUtil;
+import util.State;
 
 /**     
 * @author 李安迪
@@ -33,8 +29,6 @@ public class HibernateUtil<T> implements BasicUtil<T>{
     private Session session = null;
     private Transaction transaction = null;
 
-//    public SessionFactory sessionFactory;
-//    public Session session;//用public简易测试
     private Class<T> type;
     
     public HibernateUtil(Class<T> type) {
@@ -64,11 +58,6 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         return id;
     }
 	
-
-	/* (non-Javadoc)
-	 * @see dataHelper.BasicUtil#insert(java.lang.Object)
-	 * 此方法并不是正确的实现，需要的人自己实现一下吧		//TODO ？？？现在对不对？我看没啥问题，并且这个方法已经被人用过了。如果没有问题，请把注释删掉
-	 */
 	@Override
 	public String insert(Object po) {
 		session = sessionFactory.openSession();
@@ -76,7 +65,6 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 		String id = "";
         try {
         	transaction = session.beginTransaction();
-            //id = (String)session.save(type.getName(), po);
             id = ""+session.save(type.getName(), po);
             transaction.commit();
         } catch (HibernateException e) {
@@ -92,6 +80,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         return id;
 	}
 	
+	@Override
 	public DataRM delete(String id){
 		session = sessionFactory.openSession();
 		transaction = null;
@@ -133,7 +122,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         } catch (OptimisticLockException e) {
         	if(transaction!=null){
         		transaction.rollback();
-        		rm = DataRM.NOT_EXIST;				//TODO 这个是这么回事吗？请在此处回复我一下
+        		rm = DataRM.NOT_EXIST;				//TODO 这个是这么回事吗？请在此处回复我一下 re:不知道 rere:我是想问这个异常是代表NOT_EXIST吗
         	}
         	e.printStackTrace();
         	rm = DataRM.FAILED;
@@ -324,8 +313,60 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 	
 	@Override
 	public T getLastRow(){
-		//TODO 不会实现。请专家操刀一下
-		return null;
+		session = sessionFactory.openSession();
+		transaction = null;
+		List<T> list = null;
+	try{
+		transaction = session.beginTransaction();
+        Criteria criteria = session.createCriteria(type.getName());
+        list = criteria.list();
+        T po = null;
+        if(list!=null&&(!list.isEmpty())){
+        po = list.get(list.size()-1);
+        }
+        transaction.commit();
+        session.close();
+        return po;
+    } catch (HibernateException e) {
+    	if(transaction != null)
+    	{
+    		transaction.rollback();
+    	}
+    	System.out.println("hibernate Exception in query");
+    	e.printStackTrace();
+    	return null;
+    }finally{
+    	session.close();
+    }
+	}
+	
+	private static final int LIST_MAX_NUM = 99999;
+	
+	@Override
+	public String getNewListId(String prefix, ListPO po){
+		T lastpo = getLastRow();
+		String currentDate = DateUtil.getCurrentDate();
+		String newId = prefix +"-"+currentDate + "-";
+		if(lastpo == null){		//表空
+			newId +="00001";
+		}
+		String lastId = ((ListPO)lastpo).getId();
+		String date = DateUtil.getDateFromListIDAsString(lastId);
+		if(!currentDate.equals(date)){		//今天的第一张单子
+			newId += "00001";
+		}
+		else{
+			int num = Integer.parseInt(lastId.substring(lastId.lastIndexOf('-')+1));
+			if(num == LIST_MAX_NUM)
+				return null;
+			newId += String.valueOf(++num);
+		}
+		
+		po.setId(newId);
+		po.setState(State.IsEditting);
+		insert(po);
+		return newId;
+		
 	}
 
 

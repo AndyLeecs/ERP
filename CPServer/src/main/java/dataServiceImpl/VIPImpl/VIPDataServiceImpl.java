@@ -1,6 +1,5 @@
 package dataServiceImpl.VIPImpl;
 
-import PO.GoodsPO;
 import PO.VIPPO;
 import dataHelper.*;
 import dataService.VIPDataService.VIPDataService;
@@ -28,11 +27,11 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
      * 前置条件	用户选择新建客户
      * 后置条件	系统显示客户电话和编号
      *
-     * @return VIPB ID
+     * @return VIP ID
      */
     @Override
-    public String newVIPID() throws RemoteException{
-        return ""+util.insertForAuto(new GoodsPO());
+    public String newVIPID(VIPPO po) throws RemoteException{
+        return ""+util.insertForAuto(po);
     }
 
     /**
@@ -48,16 +47,16 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
         List<CriterionClause> l = new ArrayList<CriterionClause>();
         switch (type){
             case "name":
-                criterionClauseGenerator.generateFuzzyCriterion(l,"name",type);
-                criterionClauseGenerator.generateFuzzyCriterion(l,"state",VIPUtil.EXIST);
+                criterionClauseGenerator.generateFuzzyCriterion(l,"name",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
                 break;
             case "phoneNumber":
-                criterionClauseGenerator.generateFuzzyCriterion(l,"phoneNumber",type);
-                criterionClauseGenerator.generateFuzzyCriterion(l,"state",VIPUtil.EXIST);
+                criterionClauseGenerator.generateFuzzyCriterion(l,"phoneNumber",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
                 break;
             case "id":
-                criterionClauseGenerator.generateFuzzyCriterion(l,"id",type);
-                criterionClauseGenerator.generateFuzzyCriterion(l,"state",VIPUtil.EXIST);
+                criterionClauseGenerator.generateFuzzyCriterion(l,"id",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
                 break;
         }
         return util.Query(l);
@@ -74,8 +73,9 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
     public VIPPO getVIP(String name) throws RemoteException {
         List<CriterionClause> l = new ArrayList<CriterionClause>();
         criterionClauseGenerator.generateFuzzyCriterion(l,"name",name);
-        criterionClauseGenerator.generateFuzzyCriterion(l,"state",VIPUtil.EXIST);
-        return util.Query(l).get(0);
+        criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
+        System.out.println(util.Query(l).size());
+        return util.Query(l).get(util.Query(l).size()-1);
     }
 
     /**
@@ -86,10 +86,15 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
      * @return
      */
     @Override
-    public ResultMessage deleteVIP(String id) throws RemoteException {
+    public ResultMessage deleteVIP(String name) throws RemoteException {
         List<CriterionClause> l = new ArrayList<CriterionClause>();
-        criterionClauseGenerator.generateFuzzyCriterion(l,"id",id);
-        util.Query(l).get(0).setState(VIPUtil.DELETE);
+        criterionClauseGenerator.generateFuzzyCriterion(l,"name",name);
+        criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
+        System.out.println(util.Query(l).size());
+        VIPPO po = util.Query(l).get(util.Query(l).size()-1);
+        	po.setState(VIPUtil.DELETE);
+        modifyVIP(po);
+        System.out.println(po.getState());
         return ResultMessage.SUCCESS;
     }
 
@@ -102,22 +107,7 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
      */
     @Override
     public ResultMessage modifyVIP(VIPPO po) throws RemoteException{
-        po.setState(VIPUtil.EXIST);
         util.update(po);
-        return ResultMessage.SUCCESS;
-    }
-
-    /**
-     * 前置条件	用户保存已初始化的客户信息
-     * 后置条件	系统更新客户信息
-     *
-     * @param po
-     * @return
-     */
-    @Override
-    public ResultMessage initAndSaveVIP(VIPPO po) throws RemoteException{
-        po.setState(VIPUtil.EXIST);
-        util.insert(po);
         return ResultMessage.SUCCESS;
     }
 }

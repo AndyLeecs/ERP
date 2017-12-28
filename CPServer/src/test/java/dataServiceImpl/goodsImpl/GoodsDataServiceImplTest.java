@@ -2,7 +2,6 @@ package dataServiceImpl.goodsImpl;
 
 import PO.GoodsCategoryPO;
 import PO.GoodsPO;
-import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
 
 import util.GoodsUtil;
 import util.ResultMessage;
@@ -39,38 +38,32 @@ public class GoodsDataServiceImplTest {
     
     @org.junit.Test
     public void newGoodsID() throws Exception {
-    	//new GoodsDataServiceImpl().newGoodsID();
-    //	assertEquals("",new GoodsDataServiceImpl().newGoodsID());
+    //	assertEquals("",new GoodsDataServiceImpl().newGoodsID(goodsPO));
     }
 
     @org.junit.Test
     public void findGoods() throws Exception {
-    //	assertEquals(goodsPO2,new GoodsDataServiceImpl().findGoods("护眼灯", "goodsName"));
+    	//assertEquals(goodsPO2,new GoodsDataServiceImpl().findGoods("商品分类", "商品名称"));
     //	assertEquals(goodsPO2,new GoodsDataServiceImpl().findGoods("2", "goodsID"));
     }
 
     @org.junit.Test
     public void getGoods() throws Exception {  
-    //	assertEquals(goodsPO,new GoodsDataServiceImpl().getGoods("商品名称", "商品分类"));
+    	assertEquals(goodsPO,new GoodsDataServiceImpl().getGoods("商品名称", "商品分类"));
     }
 
     @org.junit.Test
     public void deleteGoods() throws Exception {
-    //	assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().deleteGoods("商品分类", "护眼灯"));
+    	//assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().deleteGoods("商品分类", "商品名称"));
     }
 
     @org.junit.Test
     public void modifyGoods() throws Exception {
-    	GoodsDataServiceImpl g = new GoodsDataServiceImpl();
-    GoodsPO	po = (GoodsPO)g.findGoods("护眼灯", "goodsName").get(0);
-    po.setGoodsCategory("学习灯");
-    po.setGoodsID("1001");
-    	assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().modifyGoods(po));
-    }
-
-    @org.junit.Test
-    public void initAndSaveGoods() throws Exception {
-    	//assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().initAndSaveGoods(goodsPO2));
+    //	GoodsDataServiceImpl g = new GoodsDataServiceImpl();
+    //GoodsPO	po = (GoodsPO)g.findGoods("护眼灯", "goodsName").get(0);
+    //po.setGoodsCategory("学习灯");
+    //po.setGoodsID("1001");
+    	//assertEquals(ResultMessage.SUCCESS,new GoodsDataServiceImpl().modifyGoods(po));
     }
 
     @org.junit.Test

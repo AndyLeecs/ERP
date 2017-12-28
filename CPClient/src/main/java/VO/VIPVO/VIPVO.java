@@ -1,5 +1,7 @@
 package VO.VIPVO;
 
+import util.VIPUtil;
+
 public class VIPVO {
       public String id; //编号
       public String category; //分类
@@ -13,9 +15,11 @@ public class VIPVO {
       double collectionLimit;//应收额度
       double payment; //应付
       String clerk; // 默认业务员
-    private String VIPID;
-    private String VIPName;
-    private String VIPCategory;
+      int autoId;//数据库主键
+      VIPUtil state = VIPUtil.EXIST;//会员状态 即是否被删除
+//    private String VIPID;
+//    private String VIPName;
+//    private String VIPCategory;
 
     public VIPVO(String id, String category, String grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
           this.id = id;
@@ -38,6 +42,22 @@ public class VIPVO {
     	  return result;
       }
 
+    public void setState(VIPUtil state) {
+        this.state = state;
+    }
+
+    public VIPUtil getState() {
+        return state;
+    }
+
+    public int getAutoId() {
+          return autoId;
+      }
+
+    public void setAutoId(int autoId) {
+          this.autoId = autoId;
+      }
+      
     public String getId() {
         return id;
     }

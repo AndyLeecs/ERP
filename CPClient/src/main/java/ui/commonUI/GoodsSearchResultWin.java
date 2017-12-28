@@ -30,7 +30,7 @@ public class GoodsSearchResultWin extends Stage{
 	   		 System.out.println(controller);
 	   		 FXMLLoader loader = new FXMLLoader(
 	   				    getClass().getResource(
-	   				        "/fxml/commonUI/GoodsSearchResult.fxml"));
+	   				        "/fxml/commonUI/SearchResult.fxml"));
 	   		 System.out.println(loader);
 	   				loader.setController(controller);
 	   				root = loader.load();

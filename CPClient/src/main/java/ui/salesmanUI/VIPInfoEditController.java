@@ -30,13 +30,20 @@ public class VIPInfoEditController {
     @FXML public TextField clerk;
     @FXML public TextField payment;
     @FXML public Button saveVIPInfoBtn;
+    public VIPVO vipVO;
+    public static String vip;
 
     VIPBLService vipBLService = new VIPBLServiceImpl();
 
+    @FXML
+    public void initialize() throws RemoteException{
+        init(vip);
+    }
 
     public void init(String vip) throws RemoteException {
         System.out.println(vip);
-        VIPVO vipVO = vipBLService.getVIP(vip);
+        vipVO = vipBLService.getVIP(vip);
+
         name.setText(vipVO.getName());
         id.setText(vipVO.getId());
         category.setText(vipVO.getCategory());
@@ -54,21 +61,20 @@ public class VIPInfoEditController {
 
     @FXML
     public void setSaveVIPInfoBtn() throws RemoteException{
-        VIPVO vipvo = new VIPVO(id.getText()
-                ,category.getText()
-                ,grade.getText()
-                ,name.getText()
-                ,phoneNumber.getText()
-                ,email.getText()
-                ,address.getText()
-                ,postcode.getText()
-                ,Double.parseDouble(collection.getText())
-                ,Double.parseDouble(collectionLimit.getText())
-                ,Double.parseDouble(payment.getText())
-                ,clerk.getText()
-        );
+        vipVO.setName(name.getText());
+        vipVO.setId(id.getText());
+        vipVO.setCategory(category.getText());
+        vipVO.setGrade(grade.getText());
+        vipVO.setPhoneNumber(phoneNumber.getText());
+        vipVO.setAddress(address.getText());
+        vipVO.setEmail(email.getText());
+        vipVO.setPostCode(postcode.getText());
+        vipVO.setCollectionLimit(Double.parseDouble(collectionLimit.getText()));
+        vipVO.setCollection(Double.parseDouble(collection.getText()));
+        vipVO.setClerk(clerk.getText());
+        vipVO.setPayment(Double.parseDouble(payment.getText()));
 
-        vipBLService.modifyVIP(vipvo);
+        vipBLService.modifyVIP(vipVO);
         Platform.runLater(()->{
             root.getScene().getWindow().hide();
         });

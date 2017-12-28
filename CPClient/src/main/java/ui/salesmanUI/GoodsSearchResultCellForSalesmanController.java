@@ -2,6 +2,7 @@ package ui.salesmanUI;
 
 import VO.GoodsInSaleVO;
 import VO.goodsVO.GoodsVO;
+import VO.saleVO.SalesmanItemVO;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -13,7 +14,7 @@ import javafx.scene.control.Label;
 */
 public class GoodsSearchResultCellForSalesmanController {
 
-GoodsVO vo;
+SalesmanItemVO vo;
 
 	@FXML public Label id;
 	@FXML public Label name;
@@ -22,13 +23,13 @@ GoodsVO vo;
 	
 	@FXML
 	void initialize(){
-		id.setText(vo.getGoodsID()+"");
-		name.setText(vo.getGoodsName());
+		id.setText(vo.getId()+"");
+		name.setText(vo.getName());
 	}
 	/**
 	 * @param vo
 	 */
-	public GoodsSearchResultCellForSalesmanController(GoodsVO vo) {
+	public GoodsSearchResultCellForSalesmanController(SalesmanItemVO vo) {
 		// TODO Auto-generated constructor stub
 		this.vo = vo;
 	}

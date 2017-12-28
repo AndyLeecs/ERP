@@ -15,7 +15,7 @@ import VO.presentVO.PresentVO;
 import bl.goodsbl.GoodsFuzzySearch;
 import bl.goodsbl.GoodsFuzzySearchImpl;
 import bl.presentbl.PresentBLFactory;
-import bl.utility.GoodsTransGoodsInSale;
+import bl.utility.GoodsVOTrans;
 import blservice.presentblservice.PresentForSpecialPackageBLService;
 import blservice.presentblservice.PresentForSumBLService;
 import javafx.fxml.FXML;
@@ -64,6 +64,10 @@ public class PresentForSpecialPackageController implements SinglePresentEditable
     private static final String rebateError = "折让金额格式错误";
     
     protected List<TextField> textFieldList;
+    
+    private static final String numberError = "商品数量数字格式错误";
+    protected List<PresentEditCellController> controllerList;
+
     
     private PresentForSpecialPackageBLService service;
     private Strategy strategy;
@@ -203,6 +207,7 @@ public class PresentForSpecialPackageController implements SinglePresentEditable
     	fuzzySearch = new GoodsFuzzySearchImpl();
     	this.goodsList = new ArrayList<GoodsInSaleVO>();
     	this.presentList = new ArrayList<GoodsInSaleVO>();
+    	this.controllerList = new ArrayList<PresentEditCellController>();
 	}
 	public PresentForSpecialPackageController(Strategy strategy,ManagerController managerController,PresentVO vo){
 		this.strategy = strategy;
@@ -212,6 +217,7 @@ public class PresentForSpecialPackageController implements SinglePresentEditable
     	fuzzySearch = new GoodsFuzzySearchImpl();
     	this.goodsList = new ArrayList<GoodsInSaleVO>();
     	this.presentList = new ArrayList<GoodsInSaleVO>();
+    	this.controllerList = new ArrayList<PresentEditCellController>();
 	}		
 	@FXML
     public void initialize(){
@@ -298,9 +304,20 @@ public class PresentForSpecialPackageController implements SinglePresentEditable
 				rebate = Double.parseDouble(rebateInString);
 			}catch(Exception e){
 				rebateErrorMessage.setText(rebateError);
+				return;
 			}
-
-		
+		//检查赠品清单合法性
+		presentList.clear();
+		for(PresentEditCellController c :controllerList){
+			//更新vo数量
+			c.vo.setAmount(Integer.parseInt(c.amount.getText()));
+			presentList.add(c.vo);
+			if(!c.isValid())
+			{
+				nullErrorMessage.setText(numberError);
+				return;
+			}
+		}		
 		
 		//打包成vo
 		PresentForSpecialPackageVO vo = new PresentForSpecialPackageVO(id,startTime, finishTime, presentList,rebate);
@@ -362,7 +379,7 @@ public class PresentForSpecialPackageController implements SinglePresentEditable
 		//去重
 		temp = new ArrayList<GoodsVO>(new LinkedHashSet<>(temp));
 		
-		goodsList = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(temp);
+		goodsList = GoodsVOTrans.GoodsTransGoodsInSaleInList(temp);
 		
 //		List<GoodsInSaleVO> listById = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(fuzzySearch.getGoodsInID(message));
 //		List<GoodsInSaleVO> listByName = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(fuzzySearch.getGoodsInGoodsName(message));
@@ -409,10 +426,12 @@ public class PresentForSpecialPackageController implements SinglePresentEditable
 	@Override
 	public void refresh() {
 		presentListVBox.getChildren().clear();
+		controllerList.clear();
 		// TODO Auto-generated method stub
 		for(GoodsInSaleVO vo : presentList){
    		 PresentEditCellController controller = 
    				    new PresentEditCellController(this,vo);
+   		 controllerList.add(controller);
    		 FXMLLoader loader = new FXMLLoader(
    				    getClass().getResource(
    				        "/fxml/managerUI/PresentCell.fxml"));

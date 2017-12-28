@@ -38,17 +38,22 @@ public class GoodsBLServiceImpl implements GoodsBLService {
 
 
     @Override
-    public String newGoodsID() throws RemoteException{
-        return goods.newGoodsID();
+    public int newGoodsCategoryAutoId(GoodsCategoryVO vo) throws RemoteException {
+        return goodsCategory.newGoodsCategoryAutoId(vo);
+    }
+
+    @Override
+    public String newGoodsID(GoodsVO goodsVO) throws RemoteException{
+        return goods.newGoodsID(goodsVO);
     }
 
     @Override
     public List<GoodsVO> findGoods(String info, String type) throws RemoteException{
-        ArrayList<GoodsVO> goodsVOS = new ArrayList<>();
-        goodsVOS.add(goodsVO1);
-        goodsVOS.add(goodsVO2);
-        return goodsVOS;
-        //return goods.findGoods(info, type);
+        //ArrayList<GoodsVO> goodsVOS = new ArrayList<>();
+        //goodsVOS.add(goodsVO1);
+        //goodsVOS.add(goodsVO2);
+        //return goodsVOS;
+        return goods.findGoods(info, type);
     }
 
     @Override
@@ -67,23 +72,18 @@ public class GoodsBLServiceImpl implements GoodsBLService {
     }
 
     @Override
-    public ResultMessage initAndSaveGoods(GoodsVO vo) throws RemoteException {
-        return goods.initAndSaveGoods(vo);
-    }
-
-    @Override
-    public ResultMessage newGoodsCategory(GoodsCategoryVO vo) throws RemoteException {
-        return goodsCategory.newGoodsCategory(vo);
-    }
-
-    @Override
     public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo) throws RemoteException {
         return goodsCategory.deleteGoodsCategory(vo);
     }
 
     @Override
-    public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO, GoodsCategoryVO newVO) throws RemoteException {
-        return goodsCategory.modifyGoodsCategory(oldVO, newVO);
+    public ResultMessage modifyGoodsCategory(GoodsCategoryVO newVO) throws RemoteException {
+        return goodsCategory.modifyGoodsCategory(newVO);
+    }
+
+    @Override
+    public GoodsCategoryVO getCategory(String goodsCategoryName, String parentName) throws RemoteException {
+        return goodsCategory.getCategory(goodsCategoryName,parentName);
     }
 
     @Override

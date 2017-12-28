@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PO.PresentForMembershipPO;
-import PO.PresentForSumPO;
 import dataHelper.BasicUtil;
 import dataHelper.CriterionClause;
 import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
+import dataHelper.HibernateOrderClauseGenerator;
 import dataHelper.HibernateUtil;
 import dataHelper.OrderClause;
 import dataHelper.OrderClauseGenerator;
@@ -37,6 +37,7 @@ public class PresentForMembershipDataServiceImpl extends UnicastRemoteObject imp
 
 		util = new HibernateUtil<PresentForMembershipPO>(PresentForMembershipPO.class);
 		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
+		orderClauseGenerator = new HibernateOrderClauseGenerator();
 	}
 	/* (non-Javadoc)
 	 * @see dataService.presentDataService.PresentForSumDataService#insert()

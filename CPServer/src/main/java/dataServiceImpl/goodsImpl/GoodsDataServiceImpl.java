@@ -32,8 +32,15 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     }
 
     @Override
-    public String newGoodsID() throws RemoteException{
-        return ""+goodsUtil.insertForAuto(new GoodsPO());
+    public int newGoodsCategoryAutoId(GoodsCategoryPO po) throws RemoteException {
+    	    po.setState(GoodsUtil.EXIST);
+        return categoryUtil.insertForAuto(po);
+    }
+
+    @Override
+    public String newGoodsID(GoodsPO po) throws RemoteException{
+     	po.setState(GoodsUtil.EXIST);
+        return ""+goodsUtil.insertForAuto(po);
     }
 
     @Override
@@ -52,6 +59,10 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
                 criterionClauseGenerator.generateFuzzyCriterion(l,"goodsID",info);
                 criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
                 break;
+            case "goodsCategory":
+             	criterionClauseGenerator.generateFuzzyCriterion(l,"goodsCategory",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
+                break;
         }
         return goodsUtil.Query(l);
     }
@@ -64,7 +75,7 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
         criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
         GoodsPO po = goodsUtil.Query(l).get(goodsUtil.Query(l).size()-1);
         System.out.println(po.getState());
-        return po;//只需获取一个确切的商品信息 这里方法存疑
+        return po;
     }
 
     @Override
@@ -86,32 +97,28 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     }
 
     @Override
-    public ResultMessage initAndSaveGoods(GoodsPO po) throws RemoteException{
-        po.setState(GoodsUtil.EXIST);
-        goodsUtil.insert(po);
-        return ResultMessage.SUCCESS;
-    }
-
-    @Override
-    public ResultMessage newGoodsCategory(GoodsCategoryPO po) throws RemoteException{
-    	po.setState(GoodsUtil.EXIST);
-        categoryUtil.insert(po);
-        return ResultMessage.SUCCESS;
-    }
-
-    @Override
     public ResultMessage deleteGoodsCategory(GoodsCategoryPO po) throws RemoteException{
     	System.out.println(po.getAutoId());
         GoodsCategoryPO goodsCategoryPO = (GoodsCategoryPO)(categoryUtil.get(po.getAutoId()));
         goodsCategoryPO.setState(GoodsUtil.DELETE);
-        modifyGoodsCategory(null,goodsCategoryPO);
+        modifyGoodsCategory(goodsCategoryPO);
         return ResultMessage.SUCCESS;
     }
 
     @Override
-    public ResultMessage modifyGoodsCategory(GoodsCategoryPO oldPO, GoodsCategoryPO newPO) throws RemoteException{
+    public ResultMessage modifyGoodsCategory(GoodsCategoryPO newPO) throws RemoteException{
         categoryUtil.update(newPO);
         return ResultMessage.SUCCESS;
+    }
+
+    @Override
+    public GoodsCategoryPO getCategory(String goodsCategoryName, String parentName) throws RemoteException {
+        List<CriterionClause> l = new ArrayList<CriterionClause>();
+        criterionClauseGenerator.generateFuzzyCriterion(l,"goodsCategoryName",goodsCategoryName);
+        criterionClauseGenerator.generateFuzzyCriterion(l,"parentName",parentName);
+        criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
+        List<GoodsCategoryPO> list = categoryUtil.Query(l);
+        return list.get(list.size()-1);
     }
 
     @Override

@@ -24,18 +24,16 @@ public class VIPSearchResultController {
 	@FXML public Button cancelBtn;
 	@FXML public Button sureBtn;
 	
-	//存了一个VIPvo，但是展示的是VIPinsalevo
+
 	private List<VIPVO> list;
-	private List<VIPSearchResultCellController> cellList;
-//	private List<VIPInSaleVO> returnList;
+	List<VIPSearchResultCellController> cellList;
+
 	private SalesmanListWinController parentController;
-	/**
-	 * @param VIPList
-	 * @param parentController
-	 */
+
+	
 	public VIPSearchResultController(List<VIPVO> VIPList,
 			SalesmanListWinController parentController) {
-		// TODO Auto-generated constructor stub
+
 		this.list = VIPList;
 		this.parentController = parentController;
 	}
@@ -44,7 +42,7 @@ public class VIPSearchResultController {
 		for(int i = 0 ; i < list.size() ; i++){
 			VIPVO vo = list.get(i);
 	   		 VIPSearchResultCellController controller = 
-	   				    new VIPSearchResultCellController(vo);
+	   				    new VIPSearchResultCellController(vo,this);
 	   		 FXMLLoader loader = new FXMLLoader(
 	   				    getClass().getResource(
 	   				        "/fxml/salesmanUI/VIPSearchResultCell.fxml"));
@@ -53,7 +51,6 @@ public class VIPSearchResultController {
 					try {
 						cell = loader.load();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 	   		cellList.add(controller);		
@@ -68,8 +65,10 @@ public class VIPSearchResultController {
 	
 	@FXML public void onSureBtnClicked(){
 		for(VIPSearchResultCellController controller: cellList){
-			if(controller.checkBox.isSelected())
+			if(controller.checkBox.isSelected()){
 				parentController.setVIP(controller.vo);
+				break;
+			}
 		}
 
 		root.getScene().getWindow().hide();

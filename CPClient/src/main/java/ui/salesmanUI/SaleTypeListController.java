@@ -1,7 +1,14 @@
 package ui.salesmanUI;
 
+import java.util.List;
+
+import VO.VIPVO.VIPVO;
+import VO.goodsVO.GoodsVO;
+import VO.saleVO.SaleListVO;
+import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import ui.commonUI.ParentController;
+import util.DataRM;
 
 /**     
 * @author 李安迪
@@ -20,4 +27,28 @@ public abstract class SaleTypeListController extends SalesmanListWinController {
 		// TODO Auto-generated constructor stub
 	}
 
+	/* (non-Javadoc)
+	 * @see ui.salesmanUI.SalesmanListWinController#getVIPList(java.lang.String, java.util.List)
+	 */
+	@Override
+	public void getVIPList(String message, List<VIPVO> temp) {
+		// TODO Auto-generated method stub
+	
+		try {
+			temp.addAll(vipFuzzySearch.getVIPInIDOnlyRetailer(message));
+			temp.addAll(vipFuzzySearch.getVIPInNameOnlyRetailer(message));
+			temp.addAll(vipFuzzySearch.getVIPInPhoneNumberOnlyRetailer(message));
+
+		} catch (java.rmi.RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			showInformationDialog(DataRM.FAILED);
+		}
+		
+	}
+	
+	@Override
+	public void showSearchGoodsWin(List<GoodsVO> temp){
+		
+	}
 }

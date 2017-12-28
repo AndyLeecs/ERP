@@ -16,40 +16,60 @@ import java.util.ArrayList;
 public class GoodsCategory {
     GoodsDataService goodsDataService = GoodsDataServiceHelper.getInstance().getGoodsDataService();
 
-    public ResultMessage newGoodsCategory(GoodsCategoryVO vo){
-        try {
-			goodsDataService.newGoodsCategory(voToPO(vo));
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        return ResultMessage.SUCCESS;
-
-    }
-
     public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo) throws RemoteException{
         goodsDataService.deleteGoodsCategory(voToPO(vo));
         return ResultMessage.SUCCESS;
 
     }
 
-    public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO, GoodsCategoryVO newVO) throws RemoteException{
-        goodsDataService.modifyGoodsCategory(voToPO(oldVO),voToPO(newVO));
+    public ResultMessage modifyGoodsCategory(GoodsCategoryVO newVO) throws RemoteException{
+        goodsDataService.modifyGoodsCategory(voToPO(newVO));
         return ResultMessage.SUCCESS;
 
     }
 
-    public ArrayList<String> getAllCategory(String node) throws RemoteException{
+    public ArrayList<GoodsCategoryVO> getAllCategory(String node) throws RemoteException{
     	//加一行输出
     	System.out.println("bl.goodsbl.GoodsCategory 获取所有商品分类");
-    	for(int i =0;i<goodsDataService.getAllCategory(node).size();i++) {
-    		System.out.println(goodsDataService.getAllCategory(node).get(i));
-    	}
-        return (ArrayList<String>) goodsDataService.getAllCategory(node);
+    	//for(int i =0;i<goodsDataService.getAllCategory(node).size();i++) {
+    	//	System.out.println(goodsDataService.getAllCategory(node).get(i));
+    	//}
+    	ArrayList<GoodsCategoryVO> list = new ArrayList<>();
+        ArrayList<GoodsCategoryPO> allCategory = (ArrayList<GoodsCategoryPO>) goodsDataService.getAllCategory(node);
+		for(int i =0;i<allCategory.size();i++) {
+			list.add(poToVO(allCategory.get(i)));
+		}
+        return list;
+    }
+
+    public GoodsCategoryVO getCategory(String goodsCategoryName,String parentName) throws RemoteException {
+        return poToVO(goodsDataService.getCategory(goodsCategoryName,parentName));
+    }
+
+    public int newGoodsCategoryAutoId(GoodsCategoryVO vo)  {
+        try {
+        	System.out.println(voToPO(vo).getGoodsCategoryName());
+        	System.out.println(goodsDataService);
+			return goodsDataService.newGoodsCategoryAutoId(voToPO(vo));
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;
     }
 
     private GoodsCategoryPO voToPO(GoodsCategoryVO vo){
-        return vo ==null?null:new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName(),null);
+        GoodsCategoryPO po = new GoodsCategoryPO(vo.getGoodsCategoryName(),vo.getParentName(),null);
+        po.setAutoId(vo.getAutoId());
+        po.setState(vo.getState());
+        return po;
+    }
+
+    private GoodsCategoryVO poToVO(GoodsCategoryPO po){
+        GoodsCategoryVO vo = new GoodsCategoryVO(po.getGoodsCategoryName(),po.getParentName());
+        vo.setAutoId(po.getAutoId());
+        vo.setState(po.getState());
+        return vo;
     }
 
 }

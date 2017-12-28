@@ -18,5 +18,6 @@
         <property name="name"/>
         <property name="payment"/>
         <property name="phoneNumber"/>
+        <property name="state"/>
     </class>
 </hibernate-mapping>
