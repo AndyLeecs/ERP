@@ -19,8 +19,10 @@ import java.util.ArrayList;
 public class Goods {
     GoodsDataService goodsDataService = GoodsDataServiceHelper.getInstance().getGoodsDataService();
 
-    public String newGoodsID(){
-        return null;
+    public String newGoodsID(GoodsVO vo) throws RemoteException{
+    	    Store_Interface store_interface = new Store_InterfaceImpl();
+        store_interface.addStoreItem(voToStoreVO(goodsVO));
+        return goodsDataService.newGoodsID(voToPO(vo));
     }
 
     public ArrayList<GoodsVO> findGoods(String info, String type) throws RemoteException {
@@ -49,19 +51,6 @@ public class Goods {
 
     }
 
-    public ResultMessage initAndSaveGoods(GoodsVO vo) {
-        try {
-			goodsDataService.initAndSaveGoods(voToPO(vo));
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        Store_Interface store_interface = new Store_InterfaceImpl();
-        store_interface.addStoreItem(voToStoreVO(goodsVO));
-        return ResultMessage.SUCCESS;
-
-    }
-
     //用于未经初始化的商品信息
     GoodsVO goodsVO = new GoodsVO("0"
             ,"商品分类"
@@ -77,7 +66,7 @@ public class Goods {
         return storeVO;
     }
 
-    private GoodsPO voToPO(GoodsVO goodsVO){
+    public GoodsPO voToPO(GoodsVO goodsVO){
         GoodsPO po = new GoodsPO(goodsVO.getGoodsID()
                 ,goodsVO.getGoodsCategory()
                 ,goodsVO.getGoodsName()
@@ -93,7 +82,7 @@ public class Goods {
         return po;
     }
 
-    private GoodsVO poToVO(GoodsPO goodsPO){
+    public GoodsVO poToVO(GoodsPO goodsPO){
         GoodsVO vo = new GoodsVO(goodsPO.getGoodsID()
                 ,goodsPO.getGoodsCategory()
                 ,goodsPO.getGoodsName()

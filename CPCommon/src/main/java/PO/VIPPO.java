@@ -1,6 +1,5 @@
 package PO;
 
-import util.VIPCategory;
 import util.VIPGrade;
 import util.VIPUtil;
 
@@ -8,7 +7,11 @@ import java.io.Serializable;
 
 public class VIPPO implements Serializable{
 
-    public String id; //编号
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4481008031933977248L;
+	public String id; //编号
     public String category; //分类
     String grade; //级别
     String name; //姓名

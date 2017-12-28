@@ -11,7 +11,7 @@ import ui.commonUI.SonController;
 /**     
 * @author 李安迪
 * @date 2017年12月24日
-* @description
+* @description 打开销售单和销售退货单列表
 */
 public class SaleTypeListViewController extends ListViewController{
 
@@ -25,12 +25,4 @@ public class SaleTypeListViewController extends ListViewController{
 		super(controller, service, list);
 		// TODO Auto-generated constructor stub
 	}
-
-
-
-
-
-	
-
-
 }

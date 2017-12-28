@@ -65,15 +65,39 @@ public class StockmanController {
      }
      
      @FXML public void lookPresentList() {
-    	 
+		 Platform.runLater(()->{
+			 try {
+				 StoreListWin win=new StoreListWin();
+				 root.getScene().getWindow().hide();
+				 win.controller.set(StoreListType.PRESENT);
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
      }
      
      @FXML public void lookStockOverflowList() {
-    	 
+		 Platform.runLater(()->{
+			 try {
+				 StoreListWin win=new StoreListWin();
+				 root.getScene().getWindow().hide();
+				 win.controller.set(StoreListType.OVERFLOW);
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
      }
      
      @FXML public void lookStockLostList() {
-    	 
+		Platform.runLater(()->{
+			 try {
+				 StoreListWin win=new StoreListWin();
+				 root.getScene().getWindow().hide();
+				 win.controller.set(StoreListType.LOSS);
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
      }
      
      @FXML public void lookAlarmList() {

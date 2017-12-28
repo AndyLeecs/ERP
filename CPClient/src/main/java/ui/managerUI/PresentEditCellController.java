@@ -18,7 +18,7 @@ public class PresentEditCellController {
 	
 	private final String INIT_AMOUNT= "1";
 	
-	private GoodsInSaleVO vo;
+	protected GoodsInSaleVO vo;
 	
 	private SinglePresentEditableController controller;
 	/**
@@ -37,5 +37,19 @@ public class PresentEditCellController {
 	@FXML void delete(){
 		//每次删除的时候删除vo,因为并没有保存vo中amount域的更改
 		controller.deleteFromPresentList(vo);
+	}
+	
+	boolean isValid(){
+		//检查总额合法性
+		String amountInString = amount.getText();
+		double amount = 0;
+		try{
+			amount = Double.parseDouble(amountInString);
+		}catch(Exception e){
+			return false;
+		}
+		
+		return true;
+	
 	}
 }

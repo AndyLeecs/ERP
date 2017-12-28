@@ -38,13 +38,13 @@ public class GoodsBLServiceImpl implements GoodsBLService {
 
 
     @Override
-    public int newGoodsCategoryAutoId() throws RemoteException {
-        return goodsCategory.newGoodsCategoryAutoId();
+    public int newGoodsCategoryAutoId(GoodsCategoryVO vo) throws RemoteException {
+        return goodsCategory.newGoodsCategoryAutoId(vo);
     }
 
     @Override
     public String newGoodsID(GoodsVO goodsVO) throws RemoteException{
-        return goods.newGoodsID();
+        return goods.newGoodsID(goodsVO);
     }
 
     @Override
@@ -72,18 +72,13 @@ public class GoodsBLServiceImpl implements GoodsBLService {
     }
 
     @Override
-    public ResultMessage newGoodsCategory(GoodsCategoryVO vo) throws RemoteException {
-        return goodsCategory.newGoodsCategory(vo);
-    }
-
-    @Override
     public ResultMessage deleteGoodsCategory(GoodsCategoryVO vo) throws RemoteException {
         return goodsCategory.deleteGoodsCategory(vo);
     }
 
     @Override
-    public ResultMessage modifyGoodsCategory(GoodsCategoryVO oldVO, GoodsCategoryVO newVO) throws RemoteException {
-        return goodsCategory.modifyGoodsCategory(oldVO, newVO);
+    public ResultMessage modifyGoodsCategory(GoodsCategoryVO newVO) throws RemoteException {
+        return goodsCategory.modifyGoodsCategory(newVO);
     }
 
     @Override

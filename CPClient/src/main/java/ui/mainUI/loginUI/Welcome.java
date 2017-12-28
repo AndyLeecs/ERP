@@ -11,6 +11,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import network.ServerConnector;
 
 
 public class Welcome extends Application {
@@ -35,8 +36,9 @@ public class Welcome extends Application {
         					try {
         						stage.close();
         						//new LoginWin();
-        						//new ui.salesmanUI.VIPWin();
-        						new ui.stockmanUI.StockmanWin();
+        						ServerConnector s = new ServerConnector();
+        						new ui.salesmanUI.VIPWin();
+        						//new ui.stockmanUI.StockmanWin();
         						//new ui.managerUI.ManagerWin();
         						
         					} catch (Exception e) {

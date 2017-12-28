@@ -32,12 +32,14 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     }
 
     @Override
-    public int newGoodsCategoryAutoId() throws RemoteException {
-        return goodsUtil.insertForAuto(new GoodsCategoryPO());
+    public int newGoodsCategoryAutoId(GoodsCategoryPO po) throws RemoteException {
+    	    po.setState(GoodsUtil.EXIST);
+        return categoryUtil.insertForAuto(po);
     }
 
     @Override
     public String newGoodsID(GoodsPO po) throws RemoteException{
+     	po.setState(GoodsUtil.EXIST);
         return ""+goodsUtil.insertForAuto(po);
     }
 
@@ -55,6 +57,10 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
                 break;
             case "goodsID":
                 criterionClauseGenerator.generateFuzzyCriterion(l,"goodsID",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
+                break;
+            case "goodsCategory":
+             	criterionClauseGenerator.generateFuzzyCriterion(l,"goodsCategory",info);
                 criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
                 break;
         }
@@ -91,23 +97,16 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     }
 
     @Override
-    public ResultMessage newGoodsCategory(GoodsCategoryPO po) throws RemoteException{
-    	po.setState(GoodsUtil.EXIST);
-        categoryUtil.insert(po);
-        return ResultMessage.SUCCESS;
-    }
-
-    @Override
     public ResultMessage deleteGoodsCategory(GoodsCategoryPO po) throws RemoteException{
     	System.out.println(po.getAutoId());
         GoodsCategoryPO goodsCategoryPO = (GoodsCategoryPO)(categoryUtil.get(po.getAutoId()));
         goodsCategoryPO.setState(GoodsUtil.DELETE);
-        modifyGoodsCategory(null,goodsCategoryPO);
+        modifyGoodsCategory(goodsCategoryPO);
         return ResultMessage.SUCCESS;
     }
 
     @Override
-    public ResultMessage modifyGoodsCategory(GoodsCategoryPO oldPO, GoodsCategoryPO newPO) throws RemoteException{
+    public ResultMessage modifyGoodsCategory(GoodsCategoryPO newPO) throws RemoteException{
         categoryUtil.update(newPO);
         return ResultMessage.SUCCESS;
     }

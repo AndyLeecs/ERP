@@ -3,6 +3,7 @@ package ui.salesmanUI;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
+import VO.goodsVO.GoodsVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -62,4 +63,6 @@ public class SaleTypeApproveListController extends SaleTypeListController {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 }

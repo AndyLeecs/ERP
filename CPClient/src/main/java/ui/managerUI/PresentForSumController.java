@@ -14,7 +14,7 @@ import VO.presentVO.PresentVO;
 import bl.goodsbl.GoodsFuzzySearch;
 import bl.goodsbl.GoodsFuzzySearchImpl;
 import bl.presentbl.PresentBLFactory;
-import bl.utility.GoodsTransGoodsInSale;
+import bl.utility.GoodsVOTrans;
 import blservice.presentblservice.PresentForSumBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +28,6 @@ import javafx.scene.layout.VBox;
 import ui.commonUI.GoodsSearchResultWin;
 import util.DataRM;
 import util.DateUtil;
-import util.NumberUtil;
 
 /**     
 * @author 李安迪
@@ -63,8 +62,11 @@ public class PresentForSumController implements SinglePresentEditableController{
 	    private static final String dateError = "日期格式错误";
 	    private static final String totalError = "总额格式错误";
 	    private static final String voucherError = "赠券金额格式错误";
-	    
+
 	    protected List<TextField> textFieldList;
+
+	    private static final String numberError = "商品数量数字格式错误";
+	    protected List<PresentEditCellController> controllerList;
 	    
 	    private PresentForSumBLService service;
 	    private Strategy strategy;
@@ -150,6 +152,7 @@ public class PresentForSumController implements SinglePresentEditableController{
 	    	fuzzySearch = new GoodsFuzzySearchImpl();
 	    	this.goodsList = new ArrayList<GoodsInSaleVO>();
 	    	this.presentList = new ArrayList<GoodsInSaleVO>();
+	    	this.controllerList = new ArrayList<PresentEditCellController>();
 		}
 		public PresentForSumController(Strategy strategy,ManagerController managerController,PresentVO vo){
 			this.strategy = strategy;
@@ -159,6 +162,7 @@ public class PresentForSumController implements SinglePresentEditableController{
 	    	fuzzySearch = new GoodsFuzzySearchImpl();
 	    	this.goodsList = new ArrayList<GoodsInSaleVO>();
 	    	this.presentList = new ArrayList<GoodsInSaleVO>();
+	    	this.controllerList = new ArrayList<PresentEditCellController>();
 		}		
 		@FXML
 	    public void initialize(){
@@ -241,6 +245,7 @@ public class PresentForSumController implements SinglePresentEditableController{
 				total = Double.parseDouble(totalInString);
 			}catch(Exception e){
 				totalErrorMessage.setText(totalError);
+				return;
 			}
 			//检查赠券金额合法性
 			String voucherInString = voucherField.getText();
@@ -249,8 +254,20 @@ public class PresentForSumController implements SinglePresentEditableController{
 					voucher = Double.parseDouble(voucherInString);
 				}catch(Exception e){
 					voucherErrorMessage.setText(voucherError);
+					return;
 				}
-			
+			//检查赠品清单合法性
+			presentList.clear();
+			for(PresentEditCellController c :controllerList){
+				//更新vo数量
+				c.vo.setAmount(Integer.parseInt(c.amount.getText()));
+				presentList.add(c.vo);
+				if(!c.isValid())
+				{
+					nullErrorMessage.setText(numberError);
+					return;
+				}
+			}
 			//打包成vo
 			PresentForSumVO vo = new PresentForSumVO(id,startTime, finishTime,total, presentList,voucher);
 			
@@ -310,9 +327,8 @@ public class PresentForSumController implements SinglePresentEditableController{
 			
 			//去重
 			temp = new ArrayList<GoodsVO>(new LinkedHashSet<>(temp));
-			
-			goodsList = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(temp);
-			
+			goodsList = GoodsVOTrans.GoodsTransGoodsInSaleInList(temp);
+			System.out.println("goodsList:"+goodsList);
 //			List<GoodsInSaleVO> listById = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(fuzzySearch.getGoodsInID(message));
 //			List<GoodsInSaleVO> listByName = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(fuzzySearch.getGoodsInGoodsName(message));
 //			List<GoodsInSaleVO> listByCategory = GoodsTransGoodsInSale.GoodsTransGoodsInSaleInList(fuzzySearch.getGoodsInCategory(message));
@@ -358,10 +374,12 @@ public class PresentForSumController implements SinglePresentEditableController{
 		@Override
 		public void refresh() {
 			presentListVBox.getChildren().clear();
+			controllerList.clear();
 			// TODO Auto-generated method stub
 			for(GoodsInSaleVO vo : presentList){
 	   		 PresentEditCellController controller = 
 	   				    new PresentEditCellController(this,vo);
+	   		 controllerList.add(controller);
 	   		 FXMLLoader loader = new FXMLLoader(
 	   				    getClass().getResource(
 	   				        "/fxml/managerUI/PresentCell.fxml"));

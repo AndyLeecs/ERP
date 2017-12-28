@@ -62,7 +62,8 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getCenter() == null){
 			service = SaleBLFactory.getSaleListBLService();
 			String id = service.getId();
-			controller = new SaleTypeNewListController(this,service,id);
+			controller = new SaleNewListController(this,service,id);			
+//			controller = new SaleTypeNewListController(this,service,id);
 		Platform.runLater(()->{
 			loadNewList(id,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
 		});}
@@ -74,7 +75,7 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getCenter() == null){
 			service = SaleBLFactory.getSaleReturnListBLService();
 			String id = service.getId();
-			controller = new SaleTypeNewListController(this,service,id);
+			controller = new SaleReturnNewListController(this,service,id);
 		Platform.runLater(()->{
 			loadNewList(id,SALERETURN_LIST_TITLE_SOURCE,SALERETURN_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
 		});}
@@ -86,7 +87,7 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getCenter() == null){
 			service = SaleBLFactory.getStockListBLService();
 			String id = service.getId();
-			controller = new StockTypeNewListController(this,service,id);
+			controller = new StockNewListController(this,service,id);
 		Platform.runLater(()->{
 			loadNewList(id,STOCK_LIST_TITLE_SOURCE,STOCK_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
 		});}
@@ -98,7 +99,7 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getCenter() == null){
 			service = SaleBLFactory.getStockReturnListBLService();
 			String id = service.getId();
-			controller = new StockTypeNewListController(this,service,id);
+			controller = new StockReturnNewListController(this,service,id);
 		Platform.runLater(()->{
 			loadNewList(id,STOCKRETURN_LIST_TITLE_SOURCE,STOCKRETURN_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
 		});}
