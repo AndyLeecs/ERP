@@ -1,6 +1,8 @@
 package PO.account;
 
-public class TransferItemPO {
+import java.io.Serializable;
+
+public class TransferItemPO implements Serializable{
 	private int autoId;	//数据库中自动生成的id
 	private String account;
 	private double amount;

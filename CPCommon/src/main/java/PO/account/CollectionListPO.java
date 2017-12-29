@@ -12,11 +12,12 @@ public class CollectionListPO extends FinanceListPO{
 	
 	
 	public CollectionListPO(){}
-	public CollectionListPO(String listID, String VIPID, String VIPName, String operator, List<TransferItemPO> transferItem, double totalAmount, State state){
+	public CollectionListPO(String listID, String VIPID, String VIPName, String operator,String operatorId, List<TransferItemPO> transferItem, double totalAmount, State state){
 		setId(listID);
 		this.VIPID = VIPID;
 		this.VIPName = VIPName;
 		setOperator(operator);
+		setOperatorId(operatorId);
 		setTransferItem(transferItem);
 		setTotalAmount(totalAmount);
 		setState(state);

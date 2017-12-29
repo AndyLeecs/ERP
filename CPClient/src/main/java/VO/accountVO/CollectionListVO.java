@@ -11,11 +11,12 @@ public class CollectionListVO extends FinanceListVO{
 	private List<TransferItemVO> transferItem;
 	
 	
-	public CollectionListVO(String listID, String VIPID, String VIPName, String operator, List<TransferItemVO> transferItem, double totalAmount, State state){
+	public CollectionListVO(String listID, String VIPID, String VIPName, String operator, String operatorId, List<TransferItemVO> transferItem, double totalAmount, State state){
 		setId(listID);
 		setVIPID(VIPID);
 		setVIPName(VIPName);
 		setOperator(operator);
+		setOperatorId(operatorId);
 		setTransferItem(transferItem);
 		setTotalAmount(totalAmount);
 		setState(state);

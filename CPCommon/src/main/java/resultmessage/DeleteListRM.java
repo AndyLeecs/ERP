@@ -1,5 +1,5 @@
 package resultmessage;
 
 public enum DeleteListRM {
-	SUCCESS;
+	SUCCESS, NOT_EXIST, SERVER_ERROR, NETWORK_ERROR;
 }
