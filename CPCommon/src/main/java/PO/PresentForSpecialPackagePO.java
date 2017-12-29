@@ -29,6 +29,28 @@ public class PresentForSpecialPackagePO extends PresentPO implements Serializabl
 	public void setPriceReduction(double priceReduction) {
 		this.priceReduction = priceReduction;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(priceReduction);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PresentForSpecialPackagePO other = (PresentForSpecialPackagePO) obj;
+		if (Double.doubleToLongBits(priceReduction) != Double.doubleToLongBits(other.priceReduction))
+			return false;
+		return true;
+	}
 
 
 }

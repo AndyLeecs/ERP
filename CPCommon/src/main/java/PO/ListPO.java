@@ -85,6 +85,52 @@ public class ListPO{
 		this.day = day;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((day == null) ? 0 : day.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((operator == null) ? 0 : operator.hashCode());
+		result = prime * result + ((operatorId == null) ? 0 : operatorId.hashCode());
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ListPO other = (ListPO) obj;
+		if (day == null) {
+			if (other.day != null)
+				return false;
+		} else if (!day.equals(other.day))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (operator == null) {
+			if (other.operator != null)
+				return false;
+		} else if (!operator.equals(other.operator))
+			return false;
+		if (operatorId == null) {
+			if (other.operatorId != null)
+				return false;
+		} else if (!operatorId.equals(other.operatorId))
+			return false;
+		if (state != other.state)
+			return false;
+		return true;
+	}
+
 	
 	
 }

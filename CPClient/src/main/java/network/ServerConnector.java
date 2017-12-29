@@ -13,6 +13,11 @@ import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
 import network.presentRemoteHelper.PresentForSpecialPackageDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
+import network.saleRemoteHelper.SaleListDataServiceHelper;
+import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
+import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
+import network.saleRemoteHelper.StockListDataServiceHelper;
+import network.saleRemoteHelper.StockReturnListDataServiceHelper;
 
 /**
  * 连接服务器的类，在这里将每个DataService与对应的RemoteHelper进行连接
@@ -37,6 +42,12 @@ public class ServerConnector {
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
 		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
 		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(StockReturnListDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(StockListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(SaleListDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(SaleReturnListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(SaleProjectionDataServiceHelper.getInstance());
+
 		
 		//哈哈，巧妙的设计了一番，每个helper只需在这里add一下就行了
 	}

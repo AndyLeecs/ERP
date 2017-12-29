@@ -74,8 +74,8 @@ public class HibernateCriterionClauseGenerator implements CriterionClauseGenerat
 		if(l == null)
 			l = new ArrayList<CriterionClause>();
 		Date date = new Date();
-		l.add(new CriterionClause(Restrictions.ge("startTime", date)));
-		l.add(new CriterionClause(Restrictions.le("finishTime", date)));
+		l.add(new CriterionClause(Restrictions.le("startTime", date)));
+		l.add(new CriterionClause(Restrictions.ge("finishTime", date)));
 		return l;
 	}
 

@@ -64,6 +64,40 @@ public class PresentForMembershipPO extends PresentPO implements Serializable{
 	public void setVoucher(double voucher) {
 		this.voucher = voucher;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(rebateInPresentForMembership);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(sum);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(voucher);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PresentForMembershipPO other = (PresentForMembershipPO) obj;
+		if (grade != other.grade)
+			return false;
+		if (Double.doubleToLongBits(rebateInPresentForMembership) != Double
+				.doubleToLongBits(other.rebateInPresentForMembership))
+			return false;
+		if (Double.doubleToLongBits(sum) != Double.doubleToLongBits(other.sum))
+			return false;
+		if (Double.doubleToLongBits(voucher) != Double.doubleToLongBits(other.voucher))
+			return false;
+		return true;
+	}
 
 	
 	

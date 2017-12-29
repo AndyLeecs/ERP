@@ -22,9 +22,9 @@ public class PresentForSumHandler {
 	 * @param result
 	 * @return
 	 */
-	public PresentResultVO handle(double sum, PresentResultVO result) {
+	public PresentResultVO handle(PresentResultVO result) {
 		// TODO Auto-generated method stub
-		List<PresentForSumVO> list = impl.getWithMinSum(sum);
+		List<PresentForSumVO> list = impl.getWithMinSum(result.getSum());
 		if(list != null && ! list.isEmpty()){
 		PresentForSumVO newPresent = list.get(0);
 		int id = newPresent.getId();

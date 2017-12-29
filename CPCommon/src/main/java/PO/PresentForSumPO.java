@@ -51,6 +51,37 @@ public class PresentForSumPO extends PresentPO implements Serializable{
 	public void setVoucher(double voucher) {
 		this.voucher = voucher;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(sum);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(voucher);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PresentForSumPO other = (PresentForSumPO) obj;
+		if (Double.doubleToLongBits(sum) != Double.doubleToLongBits(other.sum))
+			return false;
+		if (Double.doubleToLongBits(voucher) != Double.doubleToLongBits(other.voucher))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "PresentForSumPO [sum=" + sum + ", voucher=" + voucher + ", id=" + id + ", startTime=" + startTime.toString()
+				+ ", finishTime=" + finishTime.toString() + ", presentList=" + presentList + ", state=" + state + "]";
+	}
 	
 	
 }

@@ -10,6 +10,7 @@ import dataHelper.BasicUtil;
 import dataHelper.CriterionClause;
 import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
+import dataHelper.HibernateOrderClauseGenerator;
 import dataHelper.HibernateUtil;
 import dataHelper.OrderClause;
 import dataHelper.OrderClauseGenerator;
@@ -33,6 +34,7 @@ public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements
 
 		util = new HibernateUtil<PresentForSumPO>(PresentForSumPO.class);
 		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
+		orderClauseGenerator = new HibernateOrderClauseGenerator();
 	}
 	/* (non-Javadoc)
 	 * @see dataService.presentDataService.PresentForSumDataService#insert()

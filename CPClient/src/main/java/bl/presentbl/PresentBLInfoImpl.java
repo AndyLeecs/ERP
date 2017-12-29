@@ -39,16 +39,16 @@ public class PresentBLInfoImpl implements PresentBLInfo{
 	 */
 	@Override
 	public PresentResultVO findPresent(SaleVO vo) {
-		// TODO Auto-generated method stub
+		// TODO 特价商品清单的写法
 		//拆包vo
 		this.goodsList = vo.getGoodsList();
 		this.grade = vo.getGrade();
 		this.sum = vo.getSum();
 		
-		result = new PresentResultVO(new ArrayList<Integer>(), sum, goodsList, sum);
+		result = new PresentResultVO(new ArrayList<Integer>(), 0, goodsList, sum);
 		
 		result = packageHandler.handle(goodsList,result);
-		result = sumHandler.handle(sum,result);
+		result = sumHandler.handle(result);
 		result = membershipHandler.handle(grade,result);
 		
 		return result;
