@@ -35,36 +35,35 @@ public class AccountantWinController implements ParentController{
 	
 	@FXML BorderPane centerPane;
 	
-	FinanceListService financeListService = AccountBLFactory.getFinanceListService();
 	
-	
+	private static final String OPEN_LIST_OF_FORM_FXML =  "/fxml/commonUI/OpenListOfForms.fxml";
+	private static final String COLLECTION_LIST_FXML = "/fxml/accountUI/CollectionList.fxml";
+	private static final String PAYMENT_LIST_FXML = "/fxml/accountUI/PaymentList.fxml";
+	private static final String CASH_EXPENSE_LIST_FXML = "/fxml/accountUI/CashExpenseList.fxml";
 	
 
 	@FXML public void onNewCollectionListBtnClicked() {
-		String id = financeListService.newCollectionList();
-		loadNewList(id,new CollectionListWinController(),"/fxml/accountUI/CollectionList.fxml");
+		loadNewList(AccountBLFactory.getCollectionListService(),new CollectionListWinController(),COLLECTION_LIST_FXML);
 	}
 
 
 
 
 	@FXML public void onNewPaymentListBtnClicked() {
-		String id = financeListService.newPaymentList();
-		loadNewList(id,new PaymentListWinController(),"/fxml/accountUI/PaymentList.fxml");
+		loadNewList(AccountBLFactory.getPaymentListService(),new PaymentListWinController(),PAYMENT_LIST_FXML);
 	}
 
 
 
 	@FXML public void onNewCashExpenseListBtnClicked() {
-		String id = financeListService.newCashExpenseList();
-		loadNewList(id,new CashExpenseListWinController(),"/fxml/accountUI/CashExpenseList.fxml");
+		loadNewList(AccountBLFactory.getCashExpenseListService(),new CashExpenseListWinController(),CASH_EXPENSE_LIST_FXML);
 	}
 
 
 
 
 	@FXML public void onOpenCollectionCommittedBtnClicked() {
-		loadOpenList(new OpenCollectionCommitedListController());
+		loadOpenList(AccountBLFactory.getCollectionListService(),new OpenCollectionCommitedListController());
 		
 	}
 
@@ -110,13 +109,17 @@ public class AccountantWinController implements ParentController{
 	public void CloseSonWin() {
 		centerPane.setCenter(null);
 //		centerPane.getChildren().removeAll();		
-		financeListService = AccountBLFactory.getFinanceListService(); 	//刷新一下service
 	}
 	
 	
 	
-	private void loadNewList(String id,FinanceListWinController ListWinController, String fxmlPath){
+	private void loadNewList(FinanceListService financeListService,FinanceListWinController ListWinController, String fxmlPath){
+		String id = financeListService.newList();
 		if(id == null){
+			//TODO 提示网络异常，请稍后再试的界面
+			return;
+		}
+		if(id == global.ListGlobalVariables.LIST_FULL){
 			//TODO 提示单据已满的界面
 			return;
 		}
@@ -143,9 +146,9 @@ public class AccountantWinController implements ParentController{
 		}
 	}
 	
-	private void loadOpenList(OpenFinanceListController openfinanceListController){
+	private void loadOpenList(FinanceListService financeListService,OpenFinanceListController openfinanceListController){
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/commonUI/OpenListOfForms.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(OPEN_LIST_OF_FORM_FXML));
 			loader.setController(openfinanceListController);
 			loader.load();
 

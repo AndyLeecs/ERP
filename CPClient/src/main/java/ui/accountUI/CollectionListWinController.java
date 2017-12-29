@@ -21,9 +21,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
+import resultmessage.CommitListRM;
+import resultmessage.SaveListRM;
 import ui.commonUI.PromptWin;
-import util.CommitListRM;
-import util.SaveListRM;
 import util.State;
 
 public class CollectionListWinController extends FinanceListWinController{
@@ -66,7 +66,7 @@ public class CollectionListWinController extends FinanceListWinController{
 	}
 
 	
-	private void initTableView(){
+	protected void initTableView(){
 		
 		initAccountTableColumn();
 		initAmountTableColumn();
@@ -193,7 +193,7 @@ public class CollectionListWinController extends FinanceListWinController{
 		
 		CollectionListVO vo = createCollectionListVO(State.IsDraft);
 		
-		SaveListRM saverm = financeListService.saveCollectionList(vo);
+		SaveListRM saverm = financeListService.save(vo);
 		switch(saverm){
 		case SUCCESS:
 			try {
@@ -219,7 +219,7 @@ public class CollectionListWinController extends FinanceListWinController{
 			}
 		}
 		CollectionListVO vo = createCollectionListVO(State.IsCommitted);
-		CommitListRM commitrm = financeListService.commitCollectionList(vo);
+		CommitListRM commitrm = financeListService.commit(vo);
 		switch(commitrm){
 		case SUCCESS:
 			try {
@@ -243,7 +243,7 @@ public class CollectionListWinController extends FinanceListWinController{
 				VIPID.getText(),
 				VIPName.getText(),
 				operator.getText(),
-				transferItem.stream().map(e -> e.toVO()).collect(Collectors.toList()),		//请不要乱写注释
+				transferItem.stream().map(e -> e.toVO()).collect(Collectors.toList()),		
 				Double.parseDouble(totalAmount.getText()),
 				state
 				);

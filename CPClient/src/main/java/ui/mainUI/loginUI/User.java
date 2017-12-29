@@ -3,7 +3,7 @@ package ui.mainUI.loginUI;
 import VO.userVO.UserVO;
 import bl.userbl.UserBLService_Stub;
 import blservice.userblservice.PersonalInfoService;
-import util.LoginRM;
+import resultmessage.LoginRM;
 import util.UserGrade;
 import util.UserPermission;
 import util.UserType;

@@ -25,7 +25,7 @@ public class PaymentListDataServiceHelper implements DataServiceHelper{
 		paymentListDataService = (PaymentListDataService)remote;
 	}
 	
-	public PaymentListDataService getPaymentListDataService(){
+	public PaymentListDataService getDataService(){
 		return paymentListDataService;
 	}
 	
