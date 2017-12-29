@@ -2,9 +2,8 @@ package bl.storebl;
 
 import VO.listVO.InfoListVO;
 import VO.storeVO.PresentListVO;
-
+import resultmessage.ResultMessage;
 import util.GreatListType;
-import util.ResultMessage;
 
 public class PresentList extends StoreList {
 	PresentListVO vo;

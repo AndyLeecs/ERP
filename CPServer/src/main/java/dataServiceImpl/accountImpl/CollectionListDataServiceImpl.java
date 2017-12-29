@@ -16,7 +16,7 @@ import dataHelper.HibernateUtil;
 import dataHelper.OrderClause;
 import dataHelper.OrderClauseGenerator;
 import dataService.accountDataService.CollectionListDataService;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.State;
 
 public class CollectionListDataServiceImpl extends UnicastRemoteObject implements CollectionListDataService {

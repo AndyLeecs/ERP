@@ -3,9 +3,9 @@ package bl.storebl;
 import VO.listVO.InfoListVO;
 
 import VO.storeVO.ReportListVO;
+import resultmessage.ResultMessage;
 import util.StoreListType;
 import util.GreatListType;
-import util.ResultMessage;
 
 public class ReportList extends StoreList  {
     /*

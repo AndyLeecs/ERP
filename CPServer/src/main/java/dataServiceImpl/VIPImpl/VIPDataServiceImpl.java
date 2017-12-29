@@ -3,7 +3,7 @@ package dataServiceImpl.VIPImpl;
 import PO.VIPPO;
 import dataHelper.*;
 import dataService.VIPDataService.VIPDataService;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 import util.VIPUtil;
 
 import java.rmi.RemoteException;

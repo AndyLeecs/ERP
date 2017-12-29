@@ -14,7 +14,7 @@ import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
 import dataHelper.HibernateUtil;
 import dataService.saleDataService.SaleUniDataService;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.State;
 
 /**     

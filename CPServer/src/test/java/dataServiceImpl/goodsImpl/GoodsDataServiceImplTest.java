@@ -2,9 +2,8 @@ package dataServiceImpl.goodsImpl;
 
 import PO.GoodsCategoryPO;
 import PO.GoodsPO;
-
+import resultmessage.ResultMessage;
 import util.GoodsUtil;
-import util.ResultMessage;
 
 import static org.junit.Assert.*;
 

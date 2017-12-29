@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
  * 
  * 打开单据列表的通用界面{fxml/commonUI/OpenListOfForms.fxml}
  * 此类为通用的controller，各个子界面的controller继承此界面，再加载BriefList（含有list简要信息的一个pane）的fxml就行了
- * 需要注意得失，加载通用界面时需要自行设置controller（不是这个类，是各个单据的子类的controller）
+ * 需要注意的是，加载通用界面时需要自行设置controller（不是这个类，是各个单据的子类的controller）
  * @author zxy
  *
  */
