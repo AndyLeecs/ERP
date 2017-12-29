@@ -121,17 +121,12 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         	transaction = session.beginTransaction();
             session.update(type.getName(), po);
             transaction.commit();
-        }catch (IllegalArgumentException e){
-        	if(transaction!=null){
-        		transaction.rollback();
-        	}
-        	rm = DataRM.NOT_EXIST;
-        } catch (OptimisticLockException e) {
+        }catch (OptimisticLockException e) {
         	if(transaction!=null){
         		transaction.rollback();
         	}
         	e.printStackTrace();
-        	rm = DataRM.FAILED;
+        	rm = DataRM.NOT_EXIST;
         }catch(HibernateException e){
         	if(transaction!=null){
         		transaction.rollback();
