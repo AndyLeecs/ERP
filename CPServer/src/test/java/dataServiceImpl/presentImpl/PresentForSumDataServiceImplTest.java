@@ -2,8 +2,9 @@ package dataServiceImpl.presentImpl;
 
 import PO.GoodsInSalePO;
 import PO.PresentForSumPO;
+import resultmessage.DataRM;
+
 import org.junit.Test;
-import util.DataRM;
 import util.PresentState;
 
 import java.time.Instant;

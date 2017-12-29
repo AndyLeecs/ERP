@@ -3,8 +3,9 @@ package dataServiceImpl.presentImpl;
 import PO.GoodsInSalePO;
 import PO.PresentForMembershipPO;
 import PO.PresentForSpecialPackagePO;
+import resultmessage.DataRM;
+
 import org.junit.Test;
-import util.DataRM;
 import util.PresentState;
 import util.VIPGrade;
 
