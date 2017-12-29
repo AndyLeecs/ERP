@@ -87,7 +87,7 @@ public class ServerConnector {
 			
 		}
 		
-//		System.setSecurityManager(new SecurityManager()); 		//TODO 这句有什么用吗？我这里没有这句是正常的
+//		System.setSecurityManager(new SecurityManager()); 		//TODO 这句有什么用吗？我这里没有这句是正常的 re： debug时加的，没用就删了吧
 		
 	}
 	
