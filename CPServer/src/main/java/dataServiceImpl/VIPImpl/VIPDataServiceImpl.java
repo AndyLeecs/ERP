@@ -3,7 +3,7 @@ package dataServiceImpl.VIPImpl;
 import PO.VIPPO;
 import dataHelper.*;
 import dataService.VIPDataService.VIPDataService;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 import util.VIPUtil;
 
 import java.rmi.RemoteException;
@@ -56,6 +56,10 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
                 break;
             case "id":
                 criterionClauseGenerator.generateFuzzyCriterion(l,"id",info);
+                criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
+                break;
+            case"category":
+             	criterionClauseGenerator.generateFuzzyCriterion(l,"category",info);
                 criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
                 break;
         }

@@ -6,7 +6,7 @@ import network.accountRemoteHelper.PaymentListDataServiceHelper;
 
 public class PaymentList extends DomainList{
 
-	PaymentListDataService dataService = PaymentListDataServiceHelper.getInstance().getPaymentListDataService();
+	PaymentListDataService dataService = PaymentListDataServiceHelper.getInstance().getDataService();
 		
 
 	@Override

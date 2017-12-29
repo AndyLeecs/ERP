@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import PO.PresentForMembershipPO;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.VIPGrade;
 
 /**     

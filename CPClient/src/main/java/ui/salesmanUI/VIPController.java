@@ -69,17 +69,17 @@ public class VIPController {
         node.getChildren().add(son2);
 
 
-        ArrayList<VIPVO> vips1 = (ArrayList<VIPVO>) vipBLService.findVIP("供货商", "vipCategory");
+        ArrayList<VIPVO> vips1 = (ArrayList<VIPVO>) vipBLService.findVIP("供货商", "category");
         if (vips1 != null) {
             for (int i = 0; i < vips1.size(); i++) {
-                son1.getChildren().add(new TreeItem<>("商品：" + vips1.get(i).getName()));
+                son1.getChildren().add(new TreeItem<>("会员：" + vips1.get(i).getName()));
             }
         }
 
-        ArrayList<VIPVO> vips2 = (ArrayList<VIPVO>) vipBLService.findVIP("经销商", "vipCategory");
+        ArrayList<VIPVO> vips2 = (ArrayList<VIPVO>) vipBLService.findVIP("经销商", "category");
         if (vips2 != null) {
             for (int i = 0; i < vips2.size(); i++) {
-                son2.getChildren().add(new TreeItem<>("商品：" + vips2.get(i).getName()));
+                son2.getChildren().add(new TreeItem<>("会员：" + vips2.get(i).getName()));
             }
         }
     }
@@ -189,7 +189,6 @@ public class VIPController {
         deleteBar.setGraphic(new ImageView("img/delete.png"));
         deleteBar.setOnAction(e ->{
             TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
-            selectItem.getParent().getChildren().remove(selectItem);
 
             System.out.println("判断删除的是会员还是分类：" + selectItem.getValue().toString().substring(0,2));
 
@@ -209,6 +208,7 @@ public class VIPController {
                     System.out.println("此节点下不可删除");
                     break;
             }
+            selectItem.getParent().getChildren().remove(selectItem);
         });
 
         MenuItem refactorBar = new MenuItem("改名");
@@ -219,9 +219,9 @@ public class VIPController {
             TreeItem<String> selectItem = (TreeItem<String>) treeView.getSelectionModel().getSelectedItem();
 
             System.out.println("选中项文字 " + selectItem.getValue().toString());
-            System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
-
-            if(selectItem.getValue().toString().substring(0,2) == "会员") {
+            //System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
+            System.out.println(selectItem.getValue().toString().substring(0,2));
+            if(selectItem.getValue().toString().substring(0,2).contains("会员")) {
                 stack.push(selectItem);
                 noticeLabel.setText("修改名称");
                 notice.setVisible(true);

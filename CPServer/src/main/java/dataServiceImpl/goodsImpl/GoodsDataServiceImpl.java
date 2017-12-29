@@ -4,8 +4,8 @@ import PO.GoodsCategoryPO;
 import PO.GoodsPO;
 import dataHelper.*;
 import dataService.goodsDataService.GoodsDataService;
+import resultmessage.ResultMessage;
 import util.GoodsUtil;
-import util.ResultMessage;
 
 import java.io.UnsupportedEncodingException;
 import java.rmi.RemoteException;

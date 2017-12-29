@@ -4,8 +4,8 @@ import java.util.List;
 
 import VO.userVO.MessageVO;
 import VO.userVO.UserVO;
-import util.LoginRM;
-import util.ResultMessage;
+import resultmessage.LoginRM;
+import resultmessage.ResultMessage;
 
 public interface PersonalInfoService {
 

@@ -12,7 +12,7 @@ import bl.utility.GoodsInSaleVoTransPo;
 import blservice.presentblservice.PresentForSpecialPackageBLService;
 import dataService.presentDataService.PresentForSpecialPackageDataService;
 import network.presentRemoteHelper.PresentForSpecialPackageDataServiceHelper;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.PresentState;
 
 /**     

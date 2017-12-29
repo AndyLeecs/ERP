@@ -12,7 +12,7 @@ import VO.saleVO.SalesmanListType;
 import VO.saleVO.SalesmanListVO;
 import VO.saleVO.StockListVO;
 import VO.saleVO.StockReturnListVO;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 //弃用了的大的service，注意使用时参照界面的，注意这里面竟然没有删除
 public interface SaleBLService{

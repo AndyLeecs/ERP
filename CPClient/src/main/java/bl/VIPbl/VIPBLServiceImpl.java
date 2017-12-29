@@ -7,7 +7,7 @@ import dataService.VIPDataService.VIPDataService;
 import dataService.goodsDataService.GoodsDataService;
 import network.VIPRemoteHelper.VIPDataServiceHelper;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;

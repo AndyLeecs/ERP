@@ -5,7 +5,7 @@ import java.util.List;
 import VO.VIPVO.VIPVO;
 import VO.accountVO.InitAccountVO;
 import VO.goodsVO.GoodsVO;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 public interface AccountInitService {
 

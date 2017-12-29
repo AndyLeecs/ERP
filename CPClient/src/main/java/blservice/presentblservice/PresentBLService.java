@@ -6,7 +6,7 @@ import VO.presentVO.PresentForMembershipVO;
 import VO.presentVO.PresentForSpecialPackageVO;
 import VO.presentVO.PresentForSumVO;
 import VO.presentVO.PresentVO;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 /**     
 * @author 李安迪

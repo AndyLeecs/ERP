@@ -7,7 +7,7 @@ import bl.storebl.Store_Interface;
 import bl.storebl.Store_InterfaceImpl;
 import dataService.goodsDataService.GoodsDataService;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;

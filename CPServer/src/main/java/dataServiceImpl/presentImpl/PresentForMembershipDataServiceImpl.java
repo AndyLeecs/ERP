@@ -15,7 +15,7 @@ import dataHelper.HibernateUtil;
 import dataHelper.OrderClause;
 import dataHelper.OrderClauseGenerator;
 import dataService.presentDataService.PresentForMembershipDataService;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.PresentState;
 import util.VIPGrade;
 

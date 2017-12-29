@@ -12,7 +12,7 @@ import blservice.presentblservice.PresentForSumBLService;
 import dataService.presentDataService.PresentForSumDataService;
 import network.ServerConnector;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.PresentState;
 
 /**     

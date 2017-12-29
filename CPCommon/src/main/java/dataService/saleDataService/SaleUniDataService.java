@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import PO.SalesmanListPO;
-import util.DataRM;
+import resultmessage.DataRM;
 
 /**     
 * @author 李安迪

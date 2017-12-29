@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import util.LoginRM;
+import resultmessage.LoginRM;
 import util.UserType;
 
 public class LoginController {
@@ -45,9 +45,7 @@ public class LoginController {
 			passwordTxt.requestFocus();
 			return;
 		}
-		
-		System.out.println("checking");
-		
+				
 		LoginRM loginRM = User.getInstance().login(username, password);
 		switch(loginRM){
 		case SUCCESS:{

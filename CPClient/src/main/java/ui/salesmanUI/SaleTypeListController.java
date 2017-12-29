@@ -7,8 +7,8 @@ import VO.goodsVO.GoodsVO;
 import VO.saleVO.SaleListVO;
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
+import resultmessage.DataRM;
 import ui.commonUI.ParentController;
-import util.DataRM;
 
 /**     
 * @author 李安迪

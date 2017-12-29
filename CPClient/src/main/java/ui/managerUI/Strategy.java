@@ -1,7 +1,7 @@
 package ui.managerUI;
 
 import VO.presentVO.PresentVO;
-import util.DataRM;
+import resultmessage.DataRM;
 
 /**     
 * @author 李安迪
