@@ -46,18 +46,18 @@ public class ServerHelper {
 //			System.out.println("表单类数据库绑定成功！");
 
 
-//			PresentDataService presentDataService=new PresentDataServiceImpl();
-//			Naming.bind("PresentDataService", presentDataService);
-//			System.out.println("bind succeeded!");
-//			
-//			PresentForSumDataService presentForSumDataService = new PresentForSumDataServiceImpl();
-//			Naming.bind("PresentForSumDataService", presentForSumDataService);
-//	
-//			PresentForMembershipDataService presentForMembershipDataService = new PresentForMembershipDataServiceImpl();
-//			Naming.bind("PresentForMembershipDataService", presentForMembershipDataService);
-//			
-//			PresentForSpecialPackageDataService presentForSpecialPackageDataService = new PresentForSpecialPackageDataServiceImpl();
-//			Naming.bind("PresentForSpecialPackageDataService", presentForSpecialPackageDataService);
+			PresentDataService presentDataService=new PresentDataServiceImpl();
+			Naming.bind("PresentDataService", presentDataService);
+			System.out.println("bind succeeded!");
+			
+			PresentForSumDataService presentForSumDataService = new PresentForSumDataServiceImpl();
+			Naming.bind("PresentForSumDataService", presentForSumDataService);
+	
+			PresentForMembershipDataService presentForMembershipDataService = new PresentForMembershipDataServiceImpl();
+			Naming.bind("PresentForMembershipDataService", presentForMembershipDataService);
+			
+			PresentForSpecialPackageDataService presentForSpecialPackageDataService = new PresentForSpecialPackageDataServiceImpl();
+			Naming.bind("PresentForSpecialPackageDataService", presentForSpecialPackageDataService);
 //			SaleDataService saleDataService=new SaleDataServiceImpl();
 //			Naming.bind("SaleDataService", saleDataService);
 //			System.out.println("bind succeeded!");
