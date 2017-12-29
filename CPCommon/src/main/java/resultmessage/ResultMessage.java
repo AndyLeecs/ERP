@@ -1,4 +1,4 @@
-package util;
+package resultmessage;
 /**
  * 
  * @author julia98

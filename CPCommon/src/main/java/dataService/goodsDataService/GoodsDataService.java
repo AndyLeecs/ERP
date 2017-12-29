@@ -1,7 +1,7 @@
 package dataService.goodsDataService;
 import PO.GoodsCategoryPO;
 import PO.GoodsPO;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 import java.io.Serializable;
 import java.rmi.Remote;

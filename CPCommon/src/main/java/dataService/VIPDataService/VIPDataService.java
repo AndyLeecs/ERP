@@ -1,6 +1,6 @@
 package dataService.VIPDataService;
 import PO.VIPPO;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 import java.io.Serializable;
 import java.rmi.Remote;

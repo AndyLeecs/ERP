@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import PO.PresentForSumPO;
-import util.DataRM;
+import resultmessage.DataRM;
 
 /**     
 * @author 李安迪
