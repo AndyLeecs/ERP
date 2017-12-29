@@ -45,9 +45,7 @@ public class LoginController {
 			passwordTxt.requestFocus();
 			return;
 		}
-		
-		System.out.println("checking");
-		
+				
 		LoginRM loginRM = User.getInstance().login(username, password);
 		switch(loginRM){
 		case SUCCESS:{
