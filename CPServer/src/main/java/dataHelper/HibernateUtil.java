@@ -87,10 +87,15 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         	transaction = session.beginTransaction();
             session.delete(session.get(type.getName(),id));
             transaction.commit();
+
+        }catch (IllegalArgumentException e){
+        	if(transaction!=null){
+        		transaction.rollback();
+        	}
+        	rm = DataRM.NOT_EXIST;
         }catch (OptimisticLockException e) {
         	if(transaction!=null){
         		transaction.rollback();
-        		rm = DataRM.NOT_EXIST;
         	}
     		e.printStackTrace();
         	rm = DataRM.FAILED;
@@ -103,7 +108,6 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         }finally{
            	session.close();
         }
-        
         return rm;
 	}
 
@@ -117,10 +121,14 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         	transaction = session.beginTransaction();
             session.update(type.getName(), po);
             transaction.commit();
+        }catch (IllegalArgumentException e){
+        	if(transaction!=null){
+        		transaction.rollback();
+        	}
+        	rm = DataRM.NOT_EXIST;
         } catch (OptimisticLockException e) {
         	if(transaction!=null){
         		transaction.rollback();
-        		rm = DataRM.NOT_EXIST;				//TODO 这个是这么回事吗？请在此处回复我一下 re:不知道 rere:我是想问这个异常是代表NOT_EXIST吗 re:不知道
         	}
         	e.printStackTrace();
         	rm = DataRM.FAILED;
@@ -349,17 +357,23 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 		if(lastpo == null){		//表空
 			newId +="00001";
 		}else{
-		String lastId = ((ListPO)lastpo).getId();
-		String date = DateUtil.getDateFromListIDAsString(lastId);
-		if(!currentDate.equals(date)){		//今天的第一张单子
-			newId += "00001";
-		}
-		else{
-			int num = Integer.parseInt(lastId.substring(lastId.lastIndexOf('-')+1));
-			if(num == LIST_MAX_NUM)
-				return global.ListGlobalVariables.LIST_FULL;
-			newId += String.valueOf(++num);
-		}
+			String lastId = ((ListPO)lastpo).getId();
+			String date = DateUtil.getDateFromListIDAsString(lastId);
+			if(!currentDate.equals(date)){		//今天的第一张单子
+				newId += "00001";
+			}
+			else{
+				int num = Integer.parseInt(lastId.substring(lastId.lastIndexOf('-')+1));
+				if(num == LIST_MAX_NUM)
+					return global.ListGlobalVariables.LIST_FULL;
+				num++;
+				String post = String.valueOf(num);
+				int postLength = String.valueOf(LIST_MAX_NUM).length();		//后缀长度
+				for(int i = 1;i <= postLength-post.length();i++){
+					newId += "0";
+				}
+				newId += post;
+			}
 		}
 		System.out.println(newId);
 		po.setId(newId);
