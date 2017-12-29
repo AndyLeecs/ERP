@@ -3,7 +3,7 @@ package ui.managerUI;
 import java.util.List;
 
 import VO.GoodsInSaleVO;
-import util.DataRM;
+import resultmessage.DataRM;
 
 /**     
 * @author 李安迪

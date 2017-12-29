@@ -2,7 +2,7 @@ package ui.managerUI;
 
 import VO.presentVO.PresentVO;
 import blservice.presentblservice.PresentForSumBLService;
-import util.DataRM;
+import resultmessage.DataRM;
 
 /**     
 * @author 李安迪

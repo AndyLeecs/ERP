@@ -13,10 +13,10 @@ import VO.accountVO.PaymentListVO;
 import VO.accountVO.TransferItemVO;
 import VO.goodsVO.GoodsVO;
 import blservice.accountblservice.AccountBLService;
-import util.CommitListRM;
-import util.DeleteListRM;
-import util.ResultMessage;
-import util.SaveListRM;
+import resultmessage.CommitListRM;
+import resultmessage.DeleteListRM;
+import resultmessage.ResultMessage;
+import resultmessage.SaveListRM;
 import util.State;
 
 public class AccountBLService_Stub implements AccountBLService{
@@ -203,6 +203,41 @@ public class AccountBLService_Stub implements AccountBLService{
 	@Override
 	public CommitListRM commitCashExpenseList(CashExpenseListVO vo) {
 		return CommitListRM.SUCCESS;
+	}
+
+	@Override
+	public String newList() {
+		return collectionListID;
+	}
+
+	@Override
+	public DeleteListRM delete(String id) {
+		return DeleteListRM.SUCCESS;
+	}
+
+	@Override
+	public SaveListRM save(FinanceListVO vo) {
+		return SaveListRM.SUCCESS;
+	}
+
+	@Override
+	public CommitListRM commit(FinanceListVO vo) {
+		return CommitListRM.SUCCESS;
+	}
+
+	@Override
+	public List<? extends FinanceListVO> openCommitted() {
+		List<CollectionListVO> list = new ArrayList<CollectionListVO>();
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+		list.add(collectionListvo);
+
+		System.out.println(list.size());
+		return list;
 	}
 	
 	

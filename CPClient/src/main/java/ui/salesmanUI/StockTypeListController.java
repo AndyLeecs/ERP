@@ -11,8 +11,8 @@ import bl.utility.GoodsVOTrans;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import resultmessage.DataRM;
 import ui.commonUI.ParentController;
-import util.DataRM;
 
 /**     
 * @author 李安迪

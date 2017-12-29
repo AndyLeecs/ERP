@@ -5,8 +5,8 @@ import java.util.List;
 import VO.userVO.MessageVO;
 import VO.userVO.OperationVO;
 import VO.userVO.UserVO;
-import util.LoginRM;
-import util.ResultMessage;
+import resultmessage.LoginRM;
+import resultmessage.ResultMessage;
 
 /**
  * 	此接口应该是没有用了

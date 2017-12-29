@@ -3,7 +3,7 @@ package blservice.presentblservice;
 import java.util.List;
 
 import VO.presentVO.PresentForSumVO;
-import util.DataRM;
+import resultmessage.DataRM;
 
 /**     
 * @author 李安迪

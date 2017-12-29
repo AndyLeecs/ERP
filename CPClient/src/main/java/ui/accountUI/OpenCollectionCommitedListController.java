@@ -9,10 +9,12 @@ import javafx.fxml.FXMLLoader;
 public class OpenCollectionCommitedListController extends OpenFinanceListController{
 
 	List<CollectionListVO> CollectionLists;
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void init() {
 		setTitle("收款单");
-		CollectionLists = financeListService.openCollectionComitted();
+		CollectionLists = (List<CollectionListVO>) financeListService.openCommitted();
 		 for(CollectionListVO vo :CollectionLists){
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/accountUI/CollectionListBrief.fxml"));
 			try {

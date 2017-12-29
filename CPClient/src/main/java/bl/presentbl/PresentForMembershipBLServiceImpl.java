@@ -12,7 +12,7 @@ import bl.utility.GoodsInSaleVoTransPo;
 import blservice.presentblservice.PresentForMembershipBLService;
 import dataService.presentDataService.PresentForMembershipDataService;
 import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.PresentState;
 import util.VIPGrade;
 

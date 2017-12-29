@@ -1,4 +1,4 @@
-package util;
+package resultmessage;
 
 public enum SaveListRM {
 	SUCCESS;

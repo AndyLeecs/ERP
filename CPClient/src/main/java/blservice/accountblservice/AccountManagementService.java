@@ -3,7 +3,7 @@ package blservice.accountblservice;
 import java.util.List;
 
 import VO.accountVO.AccountVO;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 public interface AccountManagementService {
 

@@ -7,7 +7,7 @@ import PO.PresentForSpecialPackagePO;
 import PO.PresentForSumPO;
 import PO.PresentPO;
 import dataService.presentDataService.PresentDataService;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.VIPGrade;
 
 /**     

@@ -14,7 +14,7 @@ import dataHelper.HibernateUtil;
 import dataHelper.OrderClause;
 import dataHelper.OrderClauseGenerator;
 import dataService.presentDataService.PresentForSumDataService;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.PresentState;
 
 /**     

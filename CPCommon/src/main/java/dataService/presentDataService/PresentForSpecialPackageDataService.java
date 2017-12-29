@@ -7,7 +7,7 @@ import java.util.List;
 
 import PO.GoodsInSalePO;
 import PO.PresentForSpecialPackagePO;
-import util.DataRM;
+import resultmessage.DataRM;
 
 /**     
 * @author 李安迪

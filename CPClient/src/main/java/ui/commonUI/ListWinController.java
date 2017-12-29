@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public abstract class ListWinController implements SonController{
-	ParentController parentController;
+	protected ParentController parentController;
 	
 
 	@FXML protected Label listID;

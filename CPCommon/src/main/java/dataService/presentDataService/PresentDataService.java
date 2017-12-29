@@ -8,7 +8,7 @@ import PO.PresentForMembershipPO;
 import PO.PresentForSpecialPackagePO;
 import PO.PresentForSumPO;
 import PO.PresentPO;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.VIPGrade;
 
 /**     

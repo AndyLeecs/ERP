@@ -24,8 +24,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import resultmessage.DataRM;
 import ui.commonUI.ParentController;
-import util.DataRM;
 import util.UserGrade;
 
 /**     

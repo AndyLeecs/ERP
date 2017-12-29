@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import PO.ListPO;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.State;
 
 public interface CommonListDataService extends Remote, Serializable{

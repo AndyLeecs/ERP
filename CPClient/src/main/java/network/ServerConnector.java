@@ -32,9 +32,9 @@ public class ServerConnector {
 	private void addServices(){
 //		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
+		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
+		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
+		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
 		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
 		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
 		
