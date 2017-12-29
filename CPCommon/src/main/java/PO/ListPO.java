@@ -1,5 +1,6 @@
 package PO;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import util.State;
@@ -11,7 +12,7 @@ import util.State;
 * @description 单据类继承的抽象类
 * 
 */
-public class ListPO{
+public class ListPO implements Serializable{
 	/**
 	 * 单据编号
 	 */

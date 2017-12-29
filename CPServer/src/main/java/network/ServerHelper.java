@@ -7,22 +7,19 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
 import dataService.VIPDataService.VIPDataService;
+import dataService.accountDataService.CollectionListDataService;
 import dataService.goodsDataService.GoodsDataService;
-import dataService.listDataService.ListDataService;
 import dataService.presentDataService.PresentDataService;
 import dataService.presentDataService.PresentForMembershipDataService;
 import dataService.presentDataService.PresentForSpecialPackageDataService;
 import dataService.presentDataService.PresentForSumDataService;
-import dataService.saleDataService.SaleDataService;
-import dataService.storeDataService.StoreDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
+import dataServiceImpl.accountImpl.CollectionListDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
-import dataServiceImpl.listImpl.ListDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForMembershipDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForSpecialPackageDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
-import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
 
 public class ServerHelper {
 	public int port = 1099;
@@ -44,6 +41,10 @@ public class ServerHelper {
 //			ListDataService listDataService=new ListDataServiceImpl();
 //			Naming.bind("ListDataService",listDataService);
 //			System.out.println("表单类数据库绑定成功！");
+			
+			CollectionListDataService collectionListDataService = new CollectionListDataServiceImpl();
+			Naming.bind("CollectionListDataService", collectionListDataService);
+			System.out.println("CollectionListDataService bind Succeed");
 
 
 			PresentDataService presentDataService=new PresentDataServiceImpl();
