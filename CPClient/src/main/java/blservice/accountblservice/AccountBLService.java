@@ -10,10 +10,10 @@ import VO.accountVO.FinanceListVO;
 import VO.accountVO.InitAccountVO;
 import VO.accountVO.PaymentListVO;
 import VO.goodsVO.GoodsVO;
-import util.CommitListRM;
-import util.DeleteListRM;
-import util.ResultMessage;
-import util.SaveListRM;
+import resultmessage.CommitListRM;
+import resultmessage.DeleteListRM;
+import resultmessage.ResultMessage;
+import resultmessage.SaveListRM;
 /**
  * 这个接口作为测试时的桩接口用
  * 实际没有用了

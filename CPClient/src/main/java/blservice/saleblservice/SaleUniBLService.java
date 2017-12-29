@@ -4,7 +4,7 @@ import java.util.List;
 
 import PO.SalesmanListPO;
 import VO.saleVO.SalesmanListVO;
-import util.DataRM;
+import resultmessage.DataRM;
 
 /**     
 * @author 李安迪

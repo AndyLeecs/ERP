@@ -14,7 +14,7 @@ import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
 import dataHelper.HibernateUtil;
 import dataService.presentDataService.PresentForSpecialPackageDataService;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.PresentState;
 
 /**     

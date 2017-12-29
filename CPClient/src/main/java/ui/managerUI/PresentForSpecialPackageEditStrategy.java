@@ -7,7 +7,7 @@ import VO.GoodsInSaleVO;
 import VO.presentVO.PresentForSpecialPackageVO;
 import VO.presentVO.PresentVO;
 import javafx.scene.control.TextField;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.DateUtil;
 
 /**     

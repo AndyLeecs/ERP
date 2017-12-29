@@ -13,7 +13,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.CriteriaSpecification;
 
 import PO.ListPO;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.DateUtil;
 import util.State;
 
@@ -358,7 +358,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 		else{
 			int num = Integer.parseInt(lastId.substring(lastId.lastIndexOf('-')+1));
 			if(num == LIST_MAX_NUM)
-				return null;
+				return global.ListGlobalVariables.LIST_FULL;
 			newId += String.valueOf(++num);
 		}
 		

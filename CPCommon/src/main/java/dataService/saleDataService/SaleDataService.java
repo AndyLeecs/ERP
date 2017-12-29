@@ -9,7 +9,7 @@ import PO.SaleReturnListPO;
 import PO.SalesmanListPO;
 import PO.StockListPO;
 import PO.StockReturnListPO;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.State;
 
 public interface SaleDataService extends Remote,Serializable{

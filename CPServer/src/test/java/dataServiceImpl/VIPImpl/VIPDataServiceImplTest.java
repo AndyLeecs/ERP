@@ -3,7 +3,7 @@ package dataServiceImpl.VIPImpl;
 import org.junit.Test;
 
 import PO.VIPPO;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 import util.VIPUtil;
 
 import static org.junit.Assert.*;

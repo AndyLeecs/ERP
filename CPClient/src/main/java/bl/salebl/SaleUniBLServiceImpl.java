@@ -12,7 +12,7 @@ import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import dataService.saleDataService.SaleUniDataService;
-import util.DataRM;
+import resultmessage.DataRM;
 import util.State;
 
 /**     

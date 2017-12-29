@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 /**
  * 

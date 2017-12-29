@@ -6,7 +6,7 @@ import java.util.List;
 import PO.GoodsCategoryPO;
 import VO.goodsVO.GoodsCategoryVO;
 import VO.goodsVO.GoodsVO;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 /**     
 * @author 李安迪

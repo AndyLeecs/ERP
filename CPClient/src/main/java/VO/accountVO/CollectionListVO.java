@@ -1,7 +1,6 @@
 package VO.accountVO;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import util.State;
@@ -14,13 +13,12 @@ public class CollectionListVO extends FinanceListVO{
 	
 	public CollectionListVO(String listID, String VIPID, String VIPName, String operator, List<TransferItemVO> transferItem, double totalAmount, State state){
 		setId(listID);
-		this.VIPID = VIPID;
-		this.VIPName = VIPName;
+		setVIPID(VIPID);
+		setVIPName(VIPName);
 		setOperator(operator);
-		this.transferItem = new ArrayList<TransferItemVO>(transferItem);
+		setTransferItem(transferItem);
 		setTotalAmount(totalAmount);
 		setState(state);
-//		setDay(day);
 	}
 	
 	
@@ -38,10 +36,17 @@ public class CollectionListVO extends FinanceListVO{
 	}
 	
 	public List<TransferItemVO> getTransferItem() {
-		return new ArrayList<TransferItemVO>(transferItem);
+		if(transferItem == null)
+			return null;
+		else
+			return new ArrayList<TransferItemVO>(transferItem);
+		
 	}
 	public void setTransferItem(List<TransferItemVO> transferItem) {
-		this.transferItem = new ArrayList<TransferItemVO>(transferItem);
+		if(transferItem == null)
+			this.transferItem = null;
+		else
+			this.transferItem = new ArrayList<TransferItemVO>(transferItem);
 	}
 	
 	

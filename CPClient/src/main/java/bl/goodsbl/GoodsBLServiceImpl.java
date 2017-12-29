@@ -4,7 +4,7 @@ import VO.goodsVO.GoodsCategoryVO;
 import VO.goodsVO.GoodsVO;
 import blservice.goodsblservice.GoodsBLService;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
-import util.ResultMessage;
+import resultmessage.ResultMessage;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
