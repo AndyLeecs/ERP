@@ -20,6 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import resultmessage.CommitListRM;
 import resultmessage.SaveListRM;
 import ui.commonUI.PromptWin;
+import ui.mainUI.loginUI.User;
 import util.State;
 
 public class CollectionListWinController extends FinanceListWinController{
@@ -217,9 +218,10 @@ public class CollectionListWinController extends FinanceListWinController{
 	protected CollectionListVO createListVO(State state){
 		return new CollectionListVO(
 				listID.getText(),
-				VIPID.getText(),
-				VIPName.getText(),
-				operator.getText(),
+				"00007",//VIPID.getText(),
+				"me",//VIPName.getText(),
+				User.getInstance().getUserName(),
+				User.getInstance().getId(),
 				transferItem.stream().map(e -> e.toVO()).collect(Collectors.toList()),		
 				Double.parseDouble(totalAmount.getText()),
 				state

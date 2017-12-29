@@ -1,5 +1,5 @@
 package resultmessage;
 
 public enum CommitListRM {
-	SUCCESS;
+	SUCCESS,SERVER_ERROR,NETWORK_ERROR;
 }

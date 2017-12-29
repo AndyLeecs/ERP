@@ -61,7 +61,9 @@ public class CollectionListDataServiceImpl extends UnicastRemoteObject implement
 	@Override
 	public DataRM insert(ListPO po) throws RemoteException{
 		String id = basicUtil.insert((CollectionListPO)po);
-		if(id == null || id.equals(""))
+		if(id == null)
+			return DataRM.EXIST;
+		if(id.equals(""))
 			return DataRM.FAILED;
 		else
 			return DataRM.SUCCESS;

@@ -22,7 +22,7 @@ import util.State;
 */
 public abstract class SaleUniBLServiceImpl implements SaleUniBLService {
 
-	SaleUniDataService service;
+	SaleUniDataService service;						//TODO 这个恐怕多态不了
 	/* (non-Javadoc)
 	 * @see blservice.saleblservice.SaleUniBLService#getId()
 	 */

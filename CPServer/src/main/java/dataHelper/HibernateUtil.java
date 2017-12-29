@@ -3,6 +3,7 @@ package dataHelper;
 import java.util.List;
 
 import javax.persistence.OptimisticLockException;
+import javax.persistence.PersistenceException;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -67,13 +68,19 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         	transaction = session.beginTransaction();
             id = (String)session.save(type.getName(), po);
             transaction.commit();
-        } catch (HibernateException e) {
+        }catch (HibernateException e) {		//不知道什么时候会出这个异常。
         	if(transaction!=null){
         		transaction.rollback();
         	}
     		e.printStackTrace();
+    		return "";
+        }catch(PersistenceException e){		//数据控中已有此主键
+        	if(transaction!=null){
+        		transaction.rollback();
+        	}
+        	return null;
         }finally{
-           		session.close();
+           	session.close();
         }
    		return id;
 	}
