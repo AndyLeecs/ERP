@@ -1,19 +1,15 @@
 package ui.accountUI;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.stream.Collectors;
 
-import VO.accountVO.AccountVO;
 import VO.accountVO.CollectionListVO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
@@ -31,36 +27,22 @@ public class CollectionListWinController extends FinanceListWinController{
 	
 	@FXML
 	AnchorPane root;
+
+	@FXML Label VIPName;
+	@FXML Label VIPID;
+	@FXML Button selectVIPBtn;
 	
 	@FXML TableView<TransferItem> TransferListTableView;
 	@FXML TableColumn<TransferItem,String> account;
 	@FXML TableColumn<TransferItem,String> amount;
 	@FXML TableColumn<TransferItem,String> note;
 	@FXML TableColumn<TransferItem,String> deleted;
-
-	@FXML ComboBox<String> AccountComboBox;
-
-	@FXML Label accountLabel;
-	@FXML Label totalAmount;
-	@FXML Button selectVIPBtn;
-	@FXML Button closeBtn;
-	@FXML Button saveBtn;
-	@FXML Button commitBtn;
-	
-
-	
 	final ObservableList<TransferItem> transferItem = FXCollections.observableArrayList();
-	List<String> accountList = new ArrayList<String>();
 
-	@FXML Label VIPName;
 
-	@FXML Label VIPID;
 	
-	
-
 	public void init(){
-		
-		initComboBox();
+		super.init();
 		initTableView();
 
 	}
@@ -151,14 +133,6 @@ public class CollectionListWinController extends FinanceListWinController{
 			);
 	}
 	
-	private void initComboBox(){
-		List<AccountVO> accountvo = financeListService.findAccount();
-		for(AccountVO vo :accountvo){
-			accountList.add(vo.getAccountName());
-		}
-		AccountComboBox.getItems().addAll(accountList);
-		
-	}
 
 	
 	@FXML 
@@ -172,8 +146,14 @@ public class CollectionListWinController extends FinanceListWinController{
 		while(iterator.hasNext()){
 			int i = 1;
 			TransferItem item = iterator.next();
-			if(item.getAccount().equals(newAccount))	//此账户已经选择过了
+			if(item.getAccount().equals(newAccount)){	//此账户已经选择过了
+				try {
+					new PromptWin("此账户已经选择过啦");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				return;
+			}
 			System.out.println(i++);
 
 		}
@@ -183,15 +163,12 @@ public class CollectionListWinController extends FinanceListWinController{
 	
 	
 	
-	@FXML
-	public void onCloseBtnClicked(){
-		parentController.CloseSonWin();
-	}
+	
 
 	@FXML 
-	public void onSaveBtnClicked() {
+	public void onSaveBtnClicked() {		//不同单据保存的前置条件可能不同，故不放在父类中
 		
-		CollectionListVO vo = createCollectionListVO(State.IsDraft);
+		CollectionListVO vo = createListVO(State.IsDraft);
 		
 		SaveListRM saverm = financeListService.save(vo);
 		switch(saverm){
@@ -207,7 +184,7 @@ public class CollectionListWinController extends FinanceListWinController{
 
 
 	@FXML 
-	public void onCommitBtnClicked() {
+	public void onCommitBtnClicked() {		//不同单据提交的前置条件不同，故不放在父类中
 		if(transferItem.isEmpty()){
 			try {
 				prompt("转账列表是不能为空的");
@@ -218,7 +195,7 @@ public class CollectionListWinController extends FinanceListWinController{
 				
 			}
 		}
-		CollectionListVO vo = createCollectionListVO(State.IsCommitted);
+		CollectionListVO vo = createListVO(State.IsCommitted);
 		CommitListRM commitrm = financeListService.commit(vo);
 		switch(commitrm){
 		case SUCCESS:
@@ -232,12 +209,12 @@ public class CollectionListWinController extends FinanceListWinController{
 			}
 			break;
 		default:
-			System.out.println("commitrm");
+			System.out.println(commitrm);
 		}
 	}
 	
-	//创建当前界面对应的VO
-	private CollectionListVO createCollectionListVO(State state){
+
+	protected CollectionListVO createListVO(State state){
 		return new CollectionListVO(
 				listID.getText(),
 				VIPID.getText(),
@@ -249,10 +226,7 @@ public class CollectionListWinController extends FinanceListWinController{
 				);
 	}
 	
-	private void prompt(String promptText) throws IOException{
-		new PromptWin(promptText);
-	}
-
+	
 }
 
 
