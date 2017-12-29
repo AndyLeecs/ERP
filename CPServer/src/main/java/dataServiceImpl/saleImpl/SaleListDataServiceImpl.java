@@ -5,7 +5,6 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.PresentForSumPO;
 import PO.SaleListPO;
 import PO.SalesmanListPO;
 import dataHelper.BasicUtil;
@@ -13,9 +12,8 @@ import dataHelper.CriterionClause;
 import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
 import dataHelper.HibernateUtil;
-import dataService.saleDataService.SaleUniDataService;
+import dataService.saleDataService.SaleListDataService;
 import util.DataRM;
-import util.PresentState;
 import util.State;
 
 /**     
@@ -24,7 +22,7 @@ import util.State;
 * @description 销售单的基础数据库操作
 * TODO 单据在表单包的注册，审批，以及通知等功能
 */
-public class SaleListDataServiceImpl extends UnicastRemoteObject implements SaleUniDataService{
+public class SaleListDataServiceImpl extends UnicastRemoteObject implements SaleListDataService{
 
 	BasicUtil<SaleListPO> util;
 	//	BasicUtil<SaleListPO> util;
@@ -32,7 +30,7 @@ public class SaleListDataServiceImpl extends UnicastRemoteObject implements Sale
 	/**
 	 * @throws RemoteException
 	 */
-	protected SaleListDataServiceImpl() throws RemoteException {
+	public SaleListDataServiceImpl() throws RemoteException {
 		super();
 		util = new HibernateUtil<SaleListPO>(SaleListPO.class);
 		criterionClauseGenerator = new HibernateCriterionClauseGenerator();

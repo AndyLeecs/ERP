@@ -15,7 +15,7 @@ public class ListPO{
 	/**
 	 * 单据编号
 	 */
-	private String id;
+	private String id = "";
 	/**
 	 * 操作员名称
 	 */

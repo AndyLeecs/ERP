@@ -14,7 +14,7 @@ import ui.commonUI.ParentController;
 * @date 2017年12月26日
 * @description
 */
-public class StockTypeApproveListController extends StockTypeListController {
+public abstract class StockTypeApproveListController extends StockTypeListController {
 
 	@FXML protected Button approveBtn;
 	@FXML protected Button rejectBtn;
@@ -31,12 +31,12 @@ public class StockTypeApproveListController extends StockTypeListController {
 
 	@FXML
 	void approve(){
-		
+		//实现审批方法
 	}
 	
 	@FXML
 	void reject(){
-		
+		uniBLService.reject(getVOFromUI());
 	}
 	
 	@FXML
@@ -44,32 +44,4 @@ public class StockTypeApproveListController extends StockTypeListController {
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see ui.salesmanUI.SalesmanListWinController#getVIPList(java.lang.String, java.util.List)
-	 */
-	@Override
-	public void getVIPList(String message, List<VIPVO> temp) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	/* (non-Javadoc)
-	 * @see ui.salesmanUI.SalesmanListWinController#refresh()
-	 */
-	@Override
-	public void refresh() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	/* (non-Javadoc)
-	 * @see ui.salesmanUI.StockTypeListController#getVOFromUI()
-	 */
-	@Override
-	public SalesmanListVO getVOFromUI() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

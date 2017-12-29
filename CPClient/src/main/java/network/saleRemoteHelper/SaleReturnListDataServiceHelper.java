@@ -2,7 +2,7 @@ package network.saleRemoteHelper;
 
 import java.rmi.Remote;
 
-import dataService.saleDataService.SaleUniDataService;
+import dataService.saleDataService.SaleReturnListDataService;
 import network.DataServiceHelper;
 
 /**     
@@ -11,7 +11,7 @@ import network.DataServiceHelper;
 * @description
 */
 public class SaleReturnListDataServiceHelper implements DataServiceHelper{
-	private SaleUniDataService SaleReturnListDataService;
+	private SaleReturnListDataService SaleReturnListDataService;
 	private static final String serviceName = "SaleReturnListDataService";
 	private static SaleReturnListDataServiceHelper SaleReturnListRemoteHelper = new SaleReturnListDataServiceHelper();
 	public static SaleReturnListDataServiceHelper getInstance(){
@@ -21,10 +21,10 @@ public class SaleReturnListDataServiceHelper implements DataServiceHelper{
     }
     
     public void setRemote(Remote remote){
-    	SaleReturnListDataService = (SaleUniDataService)remote;
+    	SaleReturnListDataService = (SaleReturnListDataService)remote;
     }
     
-    public SaleUniDataService getSaleReturnListDataService(){
+    public SaleReturnListDataService getSaleReturnListDataService(){
     	return SaleReturnListDataService;
     }
 	/* (non-Javadoc)

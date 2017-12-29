@@ -27,9 +27,6 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	/**
 	 * id为String时的新增方法
 	 * @param po 
-	 * @return
-	 * 成功-返回String类型的业务id
-	 * 失败-返回空串或null
 	 */
 	public String insert(Object po);
 	
@@ -116,6 +113,14 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	 * @return 新生成的id
 	 */
 	public String getNewListId(String prefix, ListPO po);
+	
+	
+	/**
+	 * 
+	 * @param l 统计条件
+	 * @return 统计值
+	 */
+	public double Projection(ProjectionClause l);
 	
 	
 }

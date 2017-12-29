@@ -65,19 +65,17 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 		String id = "";
         try {
         	transaction = session.beginTransaction();
-            id = ""+session.save(type.getName(), po);
+            id = (String)session.save(type.getName(), po);
             transaction.commit();
         } catch (HibernateException e) {
         	if(transaction!=null){
         		transaction.rollback();
         	}
     		e.printStackTrace();
-        	return null;
         }finally{
            		session.close();
         }
-        
-        return id;
+   		return id;
 	}
 	
 	@Override
@@ -122,7 +120,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         } catch (OptimisticLockException e) {
         	if(transaction!=null){
         		transaction.rollback();
-        		rm = DataRM.NOT_EXIST;				//TODO 这个是这么回事吗？请在此处回复我一下 re:不知道 rere:我是想问这个异常是代表NOT_EXIST吗
+        		rm = DataRM.NOT_EXIST;				//TODO 这个是这么回事吗？请在此处回复我一下 re:不知道 rere:我是想问这个异常是代表NOT_EXIST吗 re:不知道
         	}
         	e.printStackTrace();
         	rm = DataRM.FAILED;
@@ -347,9 +345,10 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 		T lastpo = getLastRow();
 		String currentDate = DateUtil.getCurrentDate();
 		String newId = prefix +"-"+currentDate + "-";
+//		System.out.println(lastpo);
 		if(lastpo == null){		//表空
 			newId +="00001";
-		}
+		}else{
 		String lastId = ((ListPO)lastpo).getId();
 		String date = DateUtil.getDateFromListIDAsString(lastId);
 		if(!currentDate.equals(date)){		//今天的第一张单子
@@ -361,7 +360,8 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 				return null;
 			newId += String.valueOf(++num);
 		}
-		
+		}
+		System.out.println(newId);
 		po.setId(newId);
 		po.setState(State.IsEditting);
 		insert(po);
@@ -369,6 +369,33 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 		
 	}
 
-
+	@Override
+	public double Projection(ProjectionClause l) {
+		
+		session = sessionFactory.openSession();
+		transaction = null;
+	try{
+		transaction = session.beginTransaction();
+        Criteria criteria = session.createCriteria(type.getName());
+        
+        criteria.setProjection(l.getProjection());
+        double result = 0;
+        result = ((Long)criteria.uniqueResult()).doubleValue();
+        
+        transaction.commit();
+        session.close();
+        return result;
+    } catch (HibernateException e) {
+    	if(transaction != null)
+    	{
+    		transaction.rollback();
+    	}
+    	System.out.println("hibernate Exception in projection");
+    	e.printStackTrace();
+    	return -1;
+    }finally{
+    	session.close();
+    }
+	}
 }
 

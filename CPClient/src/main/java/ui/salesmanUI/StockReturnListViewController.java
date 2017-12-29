@@ -2,27 +2,35 @@ package ui.salesmanUI;
 
 import java.util.List;
 
-import PO.SalesmanListPO;
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import ui.commonUI.ParentController;
-import ui.commonUI.SonController;
 
 /**     
 * @author 李安迪
-* @date 2017年12月24日
-* @description 打开销售单和销售退货单列表
+* @date 2017年12月29日
+* @description
 */
-public abstract class SaleTypeListViewController extends ListViewController{
+public class StockReturnListViewController extends ListViewController {
 
 	/**
 	 * @param controller
 	 * @param service
 	 * @param list
 	 */
-	public SaleTypeListViewController(SalesmanController controller, SaleUniBLService service,
+	public StockReturnListViewController(SalesmanController controller, SaleUniBLService service,
 			List<SalesmanListVO> list) {
 		super(controller, service, list);
 		// TODO Auto-generated constructor stub
 	}
+
+	/* (non-Javadoc)
+	 * @see ui.salesmanUI.ListViewController#refresh()
+	 */
+	@Override
+	public void refresh() {
+		// TODO Auto-generated method stub
+
+	}
+
 }
