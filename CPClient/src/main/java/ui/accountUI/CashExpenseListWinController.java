@@ -16,8 +16,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import resultmessage.CommitListRM;
-import resultmessage.SaveListRM;
 import ui.commonUI.PromptWin;
 import ui.mainUI.loginUI.User;
 import util.State;
@@ -149,24 +147,12 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 	
 	@FXML 
 	public void onSaveBtnClicked() {		//不同单据保存的前置条件可能不同，故不放在父类中
-		
-		CashExpenseListVO vo = createListVO(State.IsDraft);
-		
-		SaveListRM saverm = financeListService.save(vo);
-		switch(saverm){
-		case SUCCESS:
-			try {
-				new PromptWin("保存成功！");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			break;
-		}
+		saveList();
 	}
 
 
 	@FXML 
-	public void onCommitBtnClicked() {		//不同单据提交的前置条件不同，故不放在父类中
+	public void onCommitBtnClicked() {		
 		String account = AccountComboBox.getValue();
 		if(account == null || account.equals("")){
 			try {
@@ -187,22 +173,7 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 			}
 		}
 		
-		CashExpenseListVO vo = createListVO(State.IsCommitted);
-		CommitListRM commitrm = financeListService.commit(vo);
-		switch(commitrm){
-		case SUCCESS:
-			try {
-				prompt("提交成功！");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			finally{		//提示窗虽然加载不出来，不过提交已经成功了，就应该关闭了
-				parentController.CloseSonWin();		
-			}
-			break;
-		default:
-			System.out.println(commitrm);
-		}
+		commitList();
 	}
 	
 
