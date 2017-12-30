@@ -22,10 +22,10 @@ public class Main extends Application {
 					ServerConnector s = new ServerConnector();
 //					new Welcome();
 					//new LoginWin();
-//					new ui.salesmanUI.SalesmanWin();
-					//new ui.stockmanUI.StockmanWin();
+				new ui.salesmanUI.SalesmanWin();
+//					new ui.stockmanUI.StockmanWin();
 //					new ui.managerUI.LookListWin();
-					new ui.mainUI.accountantUI.AccountantWin();
+//					new ui.mainUI.accountantUI.AccountantWin();
 					//new ui.stockmanUI.StockmanWin();
 //					new ui.managerUI.ManagerWin();
 					//new ui.stockmanUI.GoodsWin();
