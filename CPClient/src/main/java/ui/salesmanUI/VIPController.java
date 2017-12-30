@@ -19,6 +19,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import com.jfoenix.controls.JFXTextField;
+
 /**
  * Created by julia98 on 2017/12/22.
  */
@@ -477,73 +479,73 @@ public class VIPController {
         });
         gridPane.add(edit,4,0);
 
-        TextField vipID = new TextField();
+        JFXTextField vipID = new JFXTextField();
         vipID.setText(vipvo.getId());
         vipID.setEditable(false);
         vipID.setPrefSize(123,27);
         gridPane.add(vipID,4,1);
 
-        TextField vipCategory = new TextField();
+        JFXTextField vipCategory = new JFXTextField();
         vipCategory.setText(vipvo.getCategory());
         vipCategory.setEditable(false);
         vipCategory.setPrefSize(123,27);
         gridPane.add(vipCategory,1,2);
 
-        TextField vipGrade = new TextField();
+        JFXTextField vipGrade = new JFXTextField();
         vipGrade.setText(vipvo.getGrade());
         vipGrade.setEditable(false);
         vipGrade.setPrefSize(123,27);
         gridPane.add(vipGrade,4,2);
 
-        TextField vipName = new TextField();
+        JFXTextField vipName = new JFXTextField();
         vipName.setText(vipvo.getName());
         vipName.setEditable(false);
         vipName.setPrefSize(123,27);;
         gridPane.add(vipName,1,1);
 
-        TextField vipPhoneNumber = new TextField();
+        JFXTextField vipPhoneNumber = new JFXTextField();
         vipPhoneNumber.setText(vipvo.getPhoneNumber());
         vipPhoneNumber.setEditable(false);
         vipPhoneNumber.setPrefSize(123,27);;
         gridPane.add(vipPhoneNumber,1,3);
 
-        TextField vipEmail = new TextField();
+        JFXTextField vipEmail = new JFXTextField();
         vipEmail.setText(vipvo.getEmail());
         vipEmail.setEditable(false);
         vipEmail.setPrefSize(123,27);
         gridPane.add(vipEmail,1,4);
 
-        TextField vipAddress = new TextField();
+        JFXTextField vipAddress = new JFXTextField();
         vipAddress.setText(vipvo.getAddress());
         vipAddress.setEditable(false);
         vipAddress.setPrefSize(123,27);;
         gridPane.add(vipAddress,4,3);
 
-        TextField vipPostCode = new TextField();
+        JFXTextField vipPostCode = new JFXTextField();
         vipPostCode.setText(vipvo.getPostCode());
         vipPostCode.setEditable(false);
         vipPostCode.setPrefSize(123,27);
         gridPane.add(vipPostCode,4,4);
 
-        TextField collection = new TextField();
+        JFXTextField collection = new JFXTextField();
         collection.setText(""+vipvo.getCollection());
         collection.setEditable(false);
         collection.setPrefSize(123,27);
         gridPane.add(collection,4,7);
 
-        TextField collectionLimit = new TextField();
+        JFXTextField collectionLimit = new JFXTextField();
         collectionLimit.setText(""+vipvo.getCollectionLimit());
         collectionLimit.setEditable(false);
         collectionLimit.setPrefSize(123,27);
         gridPane.add(collectionLimit,1,7);
 
-        TextField payment = new TextField();
+        JFXTextField payment = new JFXTextField();
         payment.setText(""+vipvo.getPayment());
         payment.setEditable(false);
         payment.setPrefSize(123,27);;
         gridPane.add(payment,4,8);
 
-        TextField clerk = new TextField();
+        JFXTextField clerk = new JFXTextField();
         clerk.setText(vipvo.getClerk());
         clerk.setEditable(false);
         clerk.setPrefSize(123,27);

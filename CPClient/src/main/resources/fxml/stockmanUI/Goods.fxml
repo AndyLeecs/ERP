@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -88,15 +89,15 @@
                </font>
             </Label>
             <TextField fx:id="searchField" layoutX="625.0" layoutY="74.0" prefHeight="32.0" prefWidth="167.0" style="-fx-background-radius: 23; -fx-border-radius: 23;" />
-            <Button fx:id="searchBtn" layoutX="825.0" layoutY="77.0" mnemonicParsing="false" onAction="#setSearchBtn" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="查询" textFill="WHITE" />
             <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="764.0" layoutY="81.0">
                <image>
                   <Image url="@../../img/search.png" />
                </image>
             </ImageView>
-            <Button fx:id="goodsNameSearchBtn" layoutX="34.0" layoutY="77.0" mnemonicParsing="false" onAction="#onGoodsNameSearchBtnClicked" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-border-color: #9f353a; -fx-border-radius: 23;" text="商品名" textFill="#9f353a" />
-            <Button fx:id="goodsTypeSearchBtn" layoutX="115.0" layoutY="77.0" mnemonicParsing="false" onAction="#onGoodsTypeSearchBtnClicked" prefHeight="27.0" prefWidth="72.0" style="-fx-background-radius: 23; -fx-border-color: #9f353a; -fx-border-radius: 23;" text="商品型号" textFill="#9f353a" />
-            <Button fx:id="goodsIDSearchBtn" layoutX="210.0" layoutY="77.0" mnemonicParsing="false" onAction="#onGoodsIDSearchBtnClicked" prefHeight="27.0" prefWidth="72.0" style="-fx-background-radius: 23; -fx-border-color: #9f353a; -fx-border-radius: 23;" text="商品编号" textFill="#9f353a" />
+            <JFXButton fx:id="searchBtn" buttonType="RAISED" layoutX="822.0" layoutY="78.0" onAction="#setSearchBtn" prefHeight="27.0" prefWidth="63.0" ripplerFill="#d30f0f" style="-fx-background-radius: 23; -fx-background-color: #ff7575;" text="查询" textFill="#f7e9e9" />
+            <JFXButton fx:id="goodsNameSearchBtn" buttonType="RAISED" layoutX="34.0" layoutY="77.0" onAction="#onGoodsNameSearchBtnClicked" prefHeight="29.0" prefWidth="63.0" ripplerFill="#dd0808" style="-fx-border-color: #9f353a; -fx-border-radius: 17;" text="商品名" textFill="#9f353a" />
+            <JFXButton fx:id="goodsTypeSearchBtn" buttonType="RAISED" layoutX="115.0" layoutY="77.0" onAction="#onGoodsTypeSearchBtnClicked" prefHeight="29.0" prefWidth="72.0" ripplerFill="#dd0808" style="-fx-border-color: #9f353a; -fx-border-radius: 17;" text="商品型号" textFill="#9f353a" />
+            <JFXButton fx:id="goodsIDSearchBtn" buttonType="RAISED" layoutX="203.0" layoutY="77.0" onAction="#onGoodsIDSearchBtnClicked" prefHeight="29.0" prefWidth="72.0" ripplerFill="#dd0808" style="-fx-border-color: #9f353a; -fx-border-radius: 17;" text="商品编号" textFill="#9f353a" />
          </children></Pane>
       <Pane layoutX="216.0" layoutY="310.0" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
          <children>
@@ -120,5 +121,6 @@
          <Button fx:id="cancelBtn" layoutX="264.0" layoutY="205.0" mnemonicParsing="false" onAction="#onCancelBtnClicked" prefHeight="27.0" prefWidth="63.0" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-background-color: FF7575;" text="取消" textFill="WHITE" />
       </children>
       </Pane>
+      <StackPane fx:id="rootStackPane" layoutX="325.0" layoutY="640.0" prefHeight="160.0" prefWidth="512.0" />
    </children>
 </AnchorPane>
