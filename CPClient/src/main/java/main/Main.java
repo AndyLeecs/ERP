@@ -19,13 +19,13 @@ public class Main extends Application {
 
 		Platform.runLater(()-> {
 				try {
-					ServerConnector s = new ServerConnector();
+				//	ServerConnector s = new ServerConnector();
 //					new Welcome();
 					//new LoginWin();
-//					new ui.salesmanUI.SalesmanWin();
-					//new ui.stockmanUI.StockmanWin();
+					//new ui.salesmanUI.SalesmanWin();
+					new ui.stockmanUI.StockmanWin();
 //					new ui.managerUI.LookListWin();
-					new ui.mainUI.accountantUI.AccountantWin();
+					//new ui.mainUI.accountantUI.AccountantWin();
 					//new ui.stockmanUI.StockmanWin();
 //					new ui.managerUI.ManagerWin();
 					//new ui.stockmanUI.GoodsWin();

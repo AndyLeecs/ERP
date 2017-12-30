@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
@@ -21,7 +22,7 @@
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparent;" textFill="#9f353a" />
             <MenuButton fx:id="newBtn" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
               <items>
-                <MenuItem fx:id="newPresentListBtn" mnemonicParsing="false" onAction="#newPresentList" style="-fx-background-color: transparent;" styleClass="ui.saleUI.Sale.css" text="库存赠送单" />
+                <MenuItem fx:id="newPresentListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="ui.saleUI.Sale.css" text="库存赠送单" />
                 <MenuItem fx:id="newStockOverflowListBtn" mnemonicParsing="false" onAction="#newStockOverflowList" style="-fx-background-color: transparent;" text="库存报溢单" />
                   <MenuItem fx:id="newStockLostListBtn" mnemonicParsing="false" onAction="#newStockLostList" style="-fx-background-color: transparent;" text="库存报损单" />
               </items>
@@ -49,20 +50,16 @@
                   <MenuItem fx:id="personalInfoBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="个人信息" />
                </items>
             </MenuButton>
-            <Button fx:id="goodsManageBtn" mnemonicParsing="false" onAction="#goodsManage" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="商品" textFill="#9f353a">
+            <JFXButton fx:id="goodsManageBtn" onAction="#goodsManage" prefHeight="63.0" prefWidth="122.0" ripplerFill="WHITE" text="商品" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
-            </Button>
-            <MenuButton fx:id="personBtn1" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      库存" textFill="#9f353a">
+            </JFXButton>
+            <JFXButton fx:id="draftBtn" prefHeight="63.0" prefWidth="122.0" ripplerFill="WHITE" text="库存" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
-               <items>
-                  <MenuItem fx:id="StoreCheckBtn" mnemonicParsing="false" onAction="#StoreCheck" style="-fx-background-color: transparent;" text="库存查看" />
-                  <MenuItem fx:id="StoreInventoryBtn" mnemonicParsing="false" onAction="#StoreInventory" style="-fx-background-color: transparent;" text="库存盘点" />
-               </items>
-            </MenuButton>
+            </JFXButton>
          </children>
       </VBox>
       <Circle fill="#5cfeff99" layoutX="107.0" layoutY="87.0" opacity="0.67" radius="80.0" stroke="BLACK" strokeMiterLimit="0.0" strokeWidth="0.0">

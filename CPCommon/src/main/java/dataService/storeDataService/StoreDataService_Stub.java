@@ -172,8 +172,19 @@ public class StoreDataService_Stub implements StoreDataService{
 		po1.price=410.35;
 		po1.time="2017-12-23 23:45:54";
 		po1.type=GreatListType.SALE;
+
+		StoreLogPO po2=new StoreLogPO ();
+		po2.id="55544L";
+		po2.name="大灯";
+		po2.num=40;
+		po2.price=64.25;
+		po2.time="2017-12-30";
+		po2.type=GreatListType.STOCK_RETURN;
+
+
 		ArrayList<StoreLogPO> arr=new ArrayList<StoreLogPO>();
 		arr.add(po1);
+		arr.add(po2);
 		return arr;
 	}
 
