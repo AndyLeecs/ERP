@@ -83,7 +83,7 @@
       <Pane layoutX="216.0" layoutY="148.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
          <children>
             <Label layoutX="34.0" layoutY="14.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
-            <Label layoutX="55.0" layoutY="23.0" text="商品管理">
+            <Label fx:id="magic" layoutX="55.0" layoutY="23.0" text="商品管理">
                <font>
                   <Font size="18.0" />
                </font>
@@ -121,6 +121,10 @@
          <Button fx:id="cancelBtn" layoutX="264.0" layoutY="205.0" mnemonicParsing="false" onAction="#onCancelBtnClicked" prefHeight="27.0" prefWidth="63.0" style="-fx-background-radius: 23; -fx-border-radius: 23; -fx-background-color: FF7575;" text="取消" textFill="WHITE" />
       </children>
       </Pane>
-      <StackPane fx:id="rootStackPane" layoutX="325.0" layoutY="640.0" prefHeight="160.0" prefWidth="512.0" />
+      <JFXDialogLayout fx:id="dialogLayout" layoutX="389.0" layoutY="713.0" prefHeight="87.0" prefWidth="533.0">
+         <children>
+            <JFXDialog fx:id="dialog" />
+         </children>
+      </JFXDialogLayout>
    </children>
 </AnchorPane>

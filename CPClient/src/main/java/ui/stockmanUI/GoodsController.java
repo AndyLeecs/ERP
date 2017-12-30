@@ -23,7 +23,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXPopup;
@@ -41,6 +43,9 @@ public class GoodsController extends BackgroundController{
 	@FXML public AnchorPane root;
 	@FXML public StackPane rootStackPane;
     @FXML public Label presentLocation;
+    @FXML public JFXDialogLayout dialogLayout;
+    @FXML public JFXDialog dialog;
+    @FXML public Label magic;
 
     @FXML public Button goodsNameSearchBtn;
     @FXML public Button goodsTypeSearchBtn;
@@ -175,7 +180,9 @@ public class GoodsController extends BackgroundController{
                 noticeLabel.setText("新建商品");
                 notice.setVisible(true);
             }else{
-                presentLocation.setText("此节点下不可添加商品");
+            	    dialog.setContent(new JFXButton("此节点下不可添加商品 喵喵喵~"));
+                dialog.show(dialogLayout);
+                //presentLocation.setText("此节点下不可添加商品");
                 System.out.println("此节点下不可添加商品");
             }
 
@@ -203,7 +210,9 @@ public class GoodsController extends BackgroundController{
                     noticeLabel.setText("新建分类");
                     notice.setVisible(true);
                 } else {
-                    presentLocation.setText("此节点下不可添加分类");
+                  	dialog.setContent(new JFXButton("此节点下不可添加分类 喵喵喵~"));
+                    dialog.show(dialogLayout);
+                    //presentLocation.setText("此节点下不可添加分类");
                     System.out.println("此节点下不可添加分类");
                 }
         });
@@ -223,6 +232,8 @@ public class GoodsController extends BackgroundController{
                     } catch (RemoteException e1) {
                         e1.printStackTrace();
                     }
+                    dialog.setContent(new JFXButton(selectItem.getValue().toString() + "已删除"));
+                    dialog.show(dialogLayout);
                     break;
 
                 case "分类":
@@ -233,6 +244,8 @@ public class GoodsController extends BackgroundController{
                     } catch (RemoteException e1) {
                         e1.printStackTrace();
                     }
+                    dialog.setContent(new JFXButton(selectItem.getValue().toString() + "已删除"));
+                    dialog.show(dialogLayout);
                     break;
             }
             selectItem.getParent().getChildren().remove(selectItem);
@@ -265,7 +278,14 @@ public class GoodsController extends BackgroundController{
         notice.setVisible(false);
         initTreeView();
         goodsVBox.getChildren().clear();
+        initDialog();
         
+    }
+    public void initDialog() {
+        magic.setOnMouseClicked(e->{
+        	dialog.setContent(new JFXButton("GYB 喵喵喵~"));
+        	dialog.show(dialogLayout);
+        });
     }
 
     /**
@@ -304,15 +324,6 @@ public class GoodsController extends BackgroundController{
 	            newGoodsPane(goodsVOArrayList.get(i));
             }
         }
-	    /*
-	    JFXDialog dialog = new JFXDialog();
-	    dialog.setContent(new Label(goodsTypeSearch));
-	    dialog.show(rootStackPane);
-	    dialog.setStyle("-jfx-dialog-transition: BOTTOM");
-	    
-	    JFXSnackbar bar = new JFXSnackbar(root);
-	    bar.enqueue(new SnackbarEvent(goodsTypeSearch));
-	    */
 	}
 	
 	

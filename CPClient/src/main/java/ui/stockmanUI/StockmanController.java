@@ -1,15 +1,7 @@
 package ui.stockmanUI;
 
 import java.io.IOException;
-
-<<<<<<< HEAD
 import com.jfoenix.controls.JFXButton;
-
-=======
-import com.sun.glass.events.WindowEvent;
-
-import bl.storebl.ReportList;
->>>>>>> e7827b65ca819c8cd515f257b4c222604846b005
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
