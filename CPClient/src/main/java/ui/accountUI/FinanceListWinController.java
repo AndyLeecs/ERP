@@ -57,6 +57,7 @@ public abstract class FinanceListWinController extends ListWinController{
 	
 	@FXML
 	public void onCloseBtnClicked(){
+		financeListService.endService();
 		parentController.CloseSonWin();
 	}	
 	

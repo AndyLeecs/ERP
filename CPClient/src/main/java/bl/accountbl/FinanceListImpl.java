@@ -17,6 +17,9 @@ import resultmessage.SaveListRM;
 import util.State;
 
 public abstract class FinanceListImpl implements FinanceListService{
+	
+	String id = null;
+	State currentState = null;		//如果当前为编辑状态，那么结束服务时要删除对应id的单据
 
 	FinanceListDataService financeListDataService;
 	
@@ -27,15 +30,24 @@ public abstract class FinanceListImpl implements FinanceListService{
 	@Override
 	public String newList() {
 		try {
-			String newId = financeListDataService.getNewListId();
-			if(newId == null || newId == "")
+			String newid = financeListDataService.getNewListId();
+			if(newid == null || newid == "")
 				return null;
-			return newId;
+			currentState = State.IsEditting;
+			id = newid;
+			return newid;
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			
 		}
 		return null;
+	}
+	
+	@Override
+	public void endService(){
+		if(id != null && currentState == State.IsEditting){
+			delete(id);
+		}
 	}
 
 	@Override
@@ -66,6 +78,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 			DataRM datarm = financeListDataService.update(po);
 			switch(datarm){
 			case SUCCESS:
+				currentState = State.IsDraft;
 				return SaveListRM.SUCCESS;
 			case NOT_EXIST:
 					DataRM insertRm = financeListDataService.insert(po);		//还是有这种情况的。。
@@ -73,6 +86,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 					case FAILED:
 						return SaveListRM.SERVER_ERROR;
 					case SUCCESS:
+						currentState = State.IsDraft;
 						return SaveListRM.SUCCESS;
 					default:
 						break;
@@ -99,6 +113,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 		case SERVER_ERROR:
 			return CommitListRM.SERVER_ERROR;
 		case SUCCESS:
+			currentState = State.IsCommitted;
 			return CommitListRM.SUCCESS;
 		default:
 			break;

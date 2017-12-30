@@ -16,6 +16,7 @@ import ui.accountUI.OpenCollectionCommitedListController;
 import ui.accountUI.OpenFinanceListController;
 import ui.accountUI.PaymentListWinController;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptWin;
 import ui.mainUI.loginUI.User;
 
 public class AccountantWinController implements ParentController{
@@ -108,7 +109,7 @@ public class AccountantWinController implements ParentController{
 	@Override
 	public void CloseSonWin() {
 		centerPane.setCenter(null);
-//		centerPane.getChildren().removeAll();		
+		centerPane.getChildren().removeAll();		
 	}
 	
 	
@@ -116,11 +117,19 @@ public class AccountantWinController implements ParentController{
 	private void loadNewList(FinanceListService financeListService,FinanceListWinController ListWinController, String fxmlPath){
 		String id = financeListService.newList();
 		if(id == null){
-			//TODO 提示网络异常，请稍后再试的界面
+			try {
+				new PromptWin("网络异常，请稍后再试！");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			return;
 		}
 		if(id == global.ListGlobalVariables.LIST_FULL){
-			//TODO 提示单据已满的界面
+			try {
+				new PromptWin("今日该类单据已满，请明天再来～");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			return;
 		}
 		
@@ -139,6 +148,7 @@ public class AccountantWinController implements ParentController{
 			AnchorPane ListRoot;
 			ListRoot = loader.getRoot();
 			
+			this.CloseSonWin();
 			centerPane.setCenter(ListRoot);
 			
 		} catch (IOException e) {
@@ -158,8 +168,8 @@ public class AccountantWinController implements ParentController{
 			
 			AnchorPane ListRoot = loader.getRoot();
 			
-			centerPane.getChildren().removeAll();
-			centerPane.getChildren().add(ListRoot);
+			this.CloseSonWin();
+			centerPane.setCenter(ListRoot);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
