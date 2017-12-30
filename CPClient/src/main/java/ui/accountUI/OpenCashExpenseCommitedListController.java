@@ -13,10 +13,10 @@ public class OpenCashExpenseCommitedListController extends OpenFinanceListContro
 	@SuppressWarnings("unchecked")
 	@Override
 	public void init() {
-		setTitle("收款单");
+		setTitle("现金费用单");
 		CashExpenseLists = (List<CashExpenseListVO>) financeListService.openCommitted();
 		if(CashExpenseLists == null || CashExpenseLists.size() == 0){
-			this.searchTextField.setPromptText("没有已提交的收款单");
+			this.searchTextField.setPromptText("没有已提交的现金费用单");
 		}
 		 for(CashExpenseListVO vo :CashExpenseLists){
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/accountUI/CashExpenseListBrief.fxml"));

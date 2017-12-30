@@ -27,6 +27,8 @@ public class CollectionListWinController extends FinanceListWinController{
 	
 	@FXML
 	AnchorPane root;
+	
+	CollectionListVO vo = null;
 
 	@FXML Label VIPName;
 	@FXML Label VIPID;
@@ -39,9 +41,22 @@ public class CollectionListWinController extends FinanceListWinController{
 	@FXML TableColumn<TransferItem,String> deleted;
 	final ObservableList<TransferItem> transferItem = FXCollections.observableArrayList();
 
-
+	public CollectionListWinController(){}
+	public CollectionListWinController(CollectionListVO vo){this.vo = vo;}
 	
 	public void init(){
+		if(vo != null){
+			transferItem.addAll(vo.getTransferItem()
+								.stream()
+								.map(e->new TransferItem(e.getAccount(),e.getAmount(),e.getNote()))
+								.collect(Collectors.toList()));
+			setListID(vo.getId());
+			setOperator(vo.getOperator());
+			VIPName.setText(vo.getVIPName());
+			VIPID.setText(vo.getVIPID());
+			totalAmount.setText(String.valueOf(vo.getTotalAmount()));
+		}
+		
 		super.init();
 		initTableView();
 

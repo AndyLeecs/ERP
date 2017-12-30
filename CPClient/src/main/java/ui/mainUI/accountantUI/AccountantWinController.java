@@ -2,6 +2,8 @@ package ui.mainUI.accountantUI;
 
 import java.io.IOException;
 
+import VO.accountVO.CashExpenseListVO;
+import VO.accountVO.CollectionListVO;
 import blservice.accountblservice.FinanceListService;
 import blservice.serviceFactory.AccountBLFactory;
 import javafx.fxml.FXML;
@@ -13,7 +15,9 @@ import ui.accountUI.CashExpenseListWinController;
 import ui.accountUI.CollectionListWinController;
 import ui.accountUI.FinanceListWinController;
 import ui.accountUI.OpenCashExpenseCommitedListController;
+import ui.accountUI.OpenCashExpenseDraftListController;
 import ui.accountUI.OpenCollectionCommitedListController;
+import ui.accountUI.OpenCollectionDraftListController;
 import ui.accountUI.OpenFinanceListController;
 import ui.accountUI.PaymentListWinController;
 import ui.commonUI.ParentController;
@@ -87,7 +91,7 @@ public class AccountantWinController implements ParentController{
 
 
 	@FXML public void onOpenCollectionDraftBtnClicked() {
-		//TODO
+		loadOpenList(AccountBLFactory.getCollectionListService(), new OpenCollectionDraftListController(this));
 	}
 
 
@@ -101,7 +105,7 @@ public class AccountantWinController implements ParentController{
 
 
 	@FXML public void onOpenCashExpenseDraftBtnClicked() {
-		//TODO
+		loadOpenList(AccountBLFactory.getCashExpenseListService(), new OpenCashExpenseDraftListController(this));
 	}
 
 
@@ -115,7 +119,7 @@ public class AccountantWinController implements ParentController{
 	
 	
 	
-	private void loadNewList(FinanceListService financeListService,FinanceListWinController ListWinController, String fxmlPath){
+	private void loadNewList(FinanceListService financeListService,FinanceListWinController financeListWinController, String fxmlPath){
 		String id = financeListService.newList();
 		if(id == null){
 			try {
@@ -137,17 +141,38 @@ public class AccountantWinController implements ParentController{
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
 
-			loader.setController(ListWinController);
+			loader.setController(financeListWinController);
 			loader.load();
 			
-			ListWinController.setParentController(this);
-			ListWinController.setListID(id);
-			ListWinController.setOperator(User.getInstance().getUserName());
-			ListWinController.setService(financeListService);
-			ListWinController.init();
+			financeListWinController.setParentController(this);
+			financeListWinController.setService(financeListService);
+			financeListWinController.setListID(id);
+			financeListWinController.setOperator(User.getInstance().getUserName());
+			financeListWinController.init();
 
-			AnchorPane ListRoot;
-			ListRoot = loader.getRoot();
+			AnchorPane ListRoot = loader.getRoot();
+			
+			this.CloseSonWin();
+			centerPane.setCenter(ListRoot);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private void loadOpenList(FinanceListService financeListService,OpenFinanceListController openfinanceListController){
+		try {		//此处和下面的loadEditableList方法纯属雷同，无任何设计不合理之处
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(OPEN_LIST_OF_FORM_FXML));
+			
+			loader.setController(openfinanceListController);
+			loader.load();
+
+			openfinanceListController.setParentController(this);
+			openfinanceListController.setService(financeListService);
+			openfinanceListController.init();
+			
+			AnchorPane ListRoot = loader.getRoot();
 			
 			this.CloseSonWin();
 			centerPane.setCenter(ListRoot);
@@ -157,16 +182,34 @@ public class AccountantWinController implements ParentController{
 		}
 	}
 	
-	private void loadOpenList(FinanceListService financeListService,OpenFinanceListController openfinanceListController){
+	public void loadCollectionDraftList(CollectionListVO vo){
+		FinanceListWinController financeListWinController = new CollectionListWinController(vo);
+		String fxmlPath = COLLECTION_LIST_FXML;
+		FinanceListService financeListService= AccountBLFactory.getCollectionListService();
+		
+		loadEditableList(financeListWinController,financeListService,fxmlPath);
+		
+	}
+	
+	public void loadCashExpenseDraftList(CashExpenseListVO vo){
+		FinanceListWinController financeListWinController = new CashExpenseListWinController(vo);
+		String fxmlPath = CASH_EXPENSE_LIST_FXML;
+		FinanceListService financeListService= AccountBLFactory.getCashExpenseListService();
+		loadEditableList(financeListWinController,financeListService,fxmlPath);
+		
+	}
+	
+	private void loadEditableList(FinanceListWinController financeListWinController, FinanceListService financeListService, String fxmlPath){
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(OPEN_LIST_OF_FORM_FXML));
-			loader.setController(openfinanceListController);
-			loader.load();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
 
-			openfinanceListController.setParentController(this);
-			openfinanceListController.setService(financeListService);
-			openfinanceListController.init();
+			loader.setController(financeListWinController);
+			loader.load();
 			
+			financeListWinController.setParentController(this);
+			financeListWinController.setService(financeListService);
+			financeListWinController.init();
+
 			AnchorPane ListRoot = loader.getRoot();
 			
 			this.CloseSonWin();

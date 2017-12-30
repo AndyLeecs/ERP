@@ -13,7 +13,7 @@
             <Image url="@../../img/lamp1.JPG" />
          </image>
       </ImageView>
-      <Label fx:id="listID" layoutX="267.0" layoutY="25.0" text="SDK-yyyyMMdd-xxxxx" textFill="#000000a1" />
+      <Label fx:id="listID" layoutX="267.0" layoutY="25.0" prefHeight="17.0" prefWidth="174.0" text="XJFYD-yyyyMMdd-xxxxx" textFill="#000000a1" />
       <Label layoutX="279.0" layoutY="90.0" text="银行账户">
          <font>
             <Font size="18.0" />

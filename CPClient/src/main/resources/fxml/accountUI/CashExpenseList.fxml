@@ -34,7 +34,7 @@
          <children>
             <Pane layoutY="6.0" prefHeight="59.0" prefWidth="921.0">
                <children>
-                  <Label fx:id = "accountLabel" layoutX="479.0" layoutY="18.0" prefHeight="23.0" prefWidth="78.0" text="银行账户" textFill="#938c8c">
+                  <Label fx:id="accountLabel" layoutX="479.0" layoutY="18.0" prefHeight="23.0" prefWidth="78.0" text="银行账户" textFill="#938c8c">
                      <font>
                         <Font size="17.0" />
                      </font>

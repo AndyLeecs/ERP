@@ -25,6 +25,8 @@ import util.State;
 public class CashExpenseListWinController  extends FinanceListWinController{
 	
 	@FXML AnchorPane root;
+	
+	CashExpenseListVO vo = null;
 
 	@FXML Label entryNameLabel;
 	@FXML TextField entryNameTextField;
@@ -37,9 +39,23 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 	@FXML TableColumn<EntryItem,String> deleted;
 	final ObservableList<EntryItem> entryItem = FXCollections.observableArrayList();
 	
+	public CashExpenseListWinController(){}
+	public CashExpenseListWinController(CashExpenseListVO vo){this.vo = vo;}
 	
 	@Override
 	public void init() {
+		if(vo != null){
+			entryItem.addAll(vo.getEntryItem()
+							.stream()
+							.map(e->new EntryItem(e.getEntryName(),e.getAmount(),e.getNote()))
+							.collect(Collectors.toList()));
+			setListID(vo.getId());
+			setOperator(vo.getOperator());
+			AccountComboBox.setValue(vo.getAccount());
+			totalAmount.setText(String.valueOf(vo.getTotalAmount()));
+
+		}
+		
 		super.init();
 		initTableView();
 	}
