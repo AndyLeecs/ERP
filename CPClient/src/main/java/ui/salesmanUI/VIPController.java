@@ -19,6 +19,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTextField;
+
 /**
  * Created by julia98 on 2017/12/22.
  */
@@ -30,6 +35,8 @@ public class VIPController {
     @FXML public Pane notice;
     @FXML public Label noticeLabel;
     @FXML public TextField name;
+    @FXML public JFXDialog dialog;
+    @FXML public JFXDialogLayout dialogLayout;
 
     @FXML public VBox vBox;
     @FXML public VBox vipVBox;
@@ -179,7 +186,9 @@ public class VIPController {
                 noticeLabel.setText("新建会员");
                 notice.setVisible(true);
             }else{
-                presentLocation.setText("此节点下不可添加会员");
+            	    dialog.setContent(new JFXButton("此节点下不可添加会员"));
+                dialog.show(dialogLayout);
+                //presentLocation.setText("此节点下不可添加会员");
                 System.out.println("此节点下不可添加会员");
             }
 
@@ -201,10 +210,14 @@ public class VIPController {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
+                    dialog.setContent(new JFXButton(selectItem.getValue().toString() + " 已删除"));
+                    dialog.show(dialogLayout);
                     break;
 
                 case "分类":
-                    presentLocation.setText("此节点下不可删除");
+                 	dialog.setContent(new JFXButton("此节点下不可删除"));
+                    dialog.show(dialogLayout);
+                    //presentLocation.setText("此节点下不可删除");
                     System.out.println("此节点下不可删除");
                     break;
             }
@@ -226,7 +239,9 @@ public class VIPController {
                 noticeLabel.setText("修改名称");
                 notice.setVisible(true);
             }else{
-                presentLocation.setText("此节点下不可修改名称");
+            	    dialog.setContent(new JFXButton("此节点下不可修改名称"));
+                dialog.show(dialogLayout);
+                //presentLocation.setText("此节点下不可修改名称");
                 System.out.println("此节点下不可修改名称");
             }
         });
@@ -477,73 +492,73 @@ public class VIPController {
         });
         gridPane.add(edit,4,0);
 
-        TextField vipID = new TextField();
+        JFXTextField vipID = new JFXTextField();
         vipID.setText(vipvo.getId());
         vipID.setEditable(false);
         vipID.setPrefSize(123,27);
         gridPane.add(vipID,4,1);
 
-        TextField vipCategory = new TextField();
+        JFXTextField vipCategory = new JFXTextField();
         vipCategory.setText(vipvo.getCategory());
         vipCategory.setEditable(false);
         vipCategory.setPrefSize(123,27);
         gridPane.add(vipCategory,1,2);
 
-        TextField vipGrade = new TextField();
+        JFXTextField vipGrade = new JFXTextField();
         vipGrade.setText(vipvo.getGrade());
         vipGrade.setEditable(false);
         vipGrade.setPrefSize(123,27);
         gridPane.add(vipGrade,4,2);
 
-        TextField vipName = new TextField();
+        JFXTextField vipName = new JFXTextField();
         vipName.setText(vipvo.getName());
         vipName.setEditable(false);
         vipName.setPrefSize(123,27);;
         gridPane.add(vipName,1,1);
 
-        TextField vipPhoneNumber = new TextField();
+        JFXTextField vipPhoneNumber = new JFXTextField();
         vipPhoneNumber.setText(vipvo.getPhoneNumber());
         vipPhoneNumber.setEditable(false);
         vipPhoneNumber.setPrefSize(123,27);;
         gridPane.add(vipPhoneNumber,1,3);
 
-        TextField vipEmail = new TextField();
+        JFXTextField vipEmail = new JFXTextField();
         vipEmail.setText(vipvo.getEmail());
         vipEmail.setEditable(false);
         vipEmail.setPrefSize(123,27);
         gridPane.add(vipEmail,1,4);
 
-        TextField vipAddress = new TextField();
+        JFXTextField vipAddress = new JFXTextField();
         vipAddress.setText(vipvo.getAddress());
         vipAddress.setEditable(false);
         vipAddress.setPrefSize(123,27);;
         gridPane.add(vipAddress,4,3);
 
-        TextField vipPostCode = new TextField();
+        JFXTextField vipPostCode = new JFXTextField();
         vipPostCode.setText(vipvo.getPostCode());
         vipPostCode.setEditable(false);
         vipPostCode.setPrefSize(123,27);
         gridPane.add(vipPostCode,4,4);
 
-        TextField collection = new TextField();
+        JFXTextField collection = new JFXTextField();
         collection.setText(""+vipvo.getCollection());
         collection.setEditable(false);
         collection.setPrefSize(123,27);
         gridPane.add(collection,4,7);
 
-        TextField collectionLimit = new TextField();
+        JFXTextField collectionLimit = new JFXTextField();
         collectionLimit.setText(""+vipvo.getCollectionLimit());
         collectionLimit.setEditable(false);
         collectionLimit.setPrefSize(123,27);
         gridPane.add(collectionLimit,1,7);
 
-        TextField payment = new TextField();
+        JFXTextField payment = new JFXTextField();
         payment.setText(""+vipvo.getPayment());
         payment.setEditable(false);
         payment.setPrefSize(123,27);;
         gridPane.add(payment,4,8);
 
-        TextField clerk = new TextField();
+        JFXTextField clerk = new JFXTextField();
         clerk.setText(vipvo.getClerk());
         clerk.setEditable(false);
         clerk.setPrefSize(123,27);

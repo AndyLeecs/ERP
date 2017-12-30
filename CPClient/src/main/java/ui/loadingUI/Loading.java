@@ -9,6 +9,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
@@ -23,7 +24,7 @@ public class Loading extends Application {
     public void start(Stage stage) {
         // create the scene
         stage.setTitle("Cute Project");
-        scene = new Scene(new Browser(),800,600, Color.web("rgba(255,255,255,0.5)"));
+        scene = new Scene(new Browser(),800,600, Color.web("rgba(0,0,0,0.5)"));
        scene.setFill(null);
       // Stage stageOwner = null;
 	//stage.initOwner(stageOwner);
@@ -32,6 +33,7 @@ public class Loading extends Application {
        
       
         stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
 /*
         Thread thread = new Thread(() -> {
@@ -69,7 +71,7 @@ class Browser extends Region {
         //apply the styles
         getStyleClass().add("browser");
         // load the web page
-        String url = getClass().getResource("/html/spinner.html").toExternalForm();
+        String url = getClass().getResource("/html/colorfulPulse.html").toExternalForm();
         webEngine.load(url);
         //add the web view to the scene
         getChildren().add(browser);

@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import ui.loadingUI.LoadingFXWin;
 
 import java.io.IOException;
 
@@ -16,6 +17,7 @@ import java.io.IOException;
 public class VIPWin extends Stage {
     @FXML
     AnchorPane root;
+    VIPWin vipWin;
 
     public VIPWin() throws IOException {
         root = FXMLLoader.load(getClass().getResource("/fxml/salesmanUI/VIP.fxml"));
@@ -28,5 +30,6 @@ public class VIPWin extends Stage {
         this.setScene(scene);
         this.initStyle(StageStyle.DECORATED);
         this.show();
+        //new LoadingFXWin(vipWin);
     }
 }

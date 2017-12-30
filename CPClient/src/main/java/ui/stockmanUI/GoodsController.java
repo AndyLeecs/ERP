@@ -5,22 +5,47 @@ import VO.goodsVO.GoodsVO;
 import bl.goodsbl.GoodsBLServiceImpl;
 import blservice.goodsblservice.GoodsBLService;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.PopupWindow.AnchorLocation;
+import ui.mainUI.BackgroundController;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class GoodsController{
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXPopup;
+import com.jfoenix.controls.JFXPopup.*;
+import com.jfoenix.controls.JFXPopup.PopupHPosition;
+import com.jfoenix.controls.JFXPopup.PopupVPosition;
+import com.jfoenix.controls.JFXRippler;
+import com.jfoenix.controls.JFXRippler.RipplerMask;
+import com.jfoenix.controls.JFXRippler.RipplerPos;
+import com.jfoenix.controls.JFXSnackbar;
+import com.jfoenix.controls.JFXSnackbar.SnackbarEvent;
+import com.jfoenix.controls.JFXTextField;
 
+public class GoodsController extends BackgroundController{
+	@FXML public AnchorPane root;
+	@FXML public StackPane rootStackPane;
     @FXML public Label presentLocation;
+    @FXML public JFXDialogLayout dialogLayout;
+    @FXML public JFXDialog dialog;
+    @FXML public Label magic;
 
     @FXML public Button goodsNameSearchBtn;
     @FXML public Button goodsTypeSearchBtn;
@@ -155,7 +180,9 @@ public class GoodsController{
                 noticeLabel.setText("新建商品");
                 notice.setVisible(true);
             }else{
-                presentLocation.setText("此节点下不可添加商品");
+            	    dialog.setContent(new JFXButton("此节点下不可添加商品 喵喵喵~"));
+                dialog.show(dialogLayout);
+                //presentLocation.setText("此节点下不可添加商品");
                 System.out.println("此节点下不可添加商品");
             }
 
@@ -183,7 +210,9 @@ public class GoodsController{
                     noticeLabel.setText("新建分类");
                     notice.setVisible(true);
                 } else {
-                    presentLocation.setText("此节点下不可添加分类");
+                  	dialog.setContent(new JFXButton("此节点下不可添加分类 喵喵喵~"));
+                    dialog.show(dialogLayout);
+                    //presentLocation.setText("此节点下不可添加分类");
                     System.out.println("此节点下不可添加分类");
                 }
         });
@@ -203,6 +232,8 @@ public class GoodsController{
                     } catch (RemoteException e1) {
                         e1.printStackTrace();
                     }
+                    dialog.setContent(new JFXButton(selectItem.getValue().toString() + "已删除"));
+                    dialog.show(dialogLayout);
                     break;
 
                 case "分类":
@@ -213,6 +244,8 @@ public class GoodsController{
                     } catch (RemoteException e1) {
                         e1.printStackTrace();
                     }
+                    dialog.setContent(new JFXButton(selectItem.getValue().toString() + "已删除"));
+                    dialog.show(dialogLayout);
                     break;
             }
             selectItem.getParent().getChildren().remove(selectItem);
@@ -245,8 +278,15 @@ public class GoodsController{
         notice.setVisible(false);
         initTreeView();
         goodsVBox.getChildren().clear();
+        initDialog();
+        
     }
-
+    public void initDialog() {
+        magic.setOnMouseClicked(e->{
+        	dialog.setContent(new JFXButton("GYB 喵喵喵~"));
+        	dialog.show(dialogLayout);
+        });
+    }
 
     /**
      * 编辑商品信息
@@ -285,7 +325,8 @@ public class GoodsController{
             }
         }
 	}
-
+	
+	
 	//临时包装一下刚生成的只有id，名称和种类的商品
     GoodsVO tmpVO = new GoodsVO("0"
             ,"商品分类"
@@ -459,7 +500,9 @@ public class GoodsController{
         recentSellPriceLabel.setTextFill(Color.gray(0,0.63));
         newPane.getChildren().add(recentSellPriceLabel);
 
-        Label newGoodsName = new Label(goodsVO.getGoodsName());
+        JFXTextField newGoodsName = new JFXTextField(goodsVO.getGoodsName());
+        newGoodsName.setPromptText("商品名");
+        newGoodsName.setEditable(false);
         newGoodsName.setLayoutX(251);
         newGoodsName.setLayoutY(48);
         newGoodsName.setPrefSize(75, 37);
@@ -469,7 +512,9 @@ public class GoodsController{
         newGoodsName.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsName);
 
-        Label newGoodsType = new Label(goodsVO.getGoodsType());
+        JFXTextField newGoodsType = new JFXTextField(goodsVO.getGoodsType());
+        newGoodsType.setPromptText("商品类型");
+        newGoodsType.setEditable(false);
         newGoodsType.setLayoutX(364);
         newGoodsType.setLayoutY(62);
         newGoodsType.setPrefSize(89, 32);
@@ -479,7 +524,9 @@ public class GoodsController{
         newGoodsType.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsType);
 
-        Label newGoodsCategory = new Label(goodsVO.getGoodsCategory());
+        JFXTextField newGoodsCategory = new JFXTextField(goodsVO.getGoodsCategory());
+        newGoodsCategory.setPromptText("商品分类");
+        newGoodsCategory.setEditable(false);
         newGoodsCategory.setLayoutX(470);
         newGoodsCategory.setLayoutY(62);
         newGoodsCategory.setPrefSize(89, 32);
@@ -489,7 +536,8 @@ public class GoodsController{
         newGoodsCategory.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsCategory);
 
-        Label newGoodsID = new Label(goodsVO.getGoodsID());
+        JFXTextField newGoodsID = new JFXTextField(goodsVO.getGoodsID());
+        newGoodsID.setEditable(false);
         newGoodsID.setLayoutX(311);
         newGoodsID.setLayoutY(114);
         newGoodsID.setPrefSize(213, 17);
@@ -498,7 +546,7 @@ public class GoodsController{
         newGoodsID.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsID);
 
-        Label newGoodsInventory = new Label("5 "); //后期获取商品库存
+        JFXTextField newGoodsInventory = new JFXTextField("5 "); //后期获取商品库存
         newGoodsInventory.setLayoutX(337);
         newGoodsInventory.setLayoutY(154);
         newGoodsInventory.setPrefSize(39, 32);
@@ -508,7 +556,8 @@ public class GoodsController{
         newGoodsInventory.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsInventory);
 
-        Label newGoodsBuyPrice = new Label("" + goodsVO.getGoodsBuyPrice());
+        JFXTextField newGoodsBuyPrice = new JFXTextField("" + goodsVO.getGoodsBuyPrice());
+        newGoodsBuyPrice.setEditable(false);
         newGoodsBuyPrice.setLayoutX(331);
         newGoodsBuyPrice.setLayoutY(224);
         newGoodsBuyPrice.setPrefSize(89, 45);
@@ -518,7 +567,8 @@ public class GoodsController{
         newGoodsBuyPrice.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsBuyPrice);
 
-        Label newGoodsSellPrice = new Label("" + goodsVO.getGoodsSellPrice());
+        JFXTextField newGoodsSellPrice = new JFXTextField("" + goodsVO.getGoodsSellPrice());
+        newGoodsSellPrice.setEditable(false);
         newGoodsSellPrice.setLayoutX(331);
         newGoodsSellPrice.setLayoutY(297);
         newGoodsSellPrice.setPrefSize(89, 17);
@@ -528,7 +578,8 @@ public class GoodsController{
         newGoodsSellPrice.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsSellPrice);
 
-        Label newRecentBuyPrice = new Label("" + goodsVO.recentBuyPrice());
+        JFXTextField newRecentBuyPrice = new JFXTextField("" + goodsVO.recentBuyPrice());
+        newRecentBuyPrice.setEditable(false);
         newRecentBuyPrice.setLayoutX(556);
         newRecentBuyPrice.setLayoutY(224);
         newRecentBuyPrice.setPrefSize(89, 17);
@@ -538,7 +589,8 @@ public class GoodsController{
         newRecentBuyPrice.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newRecentBuyPrice);
 
-        Label newRecentSellPrice = new Label("" + goodsVO.recentSellPrice());
+        JFXTextField newRecentSellPrice = new JFXTextField("" + goodsVO.recentSellPrice());
+        newRecentSellPrice.setEditable(false);
         newRecentSellPrice.setLayoutX(556);
         newRecentSellPrice.setLayoutY(297);
         newRecentSellPrice.setPrefSize(89, 17);
@@ -569,4 +621,5 @@ public class GoodsController{
         System.out.println("new Pane init Success!");
         goodsVBox.getChildren().add(newPane);
     }
+   
 }

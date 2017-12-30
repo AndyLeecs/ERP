@@ -1,19 +1,16 @@
 package ui.stockmanUI;
 
 import java.io.IOException;
-
-import com.sun.glass.events.WindowEvent;
-
-import bl.storebl.ReportList;
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import ui.mainUI.BackgroundController;
 import ui.mainUI.loginUI.LoginWin;
 import util.State;
 import util.StoreListType;
@@ -24,13 +21,13 @@ import util.StoreListType;
  * @since 2017.12.03
  *
  */
-public class StockmanController {
+public class StockmanController extends BackgroundController{
 	@FXML public AnchorPane root;
 	@FXML public BorderPane centerPane;
 	@FXML public MenuButton newBtn;
 	@FXML public MenuButton lookBtn;
-	@FXML public Button goodsManageBtn;
-	@FXML public Button draftBtn;
+	@FXML public JFXButton goodsManageBtn;
+	@FXML public JFXButton draftBtn;
 	@FXML public ImageView logOutBtn;
 	
 	@FXML public MenuItem newPresentListBtn;
@@ -48,11 +45,11 @@ public class StockmanController {
 	@FXML public MenuItem StoreInventoryBtn;
 	
 	@FXML public Pane addNext;
+
 	
 	
-	@FXML public void init() {
-	
-	
+	@FXML public void initialize() {
+		
 	}
 	
 	 @FXML public void newPresentList() {

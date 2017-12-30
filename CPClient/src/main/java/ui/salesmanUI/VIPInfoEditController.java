@@ -12,24 +12,28 @@ import javafx.scene.layout.AnchorPane;
 
 import java.rmi.RemoteException;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.RequiredFieldValidator;
+
 /**
  * Created by julia98 on 2017/12/22.
  */
 public class VIPInfoEditController {
     @FXML public AnchorPane root;
-    @FXML public TextField name;
-    @FXML public TextField id;
-    @FXML public TextField category;
-    @FXML public TextField grade;
-    @FXML public TextField phoneNumber;
-    @FXML public TextField address;
-    @FXML public TextField email;
-    @FXML public TextField postcode;
-    @FXML public TextField collectionLimit;
-    @FXML public TextField collection;
-    @FXML public TextField clerk;
-    @FXML public TextField payment;
-    @FXML public Button saveVIPInfoBtn;
+    @FXML public JFXTextField name;
+    @FXML public JFXTextField id;
+    @FXML public JFXTextField category;
+    @FXML public JFXTextField grade;
+    @FXML public JFXTextField phoneNumber;
+    @FXML public JFXTextField address;
+    @FXML public JFXTextField email;
+    @FXML public JFXTextField postcode;
+    @FXML public JFXTextField collectionLimit;
+    @FXML public JFXTextField collection;
+    @FXML public JFXTextField clerk;
+    @FXML public JFXTextField payment;
+    @FXML public JFXButton saveVIPInfoBtn;
     public VIPVO vipVO;
     public static String vip;
 
@@ -39,24 +43,46 @@ public class VIPInfoEditController {
     public void initialize() throws RemoteException{
         init(vip);
     }
+    
+    public void inputRequired(JFXTextField textField) {
+    	RequiredFieldValidator validator = new RequiredFieldValidator();
+        validator.setMessage("Input Required");
+        textField.getValidators().add(validator);
+        textField.focusedProperty().addListener((o, oldVal, newVal) -> {
+            if (!newVal) {
+            	textField.validate();
+            }
+        });
+    }
 
     public void init(String vip) throws RemoteException {
         System.out.println(vip);
         vipVO = vipBLService.getVIP(vip);
 
         name.setText(vipVO.getName());
+        inputRequired(name);
         id.setText(vipVO.getId());
+        inputRequired(id);
         category.setText(vipVO.getCategory());
+        inputRequired(category);
         grade.setText(vipVO.getGrade());
+        inputRequired(grade);
         phoneNumber.setText(vipVO.getPhoneNumber());
+        inputRequired(phoneNumber);
         address.setText(vipVO.getAddress());
+        inputRequired(address);
         email.setText(vipVO.getEmail());
+        inputRequired(email);
         postcode.setText(vipVO.getPostCode());
+        inputRequired(postcode);
         collectionLimit.setText(""+vipVO.getCollectionLimit());
+        inputRequired(collectionLimit);
         collection.setText(""+vipVO.getCollection());
+        inputRequired(collection);
         clerk.setText(vipVO.getClerk());
+        inputRequired(clerk);
         payment.setText(""+vipVO.getPayment());
-
+        inputRequired(payment);
     }
 
     @FXML

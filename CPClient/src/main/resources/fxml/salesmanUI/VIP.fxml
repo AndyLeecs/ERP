@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -97,15 +98,15 @@
                    </font>
                </Label>
                <TextField fx:id="searchField" layoutX="625.0" layoutY="74.0" prefHeight="32.0" prefWidth="167.0" style="-fx-background-radius: 23; -fx-border-radius: 23;" />
-               <Button fx:id="searchBtn" layoutX="825.0" layoutY="77.0" mnemonicParsing="false" onAction="#setSearchBtn" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="查询" textFill="WHITE" />
                <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="764.0" layoutY="81.0">
                    <image>
                        <Image url="@../../img/search.png" />
                    </image>
                </ImageView>
-               <Button fx:id="vipNameSearchBtn" layoutX="34.0" layoutY="77.0" mnemonicParsing="false" onAction="#onVIPNameSearchBtnClicked" prefHeight="27.0" prefWidth="65.0" style="-fx-background-radius: 23; -fx-border-color: #9f353a; -fx-border-radius: 23;" text="客户名" textFill="#9f353a" />
-               <Button fx:id="vipIDSearchBtn" layoutX="115.0" layoutY="77.0" mnemonicParsing="false" onAction="#onVIPIDSearchBtnClicked" prefHeight="27.0" prefWidth="72.0" style="-fx-background-radius: 23; -fx-border-color: #9f353a; -fx-border-radius: 23;" text="客户ID" textFill="#9f353a" />
-               <Button fx:id="vipPhoneNumberSearchBtn" layoutX="210.0" layoutY="77.0" mnemonicParsing="false" onAction="#onVIPPhoneNumberSearchBtnClicked" prefHeight="27.0" prefWidth="72.0" style="-fx-background-radius: 23; -fx-border-color: #9f353a; -fx-border-radius: 23;" text="客户电话" textFill="#9f353a" />
+            <JFXButton fx:id="vipNameSearchBtn" buttonType="RAISED" layoutX="40.0" layoutY="76.0" onAction="#onVIPNameSearchBtnClicked" prefHeight="29.0" prefWidth="65.0" ripplerFill="#e4040f" style="-fx-border-color: #9f353a; -fx-border-radius: 22;" text="客户名" textFill="#9f353a" />
+            <JFXButton fx:id="vipIDSearchBtn" buttonType="RAISED" layoutX="118.0" layoutY="76.0" onAction="#onVIPIDSearchBtnClicked" prefHeight="29.0" prefWidth="72.0" ripplerFill="#e4040f" style="-fx-border-color: #9f353a; -fx-border-radius: 22;" text="客户ID" textFill="#9f353a" />
+            <JFXButton fx:id="vipPhoneNumberSearchBtn" buttonType="RAISED" layoutX="206.0" layoutY="76.0" onAction="#onVIPPhoneNumberSearchBtnClicked" prefHeight="29.0" prefWidth="72.0" ripplerFill="#e4040f" style="-fx-border-color: #9f353a; -fx-border-radius: 22;" text="客户电话" textFill="#9f353a" />
+            <JFXButton fx:id="searchBtn" buttonType="RAISED" layoutX="819.0" layoutY="77.0" onAction="#setSearchBtn" prefHeight="27.0" prefWidth="65.0" style="-fx-background-color: #ff7575; -fx-background-radius: 22;" text="查询" textFill="#f8f6f6" />
            </children></Pane>
 
        <Pane layoutX="216.0" layoutY="310.0" prefHeight="435.0" prefWidth="196.0" style="-fx-background-color: #FFB5B5;">
