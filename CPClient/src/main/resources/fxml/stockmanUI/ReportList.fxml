@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="921.0" stylesheets="@../../css/forms/ListOfForms.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI..ReportListController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="921.0" stylesheets="@../../css/forms/ListOfForms.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.stockmanUI.ReportListController">
    <children>
       <Pane prefHeight="116.0" prefWidth="921.0" style="-fx-background-color: #eecde0;">
          <children>
@@ -17,7 +17,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="15.0" layoutY="116.0" prefHeight="463.0" prefWidth="892.0">
+      <Pane layoutX="15.0" layoutY="116.0" prefHeight="463.0" prefWidth="892.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="42.0" layoutY="26.0" prefHeight="24.0" prefWidth="112.0" text="单据编号：" textFill="#1c24f5">
                <font>

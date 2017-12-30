@@ -2,6 +2,9 @@ package ui.stockmanUI;
 
 import java.io.IOException;
 
+import com.sun.glass.events.WindowEvent;
+
+import bl.storebl.ReportList;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import ui.mainUI.loginUI.LoginWin;
+import util.State;
 import util.StoreListType;
 
 /**
@@ -53,11 +57,32 @@ public class StockmanController {
 	 }
 	
      @FXML public void newStockOverflowList() {
-		
+		 Platform.runLater(()->{
+			 try {
+				 ReportListWin win=new ReportListWin();
+//				 root.getScene().getWindow().hide();
+				;
+				 State state=State.IsEditting;
+				 win.controller.set(StoreListType.OVERFLOW,state);
+
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
 	 }
      
      @FXML public void newStockLostList() {
-    	 
+		 Platform.runLater(()->{
+			 try {
+				 ReportListWin win=new ReportListWin();
+//				 root.getScene().getWindow().hide();
+				 State state=State.IsEditting;
+				 win.controller.set(StoreListType.LOSS,state);
+
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
      }
      
      @FXML public void newAlarmList() {

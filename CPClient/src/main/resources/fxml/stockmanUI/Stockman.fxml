@@ -22,8 +22,8 @@
             <MenuButton fx:id="newBtn" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
               <items>
                 <MenuItem fx:id="newPresentListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="ui.saleUI.Sale.css" text="库存赠送单" />
-                <MenuItem fx:id="newStockOverflowListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报溢单" />
-                  <MenuItem fx:id="newStockLostListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="库存报损单" />
+                <MenuItem fx:id="newStockOverflowListBtn" mnemonicParsing="false" onAction="#newStockOverflowList" style="-fx-background-color: transparent;" text="库存报溢单" />
+                  <MenuItem fx:id="newStockLostListBtn" mnemonicParsing="false" onAction="#newStockLostList" style="-fx-background-color: transparent;" text="库存报损单" />
               </items>
                <font>
                   <Font size="18.0" />
