@@ -43,23 +43,23 @@ public class ServerConnector {
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		
 		
-		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
 		
 		
-		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
-		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
-		
-		
-		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
-		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
+//		
+//		
+//		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(StockReturnListDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(StockListDataServiceHelper.getInstance());
-		dataServiceHelpers.add(SaleListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(StockListDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(SaleListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(SaleReturnListDataServiceHelper.getInstance());
-		dataServiceHelpers.add(SaleProjectionDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(SaleProjectionDataServiceHelper.getInstance());
 
 		
 		//哈哈，巧妙的设计了一番，每个helper只需在这里add一下就行了
@@ -87,8 +87,7 @@ public class ServerConnector {
 			
 		}
 		
-//		System.setSecurityManager(new SecurityManager()); 		//TODO 这句有什么用吗？我这里没有这句是正常的 re： debug时加的，没用就删了吧
-		
+//		System.setSecurityManager(new SecurityManager()); 	
 	}
 	
 	public static void main(String [] args){

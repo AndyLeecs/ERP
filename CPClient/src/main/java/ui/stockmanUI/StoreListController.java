@@ -33,6 +33,7 @@ public class StoreListController {
 	StoreListType type;
 	
 	public void set(StoreListType type){
+
          if(type.equals(StoreListType.ALARM)){
         	 typeLabel.setText("库存报警单");
         	 filter.setVisible(false);
@@ -114,4 +115,5 @@ public class StoreListController {
 		comboboxArr.add("未过审单");
 		combobox.getItems().addAll(comboboxArr);
 	}
+
 }

@@ -32,7 +32,9 @@ public class PresentEditCellController {
 
 	@FXML void initialize(){
 		name.setText(vo.getGoodsName());
-		amount.setText(INIT_AMOUNT);
+		amount.setText(vo.getAmount()+"");
+		amount.setEditable(false);
+		
 	}
 	@FXML void delete(){
 		//每次删除的时候删除vo,因为并没有保存vo中amount域的更改

@@ -40,6 +40,9 @@ public class StockmanController extends BackgroundController{
 	@FXML public MenuItem lookAlarmListBtn;
 	@FXML public MenuItem messageBtn;
 	@FXML public MenuItem personalInfoBtn;
+
+	@FXML public MenuItem StoreCheckBtn;
+	@FXML public MenuItem StoreInventoryBtn;
 	
 	@FXML public Pane addNext;
 
@@ -50,7 +53,18 @@ public class StockmanController extends BackgroundController{
 	}
 	
 	 @FXML public void newPresentList() {
-		
+		 Platform.runLater(()->{
+			 try {
+				 PresentListWin win=new PresentListWin();
+//				 root.getScene().getWindow().hide();
+				 ;
+				 State state=State.IsEditting;
+				 win.controller.set(state);
+
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
 	 }
 	
      @FXML public void newStockOverflowList() {
@@ -82,9 +96,7 @@ public class StockmanController extends BackgroundController{
 		 });
      }
      
-     @FXML public void newAlarmList() {
-    	 
-     }
+
      
      @FXML public void lookPresentList() {
 		 Platform.runLater(()->{
@@ -184,4 +196,21 @@ public class StockmanController extends BackgroundController{
 					}
 			});   	 
      }
+
+     @FXML public void StoreCheck(){
+		 Platform.runLater(()->{
+			 try {
+				 StoreCheckWin win=new StoreCheckWin();
+				 root.getScene().getWindow().hide();
+
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
+
+	 }
+
+	 @FXML public void StoreInventory(){
+
+	 }
 }
