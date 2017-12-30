@@ -22,7 +22,7 @@ import util.State;
 */
 public abstract class SaleUniBLServiceImpl implements SaleUniBLService {
 
-	SaleUniDataService service;
+	SaleUniDataService service;						//TODO 这个恐怕多态不了
 	/* (non-Javadoc)
 	 * @see blservice.saleblservice.SaleUniBLService#getId()
 	 */
@@ -62,7 +62,6 @@ public abstract class SaleUniBLServiceImpl implements SaleUniBLService {
 	 */
 	@Override
 	public DataRM save(SalesmanListVO vo) {
-		// TODO Auto-generated method stub
 		try {
 			vo.setState(State.IsDraft);
 			return service.save(voToPo(vo));
@@ -73,6 +72,27 @@ public abstract class SaleUniBLServiceImpl implements SaleUniBLService {
 		}
 	}
 
+	@Override
+	public DataRM approve(SalesmanListVO vo){
+		try {
+			vo.setState(State.IsApproved);
+			return service.save(voToPo(vo));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return DataRM.FAILED;
+		}
+	}
+	
+	@Override
+	public DataRM reject(SalesmanListVO vo){
+		try {
+			vo.setState(State.IsRefused);
+			return service.save(voToPo(vo));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return DataRM.FAILED;
+		}
+	}
 	/* (non-Javadoc)
 	 * @see blservice.saleblservice.SaleUniBLService#commit(VO.saleVO.SalesmanListVO)
 	 */
@@ -110,6 +130,7 @@ public abstract class SaleUniBLServiceImpl implements SaleUniBLService {
 		}
 		return volist;
 	}
+	
 	
 public abstract SalesmanListPO voToPo(SalesmanListVO vo);
 public abstract SalesmanListVO poToVo(SalesmanListPO po);

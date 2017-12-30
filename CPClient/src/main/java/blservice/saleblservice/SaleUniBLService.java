@@ -14,6 +14,8 @@ import resultmessage.DataRM;
 public interface SaleUniBLService {
 	public String getId();
 	public DataRM delete(String id);
+	public DataRM approve(SalesmanListVO vo);
+	public DataRM reject(SalesmanListVO vo);
 	public DataRM save(SalesmanListVO vo);
 	public DataRM commit(SalesmanListVO vo);
 	public List<SalesmanListVO> openAllDraft();

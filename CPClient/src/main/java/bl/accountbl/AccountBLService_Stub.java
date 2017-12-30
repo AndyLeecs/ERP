@@ -30,7 +30,7 @@ public class AccountBLService_Stub implements AccountBLService{
 		transferItemvoList.add(transferItemvo);
 	}
 	protected static final CollectionListVO collectionListvo = 
-			new CollectionListVO("SKD-20171111-00011","007","大师","小王",transferItemvoList,1000,State.IsApproved);
+			new CollectionListVO("SKD-20171111-00011","007","大师","小王","小王的编号",transferItemvoList,1000,State.IsApproved);
 	protected static final PaymentListVO paymentListvo = null;
 	protected static final CashExpenseListVO cashExpenseListvo = null;
 	protected static final String collectionListID = "SKD-20171111-00011";

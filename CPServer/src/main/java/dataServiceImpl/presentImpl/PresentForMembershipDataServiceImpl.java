@@ -86,11 +86,12 @@ public class PresentForMembershipDataServiceImpl extends UnicastRemoteObject imp
 	 * 要求总额达到一定金额
 	 */
 	@Override
-	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade) throws RemoteException {
+	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade,double sum) throws RemoteException {
 		// TODO Auto-generated method stub
 		List<CriterionClause> l = new ArrayList<CriterionClause>();
 		l = criterionClauseGenerator.generateExactCriterion(l,"grade", grade);
 		l = criterionClauseGenerator.generateExactCriterion(l,"state", PresentState.SAVE);
+		l = criterionClauseGenerator.generateLeCriterion(l,"sum", sum);
 		l = criterionClauseGenerator.generateCurrentTimeInRangeCriterion(l);
 		
 		

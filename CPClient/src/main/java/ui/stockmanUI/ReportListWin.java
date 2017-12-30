@@ -19,10 +19,12 @@ public class ReportListWin  extends Stage{
 	        root =loader.load();
 	        this.controller=loader.getController();
 	        Scene scene = new Scene(root);
-	        scene.getStylesheets().add(getClass().getResource("/css/stockmanUI/Stock.css").toExternalForm());
-	        scene.setFill(Color.TRANSPARENT);
+//	        scene.getStylesheets().add(getClass().getResource("/css/stockmanUI/Stock.css").toExternalForm());
+//	        scene.setFill(Color.TRANSPARENT);
+	    
 	        this.setScene(scene);
-	        this.initStyle(StageStyle.UNDECORATED);
+//	        this.initStyle(StageStyle.UNDECORATED);
+	        
 	        this.show();
 	    }
 }

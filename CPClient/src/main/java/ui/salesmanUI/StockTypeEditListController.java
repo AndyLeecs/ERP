@@ -1,8 +1,6 @@
 package ui.salesmanUI;
 
-import java.util.List;
-
-import VO.VIPVO.VIPVO;
+import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -17,21 +15,33 @@ public abstract class StockTypeEditListController extends StockTypeListControlle
 	@FXML protected Button commitBtn;
 	@FXML protected Button saveBtn;
 	@FXML protected Button cancelBtn;
+	
+	SalesmanListVO vo;
 	/**
 	 * @param parentController
 	 * @param uniBLService
 	 * @param id
 	 */
-	public StockTypeEditListController(ParentController parentController, SaleUniBLService uniBLService, String id) {
+	public StockTypeEditListController(ParentController parentController, SaleUniBLService uniBLService, String id,SalesmanListVO vo) {
 		super(parentController, uniBLService, id);
-		// TODO Auto-generated constructor stub
 	}
 
-
-	
 	@FXML
-	void cancel(){
+	void initialize(){
+		super.initialize();
+		operator.setText(vo.getOperator());
+		operatorId = vo.getOperatorId();
+		operatorGrade = vo.getOperatorGrade();
 		
+		totalAmount.setText(vo.getSum()+"");
+		VIPID.setText(vo.getMemberID());
+		VIPName.setText(vo.getMemberName());
+		notesTextField.setText(vo.getNotes());
+		
+		chosenList = vo.getSaleListItems();
+		this.refresh();
 	}
+	
+	
 
 }

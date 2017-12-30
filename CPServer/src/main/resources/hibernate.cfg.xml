@@ -38,6 +38,9 @@
 
 		<mapping resource="SalesmanItemPO.hbm.xml" />
 
+<!-- 	<mapping resource="SalesmanListPO.hbm.xml" /> -->	
+
+
         <mapping resource="GoodsPO.hbm.xml" />
 		<mapping resource="GoodsCategoryPO.hbm.xml"/>
         <mapping resource="VIPPO.hbm.xml" />

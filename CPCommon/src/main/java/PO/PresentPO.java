@@ -96,6 +96,48 @@ public PresentState getState() {
 
 
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((finishTime == null) ? 0 : finishTime.hashCode());
+		result = prime * result + ((presentList == null) ? 0 : presentList.hashCode());
+		result = prime * result + ((startTime == null) ? 0 : startTime.hashCode());
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PresentPO other = (PresentPO) obj;
+		if (finishTime == null) {
+			if (other.finishTime != null)
+				return false;
+		} else if (!finishTime.equals(other.finishTime))
+			return false;
+		if (presentList == null) {
+			if (other.presentList != null)
+				return false;
+		} else if (!presentList.equals(other.presentList))
+			return false;
+		if (startTime == null) {
+			if (other.startTime != null)
+				return false;
+		} else if (!startTime.equals(other.startTime))
+			return false;
+		if (state != other.state)
+			return false;
+		return true;
+	}
+
+
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
@@ -110,6 +152,13 @@ public PresentState getState() {
 
 	public void setFinishTime(Date finishTime) {
 		this.finishTime = finishTime;
+	}
+
+
+	@Override
+	public String toString() {
+		return "PresentPO [startTime=" + startTime + ", finishTime=" + finishTime + ", presentList=" + presentList
+				+ ", state=" + state + "]";
 	}
 
 	

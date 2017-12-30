@@ -8,6 +8,7 @@ import PO.SalesmanListPO;
 import VO.saleVO.SaleReturnListVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
+import dataService.saleDataService.SaleReturnListDataService;
 import dataService.saleDataService.SaleUniDataService;
 import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import util.DateUtil;
@@ -19,7 +20,7 @@ import util.DateUtil;
 */
 public class SaleReturnListBLServiceImpl extends SaleUniBLServiceImpl {
 
-	SaleUniDataService service = SaleReturnListDataServiceHelper.getInstance().getSaleReturnListDataService();
+	SaleReturnListDataService service = SaleReturnListDataServiceHelper.getInstance().getSaleReturnListDataService();
 	/* (non-Javadoc)
 	 * @see bl.salebl.SaleUniBLServiceImpl#voToPo(VO.saleVO.SalesmanListVO)
 	 */

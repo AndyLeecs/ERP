@@ -5,14 +5,14 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.StockReturnListPO;
-import PO.SaleListPO;
 import PO.SalesmanListPO;
+import PO.StockReturnListPO;
 import dataHelper.BasicUtil;
 import dataHelper.CriterionClause;
 import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
 import dataHelper.HibernateUtil;
+import dataService.saleDataService.StockReturnListDataService;
 import dataService.saleDataService.SaleUniDataService;
 import resultmessage.DataRM;
 import util.State;
@@ -22,7 +22,7 @@ import util.State;
 * @date 2017年12月25日
 * @description
 */
-public class StockReturnListDataServiceImpl extends UnicastRemoteObject implements SaleUniDataService {
+public class StockReturnListDataServiceImpl extends UnicastRemoteObject implements StockReturnListDataService {
 
 	BasicUtil<StockReturnListPO> util;
 	//	BasicUtil<StockReturnListPO> util;
@@ -30,7 +30,7 @@ public class StockReturnListDataServiceImpl extends UnicastRemoteObject implemen
 	/**
 	 * @throws RemoteException
 	 */
-	protected StockReturnListDataServiceImpl() throws RemoteException {
+	public StockReturnListDataServiceImpl() throws RemoteException {
 		super();
 		util = new HibernateUtil<StockReturnListPO>(StockReturnListPO.class);
 		criterionClauseGenerator = new HibernateCriterionClauseGenerator();

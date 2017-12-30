@@ -1,5 +1,5 @@
 package resultmessage;
 
 public enum SaveListRM {
-	SUCCESS;
+	SUCCESS,SERVER_ERROR,NETWORK_ERROR;
 }

@@ -13,14 +13,14 @@ import ui.commonUI.SonController;
 * @date 2017年12月24日
 * @description 打开销售单和销售退货单列表
 */
-public class SaleTypeListViewController extends ListViewController{
+public abstract class SaleTypeListViewController extends ListViewController{
 
 	/**
 	 * @param controller
 	 * @param service
 	 * @param list
 	 */
-	public SaleTypeListViewController(ParentController controller, SaleUniBLService service,
+	public SaleTypeListViewController(SalesmanController controller, SaleUniBLService service,
 			List<SalesmanListVO> list) {
 		super(controller, service, list);
 		// TODO Auto-generated constructor stub

@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CPClient" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CPCommon" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CPCommon/src/main/java/util/ExcelUtil.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/CPServer" charset="UTF-8" />
   </component>
 </project>

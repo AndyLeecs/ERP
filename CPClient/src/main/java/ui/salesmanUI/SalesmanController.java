@@ -5,13 +5,8 @@ import java.util.List;
 
 import com.sun.glass.ui.MenuItem;
 
-import PO.SalesmanListPO;
 import VO.saleVO.SalesmanListVO;
 import bl.salebl.SaleBLFactory;
-import bl.salebl.SaleListBLServiceImpl;
-import bl.salebl.SaleReturnListBLServiceImpl;
-import bl.salebl.StockListBLServiceImpl;
-import bl.salebl.StockReturnListBLServiceImpl;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -110,7 +105,7 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getCenter() == null){
 			service = SaleBLFactory.getSaleListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
-			viewController = new SaleTypeListViewController(this,service,list);
+			viewController = new SaleListViewController(this,service,list);
 		Platform.runLater(()->{
 			showDraftList(list,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
@@ -120,7 +115,7 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getCenter() == null){
 			service = SaleBLFactory.getSaleReturnListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
-			viewController = new SaleTypeListViewController(this,service,list);
+			viewController = new SaleReturnListViewController(this,service,list);
 		Platform.runLater(()->{
 			showDraftList(list,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
@@ -130,7 +125,7 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getCenter() == null){
 			service = SaleBLFactory.getStockListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
-			viewController = new StockTypeListViewController(this,service,list);
+			viewController = new StockListViewController(this,service,list);
 		Platform.runLater(()->{
 			showDraftList(list,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
@@ -140,7 +135,7 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getCenter() == null){
 			service = SaleBLFactory.getStockReturnListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
-			viewController = new StockTypeListViewController(this,service,list);
+			viewController = new StockReturnListViewController(this,service,list);
 		Platform.runLater(()->{
 			showDraftList(list,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}

@@ -20,9 +20,9 @@ public class PresentForMembershipHandler {
 	 * @param result
 	 * @return
 	 */
-	public PresentResultVO handle(VIPGrade grade, PresentResultVO result) {
+	public PresentResultVO handle(VIPGrade grade,PresentResultVO result) {
 		// TODO Auto-generated method stub
-		List<PresentForMembershipVO> list = impl.getWithMinMembership(grade);
+		List<PresentForMembershipVO> list = impl.getWithMinMembership(grade,result.getSum());
 		if(list != null && ! list.isEmpty()){
 		PresentForMembershipVO newPresent = list.get(0);
 		int id = newPresent.getId();

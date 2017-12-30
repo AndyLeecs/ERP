@@ -2,8 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-http://www.hibernate.org/dtd/hibernate-mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="PO.ListPO">
-		<id name="id">
+	<class name="PO.ListPO" dynamic-insert= "true" dynamic-update= "true" lazy = "false">
+		<id name="id" >
+		<generator class="assigned" />
 		<!--  以单据编号为主键	-->
 		</id>
 		<property name="operator"/>
