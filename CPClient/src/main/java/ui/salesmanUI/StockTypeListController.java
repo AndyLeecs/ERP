@@ -21,6 +21,11 @@ import ui.commonUI.ParentController;
 */
 public abstract class StockTypeListController extends SalesmanListWinController {
 
+	@FXML
+	void initialize(){
+		super.initialize();
+		System.out.println("stockTypeListController initialized");
+	}
 	/**
 	 * @param parentController
 	 * @param uniBLService
@@ -74,7 +79,7 @@ public abstract class StockTypeListController extends SalesmanListWinController 
 	   				        cellUrl));
 	   				loader.setController(controller);
 	   				addChildrenForVBox(loader);
-         	totalAmountValue+= controller.sumProperty.get();
+         	totalAmountValue+= vo.getSum();
 			}
 			
 			//更新总价
@@ -87,12 +92,15 @@ public abstract class StockTypeListController extends SalesmanListWinController 
 
 		check();
 		uniBLService.commit(getVOFromUI());
+		System.out.println("commit");
+		this.parentController.CloseSonWin();
 	}
 	
 	@FXML
 	void save(){
 		//保存
-		uniBLService.save(getVOFromUI());		
+		uniBLService.save(getVOFromUI());	
+		System.out.println("save");
 	}
 	
 

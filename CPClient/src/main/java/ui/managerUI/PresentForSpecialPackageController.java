@@ -170,8 +170,17 @@ public class PresentForSpecialPackageController implements SinglePresentEditable
 //	}
 	@Override
 	public void addToPresentList(GoodsInSaleVO vo){
+		boolean dup = false;
+			for(GoodsInSaleVO v : presentList){
+				if(v.getId().equals(vo.getId())){
+					v.setAmount(v.getAmount()+vo.getAmount());
+					dup = true;
+					break;
+				}
+			}
+			if(!dup)
 			this.presentList.add(vo);
-			this.presentList = new ArrayList<GoodsInSaleVO>(new LinkedHashSet<GoodsInSaleVO>(this.presentList));
+//			this.presentList = new ArrayList<GoodsInSaleVO>(new LinkedHashSet<GoodsInSaleVO>(this.presentList));
 			this.refresh();
 			System.out.println(this.presentList);
 	}

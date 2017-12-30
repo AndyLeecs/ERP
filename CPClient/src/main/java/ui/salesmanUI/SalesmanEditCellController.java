@@ -1,6 +1,7 @@
 package ui.salesmanUI;
 
 import VO.saleVO.SalesmanItemVO;
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
@@ -9,10 +10,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.util.converter.NumberStringConverter;
 
 /**     
 * @author 李安迪
@@ -34,9 +37,11 @@ public class SalesmanEditCellController {
 	@FXML protected Label idLabel;
 	@FXML protected Button deleteBtn;
 	@FXML protected TextField amountTextField;
+//	protected Property<Integer> amountProperty = new SimpleIntegerProperty();
 	protected IntegerProperty amountProperty  = new SimpleIntegerProperty();
 	
 	protected final String INIT_AMOUNT = "1";
+	protected final int INIT_AMOUNT_INTEGER = 1;
 	
 	protected SalesmanItemVO vo;
 	
@@ -52,40 +57,65 @@ public class SalesmanEditCellController {
 	}
 	
 	@FXML void initialize(){
-		//绑定属性
-		notesTextField.textProperty().bind(notesProperty);
-		
-		amountTextField.textProperty().bind(amountProperty.asString());
-		
-		priceTextField.textProperty().bind(priceProperty.asString());
-		 sumLabel.textProperty().bind(new StringBinding() {
-
-	            {
-	                bind(amountProperty.asString(), priceProperty.asString());
-	            }
-
-	            @Override
-	            protected String computeValue() {
-	                return amountProperty.getValue()*priceProperty.getValue()+"";
-	            }
-	        });	
-		 
-		//设置监听器
-	    amountTextField.textProperty().addListener((ChangeListener<? super String>) (o, oldVal, newVal) -> controller.refresh());
-	    priceTextField.textProperty().addListener((ChangeListener<? super String>) (o, oldVal, newVal) -> controller.refresh());
 		
 	    //设置初始值
 		typeLabel.setText(vo.getType());
 		sumLabel.setText(vo.getSum()+"");
 		priceTextField.setText(vo.getPrice()+"");
-		amountTextField.setText(INIT_AMOUNT);
-		notesTextField.setText("");
+//		priceProperty.set(vo.getPrice());
+		
+	amountTextField.setText(vo.getAmount()+"");
+	sumLabel.setText(vo.getSum()+"");
+//		amountProperty.set(INIT_AMOUNT_INTEGER);
+		
+		notesTextField.setText(vo.getNotes());
 		nameLabel.setText(vo.getName());
 		idLabel.setText(vo.getId());
-		
+//		//绑定属性
+//		notesTextField.textProperty().bindBidirectional(notesProperty);
+//		
+//		amountTextField.textProperty().bindBidirectional(amountProperty, new NumberStringConverter());
+//		
+//		priceTextField.textProperty().bindBidirectional(priceProperty,new NumberStringConverter());
+//		 sumLabel.textProperty().bind(new StringBinding() {
+//
+//	            {
+//	            	bind(amountTextField.textProperty(),priceTextField.textProperty());
+////	                bind(amountProperty.asString(), priceProperty.asString());
+//	            }
+//
+//	            @Override
+//	            protected String computeValue() {
+//	            	int amount;
+//	            	double price;
+//	            	try{
+//	            	amount = Integer.parseInt(amountTextField.textProperty().getValue());
+//	            	price = Double.parseDouble(priceTextField.textProperty().getValue());
+//	            	}catch(Exception e){
+//	            		return "";
+//	            	}
+//	        //        return amountProperty.getValue()*priceProperty.getValue()+"";
+//	            	
+//	            	return amount*price + "";
+//	            }
+//	        });	
+		 
+//		//设置监听器
+//		    createCommitBinding(amountTextField).addListener((obs, oldText, newText) -> 
+//            System.out.printf("changing amount"));
+//	    amountTextField.textProperty().addListener((ChangeListener<? super String>) (o, oldVal, newVal) -> {controller.refresh();System.out.println("changing amount");});
+//	    sumLabel.textProperty().addListener((ChangeListener<? super String>) (o, oldVal, newVal) -> controller.refresh());
 
+	    //设置最初的总价
+//		controller.totalAmount.setText(sumLabel.getText());
+//		System.out.println(controller.totalAmount.getText());
+		 
+		 //设置不可编辑
+		 amountTextField.setEditable(false);
+		 priceTextField.setEditable(false);
+		 notesTextField.setEditable(false);
 	}
-	
+
 	@FXML void delete(){
 		controller.deleteFromchosenList(vo);
 	}

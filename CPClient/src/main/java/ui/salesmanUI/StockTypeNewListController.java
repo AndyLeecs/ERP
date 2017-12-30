@@ -30,16 +30,22 @@ public abstract class StockTypeNewListController extends StockTypeListController
 		super(parentController, uniBLService,id);
 	}
 
+
 	@FXML
 	void initialize(){
 		super.initialize();
+
 		operator.setText(User.getInstance().getUserName());
 		operatorId = User.getInstance().getId();
 		operatorGrade = User.getInstance().getGrade();
+		System.out.println("stock type newlist controller initialized" );
 	}
 	@FXML
 	void cancel(){
 		uniBLService.delete(id);
+		//TODO 给按钮加成功或失败的提示
+		System.out.println("cancel");
+		this.parentController.CloseSonWin();
 	}
 
 

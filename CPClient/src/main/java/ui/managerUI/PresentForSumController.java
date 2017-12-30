@@ -123,8 +123,17 @@ public class PresentForSumController implements SinglePresentEditableController{
 
 		@Override
 		public void addToPresentList(GoodsInSaleVO vo){
+			boolean dup = false;
+				for(GoodsInSaleVO v : presentList){
+					if(v.getId().equals(vo.getId())){
+						v.setAmount(v.getAmount()+vo.getAmount());
+						dup = true;
+						break;
+					}
+				}
+				if(!dup)
 				this.presentList.add(vo);
-				this.presentList = new ArrayList<GoodsInSaleVO>(new LinkedHashSet<GoodsInSaleVO>(this.presentList));
+//				this.presentList = new ArrayList<GoodsInSaleVO>(new LinkedHashSet<GoodsInSaleVO>(this.presentList));
 				this.refresh();
 				System.out.println(this.presentList);
 		}
@@ -375,7 +384,6 @@ public class PresentForSumController implements SinglePresentEditableController{
 		public void refresh() {
 			presentListVBox.getChildren().clear();
 			controllerList.clear();
-			// TODO Auto-generated method stub
 			for(GoodsInSaleVO vo : presentList){
 	   		 PresentEditCellController controller = 
 	   				    new PresentEditCellController(this,vo);

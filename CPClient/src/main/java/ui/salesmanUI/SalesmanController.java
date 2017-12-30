@@ -3,15 +3,17 @@ package ui.salesmanUI;
 import java.io.IOException;
 import java.util.List;
 
-import com.sun.glass.ui.MenuItem;
-
 import VO.saleVO.SalesmanListVO;
 import bl.salebl.SaleBLFactory;
-import blservice.saleblservice.SaleUniBLService;
+import blservice.saleblservice.SaleListBLService;
+import blservice.saleblservice.SaleReturnListBLService;
+import blservice.saleblservice.StockListBLService;
+import blservice.saleblservice.StockReturnListBLService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import ui.commonUI.ParentController;
@@ -43,11 +45,10 @@ public class SalesmanController implements ParentController {
 	
 	private static final String SALE_LIST_SOURCE = "/fxml/salesmanUI/SaleList.fxml";
 	private static final String SALERETURN_LIST_SOURCE = "/fxml/salesmanUI/SaleReturnList.fxml";
-	private static final String STOCK_LIST_SOURCE = "/fxml/salesmanUI/StockList.fxml";
+	private static final String STOCK_LIST_SOURCE = "/fxml/salesmanUI/StockTypeList.fxml";
 	private static final String STOCKRETURN_LIST_SOURCE = "/fxml/salesmanUI/StockReturnList.fxml";	
 	
 	private static final String FORM_CSS_PATH = "/css/forms/Forms.css";
-	SaleUniBLService service;
 	SalesmanListWinController controller;
 	ListViewController viewController;
 	Alert information;
@@ -55,7 +56,7 @@ public class SalesmanController implements ParentController {
 	@FXML
 	public void newSaleList(){
 		if(centerPane.getCenter() == null){
-			service = SaleBLFactory.getSaleListBLService();
+			SaleListBLService service = SaleBLFactory.getSaleListBLService();
 			String id = service.getId();
 			controller = new SaleNewListController(this,service,id);			
 //			controller = new SaleTypeNewListController(this,service,id);
@@ -68,7 +69,7 @@ public class SalesmanController implements ParentController {
 	@FXML
 	public void newSaleReturnList(){
 		if(centerPane.getCenter() == null){
-			service = SaleBLFactory.getSaleReturnListBLService();
+			SaleReturnListBLService service = SaleBLFactory.getSaleReturnListBLService();
 			String id = service.getId();
 			controller = new SaleReturnNewListController(this,service,id);
 		Platform.runLater(()->{
@@ -80,7 +81,10 @@ public class SalesmanController implements ParentController {
 	@FXML
 	public void newStockList(){
 		if(centerPane.getCenter() == null){
-			service = SaleBLFactory.getStockListBLService();
+			System.out.println(SaleBLFactory.getStockListBLService());
+
+			StockListBLService service = SaleBLFactory.getStockListBLService();
+			
 			String id = service.getId();
 			controller = new StockNewListController(this,service,id);
 		Platform.runLater(()->{
@@ -92,7 +96,7 @@ public class SalesmanController implements ParentController {
 	@FXML
 	public void newStockReturnList(){
 		if(centerPane.getCenter() == null){
-			service = SaleBLFactory.getStockReturnListBLService();
+			StockReturnListBLService service = SaleBLFactory.getStockReturnListBLService();
 			String id = service.getId();
 			controller = new StockReturnNewListController(this,service,id);
 		Platform.runLater(()->{
@@ -103,7 +107,7 @@ public class SalesmanController implements ParentController {
 	@FXML
 	public void showDraftSaleList(){
 		if(centerPane.getCenter() == null){
-			service = SaleBLFactory.getSaleListBLService();
+			SaleListBLService service = SaleBLFactory.getSaleListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new SaleListViewController(this,service,list);
 		Platform.runLater(()->{
@@ -113,7 +117,7 @@ public class SalesmanController implements ParentController {
 	@FXML
 	public void showDraftSaleReturnList(){
 		if(centerPane.getCenter() == null){
-			service = SaleBLFactory.getSaleReturnListBLService();
+			SaleReturnListBLService service = SaleBLFactory.getSaleReturnListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new SaleReturnListViewController(this,service,list);
 		Platform.runLater(()->{
@@ -123,7 +127,7 @@ public class SalesmanController implements ParentController {
 	@FXML
 	public void showDraftStockList(){
 		if(centerPane.getCenter() == null){
-			service = SaleBLFactory.getStockListBLService();
+			StockListBLService service = SaleBLFactory.getStockListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new StockListViewController(this,service,list);
 		Platform.runLater(()->{
@@ -133,7 +137,7 @@ public class SalesmanController implements ParentController {
 	@FXML
 	public void showDraftStockReturnList(){
 		if(centerPane.getCenter() == null){
-			service = SaleBLFactory.getStockReturnListBLService();
+			StockReturnListBLService service = SaleBLFactory.getStockReturnListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new StockReturnListViewController(this,service,list);
 		Platform.runLater(()->{
@@ -244,9 +248,10 @@ public class SalesmanController implements ParentController {
 	 */
 	@Override
 	public void CloseSonWin() {
-		// TODO Auto-generated method stub
+		centerPane.getChildren().removeAll();
+		centerPane.getChildren().clear();
     	this.centerPane.setCenter(null);
-		
+		System.out.println("son win close");
 	}
 	
     @FXML 
