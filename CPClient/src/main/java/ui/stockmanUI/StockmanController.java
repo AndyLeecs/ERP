@@ -27,7 +27,7 @@ public class StockmanController extends BackgroundController{
 	@FXML public MenuButton newBtn;
 	@FXML public MenuButton lookBtn;
 	@FXML public JFXButton goodsManageBtn;
-	@FXML public JFXButton draftBtn;
+	@FXML public JFXButton draftBtn;  //库存查看
 	@FXML public ImageView logOutBtn;
 	
 	@FXML public MenuItem newPresentListBtn;
@@ -41,8 +41,8 @@ public class StockmanController extends BackgroundController{
 	@FXML public MenuItem messageBtn;
 	@FXML public MenuItem personalInfoBtn;
 
-	@FXML public MenuItem StoreCheckBtn;
-	@FXML public MenuItem StoreInventoryBtn;
+//	@FXML public MenuItem StoreCheckBtn;
+//	@FXML public MenuItem StoreInventoryBtn;
 	
 	@FXML public Pane addNext;
 

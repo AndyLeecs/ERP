@@ -22,7 +22,7 @@
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="106.0" style="-fx-background-color: transparent;" textFill="#9f353a" />
             <MenuButton fx:id="newBtn" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: transparent;" text="      新建" textFill="#9f353a">
               <items>
-                <MenuItem fx:id="newPresentListBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="ui.saleUI.Sale.css" text="库存赠送单" />
+                <MenuItem fx:id="newPresentListBtn" mnemonicParsing="false" onAction="#newPresentList" style="-fx-background-color: transparent;" styleClass="ui.saleUI.Sale.css" text="库存赠送单" />
                 <MenuItem fx:id="newStockOverflowListBtn" mnemonicParsing="false" onAction="#newStockOverflowList" style="-fx-background-color: transparent;" text="库存报溢单" />
                   <MenuItem fx:id="newStockLostListBtn" mnemonicParsing="false" onAction="#newStockLostList" style="-fx-background-color: transparent;" text="库存报损单" />
               </items>
@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="draftBtn" prefHeight="63.0" prefWidth="122.0" ripplerFill="WHITE" text="库存" textFill="#9f353a">
+            <JFXButton fx:id="draftBtn" prefHeight="63.0" prefWidth="122.0" ripplerFill="WHITE" text="库存查看" textFill="#9f353a" onAction="#StoreCheck">
                <font>
                   <Font size="18.0" />
                </font>
