@@ -52,5 +52,38 @@ public class GoodsInSalePO implements Serializable{
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + amount;
+		result = prime * result + ((goodsName == null) ? 0 : goodsName.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GoodsInSalePO other = (GoodsInSalePO) obj;
+		if (amount != other.amount)
+			return false;
+		if (goodsName == null) {
+			if (other.goodsName != null)
+				return false;
+		} else if (!goodsName.equals(other.goodsName))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+	
 	
 }

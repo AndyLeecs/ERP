@@ -53,11 +53,11 @@ public class PresentForMembershipBLServiceImpl implements PresentForMembershipBL
 	 * @param grade
 	 * @return
 	 */
-	public List<PresentForMembershipVO> getWithMinMembership(VIPGrade grade) {
+	public List<PresentForMembershipVO> getWithMinMembership(VIPGrade grade,double sum) {
 		// TODO Auto-generated method stub
 		List<PresentForMembershipPO> polist;
 		try {
-			polist = presentForMembershipDataService.getPresentForMembership(grade);
+			polist = presentForMembershipDataService.getPresentForMembership(grade,sum);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			return null;

@@ -20,6 +20,6 @@ public interface PresentForMembershipDataService extends Remote,Serializable {
 	public DataRM update(PresentForMembershipPO po) throws RemoteException;
 	public List<PresentForMembershipPO> getPresentForMembership() throws RemoteException;
 	//获得按voucher升序排列的结果集
-	public List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade) throws RemoteException;
+	List<PresentForMembershipPO> getPresentForMembership(VIPGrade grade, double sum) throws RemoteException;
 
 } 

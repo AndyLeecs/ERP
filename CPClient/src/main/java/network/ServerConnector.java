@@ -14,6 +14,13 @@ import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
 import network.presentRemoteHelper.PresentForSpecialPackageDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
+
+import network.saleRemoteHelper.SaleListDataServiceHelper;
+import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
+import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
+import network.saleRemoteHelper.StockListDataServiceHelper;
+import network.saleRemoteHelper.StockReturnListDataServiceHelper;
+
 import util.State;
 
 /**
@@ -48,6 +55,12 @@ public class ServerConnector {
 		
 		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
 		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(StockReturnListDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(StockListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(SaleListDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(SaleReturnListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(SaleProjectionDataServiceHelper.getInstance());
+
 		
 		//哈哈，巧妙的设计了一番，每个helper只需在这里add一下就行了
 	}
@@ -74,7 +87,7 @@ public class ServerConnector {
 			
 		}
 		
-//		System.setSecurityManager(new SecurityManager()); 		//TODO 这句有什么用吗？我这里没有这句是正常的
+//		System.setSecurityManager(new SecurityManager()); 		//TODO 这句有什么用吗？我这里没有这句是正常的 re： debug时加的，没用就删了吧
 		
 	}
 	

@@ -188,7 +188,8 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 		session = sessionFactory.openSession();
 		transaction = null;
 		List<T> list = null;
-	try{		
+	try{	
+		transaction = session.beginTransaction();
 		Criteria criteria = session.createCriteria(type.getName(), "parent");
         for(CriterionClause s : criterionParentList)
        {if (s!=null)
