@@ -19,6 +19,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextField;
 
 /**
@@ -32,6 +35,8 @@ public class VIPController {
     @FXML public Pane notice;
     @FXML public Label noticeLabel;
     @FXML public TextField name;
+    @FXML public JFXDialog dialog;
+    @FXML public JFXDialogLayout dialogLayout;
 
     @FXML public VBox vBox;
     @FXML public VBox vipVBox;
@@ -181,7 +186,9 @@ public class VIPController {
                 noticeLabel.setText("新建会员");
                 notice.setVisible(true);
             }else{
-                presentLocation.setText("此节点下不可添加会员");
+            	    dialog.setContent(new JFXButton("此节点下不可添加会员"));
+                dialog.show(dialogLayout);
+                //presentLocation.setText("此节点下不可添加会员");
                 System.out.println("此节点下不可添加会员");
             }
 
@@ -203,10 +210,14 @@ public class VIPController {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
+                    dialog.setContent(new JFXButton(selectItem.getValue().toString() + " 已删除"));
+                    dialog.show(dialogLayout);
                     break;
 
                 case "分类":
-                    presentLocation.setText("此节点下不可删除");
+                 	dialog.setContent(new JFXButton("此节点下不可删除"));
+                    dialog.show(dialogLayout);
+                    //presentLocation.setText("此节点下不可删除");
                     System.out.println("此节点下不可删除");
                     break;
             }
@@ -228,7 +239,9 @@ public class VIPController {
                 noticeLabel.setText("修改名称");
                 notice.setVisible(true);
             }else{
-                presentLocation.setText("此节点下不可修改名称");
+            	    dialog.setContent(new JFXButton("此节点下不可修改名称"));
+                dialog.show(dialogLayout);
+                //presentLocation.setText("此节点下不可修改名称");
                 System.out.println("此节点下不可修改名称");
             }
         });
