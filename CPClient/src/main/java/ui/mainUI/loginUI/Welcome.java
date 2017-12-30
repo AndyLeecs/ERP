@@ -37,12 +37,8 @@ public class Welcome extends Application {
         					try {
         						stage.close();
         						//new LoginWin();
-<<<<<<< HEAD
         						//new LoadingFXWin();
         						ServerConnector s = new ServerConnector();
-=======
-        						//ServerConnector s = new ServerConnector();
->>>>>>> e7827b65ca819c8cd515f257b4c222604846b005
         						//new ui.salesmanUI.VIPWin();
         						new ui.stockmanUI.StockmanWin();
         						//new ui.managerUI.ManagerWin();
