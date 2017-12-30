@@ -1,6 +1,7 @@
 package PO.account;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import util.State;
@@ -13,7 +14,7 @@ public class CollectionListPO extends FinanceListPO{
 	
 	
 	public CollectionListPO(){}
-	public CollectionListPO(String listID, String VIPID, String VIPName, String operator,String operatorId, List<TransferItemPO> transferItem, double totalAmount, State state){
+	public CollectionListPO(String listID, String VIPID, String VIPName, String operator,String operatorId, List<TransferItemPO> transferItem, double totalAmount, State state, Date day){
 		setId(listID);
 		this.VIPID = VIPID;
 		this.VIPName = VIPName;
@@ -22,6 +23,7 @@ public class CollectionListPO extends FinanceListPO{
 		setTransferItem(transferItem);
 		setTotalAmount(totalAmount);
 		setState(state);
+		setDay(day);
 	}
 	
 	

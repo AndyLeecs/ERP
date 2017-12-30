@@ -10,18 +10,23 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.AnchorPane;
 import ui.commonUI.PromptWin;
 import ui.mainUI.loginUI.User;
 import util.State;
 
 public class CashExpenseListWinController  extends FinanceListWinController{
+	
+	@FXML AnchorPane root;
 
+	@FXML Label entryNameLabel;
 	@FXML TextField entryNameTextField;
 	@FXML Button addEntryBtn;
 	
@@ -70,11 +75,6 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 		EntryListTableView.setItems(entryItem);
 	    EntryListTableView.setEditable(true);
 		
-	    //TODO 测试用，以后删掉
-//	    entryItem.add(new EntryItem("1 ", 100,"dv"));
-//	    entryItem.add(new EntryItem("老张", 100,"dv"));
-//	    entryItem.add(new EntryItem("我 ", 100,"dv"));
-
 
 	}
 	
@@ -146,7 +146,7 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 	}
 	
 	@FXML 
-	public void onSaveBtnClicked() {		//不同单据保存的前置条件可能不同，故不放在父类中
+	public void onSaveBtnClicked() {		
 		saveList();
 	}
 

@@ -48,7 +48,7 @@
 		
 		<!-- for package account -->
 		<mapping resource="TransferItemPO.hbm.xml" />
-
+		<mapping resource="EntryItemPO.hbm.xml" />
 
 		<mapping resource="ListPO.hbm.xml" />
 		

@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import ui.accountUI.CashExpenseListWinController;
 import ui.accountUI.CollectionListWinController;
 import ui.accountUI.FinanceListWinController;
+import ui.accountUI.OpenCashExpenseCommitedListController;
 import ui.accountUI.OpenCollectionCommitedListController;
 import ui.accountUI.OpenFinanceListController;
 import ui.accountUI.PaymentListWinController;
@@ -79,7 +80,7 @@ public class AccountantWinController implements ParentController{
 
 
 	@FXML public void onOpenCashExpenseCommittedBtnClicked() {
-		//TODO
+		loadOpenList(AccountBLFactory.getCashExpenseListService(),new OpenCashExpenseCommitedListController());
 	}
 
 

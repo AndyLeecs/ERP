@@ -9,18 +9,14 @@ import java.util.List;
 
 import PO.account.CollectionListPO;
 import network.VIPRemoteHelper.VIPDataServiceHelper;
+import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
 import network.presentRemoteHelper.PresentForSpecialPackageDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
-
 import network.saleRemoteHelper.SaleListDataServiceHelper;
 import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
-import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
-import network.saleRemoteHelper.StockListDataServiceHelper;
-import network.saleRemoteHelper.StockReturnListDataServiceHelper;
-
 import util.State;
 
 /**
@@ -45,7 +41,7 @@ public class ServerConnector {
 		
 		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
 		
 		
 		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());

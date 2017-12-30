@@ -9,6 +9,7 @@ import VO.accountVO.CollectionListVO;
 import VO.accountVO.FinanceListVO;
 import VO.accountVO.TransferItemVO;
 import dataService.accountDataService.FinanceListDataService;
+import util.DateUtil;
 
 public class CollectionListImpl extends FinanceListImpl{
 
@@ -26,7 +27,9 @@ public class CollectionListImpl extends FinanceListImpl{
 									cvo.getOperatorId(),
 									cvo.getTransferItem().stream().map(e -> transferItemVoToPo(e)).collect(Collectors.toList()),
 									cvo.getTotalAmount(),
-									cvo.getState());
+									cvo.getState(),
+									DateUtil.getDateFromListID(cvo.getId())
+									);
 		
 	}
 
