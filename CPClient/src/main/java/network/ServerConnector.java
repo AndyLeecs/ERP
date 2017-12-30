@@ -8,15 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PO.account.CollectionListPO;
-import network.VIPRemoteHelper.VIPDataServiceHelper;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
-import network.goodsRemoteHelper.GoodsDataServiceHelper;
-import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
-import network.presentRemoteHelper.PresentForSpecialPackageDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
 import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
+import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
+import network.saleRemoteHelper.StockListDataServiceHelper;
 import util.State;
 
 /**
@@ -39,22 +37,22 @@ public class ServerConnector {
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		
 		
-		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
 		
 		
-		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
-		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
-		
-		
-		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
-		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
+//		
+//		
+//		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
+//		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(StockReturnListDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(StockListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(StockListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(SaleListDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(SaleReturnListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(SaleReturnListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(SaleProjectionDataServiceHelper.getInstance());
 
 		
@@ -83,8 +81,7 @@ public class ServerConnector {
 			
 		}
 		
-//		System.setSecurityManager(new SecurityManager()); 		//TODO 这句有什么用吗？我这里没有这句是正常的 re： debug时加的，没用就删了吧
-		
+//		System.setSecurityManager(new SecurityManager()); 	
 	}
 	
 	public static void main(String [] args){

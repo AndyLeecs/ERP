@@ -13,7 +13,6 @@ import bl.VIPbl.VIPFuzzySearch;
 import bl.VIPbl.VIPFuzzySearchImpl;
 import bl.goodsbl.GoodsFuzzySearch;
 import bl.goodsbl.GoodsFuzzySearchImpl;
-import bl.utility.GoodsVOTrans;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +25,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptWin;
 import util.UserGrade;
 
 /**     
@@ -62,11 +62,13 @@ public abstract class SalesmanListWinController{
 	
 	@FXML protected TextField notesTextField;
 	
+
+
 	@FXML protected Button selectVIPBtn;
-	@FXML protected TextField selectVIPField;
-	
+	@FXML protected TextField searchVIPField;
+
 	@FXML protected Button selectGoodsBtn;
-	@FXML protected TextField selectGoodsField;
+	@FXML protected TextField searchGoodsField;
 	
 	@FXML protected VBox goodsListVBox;
 	
@@ -76,7 +78,7 @@ public abstract class SalesmanListWinController{
 	@FXML protected Label numberErrorMessage;
 	protected static final String numberError = "数字格式错误";
 	
-	protected static final String cellUrl = "/fxml/salesmanUI/TabelItem.fxml";
+	protected static final String cellUrl = "/fxml/salesmanUI/TableItem.fxml";
 	
 	public SalesmanListWinController(ParentController parentController, SaleUniBLService uniBLService, String id) {
 		super();
@@ -95,8 +97,9 @@ public abstract class SalesmanListWinController{
 	@FXML 
 	void initialize(){
 		listID.setText(id);
-//只在第一次操作单据的时候做这项操作
-//		operator.setText(User.getInstance().getUserName());
+
+		System.out.println("salesmanListWinController initialized");
+
 	}
 	
 	/**
@@ -105,8 +108,9 @@ public abstract class SalesmanListWinController{
 	@FXML
 	void selectGoods(){
 		//获得关键字
-		String message = selectGoodsField.getText();
+		String message = searchGoodsField.getText();
 		if(message != null && message.length() != 0){
+		System.out.println("in select Goods");
 		//查找，分别用三种模糊查找，然后合并得到的商品列表结果
 		List<GoodsVO> temp = new ArrayList<GoodsVO>();
 		temp.addAll(goodsFuzzySearch.getGoodsInID(message));
@@ -138,7 +142,9 @@ public abstract class SalesmanListWinController{
 	@FXML
 	void selectVIP(){
 		//获得关键字
-		String message = selectVIPField.getText();
+		System.out.println("field is"+searchVIPField);
+		System.out.println("select VIP message is"+searchVIPField.getText());
+		String message = searchVIPField.getText();
 		if(message != null && message.length() != 0){
 		//查找，分别用三种模糊查找，然后合并得到的商品列表结果
 		List<VIPVO> temp = totalFuzzySearchVIP(message);
@@ -174,9 +180,24 @@ public abstract class SalesmanListWinController{
 	 * 添加到商品清单
 	 */
 	protected void addToList(SalesmanItemVO vo){
+		int dup = -1;
+		for(SalesmanItemVO v : chosenList){
+			if(v.getId().equals(vo.getId())){
+				dup = chosenList.indexOf(v);
+			}
+		}
+		if(dup == -1)
 		this.chosenList.add(vo);
+		else{
+			try {
+				new PromptWin("重复添加的商品无效哦");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		//去重
-		this.chosenList = new ArrayList<SalesmanItemVO>(new LinkedHashSet<SalesmanItemVO>(this.chosenList));
+	//	this.chosenList = new ArrayList<SalesmanItemVO>(new LinkedHashSet<SalesmanItemVO>(this.chosenList));
 		this.refresh();
 	}
 	/**

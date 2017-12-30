@@ -1,17 +1,18 @@
 package ui.stockmanUI;
 
 import java.io.IOException;
-
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import ui.mainUI.BackgroundController;
 import ui.mainUI.loginUI.LoginWin;
+import util.State;
 import util.StoreListType;
 
 /**
@@ -20,13 +21,13 @@ import util.StoreListType;
  * @since 2017.12.03
  *
  */
-public class StockmanController {
+public class StockmanController extends BackgroundController{
 	@FXML public AnchorPane root;
 	@FXML public BorderPane centerPane;
 	@FXML public MenuButton newBtn;
 	@FXML public MenuButton lookBtn;
-	@FXML public Button goodsManageBtn;
-	@FXML public Button draftBtn;
+	@FXML public JFXButton goodsManageBtn;
+	@FXML public JFXButton draftBtn;  //库存查看
 	@FXML public ImageView logOutBtn;
 	
 	@FXML public MenuItem newPresentListBtn;
@@ -39,30 +40,63 @@ public class StockmanController {
 	@FXML public MenuItem lookAlarmListBtn;
 	@FXML public MenuItem messageBtn;
 	@FXML public MenuItem personalInfoBtn;
+
+//	@FXML public MenuItem StoreCheckBtn;
+//	@FXML public MenuItem StoreInventoryBtn;
 	
 	@FXML public Pane addNext;
+
 	
 	
-	@FXML public void init() {
-	
-	
+	@FXML public void initialize() {
+		
 	}
 	
 	 @FXML public void newPresentList() {
-		
+		 Platform.runLater(()->{
+			 try {
+				 PresentListWin win=new PresentListWin();
+//				 root.getScene().getWindow().hide();
+				 ;
+				 State state=State.IsEditting;
+				 win.controller.set(state);
+
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
 	 }
 	
      @FXML public void newStockOverflowList() {
-		
+		 Platform.runLater(()->{
+			 try {
+				 ReportListWin win=new ReportListWin();
+//				 root.getScene().getWindow().hide();
+				;
+				 State state=State.IsEditting;
+				 win.controller.set(StoreListType.OVERFLOW,state);
+
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
 	 }
      
      @FXML public void newStockLostList() {
-    	 
+		 Platform.runLater(()->{
+			 try {
+				 ReportListWin win=new ReportListWin();
+//				 root.getScene().getWindow().hide();
+				 State state=State.IsEditting;
+				 win.controller.set(StoreListType.LOSS,state);
+
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
      }
      
-     @FXML public void newAlarmList() {
-    	 
-     }
+
      
      @FXML public void lookPresentList() {
 		 Platform.runLater(()->{
@@ -162,4 +196,21 @@ public class StockmanController {
 					}
 			});   	 
      }
+
+     @FXML public void StoreCheck(){
+		 Platform.runLater(()->{
+			 try {
+				 StoreCheckWin win=new StoreCheckWin();
+				 root.getScene().getWindow().hide();
+
+			 } catch (IOException e) {
+				 e.printStackTrace();
+			 }
+		 });
+
+	 }
+
+	 @FXML public void StoreInventory(){
+
+	 }
 }

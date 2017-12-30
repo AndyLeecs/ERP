@@ -1,11 +1,9 @@
 package ui.salesmanUI;
 
-import java.util.List;
-
-import VO.VIPVO.VIPVO;
 import VO.saleVO.SalesmanListVO;
 import VO.saleVO.StockListVO;
 import blservice.saleblservice.SaleUniBLService;
+import javafx.fxml.FXML;
 import ui.commonUI.ParentController;
 
 /**     
@@ -15,6 +13,12 @@ import ui.commonUI.ParentController;
 */
 public class StockNewListController extends StockTypeNewListController {
 
+	
+	@FXML
+	void initialize(){
+		super.initialize();
+		System.out.println("stock new list controller initialized");
+	}
 	/**
 	 * @param parentController
 	 * @param uniBLService

@@ -1,6 +1,7 @@
 package ui.salesmanUI;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
@@ -36,6 +37,7 @@ public class VIPSearchResultController {
 
 		this.list = VIPList;
 		this.parentController = parentController;
+		this.cellList = new ArrayList<>();
 	}
 	
 	@FXML void initialize(){

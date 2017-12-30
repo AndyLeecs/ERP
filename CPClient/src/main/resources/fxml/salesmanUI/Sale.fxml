@@ -14,21 +14,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FFF7FB;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.salesmanUI.SaleController">
    <children>
+   <fx:include source="../commonUI/Background.fxml" />
       <Pane prefHeight="200.0" prefWidth="200.0" />
-      <Pane layoutX="-4.0" prefHeight="97.0" prefWidth="1207.0" style="-fx-background-color: #FFECEC;">
-         <children>
-            <Label fx:id="cuteProj" layoutX="206.0" layoutY="20.0" text="CuteProject" textFill="#9f353a">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <ImageView layoutX="1164.0" layoutY="14.0">
-               <image>
-                  <Image url="@../../img/logOut.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
       <Pane layoutX="177.0" layoutY="121.0" opacity="0.39" prefHeight="646.0" prefWidth="978.0" style="-fx-background-color: transparent;">
          <children>
             <Label layoutX="413.0" layoutY="290.0" prefHeight="82.0" prefWidth="152.0" text="WELCOME" textAlignment="CENTER" textFill="#9f353a" textOverrun="CLIP">
