@@ -18,7 +18,6 @@ public class AdministratorWinController implements ParentController{
 
 	@FXML public void onNewUserBtnClicked() {
 		try {
-			System.out.println(getClass().getResource(USER_INFOMATION_FXML));
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(USER_INFOMATION_FXML));
 			
 			NewUserWinController controller = new NewUserWinController();

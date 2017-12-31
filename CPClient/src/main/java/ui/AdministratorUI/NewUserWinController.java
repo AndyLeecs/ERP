@@ -1,6 +1,7 @@
 package ui.AdministratorUI;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -144,13 +145,15 @@ public class NewUserWinController implements SonController{
 							userPermission
 						);
 		
-		service.initAndSave(vo);
-		
 		try {
-			new PromptWin("保存成功！");
-		} catch (IOException e) {
-			e.printStackTrace();
+			service.initAndSave(vo);
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+			prompt("网络异常，请稍后再试");
+			return;
 		}
+		
+		prompt("保存成功！");
 		
 		this.parentcontroller.CloseSonWin();
 		
@@ -195,7 +198,13 @@ public class NewUserWinController implements SonController{
 	}
 
 	
-	
+	private void prompt(String text){
+		try {
+			new PromptWin(text);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
