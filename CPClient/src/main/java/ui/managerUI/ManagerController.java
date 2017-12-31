@@ -11,6 +11,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import ui.commonUI.LookListController;
 import ui.mainUI.loginUI.LoginWin;
 
 /**     
@@ -28,7 +29,8 @@ public class ManagerController {
 	@FXML public MenuItem showPresentForSpecialPackage;
 	@FXML public MenuItem newPresentForSum;
 	@FXML public MenuItem showPresentForSum;
-	
+
+	@FXML public  MenuItem InfoListBtn;
 	@FXML
 	public void onNewPresentForMembershipClicked(){
 		if(centerPane.getCenter() == null){
@@ -166,6 +168,29 @@ public class ManagerController {
 						e.printStackTrace();
 					}
 			});   	 
+    }
+
+    @FXML public void openInfoLists(){
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource(
+						"/fxml/commonUI/LookList.fxml"));
+		try {
+			AnchorPane presentroot = loader.load();
+			centerPane.getChildren().removeAll();
+			centerPane.setRight(presentroot);
+			LookListController ctr=loader.getController();
+			ctr.set(true);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+    @FXML public void openSalesDetailsList(){
+    	
+    }
+    @FXML public void openBussinessSituationList(){
+    	
     }
 
 }

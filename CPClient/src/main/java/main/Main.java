@@ -19,7 +19,7 @@ public class Main extends Application {
 
 		Platform.runLater(()-> {
 				try {
-					new ui.stockmanUI.StockmanWin();
+					new ui.managerUI.ManagerWin();
 
 
 
