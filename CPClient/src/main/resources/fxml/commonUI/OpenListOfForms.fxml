@@ -17,6 +17,7 @@
             </Label>
             <TextField fx:id="searchTextField" layoutX="492.0" layoutY="67.0" />
             <Button fx:id="searchBtn" layoutX="699.0" layoutY="67.0" mnemonicParsing="false" onAction="#onSearchBtnClicked" text="查询" />
+            <Button fx:id="closeBtn" layoutX="811.0" layoutY="67.0" mnemonicParsing="false" onAction="#onCloseBtnClicked" text="关闭" />
          </children>
       </Pane>
       <ScrollPane hbarPolicy="NEVER" layoutY="122.0" prefHeight="472.0" prefWidth="921.0">

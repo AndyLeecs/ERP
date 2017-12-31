@@ -4,12 +4,16 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import PO.PresentResultPO;
 import PO.SaleListPO;
+import PO.SaleReturnListPO;
 import PO.SalesmanItemPO;
 import PO.SalesmanListPO;
+import VO.presentVO.PresentResultVO;
 import VO.saleVO.SaleListVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
+import bl.utility.GoodsInSaleVoTransPo;
 import blservice.saleblservice.SaleListBLService;
 import dataService.saleDataService.SaleListDataService;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
@@ -196,8 +200,11 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 			polist.add(itemVoToPo(i));
 		}
 		}
-		return new SaleListPO(svo.getId(),svo.getState(),DateUtil.getDateFromListID(svo.getId()),svo.getOperatorGrade(),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher());
-//		return new SaleListPO(svo.getId(),svo.getState(),DateUtil.getDateFromListID(svo.getId()),svo.getOperatorGrade(),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher());
+		return new SaleListPO(svo.getId(),svo.getState(),
+				DateUtil.getDateFromListID(svo.getId()),svo.getOperatorGrade(),
+				svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),
+				svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),
+				svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher(),voToPo(svo.getPresentResultVO()));
 	}
 
 
@@ -214,11 +221,19 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 			volist.add(itemPoToVo(i));
 		}
 		}
+		
+		
 		//留了一个空项，看以后是存操作员的id还是名称
-		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(),spo.getMemberID(), spo.getMemberName(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher());
+		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(),spo.getMemberID(), spo.getMemberName(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher(),poToVo(spo.getPresentResultPO()));
 	}
 
 	
 	
+	private PresentResultVO poToVo(PresentResultPO po){
+		return new PresentResultVO(po.getPresentId(),po.getVoucher(),GoodsInSaleVoTransPo.GoodsInSalePoToVo(po.getPresentList()),po.getSum());
+	}
 	
+	private PresentResultPO voToPo(PresentResultVO vo){
+		return new PresentResultPO(vo.getPresentId(),vo.getVoucher(),GoodsInSaleVoTransPo.GoodsInSaleVoToPo(vo.getPresentList()),vo.getSum());
+	}
 }

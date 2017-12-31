@@ -6,7 +6,9 @@ import java.util.Optional;
 
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
+import VO.saleVO.StockListVO;
 import bl.salebl.SaleBLFactory;
+import blservice.saleblservice.SaleUniBLService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +19,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import ui.managerUI.PresentForMembershipController;
-import ui.managerUI.PresentForMembershipEditStrategy;
-import ui.managerUI.Strategy;
 import util.UserGrade;
 
 /**     
@@ -27,16 +26,21 @@ import util.UserGrade;
 * @date 2017年12月28日
 * @description
 */
-public class StockListCellController {
+public class StockListCellController implements CellController {
 
-	StockListViewController controller;
+	ListViewController controller;
 	SalesmanListVO vo;
 	String id;
+	protected SaleUniBLService uniBLService;
 	
 	List<SalesmanItemVO> chosenList;
 	
+	@FXML protected AnchorPane root;
+	
 	@FXML protected Label listID;
 	@FXML protected Label operator;
+	@FXML protected String operatorId;
+	@FXML protected UserGrade operatorGrade;
 	
 	@FXML protected Label totalAmount;
 	
@@ -45,24 +49,38 @@ public class StockListCellController {
 	
 	@FXML protected TextField notesTextField;
 	
+
+
 	@FXML protected Button selectVIPBtn;
-	@FXML protected TextField selectVIPField;
-	
+	@FXML protected TextField searchVIPField;
+
 	@FXML protected Button selectGoodsBtn;
-	@FXML protected TextField selectGoodsField;
+	@FXML protected TextField searchGoodsField;
 	
 	@FXML protected VBox goodsListVBox;
 	
-	protected static final String cellUrl = "/fxml/salesmanUI/TabelItemNoEdit.fxml";
+	@FXML protected Label nullErrorMessage;	
+	@FXML protected Label numberErrorMessage;
+	
+	//编辑单据，跳转新页面
+	@FXML protected Button saveBtn;
+	//提交单据
+	@FXML protected Button commitBtn;
+	//删除单据
+	@FXML protected Button cancelBtn;
+	
+	protected static final String cellUrl = "/fxml/salesmanUI/TableItem.fxml";
 	
 	/**
 	 * @param stockListViewController
 	 * @param vo
 	 */
-	public StockListCellController(StockListViewController stockListViewController, SalesmanListVO vo) {
+	public StockListCellController(ListViewController stockListViewController, SalesmanListVO vo) {
 		this.controller = stockListViewController;
 		this.vo = vo;
-		this.id = vo.getId();	
+		this.id = vo.getId();
+	//	this.uniBLService = service;
+		this.uniBLService = SaleBLFactory.getStockListBLService();
 	}
 	
 
@@ -77,19 +95,47 @@ public class StockListCellController {
 		notesTextField.setText(vo.getNotes());
 		
 		chosenList = vo.getSaleListItems();
+		
+	
+		notesTextField.setEditable(false);
+		//将无用的控件set invisible
+		selectVIPBtn.setVisible(false);
+		searchVIPField.setVisible(false);
+		selectGoodsBtn.setVisible(false);
+		searchGoodsField.setVisible(false);
+
+		//改变组件的名称
+		saveBtn.setText("编辑");
+		cancelBtn.setText("删除");
 		this.refresh();
 	}
-	@FXML void delete(){
-		if(showConfirmDialog())
+	//空的方法
+	@FXML 
+	void selectGoods(){}
+	@FXML
+	void selectVIP(){}
+	//删除
+	@FXML void cancel(){
+		if(showConfirmDialog()){
+			uniBLService.delete(id);
 			controller.deleteFromList(vo);
+			System.out.println("delete");
+		}
 		
 	}
 	
-	@FXML void edit(){
+	@FXML void commit(){
+		//TODO 提示窗
+		uniBLService.commit(getVOFromUI());	
+		System.out.println("commit");
+	}
+	//编辑
+	@FXML void save(){
+		this.controller.controller.CloseSonWin();
+
 		Platform.runLater(()->{
 		try {
-   		 StockEditListController controller = 
-   				    new StockEditListController(this.controller,SaleBLFactory.getStockListBLService(),vo.getId(),vo);
+   		 StockTypeEditListController controller = generateEditList();
    		 FXMLLoader loader = new FXMLLoader(
    				    getClass().getResource(
    				        "/fxml/salesmanUI/StockTypeList.fxml"));
@@ -101,6 +147,13 @@ public class StockListCellController {
 			e.printStackTrace();
 		}
 	});
+	}
+
+
+	StockTypeEditListController generateEditList() {
+		StockEditListController controller = 
+   				    new StockEditListController(this.controller.controller,SaleBLFactory.getStockListBLService(),vo.getId(),vo);
+		return controller;
 	}
 	
 	public void refresh() {
@@ -140,4 +193,9 @@ public class StockListCellController {
 	    	return false;
 	     }
 	}
+	
+	public SalesmanListVO getVOFromUI() {
+		return new StockListVO(id,operator.getText(),operatorId,null,operatorGrade,VIPID.getText(),VIPName.getText(),null,"默认仓库",notesTextField.getText(),chosenList,Double.parseDouble(totalAmount.getText()));
+	}
+
 }

@@ -3,6 +3,7 @@ package ui.salesmanUI;
 import VO.saleVO.SalesmanListVO;
 import VO.saleVO.StockReturnListVO;
 import blservice.saleblservice.SaleUniBLService;
+import javafx.fxml.FXML;
 import ui.commonUI.ParentController;
 
 /**     
@@ -33,5 +34,10 @@ public class StockReturnEditListController extends StockTypeEditListController{
 		return new StockReturnListVO(id,operator.getText(),operatorId,null,operatorGrade,VIPID.getText(),VIPName.getText(),null,"默认仓库",notesTextField.getText(),chosenList,Double.parseDouble(totalAmount.getText()));
 	}
 
+	@FXML
+	void cancel(){
+
+		this.parentController.CloseSonWin();
+	}
 
 }

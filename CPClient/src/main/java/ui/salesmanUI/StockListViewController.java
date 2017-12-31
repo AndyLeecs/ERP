@@ -33,11 +33,10 @@ public class StockListViewController extends ListViewController implements Paren
 		vBox.getChildren().clear();
 		if(list != null)
 		for(SalesmanListVO vo : list){
-	  		 StockListCellController controller = 
-	   				    new StockListCellController(this,vo);
+	  		 CellController controller = generateCellController(vo);
     		 FXMLLoader loader = new FXMLLoader(
    				    getClass().getResource(
-   				        "/fxml/salesmanUI/StockListCell.fxml"));
+   				        "/fxml/salesmanUI/StockTypeList.fxml"));
    				loader.setController(controller);
    				AnchorPane presentroot = null;
 				try {
@@ -49,12 +48,17 @@ public class StockListViewController extends ListViewController implements Paren
 		}
 	}
 
+	public CellController generateCellController(SalesmanListVO vo) {
+		CellController controller = 
+				    new StockListCellController(this,vo);
+		return controller;
+	}
+
 	/* (non-Javadoc)
 	 * @see ui.commonUI.ParentController#CloseSonWin()
 	 */
 	@Override
 	public void CloseSonWin() {
-		// TODO Auto-generated method stub
 		
 	}
 

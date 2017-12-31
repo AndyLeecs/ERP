@@ -239,6 +239,12 @@ public class AccountBLService_Stub implements AccountBLService{
 		System.out.println(list.size());
 		return list;
 	}
+
+	@Override
+	public void endService() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

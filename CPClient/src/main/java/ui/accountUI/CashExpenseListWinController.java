@@ -10,20 +10,25 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import resultmessage.CommitListRM;
-import resultmessage.SaveListRM;
+import javafx.scene.layout.AnchorPane;
 import ui.commonUI.PromptWin;
 import ui.mainUI.loginUI.User;
 import util.State;
 
 public class CashExpenseListWinController  extends FinanceListWinController{
+	
+	@FXML AnchorPane root;
+	
+	CashExpenseListVO vo = null;
 
+	@FXML Label entryNameLabel;
 	@FXML TextField entryNameTextField;
 	@FXML Button addEntryBtn;
 	
@@ -34,9 +39,23 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 	@FXML TableColumn<EntryItem,String> deleted;
 	final ObservableList<EntryItem> entryItem = FXCollections.observableArrayList();
 	
+	public CashExpenseListWinController(){}
+	public CashExpenseListWinController(CashExpenseListVO vo){this.vo = vo;}
 	
 	@Override
 	public void init() {
+		if(vo != null){
+			entryItem.addAll(vo.getEntryItem()
+							.stream()
+							.map(e->new EntryItem(e.getEntryName(),e.getAmount(),e.getNote()))
+							.collect(Collectors.toList()));
+			setListID(vo.getId());
+			setOperator(vo.getOperator());
+			AccountComboBox.setValue(vo.getAccount());
+			totalAmount.setText(String.valueOf(vo.getTotalAmount()));
+
+		}
+		
 		super.init();
 		initTableView();
 	}
@@ -72,11 +91,6 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 		EntryListTableView.setItems(entryItem);
 	    EntryListTableView.setEditable(true);
 		
-	    //TODO 测试用，以后删掉
-//	    entryItem.add(new EntryItem("1 ", 100,"dv"));
-//	    entryItem.add(new EntryItem("老张", 100,"dv"));
-//	    entryItem.add(new EntryItem("我 ", 100,"dv"));
-
 
 	}
 	
@@ -148,25 +162,13 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 	}
 	
 	@FXML 
-	public void onSaveBtnClicked() {		//不同单据保存的前置条件可能不同，故不放在父类中
-		
-		CashExpenseListVO vo = createListVO(State.IsDraft);
-		
-		SaveListRM saverm = financeListService.save(vo);
-		switch(saverm){
-		case SUCCESS:
-			try {
-				new PromptWin("保存成功！");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			break;
-		}
+	public void onSaveBtnClicked() {		
+		saveList();
 	}
 
 
 	@FXML 
-	public void onCommitBtnClicked() {		//不同单据提交的前置条件不同，故不放在父类中
+	public void onCommitBtnClicked() {		
 		String account = AccountComboBox.getValue();
 		if(account == null || account.equals("")){
 			try {
@@ -187,22 +189,7 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 			}
 		}
 		
-		CashExpenseListVO vo = createListVO(State.IsCommitted);
-		CommitListRM commitrm = financeListService.commit(vo);
-		switch(commitrm){
-		case SUCCESS:
-			try {
-				prompt("提交成功！");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			finally{		//提示窗虽然加载不出来，不过提交已经成功了，就应该关闭了
-				parentController.CloseSonWin();		
-			}
-			break;
-		default:
-			System.out.println(commitrm);
-		}
+		commitList();
 	}
 	
 

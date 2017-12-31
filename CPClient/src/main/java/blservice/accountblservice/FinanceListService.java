@@ -11,6 +11,7 @@ import resultmessage.SaveListRM;
 public interface FinanceListService {
 
 	public String newList();
+	public void endService();		//结束服务。现在的功能是，将新建后未保存且未提交的单据删掉
 	public DeleteListRM delete(String id);
 	public SaveListRM save(FinanceListVO vo);
 	public CommitListRM commit(FinanceListVO vo);

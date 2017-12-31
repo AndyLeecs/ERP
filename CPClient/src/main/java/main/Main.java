@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import network.ServerConnector;
+import ui.mainUI.loginUI.Welcome;
 
 
 public class Main extends Application {
@@ -19,7 +20,22 @@ public class Main extends Application {
 
 		Platform.runLater(()-> {
 				try {
-					new ui.managerUI.ManagerWin();
+					new ServerConnector();
+//                     new ui.salesmanUI.SalesmanWin();
+
+					
+//					new Welcome();
+//					new LoginWin();
+//					new ui.salesmanUI.SalesmanWin();
+//					new ui.stockmanUI.StockmanWin();
+//					new ui.managerUI.LookListWin();
+					new ui.mainUI.accountantUI.AccountantWin();
+					//new ui.stockmanUI.StockmanWin();
+
+//					new ui.managerUI.ManagerWin();
+					//new ui.stockmanUI.GoodsWin();
+//					new ui.salesmanUI.VIPWin();
+
 
 
 

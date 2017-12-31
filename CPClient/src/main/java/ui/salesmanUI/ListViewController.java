@@ -2,10 +2,11 @@ package ui.salesmanUI;
 
 import java.util.List;
 
+import com.jfoenix.controls.JFXButton;
+
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
 
@@ -16,7 +17,7 @@ import javafx.scene.layout.VBox;
 */
 public abstract class ListViewController {
 	@FXML VBox vBox;
-	@FXML Button backBtn;
+	@FXML JFXButton backBtn;
 	
 	SalesmanController controller;
 	public SalesmanController getController() {

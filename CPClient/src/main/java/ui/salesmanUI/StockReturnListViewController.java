@@ -11,7 +11,7 @@ import ui.commonUI.ParentController;
 * @date 2017年12月29日
 * @description
 */
-public class StockReturnListViewController extends ListViewController {
+public class StockReturnListViewController extends StockListViewController {
 
 	/**
 	 * @param controller
@@ -24,13 +24,11 @@ public class StockReturnListViewController extends ListViewController {
 		// TODO Auto-generated constructor stub
 	}
 
-	/* (non-Javadoc)
-	 * @see ui.salesmanUI.ListViewController#refresh()
-	 */
 	@Override
-	public void refresh() {
-		// TODO Auto-generated method stub
-
+	public CellController generateCellController(SalesmanListVO vo) {
+		CellController controller = 
+				   new StockReturnListCellController(this,vo);
+		return controller;
 	}
 
 }

@@ -6,6 +6,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
 
+import com.jfoenix.controls.JFXButton;
+
 import VO.VIPVO.VIPVO;
 import VO.goodsVO.GoodsVO;
 import VO.saleVO.SalesmanItemVO;
@@ -91,13 +93,13 @@ public abstract class SalesmanListWinController{
 		this.controllerList = new ArrayList<SalesmanEditCellController>();
 	}
 	
+
 	/**
 	 * 显示单据id
 	 */
 	@FXML 
 	void initialize(){
 		listID.setText(id);
-
 		System.out.println("salesmanListWinController initialized");
 
 	}

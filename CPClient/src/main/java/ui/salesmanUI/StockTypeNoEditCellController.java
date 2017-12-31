@@ -1,20 +1,58 @@
 package ui.salesmanUI;
 
 import VO.saleVO.SalesmanItemVO;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**     
 * @author 李安迪
 * @date 2017年12月29日
 * @description
 */
-public class StockTypeNoEditCellController {
-
+public class StockTypeNoEditCellController{
+	@FXML protected Label typeLabel;
+	@FXML protected Label sumLabel;
+	@FXML protected TextField priceTextField;
+	@FXML protected TextField notesTextField;
+	@FXML protected Label nameLabel;
+	@FXML protected Label idLabel;
+	@FXML protected Button deleteBtn;
+	@FXML protected TextField amountTextField;
+	
+	protected SalesmanItemVO vo;
+	
 	/**
 	 * @param stockListCellController
 	 * @param vo
 	 */
 	public StockTypeNoEditCellController(StockListCellController stockListCellController, SalesmanItemVO vo) {
-		// TODO Auto-generated constructor stub
+		this.vo = vo;
 	}
 
+	@FXML
+	void initialize(){
+	    //设置初始值
+		typeLabel.setText(vo.getType());
+		sumLabel.setText(vo.getSum()+"");
+		priceTextField.setText(vo.getPrice()+"");
+//		priceProperty.set(vo.getPrice());
+		
+	amountTextField.setText(vo.getAmount()+"");
+	sumLabel.setText(vo.getSum()+"");
+//		amountProperty.set(INIT_AMOUNT_INTEGER);
+		
+		notesTextField.setText(vo.getNotes());
+		nameLabel.setText(vo.getName());
+		idLabel.setText(vo.getId());
+	
+		 amountTextField.setEditable(false);
+		 priceTextField.setEditable(false);
+		 notesTextField.setEditable(false);
+		 
+		deleteBtn.setVisible(false);
+	}
+
+@FXML void delete(){}
 }
