@@ -11,6 +11,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import ui.commonUI.BussinessSituationWin;
 import ui.commonUI.LookListController;
 import ui.mainUI.loginUI.LoginWin;
 
@@ -31,6 +32,8 @@ public class ManagerController {
 	@FXML public MenuItem showPresentForSum;
 
 	@FXML public  MenuItem InfoListBtn;
+	@FXML public MenuItem BussinessSituationBtn;
+
 	@FXML
 	public void onNewPresentForMembershipClicked(){
 		if(centerPane.getCenter() == null){
@@ -190,7 +193,12 @@ public class ManagerController {
     	
     }
     @FXML public void openBussinessSituationList(){
-    	
-    }
+		try {
+			BussinessSituationWin win=new BussinessSituationWin();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
