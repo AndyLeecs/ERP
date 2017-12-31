@@ -1,7 +1,7 @@
 package ui.mainUI.loginUI;
 
 import VO.userVO.UserVO;
-import bl.userbl.UserBLService_Stub;
+import blservice.serviceFactory.UserBLFactory;
 import blservice.userblservice.PersonalInfoService;
 import resultmessage.LoginRM;
 import util.UserGrade;
@@ -23,7 +23,7 @@ public class User {
 											//为了安全，密码不让界面层持有，不过userVO里是否要有密码？re：有密码的意义不是太大吧
 											//re:re:修改用户信息，注册新用户时是要有密码的，那个vo没想好要不要和这个uservo共用
 	private User(){
-		service = new UserBLService_Stub();
+		service = UserBLFactory.getPersonalInfoService();
 	}
 	
 	public static User getInstance(){

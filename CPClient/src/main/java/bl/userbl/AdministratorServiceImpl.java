@@ -14,7 +14,8 @@ import resultmessage.NewUserRM;
 public class AdministratorServiceImpl implements AdministratorService{
 
 	UserDataService dataService = UserDataServiceHelper.getInstance().getDataService();
-	
+	VOPOTransformer vopotransformer = new VOPOTransformer();
+
 	@Override
 	public NewUserRM checkNewUserName(String name) {
 		try {
@@ -29,7 +30,7 @@ public class AdministratorServiceImpl implements AdministratorService{
 
 	@Override
 	public void initAndSave(UserVO vo) throws RemoteException{
-		UserPO po = voTopo(vo);
+		UserPO po = vopotransformer.voTopo(vo);
 		dataService.insert(po);
 	}
 
@@ -40,7 +41,7 @@ public class AdministratorServiceImpl implements AdministratorService{
 
 	@Override
 	public void modify(UserVO vo) throws RemoteException {
-		UserPO po = voTopo(vo);
+		UserPO po = vopotransformer.voTopo(vo);
 		try{
 			dataService.update(po);
 		}
@@ -54,22 +55,14 @@ public class AdministratorServiceImpl implements AdministratorService{
 	public List<UserVO> getAllUser() {
 		try {
 			List<UserPO> poList = dataService.getAllUser();
-			return poList.stream().map(e -> poTovo(e)).collect(Collectors.toList());
+			return poList.stream().map(e -> vopotransformer.poTovo(e)).collect(Collectors.toList());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	private UserVO poTovo(UserPO po){
-		return new UserVO(po.getId(),po.getName(),po.getPassword(),
-				po.getType(),po.getGrade(),po.getPermission());
-	}
 	
-	private UserPO voTopo(UserVO vo){
-		return new UserPO(vo.getId(),vo.getName(),vo.getPassword(),
-				vo.getType(),vo.getGrade(),vo.getPermission());
-	}
 
 	
 

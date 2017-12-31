@@ -28,6 +28,14 @@ public class UserVO{
 		  this.setGrade(grade);
 		  this.setPermission(permission);
 	}
+	public UserVO(UserVO vo){
+		this.setId(vo.id);
+		this.setName(vo.name);
+		this.setPassword(vo.password);
+		this.setType(vo.type);
+		this.setGrade(vo.grade);
+		this.setPermission(vo.permission);
+	}
 	public String getId() {
 		return id;
 	}

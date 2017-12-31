@@ -33,8 +33,7 @@ public class UserBLService_Stub implements AdministratorService, PersonalInfoSer
 		}
 	
 	@Override
-	public ResultMessage logout() {
-		return ResultMessage.SUCCESS;
+	public void logout() {
 	}
 	
 	@Override

@@ -7,7 +7,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.account.CollectionListPO;
 import PO.user.UserPO;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
@@ -17,7 +16,9 @@ import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
 import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import network.saleRemoteHelper.StockListDataServiceHelper;
 import network.userRemoteHelper.UserDataServiceHelper;
-import util.State;
+import util.UserGrade;
+import util.UserPermission;
+import util.UserType;
 
 /**
  * 连接服务器的类，在这里将每个DataService与对应的RemoteHelper进行连接
@@ -32,6 +33,7 @@ public class ServerConnector {
 	public ServerConnector(){
 		addServices();
 		connectDataService();
+		insertAdmin();
 	}
 	
 	private void addServices(){
@@ -84,25 +86,29 @@ public class ServerConnector {
 			}
 			
 		}
-		
-//		System.setSecurityManager(new SecurityManager()); 	
+			
 	}
 	
 	public static void main(String [] args){
 		new ServerConnector();
-		testService();
+//		testService();
 	}
 	
 	
 	//TODO delete it when bl finish!
 	public static void testService(){
+		
+	}
+	
+	public void insertAdmin(){
 		UserPO po = new UserPO();
-		po.setName("小李");
-		po.setPassword("1230006");;
+		po.setName("admin");
+		po.setPassword("123");
+		po.setType(UserType.Administrator);
+		po.setGrade(UserGrade.Manager);
+		po.setPermission(UserPermission.Highest);
 		try {
-//			System.out.println(CollectionListDataServiceHelper.getInstance().getDataService().getNewListId());
 			System.out.println(UserDataServiceHelper.getInstance().getDataService().insert(po));
-			System.out.println(UserDataServiceHelper.getInstance().getDataService().getUser("小李").getPassword());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

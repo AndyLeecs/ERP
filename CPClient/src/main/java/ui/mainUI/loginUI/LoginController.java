@@ -63,11 +63,15 @@ public class LoginController {
 			break;
 		}
 		case WRONG_PASSWORD:{
-			System.out.println("password wrong");
 			passwordLabel.setText("密码输错啦～");
 			passwordTxt.setText("");
 			passwordTxt.requestFocus();
 			clearLabel(passwordLabel);
+			break;
+		}
+		case NETWORK_ERROR:{
+			usernameLabel.setText("网络异常");
+			clearLabel(usernameLabel);
 			break;
 		}
 		}
