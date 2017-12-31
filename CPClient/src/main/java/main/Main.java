@@ -21,7 +21,7 @@ public class Main extends Application {
 		Platform.runLater(()-> {
 				try {
 					new ServerConnector();
-                     new ui.salesmanUI.SalesmanWin();
+//                     new ui.salesmanUI.SalesmanWin();
 
 					
 //					new Welcome();
@@ -29,7 +29,7 @@ public class Main extends Application {
 //					new ui.salesmanUI.SalesmanWin();
 //					new ui.stockmanUI.StockmanWin();
 //					new ui.managerUI.LookListWin();
-//					new ui.mainUI.accountantUI.AccountantWin();
+					new ui.mainUI.accountantUI.AccountantWin();
 					//new ui.stockmanUI.StockmanWin();
 
 //					new ui.managerUI.ManagerWin();
