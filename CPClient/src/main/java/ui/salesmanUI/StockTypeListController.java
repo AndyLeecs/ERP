@@ -103,6 +103,7 @@ public abstract class StockTypeListController extends SalesmanListWinController 
 		System.out.println("save");
 	}
 	
+	
 
 	//从ui界面得到所需的vo
 	public abstract SalesmanListVO getVOFromUI();

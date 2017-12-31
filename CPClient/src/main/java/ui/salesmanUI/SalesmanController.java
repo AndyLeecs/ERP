@@ -43,12 +43,13 @@ public class SalesmanController implements ParentController {
 	private static final String STOCK_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
 	private static final String STOCKRETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockReturnListTitle.fxml";
 	
-	private static final String SALE_LIST_SOURCE = "/fxml/salesmanUI/SaleList.fxml";
-	private static final String SALERETURN_LIST_SOURCE = "/fxml/salesmanUI/SaleReturnList.fxml";
+	private static final String SALE_LIST_SOURCE = "/fxml/salesmanUI/SaleTypeList.fxml";
+	private static final String SALERETURN_LIST_SOURCE = "/fxml/salesmanUI/SaleTypeList.fxml";
 	private static final String STOCK_LIST_SOURCE = "/fxml/salesmanUI/StockTypeList.fxml";
-	private static final String STOCKRETURN_LIST_SOURCE = "/fxml/salesmanUI/StockReturnList.fxml";	
+	private static final String STOCKRETURN_LIST_SOURCE = "/fxml/salesmanUI/StockTypeList.fxml";	
 	
 	private static final String FORM_CSS_PATH = "/css/forms/Forms.css";
+	private static final String VIEW_PATH = "/fxml/salesmanUI/ListOfForms.fxml";
 	SalesmanListWinController controller;
 	ListViewController viewController;
 	Alert information;
@@ -111,7 +112,7 @@ public class SalesmanController implements ParentController {
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new SaleListViewController(this,service,list);
 		Platform.runLater(()->{
-			showDraftList(list,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
+			showDraftList(list,SALE_LIST_TITLE_SOURCE,VIEW_PATH,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
 	}
 	@FXML
@@ -121,7 +122,7 @@ public class SalesmanController implements ParentController {
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new SaleReturnListViewController(this,service,list);
 		Platform.runLater(()->{
-			showDraftList(list,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
+			showDraftList(list,SALERETURN_LIST_TITLE_SOURCE,VIEW_PATH,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
 	}
 	@FXML
@@ -131,7 +132,7 @@ public class SalesmanController implements ParentController {
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new StockListViewController(this,service,list);
 		Platform.runLater(()->{
-			showDraftList(list,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
+			showDraftList(list,STOCK_LIST_TITLE_SOURCE,VIEW_PATH,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
 	}
 	@FXML
@@ -141,7 +142,7 @@ public class SalesmanController implements ParentController {
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new StockReturnListViewController(this,service,list);
 		Platform.runLater(()->{
-			showDraftList(list,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
+			showDraftList(list,STOCKRETURN_LIST_TITLE_SOURCE,VIEW_PATH,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
 	}
 	private void loadNewList(String id, String fxmlTitlePath, String fxmlPath, String cssTitlePath, String cssPath,SalesmanListWinController controller){

@@ -20,7 +20,7 @@
 		<property name="warehouse"/>
 		<property name="notes"/>
 					<!-- 组分中包括的集合 -->
-			<list name="SaleListItems" cascade ="all">
+			<list name="SaleListItems" cascade ="all" lazy = "false">
 				<key column="salesmanListid" />
 				<index column="index_"></index><!-- 注意index是数据库中的关键字要避免与其冲突，此处index_对应元素在List中的索引 -->  
 				<one-to-many class="PO.SalesmanItemPO" />

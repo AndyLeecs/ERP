@@ -19,23 +19,10 @@ public class Main extends Application {
 
 		Platform.runLater(()-> {
 				try {
-				//	ServerConnector s = new ServerConnector();
-//					new Welcome();
-					//new LoginWin();
-<<<<<<< HEAD
-				new ui.salesmanUI.SalesmanWin();
+					ServerConnector s = new ServerConnector();
+                     new ui.salesmanUI.SalesmanWin();
+
 //					new ui.stockmanUI.StockmanWin();
-=======
-					//new ui.salesmanUI.SalesmanWin();
-					new ui.stockmanUI.StockmanWin();
->>>>>>> branch 'master' of http://101.37.19.32:10080/CuteGroup/Cute_Project.git
-//					new ui.managerUI.LookListWin();
-<<<<<<< HEAD
-//					new ui.mainUI.accountantUI.AccountantWin();
-=======
-					//new ui.mainUI.accountantUI.AccountantWin();
->>>>>>> branch 'master' of http://101.37.19.32:10080/CuteGroup/Cute_Project.git
-					//new ui.stockmanUI.StockmanWin();
 //					new ui.managerUI.ManagerWin();
 					//new ui.stockmanUI.GoodsWin();
 //					new ui.salesmanUI.VIPWin();

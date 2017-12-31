@@ -37,7 +37,7 @@ public class StockListViewController extends ListViewController implements Paren
 	   				    new StockListCellController(this,vo);
     		 FXMLLoader loader = new FXMLLoader(
    				    getClass().getResource(
-   				        "/fxml/salesmanUI/StockListCell.fxml"));
+   				        "/fxml/salesmanUI/StockTypeList.fxml"));
    				loader.setController(controller);
    				AnchorPane presentroot = null;
 				try {
@@ -54,7 +54,6 @@ public class StockListViewController extends ListViewController implements Paren
 	 */
 	@Override
 	public void CloseSonWin() {
-		// TODO Auto-generated method stub
 		
 	}
 
