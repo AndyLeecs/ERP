@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3578231-fbfd-4ec8-a4fe-5fe3966bdd7a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/commonUI/BussinessSituationController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/commonUI/BussinessSituationWin.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CPClient/src/main/resources/fxml/listUI/BussinessSituation.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/main/Main.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/ui/managerUI/ManagerController.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/ui/managerUI/ManagerController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/CPCommon/target/" />
@@ -622,7 +617,7 @@
       <workItem from="1513837148604" duration="112114000" />
       <workItem from="1514639646022" duration="2327000" />
       <workItem from="1514698369722" duration="8157000" />
-      <workItem from="1514712305085" duration="27000" />
+      <workItem from="1514712305085" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="毓斌你的商品按钮跳转不过去...好像逻辑出了点问题。">
       <created>1514639781907</created>
@@ -638,14 +633,22 @@
       <option name="project" value="LOCAL" />
       <updated>1514708342587</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="经营情况表。略难看。">
+      <created>1514712362292</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1514712362292</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122998000" />
+    <option name="totallyTimeSpent" value="123041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -689,7 +692,8 @@
     <MESSAGE value="..." />
     <MESSAGE value="毓斌你的商品按钮跳转不过去...好像逻辑出了点问题。" />
     <MESSAGE value="写好了表单查看的界面和逻辑。在Common包提供了一个DeleteDatabaseAndRun的方法。" />
-    <option name="LAST_COMMIT_MESSAGE" value="写好了表单查看的界面和逻辑。在Common包提供了一个DeleteDatabaseAndRun的方法。" />
+    <MESSAGE value="经营情况表。略难看。" />
+    <option name="LAST_COMMIT_MESSAGE" value="经营情况表。略难看。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -940,6 +944,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
