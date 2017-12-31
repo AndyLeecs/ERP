@@ -38,7 +38,7 @@ public class User {
 		if(loginrm == LoginRM.SUCCESS){
 			loggedIn = true;
 			UserVO uservo = service.getCurrentUserInfo();
-			this.id = uservo.getID();
+			this.id = uservo.getId();
 			this.name = uservo.getName();
 			this.type = uservo.getType();
 			this.grade = uservo.getGrade();

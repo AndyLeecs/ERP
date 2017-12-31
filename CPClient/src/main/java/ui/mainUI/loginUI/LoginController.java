@@ -97,7 +97,7 @@ public class LoginController {
 					break;
 				}
 				case Administrator:{
-					new ui.AdministratorUI.AdministratorWin();
+					new ui.mainUI.administratorUI.AdministratorWin();
 					break;
 				}
 				}

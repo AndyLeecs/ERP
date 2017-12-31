@@ -6,15 +6,17 @@ import java.util.List;
 import VO.userVO.MessageVO;
 import VO.userVO.OperationVO;
 import VO.userVO.UserVO;
+import blservice.userblservice.AdministratorService;
+import blservice.userblservice.OperationLogService;
 import blservice.userblservice.PersonalInfoService;
-import blservice.userblservice.UserBLService;
 import resultmessage.LoginRM;
+import resultmessage.NewUserRM;
 import resultmessage.ResultMessage;
 import util.UserGrade;
 import util.UserPermission;
 import util.UserType;
 
-public class UserBLService_Stub implements UserBLService, PersonalInfoService{
+public class UserBLService_Stub implements AdministratorService, PersonalInfoService, OperationLogService{
 	
 	protected static final MessageVO messagevo = null;
 	protected static final UserVO uservo = new UserVO("007", "zzz","123",UserType.Accountant,UserGrade.General,UserPermission.Highest);
@@ -53,31 +55,24 @@ public class UserBLService_Stub implements UserBLService, PersonalInfoService{
 	}
 
 	@Override
-	public String newUser(String name) {
-		return "大师";
+	public NewUserRM checkNewUserName(String name) {
+		if(name.equals("abc"))
+			return NewUserRM.EXIST;
+		return NewUserRM.VALID;
 	}
 
 	@Override
-	public ResultMessage initAndSave(UserVO vo) {
-		return ResultMessage.SUCCESS;
+	public void initAndSave(UserVO vo) {
 	}
 
 	@Override
-	public ResultMessage delete(String id) {
-		return ResultMessage.SUCCESS;
+	public void delete(String id) {
 	}
 
 	@Override
-	public ResultMessage modify(UserVO vo) {
-		return ResultMessage.SUCCESS;
+	public void modify(UserVO vo) {
 	}
 
-	@Override
-	public List<UserVO> findUser(String info) {
-		List<UserVO> list = new ArrayList<UserVO>();
-		list.add(uservo);
-		return list;
-	}
 
 	@Override
 	public List<OperationVO> viewLog() {
