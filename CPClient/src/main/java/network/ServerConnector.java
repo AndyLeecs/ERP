@@ -37,7 +37,7 @@ public class ServerConnector {
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		
 		
-//		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
 		

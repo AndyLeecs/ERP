@@ -34,12 +34,7 @@
          <children>
             <Pane layoutY="6.0" prefHeight="59.0" prefWidth="921.0">
                <children>
-                  <Label fx:id="accountLabel" layoutX="479.0" layoutY="18.0" prefHeight="23.0" prefWidth="78.0" text="银行账户" textFill="#938c8c">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="AccountComboBox" layoutX="580.0" layoutY="16.0" prefHeight="27.0" prefWidth="167.0" />
+                  <ComboBox fx:id="AccountComboBox" layoutX="580.0" layoutY="16.0" prefHeight="27.0" prefWidth="167.0" promptText="请选择银行账户" />
                   <Label fx:id="entryNameLabel" layoutX="93.0" layoutY="18.0" prefHeight="23.0" prefWidth="62.0" text="条目名" textFill="#938c8c">
                      <font>
                         <Font size="17.0" />

@@ -10,6 +10,8 @@ public class CollectionListWinLookController extends CollectionListWinController
 	public void init(){
 		VIPName.setText(collectionListVO.getVIPName());
 		VIPID.setText(collectionListVO.getVIPID());
+		searchVIPTextField.setVisible(false);
+		searchVIPBtn.setVisible(false);
 		operator.setText(collectionListVO.getOperator());
 		listID.setText(collectionListVO.getId());
 		totalAmount.setText(String.valueOf(collectionListVO.getTotalAmount()));
@@ -19,11 +21,10 @@ public class CollectionListWinLookController extends CollectionListWinController
 		super.initTableView();
 		TransferListTableView.setEditable(false);
 		AccountComboBox.setVisible(false);
-		accountLabel.setVisible(false);
 		commitBtn.setText("关闭");
 		saveBtn.setVisible(false);
 		closeBtn.setVisible(false);
-		selectVIPBtn.setVisible(false);
+		
 		
 	}
 
