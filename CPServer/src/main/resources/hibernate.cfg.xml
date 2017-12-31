@@ -37,7 +37,7 @@
 		<mapping resource="GoodsInSalePO.hbm.xml" />
 
 		<mapping resource="SalesmanItemPO.hbm.xml" />
-
+				<mapping resource="PresentResultPO.hbm.xml" />
 <!-- 	<mapping resource="SalesmanListPO.hbm.xml" /> -->	
 
 

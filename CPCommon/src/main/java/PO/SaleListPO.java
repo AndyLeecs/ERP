@@ -29,6 +29,7 @@ public class SaleListPO extends SalesmanListPO implements Serializable{
 	 * 使用代金券金额
 	 */
 	double voucher;
+	PresentResultPO presentResultPO;
 	public SaleListPO(){}
 	
 
@@ -38,11 +39,30 @@ public class SaleListPO extends SalesmanListPO implements Serializable{
 
 	public SaleListPO(String id, State state, Date day, UserGrade operatorGrade,String memberID, String memberName,String operator,String operatorId,
 			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum,
-			double sumBeforeRebate, double rebate, double voucher) {
+			double sumBeforeRebate, double rebate, double voucher,PresentResultPO po) {
 		super(id, state, day, operatorGrade,memberID, memberName,operator,operatorId,realOperator, warehouse, notes, saleListItems, sum);
 		this.sumBeforeRebate = sumBeforeRebate;
 		this.rebate = rebate;
 		this.voucher = voucher;
+		this.presentResultPO = po;
+	}
+
+
+
+
+
+
+	public PresentResultPO getPresentResultPO() {
+		return presentResultPO;
+	}
+
+
+
+
+
+
+	public void setPresentResultPO(PresentResultPO presentResultPO) {
+		this.presentResultPO = presentResultPO;
 	}
 
 

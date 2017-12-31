@@ -2,6 +2,7 @@ package VO.saleVO;
 
 import java.util.List;
 
+import VO.presentVO.PresentResultVO;
 import util.State;
 import util.UserGrade;
 
@@ -24,7 +25,18 @@ public class SaleListVO extends SalesmanListVO{
 	 * 使用代金券金额
 	 */
 	double voucher;
+	
+	/**
+	 * 赠品情况
+	 */
+	PresentResultVO presentResultVO;
 
+	public PresentResultVO getPresentResultVO() {
+		return presentResultVO;
+	}
+	public void setPresentResultVO(PresentResultVO presentResultVO) {
+		this.presentResultVO = presentResultVO;
+	}
 	public double getSumBeforeRebate() {
 		return sumBeforeRebate;
 	}
@@ -45,11 +57,12 @@ public class SaleListVO extends SalesmanListVO{
 	}
 	public SaleListVO(String id, String operator, String operatorId, State state,UserGrade operatorGrade,String memberID, String memberName,
 			String operator2, String warehouse, String notes, List<SalesmanItemVO> saleListItems, double sum,
-			double sumBeforeRebate, double rebate, double voucher) {
+			double sumBeforeRebate, double rebate, double voucher,PresentResultVO vo) {
 		super(id, operator, operatorId, state, operatorGrade,memberID, memberName, operator2, warehouse, notes, saleListItems, sum);
 		this.sumBeforeRebate = sumBeforeRebate;
 		this.rebate = rebate;
 		this.voucher = voucher;
+		this.presentResultVO = vo;
 	}
 
 	

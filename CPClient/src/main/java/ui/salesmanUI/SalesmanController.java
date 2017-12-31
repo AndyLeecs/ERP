@@ -38,10 +38,11 @@ public class SalesmanController implements ParentController {
 	@FXML public MenuItem draftStockListBtn;
 	@FXML public MenuItem draftStockReturnListBtn;
 	
-	private static final String SALE_LIST_TITLE_SOURCE = "/fxml/salesmanUI/SaleListTitle.fxml";
-	private static final String SALERETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/SaleReturnListTitle.fxml";
+	//TODO 修改标题fxml的路径
+	private static final String SALE_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
+	private static final String SALERETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
 	private static final String STOCK_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
-	private static final String STOCKRETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockReturnListTitle.fxml";
+	private static final String STOCKRETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
 	
 	private static final String SALE_LIST_SOURCE = "/fxml/salesmanUI/SaleTypeList.fxml";
 	private static final String SALERETURN_LIST_SOURCE = "/fxml/salesmanUI/SaleTypeList.fxml";

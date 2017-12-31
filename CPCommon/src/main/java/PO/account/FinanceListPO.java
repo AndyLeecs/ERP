@@ -14,5 +14,5 @@ public abstract class FinanceListPO extends ListPO{
 	public void setTotalAmount(double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-	
+	public FinanceListPO(){}
 }

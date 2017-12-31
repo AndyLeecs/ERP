@@ -1,16 +1,24 @@
-package VO.presentVO;
+package PO;
 
+import java.io.Serializable;
+import java.rmi.Remote;
 import java.util.List;
 
-import VO.GoodsInSaleVO;
 
 /**     
 * @author 李安迪
-* @date 2017年11月9日
-* @description 销售中返回给界面的赠送结果
+* @date 2017年12月31日
+* @description
 */
-public class PresentResultVO {
+public class PresentResultPO implements Remote,Serializable{
 	int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	/**
 	 * 策略id列表,点击id可以查看详情
 	 */
@@ -30,7 +38,7 @@ public class PresentResultVO {
 	/**
 	 *赠品列表
 	 */	
-	List<GoodsInSaleVO> presentList;
+	List<GoodsInSalePO> presentList;
 	/**
 	 *使用赠送策略后总价
 	 */	
@@ -50,19 +58,13 @@ public class PresentResultVO {
 	public double getVoucher() {
 		return voucher;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public void setVoucher(double voucher) {
 		this.voucher = voucher;
 	}
-	public List<GoodsInSaleVO> getPresentList() {
+	public List<GoodsInSalePO> getPresentList() {
 		return presentList;
 	}
-	public void setPresentList(List<GoodsInSaleVO> presentList) {
+	public void setPresentList(List<GoodsInSalePO> presentList) {
 		this.presentList = presentList;
 	}
 	public double getSum() {
@@ -71,8 +73,8 @@ public class PresentResultVO {
 	public void setSum(double sum) {
 		this.sum = sum;
 	}
-	public PresentResultVO(List<Integer> presentId, double voucher,
-			List<GoodsInSaleVO> presentList, double sum) {
+	public PresentResultPO(List<Integer> presentId, double voucher,
+			List<GoodsInSalePO> presentList, double sum) {
 		super();
 		this.presentId = presentId;
 //		this.price_discount = price_discount;
@@ -81,6 +83,5 @@ public class PresentResultVO {
 		this.sum = sum;
 	}
 	
-	
+	public PresentResultPO(){}
 }
-
