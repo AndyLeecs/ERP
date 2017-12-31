@@ -33,8 +33,7 @@ public class StockListViewController extends ListViewController implements Paren
 		vBox.getChildren().clear();
 		if(list != null)
 		for(SalesmanListVO vo : list){
-	  		 StockListCellController controller = 
-	   				    new StockListCellController(this,vo);
+	  		 CellController controller = generateCellController(vo);
     		 FXMLLoader loader = new FXMLLoader(
    				    getClass().getResource(
    				        "/fxml/salesmanUI/StockTypeList.fxml"));
@@ -47,6 +46,12 @@ public class StockListViewController extends ListViewController implements Paren
 				}
 				vBox.getChildren().add(presentroot);
 		}
+	}
+
+	public CellController generateCellController(SalesmanListVO vo) {
+		CellController controller = 
+				    new StockListCellController(this,vo);
+		return controller;
 	}
 
 	/* (non-Javadoc)

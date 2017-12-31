@@ -26,9 +26,9 @@ import util.UserGrade;
 * @date 2017年12月28日
 * @description
 */
-public class StockListCellController {
+public class StockListCellController implements CellController {
 
-	StockListViewController controller;
+	ListViewController controller;
 	SalesmanListVO vo;
 	String id;
 	protected SaleUniBLService uniBLService;
@@ -75,7 +75,7 @@ public class StockListCellController {
 	 * @param stockListViewController
 	 * @param vo
 	 */
-	public StockListCellController(StockListViewController stockListViewController, SalesmanListVO vo) {
+	public StockListCellController(ListViewController stockListViewController, SalesmanListVO vo) {
 		this.controller = stockListViewController;
 		this.vo = vo;
 		this.id = vo.getId();
@@ -135,8 +135,7 @@ public class StockListCellController {
 
 		Platform.runLater(()->{
 		try {
-   		 StockEditListController controller = 
-   				    new StockEditListController(this.controller.controller,SaleBLFactory.getStockListBLService(),vo.getId(),vo);
+   		 StockTypeEditListController controller = generateEditList();
    		 FXMLLoader loader = new FXMLLoader(
    				    getClass().getResource(
    				        "/fxml/salesmanUI/StockTypeList.fxml"));
@@ -148,6 +147,13 @@ public class StockListCellController {
 			e.printStackTrace();
 		}
 	});
+	}
+
+
+	StockTypeEditListController generateEditList() {
+		StockEditListController controller = 
+   				    new StockEditListController(this.controller.controller,SaleBLFactory.getStockListBLService(),vo.getId(),vo);
+		return controller;
 	}
 	
 	public void refresh() {

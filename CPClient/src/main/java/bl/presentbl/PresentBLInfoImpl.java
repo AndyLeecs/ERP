@@ -45,7 +45,7 @@ public class PresentBLInfoImpl implements PresentBLInfo{
 		this.grade = vo.getGrade();
 		this.sum = vo.getSum();
 		
-		result = new PresentResultVO(new ArrayList<Integer>(), 0, goodsList, sum);
+		result = new PresentResultVO(new ArrayList<Integer>(), 0.0, goodsList, sum);
 		
 		result = packageHandler.handle(goodsList,result);
 		result = sumHandler.handle(result);
