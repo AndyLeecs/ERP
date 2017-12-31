@@ -2,25 +2,25 @@ package PO.account;
 
 import java.io.Serializable;
 
-public class TransferItemPO implements Serializable{
+public class EntryItemPO implements Serializable{
 	
-	private static final long serialVersionUID = -3113721492822533131L;
+	private static final long serialVersionUID = -9171419662019332903L;
 	private int autoId;	//数据库中自动生成的id
-	private String account;
+	private String entryName;
 	private double amount;
 	private String note;
 	
-	public TransferItemPO(){};
-	public TransferItemPO(String account, double amount, String note){
-		this.account = account;
+	public EntryItemPO(){}
+	public EntryItemPO(String entryName, double amount, String note){
+		this.entryName = entryName;
 		this.amount = amount;
 		this.note = note;
 	}
-	public String getAccount() {
-		return account;
+	public String getEntryName() {
+		return entryName;
 	}
-	public void setAccount(String account) {
-		this.account = account;
+	public void setEntryName(String entryName) {
+		this.entryName = entryName;
 	}
 	public double getAmount() {
 		return amount;
