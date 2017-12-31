@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PO.account.CollectionListPO;
+import PO.user.UserPO;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
@@ -15,6 +16,7 @@ import network.saleRemoteHelper.SaleListDataServiceHelper;
 import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
 import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import network.saleRemoteHelper.StockListDataServiceHelper;
+import network.userRemoteHelper.UserDataServiceHelper;
 import util.State;
 
 /**
@@ -40,6 +42,8 @@ public class ServerConnector {
 		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
+		
+		dataServiceHelpers.add(UserDataServiceHelper.getInstance());
 		
 		
 //		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
@@ -86,19 +90,19 @@ public class ServerConnector {
 	
 	public static void main(String [] args){
 		new ServerConnector();
-//		testCollectionService();
+		testService();
 	}
 	
 	
 	//TODO delete it when bl finish!
-	public static void testCollectionService(){
-		CollectionListPO po = new CollectionListPO();
-		po.setId("SKD-20171229-00002");
-		po.setState(State.IsCommitted);
-		po.setTotalAmount(20);
+	public static void testService(){
+		UserPO po = new UserPO();
+		po.setName("小李");
+		po.setPassword("1230006");;
 		try {
 //			System.out.println(CollectionListDataServiceHelper.getInstance().getDataService().getNewListId());
-			System.out.println(CollectionListDataServiceHelper.getInstance().getDataService().insert(po));
+			System.out.println(UserDataServiceHelper.getInstance().getDataService().insert(po));
+			System.out.println(UserDataServiceHelper.getInstance().getDataService().getUser("小李").getPassword());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

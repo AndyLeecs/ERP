@@ -31,7 +31,7 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	
 	/**
 	 * 
-	 * @param id 自动生成的id
+	 * @param id 主键
 	 * @return 该id的po实体
 	 */
 	public DataRM delete(String id);

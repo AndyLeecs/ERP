@@ -18,6 +18,7 @@ import dataService.saleDataService.SaleProjectionDataService;
 import dataService.saleDataService.SaleReturnListDataService;
 import dataService.saleDataService.StockListDataService;
 import dataService.saleDataService.StockReturnListDataService;
+import dataService.userDataService.UserDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
 import dataServiceImpl.accountImpl.CashExpenseListDataServiceImpl;
 import dataServiceImpl.accountImpl.CollectionListDataServiceImpl;
@@ -30,6 +31,7 @@ import dataServiceImpl.saleImpl.SaleProjectionDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleReturnListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockReturnListDataServiceImpl;
+import dataServiceImpl.userImpl.UserDataServiceImpl;
 
 
 public class ServerHelper {
@@ -61,6 +63,10 @@ public class ServerHelper {
 			Naming.bind("CashExpenseListDataService", cashExpenseListDataService);
 			System.out.println("CashExpenseListDataService bind Succeed");
 			
+			
+			UserDataService userDataService = new UserDataServiceImpl();
+			Naming.bind("UserDataService", userDataService);
+			System.out.println("UserDataService bind Succeed");
 			
 //			PresentDataService presentDataService=new PresentDataServiceImpl();
 //			Naming.bind("PresentDataService", presentDataService);

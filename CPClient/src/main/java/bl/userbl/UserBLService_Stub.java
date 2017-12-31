@@ -81,6 +81,12 @@ public class UserBLService_Stub implements AdministratorService, PersonalInfoSer
 		return list;
 	}
 
+	@Override
+	public List<UserVO> getAllUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 }

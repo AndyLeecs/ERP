@@ -74,7 +74,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         	}
     		e.printStackTrace();
     		return "";
-        }catch(PersistenceException e){		//数据控中已有此主键
+        }catch(PersistenceException e){		//数据库中已有此主键
         	if(transaction!=null){
         		transaction.rollback();
         	}
@@ -132,7 +132,6 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         	if(transaction!=null){
         		transaction.rollback();
         	}
-        	e.printStackTrace();
         	rm = DataRM.NOT_EXIST;
         }catch(HibernateException e){
         	if(transaction!=null){
@@ -299,14 +298,15 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         return o;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Object get(String id) {
+	public T get(String id) {
 		session = sessionFactory.openSession();
 		transaction = null;
-		Object o = null;
+		T o = null;
         try {
         	transaction = session.beginTransaction();
-            o = session.get(type.getName(), id);
+            o = (T)session.get(type.getName(), id);
             transaction.commit();
         } catch (HibernateException e) {
         	if(transaction!=null){
