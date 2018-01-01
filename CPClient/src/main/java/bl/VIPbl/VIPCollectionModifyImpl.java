@@ -28,4 +28,10 @@ public class VIPCollectionModifyImpl implements VIPCollectionModify {
         vipblService.modifyVIP(vipvo);
         return ResultMessage.SUCCESS;
     }
+
+	@Override
+	public double checkVIPCollectionLimit(String vipName) throws RemoteException {
+		VIPVO vipvo = vipblService.getVIP(vipName);
+		return vipvo.getCollectionLimit();
+	}
 }

@@ -8,13 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PO.user.UserPO;
+import network.VIPRemoteHelper.VIPDataServiceHelper;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
+import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
 import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
 import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import network.saleRemoteHelper.StockListDataServiceHelper;
+import network.saleRemoteHelper.StockReturnListDataServiceHelper;
 import network.userRemoteHelper.UserDataServiceHelper;
 import util.UserGrade;
 import util.UserPermission;
@@ -53,9 +56,9 @@ public class ServerConnector {
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
 //		
 //		
-//		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(StockReturnListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
+		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
+		dataServiceHelpers.add(StockReturnListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(StockListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(SaleListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(SaleReturnListDataServiceHelper.getInstance());

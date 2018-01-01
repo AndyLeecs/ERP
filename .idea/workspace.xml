@@ -81,7 +81,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
               <caret line="41" column="61" lean-forward="false" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
-              <folding />
+              <folding>
+                <marker date="1514789820000" expanded="true" signature="949:1649" ph="{...}" />
+                <marker date="1514789820000" expanded="true" signature="1339:1418" ph="//..." />
+                <marker date="1514789820000" expanded="false" signature="1761:1771" ph=" { " />
+                <marker date="1514789820000" expanded="true" signature="1823:2608" ph="{...}" />
+                <marker date="1514789820000" expanded="true" signature="1944:2233" ph="{...}" />
+                <marker date="1514789820000" expanded="true" signature="2285:2422" ph="{...}" />
+                <marker date="1514789820000" expanded="false" signature="2486:2497" ph=" { " />
+                <marker date="1514789820000" expanded="false" signature="2508:2514" ph=" }" />
+                <marker date="1514789820000" expanded="false" signature="2578:2589" ph=" { " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,8 +202,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-129" />
-    <option name="y" value="101" />
+    <option name="x" value="292" />
+    <option name="y" value="143" />
     <option name="width" value="1436" />
     <option name="height" value="877" />
   </component>
@@ -560,15 +570,15 @@
       <updated>1513837140003</updated>
       <workItem from="1513837148604" duration="112114000" />
       <workItem from="1514779078015" duration="3019000" />
-      <workItem from="1514788258400" duration="241000" />
+      <workItem from="1514788258400" duration="724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115374000" />
+    <option name="totallyTimeSpent" value="115857000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-129" y="101" width="1436" height="877" extended-state="0" />
+    <frame x="292" y="143" width="1436" height="877" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -973,7 +983,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="41" column="61" lean-forward="false" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
-          <folding />
+          <folding>
+            <marker date="1514789820000" expanded="true" signature="949:1649" ph="{...}" />
+            <marker date="1514789820000" expanded="true" signature="1339:1418" ph="//..." />
+            <marker date="1514789820000" expanded="false" signature="1761:1771" ph=" { " />
+            <marker date="1514789820000" expanded="true" signature="1823:2608" ph="{...}" />
+            <marker date="1514789820000" expanded="true" signature="1944:2233" ph="{...}" />
+            <marker date="1514789820000" expanded="true" signature="2285:2422" ph="{...}" />
+            <marker date="1514789820000" expanded="false" signature="2486:2497" ph=" { " />
+            <marker date="1514789820000" expanded="false" signature="2508:2514" ph=" }" />
+            <marker date="1514789820000" expanded="false" signature="2578:2589" ph=" { " />
+          </folding>
         </state>
       </provider>
     </entry>

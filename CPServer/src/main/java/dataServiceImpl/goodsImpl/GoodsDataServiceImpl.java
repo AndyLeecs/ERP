@@ -7,7 +7,6 @@ import dataService.goodsDataService.GoodsDataService;
 import resultmessage.ResultMessage;
 import util.GoodsUtil;
 
-import java.io.UnsupportedEncodingException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
