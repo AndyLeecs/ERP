@@ -29,7 +29,19 @@ public class VIPCollectionModifyImpl implements VIPCollectionModify {
         return ResultMessage.SUCCESS;
     }
 
-	@Override
+    @Override
+    public double getVIPCollection(String vipName) throws RemoteException {
+        VIPVO vipvo = vipblService.getVIP(vipName);
+        return vipvo.getCollection();
+    }
+
+    @Override
+    public double getVIPPayment(String vipName) throws RemoteException {
+        VIPVO vipvo = vipblService.getVIP(vipName);
+        return vipvo.getPayment();
+    }
+
+    @Override
 	public double checkVIPCollectionLimit(String vipName) throws RemoteException {
 		VIPVO vipvo = vipblService.getVIP(vipName);
 		return vipvo.getCollectionLimit();

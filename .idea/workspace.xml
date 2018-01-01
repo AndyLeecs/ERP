@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3578231-fbfd-4ec8-a4fe-5fe3966bdd7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPCommon/src/main/java/PO/InfoListPO.java" afterPath="$PROJECT_DIR$/CPCommon/src/main/java/PO/InfoListPO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/8661c5b1-7e62-4032-abab-af6130922791.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/8661c5b1-7e62-4032-abab-af6130922791.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPCollectionModifyImpl.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPCollectionModifyImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPCollectionModify.java" afterPath="$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPCollectionModify.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/CPCommon/target/" />
@@ -31,13 +34,13 @@
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="Cpdb@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="CPdb" type="e3449647:DbNodeDescriptor" />
+        <item name="Cpdb" type="e3449647:DbNodeDescriptor" />
       </path>
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="Cpdb@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="CPdb" type="e3449647:DbNodeDescriptor" />
-        <item name="GoodsCategoryPO" type="e3449647:DbNodeDescriptor" />
+        <item name="Cpdb" type="e3449647:DbNodeDescriptor" />
+        <item name="GoodsPO" type="e3449647:DbNodeDescriptor" />
       </path>
     </expand>
     <select />
@@ -47,7 +50,7 @@
       <file leaf-file-name="VIPReceivableChangeService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPReceivableChangeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
+            <state relative-caret-position="0">
               <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
               <folding />
             </state>
@@ -67,8 +70,20 @@
       <file leaf-file-name="VIPCollectionModify.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPCollectionModify.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VIPCollectionModifyImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPCollectionModifyImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,18 +94,14 @@
       <file leaf-file-name="Welcome.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/mainUI/loginUI/Welcome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="41" column="61" lean-forward="false" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+            <state relative-caret-position="435">
+              <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
               <folding>
-                <marker date="1514789820000" expanded="true" signature="949:1649" ph="{...}" />
-                <marker date="1514789820000" expanded="true" signature="1339:1418" ph="//..." />
-                <marker date="1514789820000" expanded="false" signature="1761:1771" ph=" { " />
-                <marker date="1514789820000" expanded="true" signature="1823:2608" ph="{...}" />
-                <marker date="1514789820000" expanded="true" signature="1944:2233" ph="{...}" />
-                <marker date="1514789820000" expanded="true" signature="2285:2422" ph="{...}" />
-                <marker date="1514789820000" expanded="false" signature="2486:2497" ph=" { " />
-                <marker date="1514789820000" expanded="false" signature="2508:2514" ph=" }" />
-                <marker date="1514789820000" expanded="false" signature="2578:2589" ph=" { " />
+                <marker date="1514791108000" expanded="true" signature="1354:1433" ph="//..." />
+                <marker date="1514791108000" expanded="false" signature="1776:1786" ph=" { " />
+                <marker date="1514791108000" expanded="false" signature="1799:1805" ph=" }" />
+                <marker date="1514791108000" expanded="false" signature="2501:2512" ph=" { " />
+                <marker date="1514791108000" expanded="false" signature="2523:2529" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -100,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/CPCommon/src/main/java/PO/InfoListPO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,8 +119,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GoodsCategoryPO" pinned="false" current-in-tab="true">
-        <entry file="das://table:/6f0744ea/8661c5b1-7e62-4032-abab-af6130922791/CPdb.GoodsCategoryPO">
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0ff587d0-59bb-4542-aba6-2bc932e20942/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsPO" pinned="false" current-in-tab="false">
+        <entry file="das://table:/6f0744ea/0ff587d0-59bb-4542-aba6-2bc932e20942/Cpdb.GoodsPO">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -183,15 +204,15 @@
         <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsRecentImpl.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsRecent.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPCollectionModify.java" />
-        <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPCollectionModifyImpl.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPReceivableChangeService.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/goodsblservice/GoodsFuzzySearch.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/goodsblservice/GoodsGetStore.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/goodsblservice/GoodsRecent.java" />
-        <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPCollectionModify.java" />
         <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPFuzzySearch.java" />
         <option value="$PROJECT_DIR$/CPCommon/src/main/java/PO/InfoListPO.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPCollectionModify.java" />
+        <option value="$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPCollectionModifyImpl.java" />
       </list>
     </option>
   </component>
@@ -202,8 +223,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="292" />
-    <option name="y" value="143" />
+    <option name="x" value="99" />
+    <option name="y" value="23" />
     <option name="width" value="1436" />
     <option name="height" value="877" />
   </component>
@@ -222,10 +243,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -266,7 +283,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="bl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="0000" type="b2602c69:ProjectViewProjectNode" />
@@ -275,8 +292,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="mainUI" type="462c0819:PsiDirectoryNode" />
+              <item name="bl" type="462c0819:PsiDirectoryNode" />
+              <item name="VIPbl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="0000" type="b2602c69:ProjectViewProjectNode" />
@@ -285,9 +302,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="mainUI" type="462c0819:PsiDirectoryNode" />
-              <item name="loginUI" type="462c0819:PsiDirectoryNode" />
+              <item name="blservice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="0000" type="b2602c69:ProjectViewProjectNode" />
@@ -296,10 +311,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="mainUI" type="462c0819:PsiDirectoryNode" />
-              <item name="loginUI" type="462c0819:PsiDirectoryNode" />
-              <item name="Welcome.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="blservice" type="462c0819:PsiDirectoryNode" />
+              <item name="VIPblservice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="0000" type="b2602c69:ProjectViewProjectNode" />
@@ -331,6 +344,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -571,18 +588,19 @@
       <workItem from="1513837148604" duration="112114000" />
       <workItem from="1514779078015" duration="3019000" />
       <workItem from="1514788258400" duration="724000" />
+      <workItem from="1514793985823" duration="1199000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115857000" />
+    <option name="totallyTimeSpent" value="117056000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="292" y="143" width="1436" height="877" extended-state="0" />
+    <frame x="99" y="23" width="1436" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3279503" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -597,7 +615,7 @@
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18802229" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36977717" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2305014" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -608,6 +626,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3279503" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.4972145" order="6" side_tool="false" content_ui="tabs" />
     </layout>
@@ -625,28 +644,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPFuzzySearchImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1135">
-          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPServer/src/test/java/dataServiceImpl/VIPImpl/VIPDataServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/goodsbl/GoodsBLServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/goodsblservice/GoodsBLService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -883,9 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="26" column="27" lean-forward="false" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-          <folding>
-            <marker date="1514623656000" expanded="true" signature="1766:1772" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -900,17 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-97">
           <caret line="37" column="2" lean-forward="false" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPCollectionModifyImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -918,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -933,7 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -941,7 +922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -949,13 +929,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPReceivableChangeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
+        <state relative-caret-position="0">
           <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
           <folding />
         </state>
@@ -969,40 +948,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPCollectionModify.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/ui/mainUI/loginUI/Welcome.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="41" column="61" lean-forward="false" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+        <state relative-caret-position="435">
+          <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
           <folding>
-            <marker date="1514789820000" expanded="true" signature="949:1649" ph="{...}" />
-            <marker date="1514789820000" expanded="true" signature="1339:1418" ph="//..." />
-            <marker date="1514789820000" expanded="false" signature="1761:1771" ph=" { " />
-            <marker date="1514789820000" expanded="true" signature="1823:2608" ph="{...}" />
-            <marker date="1514789820000" expanded="true" signature="1944:2233" ph="{...}" />
-            <marker date="1514789820000" expanded="true" signature="2285:2422" ph="{...}" />
-            <marker date="1514789820000" expanded="false" signature="2486:2497" ph=" { " />
-            <marker date="1514789820000" expanded="false" signature="2508:2514" ph=" }" />
-            <marker date="1514789820000" expanded="false" signature="2578:2589" ph=" { " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPCommon/src/main/java/PO/InfoListPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1514791108000" expanded="true" signature="1354:1433" ph="//..." />
+            <marker date="1514791108000" expanded="false" signature="1776:1786" ph=" { " />
+            <marker date="1514791108000" expanded="false" signature="1799:1805" ph=" }" />
+            <marker date="1514791108000" expanded="false" signature="2501:2512" ph=" { " />
+            <marker date="1514791108000" expanded="false" signature="2523:2529" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1011,6 +966,59 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8661c5b1-7e62-4032-abab-af6130922791/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPCommon/src/main/java/PO/InfoListPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0ff587d0-59bb-4542-aba6-2bc932e20942/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f0744ea/0ff587d0-59bb-4542-aba6-2bc932e20942/Cpdb.GoodsPO">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/blservice/VIPblservice/VIPCollectionModify.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPClient/src/main/java/bl/VIPbl/VIPCollectionModifyImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

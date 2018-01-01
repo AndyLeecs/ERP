@@ -11,5 +11,7 @@ import java.rmi.RemoteException;
 public interface VIPCollectionModify {
     public ResultMessage setVIPCollection(String vipName,double collection) throws RemoteException;
     public ResultMessage setVIPPayment(String vipName,double payment) throws RemoteException;
+    public double getVIPCollection(String vipName) throws RemoteException;
+    public double getVIPPayment(String vipName) throws RemoteException;
     public double checkVIPCollectionLimit(String vipName) throws RemoteException;
 }
