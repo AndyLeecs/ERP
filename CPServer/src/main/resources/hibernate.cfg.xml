@@ -53,7 +53,9 @@
 		
 		<!--for package user  -->
 		<mapping resource="UserPO.hbm.xml" />
-
+		<mapping resource="MessagePO.hbm.xml" />
+		
+		
 		<mapping resource="ListPO.hbm.xml" />
 		
 
