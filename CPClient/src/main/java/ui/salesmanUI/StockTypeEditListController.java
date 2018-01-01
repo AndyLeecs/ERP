@@ -24,11 +24,14 @@ public abstract class StockTypeEditListController extends StockTypeListControlle
 	 */
 	public StockTypeEditListController(ParentController parentController, SaleUniBLService uniBLService, String id,SalesmanListVO vo) {
 		super(parentController, uniBLService, id);
+		this.vo = vo;
 	}
 
 	@FXML
 	void initialize(){
 		super.initialize();
+		System.out.println(vo);
+		if(vo.getOperator()!=null)
 		operator.setText(vo.getOperator());
 		operatorId = vo.getOperatorId();
 		operatorGrade = vo.getOperatorGrade();

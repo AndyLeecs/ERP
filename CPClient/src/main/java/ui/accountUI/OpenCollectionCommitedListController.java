@@ -15,6 +15,9 @@ public class OpenCollectionCommitedListController extends OpenFinanceListControl
 	public void init() {
 		setTitle("收款单");
 		CollectionLists = (List<CollectionListVO>) financeListService.openCommitted();
+		if(CollectionLists == null || CollectionLists.size() == 0){
+			this.searchTextField.setPromptText("没有已提交的收款单");
+		}
 		 for(CollectionListVO vo :CollectionLists){
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/accountUI/CollectionListBrief.fxml"));
 			try {

@@ -10,6 +10,7 @@ import VO.GoodsInSaleVO;
 * @description 销售中返回给界面的赠送结果
 */
 public class PresentResultVO {
+	int id;
 	/**
 	 * 策略id列表,点击id可以查看详情
 	 */
@@ -48,6 +49,12 @@ public class PresentResultVO {
 //	}
 	public double getVoucher() {
 		return voucher;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public void setVoucher(double voucher) {
 		this.voucher = voucher;

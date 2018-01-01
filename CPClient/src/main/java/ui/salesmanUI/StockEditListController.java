@@ -1,8 +1,14 @@
 package ui.salesmanUI;
 
+import java.util.List;
+
 import VO.saleVO.SalesmanListVO;
 import VO.saleVO.StockListVO;
+import bl.salebl.SaleBLFactory;
 import blservice.saleblservice.SaleUniBLService;
+import blservice.saleblservice.StockListBLService;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
 import ui.commonUI.ParentController;
 
 /**     
@@ -33,5 +39,10 @@ public class StockEditListController extends StockTypeEditListController{
 		return new StockListVO(id,operator.getText(),operatorId,null,operatorGrade,VIPID.getText(),VIPName.getText(),null,"默认仓库",notesTextField.getText(),chosenList,Double.parseDouble(totalAmount.getText()));
 	}
 
+	@FXML
+	void cancel(){
+
+		this.parentController.CloseSonWin();
+	}
 
 }

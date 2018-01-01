@@ -14,7 +14,7 @@
 		<!-- Assume CPdb is the database name -->
 		<property name="hibernate.connection.url">
 <!--		<![CDATA[jdbc:mysql://localhost:3306/CPdb?useUnicode=true&characterEncoding=utf8&amp;serverTimezone=UTC]]>-->
-		jdbc:mysql://localhost:3306/CPdb?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC
+		jdbc:mysql://localhost:3306/CPdb?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false
 		</property>
 		<property name="hibernate.connection.username">
 			root
@@ -37,7 +37,7 @@
 		<mapping resource="GoodsInSalePO.hbm.xml" />
 
 		<mapping resource="SalesmanItemPO.hbm.xml" />
-
+				<mapping resource="PresentResultPO.hbm.xml" />
 <!-- 	<mapping resource="SalesmanListPO.hbm.xml" /> -->	
 
 
@@ -48,7 +48,10 @@
 		
 		<!-- for package account -->
 		<mapping resource="TransferItemPO.hbm.xml" />
-
+		<mapping resource="EntryItemPO.hbm.xml" />
+		
+		<!--for package user  -->
+		<mapping resource="UserPO.hbm.xml" />
 
 		<mapping resource="ListPO.hbm.xml" />
 		

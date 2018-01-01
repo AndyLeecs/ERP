@@ -1,4 +1,4 @@
-package ui.managerUI;
+package ui.mainUI.administratorUI;
 
 import java.io.IOException;
 
@@ -10,20 +10,16 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class LookListWin extends Stage {
-	@FXML AnchorPane root;
-	
-	public LookListWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("/fxml/managerUI/LookList.fxml"));
-
+public class AdministratorWin extends Stage{
+	@FXML
+	AnchorPane root;
+	public AdministratorWin() throws IOException{
+		root = FXMLLoader.load(getClass().getResource("/fxml/mainUI/Administrator.fxml"));
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/css/managerUI/Manager.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
-	
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);
-		
-		this.setFullScreen(true);
 		this.show();
 	}
+	
 }

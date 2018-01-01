@@ -5,30 +5,31 @@ import VO.accountVO.TransferItemVO;
 import javafx.application.Platform;
 
 public class CollectionListWinLookController extends CollectionListWinController{
-	private CollectionListVO collectionListVO;
+//	private CollectionListVO vo;
 
 	public void init(){
-		VIPName.setText(collectionListVO.getVIPName());
-		VIPID.setText(collectionListVO.getVIPID());
-		operator.setText(collectionListVO.getOperator());
-		listID.setText(collectionListVO.getId());
-		totalAmount.setText(String.valueOf(collectionListVO.getTotalAmount()));
-		for(TransferItemVO item : collectionListVO.getTransferItem()){
+		VIPName.setText(vo.getVIPName());
+		VIPID.setText(vo.getVIPID());
+		searchVIPTextField.setVisible(false);
+		searchVIPBtn.setVisible(false);
+		operator.setText(vo.getOperator());
+		listID.setText(vo.getId());
+		totalAmount.setText(String.valueOf(vo.getTotalAmount()));
+		for(TransferItemVO item : vo.getTransferItem()){
 			transferItem.add(new TransferItem(item));
 		}
 		super.initTableView();
 		TransferListTableView.setEditable(false);
 		AccountComboBox.setVisible(false);
-		accountLabel.setVisible(false);
 		commitBtn.setText("关闭");
 		saveBtn.setVisible(false);
 		closeBtn.setVisible(false);
-		selectVIPBtn.setVisible(false);
+		
 		
 	}
 
-	public void setCollectionListVO(CollectionListVO collectionListVO) {
-		this.collectionListVO = collectionListVO;
+	public void setCollectionListVO(CollectionListVO vo) {
+		this.vo = vo;
 	}
 	
 	

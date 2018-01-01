@@ -7,19 +7,20 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
 import dataService.VIPDataService.VIPDataService;
+import dataService.accountDataService.CashExpenseListDataService;
 import dataService.accountDataService.CollectionListDataService;
 import dataService.goodsDataService.GoodsDataService;
-
 import dataService.presentDataService.PresentForMembershipDataService;
 import dataService.presentDataService.PresentForSpecialPackageDataService;
 import dataService.presentDataService.PresentForSumDataService;
-
 import dataService.saleDataService.SaleListDataService;
 import dataService.saleDataService.SaleProjectionDataService;
 import dataService.saleDataService.SaleReturnListDataService;
 import dataService.saleDataService.StockListDataService;
 import dataService.saleDataService.StockReturnListDataService;
+import dataService.userDataService.UserDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
+import dataServiceImpl.accountImpl.CashExpenseListDataServiceImpl;
 import dataServiceImpl.accountImpl.CollectionListDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForMembershipDataServiceImpl;
@@ -30,6 +31,7 @@ import dataServiceImpl.saleImpl.SaleProjectionDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleReturnListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockReturnListDataServiceImpl;
+import dataServiceImpl.userImpl.UserDataServiceImpl;
 
 
 public class ServerHelper {
@@ -57,7 +59,15 @@ public class ServerHelper {
 			Naming.bind("CollectionListDataService", collectionListDataService);
 			System.out.println("CollectionListDataService bind Succeed");
 
-
+			CashExpenseListDataService cashExpenseListDataService = new CashExpenseListDataServiceImpl();
+			Naming.bind("CashExpenseListDataService", cashExpenseListDataService);
+			System.out.println("CashExpenseListDataService bind Succeed");
+			
+			
+			UserDataService userDataService = new UserDataServiceImpl();
+			Naming.bind("UserDataService", userDataService);
+			System.out.println("UserDataService bind Succeed");
+			
 //			PresentDataService presentDataService=new PresentDataServiceImpl();
 //			Naming.bind("PresentDataService", presentDataService);
 //			System.out.println("bind succeeded!");

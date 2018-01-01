@@ -41,18 +41,18 @@ public class VIPDataServiceImplTest {
 
     @Test
     public void newVIPID() throws Exception {
-        //assertEquals("",new VIPDataServiceImpl().newVIPID(po2));
+//        assertEquals("2",new VIPDataServiceImpl().newVIPID(po));
     }
 
     @Test
     public void findVIP() throws Exception {
-    	//assertEquals(po,new VIPDataServiceImpl().findVIP("姓名1", "name").get(0));
+    	assertEquals(po,new VIPDataServiceImpl().findVIP("", "name").get(0));
     }
-
-    @Test
-    public void getVIP() throws Exception {
-    	assertEquals(po,new VIPDataServiceImpl().getVIP("姓名2"));
-    }
+//
+//    @Test
+//    public void getVIP() throws Exception {
+//    	assertEquals(po,new VIPDataServiceImpl().getVIP("姓名2"));
+//    }
 
     @Test
     public void deleteVIP() throws Exception {

@@ -35,7 +35,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                 <TextField fx:id="searchVIPField" layoutX="14.0" layoutY="41.0" prefHeight="36.0" prefWidth="177.0" />
+                 <TextField fx:id="searchVIPField" layoutX="14.0" layoutY="41.0" prefHeight="36.0" prefWidth="177.0" promptText="请输入查询信息" />
                   <Label fx:id="numberErrorMessage" layoutX="659.0" layoutY="48.0" prefHeight="24.0" prefWidth="54.0" textFill="#e40808" />
                </children>
             </Pane>
@@ -54,7 +54,7 @@
             </ScrollPane>
             <Pane layoutY="379.0" prefHeight="80.0" prefWidth="921.0">
                <children>
-                  <Button fx:id="saveBtn" layoutX="518.0" layoutY="35.0" mnemonicParsing="false" onAction="#save" onMouseClicked="#onSaveBtnClicked" text="保存">
+                  <Button fx:id="saveBtn" layoutX="518.0" layoutY="35.0" mnemonicParsing="false" onAction="#save" text="保存">
                      <font>
                         <Font size="18.0" />
                      </font></Button>

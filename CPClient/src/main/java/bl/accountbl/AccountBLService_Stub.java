@@ -13,6 +13,7 @@ import VO.accountVO.PaymentListVO;
 import VO.accountVO.TransferItemVO;
 import VO.goodsVO.GoodsVO;
 import blservice.accountblservice.AccountBLService;
+import resultmessage.ApproveRM;
 import resultmessage.CommitListRM;
 import resultmessage.DeleteListRM;
 import resultmessage.ResultMessage;
@@ -238,6 +239,24 @@ public class AccountBLService_Stub implements AccountBLService{
 
 		System.out.println(list.size());
 		return list;
+	}
+
+	@Override
+	public void endService() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ApproveRM approve(FinanceListVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void reject(FinanceListVO vo) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
