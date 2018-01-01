@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
 import dataService.VIPDataService.VIPDataService;
+import dataService.accountDataService.AccountDataService;
 import dataService.accountDataService.CashExpenseListDataService;
 import dataService.accountDataService.CollectionListDataService;
 import dataService.goodsDataService.GoodsDataService;
@@ -18,8 +19,10 @@ import dataService.saleDataService.SaleProjectionDataService;
 import dataService.saleDataService.SaleReturnListDataService;
 import dataService.saleDataService.StockListDataService;
 import dataService.saleDataService.StockReturnListDataService;
+import dataService.userDataService.MessageDataService;
 import dataService.userDataService.UserDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
+import dataServiceImpl.accountImpl.AccountDataServiceImpl;
 import dataServiceImpl.accountImpl.CashExpenseListDataServiceImpl;
 import dataServiceImpl.accountImpl.CollectionListDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
@@ -31,6 +34,7 @@ import dataServiceImpl.saleImpl.SaleProjectionDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleReturnListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockReturnListDataServiceImpl;
+import dataServiceImpl.userImpl.MessageDataServiceImpl;
 import dataServiceImpl.userImpl.UserDataServiceImpl;
 
 
@@ -55,6 +59,10 @@ public class ServerHelper {
 //			Naming.bind("ListDataService",listDataService);
 //			System.out.println("表单类数据库绑定成功！");
 			
+			AccountDataService accountDataService = new AccountDataServiceImpl();
+			Naming.bind("AccountDataService", accountDataService);
+			System.out.println("AccountDataService bind Succeed");
+			
 			CollectionListDataService collectionListDataService = new CollectionListDataServiceImpl();
 			Naming.bind("CollectionListDataService", collectionListDataService);
 			System.out.println("CollectionListDataService bind Succeed");
@@ -67,6 +75,10 @@ public class ServerHelper {
 			UserDataService userDataService = new UserDataServiceImpl();
 			Naming.bind("UserDataService", userDataService);
 			System.out.println("UserDataService bind Succeed");
+			
+			MessageDataService messageDataService = new MessageDataServiceImpl();
+			Naming.bind("MessageDataService", messageDataService);
+			System.out.println("MessageDataService bind Succeed");
 			
 //			PresentDataService presentDataService=new PresentDataServiceImpl();
 //			Naming.bind("PresentDataService", presentDataService);

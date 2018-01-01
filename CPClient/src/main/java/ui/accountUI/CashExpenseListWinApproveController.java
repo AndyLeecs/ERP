@@ -1,31 +1,33 @@
 package ui.accountUI;
 
-import VO.accountVO.CollectionListVO;
-import VO.accountVO.TransferItemVO;
+import VO.accountVO.CashExpenseListVO;
+import VO.accountVO.EntryItemVO;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import resultmessage.ApproveRM;
 import util.State;
 
-public class CollectionListWinApproveController extends CollectionListWinController{
+public class CashExpenseListWinApproveController extends CashExpenseListWinController{
 	
-	public CollectionListWinApproveController(CollectionListVO vo){
+	public CashExpenseListWinApproveController(CashExpenseListVO vo){
 		super(vo);
 	}
 	
 	public void init(){
-		VIPName.setText(vo.getVIPName());
-		VIPID.setText(vo.getVIPID());
-		searchVIPTextField.setVisible(false);
-		searchVIPBtn.setVisible(false);
+		
 		operator.setText(vo.getOperator());
 		listID.setText(vo.getId());
 		totalAmount.setText(String.valueOf(vo.getTotalAmount()));
-		for(TransferItemVO item : vo.getTransferItem()){
-			transferItem.add(new TransferItem(item));
+		for(EntryItemVO item : vo.getEntryItem()){
+			entryItem.add(new EntryItem(item));
 		}
+		entryNameLabel.setVisible(false);
+		entryNameTextField.setVisible(false);
+		addEntryBtn.setVisible(false);
 		super.initTableView();
-		AccountComboBox.setVisible(false);
+		AccountComboBox.setValue(vo.getAccount());
+		AccountComboBox.setDisable(true);	
+	
 		commitBtn.setText("通过");
 		saveBtn.setText("拒绝");		
 		

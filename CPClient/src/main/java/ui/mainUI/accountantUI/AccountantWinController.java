@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import ui.accountUI.AccountManageWinController;
 import ui.accountUI.CashExpenseListWinController;
 import ui.accountUI.CollectionListWinController;
 import ui.accountUI.FinanceListWinController;
@@ -46,7 +47,7 @@ public class AccountantWinController implements ParentController{
 	private static final String COLLECTION_LIST_FXML = "/fxml/accountUI/CollectionList.fxml";
 	private static final String PAYMENT_LIST_FXML = "/fxml/accountUI/PaymentList.fxml";
 	private static final String CASH_EXPENSE_LIST_FXML = "/fxml/accountUI/CashExpenseList.fxml";
-	
+	private static final String ACCOUNT_MANAGE_FXML = "/fxml/accountUI/AccountManage.fxml";
 
 	@FXML public void onNewCollectionListBtnClicked() {
 		loadNewList(AccountBLFactory.getCollectionListService(),new CollectionListWinController(),COLLECTION_LIST_FXML);
@@ -101,15 +102,31 @@ public class AccountantWinController implements ParentController{
 		//TODO
 	}
 
-
+	
 
 
 	@FXML public void onOpenCashExpenseDraftBtnClicked() {
 		loadOpenList(AccountBLFactory.getCashExpenseListService(), new OpenCashExpenseDraftListController(this));
 	}
 
+	@FXML public void onAccountManageBtnClicked(){
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(ACCOUNT_MANAGE_FXML));
+			loader.load();
+			AccountManageWinController controller = loader.getController();
+			controller.setParentController(this);
+			controller.init();
 
-
+			AnchorPane ListRoot = loader.getRoot();
+			
+			this.CloseSonWin();
+			centerPane.setCenter(ListRoot);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	@Override
 	public void CloseSonWin() {

@@ -7,8 +7,10 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import PO.user.MessagePO;
 import PO.user.UserPO;
 import network.VIPRemoteHelper.VIPDataServiceHelper;
+import network.accountRemoteHelper.AccountDataServiceHelper;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
@@ -18,7 +20,9 @@ import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
 import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import network.saleRemoteHelper.StockListDataServiceHelper;
 import network.saleRemoteHelper.StockReturnListDataServiceHelper;
+import network.userRemoteHelper.MessageDataServiceHelper;
 import network.userRemoteHelper.UserDataServiceHelper;
+import util.DateUtil;
 import util.UserGrade;
 import util.UserPermission;
 import util.UserType;
@@ -43,13 +47,13 @@ public class ServerConnector {
 //		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		
-		
+		dataServiceHelpers.add(AccountDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
 		
 		dataServiceHelpers.add(UserDataServiceHelper.getInstance());
-		
+		dataServiceHelpers.add(MessageDataServiceHelper.getInstance());
 		
 //		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
@@ -100,7 +104,15 @@ public class ServerConnector {
 	
 	//TODO delete it when bl finish!
 	public static void testService(){
-		
+		UserType type = UserType.Stockman;
+		MessagePO po = new MessagePO("进货", "进100个小灯", DateUtil.getDate("20171230"), type);
+		try {
+			System.out.println(MessageDataServiceHelper.getInstance().getDataService().insert(po));
+//			System.out.println(MessageDataServiceHelper.getInstance().getDataService().getAllMessage(type).get(0).getContent());
+
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void insertAdmin(){

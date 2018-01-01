@@ -7,28 +7,19 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXPopup;
-import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXPopup.PopupHPosition;
 import com.jfoenix.controls.JFXPopup.PopupVPosition;
+import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXRippler.RipplerMask;
 import com.jfoenix.controls.JFXRippler.RipplerPos;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import ui.mainUI.loginUI.User;
 import ui.stockmanUI.GoodsWin;
-import ui.stockmanUI.StockmanWin;
-/**
- * 
- * 问：可以考虑把头像和左边栏vbox也加进来吗？
- * 再问：vbox可能不行，导致头像可能没法显示在最上面？
- * 以后再说吧
- * emm才看到 vbox不行 每个人功能不一致
- *
- */
+
 public class BackgroundController {
     @FXML public AnchorPane root;
     @FXML public ImageView logOutBtn;
@@ -71,12 +62,16 @@ public class BackgroundController {
 			}*/
 		});
   
-        JFXButton label2 = new JFXButton("个人信息");
-        list.getItems().add(label2);
-        JFXButton label3 = new JFXButton("消息");
-        list.getItems().add(label3);
-        JFXButton label4 = new JFXButton("偏好设置");
-        list.getItems().add(label4);
+        JFXButton personalInfoBtn = new JFXButton("个人信息");
+        list.getItems().add(personalInfoBtn);
+        JFXButton messageBtn = new JFXButton("消息");
+        list.getItems().add(messageBtn);
+        messageBtn.setOnMouseClicked(e->{
+        	System.out.println("clicked message");
+        });
+        
+        JFXButton settingBtn = new JFXButton("偏好设置");
+        list.getItems().add(settingBtn);
         
         root.getChildren().add(rippler);
         AnchorPane.setLeftAnchor(rippler, 1100.0);
@@ -85,6 +80,18 @@ public class BackgroundController {
         rippler.setOnMouseClicked(e -> popup.show(rippler, PopupVPosition.TOP, PopupHPosition.RIGHT));
 	
     }
+    
+    @FXML
+    public void onMessageBtnClicked(){
+    	Platform.runLater(()-> {
+            try {
+                new ui.mainUI.MessageWin();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    });
+    }
+    
     @FXML
     public void logOut() {
         Platform.runLater(()-> {

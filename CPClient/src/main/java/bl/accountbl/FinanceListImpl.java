@@ -1,7 +1,6 @@
 package bl.accountbl;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +10,7 @@ import VO.accountVO.FinanceListVO;
 import VO.listVO.InfoListVO;
 import bl.listbl.InfoList;
 import bl.listbl.InfoList_Impl;
+import blservice.accountblservice.AccountManagementService;
 import blservice.accountblservice.FinanceListService;
 import dataService.accountDataService.FinanceListDataService;
 import resultmessage.ApproveRM;
@@ -28,6 +28,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 
 	FinanceListDataService dataService;
 	InfoList infoListService = new InfoList_Impl();
+	AccountManagementService accountManagementService = new AccountManagementServiceImpl();
 	
 	public FinanceListImpl(FinanceListDataService dataService){
 		this.dataService = dataService;
@@ -120,7 +121,8 @@ public abstract class FinanceListImpl implements FinanceListService{
 			return CommitListRM.SERVER_ERROR;
 		case SUCCESS:
 			currentState = State.IsCommitted;
-			infoListService.register(new InfoListVO(vo.getId(),getGreatListType(),vo.getOperator(),getKeyInfo(vo)));
+			//TODO 加上这句
+//			infoListService.register(new InfoListVO(vo.getId(),getGreatListType(),vo.getOperator(),getKeyInfo(vo)));
 			return CommitListRM.SUCCESS;
 		default:
 			break;
@@ -154,11 +156,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 
 	@Override
 	public List<AccountVO> findAccount() {
-		//TODO Stub
-		 AccountVO accountvo = new AccountVO("老张",10000);
-		List<AccountVO> list = new ArrayList<AccountVO>();
-		list.add(accountvo);
-		return list;
+		return new AccountManagementServiceImpl().getAllAccount();
 	}
 	
 	public ApproveRM approve(FinanceListVO vo){
@@ -169,7 +167,8 @@ public abstract class FinanceListImpl implements FinanceListService{
 			case FAILED:
 				return ApproveRM.SERVER_ERROR;
 			case SUCCESS:
-				infoListService.modify(true, vo.getId());
+				//TODO
+//				infoListService.modify(true, vo.getId());
 				return ApproveRM.OK;
 			default:
 				break;
@@ -185,7 +184,8 @@ public abstract class FinanceListImpl implements FinanceListService{
 		vo.setState(State.IsRefused);
 		try {
 			dataService.update(voTopo(vo));
-			infoListService.modify(false, vo.getId());
+			//TODO
+//			infoListService.modify(false, vo.getId());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

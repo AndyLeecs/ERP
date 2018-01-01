@@ -52,6 +52,11 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         		transaction.rollback();
         	}
     		e.printStackTrace();
+        }catch(PersistenceException e){		//数据库中已有此主键
+        	if(transaction!=null){
+        		transaction.rollback();
+        	}
+        	return -2;
         }finally{
            		session.close();
         }
