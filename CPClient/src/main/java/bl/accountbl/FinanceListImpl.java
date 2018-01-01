@@ -121,7 +121,8 @@ public abstract class FinanceListImpl implements FinanceListService{
 			return CommitListRM.SERVER_ERROR;
 		case SUCCESS:
 			currentState = State.IsCommitted;
-			infoListService.register(new InfoListVO(vo.getId(),getGreatListType(),vo.getOperator(),getKeyInfo(vo)));
+			//TODO 加上这句
+//			infoListService.register(new InfoListVO(vo.getId(),getGreatListType(),vo.getOperator(),getKeyInfo(vo)));
 			return CommitListRM.SUCCESS;
 		default:
 			break;
@@ -166,7 +167,8 @@ public abstract class FinanceListImpl implements FinanceListService{
 			case FAILED:
 				return ApproveRM.SERVER_ERROR;
 			case SUCCESS:
-				infoListService.modify(true, vo.getId());
+				//TODO
+//				infoListService.modify(true, vo.getId());
 				return ApproveRM.OK;
 			default:
 				break;
@@ -182,7 +184,8 @@ public abstract class FinanceListImpl implements FinanceListService{
 		vo.setState(State.IsRefused);
 		try {
 			dataService.update(voTopo(vo));
-			infoListService.modify(false, vo.getId());
+			//TODO
+//			infoListService.modify(false, vo.getId());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
