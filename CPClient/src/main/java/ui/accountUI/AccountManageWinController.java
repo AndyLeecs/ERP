@@ -143,6 +143,8 @@ public class AccountManageWinController implements SonController{
 	}
 	
 	@FXML public void onSaveBtnClicked() {
+		System.out.println("insave");
+		System.out.println(accountItem.size());
 		service.saveAllAccount(accountItem.stream().map(e -> e.toVO()).collect(Collectors.toList()));
 		prompt("保存成功！");
 	}

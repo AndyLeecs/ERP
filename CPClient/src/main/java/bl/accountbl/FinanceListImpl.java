@@ -1,7 +1,6 @@
 package bl.accountbl;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -154,11 +153,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 
 	@Override
 	public List<AccountVO> findAccount() {
-		//TODO Stub
-		 AccountVO accountvo = new AccountVO("老张",10000);
-		List<AccountVO> list = new ArrayList<AccountVO>();
-		list.add(accountvo);
-		return list;
+		return new AccountManagementServiceImpl().getAllAccount();
 	}
 	
 	public ApproveRM approve(FinanceListVO vo){

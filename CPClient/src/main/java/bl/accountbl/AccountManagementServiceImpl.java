@@ -29,7 +29,9 @@ public class AccountManagementServiceImpl implements AccountManagementService{
 	public void saveAllAccount(List<AccountVO> l) {
 		try {
 			service.deleteAllAccount();
+			System.out.println(l.size());
 			for(AccountVO vo : l){
+				System.out.println(vo.getAccountName());
 				service.insert(voTopo(vo));
 			}
 		} catch (RemoteException e) {

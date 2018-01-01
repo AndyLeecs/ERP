@@ -21,7 +21,7 @@ public class AccountDataServiceImpl extends UnicastRemoteObject implements Accou
 	BasicUtil<AccountPO> basicUtil;
 	CriterionClauseGenerator criterionClauseGenerator;
 	
-	protected AccountDataServiceImpl() throws RemoteException {
+	public AccountDataServiceImpl() throws RemoteException {
 		basicUtil = new HibernateUtil<AccountPO>(AccountPO.class);
 		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
 	}

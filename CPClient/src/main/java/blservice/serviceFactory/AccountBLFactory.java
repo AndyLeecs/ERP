@@ -1,6 +1,7 @@
 package blservice.serviceFactory;
 
 import bl.accountbl.AccountBLService_Stub;
+import bl.accountbl.AccountManagementServiceImpl;
 import bl.accountbl.CashExpenseListImpl;
 import bl.accountbl.CollectionListImpl;
 import blservice.accountblservice.AccountManagementService;
@@ -31,8 +32,6 @@ public class AccountBLFactory {
 	}
 	
 	public static AccountManagementService getAccountManagementService(){
-		//TODO
-		return new AccountBLService_Stub();
-//		return new AccountManagementServiceImpl();
+		return new AccountManagementServiceImpl();
 	}
 }

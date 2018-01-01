@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
 import dataService.VIPDataService.VIPDataService;
+import dataService.accountDataService.AccountDataService;
 import dataService.accountDataService.CashExpenseListDataService;
 import dataService.accountDataService.CollectionListDataService;
 import dataService.goodsDataService.GoodsDataService;
@@ -20,6 +21,7 @@ import dataService.saleDataService.StockListDataService;
 import dataService.saleDataService.StockReturnListDataService;
 import dataService.userDataService.UserDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
+import dataServiceImpl.accountImpl.AccountDataServiceImpl;
 import dataServiceImpl.accountImpl.CashExpenseListDataServiceImpl;
 import dataServiceImpl.accountImpl.CollectionListDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
@@ -54,6 +56,10 @@ public class ServerHelper {
 //			ListDataService listDataService=new ListDataServiceImpl();
 //			Naming.bind("ListDataService",listDataService);
 //			System.out.println("表单类数据库绑定成功！");
+			
+			AccountDataService accountDataService = new AccountDataServiceImpl();
+			Naming.bind("AccountDataService", accountDataService);
+			System.out.println("AccountDataService bind Succeed");
 			
 			CollectionListDataService collectionListDataService = new CollectionListDataServiceImpl();
 			Naming.bind("CollectionListDataService", collectionListDataService);
