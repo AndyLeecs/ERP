@@ -16,6 +16,8 @@ import resultmessage.DataRM;
 
 public class UserDataServiceImpl extends UnicastRemoteObject implements UserDataService{
 
+	
+	private static final long serialVersionUID = 5801522716518730770L;
 	BasicUtil<UserPO> basicUtil;
 	CriterionClauseGenerator criterionClauseGenerator;
 

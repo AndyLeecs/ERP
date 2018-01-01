@@ -1,7 +1,55 @@
 package dataServiceImpl.accountImpl;
 
-import dataService.accountDataService.AccountDataService;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.List;
 
-public class AccountDataServiceImpl implements AccountDataService{
+import PO.account.AccountPO;
+import dataHelper.BasicUtil;
+import dataHelper.CriterionClause;
+import dataHelper.CriterionClauseGenerator;
+import dataHelper.HibernateCriterionClauseGenerator;
+import dataHelper.HibernateUtil;
+import dataService.accountDataService.AccountDataService;
+import resultmessage.DataRM;
+
+public class AccountDataServiceImpl extends UnicastRemoteObject implements AccountDataService{
+
+	
+	private static final long serialVersionUID = 3905445225330293809L;
+	BasicUtil<AccountPO> basicUtil;
+	CriterionClauseGenerator criterionClauseGenerator;
+	
+	protected AccountDataServiceImpl() throws RemoteException {
+		basicUtil = new HibernateUtil<AccountPO>(AccountPO.class);
+		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
+	}
+
+	@Override
+	public List<AccountPO> getAllAccount() throws RemoteException {
+		List<CriterionClause> l = new ArrayList<CriterionClause>();
+		l = criterionClauseGenerator.generateFuzzyCriterion(l,"accountName","");
+		return basicUtil.Query(l);
+	}
+
+	@Override
+	public DataRM deleteAllAccount() throws RemoteException {
+		List<AccountPO> poList = getAllAccount();
+		for(AccountPO po : poList){
+			basicUtil.delete(po.getAccountName());
+		}
+		return DataRM.SUCCESS;
+	}
+
+	@Override
+	public DataRM insert(AccountPO po) throws RemoteException {
+		String id = basicUtil.insert(po);
+		if(id == null)
+			return DataRM.EXIST;
+		if(id.equals(""))
+			return DataRM.FAILED;
+		return DataRM.SUCCESS;
+	}
 
 }
