@@ -84,13 +84,7 @@ public class CollectionListWinController extends FinanceListWinController{
 		
 		TransferListTableView.setItems(transferItem);
 	    TransferListTableView.setEditable(true);
-		
-	    //TODO 测试用，以后删掉
-//	    transferItem.add(new TransferItem("1 ", 100,"dv"));
-//	    transferItem.add(new TransferItem("老张", 100,"dv"));
-//	    transferItem.add(new TransferItem("我 ", 100,"dv"));
-
-
+	
 	}
 	
 	private void initAccountTableColumn(){
@@ -110,14 +104,8 @@ public class CollectionListWinController extends FinanceListWinController{
 			        	try{
 			        		Double.parseDouble(newAmount);
 			        	}catch (NumberFormatException e){
-			        		try {
-								prompt("金额必须为数字");
-								return ;
-							} catch (IOException e1) {
-								e1.printStackTrace();
-								return;
-							}
-			        		
+							prompt("金额必须为数字");
+							return ;
 			        	}
 			        	
 				        item.setAmount(newAmount);	
@@ -271,14 +259,8 @@ public class CollectionListWinController extends FinanceListWinController{
 	@FXML 
 	public void onCommitBtnClicked() {		//可以加一些提交单据的前置条件
 		if(transferItem.isEmpty()){
-			try {
-				prompt("转账列表是不能为空的");
-				return;
-			} catch (IOException e) {
-				e.printStackTrace();
-				return;
-				
-			}
+			prompt("转账列表是不能为空的");
+			return;
 		}
 		commitList();
 	}

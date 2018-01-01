@@ -9,6 +9,7 @@ import VO.accountVO.CashExpenseListVO;
 import VO.accountVO.EntryItemVO;
 import VO.accountVO.FinanceListVO;
 import dataService.accountDataService.FinanceListDataService;
+import resultmessage.ApproveRM;
 import util.DateUtil;
 
 public class CashExpenseListImpl extends FinanceListImpl{
@@ -16,6 +17,16 @@ public class CashExpenseListImpl extends FinanceListImpl{
 		super(dataService);
 	}
 
+	@Override
+	public ApproveRM approve(FinanceListVO vo) {
+		CashExpenseListVO cvo = (CashExpenseListVO)vo;
+		String accountName = cvo.getAccount();
+		//TODO 账户余额减少cvo.getTotalAmount();
+		
+		//检查成功
+		return super.approve(cvo);
+	}
+	
 	@Override
 	protected FinanceListPO voTopo(FinanceListVO vo) {
 		CashExpenseListVO cvo = (CashExpenseListVO)vo;

@@ -111,13 +111,9 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 			        	try{
 			        		Double.parseDouble(newAmount);
 			        	}catch (NumberFormatException e){
-			        		try {
-								prompt("金额必须为数字");
-								return ;
-							} catch (IOException e1) {
-								e1.printStackTrace();
-								return;
-							}
+							prompt("金额必须为数字");
+							return ;
+							
 			        		
 			        	}
 			        	
@@ -171,22 +167,13 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 	public void onCommitBtnClicked() {		
 		String account = AccountComboBox.getValue();
 		if(account == null || account.equals("")){
-			try {
-				prompt("请选择银行账户");
-				return;
-			} catch (IOException e) {
-				e.printStackTrace();
-				return;
-			}
+			prompt("请选择银行账户");
+			return;
+			
 		}
 		if(entryItem.isEmpty()){
-			try {
-				prompt("条目清单是不能为空的");
-				return;
-			} catch (IOException e) {
-				e.printStackTrace();
-				return;
-			}
+			prompt("条目清单是不能为空的");
+			return;
 		}
 		
 		commitList();

@@ -8,13 +8,36 @@ import PO.account.TransferItemPO;
 import VO.accountVO.CollectionListVO;
 import VO.accountVO.FinanceListVO;
 import VO.accountVO.TransferItemVO;
+import blservice.VIPblservice.VIPReceivableChangeService;
+import blservice.serviceFactory.VIPReceivableChangeFactory;
 import dataService.accountDataService.FinanceListDataService;
+import resultmessage.ApproveRM;
 import util.DateUtil;
 
 public class CollectionListImpl extends FinanceListImpl{
 
 	public CollectionListImpl(FinanceListDataService dataService) {
 		super(dataService);
+	}
+	
+	@Override
+	public ApproveRM approve(FinanceListVO vo) {
+		CollectionListVO cvo = (CollectionListVO)vo; 
+		
+		//修改vip应收
+		String VIPID = cvo.getVIPID();
+		VIPReceivableChangeService vipService = VIPReceivableChangeFactory.getVIPReceivableChangeService();
+		boolean vipReceivableChanged = vipService.collect(VIPID, cvo.getTotalAmount());
+		if(!vipReceivableChanged)
+			return ApproveRM.VIP_EXCEPTION;
+		
+		for(TransferItemVO item : cvo.getTransferItem()){
+			String accountName = item.getAccount();
+			//TODO 减少账户余额
+		}
+		
+		//检查成功
+		return super.approve(vo);
 	}
 
 	@Override
@@ -53,5 +76,7 @@ public class CollectionListImpl extends FinanceListImpl{
 	private TransferItemVO transferItemPoToVo(TransferItemPO po){
 		return new TransferItemVO(po.getAccount(),po.getAmount(),po.getNote());
 	}
+
+	
 
 }
