@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import util.VIPGrade;
 
 import java.rmi.RemoteException;
 
@@ -65,7 +66,7 @@ public class VIPInfoEditController {
         inputRequired(id);
         category.setText(vipVO.getCategory());
         inputRequired(category);
-        grade.setText(vipVO.getGrade());
+        grade.setText(vipVO.getGrade().toString());
         inputRequired(grade);
         phoneNumber.setText(vipVO.getPhoneNumber());
         inputRequired(phoneNumber);
@@ -90,7 +91,7 @@ public class VIPInfoEditController {
         vipVO.setName(name.getText());
         vipVO.setId(id.getText());
         vipVO.setCategory(category.getText());
-        vipVO.setGrade(grade.getText());
+        vipVO.setGrade(VIPGrade.getVIPGradeByString(grade.getText()));
         vipVO.setPhoneNumber(phoneNumber.getText());
         vipVO.setAddress(address.getText());
         vipVO.setEmail(email.getText());

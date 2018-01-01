@@ -22,7 +22,7 @@ public class VIPBLServiceImpl implements VIPBLService {
 
     VIPVO vipvo1 = new VIPVO("00000001"
             ,"分类1"
-            ,"级别1"
+            ,"1"
             ,"姓名1"
             ,"18800000000"
             ,"123456789@qq.com"
@@ -35,7 +35,7 @@ public class VIPBLServiceImpl implements VIPBLService {
 
     VIPVO vipvo2 = new VIPVO("00000002"
             ,"分类2"
-            ,"级别2"
+            ,"2"
             ,"姓名2"
             ,"18800000001"
             ,"223456789@qq.com"
@@ -74,17 +74,17 @@ public class VIPBLServiceImpl implements VIPBLService {
     @Override
     public ArrayList<VIPVO> findVIP(String info, String type) throws RemoteException {
         ArrayList<VIPVO> vipvos = new ArrayList<>();
-        vipvos.add(vipvo1);
-        vipvos.add(vipvo2);
-        return vipvos;//这个是假的
-//        //以下是真的
-//        
-//        ArrayList<VIPPO> list = (ArrayList<VIPPO>) vipDataService.findVIP(info,type);
-//        ArrayList<VIPVO> ret = new ArrayList<>();
-//        for(int i =0;i<list.size();i++){
-//            ret.add(poToVO(list.get(i)));
-//        }
-//        return ret;
+        //vipvos.add(vipvo1);
+        //vipvos.add(vipvo2);
+        //return vipvos;//这个是假的
+        //以下是真的
+        
+        ArrayList<VIPPO> list = (ArrayList<VIPPO>) vipDataService.findVIP(info,type);
+        ArrayList<VIPVO> ret = new ArrayList<>();
+        for(int i =0;i<list.size();i++){
+            ret.add(poToVO(list.get(i)));
+        }
+        return ret;
     }
 
     /**

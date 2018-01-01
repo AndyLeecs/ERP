@@ -106,6 +106,7 @@ public class VIPController {
         clerk.setEditable(false);
     }
 
+    @FXML
     public void initialize() throws RemoteException{
         initTreeView();
         setTextFieldUnable();
@@ -311,7 +312,7 @@ public class VIPController {
 
     VIPVO tmpVO = new VIPVO("00000001"
             ,"分类1"
-            ,"级别1"
+            ,"1"
             ,"姓名1"
             ,"18800000000"
             ,"123456789@qq.com"
