@@ -1,40 +1,36 @@
-package VO.userVO;
+package PO.user;
+
+import java.io.Serializable;
 
 import util.UserGrade;
 import util.UserPermission;
 import util.UserType;
 
-public class UserVO{
-	private String id;
+public class UserPO implements Serializable{
+	
+	private static final long serialVersionUID = -4406494595299352107L;
+	private String id;		//弃用
 	private	String name;
 	private	String password;
 	private	UserType type;				
 	private	UserGrade grade;			//用户等级（经理，普通）
 	private	UserPermission permission;		//权限等级
 		  
-	public UserVO(){}
-	public UserVO(String name,String password,UserType type,UserGrade grade,UserPermission permission){
+	public UserPO(){}
+	public UserPO(String name,String password,UserType type,UserGrade grade,UserPermission permission){
 		  this.setName(name);
 		  this.setPassword(password);
 		  this.setType(type);
 		  this.setGrade(grade);
 		  this.setPermission(permission);
 	}
-	public UserVO(String id,String name,String password,UserType type,UserGrade grade,UserPermission permission){
+	public UserPO(String id,String name,String password,UserType type,UserGrade grade,UserPermission permission){
 		  this.setId(id);
 		  this.setName(name);
 		  this.setPassword(password);
 		  this.setType(type);
 		  this.setGrade(grade);
 		  this.setPermission(permission);
-	}
-	public UserVO(UserVO vo){
-		this.setId(vo.id);
-		this.setName(vo.name);
-		this.setPassword(vo.password);
-		this.setType(vo.type);
-		this.setGrade(vo.grade);
-		this.setPermission(vo.permission);
 	}
 	public String getId() {
 		return id;

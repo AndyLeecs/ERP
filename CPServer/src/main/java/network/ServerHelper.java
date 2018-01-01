@@ -18,6 +18,7 @@ import dataService.saleDataService.SaleProjectionDataService;
 import dataService.saleDataService.SaleReturnListDataService;
 import dataService.saleDataService.StockListDataService;
 import dataService.saleDataService.StockReturnListDataService;
+import dataService.userDataService.UserDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
 import dataServiceImpl.accountImpl.CashExpenseListDataServiceImpl;
 import dataServiceImpl.accountImpl.CollectionListDataServiceImpl;
@@ -30,6 +31,7 @@ import dataServiceImpl.saleImpl.SaleProjectionDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleReturnListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockReturnListDataServiceImpl;
+import dataServiceImpl.userImpl.UserDataServiceImpl;
 
 
 public class ServerHelper {
@@ -62,6 +64,10 @@ public class ServerHelper {
 			System.out.println("CashExpenseListDataService bind Succeed");
 			
 			
+			UserDataService userDataService = new UserDataServiceImpl();
+			Naming.bind("UserDataService", userDataService);
+			System.out.println("UserDataService bind Succeed");
+			
 //			PresentDataService presentDataService=new PresentDataServiceImpl();
 //			Naming.bind("PresentDataService", presentDataService);
 //			System.out.println("bind succeeded!");
@@ -87,8 +93,8 @@ public class ServerHelper {
 			StockReturnListDataService stockReturnListDataService  = new StockReturnListDataServiceImpl();
 			Naming.bind("StockReturnListDataService", stockReturnListDataService);
 //
-			SaleProjectionDataService saleProjectionDataService = new SaleProjectionDataServiceImpl();
-			Naming.bind("SaleProjectionDataService", saleProjectionDataService);
+//			SaleProjectionDataService saleProjectionDataService = new SaleProjectionDataServiceImpl();
+//			Naming.bind("SaleProjectionDataService", saleProjectionDataService);
 			//			SaleDataService saleDataService=new SaleDataServiceImpl();
 //			Naming.bind("SaleDataService", saleDataService);
 //			System.out.println("bind succeeded!");

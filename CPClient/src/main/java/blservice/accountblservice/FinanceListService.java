@@ -4,6 +4,7 @@ import java.util.List;
 
 import VO.accountVO.AccountVO;
 import VO.accountVO.FinanceListVO;
+import resultmessage.ApproveRM;
 import resultmessage.CommitListRM;
 import resultmessage.DeleteListRM;
 import resultmessage.SaveListRM;
@@ -17,6 +18,9 @@ public interface FinanceListService {
 	public CommitListRM commit(FinanceListVO vo);
 	public List<? extends FinanceListVO> openDraft();
 	public List<? extends FinanceListVO> openCommitted();
+	
+	public ApproveRM approve(FinanceListVO vo);
+	public void reject(FinanceListVO vo);
 	
 	public List<AccountVO> findAccount();
 

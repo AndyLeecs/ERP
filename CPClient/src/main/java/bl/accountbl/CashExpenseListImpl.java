@@ -9,13 +9,25 @@ import VO.accountVO.CashExpenseListVO;
 import VO.accountVO.EntryItemVO;
 import VO.accountVO.FinanceListVO;
 import dataService.accountDataService.FinanceListDataService;
+import resultmessage.ApproveRM;
 import util.DateUtil;
+import util.GreatListType;
 
 public class CashExpenseListImpl extends FinanceListImpl{
 	public CashExpenseListImpl(FinanceListDataService dataService) {
 		super(dataService);
 	}
 
+	@Override
+	public ApproveRM approve(FinanceListVO vo) {
+		CashExpenseListVO cvo = (CashExpenseListVO)vo;
+		String accountName = cvo.getAccount();
+		//TODO 账户余额减少cvo.getTotalAmount();
+		
+		//检查成功
+		return super.approve(cvo);
+	}
+	
 	@Override
 	protected FinanceListPO voTopo(FinanceListVO vo) {
 		CashExpenseListVO cvo = (CashExpenseListVO)vo;
@@ -52,4 +64,16 @@ public class CashExpenseListImpl extends FinanceListImpl{
 		return new EntryItemVO(po.getEntryName(),po.getAmount(),po.getNote());
 	}
 
+	@Override
+	protected GreatListType getGreatListType() {
+		return GreatListType.CASHEXPENSE;
+	}
+
+	@Override
+	protected String getKeyInfo(FinanceListVO vo) {
+		CashExpenseListVO cvo = (CashExpenseListVO)vo;
+		return "账户 " + cvo.getAccount() + " 支出现金费用 " + cvo.getTotalAmount() + " 元";
+	}
+
+	
 }

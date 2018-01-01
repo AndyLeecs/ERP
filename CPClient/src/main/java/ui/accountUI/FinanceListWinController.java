@@ -50,8 +50,12 @@ public abstract class FinanceListWinController extends ListWinController{
 		
 	}
 	
-	protected void prompt(String promptText) throws IOException{
-		new PromptWin(promptText);
+	protected void prompt(String promptText){
+		try {
+			new PromptWin(promptText);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
@@ -94,28 +98,14 @@ public abstract class FinanceListWinController extends ListWinController{
 		CommitListRM commitrm = financeListService.commit(vo);
 		switch(commitrm){
 		case SUCCESS:
-			try {
-				prompt("提交成功！");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			finally{		//提示窗虽然加载不出来，不过提交已经成功了，就应该关闭了
-				parentController.CloseSonWin();		
-			}
+			prompt("提交成功！");
+			parentController.CloseSonWin();		
 			break;
 		case NETWORK_ERROR:
-			try {
-				new PromptWin("网络异常，提交失败");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			prompt("网络异常，提交失败");
 			break;
 		case SERVER_ERROR:
-			try {
-				new PromptWin("服务器异常，提交失败");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			prompt("服务器异常，提交失败");
 			break;
 		
 		}

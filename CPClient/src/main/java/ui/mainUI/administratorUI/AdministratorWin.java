@@ -1,4 +1,4 @@
-package ui.mainUI.accountantUI;
+package ui.mainUI.administratorUI;
 
 import java.io.IOException;
 
@@ -10,11 +10,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class AccountantWin extends Stage{
+public class AdministratorWin extends Stage{
 	@FXML
 	AnchorPane root;
-	public AccountantWin() throws IOException{
-		root = FXMLLoader.load(getClass().getResource("/fxml/mainUI/Accountant.fxml"));
+	public AdministratorWin() throws IOException{
+		root = FXMLLoader.load(getClass().getResource("/fxml/mainUI/Administrator.fxml"));
 		Scene scene = new Scene(root);
 		scene.setFill(Color.TRANSPARENT);
 		this.setScene(scene);

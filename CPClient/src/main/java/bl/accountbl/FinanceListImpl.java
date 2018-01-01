@@ -8,12 +8,17 @@ import java.util.stream.Collectors;
 import PO.account.FinanceListPO;
 import VO.accountVO.AccountVO;
 import VO.accountVO.FinanceListVO;
+import VO.listVO.InfoListVO;
+import bl.listbl.InfoList;
+import bl.listbl.InfoList_Impl;
 import blservice.accountblservice.FinanceListService;
 import dataService.accountDataService.FinanceListDataService;
+import resultmessage.ApproveRM;
 import resultmessage.CommitListRM;
 import resultmessage.DataRM;
 import resultmessage.DeleteListRM;
 import resultmessage.SaveListRM;
+import util.GreatListType;
 import util.State;
 
 public abstract class FinanceListImpl implements FinanceListService{
@@ -21,16 +26,17 @@ public abstract class FinanceListImpl implements FinanceListService{
 	String id = null;
 	State currentState = null;		//如果当前为编辑状态，那么结束服务时要删除对应id的单据
 
-	FinanceListDataService financeListDataService;
+	FinanceListDataService dataService;
+	InfoList infoListService = new InfoList_Impl();
 	
 	public FinanceListImpl(FinanceListDataService dataService){
-		financeListDataService = dataService;
+		this.dataService = dataService;
 	}
 	
 	@Override
 	public String newList() {
 		try {
-			String newid = financeListDataService.getNewListId();
+			String newid = dataService.getNewListId();
 			if(newid == null || newid == "")
 				return null;
 			currentState = State.IsEditting;
@@ -53,7 +59,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 	@Override
 	public DeleteListRM delete(String id) {
 		try {
-			 DataRM datarm = financeListDataService.delete(id);
+			 DataRM datarm = dataService.delete(id);
 			 switch(datarm){
 			 case SUCCESS:
 				 return DeleteListRM.SUCCESS;
@@ -75,13 +81,13 @@ public abstract class FinanceListImpl implements FinanceListService{
 	public SaveListRM save(FinanceListVO vo) {
 		FinanceListPO po = voTopo(vo);
 		try {
-			DataRM datarm = financeListDataService.update(po);
+			DataRM datarm = dataService.update(po);
 			switch(datarm){
 			case SUCCESS:
 				currentState = State.IsDraft;
 				return SaveListRM.SUCCESS;
 			case NOT_EXIST:
-					DataRM insertRm = financeListDataService.insert(po);		//还是有这种情况的。。
+					DataRM insertRm = dataService.insert(po);		//还是有这种情况的。。
 					switch(insertRm){
 					case FAILED:
 						return SaveListRM.SERVER_ERROR;
@@ -114,6 +120,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 			return CommitListRM.SERVER_ERROR;
 		case SUCCESS:
 			currentState = State.IsCommitted;
+			infoListService.register(new InfoListVO(vo.getId(),getGreatListType(),vo.getOperator(),getKeyInfo(vo)));
 			return CommitListRM.SUCCESS;
 		default:
 			break;
@@ -125,7 +132,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 	public List<? extends FinanceListVO> openDraft() {
 		try {
 			@SuppressWarnings("unchecked")
-			List<? extends FinanceListPO> listpo = (List<? extends FinanceListPO>) financeListDataService.getList(State.IsDraft);
+			List<? extends FinanceListPO> listpo = (List<? extends FinanceListPO>) dataService.getList(State.IsDraft);
 			return listpo.stream().map(e -> poTovo(e)).collect(Collectors.toList());
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -137,7 +144,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 	public List<? extends FinanceListVO> openCommitted() {
 		try {
 			@SuppressWarnings("unchecked")
-			List<? extends FinanceListPO> listpo = (List<? extends FinanceListPO>) financeListDataService.getList(State.IsCommitted);
+			List<? extends FinanceListPO> listpo = (List<? extends FinanceListPO>) dataService.getList(State.IsCommitted);
 			return listpo.stream().map(e -> poTovo(e)).collect(Collectors.toList());
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -153,8 +160,43 @@ public abstract class FinanceListImpl implements FinanceListService{
 		list.add(accountvo);
 		return list;
 	}
+	
+	public ApproveRM approve(FinanceListVO vo){
+		vo.setState(State.IsApproved);
+		try {
+			DataRM datarm = dataService.update(voTopo(vo));
+			switch(datarm){
+			case FAILED:
+				return ApproveRM.SERVER_ERROR;
+			case SUCCESS:
+				infoListService.modify(true, vo.getId());
+				return ApproveRM.OK;
+			default:
+				break;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ApproveRM.NETWORK_ERROR;
+		}
+		return ApproveRM.WRONG;
+	}
+	
+	public void reject(FinanceListVO vo){
+		vo.setState(State.IsRefused);
+		try {
+			dataService.update(voTopo(vo));
+			infoListService.modify(false, vo.getId());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	protected abstract FinanceListPO voTopo(FinanceListVO vo);
 	
 	protected abstract FinanceListVO poTovo(FinanceListPO po);
+	
+	protected abstract GreatListType getGreatListType();
+	
+	protected abstract String getKeyInfo(FinanceListVO vo);
 }
