@@ -1,7 +1,7 @@
 package PO;
 import  javax.persistence.*;
 
-import org.hibernate.annotations.GenericGenerator;
+//import org.hibernate.annotations.GenericGenerator;
 
 import util.GreatListType;
 import util.State;

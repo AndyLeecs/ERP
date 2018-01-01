@@ -24,7 +24,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="External_Jars/poi-3.7-20101029.jar"/>
 	<classpathentry kind="lib" path="External_Jars/poi-ooxml-3.7-20101029.jar"/>
-	<classpathentry kind="lib" path="C:/Users/lenovo/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/hibernate-core-5.2.5.Final.jar" sourcepath="C:/Users/lenovo/.m2/repository/org/hibernate/hibernate-core/5.2.5.Final/hibernate-core-5.2.5.Final-sources.jar">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="maven.groupId" value="org.hibernate"/>
