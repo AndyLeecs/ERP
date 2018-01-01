@@ -1,4 +1,4 @@
-package bl.VIPbl;
+package blservice.VIPblservice;
 
 import resultmessage.ResultMessage;
 

@@ -11,7 +11,7 @@ import VO.GoodsInSaleVO;
 import VO.goodsVO.GoodsVO;
 import VO.presentVO.PresentForMembershipVO;
 import VO.presentVO.PresentVO;
-import bl.goodsbl.GoodsFuzzySearch;
+import blservice.goodsblservice.GoodsFuzzySearch;
 import bl.goodsbl.GoodsFuzzySearchImpl;
 import bl.presentbl.PresentBLFactory;
 import bl.utility.GoodsVOTrans;
@@ -29,7 +29,6 @@ import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
 import ui.commonUI.GoodsSearchResultWin;
 import util.DateUtil;
-import util.NumberUtil;
 import util.VIPGrade;
 
 /**     

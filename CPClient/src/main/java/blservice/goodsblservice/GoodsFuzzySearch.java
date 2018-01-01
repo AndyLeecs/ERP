@@ -1,4 +1,4 @@
-package bl.goodsbl;
+package blservice.goodsblservice;
 
 import VO.goodsVO.GoodsVO;
 

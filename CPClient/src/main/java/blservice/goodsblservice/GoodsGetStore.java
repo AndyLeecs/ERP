@@ -1,4 +1,4 @@
-package bl.goodsbl;
+package blservice.goodsblservice;
 
 /**
  * Created by julia98 on 2017/12/25.

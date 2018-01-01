@@ -2,6 +2,7 @@ package bl.VIPbl;
 
 import VO.VIPVO.VIPVO;
 import blservice.VIPblservice.VIPBLService;
+import blservice.VIPblservice.VIPFuzzySearch;
 
 import java.rmi.RemoteException;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Created by julia98 on 2017/12/26.
  */
-public class VIPFuzzySearchImpl implements VIPFuzzySearch{
+public class VIPFuzzySearchImpl implements VIPFuzzySearch {
 
     VIPBLService vipblService = new VIPBLServiceImpl();
     /**
