@@ -55,8 +55,11 @@
 
 		<mapping resource="ListPO.hbm.xml" />
         <mapping class="PO.InfoListPO"/>
-
-
+        <mapping class="PO.ReportListPO"/>
+        <mapping class="PO.StoreLogPO"/>
+		<mapping class="PO.PresentListPO"/>
+		<mapping class="PO.AlarmListPO"/>
+		<mapping class="PO.StorePO"/>
 
 	</session-factory>
 </hibernate-configuration>

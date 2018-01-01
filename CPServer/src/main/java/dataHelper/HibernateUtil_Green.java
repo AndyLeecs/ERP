@@ -50,7 +50,7 @@ public class HibernateUtil_Green<T> {
         Transaction tx=null;
         try {
             tx=session.beginTransaction();
-            session.delete((T)session.get(type.getName(),id));
+            session.delete((T)session.get(type,id));
             tx.commit();
         }catch(HibernateException e){
             if(tx!=null){
