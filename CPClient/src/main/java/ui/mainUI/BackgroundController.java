@@ -71,12 +71,16 @@ public class BackgroundController {
 			}*/
 		});
   
-        JFXButton label2 = new JFXButton("个人信息");
-        list.getItems().add(label2);
-        JFXButton label3 = new JFXButton("消息");
-        list.getItems().add(label3);
-        JFXButton label4 = new JFXButton("偏好设置");
-        list.getItems().add(label4);
+        JFXButton personalInfoBtn = new JFXButton("个人信息");
+        list.getItems().add(personalInfoBtn);
+        JFXButton messageBtn = new JFXButton("消息");
+        list.getItems().add(messageBtn);
+        messageBtn.setOnMouseClicked(e->{
+        	System.out.println("clicked message");
+        });
+        
+        JFXButton settingBtn = new JFXButton("偏好设置");
+        list.getItems().add(settingBtn);
         
         root.getChildren().add(rippler);
         AnchorPane.setLeftAnchor(rippler, 1100.0);
