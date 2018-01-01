@@ -13,6 +13,7 @@ import blservice.serviceFactory.VIPReceivableChangeFactory;
 import dataService.accountDataService.FinanceListDataService;
 import resultmessage.ApproveRM;
 import util.DateUtil;
+import util.GreatListType;
 
 public class CollectionListImpl extends FinanceListImpl{
 
@@ -75,6 +76,17 @@ public class CollectionListImpl extends FinanceListImpl{
 	
 	private TransferItemVO transferItemPoToVo(TransferItemPO po){
 		return new TransferItemVO(po.getAccount(),po.getAmount(),po.getNote());
+	}
+
+	@Override
+	protected GreatListType getGreatListType() {
+		return GreatListType.COLLECTMONEY;
+	}
+
+	@Override
+	protected String getKeyInfo(FinanceListVO vo) {
+		CollectionListVO cvo = (CollectionListVO)vo;
+		return "向 "+cvo.getVIPName() + " 收款 " + cvo.getTotalAmount() + " 元";
 	}
 
 	

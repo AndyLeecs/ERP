@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import PO.account.FinanceListPO;
 import VO.accountVO.AccountVO;
 import VO.accountVO.FinanceListVO;
+import VO.listVO.InfoListVO;
 import bl.listbl.InfoList;
 import bl.listbl.InfoList_Impl;
 import blservice.accountblservice.FinanceListService;
@@ -17,6 +18,7 @@ import resultmessage.CommitListRM;
 import resultmessage.DataRM;
 import resultmessage.DeleteListRM;
 import resultmessage.SaveListRM;
+import util.GreatListType;
 import util.State;
 
 public abstract class FinanceListImpl implements FinanceListService{
@@ -118,6 +120,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 			return CommitListRM.SERVER_ERROR;
 		case SUCCESS:
 			currentState = State.IsCommitted;
+			infoListService.register(new InfoListVO(vo.getId(),getGreatListType(),vo.getOperator(),getKeyInfo(vo)));
 			return CommitListRM.SUCCESS;
 		default:
 			break;
@@ -166,6 +169,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 			case FAILED:
 				return ApproveRM.SERVER_ERROR;
 			case SUCCESS:
+				infoListService.modify(true, vo.getId());
 				return ApproveRM.OK;
 			default:
 				break;
@@ -181,6 +185,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 		vo.setState(State.IsRefused);
 		try {
 			dataService.update(voTopo(vo));
+			infoListService.modify(false, vo.getId());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -190,4 +195,8 @@ public abstract class FinanceListImpl implements FinanceListService{
 	protected abstract FinanceListPO voTopo(FinanceListVO vo);
 	
 	protected abstract FinanceListVO poTovo(FinanceListPO po);
+	
+	protected abstract GreatListType getGreatListType();
+	
+	protected abstract String getKeyInfo(FinanceListVO vo);
 }
