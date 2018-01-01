@@ -1,10 +1,12 @@
 package dataHelper;
 
+
+import  org.hibernate.cfg.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+
 
 import java.util.List;
 
@@ -35,7 +37,9 @@ public class HibernateUtil_Green<T> {
 
     public HibernateUtil_Green(Class<T> type) {
         this.type = type;
-        sessionFactory = new Configuration().configure().buildSessionFactory();
+      
+        sessionFactory  = new Configuration().configure().addPackage("PO").addAnnotatedClass(type).buildSessionFactory();
+       // sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
 
@@ -46,7 +50,7 @@ public class HibernateUtil_Green<T> {
         Transaction tx=null;
         try {
             tx=session.beginTransaction();
-            session.delete((T)session.get(type.getName(),id));
+            session.delete((T)session.get(type,id));
             tx.commit();
         }catch(HibernateException e){
             if(tx!=null){
@@ -90,7 +94,7 @@ public class HibernateUtil_Green<T> {
         T po=null;
         try {
             tx=session.beginTransaction();
-            po=(T)session.get(type.getName(),id);
+            po=(T)session.get(type,id);
             tx.commit();
         }catch(HibernateException e){
             if(tx!=null){
@@ -112,12 +116,16 @@ public class HibernateUtil_Green<T> {
         Transaction tx=null;
         try {
             tx=session.beginTransaction();
+            
             session.save(po);
+            
             tx.commit();
+            
         }catch(HibernateException e){
             if(tx!=null){
                 tx.rollback();
-                System.out.println("新增失败");
+                System.out.println("新增失败，发生回滚");
+                e.printStackTrace();
 
             }
           res=false;

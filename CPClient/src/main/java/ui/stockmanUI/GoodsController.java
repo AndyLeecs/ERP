@@ -86,6 +86,7 @@ public class GoodsController extends BackgroundController{
 
     //初始化节点的方法
     private void setNode(TreeItem<String> node) throws RemoteException {
+    	System.out.println(node.getValue().toString().substring(3));
         ArrayList<GoodsCategoryVO> listVO = (ArrayList<GoodsCategoryVO>) goodsBLService.getAllCategory(node.getValue().toString().substring(3));
         ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i < listVO.size(); i++) {

@@ -9,14 +9,17 @@ import java.util.List;
 
 import PO.user.MessagePO;
 import PO.user.UserPO;
+import network.VIPRemoteHelper.VIPDataServiceHelper;
 import network.accountRemoteHelper.AccountDataServiceHelper;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
+import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
 import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
 import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import network.saleRemoteHelper.StockListDataServiceHelper;
+import network.saleRemoteHelper.StockReturnListDataServiceHelper;
 import network.userRemoteHelper.MessageDataServiceHelper;
 import network.userRemoteHelper.UserDataServiceHelper;
 import util.DateUtil;
@@ -57,9 +60,9 @@ public class ServerConnector {
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
 //		
 //		
-//		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(StockReturnListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
+		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
+		dataServiceHelpers.add(StockReturnListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(StockListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(SaleListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(SaleReturnListDataServiceHelper.getInstance());
@@ -108,7 +111,6 @@ public class ServerConnector {
 //			System.out.println(MessageDataServiceHelper.getInstance().getDataService().getAllMessage(type).get(0).getContent());
 
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

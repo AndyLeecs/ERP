@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import VO.VIPVO.VIPVO;
 import VO.accountVO.CollectionListVO;
-import bl.VIPbl.VIPFuzzySearch;
+import blservice.VIPblservice.VIPFuzzySearch;
 import blservice.serviceFactory.VIPSearcherFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

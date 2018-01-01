@@ -505,7 +505,7 @@ public class VIPController {
         gridPane.add(vipCategory,1,2);
 
         JFXTextField vipGrade = new JFXTextField();
-        vipGrade.setText(vipvo.getGrade());
+        vipGrade.setText(vipvo.getGrade().toString());
         vipGrade.setEditable(false);
         vipGrade.setPrefSize(123,27);
         gridPane.add(vipGrade,4,2);

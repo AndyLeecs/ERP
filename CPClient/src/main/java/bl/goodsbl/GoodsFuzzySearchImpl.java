@@ -1,6 +1,7 @@
 package bl.goodsbl;
 
 import VO.goodsVO.GoodsVO;
+import blservice.goodsblservice.GoodsFuzzySearch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * Created by julia98 on 2017/12/15.
  */
-public class GoodsFuzzySearchImpl implements GoodsFuzzySearch{
+public class GoodsFuzzySearchImpl implements GoodsFuzzySearch {
     GoodsBLServiceImpl goodsBLService = new GoodsBLServiceImpl();
     GoodsVO goodsVO1 = new GoodsVO("00000000"
             ,"台灯"
