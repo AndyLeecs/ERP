@@ -4,12 +4,7 @@ import java.rmi.RemoteException;
 
 import bl.VIPbl.VIPCollectionModifyImpl;
 import blservice.VIPblservice.VIPCollectionModify;
-/**
- * 请不要删除此类
- * 谢谢
- * @author zxy
- *
- */
+
 public class VIPReceivableChangeServiceImpl implements VIPReceivableChangeService{		
 
 	VIPCollectionModify vipService = new  VIPCollectionModifyImpl();
