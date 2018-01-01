@@ -9,7 +9,7 @@ import VO.accountVO.AccountVO;
 import VO.accountVO.CollectionListVO;
 import VO.accountVO.FinanceListVO;
 import VO.accountVO.TransferItemVO;
-import blservice.VIPblservice.VIPReceivableChangeService;
+import blservice.VIPforAccountService.VIPReceivableChangeService;
 import blservice.serviceFactory.VIPReceivableChangeFactory;
 import dataService.accountDataService.FinanceListDataService;
 import resultmessage.ApproveRM;
@@ -27,9 +27,9 @@ public class CollectionListImpl extends FinanceListImpl{
 		CollectionListVO cvo = (CollectionListVO)vo; 
 		
 		//修改vip应收
-		String VIPID = cvo.getVIPID();
+		String VIPName = cvo.getVIPName();
 		VIPReceivableChangeService vipService = VIPReceivableChangeFactory.getVIPReceivableChangeService();
-		boolean vipReceivableChanged = vipService.collect(VIPID, cvo.getTotalAmount());
+		boolean vipReceivableChanged = vipService.collect(VIPName, cvo.getTotalAmount());
 		if(!vipReceivableChanged)
 			return ApproveRM.VIP_EXCEPTION;
 		
