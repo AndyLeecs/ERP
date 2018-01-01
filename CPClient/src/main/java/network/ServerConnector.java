@@ -37,7 +37,7 @@ public class ServerConnector {
 	public ServerConnector(){
 		addServices();
 		connectDataService();
-//		insertAdmin();
+		insertAdmin();
 	}
 	
 	private void addServices(){
@@ -104,8 +104,8 @@ public class ServerConnector {
 		UserType type = UserType.Stockman;
 		MessagePO po = new MessagePO("进货", "进100个小灯", DateUtil.getDate("20171230"), type);
 		try {
-//			System.out.println(MessageDataServiceHelper.getInstance().getDataService().insert(po));
-			System.out.println(MessageDataServiceHelper.getInstance().getDataService().getAllMessage(type).get(2).getContent());
+			System.out.println(MessageDataServiceHelper.getInstance().getDataService().insert(po));
+//			System.out.println(MessageDataServiceHelper.getInstance().getDataService().getAllMessage(type).get(0).getContent());
 
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

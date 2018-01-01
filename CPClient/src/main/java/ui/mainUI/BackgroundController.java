@@ -7,28 +7,19 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXPopup;
-import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXPopup.PopupHPosition;
 import com.jfoenix.controls.JFXPopup.PopupVPosition;
+import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXRippler.RipplerMask;
 import com.jfoenix.controls.JFXRippler.RipplerPos;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import ui.mainUI.loginUI.User;
 import ui.stockmanUI.GoodsWin;
-import ui.stockmanUI.StockmanWin;
-/**
- * 
- * 问：可以考虑把头像和左边栏vbox也加进来吗？
- * 再问：vbox可能不行，导致头像可能没法显示在最上面？
- * 以后再说吧
- * emm才看到 vbox不行 每个人功能不一致
- *
- */
+
 public class BackgroundController {
     @FXML public AnchorPane root;
     @FXML public ImageView logOutBtn;
@@ -89,6 +80,18 @@ public class BackgroundController {
         rippler.setOnMouseClicked(e -> popup.show(rippler, PopupVPosition.TOP, PopupHPosition.RIGHT));
 	
     }
+    
+    @FXML
+    public void onMessageBtnClicked(){
+    	Platform.runLater(()-> {
+            try {
+                new ui.mainUI.MessageWin();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    });
+    }
+    
     @FXML
     public void logOut() {
         Platform.runLater(()-> {

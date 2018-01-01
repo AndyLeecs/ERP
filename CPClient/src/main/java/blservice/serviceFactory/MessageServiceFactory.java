@@ -1,10 +1,15 @@
 package blservice.serviceFactory;
 
+import bl.userbl.MessageCenter;
+import blservice.userblservice.CheckMessageService;
 import blservice.userblservice.SendMessageService;
 
 public class MessageServiceFactory {
 	public static SendMessageService getSendMessageService(){
-		//TODO 
-		return null;
+		return new MessageCenter();
+	}
+	
+	public static CheckMessageService getCheckMessageService(){
+		return new MessageCenter();
 	}
 }

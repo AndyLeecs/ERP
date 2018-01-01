@@ -29,6 +29,7 @@
                     </image>
                 </ImageView>
             <JFXHamburger fx:id="hamburger1" layoutX="1103.0" layoutY="17.0" stylesheets="@../../css/commonUI/Common.css" />
+            <Button layoutX="1006.0" layoutY="20.0" mnemonicParsing="false" onAction="#onMessageBtnClicked" text="消息" />
             </children>
         </Pane>
         <Pane fx:id="addNext" layoutX="177.0" layoutY="121.0" opacity="0.39" prefHeight="646.0" prefWidth="978.0" style="-fx-background-color: transparent;">
