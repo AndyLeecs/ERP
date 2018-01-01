@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PO.user.UserPO;
+import network.accountRemoteHelper.AccountDataServiceHelper;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
@@ -40,7 +41,7 @@ public class ServerConnector {
 //		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		
-		
+		dataServiceHelpers.add(AccountDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
