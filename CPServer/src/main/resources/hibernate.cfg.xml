@@ -51,7 +51,9 @@
 		<mapping resource="EntryItemPO.hbm.xml" />
 
 		<mapping resource="ListPO.hbm.xml" />
-		
+        <mapping class="PO.InfoListPO"/>
+
+
 
 	</session-factory>
 </hibernate-configuration>

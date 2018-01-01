@@ -21,8 +21,12 @@ public class ListDataServiceImpl implements ListDataService {
     @Override
     public void changeToApproved(String id) {
          InfoListPO po=util.get(id);
+         if(po!=null){
          po.state=State.IsApproved;
          util.update(po);
+         }else{
+        	 System.out.println("PO为空");
+         }
     }
 
     @Override
