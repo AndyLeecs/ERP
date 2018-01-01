@@ -8,7 +8,7 @@ import  javax.persistence.*;
 @Entity
 @Table(name="ReportListPO")
 public class ReportListPO {
-	@Id @GeneratedValue
+	@Id 
 	@Column(name="listID")
 	public  String listID;
 

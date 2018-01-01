@@ -26,7 +26,7 @@ public class Main extends Application {
 
 //					new ui.mainUI.administratorUI.AdministratorWin();
 //					new Welcome();
-//					new LoginWin();
+					new LoginWin();
 //					new ui.salesmanUI.SalesmanWin();
 //					new ui.stockmanUI.StockmanWin();
 //					new ui.managerUI.LookListWin();
