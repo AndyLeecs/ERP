@@ -70,8 +70,8 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     @Override
     public GoodsPO getGoods(String name, String category) throws RemoteException {
         List<CriterionClause> l = new ArrayList<CriterionClause>();
-        criterionClauseGenerator.generateFuzzyCriterion(l,"goodsName",name);
-        criterionClauseGenerator.generateFuzzyCriterion(l,"goodsCategory",category);
+        criterionClauseGenerator.generateExactCriterion(l,"goodsName",name);
+        criterionClauseGenerator.generateExactCriterion(l,"goodsCategory",category);
         criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
         GoodsPO po = goodsUtil.Query(l).get(goodsUtil.Query(l).size()-1);
         System.out.println(po.getState());
@@ -81,10 +81,11 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
     @Override
     public ResultMessage deleteGoods(String category, String name) throws RemoteException {
         List<CriterionClause> l = new ArrayList<CriterionClause>();
-        criterionClauseGenerator.generateFuzzyCriterion(l,"goodsName",name);
-        criterionClauseGenerator.generateFuzzyCriterion(l,"goodsCategory",category);
+        criterionClauseGenerator.generateExactCriterion(l,"goodsName",name);
+        criterionClauseGenerator.generateExactCriterion(l,"goodsCategory",category);
         criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
-        GoodsPO po = goodsUtil.Query(l).get(goodsUtil.Query(l).size()-1);
+        GoodsPO po = goodsUtil.Query(l).get(0);
+        //GoodsPO po = goodsUtil.Query(l).get(goodsUtil.Query(l).size()-1);
         po.setState(GoodsUtil.DELETE);
         modifyGoods(po);
         return ResultMessage.SUCCESS;

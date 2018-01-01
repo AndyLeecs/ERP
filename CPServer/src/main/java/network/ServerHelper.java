@@ -83,8 +83,8 @@ public class ServerHelper {
 			StockReturnListDataService stockReturnListDataService  = new StockReturnListDataServiceImpl();
 			Naming.bind("StockReturnListDataService", stockReturnListDataService);
 //
-			SaleProjectionDataService saleProjectionDataService = new SaleProjectionDataServiceImpl();
-			Naming.bind("SaleProjectionDataService", saleProjectionDataService);
+//			SaleProjectionDataService saleProjectionDataService = new SaleProjectionDataServiceImpl();
+//			Naming.bind("SaleProjectionDataService", saleProjectionDataService);
 			//			SaleDataService saleDataService=new SaleDataServiceImpl();
 //			Naming.bind("SaleDataService", saleDataService);
 //			System.out.println("bind succeeded!");
