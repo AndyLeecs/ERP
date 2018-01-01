@@ -1,11 +1,12 @@
 package VO.VIPVO;
 
+import util.VIPGrade;
 import util.VIPUtil;
 
 public class VIPVO {
       public String id; //编号
       public String category; //分类
-      String grade; //级别
+      VIPGrade grade; //级别
       String name; //姓名
       String phoneNumber;//电话号码
       String email; //电子邮箱
@@ -17,14 +18,11 @@ public class VIPVO {
       String clerk; // 默认业务员
       int autoId;//数据库主键
       VIPUtil state = VIPUtil.EXIST;//会员状态 即是否被删除
-//    private String VIPID;
-//    private String VIPName;
-//    private String VIPCategory;
 
     public VIPVO(String id, String category, String grade, String name, String phoneNumber, String email, String address, String postCode, double collection, double collectionLimit, double payment, String clerk){
           this.id = id;
           this.category = category;
-          this.grade = grade;
+          this.grade = VIPGrade.getVIPGradeByString(grade);
           this.name=name;
     	  this.phoneNumber=phoneNumber;
           this.email=email;
@@ -74,11 +72,11 @@ public class VIPVO {
         this.category = category;
     }
 
-    public String getGrade() {
+    public VIPGrade getGrade() {
         return grade;
     }
 
-    public void setGrade(String grade) {
+    public void setGrade(VIPGrade grade) {
         this.grade = grade;
     }
 

@@ -117,7 +117,7 @@ public class VIPBLServiceImpl implements VIPBLService {
     private VIPVO poToVO(VIPPO vipPO){
         VIPVO vo = new VIPVO(vipPO.getId()
                 ,vipPO.getCategory()
-                ,vipPO.getGrade()
+                ,vipPO.getGrade().toString()
                 ,vipPO.getName()
                 ,vipPO.getPhoneNumber()
                 ,vipPO.getEmail()
@@ -135,7 +135,7 @@ public class VIPBLServiceImpl implements VIPBLService {
     private VIPPO voToPO(VIPVO vipVO){
        VIPPO po = new VIPPO(vipVO.getId()
                 ,vipVO.getCategory()
-                ,vipVO.getGrade()
+                ,vipVO.getGrade().toString()
                 ,vipVO.getName()
                 ,vipVO.getPhoneNumber()
                 ,vipVO.getEmail()
