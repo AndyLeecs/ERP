@@ -3,6 +3,7 @@ package blservice.serviceFactory;
 import bl.accountbl.AccountBLService_Stub;
 import bl.accountbl.CashExpenseListImpl;
 import bl.accountbl.CollectionListImpl;
+import blservice.accountblservice.AccountManagementService;
 import blservice.accountblservice.FinanceListService;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
@@ -27,5 +28,11 @@ public class AccountBLFactory {
 		//TODO change return when bl finish
 //		return new AccountBLService_Stub();
 		return new CashExpenseListImpl(CashExpenseListDataServiceHelper.getInstance().getDataService());
+	}
+	
+	public static AccountManagementService getAccountManagementService(){
+		//TODO
+		return new AccountBLService_Stub();
+//		return new AccountManagementServiceImpl();
 	}
 }

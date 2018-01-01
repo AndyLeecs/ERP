@@ -13,6 +13,7 @@ import VO.accountVO.PaymentListVO;
 import VO.accountVO.TransferItemVO;
 import VO.goodsVO.GoodsVO;
 import blservice.accountblservice.AccountBLService;
+import blservice.accountblservice.AccountManagementService;
 import resultmessage.ApproveRM;
 import resultmessage.CommitListRM;
 import resultmessage.DeleteListRM;
@@ -20,7 +21,7 @@ import resultmessage.ResultMessage;
 import resultmessage.SaveListRM;
 import util.State;
 
-public class AccountBLService_Stub implements AccountBLService{
+public class AccountBLService_Stub implements AccountBLService, AccountManagementService{
 	
 	protected static final GoodsVO goodsvo = null;
 	protected static final VIPVO vipvo = null;
@@ -255,6 +256,19 @@ public class AccountBLService_Stub implements AccountBLService{
 
 	@Override
 	public void reject(FinanceListVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<AccountVO> getAllAccount() {
+		List<AccountVO> list = new ArrayList<AccountVO>();
+		list.add(accountvo);
+		return list;
+	}
+
+	@Override
+	public void saveAllAccount(List<AccountVO> l) {
 		// TODO Auto-generated method stub
 		
 	}
