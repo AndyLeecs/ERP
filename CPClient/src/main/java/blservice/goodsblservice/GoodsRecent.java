@@ -1,4 +1,4 @@
-package bl.goodsbl;
+package blservice.goodsblservice;
 
 import resultmessage.ResultMessage;
 

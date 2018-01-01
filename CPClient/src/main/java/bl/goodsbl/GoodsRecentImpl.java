@@ -2,6 +2,7 @@ package bl.goodsbl;
 
 import VO.goodsVO.GoodsVO;
 import blservice.goodsblservice.GoodsBLService;
+import blservice.goodsblservice.GoodsRecent;
 import resultmessage.ResultMessage;
 
 import java.rmi.RemoteException;

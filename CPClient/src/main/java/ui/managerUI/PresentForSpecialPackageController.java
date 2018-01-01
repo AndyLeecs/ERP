@@ -10,14 +10,12 @@ import java.util.Optional;
 import VO.GoodsInSaleVO;
 import VO.goodsVO.GoodsVO;
 import VO.presentVO.PresentForSpecialPackageVO;
-import VO.presentVO.PresentForSumVO;
 import VO.presentVO.PresentVO;
-import bl.goodsbl.GoodsFuzzySearch;
+import blservice.goodsblservice.GoodsFuzzySearch;
 import bl.goodsbl.GoodsFuzzySearchImpl;
 import bl.presentbl.PresentBLFactory;
 import bl.utility.GoodsVOTrans;
 import blservice.presentblservice.PresentForSpecialPackageBLService;
-import blservice.presentblservice.PresentForSumBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -30,7 +28,6 @@ import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
 import ui.commonUI.GoodsSearchResultWin;
 import util.DateUtil;
-import util.NumberUtil;
 
 /**     
 * @author 李安迪
