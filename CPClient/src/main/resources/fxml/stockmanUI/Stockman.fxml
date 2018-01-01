@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="draftBtn" prefHeight="63.0" prefWidth="122.0" ripplerFill="WHITE" text="库存查看" textFill="#9f353a" onAction="#StoreCheck">
+            <JFXButton fx:id="draftBtn" prefHeight="63.0" prefWidth="122.0" ripplerFill="WHITE" text="库存查看" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
