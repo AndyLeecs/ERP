@@ -37,7 +37,28 @@ public class AccountManagementServiceImpl implements AccountManagementService{
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		
+	
+	}
+	
+	
+	@Override
+	public AccountVO getAccount(String accountName) {
+		try {
+			AccountPO po = service.get(accountName);
+			return poTovo(po);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void update(AccountVO vo) {
+		try {
+			service.update(voTopo(vo));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -48,5 +69,6 @@ public class AccountManagementServiceImpl implements AccountManagementService{
 	private AccountVO poTovo(AccountPO po){
 		return new AccountVO(po.getAccountName(),po.getBalance());
 	}
+
 
 }

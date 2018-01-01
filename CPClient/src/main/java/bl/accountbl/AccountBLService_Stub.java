@@ -272,6 +272,18 @@ public class AccountBLService_Stub implements AccountBLService, AccountManagemen
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public AccountVO getAccount(String accountName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(AccountVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

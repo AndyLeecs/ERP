@@ -52,4 +52,15 @@ public class AccountDataServiceImpl extends UnicastRemoteObject implements Accou
 		return DataRM.SUCCESS;
 	}
 
+	@Override
+	public AccountPO get(String accountName) throws RemoteException {
+		return (AccountPO) basicUtil.get(accountName);
+		
+	}
+
+	@Override
+	public DataRM update(AccountPO po) throws RemoteException {
+		return basicUtil.update(po);
+	}
+
 }

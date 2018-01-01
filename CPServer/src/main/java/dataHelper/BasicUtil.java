@@ -91,7 +91,7 @@ public interface BasicUtil<T> extends Remote,Serializable{
 	 * @param id
 	 * @return 获得该业务id对应的po实体
 	 */
-	public Object get(String id);
+	public T get(String id);
 	/**
 	 * @param l
 	 * @param o

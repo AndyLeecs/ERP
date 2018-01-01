@@ -10,6 +10,7 @@ import VO.accountVO.FinanceListVO;
 import VO.listVO.InfoListVO;
 import bl.listbl.InfoList;
 import bl.listbl.InfoList_Impl;
+import blservice.accountblservice.AccountManagementService;
 import blservice.accountblservice.FinanceListService;
 import dataService.accountDataService.FinanceListDataService;
 import resultmessage.ApproveRM;
@@ -27,6 +28,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 
 	FinanceListDataService dataService;
 	InfoList infoListService = new InfoList_Impl();
+	AccountManagementService accountManagementService = new AccountManagementServiceImpl();
 	
 	public FinanceListImpl(FinanceListDataService dataService){
 		this.dataService = dataService;

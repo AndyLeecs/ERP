@@ -20,4 +20,10 @@ public interface AccountManagementService {
 	
 	//删除旧的账户信息，保存所有新的账户信息
 	public void saveAllAccount(List<AccountVO> l);
+	
+	//得到指定账户信息
+	public AccountVO getAccount(String accountName);
+	
+	//更新账户信息
+	public void update(AccountVO vo);
 }

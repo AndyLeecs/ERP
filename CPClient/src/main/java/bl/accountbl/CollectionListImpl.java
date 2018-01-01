@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import PO.account.CollectionListPO;
 import PO.account.FinanceListPO;
 import PO.account.TransferItemPO;
+import VO.accountVO.AccountVO;
 import VO.accountVO.CollectionListVO;
 import VO.accountVO.FinanceListVO;
 import VO.accountVO.TransferItemVO;
@@ -34,7 +35,9 @@ public class CollectionListImpl extends FinanceListImpl{
 		
 		for(TransferItemVO item : cvo.getTransferItem()){
 			String accountName = item.getAccount();
-			//TODO 减少账户余额
+			AccountVO account = accountManagementService.getAccount(accountName);
+			account.setBalance(account.getBalance() + item.getAmount());
+			accountManagementService.update(account);
 		}
 		
 		//检查成功
