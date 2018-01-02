@@ -68,6 +68,13 @@ public class BackgroundController {
         list.getItems().add(messageBtn);
         messageBtn.setOnMouseClicked(e->{
         	System.out.println("clicked message");
+        	Platform.runLater(()-> {
+                try {
+                    new ui.mainUI.MessageWin();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+        });
         });
         
         JFXButton settingBtn = new JFXButton("偏好设置");
