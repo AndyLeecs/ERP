@@ -121,11 +121,13 @@ public class HibernateUtil_Green<T> {
             
             tx.commit();
             
-        }catch(HibernateException e){
+        }
+        catch(HibernateException e){
             if(tx!=null){
+            	System.out.println("新增失败，发生回滚");
                 tx.rollback();
-                System.out.println("新增失败，发生回滚");
-                e.printStackTrace();
+                
+                //e.printStackTrace();
 
             }
           res=false;

@@ -1,12 +1,15 @@
 package dataServiceImpl.stroreImpl;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 
 import PO.AlarmListPO;
 import PO.PresentListPO;
 import PO.ReportListPO;
+import PO.StoreListID;
 import PO.StoreLogPO;
 import PO.StorePO;
 import dataHelper.HibernateUtil_Green;
@@ -23,7 +26,14 @@ public class StoreDataServiceImpl  implements  StoreDataService {
 	@Override
 	public boolean checkID(String id) {
 		// 这个方法应该是库存项专用的，不过也可以把它改成通用的
+		
+		StorePO  po=getStorePO(id);
+		if(po!=null){
+			return true;
+		}
+		else{
 		return false;
+		}
 	}
 
 	@Override
@@ -35,7 +45,9 @@ public class StoreDataServiceImpl  implements  StoreDataService {
 
 	@Override
 	public String calcID(StoreListType lt) {
-		// TODO Auto-generated method stub
+	//	String day=calcTime();
+	//	HibernateUtil_Green<StoreListID> hug=new HibernateUtil_Green<StoreListID>(StoreListID.class);
+	
 		return null;
 	}
 
@@ -153,6 +165,11 @@ public class StoreDataServiceImpl  implements  StoreDataService {
 		HibernateUtil_Green<StoreLogPO> util= new HibernateUtil_Green<StoreLogPO>(StoreLogPO.class);
 		util.insert(po);
 		
+	}
+	private String calcTime(){
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");//设置日期格式
+		String s=df.format(new Date());
+		return s;
 	}
     
 }

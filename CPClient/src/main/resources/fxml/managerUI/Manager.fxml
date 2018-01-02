@@ -64,6 +64,6 @@
             <DropShadow blurType="GAUSSIAN" color="#c74242cf" height="0.0" radius="6.2675" width="27.07" />
          </effect>
       </Circle>
-      <BorderPane fx:id="centerPane" layoutX="121.0" layoutY="95.0" prefHeight="705.0" prefWidth="1066.0" />
+      <BorderPane fx:id="centerPane" layoutX="171.0" layoutY="114.0" prefHeight="659.0" prefWidth="988.0" />
    </children>
 </AnchorPane>

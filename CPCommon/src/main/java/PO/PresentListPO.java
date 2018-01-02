@@ -35,4 +35,6 @@ public class PresentListPO extends StockListPO implements Serializable{
 	@Column(name="operator")
 	public String operator;//操作员
 
+	public PresentListPO(){}
+
 }

@@ -6,7 +6,7 @@ import util.GreatListType;
 @Table(name="StoreLogPO")
 public class StoreLogPO {
 	//为了库存查看，必须记录下来每次库存变动的时间、商品ID、商品名称、变动原因、商品数量、涉及的单价
-    @Id @GeneratedValue
+    @Id
     @Column(name="id")
     public String id;
 
@@ -26,4 +26,5 @@ public class StoreLogPO {
     @Column(name="price")
     public double price;
 
+    public StoreLogPO(){}
 }
