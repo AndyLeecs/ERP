@@ -135,11 +135,7 @@ public class ServerHelper {
 	
 	public void initListID(){
 		//初始化一下，因为你们现在数据库里还没有。等你们都有了就可以删了。
-		/*
-		 * 从第二次跑开始会抛出异常（我不知道怎么成功接住这个异常），因为主键已存在
-		 * 这个方法应该是第一次给用户安装的时候执行的，只执行一次
-		 * 所以大家如果抛出异常就把构造方法里的调用注释了就行。
-		 */
+
 		HibernateUtil_Green<StoreListID> hug=new HibernateUtil_Green<StoreListID>(StoreListID.class);
 		StoreListID po1 = new StoreListID(StoreListType.ALARM,"KCBJD");
 		StoreListID po2 =new StoreListID(StoreListType.LOSS,"KCBSD");
