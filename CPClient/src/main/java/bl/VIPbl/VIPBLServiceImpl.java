@@ -79,6 +79,7 @@ public class VIPBLServiceImpl implements VIPBLService {
         //return vipvos;//这个是假的
         //以下是真的
         
+        //TODO 返回值如果是null的话无法进行强制类型转换
         ArrayList<VIPPO> list = (ArrayList<VIPPO>) vipDataService.findVIP(info,type);
         ArrayList<VIPVO> ret = new ArrayList<>();
         for(int i =0;i<list.size();i++){
