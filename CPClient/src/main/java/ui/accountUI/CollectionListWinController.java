@@ -26,7 +26,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
-import ui.commonUI.PromptWin;
 import ui.commonUI.VIPSearchResultWin;
 import ui.commonUI.VIPSearcher;
 import ui.mainUI.loginUI.User;
@@ -44,6 +43,7 @@ public class CollectionListWinController extends FinanceListWinController{
 	@FXML Label VIPID;
 	@FXML TextField searchVIPTextField;
 	@FXML Button searchVIPBtn;
+	boolean VIPSelected = false;
 	VIPFuzzySearch vipSearchService = VIPSearcherFactory.getVIPFuzzySearchService(); 
 	
 	@FXML TableView<TransferItem> TransferListTableView;
@@ -176,11 +176,7 @@ public class CollectionListWinController extends FinanceListWinController{
 	public void onSearchVIPBtnClicked(){
 		String keyword = searchVIPTextField.getText();
 		if(keyword == null){		
-			try {
-				new PromptWin("请输入会员的关键字！");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			prompt("请输入会员的关键字！");
 			return;
 		}
 		List<VIPVO> vipList = null;
@@ -191,18 +187,12 @@ public class CollectionListWinController extends FinanceListWinController{
 			vipList = new ArrayList<VIPVO>(new HashSet<VIPVO>(vipList));
 		} catch (RemoteException e) {
 			e.printStackTrace();
-			try {
-				new PromptWin("网络异常，请稍后再试！");
-			} catch (IOException e2) {
-				e2.printStackTrace();
-			}
+			prompt("网络异常，请稍后再试！");
+			return;
 		}
 		if(vipList == null || vipList.size() == 0){
-			try {
-				new PromptWin("没有符合条件的会员信息！");
-			} catch (IOException e2) {
-				e2.printStackTrace();
-			}
+			prompt("没有符合条件的会员信息！");
+			return;
 		}
 		try {
 			new VIPSearchResultWin(vipList,new VIPSearcher(){
@@ -210,6 +200,7 @@ public class CollectionListWinController extends FinanceListWinController{
 				public void VIPSelected(VIPVO vipvo) {
 					VIPName.setText(vipvo.getName());
 					VIPID.setText(vipvo.getId());
+					VIPSelected = true;
 				}
 			});
 		} catch (IOException e) {
@@ -219,7 +210,7 @@ public class CollectionListWinController extends FinanceListWinController{
 	}
 	
 	@FXML 
-	public  void OnAccountSelected(ActionEvent event) {		//TODO 不知道为什么这个方法每次点都会掉用4次(2次可以理解)。不过不影响功能，只是会产生outofboundException
+	public  void OnAccountSelected(ActionEvent event) {		//不知道为什么这个方法每次点都会掉用4次(2次可以理解)。不过不影响功能，只是会产生outofboundException
 
 		String newAccount = AccountComboBox.getValue();
 		System.out.println("new:"+newAccount+"end");
@@ -231,11 +222,7 @@ public class CollectionListWinController extends FinanceListWinController{
 			int i = 1;
 			TransferItem item = iterator.next();
 			if(item.getAccount().equals(newAccount)){	//此账户已经选择过了
-				try {
-					new PromptWin("此账户已经选择过啦");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+//				prompt("此账户已经选择过啦");				//重复触发事件的问题没有解决，那就不提示了，感觉不出来
 				return;
 			}
 			System.out.println(i++);
@@ -258,6 +245,10 @@ public class CollectionListWinController extends FinanceListWinController{
 
 	@FXML 
 	public void onCommitBtnClicked() {		//可以加一些提交单据的前置条件
+		if(VIPSelected == false){
+			prompt("请选择会员！");
+			return;
+		}
 		if(transferItem.isEmpty()){
 			prompt("转账列表是不能为空的");
 			return;
