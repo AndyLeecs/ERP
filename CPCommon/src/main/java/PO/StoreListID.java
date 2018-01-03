@@ -19,8 +19,8 @@ public class StoreListID {
 	
 	
 	@Id
-	@Column(name="type")
-	public StoreListType type;
+	@Column(name="ListType")
+	public String ListType;
 	
 	@Column(name="num")
 	public int num;
@@ -29,8 +29,8 @@ public class StoreListID {
 	public String listName;
 	
 	public StoreListID(){}
-    public StoreListID(StoreListType type,String listName){
-    	this.type=type;
+    public StoreListID(String type,String listName){
+    	this.ListType=type;
     	this.listName=listName;
     }
 	

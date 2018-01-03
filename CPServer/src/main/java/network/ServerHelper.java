@@ -137,10 +137,10 @@ public class ServerHelper {
 		//初始化一下，因为你们现在数据库里还没有。等你们都有了就可以删了。
 
 		HibernateUtil_Green<StoreListID> hug=new HibernateUtil_Green<StoreListID>(StoreListID.class);
-		StoreListID po1 = new StoreListID(StoreListType.ALARM,"KCBJD");
-		StoreListID po2 =new StoreListID(StoreListType.LOSS,"KCBSD");
-		StoreListID po3 =new StoreListID(StoreListType.OVERFLOW,"KCBYD");
-		StoreListID po4=new StoreListID(StoreListType.PRESENT,"KCZSD");
+		StoreListID po1 = new StoreListID(StoreListType.ALARM.toString(),"KCBJD");
+		StoreListID po2 =new StoreListID(StoreListType.LOSS.toString(),"KCBSD");
+		StoreListID po3 =new StoreListID(StoreListType.OVERFLOW.toString(),"KCBYD");
+		StoreListID po4=new StoreListID(StoreListType.PRESENT.toString(),"KCZSD");
 	    hug.insert(po4);
 	    hug.insert(po3);
 	    hug.insert(po1);

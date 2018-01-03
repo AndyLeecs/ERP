@@ -45,10 +45,25 @@ public class StoreDataServiceImpl  implements  StoreDataService {
 
 	@Override
 	public String calcID(StoreListType lt) {
-	//	String day=calcTime();
-	//	HibernateUtil_Green<StoreListID> hug=new HibernateUtil_Green<StoreListID>(StoreListID.class);
+		String s;
+		String day=calcTime();
+		HibernateUtil_Green<StoreListID> hug=new HibernateUtil_Green<StoreListID>(StoreListID.class);
+		StoreListID slid=hug.get(lt.toString());
+		if(slid.day==null||(!slid.day.equals(day))){
+			slid.day=day;
+			slid.num=1;
+			s=slid.listName+"-"+day+"-00001";
+			hug.insert(slid);
+		}else{
+			String num=Integer.toString(slid.num+1);
+			s=slid.listName+"-"+day;
+			for(int i=0;i<5-num.length();i++){
+				num="0"+num;
+			}
+			s=s+"-"+num;
+		}
 	
-		return null;
+		return s;
 	}
 
 	@Override
