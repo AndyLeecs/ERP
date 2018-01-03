@@ -14,6 +14,8 @@ import network.accountRemoteHelper.AccountDataServiceHelper;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
+import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
+import network.presentRemoteHelper.PresentForSpecialPackageDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
 import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
@@ -55,8 +57,8 @@ public class ServerConnector {
 		dataServiceHelpers.add(UserDataServiceHelper.getInstance());
 		dataServiceHelpers.add(MessageDataServiceHelper.getInstance());
 		
-//		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
+		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
+		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
 //		
 //		
