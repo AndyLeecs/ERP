@@ -80,6 +80,11 @@ public class PresentResultVO {
 		this.presentList = presentList;
 		this.sum = sum;
 	}
+	@Override
+	public String toString() {
+		return "PresentResultVO [id=" + id + ", presentId=" + presentId + ", voucher=" + voucher + ", presentList="
+				+ presentList + ", sum=" + sum + "]";
+	}
 	
 	
 }

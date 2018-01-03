@@ -89,7 +89,7 @@ public class LoginController {
 					break;
 				}
 				case Salesman:{
-					new ui.salesmanUI.SaleWin();
+					new ui.salesmanUI.SalesmanWin();
 					break;
 				}
 				case Accountant:{

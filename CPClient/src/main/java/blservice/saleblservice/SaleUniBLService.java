@@ -19,4 +19,6 @@ public interface SaleUniBLService {
 	public DataRM save(SalesmanListVO vo);
 	public DataRM commit(SalesmanListVO vo);
 	public List<SalesmanListVO> openAllDraft();
+	
+	public SalesmanListVO get(String id);
 }

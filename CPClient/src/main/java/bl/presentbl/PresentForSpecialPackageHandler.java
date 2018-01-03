@@ -22,13 +22,16 @@ public class PresentForSpecialPackageHandler {
 	 * @return
 	 */
 	public PresentResultVO handle(List<GoodsInSaleVO> goodsList, PresentResultVO result) {
-		// TODO Auto-generated method stub
+		System.out.println("handling presentforspecialpackage");
 
 		List<PresentForSpecialPackageVO> list = impl.getWithMinSpecialPackage(goodsList);
 		if(list != null && ! list.isEmpty()){
 		PresentForSpecialPackageVO newPresent = list.get(0);
+		System.out.println(newPresent);
 		int id = newPresent.getId();
 		result.getPresentId().add(id);
+		System.out.println("presentid"+id);
+		System.out.println("presentidInList"+result.getPresentId());
 		result.getPresentList().addAll(newPresent.getPresentList());
 		double rebate = newPresent.getPriceReduction();
 		if(result.getSum() - rebate > 0)
