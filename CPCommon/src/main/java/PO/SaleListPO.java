@@ -6,6 +6,7 @@ import java.util.List;
 
 import util.State;
 import util.UserGrade;
+import util.VIPGrade;
 
 /**     
 * @author 李安迪
@@ -13,7 +14,18 @@ import util.UserGrade;
 * @description
 */
 public class SaleListPO extends SalesmanListPO implements Serializable{
-//	/**
+public VIPGrade getMemberGrade() {
+		return memberGrade;
+	}
+
+
+
+
+	public void setMemberGrade(VIPGrade memberGrade) {
+		this.memberGrade = memberGrade;
+	}
+
+	//	/**
 //	 * 单据编号
 //	 */
 //	String id;
@@ -32,15 +44,19 @@ public class SaleListPO extends SalesmanListPO implements Serializable{
 	PresentResultPO presentResultPO;
 	public SaleListPO(){}
 	
+	 /**
+	  * 客户等级
+	  */
+	 VIPGrade memberGrade;
 
 
 
 
-
-	public SaleListPO(String id, State state, Date day, UserGrade operatorGrade,String memberID, String memberName,String operator,String operatorId,
+	public SaleListPO(String id, State state, Date day, UserGrade operatorGrade,String memberID, String memberName,VIPGrade memberGrade,String operator,String operatorId,
 			String realOperator, String warehouse, String notes, List<SalesmanItemPO> saleListItems, double sum,
 			double sumBeforeRebate, double rebate, double voucher,PresentResultPO po) {
 		super(id, state, day, operatorGrade,memberID, memberName,operator,operatorId,realOperator, warehouse, notes, saleListItems, sum);
+		this.memberGrade = memberGrade;
 		this.sumBeforeRebate = sumBeforeRebate;
 		this.rebate = rebate;
 		this.voucher = voucher;
@@ -50,7 +66,12 @@ public class SaleListPO extends SalesmanListPO implements Serializable{
 
 
 
-
+	public VIPGrade getGrade() {
+		return memberGrade;
+	}
+	public void setGrade(VIPGrade grade) {
+		this.memberGrade = grade;
+	}
 
 	public PresentResultPO getPresentResultPO() {
 		return presentResultPO;
