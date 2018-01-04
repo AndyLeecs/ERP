@@ -3,6 +3,8 @@ package ui.salesmanUI;
 import java.io.IOException;
 import java.util.List;
 
+import com.jfoenix.controls.JFXButton;
+
 import VO.saleVO.SalesmanListVO;
 import bl.salebl.SaleBLFactory;
 import blservice.saleblservice.SaleListBLService;
@@ -13,6 +15,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -25,6 +28,8 @@ import ui.salesmanUI.stockListUI.StockListViewController;
 import ui.salesmanUI.stockListUI.StockNewListController;
 import ui.salesmanUI.stockReturnListUI.StockReturnListViewController;
 import ui.salesmanUI.stockReturnListUI.StockReturnNewListController;
+import ui.salesmanUI.vip.VIPController;
+import ui.salesmanUI.vip.VIPWin;
 
 /**     
 * @author 李安迪
@@ -46,6 +51,8 @@ public class SalesmanController implements ParentController {
 	@FXML public MenuItem draftStockListBtn;
 	@FXML public MenuItem draftStockReturnListBtn;
 	
+	@FXML public JFXButton vipBtn;
+	
 	private static final String SALE_LIST_TITLE_SOURCE = "/fxml/salesmanUI/SaleListTitle.fxml";
 	private static final String SALERETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/SaleReturnListTitle.fxml";
 	private static final String STOCK_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
@@ -61,9 +68,30 @@ public class SalesmanController implements ParentController {
 	SalesmanListWinController controller;
 	ListViewController viewController;
 	Alert information;
+	
+	public void setVIPInvisible() {
+		VIPController vipController = new VIPController();
+		vipController.vip1.setVisible(false);
+		vipController.vip2.setVisible(false);
+		vipController.scrollPane.setVisible(false);
+	}
+	
+	@FXML
+	public void setVIPBtn() {
+		Platform.runLater(()->{
+			try {
+				new VIPWin();
+				root.getScene().getWindow().hide();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+	}
 
 	@FXML
 	public void newSaleList(){
+		
 		if(centerPane.getChildren().isEmpty()){
 			System.out.println("in loading new saleList");
 			SaleListBLService service = SaleBLFactory.getSaleListBLService();
@@ -78,6 +106,8 @@ public class SalesmanController implements ParentController {
 	
 	@FXML
 	public void newSaleReturnList(){
+		setVIPInvisible();
+		
 		if(centerPane.getChildren().isEmpty()){
 			SaleReturnListBLService service = SaleBLFactory.getSaleReturnListBLService();
 			String id = service.getId();
@@ -90,6 +120,7 @@ public class SalesmanController implements ParentController {
 
 	@FXML
 	public void newStockList(){
+		
 		if(centerPane.getChildren().isEmpty()){
 			System.out.println(SaleBLFactory.getStockListBLService());
 
@@ -105,6 +136,7 @@ public class SalesmanController implements ParentController {
 	
 	@FXML
 	public void newStockReturnList(){
+		
 		if(centerPane.getChildren().isEmpty()){
 			StockReturnListBLService service = SaleBLFactory.getStockReturnListBLService();
 			String id = service.getId();
@@ -116,6 +148,7 @@ public class SalesmanController implements ParentController {
 	}	
 	@FXML
 	public void showDraftSaleList(){
+		
 		if(centerPane.getChildren().isEmpty()){
 			SaleListBLService service = SaleBLFactory.getSaleListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
@@ -126,6 +159,7 @@ public class SalesmanController implements ParentController {
 	}
 	@FXML
 	public void showDraftSaleReturnList(){
+		
 		if(centerPane.getChildren().isEmpty()){
 			SaleReturnListBLService service = SaleBLFactory.getSaleReturnListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
@@ -136,6 +170,7 @@ public class SalesmanController implements ParentController {
 	}
 	@FXML
 	public void showDraftStockList(){
+		
 		if(centerPane.getChildren().isEmpty()){
 			StockListBLService service = SaleBLFactory.getStockListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
@@ -146,6 +181,7 @@ public class SalesmanController implements ParentController {
 	}
 	@FXML
 	public void showDraftStockReturnList(){
+		
 		if(centerPane.getChildren().isEmpty()){
 			StockReturnListBLService service = SaleBLFactory.getStockReturnListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
@@ -155,6 +191,7 @@ public class SalesmanController implements ParentController {
 		});}
 	}
 	private void loadNewList(String id, String fxmlTitlePath, String fxmlPath, String cssTitlePath, String cssPath,SalesmanListWinController controller){
+		
 		if(id == null){
 			information = new Alert(Alert.AlertType.ERROR,"请继续努力工作吧~");
 			information.setTitle("今日单据生成数目已达到上限");         
@@ -184,6 +221,7 @@ public class SalesmanController implements ParentController {
 	}
 
 	private void showDraftList(List<SalesmanListVO> list, String fxmlTitlePath, String fxmlPath, String cssTitlePath, String cssPath,ListViewController controller){
+		
 		if(list == null){
 			information = new Alert(Alert.AlertType.ERROR,"请继续努力工作吧~");
 			information.setTitle("网络错误");         
@@ -220,6 +258,7 @@ public class SalesmanController implements ParentController {
 	 * @param cssPath
 	 */
 	private void loadSimpleFXML(String fxmlPath, String cssPath) {
+		
 		System.out.println("loading title");
 		AnchorPane titleRoot = null;
  		 FXMLLoader loader = new FXMLLoader(

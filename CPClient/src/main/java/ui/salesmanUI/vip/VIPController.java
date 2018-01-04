@@ -28,6 +28,10 @@ import com.jfoenix.controls.JFXTextField;
  * Created by julia98 on 2017/12/22.
  */
 public class VIPController {
+	@FXML public Pane vip1;
+	@FXML public Pane vip2;
+	@FXML public ScrollPane scrollPane;
+	
     @FXML public Label presentLocation;
     @FXML public Button vipNameSearchBtn;
     @FXML public Button vipPhoneNumberSearchBtn;
