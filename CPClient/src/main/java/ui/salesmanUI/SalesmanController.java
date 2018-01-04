@@ -70,12 +70,12 @@ public class SalesmanController implements ParentController {
 	ListViewController viewController;
 	Alert information;
 	
-	public void setVIPInvisible() {
-		VIPController vipController = new VIPController();
-		vipController.vip1.setVisible(false);
-		vipController.vip2.setVisible(false);
-		vipController.scrollPane.setVisible(false);
-	}
+//	public void setVIPInvisible() {
+//		VIPController vipController = new VIPController();
+//		vipController.vip1.setVisible(false);
+//		vipController.vip2.setVisible(false);
+//		vipController.scrollPane.setVisible(false);
+//	}
 	
 	@FXML
 	public void setVIPBtn() {
@@ -110,9 +110,7 @@ public class SalesmanController implements ParentController {
 	}
 	
 	@FXML
-	public void newSaleReturnList(){
-		setVIPInvisible();
-		
+	public void newSaleReturnList(){	
 		if(centerPane.getChildren().isEmpty()){
 			SaleReturnListBLService service = SaleBLFactory.getSaleReturnListBLService();
 			String id = service.getId();
