@@ -19,6 +19,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import resultmessage.DataRM;
 import ui.commonUI.ParentController;
 import ui.salesmanUI.saleListUI.SaleListViewController;
 import ui.salesmanUI.saleListUI.SaleNewListController;
@@ -101,6 +102,10 @@ public class SalesmanController implements ParentController {
 		Platform.runLater(()->{
 			loadNewList(id,SALE_LIST_TITLE_SOURCE,SALE_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
 		});}
+		else
+		{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
+		}
 
 	}
 	
@@ -115,6 +120,10 @@ public class SalesmanController implements ParentController {
 		Platform.runLater(()->{
 			loadNewList(id,SALERETURN_LIST_TITLE_SOURCE,SALERETURN_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
 		});}
+		else
+		{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
+		}
 
 	}		
 
@@ -131,7 +140,10 @@ public class SalesmanController implements ParentController {
 		Platform.runLater(()->{
 			loadNewList(id,STOCK_LIST_TITLE_SOURCE,STOCK_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
 		});}
-
+		else
+		{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
+		}
 	}	
 	
 	@FXML
@@ -144,7 +156,10 @@ public class SalesmanController implements ParentController {
 		Platform.runLater(()->{
 			loadNewList(id,STOCKRETURN_LIST_TITLE_SOURCE,STOCKRETURN_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
 		});}
-
+		else
+		{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
+		}
 	}	
 	@FXML
 	public void showDraftSaleList(){
@@ -156,6 +171,10 @@ public class SalesmanController implements ParentController {
 		Platform.runLater(()->{
 			showDraftList(list,SALE_LIST_TITLE_SOURCE,VIEW_PATH,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
+		else
+		{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
+		}
 	}
 	@FXML
 	public void showDraftSaleReturnList(){
@@ -167,6 +186,10 @@ public class SalesmanController implements ParentController {
 		Platform.runLater(()->{
 			showDraftList(list,SALERETURN_LIST_TITLE_SOURCE,VIEW_PATH,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
+		else
+		{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
+		}
 	}
 	@FXML
 	public void showDraftStockList(){
@@ -178,6 +201,10 @@ public class SalesmanController implements ParentController {
 		Platform.runLater(()->{
 			showDraftList(list,STOCK_LIST_TITLE_SOURCE,VIEW_PATH,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
+		else
+		{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
+		}
 	}
 	@FXML
 	public void showDraftStockReturnList(){
@@ -189,6 +216,11 @@ public class SalesmanController implements ParentController {
 		Platform.runLater(()->{
 			showDraftList(list,STOCKRETURN_LIST_TITLE_SOURCE,VIEW_PATH,FORM_CSS_PATH,FORM_CSS_PATH,viewController);		
 		});}
+		
+		else
+		{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
+		}
 	}
 	private void loadNewList(String id, String fxmlTitlePath, String fxmlPath, String cssTitlePath, String cssPath,SalesmanListWinController controller){
 		

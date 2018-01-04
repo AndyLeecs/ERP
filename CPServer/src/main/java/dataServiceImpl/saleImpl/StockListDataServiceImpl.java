@@ -34,7 +34,6 @@ public class StockListDataServiceImpl extends UnicastRemoteObject implements Sto
 		super();
 		util = new HibernateUtil<StockListPO>(StockListPO.class);
 		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
-		// TODO Auto-generated constructor stub
 	}
 
 	/* (non-Javadoc)
@@ -53,6 +52,8 @@ public class StockListDataServiceImpl extends UnicastRemoteObject implements Sto
 		 
 		StockListPO po = (StockListPO)(util.get(id));
 		po.setState(State.IsDeleted);
+		System.out.println(util);
+		System.out.println(po);
 		return util.update(po);
 	}
 

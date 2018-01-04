@@ -21,7 +21,7 @@ public class StockReturnListCellController extends StockListCellController imple
 	 */
 	public StockReturnListCellController(ListViewController stockReturnListViewController, SalesmanListVO vo) {
 		super(stockReturnListViewController, vo);
-
+		this.uniBLService = SaleBLFactory.getStockReturnListBLService();
 	}
 
 	@Override
