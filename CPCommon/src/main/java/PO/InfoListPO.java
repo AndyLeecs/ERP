@@ -1,12 +1,17 @@
 package PO;
-import  javax.persistence.*;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import util.GreatListType;
 import util.State;
 
 @Entity
 @Table(name="InfoListPO")
-public class InfoListPO {
+public class InfoListPO implements Serializable{
 
 
 
