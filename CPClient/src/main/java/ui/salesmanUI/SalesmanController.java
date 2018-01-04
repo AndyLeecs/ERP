@@ -17,6 +17,14 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import ui.commonUI.ParentController;
+import ui.salesmanUI.saleListUI.SaleListViewController;
+import ui.salesmanUI.saleListUI.SaleNewListController;
+import ui.salesmanUI.saleReturnListUI.SaleReturnListViewController;
+import ui.salesmanUI.saleReturnListUI.SaleReturnNewListController;
+import ui.salesmanUI.stockListUI.StockListViewController;
+import ui.salesmanUI.stockListUI.StockNewListController;
+import ui.salesmanUI.stockReturnListUI.StockReturnListViewController;
+import ui.salesmanUI.stockReturnListUI.StockReturnNewListController;
 
 /**     
 * @author 李安迪
@@ -26,7 +34,7 @@ import ui.commonUI.ParentController;
 public class SalesmanController implements ParentController {
 	@FXML public AnchorPane root;
 	@FXML public BorderPane centerPane;
-	@FXML public BorderPane titlePane;
+	@FXML public AnchorPane titlePane;
 	
 	@FXML public MenuItem newSaleListBtn;
 	@FXML public MenuItem newSaleReturnListBtn;
@@ -38,11 +46,10 @@ public class SalesmanController implements ParentController {
 	@FXML public MenuItem draftStockListBtn;
 	@FXML public MenuItem draftStockReturnListBtn;
 	
-	//TODO 修改标题fxml的路径
-	private static final String SALE_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
-	private static final String SALERETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
+	private static final String SALE_LIST_TITLE_SOURCE = "/fxml/salesmanUI/SaleListTitle.fxml";
+	private static final String SALERETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/SaleReturnListTitle.fxml";
 	private static final String STOCK_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
-	private static final String STOCKRETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockListTitle.fxml";
+	private static final String STOCKRETURN_LIST_TITLE_SOURCE = "/fxml/salesmanUI/StockReturnListTitle.fxml";
 	
 	private static final String SALE_LIST_SOURCE = "/fxml/salesmanUI/SaleTypeList.fxml";
 	private static final String SALERETURN_LIST_SOURCE = "/fxml/salesmanUI/SaleTypeList.fxml";
@@ -148,7 +155,6 @@ public class SalesmanController implements ParentController {
 	}
 	private void loadNewList(String id, String fxmlTitlePath, String fxmlPath, String cssTitlePath, String cssPath,SalesmanListWinController controller){
 		if(id == null){
-			//TODO 提示单据已满的界面
 			information = new Alert(Alert.AlertType.ERROR,"请继续努力工作吧~");
 			information.setTitle("今日单据生成数目已达到上限");         
 			information.setHeaderText("失败");    
@@ -161,13 +167,7 @@ public class SalesmanController implements ParentController {
 		AnchorPane ListRoot = null;
 		try {
 			loader = new FXMLLoader(getClass().getResource(fxmlPath));
-			
-//			ListWinController ListWinController  = controller;
-//			controller.setParentController(this);
-//			controller.setListID(id);
-//			controller.setOperator(User.getInstance().getUserName());
-
-			loader.setController(controller);
+      		loader.setController(controller);
 			ListRoot = loader.load();
 			
 
@@ -185,7 +185,6 @@ public class SalesmanController implements ParentController {
 
 	private void showDraftList(List<SalesmanListVO> list, String fxmlTitlePath, String fxmlPath, String cssTitlePath, String cssPath,ListViewController controller){
 		if(list == null){
-			//TODO 提示网络错误的界面
 			information = new Alert(Alert.AlertType.ERROR,"请继续努力工作吧~");
 			information.setTitle("网络错误");         
 			information.setHeaderText("失败");    

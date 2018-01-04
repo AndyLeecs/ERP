@@ -9,6 +9,7 @@ import VO.storeVO.AlarmListVO;
 import VO.storeVO.PresentListVO;
 import VO.storeVO.StoreLogVO;
 import util.GreatListType;
+import util.State;
 import util.StoreListType;
 import VO.storeVO.StoreVO;
 import VO.storeVO.storeRM;
@@ -134,6 +135,7 @@ public class Store_InterfaceImpl implements Store_Interface {
 	public boolean createPresentList_auto(PresentListVO vo) {
 		String id=dg.calcID(StoreListType.PRESENT);
 		vo.listID=id;
+		vo.statetype=State.IsApproved;
 		if( ds.insertPresentListVO(vo).equals(ListRM.SUCCESS)){
 			return true;
 		}else{

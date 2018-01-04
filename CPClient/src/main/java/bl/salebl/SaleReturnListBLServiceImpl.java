@@ -1,5 +1,6 @@
 package bl.salebl;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,15 +8,28 @@ import java.util.List;
 import PO.SaleReturnListPO;
 import PO.SalesmanItemPO;
 import PO.SalesmanListPO;
+import VO.listVO.InfoListVO;
+import VO.listVO.ListRM;
 import VO.saleVO.SaleReturnListVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
+import VO.storeVO.storeRM;
+import bl.VIPbl.VIPCollectionModifyImpl;
+import bl.goodsbl.GoodsRecentImpl;
+import bl.listbl.Approvable;
+import bl.listbl.InfoList_Impl;
+import bl.storebl.Store_Interface;
+import bl.storebl.Store_InterfaceImpl;
+import blservice.VIPblservice.VIPCollectionModify;
+import blservice.goodsblservice.GoodsRecent;
 import blservice.saleblservice.SaleReturnListBLService;
 import dataService.saleDataService.SaleReturnListDataService;
-import dataService.saleDataService.SaleUniDataService;
 import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import resultmessage.DataRM;
+import resultmessage.ResultMessage;
+import ui.commonUI.PromptWin;
 import util.DateUtil;
+import util.GreatListType;
 import util.State;
 
 /**     
@@ -23,10 +37,15 @@ import util.State;
 * @date 2017年12月24日
 * @description
 */
-public class SaleReturnListBLServiceImpl implements SaleReturnListBLService {
+public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Approvable {
 
 	SaleReturnListDataService service = SaleReturnListDataServiceHelper.getInstance().getSaleReturnListDataService();
-
+	InfoList_Impl info = new InfoList_Impl();
+	
+	Store_Interface storeChange = new Store_InterfaceImpl();
+	GoodsRecent goodsRecentChange = new GoodsRecentImpl();
+	VIPCollectionModify vipChange = new VIPCollectionModifyImpl();
+	
 	@Override
 	public String getId() {
 		// TODO Auto-generated method stub
@@ -76,19 +95,51 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService {
 	@Override
 	public DataRM approve(SalesmanListVO vo){
 		try {
-			vo.setState(State.IsApproved);
-			return service.save(voToPo(vo));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return DataRM.FAILED;
-		}
+				vo.setState(State.IsApproved);
+				DataRM rm = service.save(voToPo(vo));
+
+				storeRM storeRm = storeRM.SUCCESS;
+				ResultMessage resultRm = ResultMessage.SUCCESS;
+				if(rm == DataRM.SUCCESS){
+					
+					for(SalesmanItemVO i : vo.getSaleListItems()){
+					//增加库存
+						storeRm = storeChange.plusNumber(i.getId(), i.getAmount(), GreatListType.STOCK, i.getPrice());
+						if(storeRm != storeRM.SUCCESS){
+							return DataRM.FAILED;
+						}
+					//更改最近进价	
+						resultRm = goodsRecentChange.setGoodsRecentBuyPrice(i.getPrice(), i.getName(), null);
+						if(resultRm != resultRm.SUCCESS){
+							return DataRM.FAILED;
+						}
+					}
+					//修改应付
+						resultRm = vipChange.setVIPCollection
+								(vo.getMemberName(), vo.getSum());
+						if(resultRm != resultRm.SUCCESS){
+							return DataRM.FAILED;
+						}				
+					//发消息给库存管理人员，完成出货
+						
+					
+				}
+				return rm;
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				return DataRM.NET_FAILED;
+			}
 	}
 	
 	@Override
 	public DataRM reject(SalesmanListVO vo){
 		try {
 			vo.setState(State.IsRefused);
-			return service.save(voToPo(vo));
+			DataRM returnMessage =  service.save(voToPo(vo));
+			if(returnMessage == DataRM.SUCCESS){
+					info.modify(false, vo.getId());
+				}
+			return returnMessage;
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return DataRM.FAILED;
@@ -102,7 +153,13 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService {
 		// TODO Auto-generated method stub
 		try {
 			vo.setState(State.IsCommitted);
-			return service.commit(voToPo(vo));
+			DataRM returnMessage =  service.commit(voToPo(vo));
+			if(returnMessage == DataRM.SUCCESS){
+				info.register(new InfoListVO(vo.getId(),GreatListType.SALE,vo.getOperator(),vo.getNotes()));
+			}
+			
+			return returnMessage;
+
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -204,7 +261,32 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService {
 	}
 
 
-
-	
+	/* (non-Javadoc)
+	 * @see bl.listbl.Approvable#Approve(java.lang.String)
+	 */
+	@Override
+	public ListRM Approve(String id) {
+		DataRM rm = DataRM.FAILED;
+		try {
+			rm = approve(poToVo(service.get(id)));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ListRM.REFUSED;
+		}
+		if(rm == DataRM.SUCCESS){
+			return ListRM.SUCCESS;
+		}
+		
+		return ListRM.REFUSED;
+	}
+	@Override
+	public SalesmanListVO get(String id){
+		try {
+			return poToVo(service.get(id));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

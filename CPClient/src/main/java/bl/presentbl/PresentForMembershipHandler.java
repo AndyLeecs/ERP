@@ -27,6 +27,8 @@ public class PresentForMembershipHandler {
 		PresentForMembershipVO newPresent = list.get(0);
 		int id = newPresent.getId();
 		result.getPresentId().add(id);
+		System.out.println(id);
+		System.out.println(result.getPresentId());
 		result.getPresentList().addAll(newPresent.getPresentList());
 		double rebate = newPresent.getRebateInPresentForMembership();
 		if(result.getSum() - rebate > 0)

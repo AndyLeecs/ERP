@@ -109,4 +109,20 @@ public class StockListDataServiceImpl extends UnicastRemoteObject implements Sto
 		return list;
 	}
 
+	
+	/* (non-Javadoc)
+	 * @see dataService.saleDataService.SaleUniDataService#get(java.lang.String)
+	 */
+	@Override
+	public SalesmanListPO get(String id) throws RemoteException {
+		// TODO Auto-generated method stub
+		List<CriterionClause> l = new ArrayList<CriterionClause>();
+		l = criterionClauseGenerator.generateExactCriterion(l,"id",id);
+		List<SalesmanListPO> list = (List)util.Query(l);
+		if(list.size() == 1){
+			return list.get(0);
+		}else
+			
+		return null;
+	}
 }

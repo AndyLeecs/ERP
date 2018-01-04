@@ -6,19 +6,36 @@ import java.util.List;
 
 import PO.PresentResultPO;
 import PO.SaleListPO;
-import PO.SaleReturnListPO;
 import PO.SalesmanItemPO;
 import PO.SalesmanListPO;
+import VO.GoodsInSaleVO;
+import VO.listVO.InfoListVO;
+import VO.listVO.ListRM;
 import VO.presentVO.PresentResultVO;
 import VO.saleVO.SaleListVO;
+import VO.saleVO.SaleVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
+import VO.storeVO.PresentListVO;
+import VO.storeVO.storeRM;
+import bl.VIPbl.VIPCollectionModifyImpl;
+import bl.goodsbl.GoodsRecentImpl;
+import bl.listbl.Approvable;
+import bl.listbl.InfoList_Impl;
+import bl.presentbl.PresentBLInfoImpl;
+import bl.storebl.Store_Interface;
+import bl.storebl.Store_InterfaceImpl;
 import bl.utility.GoodsInSaleVoTransPo;
+import blservice.VIPblservice.VIPCollectionModify;
+import blservice.goodsblservice.GoodsRecent;
+import blservice.presentblservice.PresentBLInfo;
 import blservice.saleblservice.SaleListBLService;
 import dataService.saleDataService.SaleListDataService;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
 import resultmessage.DataRM;
+import resultmessage.ResultMessage;
 import util.DateUtil;
+import util.GreatListType;
 import util.State;
 
 /**     
@@ -26,9 +43,15 @@ import util.State;
 * @date 2017年12月24日
 * @description
 */
-public class SaleListBLServiceImpl implements SaleListBLService{
+public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 
 	SaleListDataService service = SaleListDataServiceHelper.getInstance().getSaleListDataService();
+	InfoList_Impl info = new InfoList_Impl();
+	
+	Store_Interface storeChange = new Store_InterfaceImpl();
+	GoodsRecent goodsRecentChange = new GoodsRecentImpl();
+	VIPCollectionModify vipChange = new VIPCollectionModifyImpl();
+	
 	@Override
 	public String getId() {
 		// TODO Auto-generated method stub
@@ -46,16 +69,23 @@ public class SaleListBLServiceImpl implements SaleListBLService{
 		}
 	}
 
+	@Override
+	public SalesmanListVO get(String id){
+		try {
+			return poToVo(service.get(id));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	/* (non-Javadoc)
 	 * @see blservice.saleblservice.SaleUniBLService#delete(java.lang.String)
 	 */
 	@Override
 	public DataRM delete(String id) {
-		// TODO Auto-generated method stub
 		try {
 			return service.delete(id);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return DataRM.FAILED;
 		}
@@ -78,20 +108,91 @@ public class SaleListBLServiceImpl implements SaleListBLService{
 
 	@Override
 	public DataRM approve(SalesmanListVO vo){
+		//检查库存是否足够
+		storeRM storeRm = storeRM.SUCCESS;
+		List<String> id = new ArrayList<String>();
+		List<Integer> subber = new ArrayList<Integer>();
+		
+		for(SalesmanItemVO i : vo.getSaleListItems()){
+			id.add(i.getId());
+			subber.add(i.getAmount());
+		}
+		boolean checkResult = storeChange.check(id, subber);
+		if(checkResult == false){
+			return DataRM.STOCK_FAILED;
+		}
+		//检查客户应收应付
+		try {
+			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberID());
+			double collection = vipChange.getVIPCollection(vo.getMemberID());
+			double sum = vo.getSum();
+			
+			if(limit < collection + sum)
+				return DataRM.VIP_FAILED;
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+			return DataRM.NET_FAILED;
+		}
+		
 		try {
 			vo.setState(State.IsApproved);
-			return service.save(voToPo(vo));
+			DataRM rm = service.save(voToPo(vo));
+			ResultMessage resultRm = ResultMessage.SUCCESS;
+			if(rm == DataRM.SUCCESS){	
+				for(SalesmanItemVO i : vo.getSaleListItems()){
+				//减少库存
+					storeRm = storeChange.minusNumber(i.getId(), i.getAmount(), GreatListType.STOCK);
+					if(storeRm != storeRM.SUCCESS){
+						return DataRM.FAILED;
+					}
+					
+					//更改最近售价	
+					resultRm = goodsRecentChange.setGoodsRecentSellPrice(i.getPrice(), i.getName(), null);
+					if(resultRm != resultRm.SUCCESS){
+						return DataRM.FAILED;
+					}
+				}
+				//修改应付
+					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum());
+					if(resultRm != resultRm.SUCCESS){
+						return DataRM.FAILED;
+					}
+				//通知销售人员
+				//生成库存赠送单
+				SaleListVO svo = (SaleListVO)vo;
+				PresentListVO presentList = new PresentListVO(null, null, null, null, null);
+				presentList.VIPname = svo.getMemberName();
+				PresentResultVO pvo = svo.getPresentResultVO();
+				for(GoodsInSaleVO i : pvo.getPresentList()){
+					presentList.id.add(i.getId());
+					presentList.num.add(i.getAmount());
+					presentList.name.add(i.getGoodsName());
+				}
+				boolean createPresentList = storeChange.createPresentList_auto(presentList);
+				if(createPresentList == false){
+					return DataRM.PRESENT_FAILED;
+				}
+				//发消息给库存管理人员，完成出货
+				
+				//发消息，代金券
+			}
+			return rm;
 		} catch (RemoteException e) {
 			e.printStackTrace();
-			return DataRM.FAILED;
-		}
+			return DataRM.NET_FAILED;
+		} 
 	}
 	
 	@Override
 	public DataRM reject(SalesmanListVO vo){
 		try {
 			vo.setState(State.IsRefused);
-			return service.save(voToPo(vo));
+			DataRM returnMessage =  service.save(voToPo(vo));
+			if(returnMessage == DataRM.SUCCESS){
+					info.modify(false, vo.getId());
+				}
+			return returnMessage;
+
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return DataRM.FAILED;
@@ -105,7 +206,13 @@ public class SaleListBLServiceImpl implements SaleListBLService{
 		// TODO Auto-generated method stub
 		try {
 			vo.setState(State.IsCommitted);
-			return service.commit(voToPo(vo));
+			DataRM returnMessage =  service.commit(voToPo(vo));
+			if(returnMessage == DataRM.SUCCESS){
+				info.register(new InfoListVO(vo.getId(),GreatListType.SALE,vo.getOperator(),vo.getNotes()));
+			}
+			
+			return returnMessage;
+
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -202,7 +309,7 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 		}
 		return new SaleListPO(svo.getId(),svo.getState(),
 				DateUtil.getDateFromListID(svo.getId()),svo.getOperatorGrade(),
-				svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),
+				svo.getMemberID(),svo.getMemberName(),svo.getGrade(),svo.getOperator(),svo.getOperatorId(),
 				svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),
 				svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher(),voToPo(svo.getPresentResultVO()));
 	}
@@ -224,7 +331,7 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 		
 		
 		//留了一个空项，看以后是存操作员的id还是名称
-		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(),spo.getMemberID(), spo.getMemberName(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher(),poToVo(spo.getPresentResultPO()));
+		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(),spo.getMemberID(), spo.getMemberName(),spo.getGrade(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher(),poToVo(spo.getPresentResultPO()));
 	}
 
 	
@@ -236,4 +343,34 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 	private PresentResultPO voToPo(PresentResultVO vo){
 		return new PresentResultPO(vo.getPresentId(),vo.getVoucher(),GoodsInSaleVoTransPo.GoodsInSaleVoToPo(vo.getPresentList()),vo.getSum());
 	}
+
+	/* (non-Javadoc)
+	 * @see bl.listbl.Approvable#Approve(java.lang.String)
+	 */
+	@Override
+	public ListRM Approve(String id) {
+		DataRM rm = DataRM.FAILED;
+		try {
+			rm = approve(poToVo(service.get(id)));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ListRM.REFUSED;
+		}
+		if(rm == DataRM.SUCCESS){
+			return ListRM.SUCCESS;
+		}
+		
+		return ListRM.REFUSED;
+	}
+
+	/* (non-Javadoc)
+	 * @see blservice.saleblservice.SaleListBLService#findPresent(VO.saleVO.SaleVO)
+	 */
+	@Override
+	public PresentResultVO findPresent(SaleVO vo) {
+		PresentBLInfo impl = new PresentBLInfoImpl();
+		return impl.findPresent(vo);
+	}
+
+
 }

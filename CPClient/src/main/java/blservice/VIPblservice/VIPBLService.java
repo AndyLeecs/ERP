@@ -1,7 +1,6 @@
 package blservice.VIPblservice;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
