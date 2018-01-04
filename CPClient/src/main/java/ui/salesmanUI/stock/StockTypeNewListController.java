@@ -39,9 +39,14 @@ public abstract class StockTypeNewListController extends StockTypeListController
 	}
 	@FXML
 	void cancel(){
+		if(!saved){
 		DataRM rm = uniBLService.delete(id);
+		
 		System.out.println("cancel");
 		showPrompt(rm);
+		}else{
+			showPrompt(DataRM.SUCCESS);
+		}
 		this.parentController.CloseSonWin();
 	}
 
