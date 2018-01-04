@@ -11,10 +11,12 @@ import com.jfoenix.controls.JFXButton;
 import VO.VIPVO.VIPVO;
 import VO.goodsVO.GoodsVO;
 import VO.saleVO.SalesmanItemVO;
+import VO.saleVO.SalesmanListVO;
 import blservice.VIPblservice.VIPFuzzySearch;
 import bl.VIPbl.VIPFuzzySearchImpl;
 import blservice.goodsblservice.GoodsFuzzySearch;
 import bl.goodsbl.GoodsFuzzySearchImpl;
+import bl.utility.GoodsVOTrans;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +30,7 @@ import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
 import ui.commonUI.PromptWin;
+import ui.salesmanUI.vip.VIPSearchResultWin;
 import util.UserGrade;
 
 /**     
@@ -97,7 +100,8 @@ public abstract class SalesmanListWinController{
 	/**
 	 * 显示单据id
 	 */
-	@FXML 
+	@FXML
+	protected 
 	void initialize(){
 		listID.setText(id);
 		System.out.println("salesmanListWinController initialized");
@@ -108,6 +112,7 @@ public abstract class SalesmanListWinController{
 	 * 查找商品
 	 */
 	@FXML
+	protected
 	void selectGoods(){
 		//获得关键字
 		String message = searchGoodsField.getText();
@@ -126,8 +131,10 @@ public abstract class SalesmanListWinController{
 		}
 
 	}
+	
+	//根据子类的不同判断使用的是最近进价还是售价
+   public abstract void showSearchGoodsWin(List<GoodsVO> temp);
 
-	public abstract void showSearchGoodsWin(List<GoodsVO> temp);
 	/**
 	 * @param temp
 	 * @return 去重后的list
@@ -142,6 +149,7 @@ public abstract class SalesmanListWinController{
 	 * 查找会员
 	 */
 	@FXML
+	protected
 	void selectVIP(){
 		//获得关键字
 		System.out.println("field is"+searchVIPField);
@@ -194,7 +202,6 @@ public abstract class SalesmanListWinController{
 			try {
 				new PromptWin("重复添加的商品无效哦");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -220,7 +227,7 @@ public abstract class SalesmanListWinController{
 		this.refresh();
 	}
 	
-	public void check(){
+	public boolean check(){
 		/**
 		 * 检查合法性
 		 */
@@ -228,27 +235,41 @@ public abstract class SalesmanListWinController{
 		numberErrorMessage.setText("");
 		//检查是否选择了会员
 		//检查是否选择了商品
-		if(VIPID.getText().isEmpty()||chosenList.isEmpty())
+		if(VIPID.getText().isEmpty()||chosenList.isEmpty()){
 			nullErrorMessage.setText(nullError);
+			return false;
+		}
+		//检查数字格式合法性
+		
+		if(!checkFormat())
+			return false;
 		//检查商品清单合法性
-		checkList();
+		if(!checkList())
+			return false;
+		
+		return true;
 	}
-	
+	public boolean checkFormat(){
+		
+		return true;
+	}
 //	public abstract void checkList();
 	//检查赠品清单合法性
-	public void checkList(){
+	public  boolean checkList(){
 	for(SalesmanEditCellController c :controllerList){
 		if(!c.isValid())
 		{
 			numberErrorMessage.setText(numberError);
-			return;
+			return false;
 		}
 	}
+	return true;
 	}
 	/**
 	 * 返回父界面
 	 */
 	public void back(){
+		if(parentController != null)
 		parentController.CloseSonWin();
 	}
 	
@@ -300,7 +321,6 @@ public abstract class SalesmanListWinController{
 		try {
 			presentroot = loader.load();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		goodsListVBox.getChildren().add(presentroot);
@@ -312,10 +332,61 @@ public abstract class SalesmanListWinController{
 	public void setVIP(VIPVO vo) {
 		VIPID.setText(vo.getId());
 		VIPName.setText(vo.getName());
-		//TODO 销售类单据存会员等级
 		
 	}
 	
+	public void showPrompt(DataRM rm){
+		try{
+		switch(rm){
+		case SUCCESS:
+			new PromptWin("成功~");
+			break;
+		case EXIST:
+			new PromptWin("存在重复单据哦~");
+			break;
+		case NOT_EXIST:
+			new PromptWin("单据不存在~");
+			break;
+		case FAILED:
+			new PromptWin("失败了呢~");
+			break;
+		case NET_FAILED:
+			new PromptWin("网络有点渣~");
+			break;
+		case STOCK_FAILED:
+			new PromptWin("库存不足~");
+			break;
+		case VIP_FAILED:
+			new PromptWin("超出应收额度~");
+			break;
+		case PRESENT_FAILED:
+			new PromptWin("生成库存赠送单失败了~");
+			break;
+		}
+		
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+	@FXML
+	protected
+	void commit(){
 
-
+		if(!check())
+			return;
+		uniBLService.commit(getVOFromUI());
+		System.out.println("commit");
+		this.parentController.CloseSonWin();
+	}
+	
+	@FXML
+	protected
+	void save(){
+		//保存
+		uniBLService.save(getVOFromUI());	
+		System.out.println("save");
+	}
+	
+	//从ui界面得到所需的vo
+	public abstract SalesmanListVO getVOFromUI();
 }

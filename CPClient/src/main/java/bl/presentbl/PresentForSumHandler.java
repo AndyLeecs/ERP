@@ -29,6 +29,8 @@ public class PresentForSumHandler {
 		PresentForSumVO newPresent = list.get(0);
 		int id = newPresent.getId();
 		result.getPresentId().add(id);
+		System.out.println(id);
+		System.out.println(result.getPresentId());
 		result.getPresentList().addAll(newPresent.getPresentList());
 		double voucher = newPresent.getVoucher()+result.getVoucher();
 		result.setVoucher(voucher);

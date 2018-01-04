@@ -63,6 +63,7 @@
 		<mapping class="PO.PresentListPO"/>
 		<mapping class="PO.AlarmListPO"/>
 		<mapping class="PO.StorePO"/>
+		<mapping class="PO.StoreListID"/>
 
 	</session-factory>
 </hibernate-configuration>

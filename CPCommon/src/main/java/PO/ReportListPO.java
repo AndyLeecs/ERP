@@ -31,4 +31,6 @@ public class ReportListPO {
 	   public String time;//操作时间
 	@Column(name="operator")
 	   public String operator;//操作员
+
+	public ReportListPO (){}
 }

@@ -14,7 +14,7 @@ public class StorePO  implements Serializable{
 
 
 
-	@Id @GeneratedValue
+	@Id
 	@Column(name="ID")
 	public String ID;  //商品ID
 
@@ -30,7 +30,7 @@ public class StorePO  implements Serializable{
 	@Column(name="averagePrice")
 	public double averagePrice;//库存均价
 
-
+    public StorePO(){}
 
 
 }

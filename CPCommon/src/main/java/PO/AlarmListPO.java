@@ -22,4 +22,6 @@ public class AlarmListPO {
     @Column(name="goodsName")
     public String goodsName;
 
+    public AlarmListPO(){}
+
 }

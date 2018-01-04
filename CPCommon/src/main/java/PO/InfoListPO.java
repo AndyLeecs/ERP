@@ -1,8 +1,6 @@
 package PO;
 import  javax.persistence.*;
 
-
-
 import util.GreatListType;
 import util.State;
 

@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 
+import javax.persistence.PersistenceException;
 import java.util.List;
 
 public class HibernateUtil_Green<T> {
@@ -121,15 +122,26 @@ public class HibernateUtil_Green<T> {
             
             tx.commit();
             
-        }catch(HibernateException e){
+        }
+        catch(HibernateException e){
             if(tx!=null){
-                tx.rollback();
                 System.out.println("新增失败，发生回滚");
-                e.printStackTrace();
+                tx.rollback();
+
+                //e.printStackTrace();
 
             }
-          res=false;
-        }finally {
+            res=false;
+        }
+        catch(PersistenceException e){		//数据库中已有此主键
+            if(tx!=null){
+                tx.rollback();
+            }
+            System.out.println("主键已经存在");
+            res=false;
+
+        }
+        finally {
             session.close();
         }
         return res;

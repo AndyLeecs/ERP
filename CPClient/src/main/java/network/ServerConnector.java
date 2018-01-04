@@ -14,12 +14,16 @@ import network.accountRemoteHelper.AccountDataServiceHelper;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
+import network.listRemoteHelper.ListDataServiceHelper;
+import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
+import network.presentRemoteHelper.PresentForSpecialPackageDataServiceHelper;
 import network.presentRemoteHelper.PresentForSumDataServiceHelper;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
 import network.saleRemoteHelper.SaleProjectionDataServiceHelper;
 import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import network.saleRemoteHelper.StockListDataServiceHelper;
 import network.saleRemoteHelper.StockReturnListDataServiceHelper;
+import network.storeRemoteHelper.StoreDataServiceHelper;
 import network.userRemoteHelper.MessageDataServiceHelper;
 import network.userRemoteHelper.UserDataServiceHelper;
 import util.DateUtil;
@@ -44,7 +48,8 @@ public class ServerConnector {
 	}
 	
 	private void addServices(){
-//		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
+		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
+		dataServiceHelpers.add(ListDataServiceHelper.getInstance());
 //		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		
 		dataServiceHelpers.add(AccountDataServiceHelper.getInstance());
@@ -55,8 +60,8 @@ public class ServerConnector {
 		dataServiceHelpers.add(UserDataServiceHelper.getInstance());
 		dataServiceHelpers.add(MessageDataServiceHelper.getInstance());
 		
-//		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
+		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
+		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
 //		
 //		

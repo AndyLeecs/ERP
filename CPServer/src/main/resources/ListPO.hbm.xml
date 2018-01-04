@@ -34,8 +34,7 @@
 			<property name="sumBeforeRebate" />
 			<property name="rebate" />
 			<property name="voucher" />
-	        
-	        
+	        <property name="memberGrade"/>	        
 	        <one-to-one name="presentResultPO" class="PO.PresentResultPO" cascade ="all" lazy = "false"/>   
 		</joined-subclass>
 

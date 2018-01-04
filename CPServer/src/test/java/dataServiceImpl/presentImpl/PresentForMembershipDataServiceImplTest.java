@@ -1,13 +1,13 @@
 package dataServiceImpl.presentImpl;
 
-import PO.GoodsInSalePO;
-import PO.PresentForMembershipPO;
 import resultmessage.DataRM;
 
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import PO.GoodsInSalePO;
+import PO.PresentForMembershipPO;
 import util.PresentState;
 import util.VIPGrade;
 

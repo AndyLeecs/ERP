@@ -1,9 +1,9 @@
 package blservice.VIPblservice;
 
-import VO.VIPVO.VIPVO;
-
 import java.rmi.RemoteException;
 import java.util.List;
+
+import VO.VIPVO.VIPVO;
 
 /**
  * Created by julia98 on 2017/12/14.
