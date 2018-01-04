@@ -9,8 +9,11 @@ import bl.storebl.StoreBussinessSituation_Impl;
 import VO.listVO.ListRM;
 import blservice.listblservice.Listblservice;
 import dataService.listDataService.ListDataService;
-import dataService.listDataService.ListDataService_Stub;
+//import dataService.listDataService.ListDataService_Stub;
+import network.listRemoteHelper.ListDataServiceHelper;
 import util.GreatListType;
+
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import PO.InfoListPO;
 
@@ -25,17 +28,26 @@ public class ListblController implements Listblservice {
 	
 
     //单据红冲的接口还没加，但理论上应该是我来写
-    ListDataService listDataService=new ListDataService_Stub();
+	ListDataServiceHelper helper=ListDataServiceHelper.getInstance();
+    ListDataService listDataService=helper.getListDataService();
     @Override
     public ArrayList<InfoListVO> openInfoList() {
-    	
-    	ArrayList<InfoListPO> arr0 =listDataService.openInfoList();
     	ArrayList<InfoListVO> arr1 =new ArrayList<InfoListVO>();
-    	for(int i=arr0.size()-1;i>=0;i--){
-    		//倒序操作一下，使得最近加进来的VO靠前显示
-    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note);
-    		arr1.add(v);
-    	}
+    	
+    	ArrayList<InfoListPO> arr0;
+		try {
+			arr0 = listDataService.openInfoList();
+	    	for(int i=arr0.size()-1;i>=0;i--){
+	    		//倒序操作一下，使得最近加进来的VO靠前显示
+	    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note);
+	    		arr1.add(v);
+	    	}
+		} catch (RemoteException e) {
+			
+			e.printStackTrace();
+		}
+    	
+
         return arr1;
     }
 
@@ -73,13 +85,22 @@ public class ListblController implements Listblservice {
 
 	@Override
 	public ArrayList<InfoListVO> openApproved() {
-		ArrayList<InfoListPO> arr0 =listDataService.openApproved();
     	ArrayList<InfoListVO> arr1 =new ArrayList<InfoListVO>();
-    	for(int i=arr0.size()-1;i>=0;i--){
-    		//倒序操作一下，使得最近加进来的VO靠前显示
-    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note);
-    		arr1.add(v);
-    	}
+    	
+		ArrayList<InfoListPO> arr0;
+		try {
+			arr0 = listDataService.openApproved();
+	    	for(int i=arr0.size()-1;i>=0;i--){
+	    		//倒序操作一下，使得最近加进来的VO靠前显示
+	    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note);
+	    		arr1.add(v);
+	    	}
+		} catch (RemoteException e) {
+			
+			e.printStackTrace();
+		}
+
+
         return arr1;
 	}
 }

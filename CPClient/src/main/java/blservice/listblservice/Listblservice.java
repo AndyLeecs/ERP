@@ -5,6 +5,8 @@ import VO.listVO.InfoListVO;
 import VO.listVO.SalesDetailListVO;
 import VO.listVO.ListRM;
 import util.GreatListType;
+
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public interface Listblservice {
@@ -13,9 +15,9 @@ public interface Listblservice {
     * 在计算的时候也需要使用销售、商品的方法。所以表单自己的层间API降低了很多
     * 王瑞华 161250143 2017年12月1日
      */
-    public ArrayList<InfoListVO> openInfoList();//经营历程表查看
-    public ArrayList<InfoListVO> openApproved();//查看已经审批通过的经营历程表
-    public ArrayList<SalesDetailListVO> openSaleDetailList(); //销售明细表查看
-    public BussinessSituationListVO openBussinessSituationList(); //经营情况表查看
-    public ListRM toExcel (GreatListType type ,String id); // 表单导出
+    public ArrayList<InfoListVO> openInfoList() throws RemoteException;//经营历程表查看
+    public ArrayList<InfoListVO> openApproved() throws RemoteException;//查看已经审批通过的经营历程表
+    public ArrayList<SalesDetailListVO> openSaleDetailList() throws RemoteException; //销售明细表查看
+    public BussinessSituationListVO openBussinessSituationList() throws RemoteException; //经营情况表查看
+    public ListRM toExcel (GreatListType type ,String id) throws RemoteException; // 表单导出
 }

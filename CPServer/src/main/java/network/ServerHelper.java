@@ -13,14 +13,16 @@ import dataService.accountDataService.AccountDataService;
 import dataService.accountDataService.CashExpenseListDataService;
 import dataService.accountDataService.CollectionListDataService;
 import dataService.goodsDataService.GoodsDataService;
+import dataService.listDataService.ListDataService;
 import dataService.presentDataService.PresentForMembershipDataService;
 import dataService.presentDataService.PresentForSpecialPackageDataService;
 import dataService.presentDataService.PresentForSumDataService;
 import dataService.saleDataService.SaleListDataService;
-import dataService.saleDataService.SaleProjectionDataService;
+//import dataService.saleDataService.SaleProjectionDataService;
 import dataService.saleDataService.SaleReturnListDataService;
 import dataService.saleDataService.StockListDataService;
 import dataService.saleDataService.StockReturnListDataService;
+import dataService.storeDataService.StoreDataService;
 import dataService.userDataService.MessageDataService;
 import dataService.userDataService.UserDataService;
 import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
@@ -28,14 +30,16 @@ import dataServiceImpl.accountImpl.AccountDataServiceImpl;
 import dataServiceImpl.accountImpl.CashExpenseListDataServiceImpl;
 import dataServiceImpl.accountImpl.CollectionListDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
+import dataServiceImpl.listImpl.ListDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForMembershipDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForSpecialPackageDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForSumDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleListDataServiceImpl;
-import dataServiceImpl.saleImpl.SaleProjectionDataServiceImpl;
+//import dataServiceImpl.saleImpl.SaleProjectionDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleReturnListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockReturnListDataServiceImpl;
+import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
 import dataServiceImpl.userImpl.MessageDataServiceImpl;
 import dataServiceImpl.userImpl.UserDataServiceImpl;
 import util.StoreListType;
@@ -55,13 +59,13 @@ public class ServerHelper {
 			System.out.println("successful connection");
 			
 
-//			StoreDataService storeDataService=new StoreDataServiceImpl();
-//			Naming.bind("StoreDataService", storeDataService);
-//			System.out.println("bind succeeded!");
+			StoreDataService storeDataService=new StoreDataServiceImpl();
+			Naming.bind("StoreDataService", storeDataService);
+			System.out.println("库存类数据库绑定成功！");
 
-//			ListDataService listDataService=new ListDataServiceImpl();
-//			Naming.bind("ListDataService",listDataService);
-//			System.out.println("表单类数据库绑定成功！");
+			ListDataService listDataService=new ListDataServiceImpl();
+			Naming.bind("ListDataService",listDataService);
+			System.out.println("表单类数据库绑定成功！");
 			
 			AccountDataService accountDataService = new AccountDataServiceImpl();
 			Naming.bind("AccountDataService", accountDataService);
