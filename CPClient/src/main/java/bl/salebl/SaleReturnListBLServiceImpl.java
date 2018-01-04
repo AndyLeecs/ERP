@@ -48,7 +48,6 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	
 	@Override
 	public String getId() {
-		// TODO Auto-generated method stub
 		try {
 			System.out.println(service);
 			String id = service.insert();
@@ -67,7 +66,6 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	 */
 	@Override
 	public DataRM delete(String id) {
-		// TODO Auto-generated method stub
 		try {
 			return service.delete(id);
 		} catch (RemoteException e) {
@@ -86,7 +84,6 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 			vo.setState(State.IsDraft);
 			return service.save(voToPo(vo));
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return DataRM.FAILED;
 		}
@@ -150,7 +147,6 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	 */
 	@Override
 	public DataRM commit(SalesmanListVO vo) {
-		// TODO Auto-generated method stub
 		try {
 			vo.setState(State.IsCommitted);
 			DataRM returnMessage =  service.commit(voToPo(vo));
@@ -161,7 +157,6 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 			return returnMessage;
 
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return DataRM.FAILED;
 		}
@@ -172,7 +167,6 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	 */
 	@Override
 	public List<SalesmanListVO> openAllDraft() {
-		// TODO Auto-generated method stub
 		List<SalesmanListPO> polist = new ArrayList<SalesmanListPO>();
 		List<SalesmanListVO> volist = new ArrayList<SalesmanListVO>();
 		try {
@@ -183,6 +177,7 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 			return null;
 	//		return volist;
 		}
+		if(polist != null)
 		for(SalesmanListPO po : polist){
 			volist.add(poToVo(po));
 		}
@@ -194,6 +189,8 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	 * @return
 	 */
 	public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
+		if(i == null)
+			return null;
 		return new SalesmanItemPO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 	}
 
@@ -203,6 +200,8 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	 * @return
 	 */
 	public SalesmanItemVO itemPoToVo(SalesmanItemPO i) {
+		if(i == null)
+			return null;
 		return new SalesmanItemVO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 	}
 	/**
@@ -210,6 +209,8 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	 * @return
 	 */
 	public List<SalesmanItemVO> generateVoList(SalesmanListPO po) {
+		if(po == null)
+			return null;
 		List<SalesmanItemPO> polist = po.getSaleListItems();
 		List<SalesmanItemVO> volist = new ArrayList<SalesmanItemVO>();
 
@@ -228,6 +229,8 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	 * @return
 	 */
 	public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
+		if(vo == null)
+			return null;
 		List<SalesmanItemVO> volist = vo.getSaleListItems();
 		List<SalesmanItemPO> polist = new ArrayList<SalesmanItemPO>();
 		
@@ -243,7 +246,8 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 
 
 	public SalesmanListPO voToPo(SalesmanListVO vo) {
-		// TODO Auto-generated method stub
+		if(vo == null)
+			return null;
 		SaleReturnListVO svo = (SaleReturnListVO)vo;
 		List<SalesmanItemPO> polist = generatePoList(svo);
 		return new SaleReturnListPO(svo.getId(),svo.getState(),DateUtil.getDateFromListID(svo.getId()),svo.getOperatorGrade(),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum(),svo.getSumBeforeRebate(),svo.getRebate(),svo.getVoucher());
@@ -253,7 +257,8 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 
 
 	public SalesmanListVO poToVo(SalesmanListPO po) {
-		// TODO Auto-generated method stub
+		if(po == null)
+			return null;
 		SaleReturnListPO spo = (SaleReturnListPO)po;
 		List<SalesmanItemVO> volist = generateVoList(po);
 		//留了一个空项，看以后是存操作员的id还是名称

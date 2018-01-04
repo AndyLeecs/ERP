@@ -41,7 +41,7 @@ import dataServiceImpl.saleImpl.SaleProjectionDataServiceImpl;
 import dataServiceImpl.saleImpl.SaleReturnListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockListDataServiceImpl;
 import dataServiceImpl.saleImpl.StockReturnListDataServiceImpl;
-import dataServiceImpl.stroreImpl.StoreDataServiceImpl;
+import dataServiceImpl.storeImpl.StoreDataServiceImpl;
 import dataServiceImpl.userImpl.MessageDataServiceImpl;
 import dataServiceImpl.userImpl.UserDataServiceImpl;
 import util.StoreListType;
