@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import ui.mainUI.loginUI.User;
 import ui.stockmanUI.GoodsWin;
+import ui.stockmanUI.StockmanWin;
 
 public class BackgroundController {
     @FXML public AnchorPane root;
@@ -28,7 +29,7 @@ public class BackgroundController {
 
     public void setClick() {
     			try {
-    				new GoodsWin();
+    				new StockmanWin();
     				root.getScene().getWindow().hide();
     			} catch (IOException e1) {
     				// TODO Auto-generated catch block
