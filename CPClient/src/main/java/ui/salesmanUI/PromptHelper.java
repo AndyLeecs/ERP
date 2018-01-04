@@ -43,6 +43,7 @@ public class PromptHelper {
 			break;
 		case REBATE_FAILED:
 			new PromptWin("折让金额超过额度~");
+			break;
 		default:
 			new PromptWin("出现未知错误");
 		}

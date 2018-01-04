@@ -85,6 +85,7 @@ public abstract class SalesmanListWinController{
 	
 	protected static final String cellUrl = "/fxml/salesmanUI/TableItem.fxml";
 	
+	protected boolean saved = false;//标记是否被保存过，如果被保存过，取消的时候不删除这张单据
 	public SalesmanListWinController(ParentController parentController, SaleUniBLService uniBLService, String id) {
 		super();
 		this.parentController = parentController;
@@ -382,6 +383,7 @@ public abstract class SalesmanListWinController{
 	@FXML
 	protected
 	void save(){
+		saved = true;
 		//保存
 		uniBLService.save(getVOFromUI());	
 		System.out.println("save");

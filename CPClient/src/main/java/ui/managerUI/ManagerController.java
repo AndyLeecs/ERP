@@ -36,7 +36,7 @@ public class ManagerController {
 
 	@FXML
 	public void onNewPresentForMembershipClicked(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 		Platform.runLater(()->{
 		try {
    		 Strategy strategy = new PresentForMembershipNewStrategy();
@@ -57,7 +57,7 @@ public class ManagerController {
 	}
 	@FXML
 	public void onNewPresentForSpecialPackageClicked(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 		Platform.runLater(()->{
 		try {
    		 Strategy strategy = new PresentForSpecialPackageNewStrategy();
@@ -78,7 +78,7 @@ public class ManagerController {
 	}
 	@FXML
 	public void onNewPresentForSumClicked(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 		Platform.runLater(()->{
 		try {
    		 Strategy strategy = new PresentForSumNewStrategy();
@@ -99,7 +99,7 @@ public class ManagerController {
 	}
 	@FXML
 	public void onShowPresentForMembershipClicked(){
-		centerPane.getChildren().clear();;
+		if(centerPane.getChildren().isEmpty()){
 		Platform.runLater(()->{
 			try {
 	   		 PresentForSumListController controller = 
@@ -117,11 +117,11 @@ public class ManagerController {
 				e.printStackTrace();
 			}
 			});
-		
+		}
 	}
 	@FXML
 	public void onShowPresentForSpecialPackageClicked(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 		Platform.runLater(()->{
 		try {
    		 PresentForSumListController controller = 
@@ -143,7 +143,7 @@ public class ManagerController {
 	}
 	@FXML
 	public void onShowPresentForSumClicked(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 		Platform.runLater(()->{
 		try {
    		 PresentForSumListController controller = 

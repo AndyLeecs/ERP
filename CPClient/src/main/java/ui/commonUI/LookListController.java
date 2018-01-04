@@ -1,6 +1,7 @@
 package ui.commonUI;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import VO.listVO.InfoListVO;
@@ -56,7 +57,9 @@ public class LookListController {
     
     public void getApprovedList(){
     	
-    	arr0=service.openInfoList();
+    
+			arr0=service.openInfoList();
+
     	arr1=new ArrayList<InfoListController>();
     	refresh();
     }

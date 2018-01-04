@@ -1,4 +1,4 @@
-package dataServiceImpl.stroreImpl;
+package dataServiceImpl.storeImpl;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.text.SimpleDateFormat;

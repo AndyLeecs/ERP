@@ -46,11 +46,15 @@ public abstract class SaleTypeNewListController extends SaleTypeListController {
 	
 	@FXML
 	protected void cancel(){
+		if(!saved){
 		DataRM rm = uniBLService.delete(id);
+		
 		System.out.println("cancel");
 		showPrompt(rm);
+		}else{
+			showPrompt(DataRM.SUCCESS);
+		}
 		this.parentController.CloseSonWin();
-		
 	}
 
 

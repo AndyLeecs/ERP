@@ -61,10 +61,11 @@ public class SalesmanController implements ParentController {
 	SalesmanListWinController controller;
 	ListViewController viewController;
 	Alert information;
-	
+
 	@FXML
 	public void newSaleList(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
+			System.out.println("in loading new saleList");
 			SaleListBLService service = SaleBLFactory.getSaleListBLService();
 			String id = service.getId();
 			controller = new SaleNewListController(this,service,id);			
@@ -77,7 +78,7 @@ public class SalesmanController implements ParentController {
 	
 	@FXML
 	public void newSaleReturnList(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 			SaleReturnListBLService service = SaleBLFactory.getSaleReturnListBLService();
 			String id = service.getId();
 			controller = new SaleReturnNewListController(this,service,id);
@@ -89,7 +90,7 @@ public class SalesmanController implements ParentController {
 
 	@FXML
 	public void newStockList(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 			System.out.println(SaleBLFactory.getStockListBLService());
 
 			StockListBLService service = SaleBLFactory.getStockListBLService();
@@ -104,7 +105,7 @@ public class SalesmanController implements ParentController {
 	
 	@FXML
 	public void newStockReturnList(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 			StockReturnListBLService service = SaleBLFactory.getStockReturnListBLService();
 			String id = service.getId();
 			controller = new StockReturnNewListController(this,service,id);
@@ -115,7 +116,7 @@ public class SalesmanController implements ParentController {
 	}	
 	@FXML
 	public void showDraftSaleList(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 			SaleListBLService service = SaleBLFactory.getSaleListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new SaleListViewController(this,service,list);
@@ -125,7 +126,7 @@ public class SalesmanController implements ParentController {
 	}
 	@FXML
 	public void showDraftSaleReturnList(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 			SaleReturnListBLService service = SaleBLFactory.getSaleReturnListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new SaleReturnListViewController(this,service,list);
@@ -135,7 +136,7 @@ public class SalesmanController implements ParentController {
 	}
 	@FXML
 	public void showDraftStockList(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 			StockListBLService service = SaleBLFactory.getStockListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new StockListViewController(this,service,list);
@@ -145,7 +146,7 @@ public class SalesmanController implements ParentController {
 	}
 	@FXML
 	public void showDraftStockReturnList(){
-		if(centerPane.getCenter() == null){
+		if(centerPane.getChildren().isEmpty()){
 			StockReturnListBLService service = SaleBLFactory.getStockReturnListBLService();
 			List<SalesmanListVO> list = service.openAllDraft();
 			viewController = new StockReturnListViewController(this,service,list);
@@ -164,18 +165,17 @@ public class SalesmanController implements ParentController {
 		FXMLLoader loader;
 		loadSimpleFXML(fxmlTitlePath, cssTitlePath);
 
+		System.out.println("after loading");
 		AnchorPane ListRoot = null;
 		try {
 			loader = new FXMLLoader(getClass().getResource(fxmlPath));
       		loader.setController(controller);
 			ListRoot = loader.load();
-			
-
-			
+	
 			if(cssPath != null)
 				ListRoot.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
 			
-			centerPane.getChildren().removeAll();
+			centerPane.getChildren().clear();
 			centerPane.getChildren().add(ListRoot);
 
 		} catch (IOException e) {
@@ -197,12 +197,6 @@ public class SalesmanController implements ParentController {
 		AnchorPane ListRoot = null;
 		try {
 			loader = new FXMLLoader(getClass().getResource(fxmlPath));
-			
-//			ListWinController ListWinController  = controller;
-//			controller.setParentController(this);
-//			controller.setListID(id);
-//			controller.setOperator(User.getInstance().getUserName());
-
 			loader.setController(controller);
 			ListRoot = loader.load();
 			
@@ -211,7 +205,7 @@ public class SalesmanController implements ParentController {
 			if(cssPath != null)
 				ListRoot.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
 			
-			centerPane.getChildren().removeAll();
+			centerPane.getChildren().clear();
 			centerPane.getChildren().add(ListRoot);
 
 		} catch (IOException e) {
@@ -226,6 +220,7 @@ public class SalesmanController implements ParentController {
 	 * @param cssPath
 	 */
 	private void loadSimpleFXML(String fxmlPath, String cssPath) {
+		System.out.println("loading title");
 		AnchorPane titleRoot = null;
  		 FXMLLoader loader = new FXMLLoader(
 				    getClass().getResource(
@@ -240,7 +235,7 @@ public class SalesmanController implements ParentController {
 				if(cssPath != null)
 					titleRoot.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
 				
-				titlePane.getChildren().removeAll();
+				titlePane.getChildren().clear();
 				titlePane.getChildren().add(titleRoot);
 	}
 
@@ -249,9 +244,8 @@ public class SalesmanController implements ParentController {
 	 */
 	@Override
 	public void CloseSonWin() {
-		centerPane.getChildren().removeAll();
+		titlePane.getChildren().clear();
 		centerPane.getChildren().clear();
-    	this.centerPane.setCenter(null);
 		System.out.println("son win close");
 	}
 	
@@ -263,7 +257,6 @@ public class SalesmanController implements ParentController {
 				    	System.out.println("log out");
 						root.getScene().getWindow().hide();
 						new ui.mainUI.loginUI.LoginWin();
-						//new ui.saleUI.SaleWin();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
