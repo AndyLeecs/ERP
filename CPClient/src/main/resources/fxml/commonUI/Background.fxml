@@ -15,12 +15,11 @@
 
 <AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.mainUI.BackgroundController">
     <children>
-        <Pane prefHeight="200.0" prefWidth="200.0" />
-        <Pane layoutX="-4.0" prefHeight="97.0" prefWidth="1207.0" style="-fx-background-color: #FFECEC;">
+        <Pane layoutX="-4.0" prefHeight="97.0" prefWidth="1207.0" style="-fx-background-color: rgb(39,72,98);">
             <children>
-                <Label layoutX="206.0" layoutY="20.0" text="CuteProject" textFill="#9f353a">
+                <Label layoutX="206.0" layoutY="20.0" text="CuteProject" textFill="#e6b33d">
                     <font>
-                        <Font name="System Bold Italic" size="20.0" />
+                        <Font name="System Bold Italic" size="23.0" />
                     </font>
                 </Label>
                 <ImageView fx:id="logOutBtn" layoutX="1148.0" layoutY="14.0" onMouseClicked="#logOut">
@@ -29,7 +28,6 @@
                     </image>
                 </ImageView>
             <JFXHamburger fx:id="hamburger1" layoutX="1103.0" layoutY="17.0" stylesheets="@../../css/commonUI/Common.css" />
-            <Button layoutX="1006.0" layoutY="20.0" mnemonicParsing="false" onAction="#onMessageBtnClicked" text="消息" />
             </children>
         </Pane>
         <Pane fx:id="addNext" layoutX="177.0" layoutY="121.0" opacity="0.39" prefHeight="646.0" prefWidth="978.0" style="-fx-background-color: transparent;">

@@ -46,12 +46,12 @@
             </JFXButton>
          </children>
       </VBox>
-      <Circle fill="#5cfeff99" layoutX="107.0" layoutY="87.0" opacity="0.67" radius="80.0" stroke="BLACK" strokeMiterLimit="0.0" strokeWidth="0.0">
+      <Circle fill="#d9683199" layoutX="107.0" layoutY="87.0" opacity="0.67" radius="80.0" stroke="BLACK" strokeMiterLimit="0.0" strokeWidth="0.0">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#c74242cf" height="0.0" radius="6.2675" width="27.07" />
          </effect>
       </Circle>
-      <AnchorPane fx:id="titlePane" layoutX="187.0" layoutY="140.0" prefHeight="121.0" prefWidth="608.0" />
-      <BorderPane fx:id="centerPane" layoutX="188.0" layoutY="261.0" prefHeight="491.0" prefWidth="960.0" />
+      <AnchorPane fx:id="titlePane" layoutX="197.0" layoutY="140.0" prefHeight="121.0" prefWidth="931.0" />
+      <BorderPane fx:id="centerPane" layoutX="193.0" layoutY="296.0" prefHeight="456.0" prefWidth="927.0" />
    </children>
 </AnchorPane>

@@ -1,3 +1,7 @@
+@font-face {
+    src: url('/font/MyFont.otf');
+}
+
 .button {
 	-fx-background-radius: 50;
 	-fx-background-color: #FFD2D2;

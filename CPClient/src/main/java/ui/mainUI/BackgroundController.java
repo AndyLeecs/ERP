@@ -88,7 +88,7 @@ public class BackgroundController {
         rippler.setOnMouseClicked(e -> popup.show(rippler, PopupVPosition.TOP, PopupHPosition.RIGHT));
 	
     }
-    
+    /*
     @FXML
     public void onMessageBtnClicked(){
     	Platform.runLater(()-> {
@@ -98,7 +98,7 @@ public class BackgroundController {
                 e.printStackTrace();
             }
     });
-    }
+    }*/
     
     @FXML
     public void logOut() {

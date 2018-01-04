@@ -40,22 +40,13 @@ public class StockmanController extends BackgroundController{
 	@FXML public JFXButton draftBtn;  //库存查看
 	@FXML public ImageView logOutBtn;
 	
-	//@FXML public MenuItem newPresentListBtn;
-	//@FXML public MenuItem newStockOverflowListBtn;
-	//@FXML public MenuItem newStockLostListBtn;
 	public JFXButton newPresentListBtn = new JFXButton("库存赠送单");
 	public JFXButton newStockOverflowListBtn = new JFXButton("库存报溢单");
 	public JFXButton newStockLostListBtn = new JFXButton("库存报损单");
-	public JFXButton newAlarmListBtn;
 	public JFXButton lookPresentListBtn = new JFXButton("库存赠送单");
 	public JFXButton lookStockOverflowListBtn = new JFXButton("库存报溢单");
 	public JFXButton lookStockLostListBtn = new JFXButton("库存报损单");
 	public JFXButton lookAlarmListBtn = new JFXButton("库存报警单");
-	public JFXButton messageBtn;
-	//@FXML public MenuItem personalInfoBtn;
-
-//	@FXML public MenuItem StoreCheckBtn;
-//	@FXML public MenuItem StoreInventoryBtn;
 	
 	@FXML public Pane addNext;
 	@FXML public JFXDrawersStack drawersStack;
@@ -66,9 +57,7 @@ public class StockmanController extends BackgroundController{
 	
 	
 	@FXML public void initialize() {
-	     
-	        //JFXDrawer drawer = new JFXDrawer();
-	        //StackPane drawerPane = new StackPane();
+	   
 		    StackPane.setMargin(drawerPane, new Insets(100));
 	        drawerPane.setStyle("-fx-background-color: rgb(39, 72, 98)");
 	        drawerPane.getChildren().add(new JFXButton("Drawer Content!"));
@@ -90,9 +79,8 @@ public class StockmanController extends BackgroundController{
 	@FXML public void setNewBtn() {
 		drawerPane.getChildren().clear();
 		HBox hbox = new HBox();
-		hbox.setPadding(new Insets(30,30,30,30));
+		hbox.setPadding(new Insets(20,30,30,30));
 		hbox.getChildren().addAll(newPresentListBtn,newStockOverflowListBtn,newStockLostListBtn);
-		//drawerPane.getChildren().addAll(newPresentListBtn,newStockOverflowListBtn,newStockLostListBtn);
 		drawerPane.getChildren().add(hbox);
 		drawersStack.toggle(drawer);
 	}
@@ -100,7 +88,7 @@ public class StockmanController extends BackgroundController{
 	@FXML public void setLookBtn() {
 		drawerPane.getChildren().clear();
 		HBox hbox = new HBox();
-		hbox.setPadding(new Insets(30,30,30,30));
+		hbox.setPadding(new Insets(20,30,30,30));
 		hbox.getChildren().addAll(lookPresentListBtn,lookStockOverflowListBtn,lookStockLostListBtn,lookAlarmListBtn);
 		drawerPane.getChildren().add(hbox);
 		drawersStack.toggle(drawer);
