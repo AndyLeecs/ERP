@@ -9,6 +9,8 @@ import java.io.Serializable;
 */
 public enum DataRM implements Serializable{
 	SUCCESS,
+	//提示信息
+	CANCEL_REMIND,
 	EXIST,
 	NOT_EXIST,
 	FAILED,

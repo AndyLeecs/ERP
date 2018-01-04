@@ -44,6 +44,9 @@ public class PromptHelper {
 		case REBATE_FAILED:
 			new PromptWin("折让金额超过额度~");
 			break;
+		case CANCEL_REMIND:
+			new PromptWin("请先取消当前单据~");
+			break;
 		default:
 			new PromptWin("出现未知错误");
 		}
