@@ -31,9 +31,12 @@ public class NoEditCellController{
 
 	@FXML protected Label sumLabel;
 
-	@FXML protected TextField priceTextField;
+	@FXML protected Label priceTextField;
+	@FXML protected Label amountTextField;
+	@FXML protected Label notesTextField;
+//	@FXML protected TextField priceTextField;
 
-	@FXML protected TextField notesTextField;
+//	@FXML protected TextField notesTextField;
 
 	@FXML protected Label nameLabel;
 
@@ -41,7 +44,7 @@ public class NoEditCellController{
 
 	@FXML protected Button deleteBtn;
 
-	@FXML protected TextField amountTextField;
+//	@FXML protected TextField amountTextField;
 
 	
 
@@ -70,7 +73,7 @@ public class NoEditCellController{
 	void initialize(){
 
 	    //设置初始值
-
+if(vo != null){
 		typeLabel.setText(vo.getType());
 
 		sumLabel.setText(vo.getSum()+"");
@@ -97,13 +100,13 @@ public class NoEditCellController{
 
 	
 
-		 amountTextField.setEditable(false);
+//		 amountTextField.setEditable(false);
+//
+//		 priceTextField.setEditable(false);
+//
+//		 notesTextField.setEditable(false);
 
-		 priceTextField.setEditable(false);
-
-		 notesTextField.setEditable(false);
-
-		 
+}		 
 
 		deleteBtn.setVisible(false);
 

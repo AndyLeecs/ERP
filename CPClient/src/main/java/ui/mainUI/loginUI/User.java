@@ -12,9 +12,8 @@ public class User {
 	private PersonalInfoService service;
 	private static User user;
 	
-	boolean loggedIn = false;		//是否登录，不知道有没有用。。re:按照现在的逻辑，如果在登出后getinstance的话，还是可以获得一个user对象的？
-									//re:re：是的，现在登出后也能。不过没有关系吧。user类的含义是提供user相关的服务，不是一个用户。如果没有问题了就把注释删掉吧。
-	
+	boolean loggedIn = false;		
+									
 	private String id;
 	private	String name;
 	private	UserType type = UserType.Salesman;				

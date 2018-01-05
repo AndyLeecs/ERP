@@ -1,6 +1,7 @@
 package ui.salesmanUI.saleListUI;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import VO.GoodsInSaleVO;
@@ -13,6 +14,7 @@ import blservice.saleblservice.SaleListBLService;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import resultmessage.DataRM;
@@ -83,13 +85,24 @@ public class SaleNewListController extends SaleTypeNewListController implements 
 		sumAfterRebateLabel.setText(presentResult.getSum()+"");
 		//显示策略id
 		List<Integer> presentId = presentResult.getPresentId();
+		List<Integer> temp = new ArrayList<Integer>();
+		
+		if(!presentHBox.getChildren().isEmpty()){
+		List<Node> list = presentHBox.getChildren();
+			for(Node n : list){
+				temp.add(Integer.parseInt(((Button)n).getText()));
+			}
+		}
 		if(presentId != null){
 			for(Integer i : presentId){
+				if(!temp.contains(i)){
 			Button b = new Button(i+"");
 			presentHBox.getChildren().add(b);
 			System.out.println("presentID is" + i + "");
+				}
 			}
 		}
+
 		//显示特价商品列表
 		List<GoodsInSaleVO> presentList = presentResult.getPresentList();
 		if(presentList!=null){
@@ -135,6 +148,7 @@ public class SaleNewListController extends SaleTypeNewListController implements 
     		e.printStackTrace();
     		return false;
      }
+ //   	System.out.println(User.getInstance().getGrade());
     	if(Double.parseDouble(rebateField.getText())>RebateChecker.getRebateLimit(User.getInstance().getGrade()))
     	{
     		PromptHelper.showPrompt(DataRM.REBATE_FAILED);

@@ -1,6 +1,3 @@
-@font-face {
-    src: url('/font/MyFont.otf');
-}
 
 .jfx-list-cell {
     -fx-background-insets: 0.0;

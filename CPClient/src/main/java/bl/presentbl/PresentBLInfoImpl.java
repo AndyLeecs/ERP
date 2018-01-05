@@ -45,7 +45,7 @@ public class PresentBLInfoImpl implements PresentBLInfo{
 		this.grade = vo.getGrade();
 		this.sum = vo.getSum();
 		
-		result = new PresentResultVO(new ArrayList<Integer>(), 0.0, null, sum);
+		result = new PresentResultVO(new ArrayList<Integer>(), 0.0, new ArrayList<GoodsInSaleVO>(), sum);
 	
 		result = packageHandler.handle(goodsList,result);
 		System.out.println("after finding special package"+result);
