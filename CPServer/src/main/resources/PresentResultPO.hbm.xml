@@ -11,7 +11,7 @@
       <list name = "presentId" cascade = "all" lazy = "false">
       	<key column = "parentId"/>
       	<index column = "index_"/>
-      	<element type = "int" /> 
+      	<element type = "java.lang.Integer" /> 
       </list>
       <property name="voucher"/>
       			<list name="presentList" cascade ="all" lazy = "false">

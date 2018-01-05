@@ -84,4 +84,52 @@ public class PresentResultPO implements Remote,Serializable{
 	}
 	
 	public PresentResultPO(){}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((presentId == null) ? 0 : presentId.hashCode());
+		result = prime * result + ((presentList == null) ? 0 : presentList.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(sum);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(voucher);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PresentResultPO other = (PresentResultPO) obj;
+		if (id != other.id)
+			return false;
+		if (presentId == null) {
+			if (other.presentId != null)
+				return false;
+		} else if (!presentId.equals(other.presentId))
+			return false;
+		if (presentList == null) {
+			if (other.presentList != null)
+				return false;
+		} else if (!presentList.equals(other.presentList))
+			return false;
+		if (Double.doubleToLongBits(sum) != Double.doubleToLongBits(other.sum))
+			return false;
+		if (Double.doubleToLongBits(voucher) != Double.doubleToLongBits(other.voucher))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "PresentResultPO [id=" + id + ", presentId=" + presentId + ", voucher=" + voucher + ", presentList="
+				+ presentList + ", sum=" + sum + "]";
+	}
+	
+	
 }

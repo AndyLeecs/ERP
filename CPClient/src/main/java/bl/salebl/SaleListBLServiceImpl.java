@@ -228,7 +228,6 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		try {
 			polist = service.openAllDraft();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 	//		return volist;
@@ -236,6 +235,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		if(polist == null)
 			return null;
 		for(SalesmanListPO po : polist){
+			System.out.println((SaleListPO)po);
 			volist.add(poToVo(po));
 		}
 		return volist;
@@ -343,17 +343,26 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 		}
 		}
 		
-		
-		//留了一个空项，看以后是存操作员的id还是名称
-		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(),spo.getMemberID(), spo.getMemberName(),spo.getGrade(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher(),poToVo(spo.getPresentResultPO()));
+		PresentResultVO vo = poToVo(spo.getPresentResultPO());
+		System.out.println("in big"+vo);
+		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(),spo.getMemberID(), spo.getMemberName(),spo.getGrade(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), 
+				volist, spo.getSum(), spo.getSumBeforeRebate(), 
+				spo.getRebate(), spo.getVoucher(),poToVo(spo.getPresentResultPO()));
 	}
 
 	
 	
 	private PresentResultVO poToVo(PresentResultPO po){
-		if(po != null)
-		return new PresentResultVO(po.getPresentId(),po.getVoucher(),GoodsInSaleVoTransPo.GoodsInSalePoToVo(po.getPresentList()),po.getSum());
-		else
+		System.out.println(po);
+		System.out.println(po.getPresentId());
+		if(po != null){
+			PresentResultVO vo = 
+		new PresentResultVO(po.getPresentId(),po.getVoucher(),GoodsInSaleVoTransPo.GoodsInSalePoToVo(po.getPresentList()),po.getSum());
+		System.out.println(vo.getPresentId());
+		System.out.println(vo);
+		return vo;
+		
+		}	else
 			 return null;
 	}
 	

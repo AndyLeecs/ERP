@@ -35,7 +35,7 @@
 			<property name="rebate" />
 			<property name="voucher" />
 	        <property name="memberGrade"/>	        
-	        <one-to-one name="presentResultPO" class="PO.PresentResultPO" cascade ="all" lazy = "false"/>   
+	        <many-to-one name="presentResultPO"  cascade ="all" lazy = "false" unique = "true" class="PO.PresentResultPO" column = "listid"/>   
 		</joined-subclass>
 
 		<joined-subclass name="PO.SaleReturnListPO">

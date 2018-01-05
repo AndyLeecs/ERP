@@ -149,11 +149,14 @@ public class SaleListCellController implements CellController,SinglePresentContr
 		grade = svo.getGrade();
 		//策略部分
 		presentResult = svo.getPresentResultVO();
+		if(presentResult!=null){
 		//显示金额
 		voucherInPresent.setText(presentResult.getVoucher()+"");
 		sumAfterRebateLabel.setText(presentResult.getSum()+"");
 		//显示策略id
+		
 		List<Integer> presentId = presentResult.getPresentId();
+		System.out.println(presentResult);
 		if(presentId != null){
 			for(Integer i : presentId){
 			Button b = new Button(i+"");
@@ -165,6 +168,7 @@ public class SaleListCellController implements CellController,SinglePresentContr
 		List<GoodsInSaleVO> presentList = presentResult.getPresentList();
 		if(presentList!=null){
 			setPresentList(presentList);
+		}
 		}
 		//改变组件的名称
 		saveBtn.setText("编辑");
