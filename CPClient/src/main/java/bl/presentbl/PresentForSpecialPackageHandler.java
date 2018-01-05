@@ -29,6 +29,7 @@ public class PresentForSpecialPackageHandler {
 		PresentForSpecialPackageVO newPresent = list.get(0);
 		System.out.println(newPresent);
 		int id = newPresent.getId();
+		if(!result.getPresentId().contains(id)){
 		result.getPresentId().add(id);
 		System.out.println("presentid"+id);
 		System.out.println("presentidInList"+result.getPresentId());
@@ -37,7 +38,7 @@ public class PresentForSpecialPackageHandler {
 		if(result.getSum() - rebate > 0)
 		result.setSum(result.getSum() - rebate);
 		}
-		
+		}
 		return result;
 	}
 

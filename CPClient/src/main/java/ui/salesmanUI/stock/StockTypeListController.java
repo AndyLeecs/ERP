@@ -68,6 +68,7 @@ public abstract class StockTypeListController extends SalesmanListWinController 
 		double totalAmountValue = 0;
 			goodsListVBox.getChildren().clear();
 			controllerList.clear();
+			if(chosenList != null)
 			for(SalesmanItemVO vo : chosenList){
 	   		 SalesmanEditCellController controller = 
 	   				    new SalesmanEditCellController(this,vo);

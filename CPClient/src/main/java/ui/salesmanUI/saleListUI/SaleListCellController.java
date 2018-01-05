@@ -219,7 +219,7 @@ public void setPresentList(List<GoodsInSaleVO> presentList) {
 	}
 	//编辑
 	@FXML void save(){
-		this.controller.controller.CloseSonWin();
+		this.controller.controller.CloseListToEdit();
 
 		Platform.runLater(()->{
 		try {
@@ -238,7 +238,7 @@ public void setPresentList(List<GoodsInSaleVO> presentList) {
 	}
 	protected SaleTypeEditListController generateEditList() {
 		SaleEditListController controller = 
-   				    new SaleEditListController(this.controller.controller,SaleBLFactory.getSaleReturnListBLService(),vo.getId(),vo);
+   				    new SaleEditListController(this.controller.controller,SaleBLFactory.getSaleListBLService(),vo.getId(),vo);
 		return controller;
 	}
 	public void refresh() {

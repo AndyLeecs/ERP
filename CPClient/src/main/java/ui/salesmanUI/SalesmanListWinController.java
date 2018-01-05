@@ -376,7 +376,7 @@ public abstract class SalesmanListWinController{
 		if(!check())
 			return;
 		uniBLService.commit(getVOFromUI());
-		System.out.println("commit");
+		PromptHelper.showPrompt(DataRM.SUCCESS);
 		this.parentController.CloseSonWin();
 	}
 	

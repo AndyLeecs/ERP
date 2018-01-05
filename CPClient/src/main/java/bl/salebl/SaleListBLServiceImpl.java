@@ -354,7 +354,6 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 	
 	private PresentResultVO poToVo(PresentResultPO po){
 		System.out.println(po);
-		System.out.println(po.getPresentId());
 		if(po != null){
 			PresentResultVO vo = 
 		new PresentResultVO(po.getPresentId(),po.getVoucher(),GoodsInSaleVoTransPo.GoodsInSalePoToVo(po.getPresentList()),po.getSum());

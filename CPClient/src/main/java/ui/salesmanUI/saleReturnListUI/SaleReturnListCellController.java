@@ -176,7 +176,7 @@ public class SaleReturnListCellController implements CellController{
 	}
 	//编辑
 	@FXML void save(){
-		this.controller.controller.CloseSonWin();
+		this.controller.controller.CloseListToEdit();
 
 		Platform.runLater(()->{
 		try {
