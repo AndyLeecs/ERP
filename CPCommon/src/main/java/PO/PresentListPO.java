@@ -8,7 +8,7 @@ import  javax.persistence.*;
 
 @Entity
 @Table(name="PresentListPO")
-public class PresentListPO extends StockListPO implements Serializable{
+public class PresentListPO implements Serializable{
 
 	@Id @GeneratedValue
 	@Column(name="listID")

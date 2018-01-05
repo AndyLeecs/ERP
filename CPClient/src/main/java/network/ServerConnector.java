@@ -44,7 +44,7 @@ public class ServerConnector {
 	public ServerConnector(){
 		addServices();
 		connectDataService();
-		insertAdmin();
+//		insertAdmin();
 	}
 	
 	private void addServices(){

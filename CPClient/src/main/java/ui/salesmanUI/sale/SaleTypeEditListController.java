@@ -50,8 +50,8 @@ public abstract class SaleTypeEditListController extends SaleTypeListController 
 		
 		chosenList = vo.getSaleListItems();
 		//改变组件的名称
-		saveBtn.setText("编辑");
-		cancelBtn.setText("删除");
+//		saveBtn.setText("保存");
+//		cancelBtn.setText("删除");
 		this.refresh();
 	}
 	@FXML

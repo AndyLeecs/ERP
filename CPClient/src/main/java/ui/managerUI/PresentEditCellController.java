@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 */
 public class PresentEditCellController {
 	@FXML Label name;
-	@FXML TextField amount;
+	@FXML Label amount;
 	@FXML Button deleteBtn;
 	
 	private final String INIT_AMOUNT= "1";
@@ -33,11 +33,11 @@ public class PresentEditCellController {
 	@FXML void initialize(){
 		name.setText(vo.getGoodsName());
 		amount.setText(vo.getAmount()+"");
-		amount.setEditable(false);
+
 		
 	}
 	@FXML void delete(){
-		//每次删除的时候删除vo,因为并没有保存vo中amount域的更改
+
 		controller.deleteFromPresentList(vo);
 	}
 	

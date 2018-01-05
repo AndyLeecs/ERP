@@ -52,7 +52,7 @@ public class ServerHelper {
 	
 	public ServerHelper(){
 		initServer();
-		initListID();
+//		initListID();
 	}
 	
 	private void initServer(){
@@ -128,6 +128,9 @@ public class ServerHelper {
 			VIPDataService vipDataService=new VIPDataServiceImpl();
 			Naming.bind("VIPDataService",vipDataService);
 			System.out.println("bind succeeded!");
+			
+			
+			System.out.println("All Service bind finish!");
 			//所有的service都要在这里绑定一下
 			
 		} catch (RemoteException e) {

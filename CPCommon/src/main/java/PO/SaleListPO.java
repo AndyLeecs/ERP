@@ -66,6 +66,15 @@ public VIPGrade getMemberGrade() {
 
 
 
+	@Override
+	public String toString() {
+		return "SaleListPO [sumBeforeRebate=" + sumBeforeRebate + ", rebate=" + rebate + ", voucher=" + voucher
+				+ ", presentResultPO=" + presentResultPO + ", memberGrade=" + memberGrade + "]";
+	}
+
+
+
+
 	public VIPGrade getGrade() {
 		return memberGrade;
 	}

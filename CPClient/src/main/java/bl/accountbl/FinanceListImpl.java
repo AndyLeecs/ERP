@@ -121,8 +121,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 			return CommitListRM.SERVER_ERROR;
 		case SUCCESS:
 			currentState = State.IsCommitted;
-			//TODO 加上这句
-//			infoListService.register(new InfoListVO(vo.getId(),getGreatListType(),vo.getOperator(),getKeyInfo(vo)));
+			infoListService.register(new InfoListVO(vo.getId(),getGreatListType(),vo.getOperator(),getKeyInfo(vo)));
 			return CommitListRM.SUCCESS;
 		default:
 			break;
@@ -159,6 +158,16 @@ public abstract class FinanceListImpl implements FinanceListService{
 		return new AccountManagementServiceImpl().getAllAccount();
 	}
 	
+	@Override
+	public FinanceListVO getList(String id){
+		try {
+			return poTovo((FinanceListPO)dataService.getList(id));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public ApproveRM approve(FinanceListVO vo){
 		vo.setState(State.IsApproved);
 		try {
@@ -167,8 +176,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 			case FAILED:
 				return ApproveRM.SERVER_ERROR;
 			case SUCCESS:
-				//TODO
-//				infoListService.modify(true, vo.getId());
+				infoListService.modify(true, vo.getId());
 				return ApproveRM.OK;
 			default:
 				break;
@@ -184,8 +192,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 		vo.setState(State.IsRefused);
 		try {
 			dataService.update(voTopo(vo));
-			//TODO
-//			infoListService.modify(false, vo.getId());
+			infoListService.modify(false, vo.getId());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

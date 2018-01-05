@@ -24,7 +24,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="operator" layoutX="802.0" layoutY="28.0" prefHeight="23.0" prefWidth="105.0" text="操作员名字">
+            <Label fx:id="operator" layoutX="802.0" layoutY="28.0" prefHeight="23.0" prefWidth="105.0" text="">
                <font>
                   <Font size="15.0" />
                </font>
@@ -41,12 +41,12 @@
                      </font>
                   </Label>
                   <Button fx:id="searchVIPBtn" layoutX="526.0" layoutY="15.0" mnemonicParsing="false" onAction="#onSearchVIPBtnClicked" text="查找" />
-                  <Label fx:id="VIPName" layoutX="128.0" layoutY="16.0" prefHeight="27.0" prefWidth="92.0" text="客户名字">
+                  <Label fx:id="VIPName" layoutX="128.0" layoutY="16.0" prefHeight="27.0" prefWidth="92.0" text="会员名称">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="VIPID" layoutX="220.0" layoutY="16.0" prefHeight="27.0" prefWidth="92.0" text="客户编号">
+                  <Label fx:id="VIPID" layoutX="220.0" layoutY="16.0" prefHeight="27.0" prefWidth="92.0" text="会员编号">
                      <font>
                         <Font size="15.0" />
                      </font>

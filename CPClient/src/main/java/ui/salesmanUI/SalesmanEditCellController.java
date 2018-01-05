@@ -27,16 +27,20 @@ public class SalesmanEditCellController {
 	@FXML protected Label sumLabel;
 	protected DoubleProperty sumProperty  = new SimpleDoubleProperty();
 
-	@FXML protected TextField priceTextField;
+	@FXML protected Label priceTextField;
+
+//	@FXML protected TextField priceTextField;
 	protected DoubleProperty priceProperty  = new SimpleDoubleProperty();
 
-	@FXML protected TextField notesTextField;
+	@FXML protected Label notesTextField;
+//	@FXML protected TextField notesTextField;
 	protected StringProperty notesProperty = new SimpleStringProperty(); 
 
 	@FXML protected Label nameLabel;
 	@FXML protected Label idLabel;
 	@FXML protected Button deleteBtn;
-	@FXML protected TextField amountTextField;
+	@FXML protected Label amountTextField;
+//	@FXML protected TextField amountTextField;
 //	protected Property<Integer> amountProperty = new SimpleIntegerProperty();
 	protected IntegerProperty amountProperty  = new SimpleIntegerProperty();
 	
@@ -57,7 +61,7 @@ public class SalesmanEditCellController {
 	}
 	
 	@FXML void initialize(){
-		
+		if(vo != null){
 	    //设置初始值
 		typeLabel.setText(vo.getType());
 		sumLabel.setText(vo.getSum()+"");
@@ -71,6 +75,7 @@ public class SalesmanEditCellController {
 		notesTextField.setText(vo.getNotes());
 		nameLabel.setText(vo.getName());
 		idLabel.setText(vo.getId());
+		}
 //		//绑定属性
 //		notesTextField.textProperty().bindBidirectional(notesProperty);
 //		
@@ -110,10 +115,10 @@ public class SalesmanEditCellController {
 //		controller.totalAmount.setText(sumLabel.getText());
 //		System.out.println(controller.totalAmount.getText());
 		 
-		 //设置不可编辑
-		 amountTextField.setEditable(false);
-		 priceTextField.setEditable(false);
-		 notesTextField.setEditable(false);
+//		 //设置不可编辑
+//		 amountTextField.setEditable(false);
+//		 priceTextField.setEditable(false);
+//		 notesTextField.setEditable(false);
 	}
 
 	@FXML void delete(){
@@ -127,7 +132,7 @@ public class SalesmanEditCellController {
 		return isValidForDouble(priceTextField)&&isValidForInt(amountTextField);
 
 	}
-	public boolean isValidForDouble(TextField textField){
+	public boolean isValidForDouble(Label textField){
 		String s = textField.getText();
 		double d = 0;
 		try{
@@ -139,7 +144,7 @@ public class SalesmanEditCellController {
 		return true;
 	}
 	
-	public boolean isValidForInt(TextField textField){
+	public boolean isValidForInt(Label textField){
 		String s = textField.getText();
 		int d = 0;
 		try{

@@ -318,6 +318,10 @@ public class SalesmanController implements ParentController {
 		System.out.println("son win close");
 	}
 	
+	public void CloseListToEdit(){
+		centerPane.getChildren().clear();
+	}
+	
     @FXML 
     public void logOut() {
     	

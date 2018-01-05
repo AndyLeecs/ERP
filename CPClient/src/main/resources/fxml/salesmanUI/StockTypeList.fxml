@@ -13,17 +13,17 @@
       <Pane layoutX="6.0" layoutY="118.0" prefHeight="459.0" prefWidth="921.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane layoutY="6.0" prefHeight="59.0" prefWidth="921.0">
-               <children>
-                  <Label fx:id="VIPName" layoutX="211.0" layoutY="46.0" prefHeight="27.0" prefWidth="92.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="VIPID" layoutX="325.0" layoutY="46.0" prefHeight="27.0" prefWidth="92.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
+                       <children>
+                        <Label fx:id="VIPName" layoutX="322.0" layoutY="47.0" prefHeight="27.0" prefWidth="92.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="VIPID" layoutX="426.0" layoutY="46.0" prefHeight="27.0" prefWidth="92.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
                   <Label fx:id="operator" layoutX="802.0" layoutY="10.0" prefHeight="23.0" prefWidth="105.0" text="操作员名字">
                      <font>
                         <Font size="15.0" />
