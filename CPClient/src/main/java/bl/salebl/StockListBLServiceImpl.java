@@ -199,6 +199,8 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 	 * @return
 	 */
 	public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
+		if(i != null)
+			return null;
 		return new SalesmanItemPO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 	}
 
@@ -208,6 +210,8 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 	 * @return
 	 */
 	public SalesmanItemVO itemPoToVo(SalesmanItemPO i) {
+		if(i != null)
+			return null;
 		return new SalesmanItemVO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 	}
 
@@ -248,6 +252,8 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 		return polist;
 	}
 	public SalesmanListPO voToPo(SalesmanListVO vo) {
+		if(vo == null)
+			return null;
 		StockListVO svo = (StockListVO)vo;
 		List<SalesmanItemPO> polist = generatePoList(svo);
 		return new StockListPO(svo.getId(),svo.getState(),DateUtil.getDateFromListID(svo.getId()),svo.getOperatorGrade(),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum());
@@ -256,6 +262,8 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 
 
 	public SalesmanListVO poToVo(SalesmanListPO po) {
+		if(po == null)
+			return null;
 		StockListPO spo = (StockListPO)po;
 		List<SalesmanItemVO> volist = generateVoList(po);
 		//留了一个空项，看以后是存操作员的id还是名称

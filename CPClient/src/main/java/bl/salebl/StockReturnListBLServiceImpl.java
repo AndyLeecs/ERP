@@ -185,6 +185,8 @@ public class StockReturnListBLServiceImpl implements StockReturnListBLService,Ap
 			return null;
 	//		return volist;
 		}
+		if(polist == null)
+			return null;
 		for(SalesmanListPO po : polist){
 			volist.add(poToVo(po));
 		}
@@ -196,6 +198,8 @@ public class StockReturnListBLServiceImpl implements StockReturnListBLService,Ap
  * @return
  */
 public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
+	if(i == null)
+		return null;
 	return new SalesmanItemPO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 }
 
@@ -205,6 +209,8 @@ public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
  * @return
  */
 public SalesmanItemVO itemPoToVo(SalesmanItemPO i) {
+	if(i == null)
+		return null;
 	return new SalesmanItemVO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 }
 
@@ -246,7 +252,8 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 }
 
 	public SalesmanListPO voToPo(SalesmanListVO vo) {
-		// TODO Auto-generated method stub
+		if(vo == null)
+			return null;
 		StockReturnListVO svo = (StockReturnListVO)vo;
 		List<SalesmanItemPO> polist = generatePoList(svo);
 		return new StockReturnListPO(svo.getId(),svo.getState(),DateUtil.getDateFromListID(svo.getId()),svo.getOperatorGrade(),svo.getMemberID(),svo.getMemberName(),svo.getOperator(),svo.getOperatorId(),svo.getRealOperator(),svo.getWarehouse(),svo.getNotes(),polist,svo.getSum());
@@ -255,10 +262,10 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 
 
 	public SalesmanListVO poToVo(SalesmanListPO po) {
-		// TODO Auto-generated method stub
+		if(po == null)
+			return null;
 		StockReturnListPO spo = (StockReturnListPO)po;
 		List<SalesmanItemVO> volist = generateVoList(po);
-		//留了一个空项，看以后是存操作员的id还是名称
 		return new StockReturnListVO(spo.getId(),spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(), spo.getMemberID(), spo.getMemberName(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum());
 	}
 

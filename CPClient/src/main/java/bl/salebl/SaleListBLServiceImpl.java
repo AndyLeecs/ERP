@@ -54,7 +54,6 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 	
 	@Override
 	public String getId() {
-		// TODO Auto-generated method stub
 		try {
 			System.out.println(service);
 			String id = service.insert();
@@ -63,7 +62,6 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		//	return presentForSumDataService.insert();
 			
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -148,13 +146,13 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 					
 					//更改最近售价	
 					resultRm = goodsRecentChange.setGoodsRecentSellPrice(i.getPrice(), i.getName(), null);
-					if(resultRm != resultRm.SUCCESS){
+					if(resultRm != ResultMessage.SUCCESS){
 						return DataRM.FAILED;
 					}
 				}
 				//修改应付
 					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum());
-					if(resultRm != resultRm.SUCCESS){
+					if(resultRm != ResultMessage.SUCCESS){
 						return DataRM.FAILED;
 					}
 				//通知销售人员
@@ -230,12 +228,14 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		try {
 			polist = service.openAllDraft();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 	//		return volist;
 		}
+		if(polist == null)
+			return null;
 		for(SalesmanListPO po : polist){
+			System.out.println((SaleListPO)po);
 			volist.add(poToVo(po));
 		}
 		return volist;
@@ -246,6 +246,8 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
  * @return
  */
 public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
+	if(i == null)
+		return null;
 	return new SalesmanItemPO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 }
 
@@ -255,6 +257,8 @@ public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
  * @return
  */
 public SalesmanItemVO itemPoToVo(SalesmanItemPO i) {
+	if(i == null)
+		return null;
 	return new SalesmanItemVO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 }
 
@@ -264,6 +268,8 @@ public SalesmanItemVO itemPoToVo(SalesmanItemPO i) {
  * @return
  */
 public List<SalesmanItemVO> generateVoList(SalesmanListPO po) {
+	if(po == null)
+		return null;
 	List<SalesmanItemPO> polist = po.getSaleListItems();
 	List<SalesmanItemVO> volist = new ArrayList<SalesmanItemVO>();
 
@@ -282,6 +288,8 @@ public List<SalesmanItemVO> generateVoList(SalesmanListPO po) {
  * @return
  */
 public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
+	if(vo == null)
+		return null;
 	List<SalesmanItemVO> volist = vo.getSaleListItems();
 	List<SalesmanItemPO> polist = new ArrayList<SalesmanItemPO>();
 	
@@ -296,7 +304,11 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 }
 
 	public SalesmanListPO voToPo(SalesmanListVO vo) {
+		if(vo == null)
+			return null;
+		
 		SaleListVO svo = (SaleListVO)vo;
+		
 		List<SalesmanItemVO> volist = svo.getSaleListItems();
 		List<SalesmanItemPO> polist = new ArrayList<SalesmanItemPO>();
 		
@@ -318,6 +330,8 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 
 	public SalesmanListVO poToVo(SalesmanListPO po) {
 		SaleListPO spo = (SaleListPO)po;
+		if(po == null)
+			return null;
 		List<SalesmanItemPO> polist = spo.getSaleListItems();
 		List<SalesmanItemVO> volist = new ArrayList<SalesmanItemVO>();
 
@@ -329,19 +343,35 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 		}
 		}
 		
-		
-		//留了一个空项，看以后是存操作员的id还是名称
-		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(),spo.getMemberID(), spo.getMemberName(),spo.getGrade(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), volist, spo.getSum(), spo.getSumBeforeRebate(), spo.getRebate(), spo.getVoucher(),poToVo(spo.getPresentResultPO()));
+		PresentResultVO vo = poToVo(spo.getPresentResultPO());
+		System.out.println("in big"+vo);
+		return new SaleListVO(spo.getId(), spo.getOperator(),spo.getOperatorId(), spo.getState(),spo.getOperatorGrade(),spo.getMemberID(), spo.getMemberName(),spo.getGrade(),spo.getRealOperator(), spo.getWarehouse(), spo.getNotes(), 
+				volist, spo.getSum(), spo.getSumBeforeRebate(), 
+				spo.getRebate(), spo.getVoucher(),poToVo(spo.getPresentResultPO()));
 	}
 
 	
 	
 	private PresentResultVO poToVo(PresentResultPO po){
-		return new PresentResultVO(po.getPresentId(),po.getVoucher(),GoodsInSaleVoTransPo.GoodsInSalePoToVo(po.getPresentList()),po.getSum());
+		System.out.println(po);
+		System.out.println(po.getPresentId());
+		if(po != null){
+			PresentResultVO vo = 
+		new PresentResultVO(po.getPresentId(),po.getVoucher(),GoodsInSaleVoTransPo.GoodsInSalePoToVo(po.getPresentList()),po.getSum());
+		System.out.println(vo.getPresentId());
+		System.out.println(vo);
+		return vo;
+		
+		}	else
+			 return null;
 	}
 	
 	private PresentResultPO voToPo(PresentResultVO vo){
-		return new PresentResultPO(vo.getPresentId(),vo.getVoucher(),GoodsInSaleVoTransPo.GoodsInSaleVoToPo(vo.getPresentList()),vo.getSum());
+		if(vo != null)
+		
+			return new PresentResultPO(vo.getPresentId(),vo.getVoucher(),GoodsInSaleVoTransPo.GoodsInSaleVoToPo(vo.getPresentList()),vo.getSum());
+		else
+			return null;
 	}
 
 	/* (non-Javadoc)
