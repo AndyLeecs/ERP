@@ -119,6 +119,7 @@ protected void initialize(){
 	grade = svo.getGrade();
 	//策略部分
 	presentResult = svo.getPresentResultVO();
+	if(presentResult != null){
 	//显示金额
 	voucherInPresent.setText(presentResult.getVoucher()+"");
 	sumAfterRebateLabel.setText(presentResult.getSum()+"");
@@ -136,7 +137,7 @@ protected void initialize(){
 	if(presentList!=null){
 		setPresentList(presentList);
 	}
-
+	}
 	this.refresh();
 }
 

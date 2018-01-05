@@ -11,9 +11,11 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import resultmessage.DataRM;
 import ui.commonUI.BussinessSituationWin;
 import ui.commonUI.LookListController;
 import ui.mainUI.loginUI.LoginWin;
+import ui.salesmanUI.PromptHelper;
 
 /**     
 * @author 李安迪
@@ -53,6 +55,8 @@ public class ManagerController {
 			e.printStackTrace();
 		}
 	});
+		}else{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
 		}
 	}
 	@FXML
@@ -74,6 +78,8 @@ public class ManagerController {
 			e.printStackTrace();
 		}
 	});
+		}else{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
 		}
 	}
 	@FXML
@@ -95,6 +101,8 @@ public class ManagerController {
 			e.printStackTrace();
 		}
 	});
+		}else{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
 		}
 	}
 	@FXML
@@ -117,6 +125,8 @@ public class ManagerController {
 				e.printStackTrace();
 			}
 			});
+		}else{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
 		}
 	}
 	@FXML
@@ -139,6 +149,8 @@ public class ManagerController {
 			e.printStackTrace();
 		}
 	});
+		}else{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
 		}
 	}
 	@FXML
@@ -159,6 +171,8 @@ public class ManagerController {
 			e.printStackTrace();
 		}
 	});
+		}else{
+			PromptHelper.showPrompt(DataRM.CANCEL_REMIND);
 		}
 	}
     
