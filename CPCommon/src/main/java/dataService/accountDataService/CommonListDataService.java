@@ -15,6 +15,7 @@ public interface CommonListDataService extends Remote{
 	public DataRM delete(String id) throws RemoteException;
 	public DataRM update(ListPO po) throws RemoteException;
 	public List<? extends ListPO> getList(State state) throws RemoteException;
+	public ListPO getList(String id) throws RemoteException;
 	
 	
 }

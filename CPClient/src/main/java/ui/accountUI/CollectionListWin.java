@@ -2,6 +2,7 @@ package ui.accountUI;
 
 import java.io.IOException;
 
+import VO.accountVO.CollectionListVO;
 import blservice.serviceFactory.AccountBLFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,5 +27,10 @@ public class CollectionListWin extends Stage{
 		this.setScene(scene);
 		this.initStyle(StageStyle.DECORATED);
 		this.show();
+	}
+	
+	public CollectionListWin(String listId) throws IOException{
+		this(new CollectionListWinApproveController(
+				(CollectionListVO) AccountBLFactory.getCollectionListService().getList(listId)));
 	}
 }

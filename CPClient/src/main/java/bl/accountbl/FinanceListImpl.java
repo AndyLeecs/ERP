@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import PO.account.FinanceListPO;
 import VO.accountVO.AccountVO;
 import VO.accountVO.FinanceListVO;
-import VO.listVO.InfoListVO;
 import bl.listbl.InfoList;
 import bl.listbl.InfoList_Impl;
 import blservice.accountblservice.AccountManagementService;
@@ -157,6 +156,16 @@ public abstract class FinanceListImpl implements FinanceListService{
 	@Override
 	public List<AccountVO> findAccount() {
 		return new AccountManagementServiceImpl().getAllAccount();
+	}
+	
+	@Override
+	public FinanceListVO getList(String id){
+		try {
+			return poTovo((FinanceListPO)dataService.getList(id));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public ApproveRM approve(FinanceListVO vo){

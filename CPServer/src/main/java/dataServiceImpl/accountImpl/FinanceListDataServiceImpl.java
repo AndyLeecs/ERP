@@ -63,4 +63,9 @@ public abstract class FinanceListDataServiceImpl extends UnicastRemoteObject imp
 		OrderClause o = orderClauseGenerator.generateDescOrder("day");
 		return basicUtil.Query(l, o);	
 	}
+	
+	@Override 
+	public FinanceListPO getList(String id) throws RemoteException{
+		return basicUtil.get(id);
+	}
 }
