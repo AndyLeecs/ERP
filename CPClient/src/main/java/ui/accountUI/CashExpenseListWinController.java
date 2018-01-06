@@ -19,7 +19,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import ui.commonUI.PromptWin;
-import ui.mainUI.loginUI.User;
 import util.State;
 
 public class CashExpenseListWinController  extends FinanceListWinController{
@@ -183,8 +182,8 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 	protected CashExpenseListVO createListVO(State state){
 		return new CashExpenseListVO(
 				listID.getText(),
-				User.getInstance().getUserName(),
-				User.getInstance().getId(),
+				operator.getText(),
+				null,
 				state,
 				AccountComboBox.getValue(),
 				entryItem.stream().map(e -> e.toVO()).collect(Collectors.toList()),		
