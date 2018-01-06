@@ -32,7 +32,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label fx:id="listID" layoutX="635.0" layoutY="3.0" prefHeight="27.0" prefWidth="177.0" text="SKD-yyyymmdd-00000">
+                        <Label fx:id="listID" layoutX="603.0" layoutY="3.0" prefHeight="27.0" prefWidth="209.0" text="SKD-yyyymmdd-00000">
                            <font>
                               <Font size="15.0" />
                            </font>

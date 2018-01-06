@@ -2,7 +2,10 @@ package ui.stockmanUI;
 
 import VO.goodsVO.GoodsCategoryVO;
 import VO.goodsVO.GoodsVO;
+import VO.storeVO.StoreVO;
 import bl.goodsbl.GoodsBLServiceImpl;
+import bl.storebl.Store_Interface;
+import bl.storebl.Store_InterfaceImpl;
 import blservice.goodsblservice.GoodsBLService;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -547,7 +550,7 @@ public class GoodsController extends BackgroundController{
         newGoodsID.setStyle("-fx-border-radius: 20");
         newPane.getChildren().add(newGoodsID);
 
-        JFXTextField newGoodsInventory = new JFXTextField("5 "); //后期获取商品库存
+        JFXTextField newGoodsInventory = new JFXTextField("" + getGoodsStore(goodsVO.getGoodsID())); //后期获取商品库存
         newGoodsInventory.setLayoutX(337);
         newGoodsInventory.setLayoutY(154);
         newGoodsInventory.setPrefSize(39, 32);
@@ -621,6 +624,16 @@ public class GoodsController extends BackgroundController{
         newPane.setStyle("-fx-background-color: #FFB5B5");
         System.out.println("new Pane init Success!");
         goodsVBox.getChildren().add(newPane);
+    }
+    
+    public int getGoodsStore(String id) {
+        Store_Interface store = new Store_InterfaceImpl();
+        try {
+        StoreVO storeVO = store.getStoreVO(id);
+        return storeVO.Num; 
+        }catch(Exception e) {
+        	return 5;
+        }
     }
    
 }

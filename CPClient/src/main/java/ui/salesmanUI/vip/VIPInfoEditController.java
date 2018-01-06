@@ -55,12 +55,36 @@ public class VIPInfoEditController {
             }
         });
     }
+    
+    public boolean inputError(JFXTextField textField) {
+        	if (!isNumeric(textField.getText())) {
+            	textField.setText("请输入数字");
+            	return false;
+            }
+        	return true;
+    }
 
+    public static boolean isNumeric(String str) {
+    	if(str.contains(".")) {
+    		str = str.substring(0, str.indexOf(".")) + str.substring(str.indexOf(".") + 1,str.length());
+    	}
+    	  for (int i = 0; i < str.length(); i++) {
+    	   System.out.println(str.charAt(i));
+    	   if (!Character.isDigit(str.charAt(i))) {
+    		   System.out.println("输入字符不是数字");
+    	    return false;
+    	   }
+    	  }
+    	  System.out.println("输入字符是数字");
+    	  return true;
+    	 }
+    
     public void init(String vip) throws RemoteException {
         System.out.println(vip);
         vipVO = vipBLService.getVIP(vip);
 
         name.setText(vipVO.getName());
+        name.setEditable(false);
         inputRequired(name);
         id.setText(vipVO.getId());
         inputRequired(id);
@@ -69,7 +93,7 @@ public class VIPInfoEditController {
         grade.setText(vipVO.getGrade().toString());
         inputRequired(grade);
         phoneNumber.setText(vipVO.getPhoneNumber());
-        inputRequired(phoneNumber);
+        inputError(phoneNumber);
         address.setText(vipVO.getAddress());
         inputRequired(address);
         email.setText(vipVO.getEmail());
@@ -88,6 +112,14 @@ public class VIPInfoEditController {
 
     @FXML
     public void setSaveVIPInfoBtn() throws RemoteException{
+    	
+    	    if(inputError(grade)&&
+    	    inputError(phoneNumber)&&
+    	    inputError(postcode)&&
+    	    inputError(collectionLimit)&&
+    	    inputError(collection)&&
+    	    inputError(payment) == true) {
+    	    
         vipVO.setName(name.getText());
         vipVO.setId(id.getText());
         vipVO.setCategory(category.getText());
@@ -105,6 +137,7 @@ public class VIPInfoEditController {
         Platform.runLater(()->{
             root.getScene().getWindow().hide();
         });
+    }
     }
 }
 
