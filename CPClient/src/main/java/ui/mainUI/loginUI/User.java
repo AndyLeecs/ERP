@@ -1,5 +1,8 @@
 package ui.mainUI.loginUI;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import VO.userVO.UserVO;
 import blservice.serviceFactory.UserBLFactory;
 import blservice.userblservice.PersonalInfoService;
@@ -72,6 +75,11 @@ public class User {
 		return permission;
 	}
 
+	public static String calcTime(){
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");//设置日期格式
+		String s=df.format(new Date());
+		return s;
+	}
 	
 
 	

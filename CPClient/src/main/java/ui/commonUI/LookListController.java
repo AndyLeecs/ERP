@@ -54,6 +54,7 @@ public class LookListController {
             	 arr0.remove(i);
             	 arr1.remove(i);
             	 size--;
+            	 i--;
              }else{
             	 //打印错误信息；
             	 break;
@@ -61,8 +62,8 @@ public class LookListController {
     			
     		}
     	}
-    	refresh();
     	
+    	getOnApproveList();
     }
 
     @FXML public void onFilter(){
@@ -102,6 +103,9 @@ public class LookListController {
     	refresh();
     }
     public void refresh(){
+ 	   if(vBox.getChildren().size()!=0){
+ 		   vBox.getChildren().remove(0, vBox.getChildren().size());
+ 		   }
     	for(int i=0;i<arr0.size();i++){
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/listUI/InfoListItem.fxml"));
 			try {

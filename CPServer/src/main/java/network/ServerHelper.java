@@ -52,7 +52,7 @@ public class ServerHelper {
 	
 	public ServerHelper(){
 		initServer();
-//		initListID();
+		//initListID();
 	}
 	
 	private void initServer(){
