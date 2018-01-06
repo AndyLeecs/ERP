@@ -49,7 +49,12 @@ public class StoreCheckController {
             }
         }
     }
-
+@FXML public  void initialize(){
+	 beginTime.clear();
+	 beginTime.setPromptText("请输入开始时间");
+	 endTime.clear();
+	 endTime.setPromptText("请输入结束时间");
+}
     boolean checkInput(){
        //检查输入合法性
        return true;

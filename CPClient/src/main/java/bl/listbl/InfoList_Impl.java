@@ -7,6 +7,7 @@ import VO.listVO.InfoListVO;
 import VO.listVO.ListRM;
 import dataService.listDataService.ListDataService;
 import network.listRemoteHelper.ListDataServiceHelper;
+import util.State;
 
 public class InfoList_Impl implements InfoList {
 	ListDataServiceHelper helper=ListDataServiceHelper.getInstance();
@@ -16,6 +17,7 @@ public class InfoList_Impl implements InfoList {
 	public ListRM register(InfoListVO vo) {
 		// 注册信息表
 		InfoListPO po=new InfoListPO(vo.id, vo.type, vo.operator, vo.note);
+		po.state=State.IsCommitted;
 		try {
 			listDataService.addInfoList(po);
 		} catch (RemoteException e) {

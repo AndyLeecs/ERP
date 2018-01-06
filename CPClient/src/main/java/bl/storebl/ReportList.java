@@ -20,6 +20,7 @@ public class ReportList extends StoreList implements ApproveReportList {
     public ReportList(ReportListVO vo){
         this.vo=vo;
     }
+    public ReportList(){}
     public ResultMessage commit(){
         //单据如果编辑完直接提交，需要从界面层自动先做一个保存草稿的操作。这个操作很关键。
         //提交的操作步骤是先把这个VO查到，然后调用注册接口

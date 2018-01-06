@@ -13,8 +13,8 @@
         <property name="connection.characterEncoding">UTF-8</property>
 		<!-- Assume CPdb is the database name -->
 		<property name="hibernate.connection.url">
-<!--		<![CDATA[jdbc:mysql://localhost:3306/CPdb?useUnicode=true&characterEncoding=utf8&amp;serverTimezone=UTC]]>-->
-<!--  		jdbc:mysql://localhost:3306/CPdb?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false -->
+<!--		<![CDATA[jdbc:mysql://localhost:3306/CPdb?useUnicode=true&characterEncoding=utf8&amp;serverTimezone=UTC]]> -->
+ <!--		jdbc:mysql://localhost:3306/CPdb?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false-->
 		jdbc:mysql://rm-2ze2p651tei9u00zgso.mysql.rds.aliyuncs.com:3306/CPdb?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false
 		</property>
 		<property name="hibernate.connection.username">

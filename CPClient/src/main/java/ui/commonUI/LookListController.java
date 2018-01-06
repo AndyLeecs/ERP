@@ -12,6 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
+import resultmessage.ApproveRM;
+import ui.accountUI.CollectionListWin;
+import util.GreatListType;
 
 public class LookListController {
     //表单查看与审批的界面。
@@ -27,11 +30,39 @@ public class LookListController {
     Listblservice service=new ListblController();
     ArrayList<InfoListVO> arr0=new ArrayList<InfoListVO>();
     ArrayList<InfoListController>arr1=new ArrayList<InfoListController>();
+    
     @FXML public void open(){
-
+         for(int i=0;i<arr1.size();i++){
+        	 if(arr1.get(i).isChosen.isSelected()){
+        		try {
+					new CollectionListWin(arr0.get(i).id) ;
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					//e.printStackTrace();
+					System.out.println("----");
+				}
+        	 }
+         }
     }
     @FXML public void onApprove(){
-
+        //批量审批
+        int size=arr1.size();
+    	for(int i=0;i<size;i++){
+    		if(arr1.get(i).isChosen.isSelected()){
+             ApproveRM rm=  service.approve(arr0.get(i).id, arr0.get(i).type);
+             if(rm.equals(ApproveRM.OK)){
+            	 arr0.remove(i);
+            	 arr1.remove(i);
+            	 size--;
+             }else{
+            	 //打印错误信息；
+            	 break;
+             }
+    			
+    		}
+    	}
+    	refresh();
+    	
     }
 
     @FXML public void onFilter(){
@@ -58,14 +89,15 @@ public class LookListController {
     public void getApprovedList(){
     	
     
-			arr0=service.openInfoList();
-
+			
+    	arr0=service.openApproved();
     	arr1=new ArrayList<InfoListController>();
     	refresh();
     }
     
     public void getOnApproveList(){
-    	arr0=service.openApproved();
+    	
+    	arr0=service.openInfoList();
     	arr1=new ArrayList<InfoListController>();
     	refresh();
     }

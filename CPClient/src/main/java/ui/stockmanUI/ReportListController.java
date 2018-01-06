@@ -1,5 +1,8 @@
 package ui.stockmanUI;
 
+import VO.storeVO.ReportListVO;
+import bl.storebl.StoreblController;
+import blservice.storeblservice.StoreBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -32,13 +35,21 @@ public class ReportListController {
 	@ FXML Button btn1;
     @ FXML Button btn2;
     @ FXML Button btn3;
+    State state ;
+    StoreListType type;
+    StoreBLService service=new StoreblController();
+    ReportListVO vo;
 
     @FXML public void Action1(){
-
+         if(state.equals(State.IsEditting)){
+        	 save();
+         }
     }
 
     @FXML public void Action2(){
-
+    	if(state.equals(State.IsEditting)){
+       	 commit();
+        }
     }
 
     @FXML public void Action3(){
@@ -46,7 +57,7 @@ public class ReportListController {
     }
 
     @FXML public void getGoodsInfo(){
-
+       
     }
 
     public void set(StoreListType type, State state){
@@ -56,6 +67,7 @@ public class ReportListController {
     }
 
     private   void setType(StoreListType type){
+    	this.type=type;
         if(type.equals(StoreListType.OVERFLOW)){
             title.setText("库存报溢单");
             deltaLabel.setText("报溢数量");
@@ -67,14 +79,31 @@ public class ReportListController {
     }
 
     private   void setState(State state){
+    	this.state=state;
         if(state.equals(State.IsEditting)){
             delta.setVisible(false);
             deltaLabel.setVisible(false);
             btn1.setText("保存");
             btn2.setText("提交");//实际上是保存并提交
             btn3.setText("取消");
+            vo.listID=service.newList(type);
+            vo.st=type;
+          
         }
 
+    }
+    
+    private String save(){
+    	
+    	return service.saveReportList(vo).toString();
+    	
+     }
+    
+    private String commit(){
+    
+    	save();
+    	
+    return service.commit(type, vo.listID).toString();
     }
 
 

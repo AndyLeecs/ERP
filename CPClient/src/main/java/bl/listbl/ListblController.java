@@ -5,12 +5,15 @@ import VO.listVO.InfoListVO;
 import VO.listVO.SalesDetailListVO;
 import bl.salebl.GetSalesDetailsImpl;
 import bl.salebl.SalesBussinessSituation_Impl;
+import bl.storebl.PresentList;
+import bl.storebl.ReportList;
 import bl.storebl.StoreBussinessSituation_Impl;
 import VO.listVO.ListRM;
 import blservice.listblservice.Listblservice;
 import dataService.listDataService.ListDataService;
 //import dataService.listDataService.ListDataService_Stub;
 import network.listRemoteHelper.ListDataServiceHelper;
+import resultmessage.ApproveRM;
 import util.GreatListType;
 
 import java.rmi.RemoteException;
@@ -30,6 +33,7 @@ public class ListblController implements Listblservice {
     //单据红冲的接口还没加，但理论上应该是我来写
 	ListDataServiceHelper helper=ListDataServiceHelper.getInstance();
     ListDataService listDataService=helper.getListDataService();
+    Approvable approvable;
     @Override
     public ArrayList<InfoListVO> openInfoList() {
     	ArrayList<InfoListVO> arr1 =new ArrayList<InfoListVO>();
@@ -102,5 +106,26 @@ public class ListblController implements Listblservice {
 
 
         return arr1;
+	}
+
+	@Override
+	public ApproveRM approve(String id, GreatListType type) {
+		if(type.equals(GreatListType.PRESENT)){
+			approvable=new PresentList();
+			ListRM rm=approvable.Approve(id);
+			if(rm.equals(ListRM.SUCCESS)){
+				return ApproveRM.OK;
+			}
+			else{return ApproveRM.INSUFFICIENT_STOCK_GOODS;}
+		}else if(type.equals(GreatListType.OVERFLOW)||type.equals(GreatListType.LOSS)){
+			approvable=new ReportList();
+			ListRM rm=approvable.Approve(id);
+			if(rm.equals(ListRM.SUCCESS)){
+				return ApproveRM.OK;
+			}
+			else{return ApproveRM.INSUFFICIENT_STOCK_GOODS;}
+			
+		}
+		return null;
 	}
 }
