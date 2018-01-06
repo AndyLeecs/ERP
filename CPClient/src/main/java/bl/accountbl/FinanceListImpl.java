@@ -142,10 +142,13 @@ public abstract class FinanceListImpl implements FinanceListService{
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<? extends FinanceListVO> openCommitted() {
 		try {
-			@SuppressWarnings("unchecked")
-			List<? extends FinanceListPO> listpo = (List<? extends FinanceListPO>) dataService.getList(State.IsCommitted);
+			List<FinanceListPO> listpo = (List<FinanceListPO>) dataService.getList(State.IsCommitted);
+			listpo.addAll((List<FinanceListPO>)dataService.getList(State.IsApproved));
+			listpo.addAll((List<FinanceListPO>)dataService.getList(State.IsRefused));
+			
 			return listpo.stream().map(e -> poTovo(e)).collect(Collectors.toList());
 		} catch (RemoteException e) {
 			e.printStackTrace();
