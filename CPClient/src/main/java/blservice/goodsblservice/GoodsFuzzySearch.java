@@ -2,6 +2,7 @@ package blservice.goodsblservice;
 
 import VO.goodsVO.GoodsVO;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 /**
@@ -14,22 +15,25 @@ public interface GoodsFuzzySearch {
      * 以商品ID模糊查找
      * @param idInfo
      * @return 符合条件的商品列表
+     * @throws RemoteException 
      */
-    public List<GoodsVO> getGoodsInID(String idInfo);
+    public List<GoodsVO> getGoodsInID(String idInfo) throws RemoteException;
 
     /**
      * 以商品名称模糊查找
      * @param goodsNameInfo
      * @return 符合条件的商品列表
+     * @throws RemoteException 
      */
-    public List<GoodsVO> getGoodsInGoodsName(String goodsNameInfo);
+    public List<GoodsVO> getGoodsInGoodsName(String goodsNameInfo) throws RemoteException;
 
     /**
      * 以商品分类模糊查找
      * @param goodsCategoryInfo
      * @return 符合条件的商品列表
+     * @throws RemoteException 
      */
-    public List<GoodsVO> getGoodsInCategory(String goodsCategoryInfo);
+    public List<GoodsVO> getGoodsInCategory(String goodsCategoryInfo) throws RemoteException;
 
 
 }
