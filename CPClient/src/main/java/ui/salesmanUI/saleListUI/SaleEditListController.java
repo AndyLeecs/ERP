@@ -174,7 +174,7 @@ public boolean checkFormat(){
 		e.printStackTrace();
 		return false;
  }
-	if(Double.parseDouble(rebateField.getText())>RebateChecker.getRebateLimit(User.getInstance().getGrade()))
+	if(Double.parseDouble(rebateField.getText())>RebateChecker.getRebateLimit(User.getInstance().getUserType(),User.getInstance().getGrade()))
 	{
 		PromptHelper.showPrompt(DataRM.REBATE_FAILED);
 		return false;

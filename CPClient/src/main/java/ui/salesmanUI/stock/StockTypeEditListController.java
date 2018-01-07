@@ -2,9 +2,12 @@ package ui.salesmanUI.stock;
 
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.salesmanUI.PromptHelper;
 
 /**     
 * @author 李安迪
@@ -51,6 +54,15 @@ public abstract class StockTypeEditListController extends StockTypeListControlle
 	void cancel(){
 		if(parentController != null)
 		this.parentController.CloseSonWin();
+		else{
+	   	     Platform.runLater(()-> {
+					    try {
+							root.getScene().getWindow().hide();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+				});   	 
+		}		
+		PromptHelper.showPrompt(DataRM.SUCCESS);
 	}
-
 }

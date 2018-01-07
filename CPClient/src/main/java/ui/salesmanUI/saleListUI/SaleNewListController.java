@@ -149,7 +149,7 @@ public class SaleNewListController extends SaleTypeNewListController implements 
     		return false;
      }
  //   	System.out.println(User.getInstance().getGrade());
-    	if(Double.parseDouble(rebateField.getText())>RebateChecker.getRebateLimit(User.getInstance().getGrade()))
+    	if(Double.parseDouble(rebateField.getText())>RebateChecker.getRebateLimit(User.getInstance().getUserType(),User.getInstance().getGrade()))
     	{
     		PromptHelper.showPrompt(DataRM.REBATE_FAILED);
     		return false;

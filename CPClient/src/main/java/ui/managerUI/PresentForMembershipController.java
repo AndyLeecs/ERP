@@ -11,10 +11,10 @@ import VO.GoodsInSaleVO;
 import VO.goodsVO.GoodsVO;
 import VO.presentVO.PresentForMembershipVO;
 import VO.presentVO.PresentVO;
-import blservice.goodsblservice.GoodsFuzzySearch;
 import bl.goodsbl.GoodsFuzzySearchImpl;
 import bl.presentbl.PresentBLFactory;
 import bl.utility.GoodsVOTrans;
+import blservice.goodsblservice.GoodsFuzzySearch;
 import blservice.presentblservice.PresentForMembershipBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
 import ui.commonUI.GoodsSearchResultWin;
+import ui.salesmanUI.PromptHelper;
 import util.DateUtil;
 import util.VIPGrade;
 
@@ -422,17 +423,26 @@ public class PresentForMembershipController implements SinglePresentEditableCont
 		@FXML
 		@Override
 		public void search(){
-			System.out.println("search goods");
+
 			//获得关键字
-			String message = searchField.getText();
-			System.out.println("search message is "+ message);
-			if(message != null && message.length() != 0){
+			String pref = searchField.getText();
+			String message = "";
+			if(pref != null)
+				message = pref;
+
 			//查找，分别用三种模糊查找，然后合并得到的商品列表结果
 			List<GoodsVO> temp = new ArrayList<GoodsVO>();
-			temp.addAll(fuzzySearch.getGoodsInID(message));
-			temp.addAll(fuzzySearch.getGoodsInGoodsName(message));
-			temp.addAll(fuzzySearch.getGoodsInCategory(message));
-			
+			List<GoodsVO> adder = new ArrayList<GoodsVO>();
+			try{
+			if((adder = fuzzySearch.getGoodsInID(message))!= null)
+					temp.addAll(adder);
+			if((adder = fuzzySearch.getGoodsInGoodsName(message))!= null)
+				temp.addAll(adder);
+			if((adder = fuzzySearch.getGoodsInCategory(message))!= null)
+				temp.addAll(adder);
+			}catch(Exception e){
+				PromptHelper.showPrompt(DataRM.NET_FAILED);
+			}
 			//去重
 			temp = new ArrayList<GoodsVO>(new LinkedHashSet<>(temp));
 			
@@ -451,13 +461,12 @@ public class PresentForMembershipController implements SinglePresentEditableCont
 			try {
 				new GoodsSearchResultWin(goodsList,this);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
 			}
 
-		}
+		
 		
 		@Override
 		public void showInformationDialog(DataRM rm){

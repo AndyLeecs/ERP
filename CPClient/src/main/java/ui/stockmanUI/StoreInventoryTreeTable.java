@@ -30,15 +30,7 @@ public class StoreInventoryTreeTable {
 	ObservableList<T> Obs= FXCollections.observableArrayList();
 	ArrayList<String> S0=new ArrayList<String>();
 	
-   // private Class<T> type;
-	
 
-/*
- * TreeTable 的父类，具有添加栏目和添加数据的功能
- */
-	/*public FatherTreeTable(Class<T> type){
-		this.type=type;
-	}*/
 	
 	public  FlowPane addColumn(){
 		ArrayList<JFXTreeTableColumn<T,String>> A0=new ArrayList<JFXTreeTableColumn<T,String>>();
@@ -47,7 +39,7 @@ public class StoreInventoryTreeTable {
 			}
 		for(int i=0;i<A0.size();i++){
 			A0.get(i).setPrefWidth(150);
-			//下一句话设置数据合法性，不知道要不要加。
+
 
 			A0.get(i).setCellFactory((TreeTableColumn<T, String> param)-> new GenericEditableTreeTableCell<>(
 		            new TextFieldEditorBuilder()));;

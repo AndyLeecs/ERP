@@ -122,6 +122,7 @@ public class ReportListController {
     
     private ListRM save(){
     	fillVO();
+    	vo.statetype=State.IsDraft;
     	return service.saveReportList(vo);
     	
      }
@@ -142,6 +143,16 @@ public class ReportListController {
     	}else{
     		vo.delta=vo.Num-vo.actualNum;
     	}
+    }
+    
+    public void set(ReportListVO vo){
+    	setType(vo.st);
+    	setState(State.IsEditting);
+    	actualNum.setText(Integer.toString(vo.actualNum));
+    	goodsName.setText(vo.GoodsName);
+    	goodsID.setText(vo.goodsID);
+    	num.setText(Integer.toString(vo.Num));
+    	
     }
 
 
