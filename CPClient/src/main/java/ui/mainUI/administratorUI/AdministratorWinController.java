@@ -6,7 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import ui.AdministratorUI.NewUserWinController;
+import ui.AdministratorUI.UserTreeTable;
 import ui.commonUI.ParentController;
 
 public class AdministratorWinController implements ParentController{
@@ -35,7 +37,12 @@ public class AdministratorWinController implements ParentController{
 		
 	}
 
-	@FXML public void onManageUserBtnClicked() {}
+	@FXML public void onManageUserBtnClicked() {
+		
+		UserTreeTable table =new UserTreeTable();
+		Stage stage=new Stage();
+		table.start(stage);
+	}
 
 	
 	@Override

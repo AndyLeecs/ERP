@@ -59,6 +59,9 @@ public class DataGetter  {
         	 ReportListVO vo=new ReportListVO (poList.get(i).actualNum, poList.get(i).Num, poList.get(i).goodsID, poList.get(i).listID, poList.get(i).GoodsName);
         	 vo.operator=poList.get(i).operator;
         	 vo.time=poList.get(i).time;
+        	 vo.st=poList.get(i).st;
+        	 vo.statetype=poList.get(i).statetype;
+        	 vo.delta=poList.get(i).delta;
         	 voList.add(vo);
          }
          }catch(RemoteException e){
@@ -77,6 +80,7 @@ public class DataGetter  {
         PresentListVO vo=new PresentListVO(poList.get(i).listID, poList.get(i).id,poList.get(i).num , poList.get(i).name, poList.get(i).VIPname);
         vo.setTime(poList.get(i).time);
         vo.setOperator(poList.get(i).operator);
+        vo.statetype=poList.get(i).statetype;
         
         voList.add(vo);
         }
@@ -90,6 +94,9 @@ public class DataGetter  {
     public String calcID(StoreListType lt)  {
     	String s="";
         try {
+        	if(sds==null){
+        		System.out.println("sds为空");
+        	}
 		s= sds.calcID(lt);
 		} catch (RemoteException e) {
 			System.out.println("库存方法异常4：计算单据编号失败");
@@ -192,6 +199,9 @@ public class DataGetter  {
 	   ReportListVO vo=new ReportListVO (po.actualNum, po.Num, po.goodsID, po.listID, po.GoodsName);
 	   vo.time=po.time;
 	   vo.operator=po.operator;
+	   vo.st=po.st;
+	   vo.delta=po.delta;
+	   vo.statetype=po.statetype;
 		return vo;
     	
     }
@@ -204,6 +214,10 @@ public class DataGetter  {
 			e.printStackTrace();
 		}
     	PresentListVO vo=new PresentListVO(po.listID, po.id,po.num , po.name, po.VIPname);
+    	vo.operator=po.operator;
+    	vo.statetype=po.statetype;
+    	vo.time=po.time;
+    	
 		return vo;
     	
     }

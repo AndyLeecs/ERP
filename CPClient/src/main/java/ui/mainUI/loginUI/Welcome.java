@@ -36,12 +36,12 @@ public class Welcome extends Application {
         				public void run() {
         					try {
         						stage.close();
-        						//ServerConnector s = new ServerConnector();
-        						//new LoginWin();
+        						ServerConnector s = new ServerConnector();
+        						new LoginWin();
         						//new LoadingFXWin();
         						
         						//new ui.salesmanUI.VIPWin();
-        						new ui.stockmanUI.StockmanWin();
+        						//new ui.stockmanUI.StockmanWin();
         						//new ui.managerUI.ManagerWin();
         						
         					} catch (Exception e) {
