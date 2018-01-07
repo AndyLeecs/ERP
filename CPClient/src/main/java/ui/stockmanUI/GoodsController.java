@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.PopupWindow.AnchorLocation;
+import ui.loadingUI.LoadingFXController;
 import ui.loadingUI.LoadingFXWin;
 import ui.mainUI.BackgroundController;
 
@@ -116,12 +117,14 @@ public class GoodsController extends BackgroundController{
     private void initTreeView() throws RemoteException{
     	//开启加载窗口
     	try {
-			LoadingFXWin loading = new LoadingFXWin();
+			new LoadingFXWin();
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-
+    	    LoadingFXController loading = new LoadingFXController();
+        loading.setLoadingTxt("正在初始化商品列表...");
+    	
         presentLocation.addEventHandler(MouseEvent.MOUSE_CLICKED,event -> System.out.println("标签被点击"));
         //在ScrollPane上配置并加入TreeView
         rootTreeItem = new TreeItem<String>("分类：根目录");
@@ -129,6 +132,9 @@ public class GoodsController extends BackgroundController{
 
         setNode(rootTreeItem);
         System.out.println("init TreeView Succeeded!");
+        
+        loading.close();
+        
         //以下为demo
 /*
         for(int i =0;i<5;i++) {
@@ -154,13 +160,23 @@ public class GoodsController extends BackgroundController{
                     if(goodsItem.getValue().toString().contains("商品")) {
                         System.out.println("是商品项 可以进行下一步操作");
                         goodsVBox.getChildren().clear();
-                        //为了测试运行结果 先注释下面一行从数据库获取对应商品信息的语句
+                        
+                    	//开启加载窗口
+                    	try {
+                			new LoadingFXWin();
+                		} catch (IOException e2) {
+                			// TODO Auto-generated catch block
+                			e2.printStackTrace();
+                		}
+                        loading.setLoadingTxt("正在加载商品...");
+                        
                         try {
 							newGoodsPane(goodsBLService.getGoods(goodsItem.getValue().toString().substring(3),goodsItem.getParent().getValue().substring(3)));
 						} catch (RemoteException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
+                        loading.close();
                     }
 
                 }
@@ -330,11 +346,23 @@ public class GoodsController extends BackgroundController{
                     this.goodsTypeSearch = "goodsID";
                     break;
             }
+	    	//开启加载窗口
+	    	try {
+				new LoadingFXWin();
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+	    	    LoadingFXController loading = new LoadingFXController();
+	        loading.setLoadingTxt("正在初始化商品列表...");
+	        
             goodsVOArrayList = (ArrayList<GoodsVO>)goodsBLService.findGoods(searchField.getText(),this.goodsTypeSearch);
 	        goodsVBox.getChildren().clear();
 	        for(int i =0;i<goodsVOArrayList.size();i++){
 	            newGoodsPane(goodsVOArrayList.get(i));
             }
+	        
+	        loading.close();
         }
 	}
 	
