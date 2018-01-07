@@ -115,15 +115,9 @@ public class GoodsController extends BackgroundController{
 
     //初始TreeView 加载所有商品和分类
     private void initTreeView() throws RemoteException{
-    	//开启加载窗口
-    	try {
-			new LoadingFXWin();
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-    	    LoadingFXController loading = new LoadingFXController();
-        loading.setLoadingTxt("正在初始化商品列表...");
+   
+      	//LoadingFXController loading = new LoadingFXController();
+        //loading.setLoadingTxt("正在初始化商品列表...");
     	
         presentLocation.addEventHandler(MouseEvent.MOUSE_CLICKED,event -> System.out.println("标签被点击"));
         //在ScrollPane上配置并加入TreeView
@@ -133,7 +127,7 @@ public class GoodsController extends BackgroundController{
         setNode(rootTreeItem);
         System.out.println("init TreeView Succeeded!");
         
-        loading.close();
+        //loading.close();
         
         //以下为demo
 /*
@@ -162,13 +156,13 @@ public class GoodsController extends BackgroundController{
                         goodsVBox.getChildren().clear();
                         
                     	//开启加载窗口
-                    	try {
-                			new LoadingFXWin();
-                		} catch (IOException e2) {
+              //      	try {
+               // 			new LoadingFXWin();
+                	//	} catch (IOException e2) {
                 			// TODO Auto-generated catch block
-                			e2.printStackTrace();
-                		}
-                        loading.setLoadingTxt("正在加载商品...");
+                	//		e2.printStackTrace();
+                	//	}
+                //        loading.setLoadingTxt("正在加载商品...");
                         
                         try {
 							newGoodsPane(goodsBLService.getGoods(goodsItem.getValue().toString().substring(3),goodsItem.getParent().getValue().substring(3)));
@@ -176,7 +170,7 @@ public class GoodsController extends BackgroundController{
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-                        loading.close();
+                  //      loading.close();
                     }
 
                 }
@@ -347,14 +341,14 @@ public class GoodsController extends BackgroundController{
                     break;
             }
 	    	//开启加载窗口
+	        LoadingFXController loading = new LoadingFXController();
+	        loading.setLoadingTxt("正在初始化商品列表...");
 	    	try {
 				new LoadingFXWin();
 			} catch (IOException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
-	    	    LoadingFXController loading = new LoadingFXController();
-	        loading.setLoadingTxt("正在初始化商品列表...");
 	        
             goodsVOArrayList = (ArrayList<GoodsVO>)goodsBLService.findGoods(searchField.getText(),this.goodsTypeSearch);
 	        goodsVBox.getChildren().clear();

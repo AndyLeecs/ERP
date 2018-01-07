@@ -85,13 +85,6 @@ public class BackgroundController {
        
         label1.setOnMouseClicked(e->{
         	setClick();
-        /*	try {
-				new GoodsWin();
-				root.getScene().getWindow().hide();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}*/
 		});
   
         JFXButton personalInfoBtn = new JFXButton("个人信息");
