@@ -3,6 +3,7 @@ package bl.goodsbl;
 import VO.goodsVO.GoodsVO;
 import blservice.goodsblservice.GoodsFuzzySearch;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,13 +35,14 @@ public class GoodsFuzzySearchImpl implements GoodsFuzzySearch {
      *
      * @param idInfo
      * @return 符合条件的商品列表
+     * @throws RemoteException 
      */
     @Override
-    public List<GoodsVO> getGoodsInID(String idInfo) {
-        goodsVOArrayList.add(goodsVO1);
-        goodsVOArrayList.add(goodsVO2);
-        return goodsVOArrayList;
-        //return goodsBLService.findGoods(idInfo,"goodsID");
+    public List<GoodsVO> getGoodsInID(String idInfo) throws RemoteException {
+        //goodsVOArrayList.add(goodsVO1);
+        //goodsVOArrayList.add(goodsVO2);
+        //return goodsVOArrayList;
+        return goodsBLService.findGoods(idInfo,"goodsID");
     }
 
     /**
@@ -48,13 +50,14 @@ public class GoodsFuzzySearchImpl implements GoodsFuzzySearch {
      *
      * @param goodsNameInfo
      * @return 符合条件的商品列表
+     * @throws RemoteException 
      */
     @Override
-    public List<GoodsVO> getGoodsInGoodsName(String goodsNameInfo) {
-        goodsVOArrayList.add(goodsVO1);
-        goodsVOArrayList.add(goodsVO2);
-        return goodsVOArrayList;
-        //return goodsBLService.findGoods(goodsNameInfo,"goodsName");
+    public List<GoodsVO> getGoodsInGoodsName(String goodsNameInfo) throws RemoteException {
+        //goodsVOArrayList.add(goodsVO1);
+        //goodsVOArrayList.add(goodsVO2);
+        //return goodsVOArrayList;
+        return goodsBLService.findGoods(goodsNameInfo,"goodsName");
     }
 
     /**
@@ -62,12 +65,13 @@ public class GoodsFuzzySearchImpl implements GoodsFuzzySearch {
      *
      * @param goodsCategoryInfo
      * @return 符合条件的商品列表
+     * @throws RemoteException 
      */
     @Override
-    public List<GoodsVO> getGoodsInCategory(String goodsCategoryInfo) {
-        goodsVOArrayList.add(goodsVO1);
-        goodsVOArrayList.add(goodsVO2);
-        return goodsVOArrayList;
-        //return goodsBLService.findGoods(goodsCategoryInfo,"goodsCategory");
+    public List<GoodsVO> getGoodsInCategory(String goodsCategoryInfo) throws RemoteException {
+        //goodsVOArrayList.add(goodsVO1);
+        //goodsVOArrayList.add(goodsVO2);
+        //return goodsVOArrayList;
+        return goodsBLService.findGoods(goodsCategoryInfo,"goodsCategory");
     }
 }
