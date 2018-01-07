@@ -63,7 +63,7 @@ public class DataSetter {
 		po.name=vo.name;
 		vo.calcAveragePrice(vo.Num, adder, vo.averagePrice, price);
 		po.averagePrice=vo.averagePrice;
-		po.Num=vo.Num;
+		po.Num=vo.Num+adder;
 		try {
 			if(sds.replaceStoreItem(po)){
 			    return storeRM.SUCCESS;

@@ -2,13 +2,19 @@ package PO;
 
 import util.State;
 import util.StoreListType;
+
+import java.io.Serializable;
+
 import  javax.persistence.*;
 
 
 @Entity
 @Table(name="ReportListPO")
-public class ReportListPO {
-	@Id 
+public class ReportListPO implements Serializable{
+	/**
+	 * 
+	 */
+		@Id 
 	@Column(name="listID")
 	public  String listID;
 

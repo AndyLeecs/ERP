@@ -11,9 +11,14 @@ import java.util.ArrayList;
 
 public class ListDataServiceImpl extends UnicastRemoteObject implements ListDataService {
 	
-    HibernateUtil_Green<InfoListPO> util=new HibernateUtil_Green<InfoListPO>(InfoListPO.class);
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5917640852758106407L;
+	HibernateUtil_Green<InfoListPO> util=new HibernateUtil_Green<InfoListPO>(InfoListPO.class);
     
-    private static final long serialVersionUID = 6L;
+   
     
     public ListDataServiceImpl () throws RemoteException{
     	//super();
@@ -49,6 +54,9 @@ public class ListDataServiceImpl extends UnicastRemoteObject implements ListData
                 list2.add(list1.get(i));
             }
         }
+        System.out.println(list2==null);
+        System.out.println(list2.size());
+        
         return list2;
     }
 

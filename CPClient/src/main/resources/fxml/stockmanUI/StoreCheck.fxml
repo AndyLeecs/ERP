@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
@@ -15,7 +17,7 @@
    <fx:include source="Stockman.fxml" />
       <Pane prefHeight="200.0" prefWidth="200.0" />
 
-      <Pane layoutX="214.0" layoutY="123.0" prefHeight="131.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
+      <Pane layoutX="214.0" layoutY="123.0" prefHeight="120.0" prefWidth="921.0" style="-fx-background-color: #FFB5B5;">
          <children>
             <Label layoutX="34.0" layoutY="14.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
             <Label fx:id="typeLabel" layoutX="55.0" layoutY="23.0" prefHeight="24.0" prefWidth="106.0" text="库存查看">
@@ -24,8 +26,8 @@
                </font>
             </Label>
             <Button fx:id="findButton" layoutX="812.0" layoutY="79.0" mnemonicParsing="false" onAction="#find" prefHeight="30.0" prefWidth="93.0" style="-fx-background-radius: 23; -fx-background-color: #ff7575; -fx-border-radius: 23;" text="查询" textFill="WHITE" />
-            <TextField fx:id="beginTime" layoutX="340.0" layoutY="79.0" text="请输入开始时间" />
-            <TextField fx:id="endTime" layoutX="579.0" layoutY="79.0" text="请输入结束时间" />
+            <TextField fx:id="beginTime" layoutX="381.0" layoutY="79.0" prefHeight="30.0" prefWidth="186.0" text="请输入开始时间" />
+            <TextField fx:id="endTime" layoutX="596.0" layoutY="79.0" prefHeight="30.0" prefWidth="186.0" text="请输入结束时间" />
          </children></Pane>
      
      
@@ -34,5 +36,19 @@
             <VBox fx:id="vBox" prefHeight="460.0" prefWidth="919.0" />
          </content>
       </ScrollPane>
+      <JFXButton fx:id="inventoryBtn" layoutX="600.0" layoutY="253.0" onAction="#openInventory" prefHeight="30.0" prefWidth="93.0" text="库存盘点">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#ee2525" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+      </JFXButton>
+      <Label layoutX="214.0" layoutY="258.0" prefHeight="20.0" prefWidth="93.0" text="入库总数：" />
+      <Label fx:id="inStore" layoutX="315.0" layoutY="258.0" prefHeight="20.0" prefWidth="53.0" text="0" />
+      <Label layoutX="414.0" layoutY="258.0" prefHeight="20.0" prefWidth="93.0" text="出库总数：" />
+      <Label fx:id="outStore" layoutX="523.0" layoutY="258.0" prefHeight="20.0" prefWidth="53.0" text="0" />
    </children>
 </AnchorPane>

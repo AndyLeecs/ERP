@@ -1,9 +1,15 @@
 package ui.stockmanUI;
 
+import VO.listVO.ListRM;
+import VO.storeVO.ReportListVO;
+import VO.storeVO.StoreVO;
+import bl.storebl.StoreblController;
+import blservice.storeblservice.StoreBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import ui.mainUI.loginUI.User;
 import util.State;
 import util.StoreListType;
 
@@ -32,13 +38,31 @@ public class ReportListController {
 	@ FXML Button btn1;
     @ FXML Button btn2;
     @ FXML Button btn3;
+    State state ;
+    StoreListType type;
+    StoreBLService service=new StoreblController();
+    ReportListVO vo;
 
     @FXML public void Action1(){
-
+         if(state.equals(State.IsEditting)){
+        	ListRM listrm= save();
+        	 if(listrm.equals(ListRM.SUCCESS)){
+        		 rm.setText("保存成功");
+        	 }else{
+        		 rm.setText("保存失败");
+        	 }
+         }
     }
 
     @FXML public void Action2(){
-
+    	if(state.equals(State.IsEditting)){
+    		ListRM listrm=commit();
+       	 if(listrm.equals(ListRM.SUCCESS)){
+    		 rm.setText("提交成功");
+    	 }else{
+    		 rm.setText("提交失败");
+    	 }
+        }
     }
 
     @FXML public void Action3(){
@@ -46,7 +70,14 @@ public class ReportListController {
     }
 
     @FXML public void getGoodsInfo(){
-
+    	StoreVO storeVO=service.getStoreVO(goodsID.getText());
+       if(storeVO!=null){
+    	   num.setText(Integer.toString(storeVO.Num));
+    	   goodsName.setText(storeVO.name);
+    	   
+       }else{
+    	   rm.setText("该商品不存在！");
+       }
     }
 
     public void set(StoreListType type, State state){
@@ -56,6 +87,7 @@ public class ReportListController {
     }
 
     private   void setType(StoreListType type){
+    	this.type=type;
         if(type.equals(StoreListType.OVERFLOW)){
             title.setText("库存报溢单");
             deltaLabel.setText("报溢数量");
@@ -67,14 +99,49 @@ public class ReportListController {
     }
 
     private   void setState(State state){
+    	this.state=state;
         if(state.equals(State.IsEditting)){
             delta.setVisible(false);
             deltaLabel.setVisible(false);
             btn1.setText("保存");
             btn2.setText("提交");//实际上是保存并提交
             btn3.setText("取消");
+            vo=new ReportListVO();
+            vo.listID=service.newList(type);
+            listID.setText(vo.listID);
+            vo.operator=User.getInstance().getUserName();
+            operator.setText(vo.operator);
+            vo.st=type;
+            
+            vo.time=User.calcTime();
+            time.setText(vo.time);
+          
         }
 
+    }
+    
+    private ListRM save(){
+    	fillVO();
+    	return service.saveReportList(vo);
+    	
+     }
+    
+    private ListRM commit(){
+    
+    	save();
+    	return service.commit(type, vo.listID);
+    }
+    
+    private void fillVO(){
+    	vo.actualNum=Integer.parseInt(actualNum.getText());
+    	vo.GoodsName=goodsName.getText();
+    	vo.goodsID=goodsID.getText();
+    	vo.Num=Integer.parseInt(num.getText());
+    	if(vo.st.equals(StoreListType.OVERFLOW)){
+    		vo.delta=vo.actualNum-vo.Num;
+    	}else{
+    		vo.delta=vo.Num-vo.actualNum;
+    	}
     }
 
 

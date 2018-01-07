@@ -27,6 +27,6 @@ public interface StoreBLService {
 	 public storeCheckVO store_check(String begintime,String endTime); //库存查看
 	 public storeInventoryVO store_inventory(); //库存盘点
 	 
-	
+	public StoreVO getStoreVO(String id);//根据商品ID 得到其库存项
 	
 }

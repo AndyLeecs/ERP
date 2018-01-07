@@ -55,16 +55,20 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements  StoreD
 		StoreListID slid=hug.get(lt.toString());
 		if(slid.day==null||(!slid.day.equals(day))){
 			slid.day=day;
-			slid.num=1;
+			slid.num=2;
 			s=slid.listName+"-"+day+"-00001";
-			hug.insert(slid);
+			hug.update(slid);
+			System.out.println("编号未增加");
 		}else{
-			String num=Integer.toString(slid.num+1);
+			String num=Integer.toString(slid.num);
 			s=slid.listName+"-"+day;
 			for(int i=0;i<5-num.length();i++){
 				num="0"+num;
 			}
 			s=s+"-"+num;
+			slid.num++;
+			hug.update(slid);
+			System.out.println("编号已经增加");
 		}
 	
 		return s;
@@ -119,8 +123,22 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements  StoreD
 
 	@Override
 	public ArrayList<StoreLogPO> getStoreLogPO(String beginTime, String endTime) throws RemoteException{
-		// TODO Auto-generated method stub
-		return null;
+		HibernateUtil_Green<StoreLogPO> util=new HibernateUtil_Green<StoreLogPO>(StoreLogPO.class);
+		ArrayList<StoreLogPO> arr1=(ArrayList<StoreLogPO>)util.getList();
+		ArrayList<StoreLogPO> arr2=new ArrayList<StoreLogPO>();
+		beginTime=beginTime.replace("-", "");
+		endTime=endTime.replace("-", "");
+		for(int i=0;i<arr1.size();i++){
+			String s0=arr1.get(i).time;
+			String []x0=s0.split(" ");
+		    s0=x0[0];
+			s0=s0.replace("-", "");
+			int temp=Integer.parseInt(s0);
+			if(Integer.parseInt(beginTime)<=temp&&Integer.parseInt(endTime)>=temp){
+				arr2.add(arr1.get(i));
+			}
+		}
+		return arr2;
 	}
 
 	@Override

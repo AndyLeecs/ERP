@@ -28,7 +28,6 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import ui.commonUI.VIPSearchResultWin;
 import ui.commonUI.VIPSearcher;
-import ui.mainUI.loginUI.User;
 import util.State;
 
 public class CollectionListWinController extends FinanceListWinController{
@@ -262,8 +261,8 @@ public class CollectionListWinController extends FinanceListWinController{
 				listID.getText(),
 				VIPID.getText(),
 				VIPName.getText(),
-				User.getInstance().getUserName(),
-				User.getInstance().getId(),
+				operator.getText(),
+				null,				//操作员编号，弃用了
 				transferItem.stream().map(e -> e.toVO()).collect(Collectors.toList()),		
 				Double.parseDouble(totalAmount.getText()),
 				state

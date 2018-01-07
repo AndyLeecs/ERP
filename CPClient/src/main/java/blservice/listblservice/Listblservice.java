@@ -3,6 +3,7 @@ package blservice.listblservice;
 import VO.listVO.BussinessSituationListVO;
 import VO.listVO.InfoListVO;
 import VO.listVO.SalesDetailListVO;
+import resultmessage.ApproveRM;
 import VO.listVO.ListRM;
 import util.GreatListType;
 
@@ -20,4 +21,5 @@ public interface Listblservice {
     public ArrayList<SalesDetailListVO> openSaleDetailList() ; //销售明细表查看
     public BussinessSituationListVO openBussinessSituationList(); //经营情况表查看
     public ListRM toExcel (GreatListType type ,String id) ; // 表单导出
+    public ApproveRM approve(String id,GreatListType type); //批量审批
 }

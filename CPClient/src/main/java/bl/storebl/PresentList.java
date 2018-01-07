@@ -15,7 +15,9 @@ public class PresentList extends StoreList implements ApprovePresentList{
 	PresentList(PresentListVO vo){
 		this.vo=vo;
 	}
-	
+	public PresentList(){
+		
+	}
 	public ResultMessage commit(){
 		String info="";
 		info="赠送给  "+vo.VIPname+"  ";

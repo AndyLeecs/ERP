@@ -26,12 +26,12 @@
                   <Font size="16.0" />
                </font></Label>
             <Label fx:id="goodsID" layoutX="412.0" layoutY="53.0" prefHeight="20.0" prefWidth="214.0" text="XXXX-YYYYY-zzzz" />
-            <Label layoutX="32.0" layoutY="93.0" prefHeight="20.0" prefWidth="127.0" text="商品数量：" textFill="#73d1a6">
+            <Label layoutX="32.0" layoutY="93.0" prefHeight="20.0" prefWidth="127.0" text="操作数量：" textFill="#ed1515">
                <font>
                   <Font size="16.0" />
                </font></Label>
             <Label fx:id="num" layoutX="169.0" layoutY="93.0" prefHeight="20.0" prefWidth="76.0" text="0" />
-            <Label layoutX="312.0" layoutY="93.0" prefHeight="20.0" prefWidth="119.0" text="涉事总价：" textFill="#d01717">
+            <Label layoutX="312.0" layoutY="93.0" prefHeight="20.0" prefWidth="119.0" text="商品单价：" textFill="#e11d1d">
                <font>
                   <Font size="16.0" />
                </font></Label>

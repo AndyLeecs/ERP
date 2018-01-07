@@ -106,4 +106,12 @@ public class StoreblController implements StoreBLService{
     	vo.Model=getgoodsinfo.getDate_byID(id);
         return vo;
     }
+
+	@Override
+	public StoreVO getStoreVO(String id) {
+		if(getter.checkID(id).equals(storeRM.SUCCESS)){
+			return getter.getStoreVO(id);
+		}
+		return null;
+	}
 }
