@@ -16,7 +16,6 @@ import VO.saleVO.SaleListVO;
 import VO.saleVO.SaleVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
-import VO.saleVO.StockListVO;
 import VO.storeVO.PresentListVO;
 import VO.storeVO.storeRM;
 import bl.VIPbl.VIPCollectionModifyImpl;
@@ -35,7 +34,6 @@ import dataService.saleDataService.SaleListDataService;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
 import resultmessage.DataRM;
 import resultmessage.ResultMessage;
-import ui.salesmanUI.saleListUI.ListToMessage;
 import util.DateUtil;
 import util.GreatListType;
 import util.State;
@@ -107,13 +105,14 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 	}
 
 	@Override
-	public DataRM approve(SalesmanListVO vo){
+	public DataRM approve(SalesmanListVO vo,boolean isWriteoff){
 		
+	double collection = 0;
 		//检查库存是否足够
 		storeRM storeRm = storeRM.SUCCESS;
 		List<String> id = new ArrayList<String>();
 		List<Integer> subber = new ArrayList<Integer>();
-		
+		if(!isWriteoff){	
 		for(SalesmanItemVO i : vo.getSaleListItems()){
 			id.add(i.getId());
 			subber.add(i.getAmount());
@@ -124,7 +123,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		}
 		
 		//检查客户应收应付
-		double collection = 0;
+
 		try {
 			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberID());
 			collection = vipChange.getVIPCollection(vo.getMemberID());
@@ -137,6 +136,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 			return DataRM.NET_FAILED;
 		}
 		
+		}
 		try {
 			vo.setState(State.IsApproved);
 			DataRM rm = service.save(voToPo(vo));
@@ -162,6 +162,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 					}
 				//通知销售人员
 				//生成库存赠送单
+					if(!isWriteoff){
 				SaleListVO svo = (SaleListVO)vo;
 				PresentListVO presentList = new PresentListVO(null, null, null, null, null);
 				presentList.VIPname = svo.getMemberName();
@@ -175,8 +176,9 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 				if(createPresentList == false){
 					return DataRM.PRESENT_FAILED;
 				}
-				
+					}
 				//发消息
+				if(!isWriteoff)
 				new ListToMessage().sendMessage((SaleListVO)vo);
 				
 			}
@@ -385,7 +387,7 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 	public ListRM Approve(String id) {
 		DataRM rm = DataRM.FAILED;
 		try {
-			rm = approve(poToVo(service.get(id)));
+			rm = approve(poToVo(service.get(id)),false);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ListRM.REFUSED;

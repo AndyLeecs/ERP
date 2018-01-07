@@ -3,14 +3,11 @@ package ui.salesmanUI.stockListUI;
 import java.io.IOException;
 import java.util.List;
 
-import VO.presentVO.PresentForMembershipVO;
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import ui.commonUI.ParentController;
-import ui.managerUI.PresentForMembershipCellController;
-import ui.managerUI.PresentNoEditCellController;
 import ui.salesmanUI.CellController;
 import ui.salesmanUI.ListViewController;
 import ui.salesmanUI.SalesmanController;

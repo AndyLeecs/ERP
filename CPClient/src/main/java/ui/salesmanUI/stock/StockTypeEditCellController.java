@@ -1,7 +1,6 @@
 package ui.salesmanUI.stock;
 
 import VO.saleVO.SalesmanItemVO;
-import javafx.fxml.FXML;
 import ui.salesmanUI.SalesmanEditCellController;
 import ui.salesmanUI.SalesmanListWinController;
 

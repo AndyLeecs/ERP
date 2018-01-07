@@ -1,6 +1,5 @@
 package bl.salebl;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,6 @@ import VO.listVO.InfoListVO;
 import VO.listVO.ListRM;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
-import VO.saleVO.StockListVO;
 import VO.saleVO.StockReturnListVO;
 import VO.storeVO.storeRM;
 import bl.VIPbl.VIPCollectionModifyImpl;
@@ -28,8 +26,6 @@ import dataService.saleDataService.SaleUniDataService;
 import network.saleRemoteHelper.StockReturnListDataServiceHelper;
 import resultmessage.DataRM;
 import resultmessage.ResultMessage;
-import ui.commonUI.PromptWin;
-import ui.salesmanUI.saleListUI.ListToMessage;
 import util.DateUtil;
 import util.GreatListType;
 import util.State;
@@ -95,12 +91,12 @@ public class StockReturnListBLServiceImpl implements StockReturnListBLService,Ap
 	}
 
 	@Override
-	public DataRM approve(SalesmanListVO vo){
+	public DataRM approve(SalesmanListVO vo,boolean isWriteoff){
 		//检查库存是否足够
 		storeRM storeRm = storeRM.SUCCESS;
 		List<String> id = new ArrayList<String>();
 		List<Integer> subber = new ArrayList<Integer>();
-		
+		if(!isWriteoff){
 		for(SalesmanItemVO i : vo.getSaleListItems()){
 			id.add(i.getId());
 			subber.add(i.getAmount());
@@ -108,6 +104,7 @@ public class StockReturnListBLServiceImpl implements StockReturnListBLService,Ap
 		boolean checkResult = storeChange.check(id, subber);
 		if(checkResult == false){
 			return DataRM.STOCK_FAILED;
+		}
 		}
 		
 		try {
@@ -128,6 +125,7 @@ public class StockReturnListBLServiceImpl implements StockReturnListBLService,Ap
 						return DataRM.FAILED;
 					}				
 				//发消息
+					if(!isWriteoff)
 					new ListToMessage().sendMessage((StockReturnListVO)vo);
 			}
 			return rm;
@@ -279,7 +277,7 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 	public ListRM Approve(String id) {
 		DataRM rm = DataRM.FAILED;
 		try {
-			rm = approve(poToVo(service.get(id)));
+			rm = approve(poToVo(service.get(id)),false);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 				return ListRM.REFUSED;

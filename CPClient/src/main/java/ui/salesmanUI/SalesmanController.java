@@ -15,12 +15,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.salesmanUI.saleListUI.SaleListViewController;
 import ui.salesmanUI.saleListUI.SaleNewListController;
 import ui.salesmanUI.saleReturnListUI.SaleReturnListViewController;
@@ -29,7 +29,6 @@ import ui.salesmanUI.stockListUI.StockListViewController;
 import ui.salesmanUI.stockListUI.StockNewListController;
 import ui.salesmanUI.stockReturnListUI.StockReturnListViewController;
 import ui.salesmanUI.stockReturnListUI.StockReturnNewListController;
-import ui.salesmanUI.vip.VIPController;
 import ui.salesmanUI.vip.VIPWin;
 
 /**     
@@ -95,6 +94,8 @@ public class SalesmanController implements ParentController {
 		
 		if(centerPane.getChildren().isEmpty()){
 			System.out.println("in loading new saleList");
+
+	     	
 			SaleListBLService service = SaleBLFactory.getSaleListBLService();
 			String id = service.getId();
 			controller = new SaleNewListController(this,service,id);			

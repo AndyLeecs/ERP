@@ -28,7 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
 import ui.commonUI.GoodsSearchResultWin;
-import ui.salesmanUI.PromptHelper;
+import ui.commonUI.PromptHelper;
 import util.DateUtil;
 import util.VIPGrade;
 
@@ -386,7 +386,7 @@ public class PresentForMembershipController implements SinglePresentEditableCont
 			//传递vo到逻辑层	
 			DataRM rm = service.save(vo);
 			//显示信息弹窗
-			showInformationDialog(rm);
+			PromptHelper.showPrompt(rm);
 			//回到主界面
 			back();
 			}
@@ -415,7 +415,7 @@ public class PresentForMembershipController implements SinglePresentEditableCont
 			if(showConfirmDialog()){
 				DataRM rm = strategy.cancel(this);
 				//显示处理信息
-				showInformationDialog(rm);
+				PromptHelper.showPrompt(rm);
 				back();
 			}
 		}
@@ -468,23 +468,8 @@ public class PresentForMembershipController implements SinglePresentEditableCont
 
 		
 		
-		@Override
-		public void showInformationDialog(DataRM rm){
-			if(rm == DataRM.SUCCESS){
-				Alert information = new Alert(Alert.AlertType.INFORMATION,"请继续努力工作吧~");
-				information.setTitle("");         
-				information.setHeaderText("成功");    
-				information.showAndWait();
-				
-			}else if(rm == DataRM.FAILED){
-				Alert information = new Alert(Alert.AlertType.ERROR,"请继续努力工作吧~");
-				information.setTitle("");         
-				information.setHeaderText("失败");    
-				information.showAndWait();
-			}else{
-				System.err.println("DataRM is not success or failed");
-			}
-		}
+		
+
 
 		/* (non-Javadoc)
 		 * @see ui.managerUI.SinglePresentController#refresh()

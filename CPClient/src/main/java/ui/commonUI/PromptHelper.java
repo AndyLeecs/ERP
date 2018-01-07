@@ -1,9 +1,8 @@
-package ui.salesmanUI;
+package ui.commonUI;
 
 import java.io.IOException;
 
 import resultmessage.DataRM;
-import ui.commonUI.PromptWin;
 
 /**     
 * @author 李安迪

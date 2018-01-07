@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.mainUI.loginUI.User;
 
 /**     
@@ -43,9 +44,9 @@ public abstract class StockTypeNewListController extends StockTypeListController
 		DataRM rm = uniBLService.delete(id);
 		
 		System.out.println("cancel");
-		showPrompt(rm);
+		PromptHelper.showPrompt(rm);
 		}else{
-			showPrompt(DataRM.SUCCESS);
+			PromptHelper.showPrompt(DataRM.SUCCESS);
 		}
 		this.parentController.CloseSonWin();
 	}

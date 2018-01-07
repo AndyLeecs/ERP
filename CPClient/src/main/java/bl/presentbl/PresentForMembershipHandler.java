@@ -4,7 +4,6 @@ import java.util.List;
 
 import VO.presentVO.PresentForMembershipVO;
 import VO.presentVO.PresentResultVO;
-import VO.saleVO.SaleVO;
 import util.VIPGrade;
 
 /**     

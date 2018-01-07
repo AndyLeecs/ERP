@@ -2,12 +2,8 @@ package bl.presentbl;
 
 import java.util.List;
 
-import VO.GoodsInSaleVO;
 import VO.presentVO.PresentForSumVO;
 import VO.presentVO.PresentResultVO;
-import VO.saleVO.SaleVO;
-import dataService.presentDataService.PresentForSumDataService;
-import network.presentRemoteHelper.PresentForSumDataServiceHelper;
 
 /**     
 * @author 李安迪

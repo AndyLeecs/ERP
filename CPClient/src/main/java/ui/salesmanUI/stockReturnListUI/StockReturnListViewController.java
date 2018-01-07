@@ -4,7 +4,6 @@ import java.util.List;
 
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
-import ui.commonUI.ParentController;
 import ui.salesmanUI.CellController;
 import ui.salesmanUI.SalesmanController;
 import ui.salesmanUI.stockListUI.StockListViewController;

@@ -1,12 +1,10 @@
 package bl.presentbl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import VO.GoodsInSaleVO;
 import VO.presentVO.PresentForSpecialPackageVO;
 import VO.presentVO.PresentResultVO;
-import VO.saleVO.SaleVO;
 
 /**     
 * @author 李安迪

@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
-import ui.salesmanUI.PromptHelper;
+import ui.commonUI.PromptHelper;
 
 /**     
 * @author 李安迪

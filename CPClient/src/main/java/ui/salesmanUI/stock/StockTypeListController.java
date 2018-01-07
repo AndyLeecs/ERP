@@ -7,13 +7,12 @@ import java.util.List;
 import VO.VIPVO.VIPVO;
 import VO.goodsVO.GoodsVO;
 import VO.saleVO.SalesmanItemVO;
-import VO.saleVO.SalesmanListVO;
 import bl.utility.GoodsVOTrans;
 import blservice.saleblservice.SaleUniBLService;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.salesmanUI.GoodsSearchResultForSalesmanWin;
 import ui.salesmanUI.SalesmanEditCellController;
 import ui.salesmanUI.SalesmanListWinController;
@@ -51,7 +50,7 @@ public abstract class StockTypeListController extends SalesmanListWinController 
 
 		} catch (java.rmi.RemoteException e) {
 			e.printStackTrace();
-			showInformationDialog(DataRM.FAILED);
+			PromptHelper.showPrompt(DataRM.FAILED);
 		}
 		
 	}

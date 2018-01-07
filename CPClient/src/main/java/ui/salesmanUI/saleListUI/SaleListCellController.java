@@ -23,14 +23,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
+import ui.commonUI.PromptHelper;
 import ui.managerUI.PresentNoEditCellController;
 import ui.managerUI.SinglePresentController;
 import ui.salesmanUI.CellController;
 import ui.salesmanUI.ListViewController;
 import ui.salesmanUI.NoEditCellController;
-import ui.salesmanUI.PromptHelper;
 import ui.salesmanUI.sale.SaleTypeEditListController;
-import ui.salesmanUI.saleReturnListUI.SaleReturnEditListController;
 import util.UserGrade;
 import util.VIPGrade;
 

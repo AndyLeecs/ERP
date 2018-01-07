@@ -21,8 +21,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.salesmanUI.GoodsSearchResultForSalesmanWin;
-import ui.salesmanUI.PromptHelper;
 import ui.salesmanUI.SalesmanEditCellController;
 import ui.salesmanUI.SalesmanListWinController;
 import util.VIPGrade;
@@ -80,7 +80,7 @@ public abstract class SaleTypeListController extends SalesmanListWinController {
 
 		} catch (java.rmi.RemoteException e) {
 			e.printStackTrace();
-			showInformationDialog(DataRM.FAILED);
+			PromptHelper.showPrompt(DataRM.FAILED);
 		}
 		
 	}

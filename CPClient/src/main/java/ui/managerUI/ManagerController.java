@@ -5,17 +5,13 @@ import java.io.IOException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 import resultmessage.DataRM;
 import ui.commonUI.BussinessSituationWin;
 import ui.commonUI.LookListController;
-import ui.mainUI.loginUI.LoginWin;
-import ui.salesmanUI.PromptHelper;
+import ui.commonUI.PromptHelper;
 
 /**     
 * @author 李安迪

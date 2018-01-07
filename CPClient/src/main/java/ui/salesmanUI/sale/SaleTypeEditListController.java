@@ -1,9 +1,5 @@
 package ui.salesmanUI.sale;
 
-import java.util.List;
-
-import VO.VIPVO.VIPVO;
-import VO.goodsVO.GoodsVO;
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
