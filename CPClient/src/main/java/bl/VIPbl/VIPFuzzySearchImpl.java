@@ -1,11 +1,12 @@
 package bl.VIPbl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+
 import VO.VIPVO.VIPVO;
 import blservice.VIPblservice.VIPBLService;
 import blservice.VIPblservice.VIPFuzzySearch;
-
-import java.rmi.RemoteException;
-import java.util.List;
 
 /**
  * Created by julia98 on 2017/12/26.
@@ -108,7 +109,9 @@ public class VIPFuzzySearchImpl implements VIPFuzzySearch {
     public List<VIPVO> getVIPInIDOnlyRetailer(String idInfo) throws RemoteException {
         List<VIPVO> list1 = getVIPInType("经销商");
         List<VIPVO> list2 = getVIPInID(idInfo);
-        return magicMethod(list1,list2);
+        List<VIPVO> result = magicMethod(list1,list2);
+        System.out.println(result);
+        return result;
     }
 
     /**
@@ -121,7 +124,9 @@ public class VIPFuzzySearchImpl implements VIPFuzzySearch {
     public List<VIPVO> getVIPInNameOnlyRetailer(String nameInfo) throws RemoteException {
         List<VIPVO> list1 = getVIPInType("经销商");
         List<VIPVO> list2 = getVIPInName(nameInfo);
-        return magicMethod(list1,list2);
+        List<VIPVO> result = magicMethod(list1,list2);
+        System.out.println(result);
+        return result;
     }
 
     /**
@@ -134,17 +139,21 @@ public class VIPFuzzySearchImpl implements VIPFuzzySearch {
     public List<VIPVO> getVIPInPhoneNumberOnlyRetailer(String phoneNumberInfo) throws RemoteException {
         List<VIPVO> list1 = getVIPInType("经销商");
         List<VIPVO> list2 = getVIPInPhoneNumber(phoneNumberInfo);
-        return magicMethod(list1,list2);
+        List<VIPVO> result = magicMethod(list1,list2);
+        System.out.println(result);
+        return result;
     }
 
     private List<VIPVO> magicMethod(List<VIPVO> list1,List<VIPVO> list2){
-        List<VIPVO> list = null;
+        List<VIPVO> list = new ArrayList<VIPVO>();
+        if(list1 != null && list2 != null){
         for(int i =0;i<list1.size();i++){
             for(int j = 0;j<list2.size();j++) {
-                if (list1.get(i) == list2.get(j)) {
+                if (list1.get(i).equals(list2.get(j))) {
                     list.add(list1.get(i));
                 }
             }
+        }
         }
         return list;
     }
