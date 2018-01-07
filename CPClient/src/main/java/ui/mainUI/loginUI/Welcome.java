@@ -37,19 +37,16 @@ public class Welcome extends Application {
         					try {
         						stage.close();
         						ServerConnector s = new ServerConnector();
-<<<<<<< HEAD
-        						//new LoginWin();
-=======
         						new LoginWin();
->>>>>>> f921f4f37747300bfa8731017591ed5a444caf34
+
         						//new LoadingFXWin();
         						
         						//new ui.salesmanUI.VIPWin();
         						//new ui.stockmanUI.StockmanWin();
         						//new ui.managerUI.ManagerWin();
         						
-        					} catch (Exception e) {
-        						e.printStackTrace();
+        					} catch (Exception ex) {
+        						ex.printStackTrace();
         					}
         				}
         			});
