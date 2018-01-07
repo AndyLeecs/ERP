@@ -1,6 +1,5 @@
 package bl.salebl;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,7 @@ import dataService.saleDataService.StockListDataService;
 import network.saleRemoteHelper.StockListDataServiceHelper;
 import resultmessage.DataRM;
 import resultmessage.ResultMessage;
-import ui.commonUI.PromptWin;
+import ui.salesmanUI.saleListUI.ListToMessage;
 import util.DateUtil;
 import util.GreatListType;
 import util.State;
@@ -115,17 +114,17 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 					}
 				//更改最近进价	
 					resultRm = goodsRecentChange.setGoodsRecentBuyPrice(i.getPrice(), i.getName(), null);
-					if(resultRm != resultRm.SUCCESS){
+					if(resultRm != ResultMessage.SUCCESS){
 						return DataRM.FAILED;
 					}
 				}
 				//修改应付
-					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum());
-					if(resultRm != resultRm.SUCCESS){
+					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum()+vipChange.getVIPPayment(vo.getMemberName()));
+					if(resultRm != ResultMessage.SUCCESS){
 						return DataRM.FAILED;
 					}				
-				//发消息给库存管理人员，完成出货
-					
+				//发消息
+					new ListToMessage().sendMessage((StockListVO)vo);
 				
 			}
 			return rm;

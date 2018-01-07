@@ -13,6 +13,7 @@ import VO.listVO.ListRM;
 import VO.saleVO.SaleReturnListVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
+import VO.saleVO.StockListVO;
 import VO.storeVO.storeRM;
 import bl.VIPbl.VIPCollectionModifyImpl;
 import bl.goodsbl.GoodsRecentImpl;
@@ -28,6 +29,7 @@ import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import resultmessage.DataRM;
 import resultmessage.ResultMessage;
 import ui.commonUI.PromptWin;
+import ui.salesmanUI.saleListUI.ListToMessage;
 import util.DateUtil;
 import util.GreatListType;
 import util.State;
@@ -111,13 +113,14 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 							return DataRM.FAILED;
 						}
 					}
-					//修改应付
+					//修改应收
 						resultRm = vipChange.setVIPCollection
-								(vo.getMemberName(), vo.getSum());
-						if(resultRm != resultRm.SUCCESS){
+								(vo.getMemberName(), vipChange.getVIPCollection(vo.getMemberName())-vo.getSum());
+						if(resultRm != ResultMessage.SUCCESS){
 							return DataRM.FAILED;
 						}				
-					//发消息给库存管理人员，完成出货
+					//发消息
+						new ListToMessage().sendMessage((SaleReturnListVO)vo);	
 						
 					
 				}

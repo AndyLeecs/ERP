@@ -116,14 +116,27 @@ public abstract class SalesmanListWinController{
 	protected
 	void selectGoods(){
 		//获得关键字
-		String message = searchGoodsField.getText();
-		if(message != null && message.length() != 0){
-		System.out.println("in select Goods");
+		String pref = searchGoodsField.getText();
+		String message = "";
+		if(pref != null)
+			message = pref;
+
 		//查找，分别用三种模糊查找，然后合并得到的商品列表结果
 		List<GoodsVO> temp = new ArrayList<GoodsVO>();
-		temp.addAll(goodsFuzzySearch.getGoodsInID(message));
-		temp.addAll(goodsFuzzySearch.getGoodsInGoodsName(message));
-		temp.addAll(goodsFuzzySearch.getGoodsInCategory(message));
+		List<GoodsVO> adder = new ArrayList<GoodsVO>();
+		try{
+		if((adder = goodsFuzzySearch.getGoodsInID(message))!= null)
+				temp.addAll(adder);
+		if((adder = goodsFuzzySearch.getGoodsInGoodsName(message))!= null)
+			temp.addAll(adder);
+		if((adder = goodsFuzzySearch.getGoodsInCategory(message))!= null)
+			temp.addAll(adder);
+		}catch(Exception e){
+			PromptHelper.showPrompt(DataRM.NET_FAILED);
+		}
+//		temp.addAll(goodsFuzzySearch.getGoodsInID(message));
+//		temp.addAll(goodsFuzzySearch.getGoodsInGoodsName(message));
+//		temp.addAll(goodsFuzzySearch.getGoodsInCategory(message));
 		
 		//去重
 		temp = avoidDup(temp);
@@ -131,7 +144,7 @@ public abstract class SalesmanListWinController{
 		showSearchGoodsWin(temp);
 		}
 
-	}
+
 	
 	//根据子类的不同判断使用的是最近进价还是售价
    public abstract void showSearchGoodsWin(List<GoodsVO> temp);
@@ -155,8 +168,11 @@ public abstract class SalesmanListWinController{
 		//获得关键字
 		System.out.println("field is"+searchVIPField);
 		System.out.println("select VIP message is"+searchVIPField.getText());
-		String message = searchVIPField.getText();
-		if(message != null && message.length() != 0){
+		String pref = searchVIPField.getText();
+		String message = "";
+		if(pref != null)
+			message = pref;
+
 		//查找，分别用三种模糊查找，然后合并得到的商品列表结果
 		List<VIPVO> temp = totalFuzzySearchVIP(message);
 		
@@ -167,7 +183,7 @@ public abstract class SalesmanListWinController{
 		}
 		
 		}
-	}
+	
 
 	/**
 	 * @param message

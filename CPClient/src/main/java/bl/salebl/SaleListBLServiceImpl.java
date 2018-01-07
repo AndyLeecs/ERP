@@ -16,6 +16,7 @@ import VO.saleVO.SaleListVO;
 import VO.saleVO.SaleVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
+import VO.saleVO.StockListVO;
 import VO.storeVO.PresentListVO;
 import VO.storeVO.storeRM;
 import bl.VIPbl.VIPCollectionModifyImpl;
@@ -34,6 +35,7 @@ import dataService.saleDataService.SaleListDataService;
 import network.saleRemoteHelper.SaleListDataServiceHelper;
 import resultmessage.DataRM;
 import resultmessage.ResultMessage;
+import ui.salesmanUI.saleListUI.ListToMessage;
 import util.DateUtil;
 import util.GreatListType;
 import util.State;
@@ -106,6 +108,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 
 	@Override
 	public DataRM approve(SalesmanListVO vo){
+		
 		//检查库存是否足够
 		storeRM storeRm = storeRM.SUCCESS;
 		List<String> id = new ArrayList<String>();
@@ -119,10 +122,12 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		if(checkResult == false){
 			return DataRM.STOCK_FAILED;
 		}
+		
 		//检查客户应收应付
+		double collection = 0;
 		try {
 			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberID());
-			double collection = vipChange.getVIPCollection(vo.getMemberID());
+			collection = vipChange.getVIPCollection(vo.getMemberID());
 			double sum = vo.getSum();
 			
 			if(limit < collection + sum)
@@ -150,8 +155,8 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 						return DataRM.FAILED;
 					}
 				}
-				//修改应付
-					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum());
+				//修改应收
+					resultRm = vipChange.setVIPCollection(vo.getMemberName(), vo.getSum()+collection);
 					if(resultRm != ResultMessage.SUCCESS){
 						return DataRM.FAILED;
 					}
@@ -170,9 +175,10 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 				if(createPresentList == false){
 					return DataRM.PRESENT_FAILED;
 				}
-				//发消息给库存管理人员，完成出货
 				
-				//发消息，代金券
+				//发消息
+				new ListToMessage().sendMessage((SaleListVO)vo);
+				
 			}
 			return rm;
 		} catch (RemoteException e) {
@@ -212,7 +218,6 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 			return returnMessage;
 
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return DataRM.FAILED;
 		}
