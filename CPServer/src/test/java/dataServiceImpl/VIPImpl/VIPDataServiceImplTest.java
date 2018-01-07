@@ -12,8 +12,8 @@ import static org.junit.Assert.*;
  * Created by julia98 on 2017/12/27.
  */
 public class VIPDataServiceImplTest {
-	VIPPO po = new VIPPO("00000001"
-            ,"分类1"
+	VIPPO po1 = new VIPPO("00000001"
+            ,"供货商"
             ,"1"
             ,"姓名1"
             ,"18800000000"
@@ -26,7 +26,7 @@ public class VIPDataServiceImplTest {
             ,"业务员1",VIPUtil.EXIST);
 	
 	VIPPO po2 = new VIPPO("00000002"
-            ,"分类2"
+            ,"经销商"
             ,"2"
             ,"姓名2"
             ,"18800000002"
@@ -41,7 +41,8 @@ public class VIPDataServiceImplTest {
 
     @Test
     public void newVIPID() throws Exception {
-       assertEquals("1",new VIPDataServiceImpl().newVIPID(po));
+    	po2.setName("经销商" + 2);
+       assertEquals("1",new VIPDataServiceImpl().newVIPID(po2));
     }
 
     @Test

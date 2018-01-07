@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.PopupWindow.AnchorLocation;
+import ui.loadingUI.LoadingFXWin;
 import ui.mainUI.BackgroundController;
 
 import java.io.IOException;
@@ -113,6 +114,13 @@ public class GoodsController extends BackgroundController{
 
     //初始TreeView 加载所有商品和分类
     private void initTreeView() throws RemoteException{
+    	//开启加载窗口
+    	try {
+			LoadingFXWin loading = new LoadingFXWin();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 
         presentLocation.addEventHandler(MouseEvent.MOUSE_CLICKED,event -> System.out.println("标签被点击"));
         //在ScrollPane上配置并加入TreeView

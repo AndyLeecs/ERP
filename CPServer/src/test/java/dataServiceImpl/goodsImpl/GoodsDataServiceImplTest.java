@@ -13,10 +13,10 @@ import java.util.List;
  * Created by julia98 on 2017/12/26.
  */
 public class GoodsDataServiceImplTest {
-    GoodsCategoryPO po1 = new GoodsCategoryPO("A灯","根节点",GoodsUtil.EXIST);
-    GoodsCategoryPO po2 = new GoodsCategoryPO("B灯","根节点",GoodsUtil.EXIST);
-    GoodsCategoryPO po3 = new GoodsCategoryPO("C灯","根节点",GoodsUtil.EXIST);
-    GoodsCategoryPO po4 = new GoodsCategoryPO("D灯","根节点",GoodsUtil.EXIST);
+    GoodsCategoryPO po1 = new GoodsCategoryPO("A灯","根目录",GoodsUtil.EXIST);
+    GoodsCategoryPO po2 = new GoodsCategoryPO("B灯","根目录",GoodsUtil.EXIST);
+    GoodsCategoryPO po3 = new GoodsCategoryPO("C灯","根目录",GoodsUtil.EXIST);
+    GoodsCategoryPO po4 = new GoodsCategoryPO("D灯","根目录",GoodsUtil.EXIST);
     GoodsPO goodsPO1 = new GoodsPO("1"
             ,"A灯"
             ,"商品名称"
@@ -26,7 +26,7 @@ public class GoodsDataServiceImplTest {
             ,0
             ,0,GoodsUtil.EXIST);
     GoodsPO goodsPO2 = new GoodsPO("2"
-            ,"B灯1"
+            ,"B灯"
             ,"护眼灯"
             ,"商品种类"
             ,0
@@ -38,8 +38,8 @@ public class GoodsDataServiceImplTest {
     @org.junit.Test
     public void newGoodsID() throws Exception {
     	//for(int i =0;i<100;i++) {
-    		goodsPO1.setGoodsName("A灯" + 2);
-      	assertEquals("",new GoodsDataServiceImpl().newGoodsID(goodsPO1));
+    		goodsPO2.setGoodsName("B灯" + 2);
+      	assertEquals("",new GoodsDataServiceImpl().newGoodsID(goodsPO2));
     	//}
     }
 
