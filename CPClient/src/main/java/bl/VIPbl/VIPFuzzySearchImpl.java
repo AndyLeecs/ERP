@@ -65,10 +65,10 @@ public class VIPFuzzySearchImpl implements VIPFuzzySearch {
      */
     @Override
     public List<VIPVO> getVIPInIDOnlySeller(String idInfo) throws RemoteException {
-//        List<VIPVO> list1 = getVIPInType("供货商");
+        List<VIPVO> list1 = getVIPInType("供货商");
         List<VIPVO> list2 = getVIPInID(idInfo);
-//        return magicMethod(list1,list2);
-        return list2;
+       return magicMethod(list1,list2);
+
     }
 
     /**
@@ -79,10 +79,9 @@ public class VIPFuzzySearchImpl implements VIPFuzzySearch {
      */
     @Override
     public List<VIPVO> getVIPInNameOnlySeller(String nameInfo) throws RemoteException {
- //       List<VIPVO> list1 = getVIPInType("供货商");
+    List<VIPVO> list1 = getVIPInType("供货商");
         List<VIPVO> list2 = getVIPInName(nameInfo);
- //       return magicMethod(list1,list2);
-        return list2;
+     return magicMethod(list1,list2);
     }
 
     /**
@@ -93,10 +92,10 @@ public class VIPFuzzySearchImpl implements VIPFuzzySearch {
      */
     @Override
     public List<VIPVO> getVIPInPhoneNumberOnlySeller(String phoneNumberInfo) throws RemoteException {
- //       List<VIPVO> list1 = getVIPInType("供货商");
+       List<VIPVO> list1 = getVIPInType("供货商");
         List<VIPVO> list2 = getVIPInPhoneNumber(phoneNumberInfo);
- //       return magicMethod(list1,list2);
-        return list2;
+       return magicMethod(list1,list2);
+
     }
 
     /**
