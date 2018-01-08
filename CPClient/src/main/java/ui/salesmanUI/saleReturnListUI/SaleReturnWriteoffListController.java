@@ -65,7 +65,7 @@ public class SaleReturnWriteoffListController extends SaleReturnListCellControll
 		}
 	}
 		
-	}
+	
 	
 	//红冲并复制
 	@Override

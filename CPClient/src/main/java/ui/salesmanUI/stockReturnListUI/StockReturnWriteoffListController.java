@@ -67,7 +67,7 @@ public class StockReturnWriteoffListController extends StockReturnListCellContro
 		}
 	}
 		
-	}
+	
 	
 	//红冲并复制
 	@Override
