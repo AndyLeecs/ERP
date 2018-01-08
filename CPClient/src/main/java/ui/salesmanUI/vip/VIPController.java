@@ -374,6 +374,7 @@ public class VIPController {
 
     @FXML
     public void onCancelBtnClicked(){
+      	stack.peek().getParent().getChildren().remove(stack.peek());
         notice.setVisible(false);
         name.clear();
         stack.pop();

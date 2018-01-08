@@ -341,6 +341,7 @@ public class GoodsController extends BackgroundController{
                     break;
             }
 	    	//开启加载窗口
+	        /*
 	        LoadingFXController loading = new LoadingFXController();
 	        loading.setLoadingTxt("正在初始化商品列表...");
 	    	try {
@@ -348,7 +349,7 @@ public class GoodsController extends BackgroundController{
 			} catch (IOException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
-			}
+			}*/
 	        
             goodsVOArrayList = (ArrayList<GoodsVO>)goodsBLService.findGoods(searchField.getText(),this.goodsTypeSearch);
 	        goodsVBox.getChildren().clear();
@@ -356,7 +357,7 @@ public class GoodsController extends BackgroundController{
 	            newGoodsPane(goodsVOArrayList.get(i));
             }
 	        
-	        loading.close();
+	       // loading.close();
         }
 	}
 	
@@ -392,6 +393,11 @@ public class GoodsController extends BackgroundController{
                 
                 goodsBLService.modifyGoods(vo);
                 //System.out.println("判断id是否改变：" + vo.getGoodsID());
+                
+                //修改库存
+                Store_Interface store_interface = new Store_InterfaceImpl();
+                store_interface.addStoreItem(voToStoreVO(vo));
+                
                 break;
 
             case "新建分类":
@@ -442,6 +448,7 @@ public class GoodsController extends BackgroundController{
 
     @FXML
     public void onCancelBtnClicked(){
+    	    stack.peek().getParent().getChildren().remove(stack.peek());
         notice.setVisible(false);
         name.clear();
         stack.pop();
@@ -664,6 +671,11 @@ public class GoodsController extends BackgroundController{
         }catch(Exception e) {
         	return 5;
         }
+    }
+    
+    private StoreVO voToStoreVO(GoodsVO goodsVO){
+        StoreVO storeVO = new StoreVO(goodsVO.getGoodsName(),goodsVO.getGoodsID(),5,1);
+        return storeVO;
     }
    
 }

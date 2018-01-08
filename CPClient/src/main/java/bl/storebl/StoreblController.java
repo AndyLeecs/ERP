@@ -39,7 +39,7 @@ public class StoreblController implements StoreBLService{
 
     @Override
     public String toExcel(storeInventoryVO vo,String path) {
-    	if(path==null||!path.startsWith("D:\\")||!path.endsWith(".xls")){
+    	if(path==null||!path.endsWith(".xls")){
     		return "地址错误";    //防御式编程一下
     	}
         //导出当日库存快照
