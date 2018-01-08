@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 import PO.AlarmListPO;
 import PO.PresentListPO;
@@ -77,8 +78,13 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements  StoreD
 	@Override
 	public LinkedList<AlarmListPO> getAlarmListPO() throws RemoteException{
 		HibernateUtil_Green<AlarmListPO> util= new HibernateUtil_Green<AlarmListPO>(AlarmListPO.class);
-		LinkedList<AlarmListPO> list=(LinkedList<AlarmListPO>) util.getList();
-		return list;
+		ArrayList<AlarmListPO> list= (ArrayList<AlarmListPO>)util.getList();
+		LinkedList<AlarmListPO>list1=new LinkedList<AlarmListPO>();
+		for(int i=0;i<list.size();i++){
+			list1.add(list.get(i));
+		}
+	
+		return list1;
 	}
 
 	@Override

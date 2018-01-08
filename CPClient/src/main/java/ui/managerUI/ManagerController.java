@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import resultmessage.DataRM;
 import ui.commonUI.BussinessSituationWin;
 import ui.commonUI.LookListController;
+import ui.commonUI.SalesDetailsTreeTable;
 import ui.mainUI.loginUI.LoginWin;
 import ui.salesmanUI.PromptHelper;
 
@@ -208,7 +209,11 @@ public class ManagerController {
 
 	}
     @FXML public void openSalesDetailsList(){
-    	
+    	SalesDetailsTreeTable treetable=new SalesDetailsTreeTable();
+        Stage stage=new Stage();
+  
+			treetable.start(stage);
+
     }
     @FXML public void openBussinessSituationList(){
 		try {

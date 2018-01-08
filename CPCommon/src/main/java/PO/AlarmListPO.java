@@ -1,10 +1,12 @@
 package PO;
 
+import java.io.Serializable;
+
 import  javax.persistence.*;
 
 @Entity
 @Table(name="AlarmListPO")
-public class AlarmListPO {
+public class AlarmListPO implements Serializable{
     @Id @GeneratedValue
     @Column(name="id")
     public  String listID;

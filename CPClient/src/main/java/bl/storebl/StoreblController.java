@@ -10,6 +10,8 @@ import bl.storebl.DataGetter;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+
+import util.ExcelUtil;
 import util.State;
 
 public class StoreblController implements StoreBLService{
@@ -36,9 +38,38 @@ public class StoreblController implements StoreBLService{
     }
 
     @Override
-    public String toExcel(InventoryVO vo) {
-        //这个方法先不实现，等数据库架好了再写
-        return null;
+    public String toExcel(storeInventoryVO vo,String path) {
+    	if(path==null||!path.startsWith("D:\\")||!path.endsWith(".xls")){
+    		return "地址错误";    //防御式编程一下
+    	}
+        //导出当日库存快照
+    	ArrayList<ArrayList<String>> result=new ArrayList<ArrayList<String>>();
+    	ArrayList<String> arr0=new ArrayList<String>();
+    	arr0.add("行号");
+    	arr0.add("商品编号");
+    	arr0.add("商品名称");
+    	arr0.add("库存数量");
+    	arr0.add("库存均价");
+    	arr0.add("型号");
+    	arr0.add("出厂日期");
+    	result.add(arr0);
+    	int t=1;
+    	for(int i=0;i<vo.Model.size();i++){
+    		ArrayList<String> arr1=new ArrayList<String>();
+    		arr1.add(Integer.toString(t));
+    		arr1.add(vo.storeVO_Arr.get(i).ID);
+    		arr1.add(vo.storeVO_Arr.get(i).name);
+    		arr1.add(Integer.toString(vo.storeVO_Arr.get(i).Num));
+    		arr1.add(Double.toString(vo.storeVO_Arr.get(i).averagePrice));
+    		
+    		arr1.add(vo.Model.get(i));
+    		arr1.add(vo.Date.get(i));
+    		result.add(arr1);
+    		t++;
+    		}
+    	
+    	ExcelUtil.writeExcel(result, path);
+    	return "导出成功！";
     }
 
     @Override

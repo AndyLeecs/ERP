@@ -81,6 +81,12 @@ public class User {
 		return s;
 	}
 	
+	public static String calcPreciseTime(){
+		//计算精确到秒的时间
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");//设置日期格式
+		String s=df.format(new Date());
+		return s;
+	}
 
 	
 }

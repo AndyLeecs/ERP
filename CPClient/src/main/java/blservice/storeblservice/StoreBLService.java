@@ -19,7 +19,7 @@ public interface StoreBLService {
 	public ArrayList<ReportListVO> openReportList(StoreListType type, State st);//返回指定状态的库存报损或报溢单
 
 	public ArrayList<PresentListVO> openPresentList(State st);//返回指定状态的库存赠送单
-	public String toExcel(	InventoryVO vo);  //将库存盘点的内容导出到Excel表内
+	public String toExcel(	storeInventoryVO vo,String path);  //将库存盘点的内容导出到Excel表内
 	public String newList(StoreListType type); //新建单据，并自动计算单据编号
 	public ListRM saveReportList ( ReportListVO vo);  //保存库存报损或报溢单
 	public ListRM savePresentList ( PresentListVO vo); //保存库存赠送单
