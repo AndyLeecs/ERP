@@ -42,7 +42,7 @@ public class LoadingFXWin extends Stage {
         					    root.getScene().getWindow().hide();        						
         						//ServerConnector s = new ServerConnector();
         						//new ui.salesmanUI.VIPWin();
-        						new ui.stockmanUI.StockmanWin();
+        						//new ui.stockmanUI.StockmanWin();
         						
         					} catch (Exception e) {
         						e.printStackTrace();
