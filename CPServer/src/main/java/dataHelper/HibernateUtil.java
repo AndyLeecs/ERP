@@ -24,9 +24,11 @@ import util.State;
 * @description 数据库基础功能的hibernate实现
 */
 
+@SuppressWarnings("deprecation")
 public class HibernateUtil<T> implements BasicUtil<T>{
 
-    private SessionFactory sessionFactory;
+	private static final long serialVersionUID = -1120159929949882054L;
+	private SessionFactory sessionFactory;
     private Session session = null;
     private Transaction transaction = null;
 
@@ -187,6 +189,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
 //	}
 //	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> CascadeQuery(List<CriterionClause> criterionParentList,List<CriterionClause> criterionChildList, String string) {
 		session = sessionFactory.openSession();
@@ -222,6 +225,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
     }
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> Query(List<CriterionClause> criterionList){
 		session = sessionFactory.openSession();
@@ -251,6 +255,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
     }
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> Query(List<CriterionClause> criterionList,OrderClause order){
 		session = sessionFactory.openSession();
@@ -325,6 +330,7 @@ public class HibernateUtil<T> implements BasicUtil<T>{
         return o;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public T getLastRow(){
 		session = sessionFactory.openSession();

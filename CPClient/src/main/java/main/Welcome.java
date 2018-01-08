@@ -1,4 +1,4 @@
-package ui.mainUI.loginUI;
+package main;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -12,7 +12,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import network.ServerConnector;
-import ui.loadingUI.LoadingFXWin;
+import ui.mainUI.loginUI.LoginWin;
 
 
 public class Welcome extends Application {
@@ -36,15 +36,11 @@ public class Welcome extends Application {
         				public void run() {
         					try {
         						stage.close();
-        						ServerConnector s = new ServerConnector();
+        						new ServerConnector();
         						new LoginWin();
 
         						//new LoadingFXWin();
-        						
-        						//new ui.salesmanUI.VIPWin();
-        						//new ui.stockmanUI.StockmanWin();
-        						//new ui.managerUI.ManagerWin();
-        						
+        					
         					} catch (Exception ex) {
         						ex.printStackTrace();
         					}

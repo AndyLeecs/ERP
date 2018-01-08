@@ -12,10 +12,8 @@ import javafx.stage.Stage;
 import resultmessage.DataRM;
 import ui.commonUI.BussinessSituationWin;
 import ui.commonUI.LookListController;
-import ui.commonUI.SalesDetailsTreeTable;
-import ui.mainUI.loginUI.LoginWin;
-import ui.salesmanUI.PromptHelper;
 import ui.commonUI.PromptHelper;
+import ui.commonUI.SalesDetailsTreeTable;
 
 /**     
 * @author 李安迪

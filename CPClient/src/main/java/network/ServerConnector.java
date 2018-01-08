@@ -7,8 +7,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.user.MessagePO;
-import PO.user.UserPO;
 import network.VIPRemoteHelper.VIPDataServiceHelper;
 import network.accountRemoteHelper.AccountDataServiceHelper;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
@@ -27,10 +25,6 @@ import network.saleRemoteHelper.StockReturnListDataServiceHelper;
 import network.storeRemoteHelper.StoreDataServiceHelper;
 import network.userRemoteHelper.MessageDataServiceHelper;
 import network.userRemoteHelper.UserDataServiceHelper;
-import util.DateUtil;
-import util.UserGrade;
-import util.UserPermission;
-import util.UserType;
 
 /**
  * 连接服务器的类，在这里将每个DataService与对应的RemoteHelper进行连接
@@ -45,28 +39,32 @@ public class ServerConnector {
 	public ServerConnector(){
 		addServices();
 		connectDataService();
-//		insertAdmin();
 	}
 	
 	private void addServices(){
 		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
 		dataServiceHelpers.add(ListDataServiceHelper.getInstance());
 		
+		
 		dataServiceHelpers.add(AccountDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
 		
+		
 		dataServiceHelpers.add(UserDataServiceHelper.getInstance());
 		dataServiceHelpers.add(MessageDataServiceHelper.getInstance());
+		
 		
 		dataServiceHelpers.add(PresentForMembershipDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PresentForSpecialPackageDataServiceHelper.getInstance());
 		dataServiceHelpers.add(PresentForSumDataServiceHelper.getInstance());
-//		
-//		
+
+		
 		dataServiceHelpers.add(GoodsDataServiceHelper.getInstance());
 		dataServiceHelpers.add(VIPDataServiceHelper.getInstance());
+		
+		
 		dataServiceHelpers.add(StockReturnListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(StockListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(SaleListDataServiceHelper.getInstance());
@@ -74,7 +72,6 @@ public class ServerConnector {
 		dataServiceHelpers.add(SaleProjectionDataServiceHelper.getInstance());
 
 		
-		//哈哈，巧妙的设计了一番，每个helper只需在这里add一下就行了
 	}
 	
 	 
@@ -103,21 +100,6 @@ public class ServerConnector {
 	
 	public static void main(String [] args){
 		new ServerConnector();
-//		testService();
 	}
 	
-
-	public void insertAdmin(){
-		UserPO po = new UserPO();
-		po.setName("admin");
-		po.setPassword("123");
-		po.setType(UserType.Administrator);
-		po.setGrade(UserGrade.Manager);
-		po.setPermission(UserPermission.Highest);
-		try {
-			System.out.println(UserDataServiceHelper.getInstance().getDataService().insert(po));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-	}
 }

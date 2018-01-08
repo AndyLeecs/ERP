@@ -3,7 +3,6 @@ package ui.mainUI;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
@@ -22,7 +21,6 @@ import ui.mainUI.accountantUI.AccountantWin;
 import ui.mainUI.loginUI.User;
 import ui.managerUI.ManagerWin;
 import ui.salesmanUI.SalesmanWin;
-import ui.stockmanUI.GoodsWin;
 import ui.stockmanUI.StockmanWin;
 import util.UserType;
 
@@ -95,7 +93,7 @@ public class BackgroundController {
         	System.out.println("clicked message");
         	Platform.runLater(()-> {
                 try {
-                    new ui.mainUI.MessageWin();
+                    new ui.mainUI.message.MessageWin();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

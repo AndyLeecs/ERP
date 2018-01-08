@@ -1,4 +1,4 @@
-package ui.mainUI;
+package ui.mainUI.message;
 
 import VO.userVO.MessageVO;
 import javafx.fxml.FXML;

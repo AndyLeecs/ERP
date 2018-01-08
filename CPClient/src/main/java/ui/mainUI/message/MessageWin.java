@@ -1,4 +1,4 @@
-package ui.mainUI;
+package ui.mainUI.message;
 
 import java.io.IOException;
 
