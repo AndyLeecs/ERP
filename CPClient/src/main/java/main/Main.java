@@ -21,26 +21,8 @@ public class Main extends Application {
 
 		Platform.runLater(()-> {
 				try {
-					//new ServerConnector();
-//                  new ui.salesmanUI.SalesmanWin();
-
-//					new ui.mainUI.administratorUI.AdministratorWin();
-//					new Welcome();
-					//new LoginWin();
- // 				new ui.salesmanUI.SalesmanWin();
-//					new ui.stockmanUI.StockmanWin();
-//					new ui.managerUI.LookListWin();
-//					new ui.mainUI.accountantUI.AccountantWin();
-
-					//new ui.stockmanUI.StockmanWin();
-
-				new ui.managerUI.ManagerWin();
-					//new ui.stockmanUI.GoodsWin();
-//					new ui.salesmanUI.VIPWin();
-
-
-
-
+					new ServerConnector();
+					new LoginWin();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

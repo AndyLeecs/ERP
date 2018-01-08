@@ -8,10 +8,12 @@ import PO.account.FinanceListPO;
 import VO.accountVO.AccountVO;
 import VO.accountVO.FinanceListVO;
 import VO.listVO.InfoListVO;
+import VO.userVO.MessageVO;
 import bl.listbl.InfoList;
 import bl.listbl.InfoList_Impl;
-import blservice.accountblservice.AccountManagementService;
 import blservice.accountblservice.FinanceListService;
+import blservice.serviceFactory.MessageServiceFactory;
+import blservice.userblservice.SendMessageService;
 import dataService.accountDataService.FinanceListDataService;
 import resultmessage.ApproveRM;
 import resultmessage.CommitListRM;
@@ -20,6 +22,7 @@ import resultmessage.DeleteListRM;
 import resultmessage.SaveListRM;
 import util.GreatListType;
 import util.State;
+import util.UserType;
 
 public abstract class FinanceListImpl implements FinanceListService{
 	
@@ -28,8 +31,8 @@ public abstract class FinanceListImpl implements FinanceListService{
 
 	FinanceListDataService dataService;
 	InfoList infoListService = new InfoList_Impl();
-	AccountManagementService accountManagementService = new AccountManagementServiceImpl();
-	
+	AccountBalanceChangeService accountBalanceChangeService = new AccountBalanceChangeServiceImpl(); 
+	SendMessageService messageService = MessageServiceFactory.getSendMessageService();
 	public FinanceListImpl(FinanceListDataService dataService){
 		this.dataService = dataService;
 	}
@@ -180,6 +183,7 @@ public abstract class FinanceListImpl implements FinanceListService{
 				return ApproveRM.SERVER_ERROR;
 			case SUCCESS:
 				infoListService.modify(true, vo.getId());
+				messageService.sendMessage(getMessageVO(vo), UserType.Accountant);
 				return ApproveRM.OK;
 			default:
 				break;
@@ -209,4 +213,6 @@ public abstract class FinanceListImpl implements FinanceListService{
 	protected abstract GreatListType getGreatListType();
 	
 	protected abstract String getKeyInfo(FinanceListVO vo);
+	
+	protected abstract MessageVO getMessageVO(FinanceListVO vo);
 }

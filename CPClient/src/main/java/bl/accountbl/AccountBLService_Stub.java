@@ -245,19 +245,16 @@ public class AccountBLService_Stub implements AccountBLService, AccountManagemen
 
 	@Override
 	public void endService() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public ApproveRM approve(FinanceListVO vo) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void reject(FinanceListVO vo) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -270,25 +267,21 @@ public class AccountBLService_Stub implements AccountBLService, AccountManagemen
 
 	@Override
 	public void saveAllAccount(List<AccountVO> l) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public AccountVO getAccount(String accountName) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void update(AccountVO vo) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public ListVO getList(String id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

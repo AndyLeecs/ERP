@@ -1,14 +1,15 @@
 package bl.accountbl;
 
+import java.util.Date;
 import java.util.stream.Collectors;
 
 import PO.account.CollectionListPO;
 import PO.account.FinanceListPO;
 import PO.account.TransferItemPO;
-import VO.accountVO.AccountVO;
 import VO.accountVO.CollectionListVO;
 import VO.accountVO.FinanceListVO;
 import VO.accountVO.TransferItemVO;
+import VO.userVO.MessageVO;
 import blservice.VIPforAccountService.VIPReceivableChangeService;
 import blservice.serviceFactory.VIPReceivableChangeFactory;
 import dataService.accountDataService.FinanceListDataService;
@@ -34,10 +35,7 @@ public class CollectionListImpl extends FinanceListImpl{
 			return ApproveRM.VIP_EXCEPTION;
 		
 		for(TransferItemVO item : cvo.getTransferItem()){
-			String accountName = item.getAccount();
-			AccountVO account = accountManagementService.getAccount(accountName);
-			account.setBalance(account.getBalance() + item.getAmount());
-			accountManagementService.update(account);
+			accountBalanceChangeService.increase(item.getAccount(), item.getAmount());
 		}
 		
 		//检查成功
@@ -90,6 +88,16 @@ public class CollectionListImpl extends FinanceListImpl{
 	protected String getKeyInfo(FinanceListVO vo) {
 		CollectionListVO cvo = (CollectionListVO)vo;
 		return "向 "+cvo.getVIPName() + " 收款 " + cvo.getTotalAmount() + " 元";
+	}
+
+	@Override
+	protected MessageVO getMessageVO(FinanceListVO vo) {
+		CollectionListVO cvo = (CollectionListVO)vo;
+		String content = "";
+		for(TransferItemVO item : cvo.getTransferItem()){
+			content += "账户 " + item.getAccount() + " 收款 " + item.getAmount() + "元" + System.lineSeparator(); 
+		}
+		return new MessageVO("收款",content,new Date());
 	}
 
 	

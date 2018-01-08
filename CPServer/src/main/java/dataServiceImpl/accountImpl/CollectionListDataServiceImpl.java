@@ -22,25 +22,5 @@ public class CollectionListDataServiceImpl extends FinanceListDataServiceImpl im
 		
 	}
 	
-	//TODO delete it when dataService all finishes!
-	public static void main(String [] args){
-		CollectionListPO po = new CollectionListPO();
-		po.setId("SKD-20171227-00001");
-		po.setVIPID("monk");
-		try {
-			FinanceListDataServiceImpl impl = new CollectionListDataServiceImpl();
-//			System.out.println(impl.delete("SKD-20171227-00001"));
-			System.out.println(impl.insert(po));
-			
-//			System.out.println((impl.getNewListId()));
-//			System.out.println((impl.getNewListId()));
-//			System.out.println((impl.getNewListId()));
-
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-	}
-
-	
 
 }

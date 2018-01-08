@@ -12,15 +12,17 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import ui.accountUI.AccountManageWinController;
-import ui.accountUI.CashExpenseListWinController;
-import ui.accountUI.CollectionListWinController;
-import ui.accountUI.FinanceListWinController;
-import ui.accountUI.OpenCashExpenseCommitedListController;
-import ui.accountUI.OpenCashExpenseDraftListController;
-import ui.accountUI.OpenCollectionCommitedListController;
-import ui.accountUI.OpenCollectionDraftListController;
-import ui.accountUI.OpenFinanceListController;
-import ui.accountUI.PaymentListWinController;
+import ui.accountUI.list.cashExpense.CashExpenseListWinController;
+import ui.accountUI.list.cashExpense.OpenCashExpenseCommitedListController;
+import ui.accountUI.list.cashExpense.OpenCashExpenseDraftListController;
+import ui.accountUI.list.collection.CollectionListWinController;
+import ui.accountUI.list.collection.OpenCollectionCommitedListController;
+import ui.accountUI.list.collection.OpenCollectionDraftListController;
+import ui.accountUI.list.finance.FinanceListWinController;
+import ui.accountUI.list.finance.OpenFinanceListController;
+import ui.accountUI.list.payment.OpenPaymentCommitedListController;
+import ui.accountUI.list.payment.OpenPaymentDraftListController;
+import ui.accountUI.list.payment.PaymentListWinController;
 import ui.commonUI.ParentController;
 import ui.commonUI.PromptWin;
 import ui.mainUI.loginUI.User;
@@ -45,7 +47,7 @@ public class AccountantWinController implements ParentController{
 	
 	private static final String OPEN_LIST_OF_FORM_FXML =  "/fxml/commonUI/OpenListOfForms.fxml";
 	private static final String COLLECTION_LIST_FXML = "/fxml/accountUI/CollectionList.fxml";
-	private static final String PAYMENT_LIST_FXML = "/fxml/accountUI/PaymentList.fxml";
+	private static final String PAYMENT_LIST_FXML = "/fxml/accountUI/CollectionList.fxml";
 	private static final String CASH_EXPENSE_LIST_FXML = "/fxml/accountUI/CashExpenseList.fxml";
 	private static final String ACCOUNT_MANAGE_FXML = "/fxml/accountUI/AccountManage.fxml";
 
@@ -78,7 +80,7 @@ public class AccountantWinController implements ParentController{
 
 
 	@FXML public void onOpenPaymentCommittedBtnClicked() {
-		//TODO
+		loadOpenList(AccountBLFactory.getPaymentListService(),new OpenPaymentCommitedListController());
 	}
 
 
@@ -99,7 +101,7 @@ public class AccountantWinController implements ParentController{
 
 
 	@FXML public void onOpenPaymentDraftBtnClicked() {
-		//TODO
+		loadOpenList(AccountBLFactory.getPaymentListService(), new OpenPaymentDraftListController(this));	
 	}
 
 	
@@ -203,6 +205,15 @@ public class AccountantWinController implements ParentController{
 		FinanceListWinController financeListWinController = new CollectionListWinController(vo);
 		String fxmlPath = COLLECTION_LIST_FXML;
 		FinanceListService financeListService= AccountBLFactory.getCollectionListService();
+		
+		loadEditableList(financeListWinController,financeListService,fxmlPath);
+		
+	}
+	
+	public void loadPaymentDraftList(CollectionListVO vo){
+		FinanceListWinController financeListWinController = new PaymentListWinController(vo);
+		String fxmlPath = PAYMENT_LIST_FXML;
+		FinanceListService financeListService= AccountBLFactory.getPaymentListService();
 		
 		loadEditableList(financeListWinController,financeListService,fxmlPath);
 		
