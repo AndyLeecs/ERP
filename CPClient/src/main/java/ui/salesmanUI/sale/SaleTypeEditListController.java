@@ -1,14 +1,13 @@
 package ui.salesmanUI.sale;
 
-import java.util.List;
-
-import VO.VIPVO.VIPVO;
-import VO.goodsVO.GoodsVO;
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 
 /**     
 * @author 李安迪
@@ -59,5 +58,16 @@ public abstract class SaleTypeEditListController extends SaleTypeListController 
 	void cancel(){
 		if(parentController != null)
 		this.parentController.CloseSonWin();
+		else{
+	   	     Platform.runLater(()-> {
+					    try {
+							root.getScene().getWindow().hide();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+				});   	 
+		}		
+		PromptHelper.showPrompt(DataRM.SUCCESS);
+	
 	}
 }

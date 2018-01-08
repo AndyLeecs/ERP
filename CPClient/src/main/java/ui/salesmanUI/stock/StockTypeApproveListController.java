@@ -3,9 +3,9 @@ package ui.salesmanUI.stock;
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 
 /**     
 * @author 李安迪
@@ -40,8 +40,8 @@ public abstract class StockTypeApproveListController extends StockTypeEditListCo
 	void commit(){
 		if(!check())
 			return;
-		DataRM rm = uniBLService.approve(getVOFromUI());
-		showPrompt(rm);
+		DataRM rm = uniBLService.approve(getVOFromUI(),false);
+		PromptHelper.showPrompt(rm);
 	}
 	
 	//审批不通过
@@ -50,7 +50,7 @@ public abstract class StockTypeApproveListController extends StockTypeEditListCo
 	protected
 	void save(){
 		DataRM rm = uniBLService.reject(getVOFromUI());
-		showPrompt(rm);
+		PromptHelper.showPrompt(rm);
 	}
 
 

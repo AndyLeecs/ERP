@@ -148,7 +148,98 @@ public class VIPVO {
         return clerk;
     }
 
-    public void setClerk(String clerk) {
+	public void setClerk(String clerk) {
         this.clerk = clerk;
     }
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + autoId;
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
+		result = prime * result + ((clerk == null) ? 0 : clerk.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(collection);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(collectionLimit);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		temp = Double.doubleToLongBits(payment);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
+		result = prime * result + ((postCode == null) ? 0 : postCode.hashCode());
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		VIPVO other = (VIPVO) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (autoId != other.autoId)
+			return false;
+		if (category == null) {
+			if (other.category != null)
+				return false;
+		} else if (!category.equals(other.category))
+			return false;
+		if (clerk == null) {
+			if (other.clerk != null)
+				return false;
+		} else if (!clerk.equals(other.clerk))
+			return false;
+		if (Double.doubleToLongBits(collection) != Double.doubleToLongBits(other.collection))
+			return false;
+		if (Double.doubleToLongBits(collectionLimit) != Double.doubleToLongBits(other.collectionLimit))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (grade != other.grade)
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (Double.doubleToLongBits(payment) != Double.doubleToLongBits(other.payment))
+			return false;
+		if (phoneNumber == null) {
+			if (other.phoneNumber != null)
+				return false;
+		} else if (!phoneNumber.equals(other.phoneNumber))
+			return false;
+		if (postCode == null) {
+			if (other.postCode != null)
+				return false;
+		} else if (!postCode.equals(other.postCode))
+			return false;
+		if (state != other.state)
+			return false;
+		return true;
+	}
+
+
+    
 }

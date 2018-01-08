@@ -17,9 +17,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.managerUI.PresentNoEditCellController;
 import ui.managerUI.SinglePresentController;
-import ui.salesmanUI.PromptHelper;
 import ui.salesmanUI.sale.SaleTypeApproveListController;
 
 /**     

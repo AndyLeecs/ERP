@@ -1,6 +1,5 @@
 package bl.salebl;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,6 @@ import dataService.saleDataService.SaleReturnListDataService;
 import network.saleRemoteHelper.SaleReturnListDataServiceHelper;
 import resultmessage.DataRM;
 import resultmessage.ResultMessage;
-import ui.commonUI.PromptWin;
 import util.DateUtil;
 import util.GreatListType;
 import util.State;
@@ -90,12 +88,41 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	}
 
 	@Override
-	public DataRM approve(SalesmanListVO vo){
+	public DataRM approve(SalesmanListVO vo,boolean isWriteoff){
+		//检查库存是否足够
+		storeRM storeRm = storeRM.SUCCESS;
+		List<String> id = new ArrayList<String>();
+		List<Integer> subber = new ArrayList<Integer>();
+		if(!isWriteoff){	
+		for(SalesmanItemVO i : vo.getSaleListItems()){
+			id.add(i.getId());
+			subber.add(i.getAmount());
+		}
+		boolean checkResult = storeChange.check(id, subber);
+		if(checkResult == false){
+			return DataRM.STOCK_FAILED;
+		}
+		
+		//检查客户应收应付
+		double collection = 0;
+		try {
+			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberID());
+			collection = vipChange.getVIPCollection(vo.getMemberID());
+			double sum = vo.getSum();
+			
+			if(limit < collection + sum)
+				return DataRM.VIP_FAILED;
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+			return DataRM.NET_FAILED;
+		}
+		
+		}
 		try {
 				vo.setState(State.IsApproved);
 				DataRM rm = service.save(voToPo(vo));
 
-				storeRM storeRm = storeRM.SUCCESS;
+				storeRm = storeRM.SUCCESS;
 				ResultMessage resultRm = ResultMessage.SUCCESS;
 				if(rm == DataRM.SUCCESS){
 					
@@ -111,13 +138,15 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 							return DataRM.FAILED;
 						}
 					}
-					//修改应付
+					//修改应收
 						resultRm = vipChange.setVIPCollection
-								(vo.getMemberName(), vo.getSum());
-						if(resultRm != resultRm.SUCCESS){
+								(vo.getMemberName(), vipChange.getVIPCollection(vo.getMemberName())-vo.getSum());
+						if(resultRm != ResultMessage.SUCCESS){
 							return DataRM.FAILED;
 						}				
-					//发消息给库存管理人员，完成出货
+					//发消息
+						if(!isWriteoff)
+						new ListToMessage().sendMessage((SaleReturnListVO)vo);	
 						
 					
 				}
@@ -273,7 +302,7 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 	public ListRM Approve(String id) {
 		DataRM rm = DataRM.FAILED;
 		try {
-			rm = approve(poToVo(service.get(id)));
+			rm = approve(poToVo(service.get(id)),false);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ListRM.REFUSED;

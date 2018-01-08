@@ -19,10 +19,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.mainUI.loginUI.User;
 import ui.managerUI.PresentNoEditCellController;
 import ui.managerUI.SinglePresentController;
-import ui.salesmanUI.PromptHelper;
 import ui.salesmanUI.sale.RebateChecker;
 import ui.salesmanUI.sale.SaleTypeNewListController;
 
@@ -149,7 +149,7 @@ public class SaleNewListController extends SaleTypeNewListController implements 
     		return false;
      }
  //   	System.out.println(User.getInstance().getGrade());
-    	if(Double.parseDouble(rebateField.getText())>RebateChecker.getRebateLimit(User.getInstance().getGrade()))
+    	if(Double.parseDouble(rebateField.getText())>RebateChecker.getRebateLimit(User.getInstance().getUserType(),User.getInstance().getGrade()))
     	{
     		PromptHelper.showPrompt(DataRM.REBATE_FAILED);
     		return false;

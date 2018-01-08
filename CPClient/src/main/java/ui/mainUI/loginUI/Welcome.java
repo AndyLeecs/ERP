@@ -38,14 +38,15 @@ public class Welcome extends Application {
         						stage.close();
         						ServerConnector s = new ServerConnector();
         						new LoginWin();
+
         						//new LoadingFXWin();
         						
         						//new ui.salesmanUI.VIPWin();
         						//new ui.stockmanUI.StockmanWin();
         						//new ui.managerUI.ManagerWin();
         						
-        					} catch (Exception e) {
-        						e.printStackTrace();
+        					} catch (Exception ex) {
+        						ex.printStackTrace();
         					}
         				}
         			});

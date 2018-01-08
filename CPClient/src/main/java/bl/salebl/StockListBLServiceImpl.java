@@ -1,6 +1,5 @@
 package bl.salebl;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,6 @@ import dataService.saleDataService.StockListDataService;
 import network.saleRemoteHelper.StockListDataServiceHelper;
 import resultmessage.DataRM;
 import resultmessage.ResultMessage;
-import ui.commonUI.PromptWin;
 import util.DateUtil;
 import util.GreatListType;
 import util.State;
@@ -98,12 +96,28 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 	}
 
 	@Override
-	public DataRM approve(SalesmanListVO vo){
+	public DataRM approve(SalesmanListVO vo,boolean isWriteoff){
+		
 		try {
+			storeRM storeRm = storeRM.SUCCESS;
+			List<String> id = new ArrayList<String>();
+			List<Integer> subber = new ArrayList<Integer>();
+			if(isWriteoff){
+				
+					for(SalesmanItemVO i : vo.getSaleListItems()){
+						id.add(i.getId());
+						subber.add(i.getAmount());
+					}
+					boolean checkResult = storeChange.check(id, subber);
+					if(checkResult == false){
+						return DataRM.STOCK_FAILED;
+					}
+				
+			}
 			vo.setState(State.IsApproved);
 			DataRM rm = service.save(voToPo(vo));
 
-			storeRM storeRm = storeRM.SUCCESS;
+			storeRm = storeRM.SUCCESS;
 			ResultMessage resultRm = ResultMessage.SUCCESS;
 			if(rm == DataRM.SUCCESS){
 				
@@ -115,17 +129,18 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 					}
 				//更改最近进价	
 					resultRm = goodsRecentChange.setGoodsRecentBuyPrice(i.getPrice(), i.getName(), null);
-					if(resultRm != resultRm.SUCCESS){
+					if(resultRm != ResultMessage.SUCCESS){
 						return DataRM.FAILED;
 					}
 				}
 				//修改应付
-					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum());
-					if(resultRm != resultRm.SUCCESS){
+					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum()+vipChange.getVIPPayment(vo.getMemberName()));
+					if(resultRm != ResultMessage.SUCCESS){
 						return DataRM.FAILED;
 					}				
-				//发消息给库存管理人员，完成出货
-					
+				//发消息
+					if(!isWriteoff)
+					new ListToMessage().sendMessage((StockListVO)vo);
 				
 			}
 			return rm;
@@ -278,7 +293,7 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 	public ListRM Approve(String id) {
 		DataRM rm = DataRM.FAILED;
 		try {
-			rm = approve(poToVo(service.get(id)));
+			rm = approve(poToVo(service.get(id)),false);
 		} catch (RemoteException e) {
 			return ListRM.REFUSED;
 		}

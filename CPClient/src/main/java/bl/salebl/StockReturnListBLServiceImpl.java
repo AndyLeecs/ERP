@@ -1,6 +1,5 @@
 package bl.salebl;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,6 @@ import dataService.saleDataService.SaleUniDataService;
 import network.saleRemoteHelper.StockReturnListDataServiceHelper;
 import resultmessage.DataRM;
 import resultmessage.ResultMessage;
-import ui.commonUI.PromptWin;
 import util.DateUtil;
 import util.GreatListType;
 import util.State;
@@ -93,12 +91,12 @@ public class StockReturnListBLServiceImpl implements StockReturnListBLService,Ap
 	}
 
 	@Override
-	public DataRM approve(SalesmanListVO vo){
+	public DataRM approve(SalesmanListVO vo,boolean isWriteoff){
 		//检查库存是否足够
 		storeRM storeRm = storeRM.SUCCESS;
 		List<String> id = new ArrayList<String>();
 		List<Integer> subber = new ArrayList<Integer>();
-		
+		if(!isWriteoff){
 		for(SalesmanItemVO i : vo.getSaleListItems()){
 			id.add(i.getId());
 			subber.add(i.getAmount());
@@ -106,6 +104,7 @@ public class StockReturnListBLServiceImpl implements StockReturnListBLService,Ap
 		boolean checkResult = storeChange.check(id, subber);
 		if(checkResult == false){
 			return DataRM.STOCK_FAILED;
+		}
 		}
 		
 		try {
@@ -121,11 +120,13 @@ public class StockReturnListBLServiceImpl implements StockReturnListBLService,Ap
 					}
 				}
 				//修改应付
-					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum());
-					if(resultRm != resultRm.SUCCESS){
+					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vipChange.getVIPPayment(vo.getMemberName())-vo.getSum());
+					if(resultRm != ResultMessage.SUCCESS){
 						return DataRM.FAILED;
 					}				
-				//发消息给库存管理人员，完成出货
+				//发消息
+					if(!isWriteoff)
+					new ListToMessage().sendMessage((StockReturnListVO)vo);
 			}
 			return rm;
 		} catch (RemoteException e) {
@@ -276,7 +277,7 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 	public ListRM Approve(String id) {
 		DataRM rm = DataRM.FAILED;
 		try {
-			rm = approve(poToVo(service.get(id)));
+			rm = approve(poToVo(service.get(id)),false);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 				return ListRM.REFUSED;

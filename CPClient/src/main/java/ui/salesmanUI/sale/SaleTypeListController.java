@@ -1,6 +1,7 @@
 package ui.salesmanUI.sale;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
@@ -20,8 +21,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.salesmanUI.GoodsSearchResultForSalesmanWin;
-import ui.salesmanUI.PromptHelper;
 import ui.salesmanUI.SalesmanEditCellController;
 import ui.salesmanUI.SalesmanListWinController;
 import util.VIPGrade;
@@ -66,13 +67,20 @@ public abstract class SaleTypeListController extends SalesmanListWinController {
 	public void getVIPList(String message, List<VIPVO> temp) {
 	
 		try {
-			temp.addAll(vipFuzzySearch.getVIPInIDOnlyRetailer(message));
-			temp.addAll(vipFuzzySearch.getVIPInNameOnlyRetailer(message));
-			temp.addAll(vipFuzzySearch.getVIPInPhoneNumberOnlyRetailer(message));
+			List<VIPVO> adder = new ArrayList<VIPVO>();
+			if((adder =vipFuzzySearch.getVIPInIDOnlyRetailer(message))!=null)
+				temp.addAll(adder);
+			if((adder = vipFuzzySearch.getVIPInNameOnlyRetailer(message))!=null)
+				temp.addAll(adder);
+			if((adder = vipFuzzySearch.getVIPInPhoneNumberOnlyRetailer(message))!= null)
+				temp.addAll(adder);
+//			temp.addAll(vipFuzzySearch.getVIPInIDOnlyRetailer(message));
+//			temp.addAll(vipFuzzySearch.getVIPInNameOnlyRetailer(message));
+//			temp.addAll(vipFuzzySearch.getVIPInPhoneNumberOnlyRetailer(message));
 
 		} catch (java.rmi.RemoteException e) {
 			e.printStackTrace();
-			showInformationDialog(DataRM.FAILED);
+			PromptHelper.showPrompt(DataRM.FAILED);
 		}
 		
 	}

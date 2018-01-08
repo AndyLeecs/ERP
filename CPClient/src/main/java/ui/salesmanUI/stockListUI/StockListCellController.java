@@ -20,10 +20,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
+import ui.commonUI.PromptHelper;
 import ui.salesmanUI.CellController;
 import ui.salesmanUI.ListViewController;
 import ui.salesmanUI.NoEditCellController;
-import ui.salesmanUI.PromptHelper;
 import ui.salesmanUI.stock.StockTypeEditListController;
 import util.UserGrade;
 
@@ -91,6 +91,7 @@ public class StockListCellController implements CellController {
 	
 
 @FXML
+protected
 	void initialize(){
 		listID.setText(id);
 		operator.setText(vo.getOperator());
@@ -130,14 +131,16 @@ public class StockListCellController implements CellController {
 		
 	}
 	
-	@FXML void commit(){
+	@FXML
+	protected void commit(){
 		
 		DataRM rm = uniBLService.commit(getVOFromUI());	
 		PromptHelper.showPrompt(rm);
 		
 	}
 	//编辑
-	@FXML void save(){
+	@FXML
+	protected void save(){
 		this.controller.controller.CloseListToEdit();
 
 		Platform.runLater(()->{

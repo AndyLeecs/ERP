@@ -15,12 +15,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.salesmanUI.saleListUI.SaleListViewController;
 import ui.salesmanUI.saleListUI.SaleNewListController;
 import ui.salesmanUI.saleReturnListUI.SaleReturnListViewController;
@@ -29,7 +29,6 @@ import ui.salesmanUI.stockListUI.StockListViewController;
 import ui.salesmanUI.stockListUI.StockNewListController;
 import ui.salesmanUI.stockReturnListUI.StockReturnListViewController;
 import ui.salesmanUI.stockReturnListUI.StockReturnNewListController;
-import ui.salesmanUI.vip.VIPController;
 import ui.salesmanUI.vip.VIPWin;
 
 /**     
@@ -95,8 +94,13 @@ public class SalesmanController implements ParentController {
 		
 		if(centerPane.getChildren().isEmpty()){
 			System.out.println("in loading new saleList");
+
+	     	
 			SaleListBLService service = SaleBLFactory.getSaleListBLService();
 			String id = service.getId();
+			if(!IdChecker.checkId(service, id)){
+				return;
+			}
 			controller = new SaleNewListController(this,service,id);			
 //			controller = new SaleTypeNewListController(this,service,id);
 		Platform.runLater(()->{
@@ -114,6 +118,9 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getChildren().isEmpty()){
 			SaleReturnListBLService service = SaleBLFactory.getSaleReturnListBLService();
 			String id = service.getId();
+			if(!IdChecker.checkId(service, id)){
+				return;
+			}
 			controller = new SaleReturnNewListController(this,service,id);
 		Platform.runLater(()->{
 			loadNewList(id,SALERETURN_LIST_TITLE_SOURCE,SALERETURN_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
@@ -134,6 +141,9 @@ public class SalesmanController implements ParentController {
 			StockListBLService service = SaleBLFactory.getStockListBLService();
 			
 			String id = service.getId();
+			if(!IdChecker.checkId(service, id)){
+				return;
+			}
 			controller = new StockNewListController(this,service,id);
 		Platform.runLater(()->{
 			loadNewList(id,STOCK_LIST_TITLE_SOURCE,STOCK_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		
@@ -150,6 +160,9 @@ public class SalesmanController implements ParentController {
 		if(centerPane.getChildren().isEmpty()){
 			StockReturnListBLService service = SaleBLFactory.getStockReturnListBLService();
 			String id = service.getId();
+			if(!IdChecker.checkId(service, id)){
+				return;
+			}
 			controller = new StockReturnNewListController(this,service,id);
 		Platform.runLater(()->{
 			loadNewList(id,STOCKRETURN_LIST_TITLE_SOURCE,STOCKRETURN_LIST_SOURCE,FORM_CSS_PATH,FORM_CSS_PATH,controller);		

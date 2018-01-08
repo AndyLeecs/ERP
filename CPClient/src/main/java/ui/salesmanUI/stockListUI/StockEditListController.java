@@ -1,12 +1,8 @@
 package ui.salesmanUI.stockListUI;
 
-import java.util.List;
-
 import VO.saleVO.SalesmanListVO;
 import VO.saleVO.StockListVO;
-import bl.salebl.SaleBLFactory;
 import blservice.saleblservice.SaleUniBLService;
-import blservice.saleblservice.StockListBLService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import ui.commonUI.ParentController;
@@ -43,6 +39,15 @@ public class StockEditListController extends StockTypeEditListController{
 	void cancel(){
 		if(parentController != null)
 		this.parentController.CloseSonWin();
+		else{
+		     Platform.runLater(()-> {
+		    	 try{
+						root.getScene().getWindow().hide();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+			}); 
+		}
 	}
 
 }

@@ -13,6 +13,8 @@ public enum DataRM implements Serializable{
 	CANCEL_REMIND,
 	EXIST,
 	NOT_EXIST,
+	//今日单据生成数量达到上限
+	LIST_FULL,
 	FAILED,
 	//其他错误
 	//折让超过额度

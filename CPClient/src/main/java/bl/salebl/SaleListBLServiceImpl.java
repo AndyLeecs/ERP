@@ -105,12 +105,14 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 	}
 
 	@Override
-	public DataRM approve(SalesmanListVO vo){
+	public DataRM approve(SalesmanListVO vo,boolean isWriteoff){
+		
+	double collection = 0;
 		//检查库存是否足够
 		storeRM storeRm = storeRM.SUCCESS;
 		List<String> id = new ArrayList<String>();
 		List<Integer> subber = new ArrayList<Integer>();
-		
+		if(!isWriteoff){	
 		for(SalesmanItemVO i : vo.getSaleListItems()){
 			id.add(i.getId());
 			subber.add(i.getAmount());
@@ -119,10 +121,12 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		if(checkResult == false){
 			return DataRM.STOCK_FAILED;
 		}
+		
 		//检查客户应收应付
+
 		try {
 			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberID());
-			double collection = vipChange.getVIPCollection(vo.getMemberID());
+			collection = vipChange.getVIPCollection(vo.getMemberID());
 			double sum = vo.getSum();
 			
 			if(limit < collection + sum)
@@ -132,6 +136,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 			return DataRM.NET_FAILED;
 		}
 		
+		}
 		try {
 			vo.setState(State.IsApproved);
 			DataRM rm = service.save(voToPo(vo));
@@ -150,13 +155,14 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 						return DataRM.FAILED;
 					}
 				}
-				//修改应付
-					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum());
+				//修改应收
+					resultRm = vipChange.setVIPCollection(vo.getMemberName(), vo.getSum()+collection);
 					if(resultRm != ResultMessage.SUCCESS){
 						return DataRM.FAILED;
 					}
 				//通知销售人员
 				//生成库存赠送单
+					if(!isWriteoff){
 				SaleListVO svo = (SaleListVO)vo;
 				PresentListVO presentList = new PresentListVO(null, null, null, null, null);
 				presentList.VIPname = svo.getMemberName();
@@ -170,9 +176,11 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 				if(createPresentList == false){
 					return DataRM.PRESENT_FAILED;
 				}
-				//发消息给库存管理人员，完成出货
+					}
+				//发消息
+				if(!isWriteoff)
+				new ListToMessage().sendMessage((SaleListVO)vo);
 				
-				//发消息，代金券
 			}
 			return rm;
 		} catch (RemoteException e) {
@@ -212,7 +220,6 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 			return returnMessage;
 
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return DataRM.FAILED;
 		}
@@ -380,7 +387,7 @@ public List<SalesmanItemPO> generatePoList(SalesmanListVO vo) {
 	public ListRM Approve(String id) {
 		DataRM rm = DataRM.FAILED;
 		try {
-			rm = approve(poToVo(service.get(id)));
+			rm = approve(poToVo(service.get(id)),false);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ListRM.REFUSED;

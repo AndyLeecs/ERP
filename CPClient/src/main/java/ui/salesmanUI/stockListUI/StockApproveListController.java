@@ -3,7 +3,6 @@ package ui.salesmanUI.stockListUI;
 import VO.saleVO.SalesmanListVO;
 import VO.saleVO.StockListVO;
 import blservice.saleblservice.SaleUniBLService;
-import javafx.fxml.FXML;
 import ui.commonUI.ParentController;
 import ui.salesmanUI.stock.StockTypeApproveListController;
 

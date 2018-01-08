@@ -3,6 +3,7 @@ package ui.mainUI;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
@@ -17,9 +18,13 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import ui.mainUI.accountantUI.AccountantWin;
 import ui.mainUI.loginUI.User;
+import ui.managerUI.ManagerWin;
+import ui.salesmanUI.SalesmanWin;
 import ui.stockmanUI.GoodsWin;
 import ui.stockmanUI.StockmanWin;
+import util.UserType;
 
 public class BackgroundController {
     @FXML public AnchorPane root;
@@ -28,14 +33,40 @@ public class BackgroundController {
     protected JFXButton label1;
 
     public void setClick() {
+    	UserType userType = User.getInstance().getUserType();
+    	if(userType.equals(UserType.Stockman)) {
+    		try {
+    			new StockmanWin();
+    			root.getScene().getWindow().hide();
+  		} catch (IOException e1) {
+    			e1.printStackTrace();
+    		}
+    	}else if(userType.equals(UserType.Salesman)) {
+    		try {
+    			new SalesmanWin();
+    			root.getScene().getWindow().hide();
+    		}catch(IOException e2) {
+    			e2.printStackTrace();
+    		}
+    	}else if(userType.equals(UserType.GeneralManager)) {
+    		try {
+    			new ManagerWin();
+    			root.getScene().getWindow().hide();
+    		}catch(IOException e3) {
+    			e3.printStackTrace();
+    		}
+    		}else if(userType.equals(UserType.Accountant)) {
     			try {
-    				new StockmanWin();
+    				new AccountantWin();
     				root.getScene().getWindow().hide();
-    			} catch (IOException e1) {
-    				// TODO Auto-generated catch block
-    				e1.printStackTrace();
+        		}catch(IOException e2) {
+        			e2.printStackTrace();
     			}
+    		}else if(userType.equals(UserType.Administrator)) {
+    			//
+    		}
     }
+    
     @FXML public void initialize() throws RemoteException {
     	JFXRippler rippler = new JFXRippler(hamburger1, RipplerMask.CIRCLE, RipplerPos.BACK);
 		rippler.setStyle("-jfx-rippler-fill: PINK;");
@@ -54,13 +85,6 @@ public class BackgroundController {
        
         label1.setOnMouseClicked(e->{
         	setClick();
-        /*	try {
-				new GoodsWin();
-				root.getScene().getWindow().hide();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}*/
 		});
   
         JFXButton personalInfoBtn = new JFXButton("个人信息");

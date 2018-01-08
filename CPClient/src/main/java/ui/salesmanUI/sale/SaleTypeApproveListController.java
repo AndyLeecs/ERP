@@ -1,13 +1,11 @@
 package ui.salesmanUI.sale;
 
-import java.util.List;
-
-import VO.VIPVO.VIPVO;
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 
 /**     
 * @author 李安迪
@@ -42,8 +40,8 @@ public abstract class SaleTypeApproveListController extends SaleTypeEditListCont
 	void commit(){
 		if(!check())
 			return;
-		DataRM rm = uniBLService.approve(getVOFromUI());
-		showPrompt(rm);
+		DataRM rm = uniBLService.approve(getVOFromUI(),false);
+		PromptHelper.showPrompt(rm);
 	}
 	
 	//审批不通过
@@ -52,7 +50,7 @@ public abstract class SaleTypeApproveListController extends SaleTypeEditListCont
 	protected
 	void save(){
 		DataRM rm = uniBLService.reject(getVOFromUI());
-		showPrompt(rm);
+		PromptHelper.showPrompt(rm);
 	}
 
 }

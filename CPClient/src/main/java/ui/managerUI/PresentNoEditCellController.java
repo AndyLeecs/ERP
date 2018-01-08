@@ -3,7 +3,6 @@ package ui.managerUI;
 import VO.GoodsInSaleVO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 /**     
 * @author 李安迪

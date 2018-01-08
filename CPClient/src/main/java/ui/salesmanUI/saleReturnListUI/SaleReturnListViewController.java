@@ -11,7 +11,6 @@ import ui.commonUI.ParentController;
 import ui.salesmanUI.CellController;
 import ui.salesmanUI.ListViewController;
 import ui.salesmanUI.SalesmanController;
-import ui.salesmanUI.saleListUI.SaleListCellController;
 
 /**     
 * @author 李安迪

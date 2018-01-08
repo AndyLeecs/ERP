@@ -6,17 +6,14 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
 
-import com.jfoenix.controls.JFXButton;
-
 import VO.VIPVO.VIPVO;
 import VO.goodsVO.GoodsVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
-import blservice.VIPblservice.VIPFuzzySearch;
 import bl.VIPbl.VIPFuzzySearchImpl;
-import blservice.goodsblservice.GoodsFuzzySearch;
 import bl.goodsbl.GoodsFuzzySearchImpl;
-import bl.utility.GoodsVOTrans;
+import blservice.VIPblservice.VIPFuzzySearch;
+import blservice.goodsblservice.GoodsFuzzySearch;
 import blservice.saleblservice.SaleUniBLService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +26,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.commonUI.PromptWin;
 import ui.salesmanUI.vip.VIPSearchResultWin;
 import util.UserGrade;
@@ -116,14 +114,27 @@ public abstract class SalesmanListWinController{
 	protected
 	void selectGoods(){
 		//获得关键字
-		String message = searchGoodsField.getText();
-		if(message != null && message.length() != 0){
-		System.out.println("in select Goods");
+		String pref = searchGoodsField.getText();
+		String message = "";
+		if(pref != null)
+			message = pref;
+
 		//查找，分别用三种模糊查找，然后合并得到的商品列表结果
 		List<GoodsVO> temp = new ArrayList<GoodsVO>();
-		temp.addAll(goodsFuzzySearch.getGoodsInID(message));
-		temp.addAll(goodsFuzzySearch.getGoodsInGoodsName(message));
-		temp.addAll(goodsFuzzySearch.getGoodsInCategory(message));
+		List<GoodsVO> adder = new ArrayList<GoodsVO>();
+		try{
+		if((adder = goodsFuzzySearch.getGoodsInID(message))!= null)
+				temp.addAll(adder);
+		if((adder = goodsFuzzySearch.getGoodsInGoodsName(message))!= null)
+			temp.addAll(adder);
+		if((adder = goodsFuzzySearch.getGoodsInCategory(message))!= null)
+			temp.addAll(adder);
+		}catch(Exception e){
+			PromptHelper.showPrompt(DataRM.NET_FAILED);
+		}
+//		temp.addAll(goodsFuzzySearch.getGoodsInID(message));
+//		temp.addAll(goodsFuzzySearch.getGoodsInGoodsName(message));
+//		temp.addAll(goodsFuzzySearch.getGoodsInCategory(message));
 		
 		//去重
 		temp = avoidDup(temp);
@@ -131,7 +142,7 @@ public abstract class SalesmanListWinController{
 		showSearchGoodsWin(temp);
 		}
 
-	}
+
 	
 	//根据子类的不同判断使用的是最近进价还是售价
    public abstract void showSearchGoodsWin(List<GoodsVO> temp);
@@ -155,8 +166,11 @@ public abstract class SalesmanListWinController{
 		//获得关键字
 		System.out.println("field is"+searchVIPField);
 		System.out.println("select VIP message is"+searchVIPField.getText());
-		String message = searchVIPField.getText();
-		if(message != null && message.length() != 0){
+		String pref = searchVIPField.getText();
+		String message = "";
+		if(pref != null)
+			message = pref;
+
 		//查找，分别用三种模糊查找，然后合并得到的商品列表结果
 		List<VIPVO> temp = totalFuzzySearchVIP(message);
 		
@@ -167,7 +181,7 @@ public abstract class SalesmanListWinController{
 		}
 		
 		}
-	}
+	
 
 	/**
 	 * @param message
@@ -275,26 +289,6 @@ public abstract class SalesmanListWinController{
 	}
 	
 	/**
-	 * 显示结果信息框
-	 * @param rm 成功或失败
-	 */
-	public void showInformationDialog(DataRM rm){
-		if(rm == DataRM.SUCCESS){
-			Alert information = new Alert(Alert.AlertType.INFORMATION,"请继续努力工作吧~");
-			information.setTitle("");         
-			information.setHeaderText("成功");    
-			information.showAndWait();
-			
-		}else if(rm == DataRM.FAILED){
-			Alert information = new Alert(Alert.AlertType.ERROR,"请继续努力工作吧~");
-			information.setTitle("");         
-			information.setHeaderText("失败");    
-			information.showAndWait();
-		}else{
-			System.err.println("DataRM is not success or failed");
-		}
-	}
-	/**
 	 * 显示确认对话框
 	 * @return 是或否
 	 */
@@ -336,39 +330,7 @@ public abstract class SalesmanListWinController{
 		
 	}
 	
-	public void showPrompt(DataRM rm){
-		try{
-		switch(rm){
-		case SUCCESS:
-			new PromptWin("成功~");
-			break;
-		case EXIST:
-			new PromptWin("存在重复单据哦~");
-			break;
-		case NOT_EXIST:
-			new PromptWin("单据不存在~");
-			break;
-		case FAILED:
-			new PromptWin("失败了呢~");
-			break;
-		case NET_FAILED:
-			new PromptWin("网络有点渣~");
-			break;
-		case STOCK_FAILED:
-			new PromptWin("库存不足~");
-			break;
-		case VIP_FAILED:
-			new PromptWin("超出应收额度~");
-			break;
-		case PRESENT_FAILED:
-			new PromptWin("生成库存赠送单失败了~");
-			break;
-		}
-		
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-	}
+
 	@FXML
 	protected
 	void commit(){

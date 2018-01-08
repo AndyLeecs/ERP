@@ -1,18 +1,18 @@
 package ui.salesmanUI.stock;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import VO.VIPVO.VIPVO;
 import VO.goodsVO.GoodsVO;
 import VO.saleVO.SalesmanItemVO;
-import VO.saleVO.SalesmanListVO;
 import bl.utility.GoodsVOTrans;
 import blservice.saleblservice.SaleUniBLService;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
+import ui.commonUI.PromptHelper;
 import ui.salesmanUI.GoodsSearchResultForSalesmanWin;
 import ui.salesmanUI.SalesmanEditCellController;
 import ui.salesmanUI.SalesmanListWinController;
@@ -40,13 +40,17 @@ public abstract class StockTypeListController extends SalesmanListWinController 
 	@Override
 	public void getVIPList(String message, List<VIPVO> temp) {	
 		try {
-			temp.addAll(vipFuzzySearch.getVIPInIDOnlySeller(message));
-			temp.addAll(vipFuzzySearch.getVIPInNameOnlySeller(message));
-			temp.addAll(vipFuzzySearch.getVIPInPhoneNumberOnlySeller(message));
+			List<VIPVO> adder = new ArrayList<VIPVO>();
+			if((adder =vipFuzzySearch.getVIPInIDOnlySeller(message))!=null)
+				temp.addAll(adder);
+			if((adder = vipFuzzySearch.getVIPInNameOnlySeller(message))!=null)
+				temp.addAll(adder);
+			if((adder = vipFuzzySearch.getVIPInPhoneNumberOnlySeller(message))!= null)
+				temp.addAll(adder);
 
 		} catch (java.rmi.RemoteException e) {
 			e.printStackTrace();
-			showInformationDialog(DataRM.FAILED);
+			PromptHelper.showPrompt(DataRM.FAILED);
 		}
 		
 	}

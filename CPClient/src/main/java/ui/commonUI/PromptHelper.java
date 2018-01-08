@@ -1,9 +1,8 @@
-package ui.salesmanUI;
+package ui.commonUI;
 
 import java.io.IOException;
 
 import resultmessage.DataRM;
-import ui.commonUI.PromptWin;
 
 /**     
 * @author 李安迪
@@ -46,6 +45,9 @@ public class PromptHelper {
 			break;
 		case CANCEL_REMIND:
 			new PromptWin("请先取消当前操作,返回主界面~");
+			break;
+		case LIST_FULL:
+			new PromptWin("今天生成太多单啦明天再试哦~");
 			break;
 		default:
 			new PromptWin("出现未知错误");

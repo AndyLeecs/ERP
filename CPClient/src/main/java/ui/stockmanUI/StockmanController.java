@@ -20,6 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import ui.loadingUI.LoadingFXWin;
 import ui.mainUI.BackgroundController;
 import ui.mainUI.loginUI.LoginWin;
 import util.State;
@@ -199,6 +200,7 @@ public class StockmanController extends BackgroundController{
 		Platform.runLater(()->{
 			try {
 				new GoodsWin();
+				new LoadingFXWin();
 				root.getScene().getWindow().hide();
 			} catch (IOException e) {
 				e.printStackTrace();
