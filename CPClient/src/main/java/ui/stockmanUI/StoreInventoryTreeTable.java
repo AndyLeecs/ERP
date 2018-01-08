@@ -1,7 +1,10 @@
 package ui.stockmanUI;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
+
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
@@ -9,7 +12,7 @@ import com.jfoenix.controls.cells.editors.TextFieldEditorBuilder;
 import com.jfoenix.controls.cells.editors.base.GenericEditableTreeTableCell;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
-import VO.storeVO.StoreLogVO;
+
 import VO.storeVO.StoreVO;
 import VO.storeVO.storeInventoryVO;
 import bl.storebl.StoreblController;
@@ -21,9 +24,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-import javafx.scene.layout.AnchorPane;
+
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import ui.mainUI.loginUI.User;
@@ -32,6 +36,7 @@ public class StoreInventoryTreeTable {
 	ObservableList<T> Obs= FXCollections.observableArrayList();
 	ArrayList<String> S0=new ArrayList<String>();
 	StoreBLService service;
+	Label label;
 
 	
 	public  FlowPane addColumn(){
@@ -65,14 +70,22 @@ public class StoreInventoryTreeTable {
     		FlowPane main = new FlowPane();
             main.setPadding(new Insets(10));
             main.getChildren().add(treeView);
+    		JFXTextField textfield=new JFXTextField();
+    		textfield.setPrefWidth(250);
+    		textfield.setText("D:\\库存快照"+User.calcPreciseTime()+".xls");
     		JFXButton okbtn = new JFXButton("导出报表");
-    		okbtn.setOnAction((action)->btnAction1());
+    		okbtn.setOnAction((action)->btnAction1(textfield.getText()));
+    		label=new Label("    默认导出至D盘根目录");
+    		label.setPrefWidth(200);
     		main.getChildren().add(okbtn);
+    		main.getChildren().add(textfield);
+    		main.getChildren().add(label);
+    		
             return main;
         
 	}
 		
-	private void btnAction1(){
+	private void btnAction1(String filepath){
 		storeInventoryVO inventoryVO=new storeInventoryVO();
 		StoreVO log=new StoreVO();
 		log.ID="1";log.name="佩奇";log.Num=20;log.averagePrice=25.35;
@@ -80,10 +93,10 @@ public class StoreInventoryTreeTable {
 		inventoryVO.Date.add(User.calcTime());
 		inventoryVO.Model.add("model1");
 		service=new StoreblController();
-		String time=User.calcPreciseTime();
-		String path="D:\\KCKZ"+time+".xls";
-		
-		System.out.println(service.toExcel(inventoryVO, path));
+
+		String rtn=service.toExcel(inventoryVO, filepath);
+		System.out.println(rtn);
+		label.setText("    "+rtn);
 	}
 
 	 private final class T extends RecursiveTreeObject<T>{
