@@ -52,8 +52,8 @@ public class StockReturnListDataServiceImpl extends UnicastRemoteObject implemen
 	public DataRM delete(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		StockReturnListPO po = (StockReturnListPO)(util.get(id));
-		po.setState(State.IsDeleted);
-		return util.update(po);
+//		po.setState(State.IsDeleted);
+		return util.delete(id);
 	}
 
 	/* (non-Javadoc)

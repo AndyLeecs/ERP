@@ -1,24 +1,28 @@
 package bl.listbl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+import PO.InfoListPO;
 import VO.listVO.BussinessSituationListVO;
 import VO.listVO.InfoListVO;
+import VO.listVO.ListRM;
 import VO.listVO.SalesDetailListVO;
 import bl.salebl.GetSalesDetailsImpl;
+import bl.salebl.SaleListBLServiceImpl;
+import bl.salebl.SaleReturnListBLServiceImpl;
 import bl.salebl.SalesBussinessSituation_Impl;
+import bl.salebl.StockListBLServiceImpl;
+import bl.salebl.StockReturnListBLServiceImpl;
 import bl.storebl.PresentList;
 import bl.storebl.ReportList;
 import bl.storebl.StoreBussinessSituation_Impl;
-import VO.listVO.ListRM;
 import blservice.listblservice.Listblservice;
 import dataService.listDataService.ListDataService;
 //import dataService.listDataService.ListDataService_Stub;
 import network.listRemoteHelper.ListDataServiceHelper;
 import resultmessage.ApproveRM;
 import util.GreatListType;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import PO.InfoListPO;
 
 public class ListblController implements Listblservice {
     /*
@@ -124,7 +128,34 @@ public class ListblController implements Listblservice {
 				return ApproveRM.OK;
 			}
 			else{return ApproveRM.INSUFFICIENT_STOCK_GOODS;}
-			
+		}else if(type.equals(GreatListType.SALE)){
+			approvable=new SaleListBLServiceImpl();
+			ListRM rm=approvable.Approve(id);
+			if(rm.equals(ListRM.SUCCESS)){
+				return ApproveRM.OK;
+			}
+			else{return ApproveRM.INSUFFICIENT_STOCK_GOODS;}			
+		}else if(type.equals(GreatListType.SALE_RETURN)){
+			approvable=new SaleReturnListBLServiceImpl();
+			ListRM rm=approvable.Approve(id);
+			if(rm.equals(ListRM.SUCCESS)){
+				return ApproveRM.OK;
+			}
+			else{return ApproveRM.INSUFFICIENT_STOCK_GOODS;}
+		}else if(type.equals(GreatListType.STOCK)){
+			approvable=new StockListBLServiceImpl();
+			ListRM rm=approvable.Approve(id);
+			if(rm.equals(ListRM.SUCCESS)){
+				return ApproveRM.OK;
+			}
+			else{return ApproveRM.INSUFFICIENT_STOCK_GOODS;}	
+		}else if(type.equals(GreatListType.STOCK_RETURN)){
+			approvable=new StockReturnListBLServiceImpl();
+			ListRM rm=approvable.Approve(id);
+			if(rm.equals(ListRM.SUCCESS)){
+				return ApproveRM.OK;
+			}
+			else{return ApproveRM.INSUFFICIENT_STOCK_GOODS;}	
 		}
 		return null;
 	}

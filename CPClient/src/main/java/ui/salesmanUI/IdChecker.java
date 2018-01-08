@@ -35,7 +35,6 @@ public class IdChecker {
 		return true;
 	}
 	public static boolean checkId(SaleUniBLService uniBLService,String id) {
-		id = uniBLService.getId();
 		if(id == null || id.length() == 0)
 		{
 			PromptHelper.showPrompt(DataRM.NET_FAILED);

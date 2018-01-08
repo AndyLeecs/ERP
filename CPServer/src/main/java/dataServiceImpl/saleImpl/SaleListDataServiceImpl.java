@@ -54,8 +54,8 @@ public class SaleListDataServiceImpl extends UnicastRemoteObject implements Sale
 	public DataRM delete(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		SaleListPO po = (SaleListPO)(util.get(id));
-		po.setState(State.IsDeleted);
-		return util.update(po);
+//		po.setState(State.IsDeleted);
+		return util.delete(id);
 	}
 
 	/* (non-Javadoc)
