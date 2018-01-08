@@ -20,8 +20,6 @@ public class Goods {
     GoodsDataService goodsDataService = GoodsDataServiceHelper.getInstance().getGoodsDataService();
 
     public String newGoodsID(GoodsVO vo) throws RemoteException{
-    	    Store_Interface store_interface = new Store_InterfaceImpl();
-        store_interface.addStoreItem(voToStoreVO(goodsVO));
         return goodsDataService.newGoodsID(voToPO(vo));
     }
 
@@ -60,11 +58,6 @@ public class Goods {
             ,0
             ,0
             ,0);
-
-    private StoreVO voToStoreVO(GoodsVO goodsVO){
-        StoreVO storeVO = new StoreVO(goodsVO.getGoodsName(),goodsVO.getGoodsID(),5,0);
-        return storeVO;
-    }
 
     public GoodsPO voToPO(GoodsVO goodsVO){
         GoodsPO po = new GoodsPO(goodsVO.getGoodsID()
