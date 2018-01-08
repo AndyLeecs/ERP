@@ -257,11 +257,13 @@ public abstract class SalesmanListWinController{
 		}
 		//检查数字格式合法性
 		
-		if(!checkFormat())
+		if(!checkFormat()){
 			return false;
+		}
 		//检查商品清单合法性
-		if(!checkList())
+		if(!checkList()){
 			return false;
+		}
 		
 		return true;
 	}

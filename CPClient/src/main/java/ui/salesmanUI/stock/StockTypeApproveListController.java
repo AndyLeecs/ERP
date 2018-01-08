@@ -2,6 +2,7 @@ package ui.salesmanUI.stock;
 
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
@@ -21,7 +22,7 @@ public abstract class StockTypeApproveListController extends StockTypeEditListCo
 	 */
 	public StockTypeApproveListController(ParentController parentController, SaleUniBLService uniBLService, String id,SalesmanListVO vo) {
 		super(parentController, uniBLService, id,vo);
-		vo = uniBLService.get(id);
+		this.vo = uniBLService.get(id);
 	}
 	
 	@Override
@@ -42,6 +43,9 @@ public abstract class StockTypeApproveListController extends StockTypeEditListCo
 			return;
 		DataRM rm = uniBLService.approve(getVOFromUI(),false);
 		PromptHelper.showPrompt(rm);
+		Platform.runLater(()->{
+			root.getScene().getWindow().hide();
+		});
 	}
 	
 	//审批不通过
@@ -51,6 +55,9 @@ public abstract class StockTypeApproveListController extends StockTypeEditListCo
 	void save(){
 		DataRM rm = uniBLService.reject(getVOFromUI());
 		PromptHelper.showPrompt(rm);
+		Platform.runLater(()->{
+			root.getScene().getWindow().hide();
+		});
 	}
 
 

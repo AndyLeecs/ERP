@@ -59,6 +59,7 @@ public class SaleWriteoffListController extends SaleListCellController{
 		DataRM rm = uniBLService.approve(getMinusVOFromUI(),true);
 		PromptHelper.showPrompt(rm);
 		}else{
+			
 			Platform.runLater(()->{
 				root.getScene().getWindow().hide();
 			});

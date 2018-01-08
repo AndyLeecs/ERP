@@ -38,7 +38,9 @@ public class SaleApproveListController extends SaleTypeApproveListController imp
 	public SaleApproveListController(ParentController parentController, SaleUniBLService uniBLService, String id,
 			SalesmanListVO vo) {
 		super(parentController, uniBLService, id, vo);
-		SaleListVO svo = (SaleListVO)vo;
+		this.vo = uniBLService.get(id);
+		SaleListVO svo = (SaleListVO)(this.vo);
+		if(svo.getPresentResultVO() != null)
 		presentResult = svo.getPresentResultVO();
 	}
 	
