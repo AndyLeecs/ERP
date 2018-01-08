@@ -11,6 +11,7 @@ import resultmessage.DataRM;
 import ui.commonUI.ParentController;
 import ui.commonUI.PromptHelper;
 import ui.mainUI.loginUI.User;
+import ui.salesmanUI.IdChecker;
 import ui.salesmanUI.ListViewController;
 import ui.salesmanUI.stockListUI.StockWriteoffEditController;
 import util.UserType;
@@ -55,8 +56,16 @@ public class StockReturnWriteoffListController extends StockReturnListCellContro
 	@FXML
 	protected
 	void commit(){
+		SalesmanListVO vo = getMinusVOFromUI();
+		if(IdChecker.checkId(uniBLService, vo)){
 		DataRM rm = uniBLService.approve(getMinusVOFromUI(),true);
 		PromptHelper.showPrompt(rm);
+		}else{
+			Platform.runLater(()->{
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
 		
 	}
 	
@@ -67,6 +76,7 @@ public class StockReturnWriteoffListController extends StockReturnListCellContro
 	void save(){
 		DataRM rm = uniBLService.approve(getMinusVOFromUI(),true);
 		PromptHelper.showPrompt(rm);
+		if(IdChecker.checkId(uniBLService, vo)){		
 		Platform.runLater(()->{
 		try {
    		 StockReturnWriteoffEditController controller = new StockReturnWriteoffEditController(null,SaleBLFactory.getStockReturnListBLService(),vo.getId(),vo);
@@ -79,6 +89,7 @@ public class StockReturnWriteoffListController extends StockReturnListCellContro
 			e.printStackTrace();
 		}
 	});
+		}
 	}
 
 

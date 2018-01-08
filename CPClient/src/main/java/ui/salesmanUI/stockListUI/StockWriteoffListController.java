@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import resultmessage.DataRM;
 import ui.commonUI.PromptHelper;
 import ui.mainUI.loginUI.User;
+import ui.salesmanUI.IdChecker;
 import ui.salesmanUI.ListViewController;
 import ui.salesmanUI.WriteoffHelper;
 import ui.salesmanUI.sale.SaleTypeEditListController;
@@ -53,8 +54,15 @@ public class StockWriteoffListController extends StockListCellController{
 	@FXML
 	protected
 	void commit(){
+		SalesmanListVO vo = getMinusVOFromUI();
+		if(IdChecker.checkId(uniBLService, vo)){
 		DataRM rm = uniBLService.approve(getMinusVOFromUI(),true);
 		PromptHelper.showPrompt(rm);
+		}else{
+			Platform.runLater(()->{
+				root.getScene().getWindow().hide();
+			});
+		}
 		
 	}
 	
@@ -65,6 +73,7 @@ public class StockWriteoffListController extends StockListCellController{
 	void save(){
 		DataRM rm = uniBLService.approve(getMinusVOFromUI(),true);
 		PromptHelper.showPrompt(rm);
+		if(IdChecker.checkId(uniBLService, vo)){
 		Platform.runLater(()->{
 		try {
    		 StockWriteoffEditController controller = new StockWriteoffEditController(null,SaleBLFactory.getStockListBLService(),vo.getId(),vo);
@@ -77,6 +86,11 @@ public class StockWriteoffListController extends StockListCellController{
 			e.printStackTrace();
 		}
 	});
+		}else{
+			Platform.runLater(()->{
+				root.getScene().getWindow().hide();
+			});
+		}
 	}
 
 	//得到数值取反的vo

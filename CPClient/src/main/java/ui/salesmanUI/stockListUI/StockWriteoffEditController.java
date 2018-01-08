@@ -2,10 +2,13 @@ package ui.salesmanUI.stockListUI;
 
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
 import ui.commonUI.PromptHelper;
+import ui.salesmanUI.IdChecker;
 
 /**     
 * @author 李安迪
@@ -23,7 +26,10 @@ public class StockWriteoffEditController extends StockEditListController {
 	public StockWriteoffEditController(ParentController parentController, SaleUniBLService uniBLService, String id,
 			SalesmanListVO vo) {
 		super(parentController, uniBLService, id, vo);
+
 	}
+
+
 	
 	@Override
 	protected

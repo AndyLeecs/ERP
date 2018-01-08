@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import resultmessage.DataRM;
 import ui.commonUI.PromptHelper;
 import ui.mainUI.loginUI.User;
+import ui.salesmanUI.IdChecker;
 import ui.salesmanUI.ListViewController;
 import ui.salesmanUI.WriteoffHelper;
 import util.UserType;
@@ -53,8 +54,16 @@ public class SaleReturnWriteoffListController extends SaleReturnListCellControll
 	@FXML
 	protected
 	void commit(){
+		SalesmanListVO vo = getMinusVOFromUI();
+		if(IdChecker.checkId(uniBLService, vo)){
 		DataRM rm = uniBLService.approve(getMinusVOFromUI(),true);
 		PromptHelper.showPrompt(rm);
+		}else{
+			Platform.runLater(()->{
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
 		
 	}
 	
@@ -65,6 +74,7 @@ public class SaleReturnWriteoffListController extends SaleReturnListCellControll
 	void save(){
 		DataRM rm = uniBLService.approve(getMinusVOFromUI(),true);
 		PromptHelper.showPrompt(rm);
+		if(IdChecker.checkId(uniBLService, vo)){
 		Platform.runLater(()->{
 		try {
    		 SaleReturnWriteoffEditController controller = new SaleReturnWriteoffEditController(null,SaleBLFactory.getSaleReturnListBLService(),vo.getId(),vo);
@@ -77,6 +87,7 @@ public class SaleReturnWriteoffListController extends SaleReturnListCellControll
 			e.printStackTrace();
 		}
 	});
+		}
 	}
 
 	//得到数值取反的vo
