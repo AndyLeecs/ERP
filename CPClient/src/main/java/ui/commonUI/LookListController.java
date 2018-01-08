@@ -13,7 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 import resultmessage.ApproveRM;
+import ui.accountUI.list.cashExpense.CashExpenseListWin;
 import ui.accountUI.list.collection.CollectionListWin;
+import ui.accountUI.list.payment.PaymentListWin;
 import util.GreatListType;
 
 public class LookListController {
@@ -35,7 +37,14 @@ public class LookListController {
          for(int i=0;i<arr1.size();i++){
         	 if(arr1.get(i).isChosen.isSelected()){
         		try {
-					new CollectionListWin(arr0.get(i).id) ;
+        			if(arr0.get(i).type.equals(GreatListType.COLLECTMONEY)){  new CollectionListWin(arr0.get(i).id) ;}
+        			else if(arr0.get(i).type.equals(GreatListType.SALE)){}
+        			else if(arr0.get(i).type.equals(GreatListType.PAYMENT)){new PaymentListWin(arr0.get(i).id);}
+        			else if(arr0.get(i).type.equals(GreatListType.SALE_RETURN)){}
+        			else if(arr0.get(i).type.equals(GreatListType.STOCK)){}
+        			else if(arr0.get(i).type.equals(GreatListType.STOCK_RETURN)){}
+        			else if(arr0.get(i).type.equals(GreatListType.CASHEXPENSE)){new CashExpenseListWin(arr0.get(i).id);}
+        			
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					//e.printStackTrace();
