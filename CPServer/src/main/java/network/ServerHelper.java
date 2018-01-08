@@ -12,6 +12,7 @@ import dataService.VIPDataService.VIPDataService;
 import dataService.accountDataService.AccountDataService;
 import dataService.accountDataService.CashExpenseListDataService;
 import dataService.accountDataService.CollectionListDataService;
+import dataService.accountDataService.PaymentListDataService;
 import dataService.goodsDataService.GoodsDataService;
 import dataService.listDataService.ListDataService;
 import dataService.presentDataService.PresentForMembershipDataService;
@@ -30,6 +31,7 @@ import dataServiceImpl.VIPImpl.VIPDataServiceImpl;
 import dataServiceImpl.accountImpl.AccountDataServiceImpl;
 import dataServiceImpl.accountImpl.CashExpenseListDataServiceImpl;
 import dataServiceImpl.accountImpl.CollectionListDataServiceImpl;
+import dataServiceImpl.accountImpl.PaymentListDataServiceImpl;
 import dataServiceImpl.goodsImpl.GoodsDataServiceImpl;
 import dataServiceImpl.listImpl.ListDataServiceImpl;
 import dataServiceImpl.presentImpl.PresentForMembershipDataServiceImpl;
@@ -76,6 +78,10 @@ public class ServerHelper {
 			CollectionListDataService collectionListDataService = new CollectionListDataServiceImpl();
 			Naming.bind("CollectionListDataService", collectionListDataService);
 			System.out.println("CollectionListDataService bind Succeed");
+			
+			PaymentListDataService paymentListDataService = new PaymentListDataServiceImpl();
+			Naming.bind("PaymentListDataService", paymentListDataService);
+			System.out.println("PaymentListDataService bind Succeed");
 
 			CashExpenseListDataService cashExpenseListDataService = new CashExpenseListDataServiceImpl();
 			Naming.bind("CashExpenseListDataService", cashExpenseListDataService);

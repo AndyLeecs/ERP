@@ -58,6 +58,9 @@
 		
 		
 		<mapping resource="ListPO.hbm.xml" />
+		
+		
+		
         <mapping class="PO.InfoListPO"/>
         <mapping class="PO.ReportListPO"/>
         <mapping class="PO.StoreLogPO"/>

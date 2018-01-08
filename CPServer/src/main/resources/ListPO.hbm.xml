@@ -79,6 +79,19 @@
 				
 			</joined-subclass>
 			
+			<joined-subclass name="PO.account.PaymentListPO">
+				<key column="listId" />
+				<property name="VIPID"/>
+				<property name="VIPName"/>
+				
+				<list name="transferItem" cascade ="all" lazy = "false">
+					<key column="transferListId" />
+					<index column="indexInList" />
+					<one-to-many class="PO.account.TransferItemPO" />
+				</list>
+				
+			</joined-subclass>
+			
 			<joined-subclass name="PO.account.CashExpenseListPO">
 				<key column="listId" />
 				<property name="account"/>
