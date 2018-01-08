@@ -72,8 +72,21 @@
 				<property name="VIPName"/>
 				
 				<list name="transferItem" cascade ="all" lazy = "false">
-					<key column="transferListId" />
-					<index column="indexInList" />
+					<key column="CollectionListId" />
+					<index column="indexInCollectionList" />
+					<one-to-many class="PO.account.TransferItemPO" />
+				</list>
+				
+			</joined-subclass>
+			
+			<joined-subclass name="PO.account.PaymentListPO">
+				<key column="listId" />
+				<property name="VIPID"/>
+				<property name="VIPName"/>
+				
+				<list name="transferItem" cascade ="all" lazy = "false">
+					<key column="PaymentListId" />
+					<index column="indexInPaymentList" />
 					<one-to-many class="PO.account.TransferItemPO" />
 				</list>
 				

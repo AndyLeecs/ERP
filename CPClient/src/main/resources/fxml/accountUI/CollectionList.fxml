@@ -14,7 +14,7 @@
       <Pane prefHeight="79.0" prefWidth="921.0">
          <children>
             <Label layoutX="34.0" layoutY="14.0" prefHeight="37.0" prefWidth="12.0" style="-fx-background-color: #4F9D9D;" />
-            <Label layoutX="55.0" layoutY="23.0" text="收款单">
+            <Label fx:id="titleLabel" layoutX="55.0" layoutY="23.0" text="收款单">
                <font>
                   <Font size="18.0" />
                </font>

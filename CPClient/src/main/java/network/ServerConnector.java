@@ -13,6 +13,7 @@ import network.VIPRemoteHelper.VIPDataServiceHelper;
 import network.accountRemoteHelper.AccountDataServiceHelper;
 import network.accountRemoteHelper.CashExpenseListDataServiceHelper;
 import network.accountRemoteHelper.CollectionListDataServiceHelper;
+import network.accountRemoteHelper.PaymentListDataServiceHelper;
 import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import network.listRemoteHelper.ListDataServiceHelper;
 import network.presentRemoteHelper.PresentForMembershipDataServiceHelper;
@@ -50,11 +51,10 @@ public class ServerConnector {
 	private void addServices(){
 		dataServiceHelpers.add(StoreDataServiceHelper.getInstance());
 		dataServiceHelpers.add(ListDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		
 		dataServiceHelpers.add(AccountDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CollectionListDataServiceHelper.getInstance());
-//		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
+		dataServiceHelpers.add(PaymentListDataServiceHelper.getInstance());
 		dataServiceHelpers.add(CashExpenseListDataServiceHelper.getInstance());
 		
 		dataServiceHelpers.add(UserDataServiceHelper.getInstance());
@@ -106,20 +106,7 @@ public class ServerConnector {
 //		testService();
 	}
 	
-	
-	//TODO delete it when bl finish!
-	public static void testService(){
-		UserType type = UserType.Stockman;
-		MessagePO po = new MessagePO("进货", "进100个小灯", DateUtil.getDate("20171230"), type);
-		try {
-			System.out.println(MessageDataServiceHelper.getInstance().getDataService().insert(po));
-//			System.out.println(MessageDataServiceHelper.getInstance().getDataService().getAllMessage(type).get(0).getContent());
 
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	public void insertAdmin(){
 		UserPO po = new UserPO();
 		po.setName("admin");
