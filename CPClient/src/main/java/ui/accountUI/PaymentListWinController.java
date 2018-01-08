@@ -1,20 +1,19 @@
 package ui.accountUI;
 
-import VO.accountVO.FinanceListVO;
-import util.State;
+import VO.accountVO.CollectionListVO;
+import javafx.fxml.FXML;
 
-public class PaymentListWinController  extends FinanceListWinController{
+public class PaymentListWinController extends CollectionAndPaymentListWinController{
+	
+	
+	public PaymentListWinController(){}
+	public PaymentListWinController(CollectionListVO vo){super(vo);}
 
-	@Override
-	public void init() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	protected FinanceListVO createListVO(State state) {
-		// TODO Auto-generated method stub
-		return null;
+	@FXML
+	public void initialize(){
+		titleLabel.setText("付款单");
 	}
 
 }
+
+

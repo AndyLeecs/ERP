@@ -31,7 +31,7 @@ public class OpenCashExpenseDraftListController extends OpenFinanceDraftListCont
 				e.printStackTrace();
 			}
 			CashExpenseListBriefDraftController briefDraftController = loader.getController();
-			briefDraftController.setCashExpenseListVO(vo);
+			briefDraftController.setVO(vo);
 			briefDraftController.setAccountantWinController(accountantWinController);
 			briefDraftController.init();
 			

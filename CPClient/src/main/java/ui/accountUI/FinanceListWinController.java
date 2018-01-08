@@ -19,6 +19,8 @@ import util.State;
 
 public abstract class FinanceListWinController extends ListWinController{
 	
+	@FXML Label titleLabel;
+	
 	@FXML protected ComboBox<String> AccountComboBox;
 	protected List<String> accountList = new ArrayList<String>();
 

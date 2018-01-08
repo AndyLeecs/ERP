@@ -1,15 +1,14 @@
 package ui.accountUI;
 
-import VO.accountVO.CashExpenseListVO;
-import javafx.fxml.FXML;
+import VO.accountVO.CollectionListVO;
 import ui.commonUI.ListWinController;
 import ui.mainUI.accountantUI.AccountantWinController;
 
-public class CashExpenseListBriefDraftController extends ListWinController{
+public class CollectionAndPaymentListBriefDraftController extends ListWinController{
 
 	AccountantWinController accountantWinController;
 	
-	CashExpenseListVO vo;
+	CollectionListVO vo;
 
 	@Override
 	public void init() {
@@ -18,16 +17,11 @@ public class CashExpenseListBriefDraftController extends ListWinController{
 		
 	}
 	
-	public void setVO(CashExpenseListVO vo){
+	public void setVO(CollectionListVO vo){
 		this.vo = vo;
 	}
 	
 	public void setAccountantWinController(AccountantWinController  accountantWinController){
 		this.accountantWinController =  accountantWinController;
-	}
-
-	@FXML public void onOpenListBtnClicked() {
-		accountantWinController.loadCashExpenseDraftList(vo);
-	}
-
+	}	
 }

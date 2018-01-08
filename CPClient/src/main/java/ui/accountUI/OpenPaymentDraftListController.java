@@ -7,30 +7,30 @@ import VO.accountVO.CollectionListVO;
 import javafx.fxml.FXMLLoader;
 import ui.mainUI.accountantUI.AccountantWinController;
 
-public class OpenCollectionDraftListController extends OpenFinanceDraftListController{
+public class OpenPaymentDraftListController extends OpenFinanceDraftListController{
 
-	List<CollectionListVO> CollectionLists;
+	List<CollectionListVO> PaymentLists;
 	
-	public OpenCollectionDraftListController(AccountantWinController controller){
+	public OpenPaymentDraftListController(AccountantWinController controller){
 		accountantWinController = controller;
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void init() {
-		setTitle("收款草稿单");
-		CollectionLists = (List<CollectionListVO>) financeListService.openDraft();
-		if(CollectionLists == null || CollectionLists.size() == 0){
-			this.searchTextField.setPromptText("没有收款草稿单");
+		setTitle("付款草稿单");
+		PaymentLists = (List<CollectionListVO>) financeListService.openDraft();
+		if(PaymentLists == null || PaymentLists.size() == 0){
+			this.searchTextField.setPromptText("没有付款草稿单");
 		}
-		 for(CollectionListVO vo :CollectionLists){
+		 for(CollectionListVO vo :PaymentLists){
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/accountUI/CollectionListBriefDraft.fxml"));
 			try {
 				loader.load();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			CollectionListBriefDraftController briefDraftController = loader.getController();
+			PaymentListBriefDraftController briefDraftController = loader.getController();
 			briefDraftController.setVO(vo);
 			briefDraftController.setAccountantWinController(accountantWinController);
 			briefDraftController.init();

@@ -1,47 +1,12 @@
 package ui.accountUI;
 
-import VO.accountVO.CollectionListVO;
-import VO.accountVO.TransferItemVO;
-import javafx.application.Platform;
+import javafx.fxml.FXML;
 
-public class CollectionListWinLookController extends CollectionListWinController{
-//	private CollectionListVO vo;
+public class CollectionListWinLookController extends CollectionAndPaymentListWinLookController{
 
-	public void init(){
-		VIPName.setText(vo.getVIPName());
-		VIPID.setText(vo.getVIPID());
-		searchVIPTextField.setVisible(false);
-		searchVIPBtn.setVisible(false);
-		operator.setText(vo.getOperator());
-		listID.setText(vo.getId());
-		totalAmount.setText(String.valueOf(vo.getTotalAmount()));
-		for(TransferItemVO item : vo.getTransferItem()){
-			transferItem.add(new TransferItem(item));
-		}
-		super.initTableView();
-		TransferListTableView.setEditable(false);
-		AccountComboBox.setVisible(false);
-		commitBtn.setText("关闭");
-		saveBtn.setVisible(false);
-		closeBtn.setVisible(false);
-		
-		
-	}
-
-	public void setCollectionListVO(CollectionListVO vo) {
-		this.vo = vo;
-	}
-	
-	
-	public void onCommitBtnClicked() {
-		 Platform.runLater(()-> {
-             try {
-                 root.getScene().getWindow().hide();
-             } catch (Exception e) {
-                 e.printStackTrace();
-             }
-     });
-		
+	@FXML
+	public void initialize(){
+		titleLabel.setText("收款单");
 	}
 	
 	
