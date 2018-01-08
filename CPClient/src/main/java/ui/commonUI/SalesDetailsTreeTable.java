@@ -18,17 +18,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableColumn.CellEditEvent;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
+import ui.mainUI.loginUI.User;
 
 public class SalesDetailsTreeTable extends Application{
 	ObservableList<T> Obs= FXCollections.observableArrayList();
 	ArrayList<String> S0=new ArrayList<String>();
-
+	Label label;
 	@Override
 	public void start(Stage primaryStage)  {
 	    S0.add("时间");
@@ -97,12 +99,15 @@ public class SalesDetailsTreeTable extends Application{
     		main.getChildren().add(okbtn);
     		
     		JFXTextField textfield=new JFXTextField();
-    		textfield.setPrefWidth(210);
+    		textfield.setPrefWidth(250);
     		main.getChildren().add(textfield);
     		
-    		//treeView.getSelectionModel().selectedIndexProperty().addListener((action)->textfield.setText("111"));
-    		String path="20180108104233";
-    		textfield.setText("C:\\XSMS"+path+".xls");;
+
+    		textfield.setText("D:\\销售明细"+User.calcPreciseTime()+".xls");
+    		label=new Label("    默认导出至D盘根目录");
+    		label.setPrefWidth(200);
+    		main.getChildren().add(label);
+    		
             return main;
         
 	}
