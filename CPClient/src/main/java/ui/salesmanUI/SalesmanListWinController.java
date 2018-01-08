@@ -113,6 +113,7 @@ public abstract class SalesmanListWinController{
 	@FXML
 	protected
 	void selectGoods(){
+		System.out.println("select goods");
 		//获得关键字
 		String pref = searchGoodsField.getText();
 		String message = "";

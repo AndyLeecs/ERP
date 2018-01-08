@@ -8,7 +8,9 @@ import PO.account.FinanceListPO;
 import VO.accountVO.AccountVO;
 import VO.accountVO.FinanceListVO;
 import VO.listVO.InfoListVO;
+import VO.listVO.ListRM;
 import VO.userVO.MessageVO;
+import bl.listbl.Approvable;
 import bl.listbl.InfoList;
 import bl.listbl.InfoList_Impl;
 import blservice.accountblservice.FinanceListService;
@@ -24,7 +26,7 @@ import util.GreatListType;
 import util.State;
 import util.UserType;
 
-public abstract class FinanceListImpl implements FinanceListService{
+public abstract class FinanceListImpl implements FinanceListService, Approvable{
 	
 	String id = null;
 	State currentState = null;		//如果当前为编辑状态，那么结束服务时要删除对应id的单据
@@ -193,6 +195,21 @@ public abstract class FinanceListImpl implements FinanceListService{
 			return ApproveRM.NETWORK_ERROR;
 		}
 		return ApproveRM.WRONG;
+	}
+	
+	@Override
+	public ListRM Approve(String id){
+		FinanceListVO vo = null;
+		try {
+			vo = poTovo((FinanceListPO)dataService.getList(id));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ListRM.REFUSED;
+		}
+		if(approve(vo) == ApproveRM.OK)
+			return ListRM.SUCCESS;
+		else
+			return ListRM.REFUSED;
 	}
 	
 	public void reject(FinanceListVO vo){
