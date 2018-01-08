@@ -22,6 +22,7 @@ public class SaleReturnApproveListController extends SaleTypeApproveListControll
 	public SaleReturnApproveListController(ParentController parentController, SaleUniBLService uniBLService, String id,
 			SalesmanListVO vo) {
 		super(parentController, uniBLService, id, vo);
+		this.vo = uniBLService.get(id);
 	}
 	
 	@Override
