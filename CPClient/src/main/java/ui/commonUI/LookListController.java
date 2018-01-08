@@ -1,7 +1,6 @@
 package ui.commonUI;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 
 import VO.listVO.InfoListVO;
@@ -16,6 +15,10 @@ import resultmessage.ApproveRM;
 import ui.accountUI.list.cashExpense.CashExpenseListWin;
 import ui.accountUI.list.collection.CollectionListWin;
 import ui.accountUI.list.payment.PaymentListWin;
+import ui.commonUI.listUI.ApproveSaleListWin;
+import ui.commonUI.listUI.ApproveSaleReturnListWin;
+import ui.commonUI.listUI.ApproveStockListWin;
+import ui.commonUI.listUI.ApproveStockReturnListWin;
 import util.GreatListType;
 
 public class LookListController {
@@ -38,11 +41,11 @@ public class LookListController {
         	 if(arr1.get(i).isChosen.isSelected()){
         		try {
         			if(arr0.get(i).type.equals(GreatListType.COLLECTMONEY)){  new CollectionListWin(arr0.get(i).id) ;}
-        			else if(arr0.get(i).type.equals(GreatListType.SALE)){}
+        			else if(arr0.get(i).type.equals(GreatListType.SALE)){new ApproveSaleListWin(arr0.get(i).id);}
         			else if(arr0.get(i).type.equals(GreatListType.PAYMENT)){new PaymentListWin(arr0.get(i).id);}
-        			else if(arr0.get(i).type.equals(GreatListType.SALE_RETURN)){}
-        			else if(arr0.get(i).type.equals(GreatListType.STOCK)){}
-        			else if(arr0.get(i).type.equals(GreatListType.STOCK_RETURN)){}
+        			else if(arr0.get(i).type.equals(GreatListType.SALE_RETURN)){new ApproveSaleReturnListWin(arr0.get(i).id);}
+        			else if(arr0.get(i).type.equals(GreatListType.STOCK)){new ApproveStockListWin(arr0.get(i).id);}
+        			else if(arr0.get(i).type.equals(GreatListType.STOCK_RETURN)){new ApproveStockReturnListWin(arr0.get(i).id);}
         			else if(arr0.get(i).type.equals(GreatListType.CASHEXPENSE)){new CashExpenseListWin(arr0.get(i).id);}
         			
 				} catch (IOException e) {

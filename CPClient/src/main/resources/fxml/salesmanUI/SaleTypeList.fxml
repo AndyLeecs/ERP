@@ -99,7 +99,7 @@
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <VBox>
+                  <VBox prefHeight="50.0" prefWidth="179.0">
                      <children>
                         <HBox layoutX="718.0" layoutY="88.0" AnchorPane.rightAnchor="0.0">
                            <children>
@@ -118,7 +118,7 @@
                                     <Font size="10.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="sumAfterRebateLabel" layoutX="719.0" layoutY="122.0" prefHeight="25.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="#e12121" AnchorPane.rightAnchor="0.0" />
+                              <Label fx:id="sumAfterRebateLabel" layoutX="719.0" layoutY="122.0" prefHeight="25.0" prefWidth="61.0" text="0" textAlignment="RIGHT" textFill="#e12121" AnchorPane.rightAnchor="0.0" />
                            </children>
                         </HBox>
                      </children>
