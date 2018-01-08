@@ -1,5 +1,6 @@
 package bl.accountbl;
 
+import java.util.Date;
 import java.util.stream.Collectors;
 
 import PO.account.CashExpenseListPO;
@@ -8,6 +9,7 @@ import PO.account.FinanceListPO;
 import VO.accountVO.CashExpenseListVO;
 import VO.accountVO.EntryItemVO;
 import VO.accountVO.FinanceListVO;
+import VO.userVO.MessageVO;
 import dataService.accountDataService.FinanceListDataService;
 import resultmessage.ApproveRM;
 import util.DateUtil;
@@ -75,6 +77,16 @@ public class CashExpenseListImpl extends FinanceListImpl{
 	protected String getKeyInfo(FinanceListVO vo) {
 		CashExpenseListVO cvo = (CashExpenseListVO)vo;
 		return "账户 " + cvo.getAccount() + " 支出现金费用 " + cvo.getTotalAmount() + " 元";
+	}
+	
+	@Override
+	protected MessageVO getMessageVO(FinanceListVO vo) {
+		CashExpenseListVO cvo = (CashExpenseListVO)vo;
+		String content = cvo.getAccount() + "支出现金费用" + cvo.getTotalAmount() + " 元" + System.lineSeparator();
+		for(EntryItemVO item : cvo.getEntryItem()){
+			content +=  item.getEntryName() + " "+ item.getAmount() + " 元" + System.lineSeparator(); 
+		}
+		return new MessageVO("支出现金费用",content,new Date());
 	}
 
 	

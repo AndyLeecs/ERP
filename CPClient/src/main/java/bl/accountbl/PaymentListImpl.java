@@ -1,5 +1,6 @@
 package bl.accountbl;
 
+import java.util.Date;
 import java.util.stream.Collectors;
 
 import PO.account.FinanceListPO;
@@ -8,6 +9,7 @@ import PO.account.TransferItemPO;
 import VO.accountVO.CollectionListVO;
 import VO.accountVO.FinanceListVO;
 import VO.accountVO.TransferItemVO;
+import VO.userVO.MessageVO;
 import blservice.VIPforAccountService.VIPReceivableChangeService;
 import blservice.serviceFactory.VIPReceivableChangeFactory;
 import dataService.accountDataService.FinanceListDataService;
@@ -96,4 +98,14 @@ public class PaymentListImpl extends FinanceListImpl{
 		return "向 "+cvo.getVIPName() + " 付款 " + cvo.getTotalAmount() + " 元";
 	}
 
+	@Override
+	protected MessageVO getMessageVO(FinanceListVO vo) {
+		CollectionListVO cvo = (CollectionListVO)vo;
+		String content = "";
+		for(TransferItemVO item : cvo.getTransferItem()){
+			content += "账户 " + item.getAccount() + " 付款 " + item.getAmount() + "元" + System.lineSeparator(); 
+		}
+		return new MessageVO("收款",content,new Date());
+	}
+	
 }
