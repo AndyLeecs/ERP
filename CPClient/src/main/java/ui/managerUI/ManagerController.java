@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import resultmessage.DataRM;
 import ui.commonUI.BussinessSituationWin;
 import ui.commonUI.LookListController;
