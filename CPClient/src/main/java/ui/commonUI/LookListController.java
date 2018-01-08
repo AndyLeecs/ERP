@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 import resultmessage.ApproveRM;
-import ui.accountUI.CollectionListWin;
+import ui.accountUI.list.collection.CollectionListWin;
 import util.GreatListType;
 
 public class LookListController {
