@@ -18,6 +18,7 @@ import bl.storebl.PresentList;
 import bl.storebl.ReportList;
 import bl.storebl.StoreBussinessSituation_Impl;
 import blservice.listblservice.Listblservice;
+import blservice.serviceFactory.FinanceListApproveFactory;
 import dataService.listDataService.ListDataService;
 //import dataService.listDataService.ListDataService_Stub;
 import network.listRemoteHelper.ListDataServiceHelper;
@@ -156,6 +157,31 @@ public class ListblController implements Listblservice {
 				return ApproveRM.OK;
 			}
 			else{return ApproveRM.INSUFFICIENT_STOCK_GOODS;}	
+		}
+		else if(type.equals(GreatListType.COLLECTMONEY)){
+			approvable=FinanceListApproveFactory.getCollectionApprovableService();
+			ListRM rm=approvable.Approve(id);
+			if(rm.equals(ListRM.SUCCESS)){
+				return ApproveRM.OK;
+			}
+			else{return ApproveRM.WRONG;}
+		}
+		else if(type.equals(GreatListType.PAYMENT)){
+			approvable=FinanceListApproveFactory.getPaymentApprovableService();
+			ListRM rm=approvable.Approve(id);
+			if(rm.equals(ListRM.SUCCESS)){
+				return ApproveRM.OK;
+			}
+			else{return ApproveRM.WRONG;}
+		}
+		else if(type.equals(GreatListType.CASHEXPENSE)){
+			approvable=FinanceListApproveFactory.getCashExpenseApprovableService();
+			ListRM rm=approvable.Approve(id);
+			System.out.println(rm);
+			if(rm.equals(ListRM.SUCCESS)){
+				return ApproveRM.OK;
+			}
+			else{return ApproveRM.WRONG;}
 		}
 		return null;
 	}

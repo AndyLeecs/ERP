@@ -35,6 +35,7 @@ public abstract class FinanceListImpl implements FinanceListService, Approvable{
 	InfoList infoListService = new InfoList_Impl();
 	AccountBalanceChangeService accountBalanceChangeService = new AccountBalanceChangeServiceImpl(); 
 	SendMessageService messageService = MessageServiceFactory.getSendMessageService();
+	
 	public FinanceListImpl(FinanceListDataService dataService){
 		this.dataService = dataService;
 	}
@@ -206,8 +207,9 @@ public abstract class FinanceListImpl implements FinanceListService, Approvable{
 			e.printStackTrace();
 			return ListRM.REFUSED;
 		}
-		if(approve(vo) == ApproveRM.OK)
+		if(approve(vo).equals(ApproveRM.OK)){
 			return ListRM.SUCCESS;
+		}
 		else
 			return ListRM.REFUSED;
 	}
