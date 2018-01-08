@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 import PO.account.CashExpenseListPO;
 import PO.account.EntryItemPO;
 import PO.account.FinanceListPO;
-import VO.accountVO.AccountVO;
 import VO.accountVO.CashExpenseListVO;
 import VO.accountVO.EntryItemVO;
 import VO.accountVO.FinanceListVO;
@@ -23,10 +22,9 @@ public class CashExpenseListImpl extends FinanceListImpl{
 	public ApproveRM approve(FinanceListVO vo) {
 		CashExpenseListVO cvo = (CashExpenseListVO)vo;
 		String accountName = cvo.getAccount();
-		AccountVO account = accountManagementService.getAccount(accountName);
-		if(account.getBalance() < cvo.getTotalAmount())
+		if(!accountBalanceChangeService.checkSufficiency(accountName, cvo.getTotalAmount()))
 			return ApproveRM.INSUFFICIENT_ACCOUNT_BALANCE;
-		account.setBalance(account.getBalance() - cvo.getTotalAmount());
+		accountBalanceChangeService.reduce(accountName, cvo.getTotalAmount());
 		
 		//检查成功
 		return super.approve(cvo);
