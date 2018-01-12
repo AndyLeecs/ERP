@@ -57,7 +57,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" text="红冲" textFill="#9f353a">
+            <Button fx:id="looklistbtn" mnemonicParsing="false" onAction="#looklist" prefHeight="62.0" prefWidth="122.0" text="表单查看" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>

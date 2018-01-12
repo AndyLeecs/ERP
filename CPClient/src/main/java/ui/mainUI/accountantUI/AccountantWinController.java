@@ -8,6 +8,7 @@ import blservice.accountblservice.FinanceListService;
 import blservice.serviceFactory.AccountBLFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -23,6 +24,7 @@ import ui.accountUI.list.finance.OpenFinanceListController;
 import ui.accountUI.list.payment.OpenPaymentCommitedListController;
 import ui.accountUI.list.payment.OpenPaymentDraftListController;
 import ui.accountUI.list.payment.PaymentListWinController;
+import ui.commonUI.LookListController;
 import ui.commonUI.ParentController;
 import ui.commonUI.PromptWin;
 import ui.mainUI.loginUI.User;
@@ -41,6 +43,7 @@ public class AccountantWinController implements ParentController{
 	@FXML MenuItem openCollectionDraft;
 	@FXML MenuItem openPaymentDraft;
 	@FXML MenuItem openCashExpenseDraft;
+	@FXML Button looklistbtn;
 	
 	@FXML BorderPane centerPane;
 	
@@ -134,6 +137,22 @@ public class AccountantWinController implements ParentController{
 	public void CloseSonWin() {
 		centerPane.setCenter(null);
 		centerPane.getChildren().removeAll();		
+	}
+	
+	@FXML public void looklist(){
+		FXMLLoader loader = new FXMLLoader(
+				getClass().getResource(
+						"/fxml/commonUI/LookList.fxml"));
+		try {
+			AnchorPane presentroot = loader.load();
+			centerPane.getChildren().clear();
+			centerPane.setCenter(presentroot);
+			LookListController ctr=loader.getController();
+			ctr.set(false);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
