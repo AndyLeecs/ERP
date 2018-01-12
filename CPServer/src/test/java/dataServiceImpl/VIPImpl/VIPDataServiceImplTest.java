@@ -1,12 +1,11 @@
 package dataServiceImpl.VIPImpl;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import PO.VIPPO;
-import resultmessage.ResultMessage;
 import util.VIPUtil;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by julia98 on 2017/12/27.

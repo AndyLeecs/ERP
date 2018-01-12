@@ -97,7 +97,6 @@ public abstract class SaleTypeListController extends SalesmanListWinController {
 	}
 	
 	@Override
-	@FXML
 	public void setVIP(VIPVO vo){
 		super.setVIP(vo);
 		grade = vo.getGrade();

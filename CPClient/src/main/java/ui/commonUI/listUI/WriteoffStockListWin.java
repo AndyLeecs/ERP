@@ -2,7 +2,6 @@ package ui.commonUI.listUI;
 
 import java.io.IOException;
 
-import bl.salebl.SaleBLFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

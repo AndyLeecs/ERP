@@ -1,9 +1,7 @@
 package ui.salesmanUI.vip;
 
 import VO.VIPVO.VIPVO;
-import VO.goodsVO.GoodsVO;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 

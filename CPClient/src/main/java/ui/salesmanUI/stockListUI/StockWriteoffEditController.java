@@ -2,13 +2,10 @@ package ui.salesmanUI.stockListUI;
 
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import resultmessage.DataRM;
 import ui.commonUI.ParentController;
 import ui.commonUI.PromptHelper;
-import ui.salesmanUI.IdChecker;
 
 /**     
 * @author 李安迪

@@ -1,13 +1,12 @@
 package dataServiceImpl.goodsImpl;
 
-import PO.GoodsCategoryPO;
-import PO.GoodsPO;
-import resultmessage.ResultMessage;
-import util.GoodsUtil;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
+
+import PO.GoodsCategoryPO;
+import PO.GoodsPO;
+import util.GoodsUtil;
 
 /**
  * Created by julia98 on 2017/12/26.

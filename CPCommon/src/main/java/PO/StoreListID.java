@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import util.StoreListType;
-
 @Entity
 @Table(name="StoreListID")
 public class StoreListID {

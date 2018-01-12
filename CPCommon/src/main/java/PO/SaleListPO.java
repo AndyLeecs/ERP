@@ -14,6 +14,10 @@ import util.VIPGrade;
 * @description
 */
 public class SaleListPO extends SalesmanListPO implements Serializable{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8365230385421781739L;
 public VIPGrade getMemberGrade() {
 		return memberGrade;
 	}

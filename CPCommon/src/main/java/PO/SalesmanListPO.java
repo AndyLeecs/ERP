@@ -1,6 +1,5 @@
 package PO;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +7,11 @@ import util.State;
 import util.UserGrade;
 
 public class SalesmanListPO extends ListPO{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8104130091130040289L;
+
 	/**
 	 * 操作员等级
 	 */

@@ -110,6 +110,7 @@ public abstract class SalesmanListWinController{
 	/**
 	 * 查找商品
 	 */
+	@SuppressWarnings("unchecked")
 	@FXML
 	protected
 	void selectGoods(){
@@ -152,6 +153,7 @@ public abstract class SalesmanListWinController{
 	 * @param temp
 	 * @return 去重后的list
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List avoidDup(List temp) {
 		temp = new ArrayList(new LinkedHashSet<>(temp));
 		return temp;
@@ -188,6 +190,7 @@ public abstract class SalesmanListWinController{
 	 * @param message
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public List<VIPVO> totalFuzzySearchVIP(String message) {
 		List<VIPVO> temp = new ArrayList<VIPVO>();
 		getVIPList(message, temp);

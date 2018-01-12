@@ -1,9 +1,9 @@
 package PO;
 
+import java.io.Serializable;
+
 import util.VIPGrade;
 import util.VIPUtil;
-
-import java.io.Serializable;
 
 public class VIPPO implements Serializable{
 
