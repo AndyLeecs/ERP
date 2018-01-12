@@ -26,8 +26,13 @@ public class Goods {
     public ArrayList<GoodsVO> findGoods(String info, String type) throws RemoteException {
         ArrayList<GoodsPO> findGoodsList = (ArrayList<GoodsPO>) goodsDataService.findGoods(info,type);
         ArrayList<GoodsVO> retFindGoodsList = new ArrayList<>();
+        if( findGoodsList!=null){
+        	//为防止空指针报错，加一条断言语句
         for(int i = 0;i<findGoodsList.size();i++){
             retFindGoodsList.add(poToVO(findGoodsList.get(i)));
+        }
+        }else{
+        	System.out.println("没有找到对应商品！");
         }
         return retFindGoodsList;
     }

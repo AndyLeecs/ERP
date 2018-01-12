@@ -7,9 +7,14 @@ import  javax.persistence.*;
 @Entity
 @Table(name="AlarmListPO")
 public class AlarmListPO implements Serializable{
-    @Id @GeneratedValue
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -6401586978907261654L;
+
+	@Id 
     @Column(name="id")
-    public  String listID;
+    public  String id;
 
     @Column(name="alarmNum")
     public int alarmNum;

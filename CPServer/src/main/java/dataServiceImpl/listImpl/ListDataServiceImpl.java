@@ -54,8 +54,7 @@ public class ListDataServiceImpl extends UnicastRemoteObject implements ListData
                 list2.add(list1.get(i));
             }
         }
-        System.out.println(list2==null);
-        System.out.println(list2.size());
+
         
         return list2;
     }

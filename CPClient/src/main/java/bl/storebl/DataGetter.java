@@ -41,7 +41,7 @@ public class DataGetter  {
 			for(int i=poList.size()-1;i>=0;i--){
 	        	 //倒序处理一下，最近的单据最先显示
 	        	 AlarmListVO vo=new AlarmListVO(poList.get(i).alarmNum, poList.get(i).currentNum,
-	        			 poList.get(i).listID, poList.get(i).goodsID, poList.get(i).goodsName);
+	        			 poList.get(i).id, poList.get(i).goodsID, poList.get(i).goodsName);
 	        	 voList.add(vo);
 	         }
 		} catch (RemoteException e) {
@@ -121,7 +121,7 @@ public class DataGetter  {
     public storeRM checkID(String id) {
     	
     	try {
-			if(sds.checkID(id)==true){
+			if(sds.checkID(id)){
 				return storeRM.SUCCESS;
 			}else{
 				

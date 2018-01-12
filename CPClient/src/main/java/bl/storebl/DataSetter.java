@@ -107,7 +107,8 @@ public class DataSetter {
 		po.alarmNum=vo.alarmNum;
 		po.currentNum=vo.currentNum;
 		po.goodsID=vo.goodsID;
-		po.listID=vo.listID;
+		po.id=vo.listID;
+	
 		po.goodsName=vo.goodsName;
 		try {
 			sds.addAlarmList(po);
