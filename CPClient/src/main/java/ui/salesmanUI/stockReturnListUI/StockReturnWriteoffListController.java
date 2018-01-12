@@ -3,17 +3,14 @@ package ui.salesmanUI.stockReturnListUI;
 import VO.saleVO.SalesmanListVO;
 import VO.saleVO.StockReturnListVO;
 import bl.salebl.SaleBLFactory;
-import blservice.saleblservice.SaleUniBLService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import resultmessage.DataRM;
-import ui.commonUI.ParentController;
 import ui.commonUI.PromptHelper;
 import ui.mainUI.loginUI.User;
 import ui.salesmanUI.IdChecker;
 import ui.salesmanUI.ListViewController;
-import ui.salesmanUI.stockListUI.StockWriteoffEditController;
 import util.UserType;
 
 /**     

@@ -69,7 +69,7 @@ public class HibernateCriterionClauseGenerator implements CriterionClauseGenerat
 
 	
 	@Override
-	public List<CriterionClause> generateExactCriterion(List<CriterionClause> l, String field, List values) throws RemoteException{
+	public List<CriterionClause> generateExactCriterion(List<CriterionClause> l, String field, @SuppressWarnings("rawtypes") List values) throws RemoteException{
 		if(l == null)
 			l = new ArrayList<CriterionClause>();
 		Disjunction dis = Restrictions.disjunction();
@@ -82,7 +82,7 @@ public class HibernateCriterionClauseGenerator implements CriterionClauseGenerat
 
 	
 	@Override
-	public List<CriterionClause> generateExactAsChildCriterion(List<CriterionClause> l, String field, List values) throws RemoteException{
+	public List<CriterionClause> generateExactAsChildCriterion(List<CriterionClause> l, String field, @SuppressWarnings("rawtypes") List values) throws RemoteException{
 		return generateExactCriterion(l, childPrefix+field, values);
 	}
 	

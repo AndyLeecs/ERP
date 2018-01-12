@@ -214,7 +214,7 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 	 * @return
 	 */
 	public SalesmanItemPO itemVoToPo(SalesmanItemVO i) {
-		if(i != null)
+		if(i == null)
 			return null;
 		return new SalesmanItemPO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 	}
@@ -225,7 +225,7 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 	 * @return
 	 */
 	public SalesmanItemVO itemPoToVo(SalesmanItemPO i) {
-		if(i != null)
+		if(i == null)
 			return null;
 		return new SalesmanItemVO(i.getId(),i.getName(),i.getType(),i.getPrice(),i.getAmount(),i.getSum(),i.getNotes());
 	}

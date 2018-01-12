@@ -128,7 +128,8 @@ public class SalesmanEditCellController {
 	}
 	public boolean isValidForDouble(Label textField){
 		String s = textField.getText();
-		double d = 0;
+		@SuppressWarnings("unused")
+		double d;
 		try{
 			d = Double.parseDouble(s);
 		}catch(Exception e){
@@ -140,6 +141,7 @@ public class SalesmanEditCellController {
 	
 	public boolean isValidForInt(Label textField){
 		String s = textField.getText();
+		@SuppressWarnings("unused")
 		int d = 0;
 		try{
 			d = Integer.parseInt(s);

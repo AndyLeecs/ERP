@@ -35,15 +35,13 @@ public class LoadingFXWin extends Stage {
         	try {
         		Thread.sleep(3000);
         		if(this.isShowing()) {
-        			Platform.runLater(new Runnable() {
-        				public void run() {
-        					try {
-        					    root.getScene().getWindow().hide();        						
-        					} catch (Exception e) {
-        						e.printStackTrace();
-        					}
-        				}
-        			});
+        			Platform.runLater(() -> {
+                        try {
+                            root.getScene().getWindow().hide();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    });
         		}
         	} catch(Exception e) {
         		e.printStackTrace();

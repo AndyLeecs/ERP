@@ -5,7 +5,7 @@ import java.util.List;
 import VO.ListVO;
 import util.State;
 import util.UserGrade;
-import util.VIPGrade;
+
 
 public abstract class SalesmanListVO extends ListVO{
 	/**

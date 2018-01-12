@@ -23,6 +23,7 @@ import dataService.listDataService.ListDataService;
 //import dataService.listDataService.ListDataService_Stub;
 import network.listRemoteHelper.ListDataServiceHelper;
 import resultmessage.ApproveRM;
+import util.ExcelUtil;
 import util.GreatListType;
 
 public class ListblController implements Listblservice {
@@ -46,8 +47,9 @@ public class ListblController implements Listblservice {
     	ArrayList<InfoListPO> arr0;
 		try {
 			arr0 = listDataService.openInfoList();
-	    	for(int i=arr0.size()-1;i>=0;i--){
+	    	for(int i=0;i<arr0.size();i++){
 	    		//倒序操作一下，使得最近加进来的VO靠前显示
+	    		//这步倒序操作可能起了反作用，因为VBOX自带倒序...
 	    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note);
 	    		arr1.add(v);
 	    	}
@@ -87,8 +89,31 @@ public class ListblController implements Listblservice {
     }
 
     @Override
-    public ListRM toExcel (GreatListType type, String id) {
-
+    public ListRM bussinessSituationToExcel ( String path) {
+    	if(path==null||!path.endsWith(".xls")){
+    		return ListRM.WRONG_LISTTYPE;    //防御式编程一下
+    	}
+        
+    	ArrayList<ArrayList<String>> result=new ArrayList<ArrayList<String>>();
+    	ArrayList<String> a1=new ArrayList<String>();
+    	ArrayList<String> a2=new ArrayList<String>();
+    	a1.add("商品报溢收入");
+    	a1.add("折让后销售收入");
+    	a1.add("进货退货收入");
+    	a1.add("折让总额");
+    	a1.add("总收入");
+    	a1.add("商品报损支出");
+    	a1.add("进货支出");
+    	a1.add("销售退货支出");
+    	a1.add("赠出商品总额");
+    	a1.add("总支出");
+    	a1.add("净利润");
+    	for(int i=1;i<=11;i++){
+    		a2.add("0");
+    	}
+    	result.add(a1);
+    	result.add(a2);
+    	ExcelUtil.writeExcel(result, path);
         return ListRM.WRONG_LISTTYPE;
     }
 

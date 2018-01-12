@@ -97,7 +97,6 @@ public abstract class SaleTypeListController extends SalesmanListWinController {
 	}
 	
 	@Override
-	@FXML
 	public void setVIP(VIPVO vo){
 		super.setVIP(vo);
 		grade = vo.getGrade();
@@ -109,6 +108,22 @@ public abstract class SaleTypeListController extends SalesmanListWinController {
 		sumAfterRebateLabel.setText(totalAmount.getText());
 		rebateField.setText("0");
 		useVoucherField.setText("0");
+		totalAmount.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+//            	try{
+            	if(!rebateField.getText().isEmpty() && !useVoucherField.getText().isEmpty())
+            	sumAfterRebateLabel.setText(Double.parseDouble(totalAmount.getText()) -
+                		Double.parseDouble(rebateField.getText())
+                		-Double.parseDouble(useVoucherField.getText())+"");
+//            	}catch(Exception e){
+//            		PromptHelper.showPrompt(DataRM.FORMAT_FAILED);
+//            		e.printStackTrace();
+//            		
+//            	}
+                
+            }
+        });	
 		rebateField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {

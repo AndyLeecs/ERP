@@ -1,6 +1,6 @@
-package dataHelper;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -11,6 +11,11 @@ import org.junit.Test;
 
 import PO.GoodsInSalePO;
 import PO.PresentForSumPO;
+import dataHelper.BasicUtil;
+import dataHelper.CriterionClause;
+import dataHelper.CriterionClauseGenerator;
+import dataHelper.HibernateCriterionClauseGenerator;
+import dataHelper.HibernateUtil;
 import util.PresentState;
 
 /**     
@@ -61,9 +66,11 @@ public class HibernateCriterionClauseGeneratorTest {
 	@Test
 	public final void testGenerateCurrentTimeInRangeCriterion() throws Exception{
 		c.generateCurrentTimeInRangeCriterion(l);
-	    GoodsInSalePO gpo = new GoodsInSalePO("1","abc",100);
+	    @SuppressWarnings({ "unused"})
+		GoodsInSalePO gpo = new GoodsInSalePO("1","abc",100);
 	    List<GoodsInSalePO> gpolist = new ArrayList<>();
-	    PresentForSumPO po = new PresentForSumPO(1,Date.from(Instant.EPOCH), new Date(217,11,29),1, gpolist,PresentState.SAVE,1);
+	    @SuppressWarnings("deprecation")
+		PresentForSumPO po = new PresentForSumPO(1,Date.from(Instant.EPOCH), new Date(217,11,29),1, gpolist,PresentState.SAVE,1);
 	    List<PresentForSumPO> ppo = new ArrayList<>();
 	    ppo.add(po);
 	    u.update(po);

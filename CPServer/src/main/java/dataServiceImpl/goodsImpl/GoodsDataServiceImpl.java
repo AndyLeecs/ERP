@@ -72,9 +72,12 @@ public class GoodsDataServiceImpl extends UnicastRemoteObject implements GoodsDa
         criterionClauseGenerator.generateExactCriterion(l,"goodsName",name);
         criterionClauseGenerator.generateExactCriterion(l,"goodsCategory",category);
         criterionClauseGenerator.generateExactCriterion(l,"state",GoodsUtil.EXIST);
+        if(goodsUtil.Query(l).size()!=0){
         GoodsPO po = goodsUtil.Query(l).get(goodsUtil.Query(l).size()-1);
         System.out.println(po.getState());
-        return po;
+        return po;}
+        else{return null;}
+        
     }
 
     @Override

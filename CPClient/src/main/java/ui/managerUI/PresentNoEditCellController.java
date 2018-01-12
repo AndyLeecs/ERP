@@ -15,6 +15,7 @@ public class PresentNoEditCellController {
 	
 	private GoodsInSaleVO vo;
 	
+	@SuppressWarnings("unused")
 	private SinglePresentController controller;
 	/**
 	 * @param presentForSumController
