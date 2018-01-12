@@ -46,8 +46,9 @@ public class ListblController implements Listblservice {
     	ArrayList<InfoListPO> arr0;
 		try {
 			arr0 = listDataService.openInfoList();
-	    	for(int i=arr0.size()-1;i>=0;i--){
+	    	for(int i=0;i<arr0.size();i++){
 	    		//倒序操作一下，使得最近加进来的VO靠前显示
+	    		//这步倒序操作可能起了反作用，因为VBOX自带倒序...
 	    		InfoListVO v=new InfoListVO(arr0.get(i).id,arr0.get(i).type,arr0.get(i).operator,arr0.get(i).note);
 	    		arr1.add(v);
 	    	}

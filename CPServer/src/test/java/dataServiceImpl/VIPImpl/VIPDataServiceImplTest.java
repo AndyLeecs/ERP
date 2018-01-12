@@ -41,8 +41,8 @@ public class VIPDataServiceImplTest {
 
     @Test
     public void newVIPID() throws Exception {
-    	po2.setName("经销商" + 2);
-       assertEquals("1",new VIPDataServiceImpl().newVIPID(po2));
+    	po2.setName("经销商" + 1);
+       assertEquals("2",new VIPDataServiceImpl().newVIPID(po2));
     }
 
     @Test

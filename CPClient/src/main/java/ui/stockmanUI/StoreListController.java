@@ -109,7 +109,7 @@ public class StoreListController {
 	
 	protected void initCombobox(){
 		//把状态筛选条件给初始化了。
-		//combobox.getItems().clear();
+		combobox.getItems().clear();
 		ArrayList<String> comboboxArr=new ArrayList<String>();
 		//comboboxArr.add("全部单据");
 		comboboxArr.add("草稿单");
