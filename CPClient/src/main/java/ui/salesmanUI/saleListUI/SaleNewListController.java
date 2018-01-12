@@ -63,7 +63,7 @@ public class SaleNewListController extends SaleTypeNewListController implements 
 		SaleVO saleVO = null;
 		List<GoodsInSaleVO> goodsList = GoodsVOTrans.SalesmanItemTransGoodsInList(chosenList);
 		try{
-		saleVO = new SaleVO(grade,goodsList,Double.parseDouble(totalAmount.getText()));
+		saleVO = new SaleVO(grade,goodsList,Double.parseDouble(sumAfterRebateLabel.getText()));
 		}catch(Exception e){
 			DataRM rm = DataRM.FORMAT_FAILED;
 			PromptHelper.showPrompt(rm);

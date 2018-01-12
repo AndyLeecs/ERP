@@ -2,8 +2,6 @@ package ui.salesmanUI;
 
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
-import javafx.application.Platform;
-import javafx.scene.Node;
 import resultmessage.DataRM;
 import ui.commonUI.PromptHelper;
 

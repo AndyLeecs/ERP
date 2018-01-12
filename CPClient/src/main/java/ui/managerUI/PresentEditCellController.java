@@ -15,7 +15,7 @@ public class PresentEditCellController {
 	@FXML Label amount;
 	@FXML Button deleteBtn;
 	
-	private final String INIT_AMOUNT= "1";
+
 	
 	protected GoodsInSaleVO vo;
 	
@@ -43,6 +43,7 @@ public class PresentEditCellController {
 	boolean isValid(){
 		//检查总额合法性
 		String amountInString = amount.getText();
+		@SuppressWarnings("unused")
 		double amount = 0;
 		try{
 			amount = Double.parseDouble(amountInString);

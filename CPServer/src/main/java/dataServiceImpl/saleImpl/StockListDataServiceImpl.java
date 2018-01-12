@@ -13,7 +13,6 @@ import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
 import dataHelper.HibernateUtil;
 import dataService.saleDataService.StockListDataService;
-import dataService.saleDataService.SaleUniDataService;
 import resultmessage.DataRM;
 import util.State;
 
@@ -24,6 +23,10 @@ import util.State;
 */
 public class StockListDataServiceImpl extends UnicastRemoteObject implements StockListDataService {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5912987570951492322L;
 	BasicUtil<StockListPO> util;
 	//	BasicUtil<StockListPO> util;
 	CriterionClauseGenerator criterionClauseGenerator;
@@ -104,6 +107,7 @@ public class StockListDataServiceImpl extends UnicastRemoteObject implements Sto
 		l = criterionClauseGenerator.generateExactCriterion(l,"state",State.IsDraft);
 		System.out.println(l);
 		System.out.println("before query");
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		List<SalesmanListPO> list = (List)util.Query(l);
 		System.out.println("before return");
 		System.out.println(list);
@@ -119,6 +123,7 @@ public class StockListDataServiceImpl extends UnicastRemoteObject implements Sto
 		 
 		List<CriterionClause> l = new ArrayList<CriterionClause>();
 		l = criterionClauseGenerator.generateExactCriterion(l,"id",id);
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		List<SalesmanListPO> list = (List)util.Query(l);
 		if(list.size() == 1){
 			return list.get(0);

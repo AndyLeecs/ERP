@@ -26,6 +26,10 @@ import util.VIPGrade;
 */
 public class PresentForMembershipDataServiceImpl extends UnicastRemoteObject implements PresentForMembershipDataService{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6249895128068142011L;
 	/* (non-Javadoc)
 	 * @see dataService.presentDataService.PresentForMembershipDataService#insert()
 	 */

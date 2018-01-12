@@ -13,7 +13,6 @@ import dataHelper.CriterionClauseGenerator;
 import dataHelper.HibernateCriterionClauseGenerator;
 import dataHelper.HibernateUtil;
 import dataService.saleDataService.SaleReturnListDataService;
-import dataService.saleDataService.SaleUniDataService;
 import resultmessage.DataRM;
 import util.State;
 
@@ -23,6 +22,10 @@ import util.State;
 * @description
 */
 public class SaleReturnListDataServiceImpl extends UnicastRemoteObject implements SaleReturnListDataService{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4712555607036468511L;
 	BasicUtil<SaleReturnListPO> util;
 	//	BasicUtil<SaleReturnListPO> util;
 	CriterionClauseGenerator criterionClauseGenerator;
@@ -49,9 +52,7 @@ public class SaleReturnListDataServiceImpl extends UnicastRemoteObject implement
 	 */
 	@Override
 	public DataRM delete(String id) throws RemoteException {
-		// TODO Auto-generated method stub
-		SaleReturnListPO po = (SaleReturnListPO)(util.get(id));
-//		po.setState(State.IsDeleted);
+
 		return util.delete(id);
 	}
 
@@ -102,6 +103,7 @@ public class SaleReturnListDataServiceImpl extends UnicastRemoteObject implement
 		l = criterionClauseGenerator.generateExactCriterion(l,"state",State.IsDraft);
 		System.out.println(l);
 		System.out.println("before query");
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		List<SalesmanListPO> list = (List)util.Query(l);
 		System.out.println("before return");
 		System.out.println(list);
@@ -116,6 +118,7 @@ public class SaleReturnListDataServiceImpl extends UnicastRemoteObject implement
 		// TODO Auto-generated method stub
 		List<CriterionClause> l = new ArrayList<CriterionClause>();
 		l = criterionClauseGenerator.generateExactCriterion(l,"id",id);
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		List<SalesmanListPO> list = (List)util.Query(l);
 		if(list.size() == 1){
 			return list.get(0);

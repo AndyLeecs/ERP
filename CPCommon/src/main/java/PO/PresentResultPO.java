@@ -11,6 +11,10 @@ import java.util.List;
 * @description
 */
 public class PresentResultPO implements Remote,Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1944433934389004108L;
 	int id;
 	public int getId() {
 		return id;
