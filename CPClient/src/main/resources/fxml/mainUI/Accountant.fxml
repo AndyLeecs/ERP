@@ -17,7 +17,7 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="122.0" textFill="#9f353a" />
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="124.0" textFill="#9f353a" />
-            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" stylesheets="@../../css/mainUI/MainUI.css" text="      新建">
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" stylesheets="@../../css/mainUI/MainUI.css" text="      新建" textFill="#9f353a">
                <items>
 	               <MenuItem fx:id="newCollectionList" mnemonicParsing="false" onAction="#onNewCollectionListBtnClicked" text="收款单" />
 	               <MenuItem fx:id="newPaymentList" mnemonicParsing="false" onAction="#onNewPaymentListBtnClicked" text="付款单" />
@@ -27,7 +27,7 @@
                   <Font size="18.0" />
                </font>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" text="      查看">
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" text="      查看" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
@@ -37,7 +37,7 @@
                   <MenuItem fx:id="openCashExpenseCommitted" mnemonicParsing="false" onAction="#onOpenCashExpenseCommittedBtnClicked" text="现金费用单" />
                </items>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" text="      草稿">
+            <MenuButton mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="122.0" text="      草稿" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
@@ -53,26 +53,6 @@
                </font>
             </Button>
             <Button mnemonicParsing="false" onAction="#onAccountManageBtnClicked" prefHeight="62.0" prefWidth="122.0" text="账户管理" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="looklistbtn" mnemonicParsing="false" onAction="#looklist" prefHeight="62.0" prefWidth="122.0" text="表单查看" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" text="日志" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="127.0" text="消息" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="127.0" text="个人" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
                </font>
