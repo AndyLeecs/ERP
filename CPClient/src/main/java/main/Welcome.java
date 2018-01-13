@@ -33,7 +33,8 @@ public class Welcome extends Application {
         		Thread.sleep(7000);
         		if(stage.isShowing()) {
         			Platform.runLater(new Runnable() {
-        				public void run() {
+        				@Override
+						public void run() {
         					try {
         						stage.close();
         						new ServerConnector();

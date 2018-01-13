@@ -1,21 +1,18 @@
 package ui.salesmanUI.vip;
 
-import VO.VIPVO.VIPVO;
-import VO.goodsVO.GoodsVO;
-import bl.VIPbl.VIPBLServiceImpl;
-import blservice.VIPblservice.VIPBLService;
-import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import util.VIPGrade;
-
 import java.rmi.RemoteException;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
+
+import VO.VIPVO.VIPVO;
+import bl.VIPbl.VIPBLServiceImpl;
+import blservice.VIPblservice.VIPBLService;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
+import util.VIPGrade;
 
 /**
  * Created by julia98 on 2017/12/22.

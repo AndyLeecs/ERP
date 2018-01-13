@@ -1,15 +1,19 @@
 package dataServiceImpl.VIPImpl;
 
-import PO.VIPPO;
-import dataHelper.*;
-import dataService.VIPDataService.VIPDataService;
-import resultmessage.ResultMessage;
-import util.VIPUtil;
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
+
+import PO.VIPPO;
+import dataHelper.BasicUtil;
+import dataHelper.CriterionClause;
+import dataHelper.CriterionClauseGenerator;
+import dataHelper.HibernateCriterionClauseGenerator;
+import dataHelper.HibernateUtil;
+import dataService.VIPDataService.VIPDataService;
+import resultmessage.ResultMessage;
+import util.VIPUtil;
 
 /**
  * Created by julia98 on 2017/12/14.

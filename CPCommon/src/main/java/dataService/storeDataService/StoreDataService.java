@@ -8,9 +8,9 @@ import java.util.LinkedList;
 import PO.AlarmListPO;
 import PO.PresentListPO;
 import PO.ReportListPO;
-import util.State;
 import PO.StoreLogPO;
 import PO.StorePO;
+import util.State;
 import util.StoreListType;
 public interface StoreDataService extends Remote,Serializable{
 	

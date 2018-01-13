@@ -29,6 +29,7 @@ public abstract class SaleTypeNewListController extends SaleTypeListController {
 	public SaleTypeNewListController(ParentController parentController, SaleUniBLService uniBLService, String id) {
 		super(parentController, uniBLService,id);
 	}
+	@Override
 	@FXML
 	protected
 	void initialize(){

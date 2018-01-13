@@ -13,9 +13,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
@@ -75,7 +75,7 @@ public class AccountManageWinController implements SonController{
 			    new EventHandler<CellEditEvent<AccountItem, String>>() {
 			        @Override
 			        public void handle(CellEditEvent<AccountItem, String> t) {
-			        	AccountItem item = (AccountItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+			        	AccountItem item = t.getTableView().getItems().get(t.getTablePosition().getRow());
 			        	String newBalance = t.getNewValue();
 			        	double b = 0;
 			        	try{
@@ -103,7 +103,7 @@ public class AccountManageWinController implements SonController{
 			    new EventHandler<CellEditEvent<AccountItem, String>>() {
 			        @Override
 			        public void handle(CellEditEvent<AccountItem, String> t) {
-			        	AccountItem item = (AccountItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+			        	AccountItem item = t.getTableView().getItems().get(t.getTablePosition().getRow());
 			            accountItem.remove(item);
 			        }
 			    }

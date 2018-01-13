@@ -77,7 +77,6 @@ public class PresentForSpecialPackageDataServiceImpl extends UnicastRemoteObject
 	/* (non-Javadoc)
 	 * @see dataService.presentDataService.PresentForSpecialPackageDataService#getPresentForSpecialPackage(java.util.List)
 	 */
-	@SuppressWarnings("rawtypes")
 	@Override
 	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage(List<GoodsInSalePO> goodsList)
 			throws RemoteException {
@@ -87,7 +86,7 @@ public class PresentForSpecialPackageDataServiceImpl extends UnicastRemoteObject
 			idList.add(po.getId());
 		}
 		List<CriterionClause> criterionChildList = new ArrayList<CriterionClause>();
-		criterionChildList = criterionClauseGenerator.generateExactAsChildCriterion(criterionChildList,"id",(List)idList);
+		criterionChildList = criterionClauseGenerator.generateExactAsChildCriterion(criterionChildList,"id",idList);
 		List<CriterionClause> criterionParentList = new ArrayList<CriterionClause>();
 		criterionParentList = criterionClauseGenerator.generateExactCriterion(criterionParentList,"state", PresentState.SAVE);
 		criterionParentList = criterionClauseGenerator.generateCurrentTimeInRangeCriterion(criterionParentList);

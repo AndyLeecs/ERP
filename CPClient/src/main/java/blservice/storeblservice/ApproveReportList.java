@@ -1,7 +1,6 @@
 package blservice.storeblservice;
 
 import VO.listVO.ListRM;
-
 import VO.storeVO.ReportListVO;
 
 public interface ApproveReportList {

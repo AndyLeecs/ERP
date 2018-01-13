@@ -1,11 +1,8 @@
 package ui.loadingUI;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import network.ServerConnector;
-import ui.mainUI.loginUI.LoginWin;
 
 /**
  * Created by julia98 on 2017/12/29.

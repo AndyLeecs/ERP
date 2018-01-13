@@ -30,6 +30,7 @@ public abstract class StockTypeEditListController extends StockTypeListControlle
 		this.vo = vo;
 	}
 
+	@Override
 	@FXML
 	protected
 	void initialize(){

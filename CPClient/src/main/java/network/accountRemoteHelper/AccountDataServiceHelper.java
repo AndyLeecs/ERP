@@ -17,6 +17,7 @@ public class AccountDataServiceHelper implements DataServiceHelper{
 	private AccountDataServiceHelper(){
 	}
 	
+	@Override
 	public void setRemote(Remote remote){
 		accountDataService = (AccountDataService)remote;
 	}

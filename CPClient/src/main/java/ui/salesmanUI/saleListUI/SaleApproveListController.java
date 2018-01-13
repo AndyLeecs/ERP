@@ -44,6 +44,7 @@ public class SaleApproveListController extends SaleTypeApproveListController imp
 		presentResult = svo.getPresentResultVO();
 	}
 	
+	@Override
 	public SalesmanListVO getVOFromUI(){
 		return new SaleListVO(id,operator.getText(),operatorId, null,operatorGrade,VIPID.getText(),
 				VIPName.getText(),grade, clerk.getText(), "默认仓库", notesTextField.getText(),chosenList,

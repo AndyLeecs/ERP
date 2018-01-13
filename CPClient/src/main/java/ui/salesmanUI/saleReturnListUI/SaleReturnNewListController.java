@@ -15,6 +15,7 @@ import ui.salesmanUI.sale.SaleTypeNewListController;
 public class SaleReturnNewListController extends SaleTypeNewListController {
 
 	
+	@Override
 	@FXML
 	protected void initialize(){
 		super.initialize();

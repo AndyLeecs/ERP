@@ -53,7 +53,7 @@ public class StockListDataServiceImpl extends UnicastRemoteObject implements Sto
 	@Override
 	public DataRM delete(String id) throws RemoteException {
 		 
-		StockListPO po = (StockListPO)(util.get(id));
+		StockListPO po = (util.get(id));
 //		po.setState(State.IsDeleted);
 		System.out.println(util);
 		System.out.println(po);

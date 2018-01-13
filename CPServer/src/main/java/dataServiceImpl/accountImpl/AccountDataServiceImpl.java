@@ -54,7 +54,7 @@ public class AccountDataServiceImpl extends UnicastRemoteObject implements Accou
 
 	@Override
 	public AccountPO get(String accountName) throws RemoteException {
-		return (AccountPO) basicUtil.get(accountName);
+		return basicUtil.get(accountName);
 		
 	}
 

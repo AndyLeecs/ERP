@@ -1,9 +1,9 @@
 package blservice.goodsblservice;
 
-import VO.goodsVO.GoodsVO;
-
 import java.rmi.RemoteException;
 import java.util.List;
+
+import VO.goodsVO.GoodsVO;
 
 /**
  * Created by julia98 on 2017/12/14.

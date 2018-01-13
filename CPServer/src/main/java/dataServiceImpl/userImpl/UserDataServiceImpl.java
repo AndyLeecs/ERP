@@ -49,7 +49,7 @@ public class UserDataServiceImpl extends UnicastRemoteObject implements UserData
 
 	@Override
 	public UserPO getUser(String name) throws RemoteException {
-		return (UserPO) basicUtil.get(name);
+		return basicUtil.get(name);
 	}
 
 	@Override

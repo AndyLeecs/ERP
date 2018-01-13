@@ -15,6 +15,7 @@ import ui.salesmanUI.stock.StockTypeNewListController;
 public class StockNewListController extends StockTypeNewListController {
 
 	
+	@Override
 	@FXML
 	protected
 	void initialize(){
