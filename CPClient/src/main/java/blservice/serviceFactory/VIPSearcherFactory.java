@@ -1,7 +1,7 @@
 package blservice.serviceFactory;
 
-import blservice.VIPblservice.VIPFuzzySearch;
 import bl.VIPbl.VIPFuzzySearchImpl;
+import blservice.VIPblservice.VIPFuzzySearch;
 
 public class VIPSearcherFactory {
 	public static VIPFuzzySearch getVIPFuzzySearchService(){

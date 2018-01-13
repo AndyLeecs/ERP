@@ -1,17 +1,14 @@
 package bl.VIPbl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import PO.VIPPO;
 import VO.VIPVO.VIPVO;
 import blservice.VIPblservice.VIPBLService;
 import dataService.VIPDataService.VIPDataService;
-import dataService.goodsDataService.GoodsDataService;
 import network.VIPRemoteHelper.VIPDataServiceHelper;
-import network.goodsRemoteHelper.GoodsDataServiceHelper;
 import resultmessage.ResultMessage;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by julia98 on 2017/12/13.

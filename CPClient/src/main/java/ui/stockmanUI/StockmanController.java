@@ -1,6 +1,7 @@
 package ui.stockmanUI;
 
 import java.io.IOException;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXDrawer.DrawerDirection;
@@ -9,17 +10,12 @@ import com.jfoenix.controls.JFXDrawersStack;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import ui.loadingUI.LoadingFXWin;
 import ui.mainUI.BackgroundController;
 import ui.mainUI.loginUI.LoginWin;
@@ -57,6 +53,7 @@ public class StockmanController extends BackgroundController{
 
 	
 	
+	@Override
 	@FXML public void initialize() {
 	   
 		    StackPane.setMargin(drawerPane, new Insets(100));
@@ -221,7 +218,8 @@ public class StockmanController extends BackgroundController{
     	 */
      }
      
-     @FXML 
+     @Override
+	@FXML 
      public void logOut() {
     	     Platform.runLater(()-> {
 				    try {

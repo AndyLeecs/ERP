@@ -124,6 +124,7 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 				for(SalesmanItemVO i : vo.getSaleListItems()){
 				//增加库存
 					storeRm = storeChange.plusNumber(i.getId(), i.getAmount(), GreatListType.STOCK, i.getPrice());
+					System.out.println(i.getId()+ " " + i.getAmount()+" "+i.getPrice());
 					if(storeRm != storeRM.SUCCESS){
 						System.out.println("不能增加库存");
 						return DataRM.FAILED;

@@ -7,13 +7,13 @@ import java.util.List;
 
 import PO.ListPO;
 import PO.account.FinanceListPO;
-import dataHelper.BasicUtil;
-import dataHelper.CriterionClause;
-import dataHelper.CriterionClauseGenerator;
-import dataHelper.HibernateCriterionClauseGenerator;
-import dataHelper.HibernateOrderClauseGenerator;
-import dataHelper.OrderClause;
-import dataHelper.OrderClauseGenerator;
+import dataHelper.service.BasicUtil;
+import dataHelper.service.CriterionClauseGenerator;
+import dataHelper.service.OrderClauseGenerator;
+import dataHelper.serviceFactory.CriterionClauseGeneratorServiceFactory;
+import dataHelper.serviceFactory.OrderClauseGeneratorServiceFactory;
+import dataHelper.serviceImpl.CriterionClause;
+import dataHelper.serviceImpl.OrderClause;
 import dataService.accountDataService.FinanceListDataService;
 import resultmessage.DataRM;
 import util.State;
@@ -28,8 +28,8 @@ public abstract class FinanceListDataServiceImpl extends UnicastRemoteObject imp
 	OrderClauseGenerator orderClauseGenerator;
 	
 	public FinanceListDataServiceImpl() throws RemoteException{
-		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
-		orderClauseGenerator = new HibernateOrderClauseGenerator();
+		criterionClauseGenerator = CriterionClauseGeneratorServiceFactory.getService();
+		orderClauseGenerator = OrderClauseGeneratorServiceFactory.getService();
 	}
 	
 	

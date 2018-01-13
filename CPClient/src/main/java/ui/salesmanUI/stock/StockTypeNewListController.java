@@ -28,6 +28,7 @@ public abstract class StockTypeNewListController extends StockTypeListController
 	}
 
 
+	@Override
 	@FXML
 	protected
 	void initialize(){

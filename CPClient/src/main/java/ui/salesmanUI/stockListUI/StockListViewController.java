@@ -29,6 +29,7 @@ public class StockListViewController extends ListViewController implements Paren
 		super(controller, service, list);
 	}
 
+	@Override
 	public void refresh() {
 		vBox.getChildren().clear();
 		if(list != null)

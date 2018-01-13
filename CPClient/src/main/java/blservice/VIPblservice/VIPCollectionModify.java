@@ -1,8 +1,8 @@
 package blservice.VIPblservice;
 
-import resultmessage.ResultMessage;
-
 import java.rmi.RemoteException;
+
+import resultmessage.ResultMessage;
 
 /**
  * Created by julia98 on 2018/1/1.

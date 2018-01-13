@@ -177,6 +177,7 @@ public abstract class FinanceListImpl implements FinanceListService, Approvable{
 		return null;
 	}
 	
+	@Override
 	public ApproveRM approve(FinanceListVO vo){
 		vo.setState(State.IsApproved);
 		try {
@@ -214,6 +215,7 @@ public abstract class FinanceListImpl implements FinanceListService, Approvable{
 			return ListRM.REFUSED;
 	}
 	
+	@Override
 	public void reject(FinanceListVO vo){
 		vo.setState(State.IsRefused);
 		try {

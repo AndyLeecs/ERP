@@ -184,6 +184,13 @@ public class SaleNewListController extends SaleTypeNewListController implements 
     		e.printStackTrace();
     		return false;
      }
+    	if((Double.parseDouble(totalAmount.getText())<0)||(Double.parseDouble(rebateField.getText())<0)||(Double.parseDouble(useVoucherField.getText())<0)||(Double.parseDouble(sumAfterRebateLabel.getText())<0))
+			{
+    		System.out.println("ready to return false");
+    		PromptHelper.showPrompt(DataRM.FORMAT_FAILED);
+    		return false;
+			}
+	
  //   	System.out.println(User.getInstance().getGrade());
     	if(Double.parseDouble(rebateField.getText())>RebateChecker.getRebateLimit(User.getInstance().getUserType(),User.getInstance().getGrade()))
     	{

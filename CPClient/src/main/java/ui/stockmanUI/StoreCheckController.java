@@ -1,5 +1,9 @@
 package ui.stockmanUI;
 
+import java.io.IOException;
+
+import com.jfoenix.controls.JFXButton;
+
 import VO.storeVO.StoreLogVO;
 import VO.storeVO.storeCheckVO;
 import bl.storebl.StoreblController;
@@ -12,10 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import util.GreatListType;
-
-import java.io.IOException;
-
-import com.jfoenix.controls.JFXButton;
 
 public class StoreCheckController {
     @FXML

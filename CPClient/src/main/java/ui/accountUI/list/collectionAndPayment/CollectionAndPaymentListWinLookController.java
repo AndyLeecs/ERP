@@ -6,6 +6,7 @@ import javafx.application.Platform;
 
 public class CollectionAndPaymentListWinLookController extends CollectionAndPaymentListWinController{
 
+	@Override
 	public void init(){
 		VIPName.setText(vo.getVIPName());
 		VIPID.setText(vo.getVIPID());
@@ -32,6 +33,7 @@ public class CollectionAndPaymentListWinLookController extends CollectionAndPaym
 	}
 	
 	
+	@Override
 	public void onCommitBtnClicked() {
 		 Platform.runLater(()-> {
              try {

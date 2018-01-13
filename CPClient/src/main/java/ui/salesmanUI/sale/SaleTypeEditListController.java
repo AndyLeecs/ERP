@@ -31,6 +31,7 @@ public abstract class SaleTypeEditListController extends SaleTypeListController 
 		super(parentController, uniBLService, id);
 		this.vo = vo;
 	}
+	@Override
 	@FXML
 	protected
 	void initialize(){

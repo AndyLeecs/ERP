@@ -1,8 +1,6 @@
 package ui.stockmanUI;
 import java.util.ArrayList;
 
-import javax.swing.JLabel;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableColumn;
@@ -12,12 +10,10 @@ import com.jfoenix.controls.cells.editors.TextFieldEditorBuilder;
 import com.jfoenix.controls.cells.editors.base.GenericEditableTreeTableCell;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
-
 import VO.storeVO.StoreVO;
 import VO.storeVO.storeInventoryVO;
 import bl.storebl.StoreblController;
 import blservice.storeblservice.StoreBLService;
-import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -27,7 +23,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import ui.mainUI.loginUI.User;
