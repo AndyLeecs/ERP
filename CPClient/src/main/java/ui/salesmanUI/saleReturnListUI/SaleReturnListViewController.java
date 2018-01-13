@@ -29,6 +29,7 @@ public class SaleReturnListViewController extends ListViewController implements 
 		super(controller, service, list);
 	}
 	
+	@Override
 	public void refresh() {
 		vBox.getChildren().clear();
 		if(list != null)

@@ -1,9 +1,11 @@
-package dataHelper;
+package dataHelper.service;
 
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
+
+import dataHelper.serviceImpl.CriterionClause;
 
 /**     
 * @author 李安迪

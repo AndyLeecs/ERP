@@ -20,9 +20,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
@@ -54,6 +54,7 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 	public CollectionAndPaymentListWinController(){}
 	public CollectionAndPaymentListWinController(CollectionListVO vo){this.vo = vo;}
 	
+	@Override
 	public void init(){
 		if(vo != null){
 			transferItem.addAll(vo.getTransferItem()
@@ -101,7 +102,7 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 			    new EventHandler<CellEditEvent<TransferItem, String>>() {
 			        @Override
 			        public void handle(CellEditEvent<TransferItem, String> t) {
-			        	TransferItem item = (TransferItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+			        	TransferItem item = t.getTableView().getItems().get(t.getTablePosition().getRow());
 			        	String newAmount = t.getNewValue();
 			        	try{
 			        		Double.parseDouble(newAmount);
@@ -127,7 +128,7 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 		    new EventHandler<CellEditEvent<TransferItem, String>>() {
 		        @Override
 		        public void handle(CellEditEvent<TransferItem, String> t) {
-		            TransferItem item = (TransferItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+		            TransferItem item = t.getTableView().getItems().get(t.getTablePosition().getRow());
 		            item.setNote(t.getNewValue());	
 		        }
 		    }
@@ -141,7 +142,7 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 			    new EventHandler<CellEditEvent<TransferItem, String>>() {
 			        @Override
 			        public void handle(CellEditEvent<TransferItem, String> t) {
-			        	TransferItem item = (TransferItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+			        	TransferItem item = t.getTableView().getItems().get(t.getTablePosition().getRow());
 				        double total = Double.parseDouble(totalAmount.getText()) - Double.parseDouble(item.getAmount());
 				        totalAmount.setText(String.valueOf(total));
 			            transferItem.remove(item);
@@ -174,6 +175,7 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 //        });
 //	}
 
+	
 	@FXML
 	public void onSearchVIPBtnClicked(){
 		String keyword = searchVIPTextField.getText();
@@ -183,17 +185,7 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 		}
 		List<VIPVO> vipList = new ArrayList<VIPVO>();
 		try {
-			List<VIPVO> temp = null;
-			temp = vipSearchService.getVIPInID(keyword);
-			if(temp != null)
-				vipList.addAll(temp);
-			temp = vipSearchService.getVIPInName(keyword);
-			if(temp != null)
-				vipList.addAll(temp);
-			temp = vipSearchService.getVIPInType(keyword);
-			if(temp != null)
-				vipList.addAll(temp);
-			vipList = new ArrayList<VIPVO>(new HashSet<VIPVO>(vipList));
+			vipList = getVIP(keyword);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			prompt("网络异常，请稍后再试！");
@@ -216,6 +208,22 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 			e.printStackTrace();
 		}
 		
+	}
+	
+	private List<VIPVO> getVIP(String keyword) throws RemoteException{
+		List<VIPVO> vipList = new ArrayList<VIPVO>();
+		List<VIPVO> temp = null;
+		temp = vipSearchService.getVIPInID(keyword);
+		if(temp != null)
+			vipList.addAll(temp);
+		temp = vipSearchService.getVIPInName(keyword);
+		if(temp != null)
+			vipList.addAll(temp);
+		temp = vipSearchService.getVIPInType(keyword);
+		if(temp != null)
+			vipList.addAll(temp);
+		vipList = new ArrayList<VIPVO>(new HashSet<VIPVO>(vipList));
+		return vipList;
 	}
 	
 	@FXML 

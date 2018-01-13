@@ -11,11 +11,11 @@ import org.junit.Test;
 
 import PO.GoodsInSalePO;
 import PO.PresentForSumPO;
-import dataHelper.BasicUtil;
-import dataHelper.CriterionClause;
-import dataHelper.CriterionClauseGenerator;
-import dataHelper.HibernateCriterionClauseGenerator;
-import dataHelper.HibernateUtil;
+import dataHelper.service.BasicUtil;
+import dataHelper.service.CriterionClauseGenerator;
+import dataHelper.serviceImpl.CriterionClause;
+import dataHelper.serviceImpl.HibernateCriterionClauseGenerator;
+import dataHelper.serviceImpl.HibernateUtil;
 import util.PresentState;
 
 /**     
@@ -61,7 +61,7 @@ public class HibernateCriterionClauseGeneratorTest {
 //	}
 
 	/**
-	 * Test method for {@link dataHelper.HibernateCriterionClauseGenerator#generateCurrentTimeInRangeCriterion(java.util.List)}.
+	 * Test method for {@link dataHelper.serviceImpl.HibernateCriterionClauseGenerator#generateCurrentTimeInRangeCriterion(java.util.List)}.
 	 */
 	@Test
 	public final void testGenerateCurrentTimeInRangeCriterion() throws Exception{

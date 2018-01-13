@@ -6,9 +6,9 @@ import VO.storeVO.ReportListVO;
 import VO.storeVO.storeRM;
 import blservice.storeblservice.ApproveReportList;
 import resultmessage.ResultMessage;
-import util.StoreListType;
 import util.GreatListType;
 import util.State;
+import util.StoreListType;
 
 public class ReportList extends StoreList implements ApproveReportList {
     /*

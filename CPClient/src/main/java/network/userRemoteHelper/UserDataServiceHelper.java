@@ -17,10 +17,12 @@ public class UserDataServiceHelper implements DataServiceHelper{
 	private UserDataServiceHelper(){
 	}
 	
+	@Override
 	public String getServiceName(){
 		return serviceName;
 	}
 	
+	@Override
 	public void setRemote(Remote remote){
 		userDataService = (UserDataService)remote;
 	}

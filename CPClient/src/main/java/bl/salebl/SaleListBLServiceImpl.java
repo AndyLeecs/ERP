@@ -244,7 +244,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		if(polist == null)
 			return null;
 		for(SalesmanListPO po : polist){
-			System.out.println((SaleListPO)po);
+			System.out.println(po);
 			volist.add(poToVo(po));
 		}
 		return volist;

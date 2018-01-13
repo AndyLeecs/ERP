@@ -1,19 +1,5 @@
 package ui.salesmanUI.vip;
 
-import VO.VIPVO.VIPVO;
-import bl.VIPbl.VIPBLServiceImpl;
-import blservice.VIPblservice.VIPBLService;
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -23,6 +9,27 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextField;
+
+import VO.VIPVO.VIPVO;
+import bl.VIPbl.VIPBLServiceImpl;
+import blservice.VIPblservice.VIPBLService;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 /**
  * Created by julia98 on 2017/12/22.
@@ -178,7 +185,7 @@ public class VIPController {
 
         newVIPBar.setOnAction(e->{
 
-            TreeItem<String> selectItem = (TreeItem<String>) treeView.getSelectionModel().getSelectedItem();
+            TreeItem<String> selectItem = treeView.getSelectionModel().getSelectedItem();
 
             System.out.println("选中项文字 " + selectItem.getValue().toString());
             System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
@@ -202,7 +209,7 @@ public class VIPController {
         MenuItem deleteBar = new MenuItem("删除");
         deleteBar.setGraphic(new ImageView("img/delete.png"));
         deleteBar.setOnAction(e ->{
-            TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
+            TreeItem selectItem = treeView.getSelectionModel().getSelectedItem();
 
             System.out.println("判断删除的是会员还是分类：" + selectItem.getValue().toString().substring(0,2));
 
@@ -234,7 +241,7 @@ public class VIPController {
         refactorBar.setOnAction(e->{
 
             //判断当前节点是否可添加商品
-            TreeItem<String> selectItem = (TreeItem<String>) treeView.getSelectionModel().getSelectedItem();
+            TreeItem<String> selectItem = treeView.getSelectionModel().getSelectedItem();
 
             System.out.println("选中项文字 " + selectItem.getValue().toString());
             //System.out.println("选中项子节点文字" + selectItem.getChildren().toString());

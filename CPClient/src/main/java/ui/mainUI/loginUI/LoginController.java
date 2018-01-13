@@ -113,6 +113,7 @@ public class LoginController {
 	
 	private void clearLabel(Label label){
 		new Timer().schedule(new TimerTask(){
+			@Override
 			public void run(){
 				Platform.runLater(new Runnable() {
 			        @Override

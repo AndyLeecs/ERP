@@ -1,28 +1,5 @@
 package ui.stockmanUI;
 
-import VO.goodsVO.GoodsCategoryVO;
-import VO.goodsVO.GoodsVO;
-import VO.storeVO.StoreVO;
-import bl.goodsbl.GoodsBLServiceImpl;
-import bl.storebl.Store_Interface;
-import bl.storebl.Store_InterfaceImpl;
-import blservice.goodsblservice.GoodsBLService;
-import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.stage.PopupWindow.AnchorLocation;
-import ui.loadingUI.LoadingFXController;
-import ui.loadingUI.LoadingFXWin;
-import ui.mainUI.BackgroundController;
-
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -31,18 +8,32 @@ import java.util.Stack;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
-import com.jfoenix.controls.JFXHamburger;
-import com.jfoenix.controls.JFXListView;
-import com.jfoenix.controls.JFXPopup;
-import com.jfoenix.controls.JFXPopup.*;
-import com.jfoenix.controls.JFXPopup.PopupHPosition;
-import com.jfoenix.controls.JFXPopup.PopupVPosition;
-import com.jfoenix.controls.JFXRippler;
-import com.jfoenix.controls.JFXRippler.RipplerMask;
-import com.jfoenix.controls.JFXRippler.RipplerPos;
-import com.jfoenix.controls.JFXSnackbar;
-import com.jfoenix.controls.JFXSnackbar.SnackbarEvent;
 import com.jfoenix.controls.JFXTextField;
+
+import VO.goodsVO.GoodsCategoryVO;
+import VO.goodsVO.GoodsVO;
+import VO.storeVO.StoreVO;
+import bl.goodsbl.GoodsBLServiceImpl;
+import bl.storebl.Store_Interface;
+import bl.storebl.Store_InterfaceImpl;
+import blservice.goodsblservice.GoodsBLService;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import ui.mainUI.BackgroundController;
 
 public class GoodsController extends BackgroundController{
 	@FXML public AnchorPane root;
@@ -189,7 +180,7 @@ public class GoodsController extends BackgroundController{
             //通过命名来区分商品项和分类项 除此之外有别的方法则可用别的方法替换 （比如分类有文件夹图片区分）
             //命名格式： 商品：小台灯 分类：彩灯
             //判断当前节点是否可添加商品
-            TreeItem<String> selectItem = (TreeItem<String>) treeView.getSelectionModel().getSelectedItem();
+            TreeItem<String> selectItem = treeView.getSelectionModel().getSelectedItem();
 
             System.out.println("选中项文字 " + selectItem.getValue().toString());
             System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
@@ -218,7 +209,7 @@ public class GoodsController extends BackgroundController{
                 //通过命名来区分商品项和分类项 除此之外有别的方法则可用别的方法替换 （比如分类有文件夹图片区分）
                 //命名格式： 商品：小台灯 分类：彩灯
                 //判断当前节点是否可添加分类
-                TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
+                TreeItem selectItem = treeView.getSelectionModel().getSelectedItem();
 
             System.out.println("选中项文字 " + selectItem.getValue().toString());
             System.out.println("选中项子节点文字" + selectItem.getChildren().toString());
@@ -242,7 +233,7 @@ public class GoodsController extends BackgroundController{
         MenuItem deleteBar = new MenuItem("删除");
         deleteBar.setGraphic(new ImageView("img/delete.png"));
         deleteBar.setOnAction(e ->{
-            TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
+            TreeItem selectItem = treeView.getSelectionModel().getSelectedItem();
            
             System.out.println("判断删除的是商品还是分类：" + selectItem.getValue().toString().substring(0,2));
 
@@ -277,7 +268,7 @@ public class GoodsController extends BackgroundController{
         refactorBar.setGraphic(new ImageView("img/survey.png"));
         refactorBar.setOnAction(e->{
 
-            TreeItem selectItem = (TreeItem) treeView.getSelectionModel().getSelectedItem();
+            TreeItem selectItem = treeView.getSelectionModel().getSelectedItem();
             stack.push(selectItem);
             noticeLabel.setText("修改名称");
             notice.setVisible(true);
@@ -295,7 +286,8 @@ public class GoodsController extends BackgroundController{
      * 清除商品搜索项goodsVBox中的商品项
      * @throws RemoteException 
      */
-    @FXML
+    @Override
+	@FXML
     public void initialize() throws RemoteException{
         notice.setVisible(false);
         initTreeView();

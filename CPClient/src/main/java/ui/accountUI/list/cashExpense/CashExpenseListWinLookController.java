@@ -7,6 +7,7 @@ import javafx.application.Platform;
 public class CashExpenseListWinLookController extends CashExpenseListWinController{
 	private CashExpenseListVO cashExpenseListVO;
 
+	@Override
 	public void init(){
 		
 		operator.setText(cashExpenseListVO.getOperator());
@@ -33,6 +34,7 @@ public class CashExpenseListWinLookController extends CashExpenseListWinControll
 	}
 	
 	
+	@Override
 	public void onCommitBtnClicked() {
 		 Platform.runLater(()-> {
              try {

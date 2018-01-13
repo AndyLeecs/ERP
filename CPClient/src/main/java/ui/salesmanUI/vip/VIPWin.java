@@ -1,5 +1,7 @@
 package ui.salesmanUI.vip;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,9 +9,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import ui.loadingUI.LoadingFXWin;
-
-import java.io.IOException;
 
 /**
  * Created by julia98 on 2017/12/22.

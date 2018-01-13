@@ -12,6 +12,7 @@ public class CollectionAndPaymentListWinApproveController extends CollectionAndP
 		super(vo);
 	}
 	
+	@Override
 	public void init(){
 		VIPName.setText(vo.getVIPName());
 		VIPID.setText(vo.getVIPID());

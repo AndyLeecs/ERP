@@ -1,10 +1,10 @@
 package ui.commonUI;
 
+import com.jfoenix.controls.JFXButton;
+
 import VO.listVO.BussinessSituationListVO;
 import bl.listbl.ListblController;
 import blservice.listblservice.Listblservice;
-
-import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

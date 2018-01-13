@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PO.account.AccountPO;
-import dataHelper.BasicUtil;
-import dataHelper.CriterionClause;
-import dataHelper.CriterionClauseGenerator;
-import dataHelper.HibernateCriterionClauseGenerator;
-import dataHelper.HibernateUtil;
+import dataHelper.service.BasicUtil;
+import dataHelper.service.CriterionClauseGenerator;
+import dataHelper.serviceFactory.BasicUtilServiceFactory;
+import dataHelper.serviceFactory.CriterionClauseGeneratorServiceFactory;
+import dataHelper.serviceImpl.CriterionClause;
 import dataService.accountDataService.AccountDataService;
 import resultmessage.DataRM;
 
@@ -22,8 +22,8 @@ public class AccountDataServiceImpl extends UnicastRemoteObject implements Accou
 	CriterionClauseGenerator criterionClauseGenerator;
 	
 	public AccountDataServiceImpl() throws RemoteException {
-		basicUtil = new HibernateUtil<AccountPO>(AccountPO.class);
-		criterionClauseGenerator = new HibernateCriterionClauseGenerator();
+		basicUtil = BasicUtilServiceFactory.getService(AccountPO.class);
+		criterionClauseGenerator = CriterionClauseGeneratorServiceFactory.getService();
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class AccountDataServiceImpl extends UnicastRemoteObject implements Accou
 
 	@Override
 	public AccountPO get(String accountName) throws RemoteException {
-		return (AccountPO) basicUtil.get(accountName);
+		return basicUtil.get(accountName);
 		
 	}
 

@@ -102,6 +102,7 @@ public abstract class SaleTypeListController extends SalesmanListWinController {
 		grade = vo.getGrade();
 		clerk.setText(vo.getClerk());
 	}
+	@Override
 	@FXML
 	protected void initialize(){
 		super.initialize();

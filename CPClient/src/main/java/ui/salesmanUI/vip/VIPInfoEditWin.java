@@ -1,5 +1,7 @@
 package ui.salesmanUI.vip;
 
+import java.io.IOException;
+
 /**
  * Created by julia98 on 2017/12/22.
  */
@@ -11,8 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.io.IOException;
 
 public class VIPInfoEditWin extends Stage {
     @FXML

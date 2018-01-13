@@ -106,7 +106,7 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 			    new EventHandler<CellEditEvent<EntryItem, String>>() {
 			        @Override
 			        public void handle(CellEditEvent<EntryItem, String> t) {
-			        	EntryItem item = (EntryItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+			        	EntryItem item = t.getTableView().getItems().get(t.getTablePosition().getRow());
 			        	String newAmount = t.getNewValue();
 			        	try{
 			        		Double.parseDouble(newAmount);
@@ -134,7 +134,7 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 		    new EventHandler<CellEditEvent<EntryItem, String>>() {
 		        @Override
 		        public void handle(CellEditEvent<EntryItem, String> t) {
-		            EntryItem item = (EntryItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+		            EntryItem item = t.getTableView().getItems().get(t.getTablePosition().getRow());
 		            item.setNote(t.getNewValue());	
 		        }
 		    }
@@ -148,7 +148,7 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 			    new EventHandler<CellEditEvent<EntryItem, String>>() {
 			        @Override
 			        public void handle(CellEditEvent<EntryItem, String> t) {
-			        	EntryItem item = (EntryItem) t.getTableView().getItems().get(t.getTablePosition().getRow());
+			        	EntryItem item = t.getTableView().getItems().get(t.getTablePosition().getRow());
 				        double total = Double.parseDouble(totalAmount.getText()) - Double.parseDouble(item.getAmount());
 				        totalAmount.setText(String.valueOf(total));
 			            entryItem.remove(item);
@@ -180,6 +180,7 @@ public class CashExpenseListWinController  extends FinanceListWinController{
 	}
 	
 
+	@Override
 	protected CashExpenseListVO createListVO(State state){
 		return new CashExpenseListVO(
 				listID.getText(),

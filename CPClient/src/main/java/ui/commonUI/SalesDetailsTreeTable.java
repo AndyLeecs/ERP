@@ -10,7 +10,6 @@ import com.jfoenix.controls.cells.editors.TextFieldEditorBuilder;
 import com.jfoenix.controls.cells.editors.base.GenericEditableTreeTableCell;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
-
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -21,8 +20,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableColumn.CellEditEvent;
-import javafx.scene.control.TreeView;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import ui.mainUI.loginUI.User;
