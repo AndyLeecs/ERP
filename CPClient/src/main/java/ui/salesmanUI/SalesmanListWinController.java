@@ -259,7 +259,7 @@ public abstract class SalesmanListWinController{
 			return false;
 		}
 		//检查数字格式合法性
-		
+		System.out.println("checkFormat"+checkFormat());
 		if(!checkFormat()){
 			return false;
 		}
@@ -271,9 +271,10 @@ public abstract class SalesmanListWinController{
 		return true;
 	}
 	public boolean checkFormat(){
-		
+		System.out.println("checkFormatInParent");
 		return true;
 	}
+	;
 //	public abstract void checkList();
 	//检查赠品清单合法性
 	public  boolean checkList(){

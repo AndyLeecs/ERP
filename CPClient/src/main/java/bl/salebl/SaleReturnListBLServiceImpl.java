@@ -93,7 +93,7 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 		storeRM storeRm = storeRM.SUCCESS;
 		List<String> id = new ArrayList<String>();
 		List<Integer> subber = new ArrayList<Integer>();
-		if(!isWriteoff){	
+		if(isWriteoff){	
 		for(SalesmanItemVO i : vo.getSaleListItems()){
 			id.add(i.getId());
 			subber.add(i.getAmount());

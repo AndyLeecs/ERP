@@ -182,11 +182,22 @@ public abstract class SaleTypeListController extends SalesmanListWinController {
     	sumAfterRebateLabel.setText(Double.parseDouble(totalAmount.getText()) -
         		Double.parseDouble(rebateField.getText())
         		-Double.parseDouble(useVoucherField.getText())+"");
+    	
     	}catch(Exception e){
     		PromptHelper.showPrompt(DataRM.FORMAT_FAILED);
     		e.printStackTrace();
     		return false;
      }
+    	System.out.println(totalAmount.getText()+rebateField.getText()+useVoucherField.getText()+sumAfterRebateLabel.getText());
+    	System.out.println((Double.parseDouble(totalAmount.getText())<0));
+    	System.out.println((Double.parseDouble(rebateField.getText())<0));
+    	System.out.println((Double.parseDouble(useVoucherField.getText())<0));
+    	System.out.println((Double.parseDouble(sumAfterRebateLabel.getText())<0));   	
+    	if((Double.parseDouble(totalAmount.getText())<0)||(Double.parseDouble(rebateField.getText())<0)||(Double.parseDouble(useVoucherField.getText())<0)||(Double.parseDouble(sumAfterRebateLabel.getText())<0))
+			{
+    		System.out.println("ready to return false");
+    		return false;
+			}else
 		return true;
 		
 	}
