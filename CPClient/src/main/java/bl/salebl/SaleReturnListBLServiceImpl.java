@@ -106,8 +106,8 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 		//检查客户应收应付
 		double collection = 0;
 		try {
-			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberID());
-			collection = vipChange.getVIPCollection(vo.getMemberID());
+			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberName());
+			collection = vipChange.getVIPCollection(vo.getMemberName());
 			double sum = vo.getSum();
 			
 			if(limit < collection + sum)

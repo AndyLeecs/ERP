@@ -125,8 +125,8 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		//检查客户应收应付
 
 		try {
-			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberID());
-			collection = vipChange.getVIPCollection(vo.getMemberID());
+			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberName());
+			collection = vipChange.getVIPCollection(vo.getMemberName());
 			double sum = vo.getSum();
 			
 			if(limit < collection + sum)
