@@ -41,7 +41,8 @@ public abstract class SaleTypeEditListController extends SaleTypeListController 
 		operatorId = vo.getOperatorId();
 		operatorGrade = vo.getOperatorGrade();
 		
-		totalAmount.setText(vo.getSum()+"");
+
+		
 		VIPID.setText(vo.getMemberID());
 		VIPName.setText(vo.getMemberName());
 		notesTextField.setText(vo.getNotes());

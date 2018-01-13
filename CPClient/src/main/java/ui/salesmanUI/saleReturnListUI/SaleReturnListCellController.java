@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import VO.saleVO.SaleListVO;
 import VO.saleVO.SaleReturnListVO;
 import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
@@ -109,7 +110,6 @@ public class SaleReturnListCellController implements CellController{
 		listID.setText(id);
 		operator.setText(vo.getOperator());
 		
-		totalAmount.setText(vo.getSum()+"");
 		VIPID.setText(vo.getMemberID());
 		VIPName.setText(vo.getMemberName());
 		notesTextField.setText(vo.getNotes());
@@ -117,11 +117,13 @@ public class SaleReturnListCellController implements CellController{
 		chosenList = vo.getSaleListItems();
 		clerk.setText(vo.getRealOperator());
 		
-		//销售退货单中特有的属性
-		SaleReturnListVO svo = (SaleReturnListVO)vo;
+		//销售单中特有的属性
+		SaleListVO svo = (SaleListVO)vo;
 		rebateField.setText(svo.getRebate()+"");
 		useVoucherField.setText(svo.getVoucher()+"");
-		sumAfterRebateLabel.setText(vo.getSum()+"");
+		System.out.println(svo.getSum()+" "+svo.getSumBeforeRebate());
+		sumAfterRebateLabel.setText(svo.getSum()+"");
+		totalAmount.setText(svo.getSumBeforeRebate()+"");
 		
 		
 		//把textfield set invisible
