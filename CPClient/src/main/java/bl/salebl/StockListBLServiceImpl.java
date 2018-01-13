@@ -125,17 +125,20 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 				//增加库存
 					storeRm = storeChange.plusNumber(i.getId(), i.getAmount(), GreatListType.STOCK, i.getPrice());
 					if(storeRm != storeRM.SUCCESS){
+						System.out.println("不能增加库存");
 						return DataRM.FAILED;
 					}
 				//更改最近进价	
 					resultRm = goodsRecentChange.setGoodsRecentBuyPrice(i.getPrice(), i.getName(), null);
 					if(resultRm != ResultMessage.SUCCESS){
+						System.out.println("不能修改进价");
 						return DataRM.FAILED;
 					}
 				}
 				//修改应付
 					resultRm = vipChange.setVIPPayment(vo.getMemberName(), vo.getSum()+vipChange.getVIPPayment(vo.getMemberName()));
 					if(resultRm != ResultMessage.SUCCESS){
+						System.out.println("不能修改应付");
 						return DataRM.FAILED;
 					}				
 				//发消息
