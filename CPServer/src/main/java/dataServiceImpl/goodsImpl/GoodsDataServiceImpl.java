@@ -7,11 +7,11 @@ import java.util.List;
 
 import PO.GoodsCategoryPO;
 import PO.GoodsPO;
-import dataHelper.BasicUtil;
-import dataHelper.CriterionClause;
-import dataHelper.CriterionClauseGenerator;
-import dataHelper.HibernateCriterionClauseGenerator;
-import dataHelper.HibernateUtil;
+import dataHelper.service.BasicUtil;
+import dataHelper.service.CriterionClauseGenerator;
+import dataHelper.serviceImpl.CriterionClause;
+import dataHelper.serviceImpl.HibernateCriterionClauseGenerator;
+import dataHelper.serviceImpl.HibernateUtil;
 import dataService.goodsDataService.GoodsDataService;
 import resultmessage.ResultMessage;
 import util.GoodsUtil;

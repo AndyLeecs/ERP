@@ -7,11 +7,11 @@ import java.util.List;
 
 import PO.GoodsInSalePO;
 import PO.PresentForSpecialPackagePO;
-import dataHelper.BasicUtil;
-import dataHelper.CriterionClause;
-import dataHelper.CriterionClauseGenerator;
-import dataHelper.HibernateCriterionClauseGenerator;
-import dataHelper.HibernateUtil;
+import dataHelper.service.BasicUtil;
+import dataHelper.service.CriterionClauseGenerator;
+import dataHelper.serviceImpl.CriterionClause;
+import dataHelper.serviceImpl.HibernateCriterionClauseGenerator;
+import dataHelper.serviceImpl.HibernateUtil;
 import dataService.presentDataService.PresentForSpecialPackageDataService;
 import resultmessage.DataRM;
 import util.PresentState;

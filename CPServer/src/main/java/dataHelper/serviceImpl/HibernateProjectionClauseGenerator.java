@@ -1,8 +1,10 @@
-package dataHelper;
+package dataHelper.serviceImpl;
 
 import java.rmi.RemoteException;
 
 import org.hibernate.criterion.Projections;
+
+import dataHelper.service.ProjectionClauseGenerator;
 
 
 /**     

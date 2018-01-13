@@ -1,10 +1,13 @@
-package dataHelper;
+package dataHelper.service;
 
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.util.List;
 
 import PO.ListPO;
+import dataHelper.serviceImpl.CriterionClause;
+import dataHelper.serviceImpl.OrderClause;
+import dataHelper.serviceImpl.ProjectionClause;
 import resultmessage.DataRM;
 
 /**     
