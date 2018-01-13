@@ -15,7 +15,7 @@
       </list>
       <property name="voucher"/>
       			<list name="presentList" cascade ="all" lazy = "false">
-				<key column="presentStrategyid" />
+				<key column="saleid" />
 				<index column="index_"></index><!-- 注意index是数据库中的关键字要避免与其冲突，此处index_对应元素在List中的索引 -->  
 				<one-to-many class="PO.GoodsInSalePO"/>
 			</list>
