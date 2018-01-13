@@ -15,7 +15,7 @@ public class GoodsRecentImpl implements GoodsRecent {
 
     @Override
     public ResultMessage setGoodsRecentBuyPrice(double recentBuyPriceice, String goodsName, String goodsCategory) throws RemoteException {
-        GoodsVO goodsVO = goodsBLService.getGoods(goodsName,goodsCategory);
+        GoodsVO goodsVO = goodsBLService.findGoods(goodsName,"goodsName").get(0);
         goodsVO.setRecentBuyPrice(recentBuyPriceice);
         goodsBLService.modifyGoods(goodsVO);
         return ResultMessage.SUCCESS;
@@ -23,7 +23,7 @@ public class GoodsRecentImpl implements GoodsRecent {
 
     @Override
     public ResultMessage setGoodsRecentSellPrice(double recentSellPrice, String goodsName, String goodsCategory) throws RemoteException {
-        GoodsVO goodsVO = goodsBLService.getGoods(goodsName,goodsCategory);
+        GoodsVO goodsVO = goodsBLService.findGoods(goodsName,"goodsName").get(0);
         goodsVO.setRecentBuyPrice(recentSellPrice);
         goodsBLService.modifyGoods(goodsVO);
         return ResultMessage.SUCCESS;

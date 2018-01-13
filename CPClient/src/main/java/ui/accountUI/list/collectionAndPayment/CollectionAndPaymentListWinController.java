@@ -174,6 +174,7 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 //        });
 //	}
 
+	
 	@FXML
 	public void onSearchVIPBtnClicked(){
 		String keyword = searchVIPTextField.getText();
@@ -183,17 +184,7 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 		}
 		List<VIPVO> vipList = new ArrayList<VIPVO>();
 		try {
-			List<VIPVO> temp = null;
-			temp = vipSearchService.getVIPInID(keyword);
-			if(temp != null)
-				vipList.addAll(temp);
-			temp = vipSearchService.getVIPInName(keyword);
-			if(temp != null)
-				vipList.addAll(temp);
-			temp = vipSearchService.getVIPInType(keyword);
-			if(temp != null)
-				vipList.addAll(temp);
-			vipList = new ArrayList<VIPVO>(new HashSet<VIPVO>(vipList));
+			vipList = getVIP(keyword);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			prompt("网络异常，请稍后再试！");
@@ -216,6 +207,22 @@ public class CollectionAndPaymentListWinController extends FinanceListWinControl
 			e.printStackTrace();
 		}
 		
+	}
+	
+	private List<VIPVO> getVIP(String keyword) throws RemoteException{
+		List<VIPVO> vipList = new ArrayList<VIPVO>();
+		List<VIPVO> temp = null;
+		temp = vipSearchService.getVIPInID(keyword);
+		if(temp != null)
+			vipList.addAll(temp);
+		temp = vipSearchService.getVIPInName(keyword);
+		if(temp != null)
+			vipList.addAll(temp);
+		temp = vipSearchService.getVIPInType(keyword);
+		if(temp != null)
+			vipList.addAll(temp);
+		vipList = new ArrayList<VIPVO>(new HashSet<VIPVO>(vipList));
+		return vipList;
 	}
 	
 	@FXML 

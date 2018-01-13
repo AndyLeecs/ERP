@@ -142,8 +142,10 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 						return DataRM.FAILED;
 					}				
 				//发消息
-					if(!isWriteoff)
+					if(!isWriteoff){
 					new ListToMessage().sendMessage((StockListVO)vo);
+					info.modify(true, vo.getId());
+					}
 				
 			}
 			return rm;

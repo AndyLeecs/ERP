@@ -178,8 +178,10 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 				}
 					}
 				//发消息
-				if(!isWriteoff)
+				if(!isWriteoff){
 				new ListToMessage().sendMessage((SaleListVO)vo);
+				info.modify(true, vo.getId());
+				}
 				
 			}
 			return rm;
