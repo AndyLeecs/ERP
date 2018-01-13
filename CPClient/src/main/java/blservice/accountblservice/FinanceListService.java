@@ -2,7 +2,6 @@ package blservice.accountblservice;
 
 import java.util.List;
 
-import VO.ListVO;
 import VO.accountVO.AccountVO;
 import VO.accountVO.FinanceListVO;
 import resultmessage.ApproveRM;
@@ -19,7 +18,7 @@ public interface FinanceListService {
 	public CommitListRM commit(FinanceListVO vo);
 	public List<? extends FinanceListVO> openDraft();
 	public List<? extends FinanceListVO> openCommitted();
-	public ListVO getList(String id);
+	public FinanceListVO getList(String id);
 	
 	public ApproveRM approve(FinanceListVO vo);
 	public void reject(FinanceListVO vo);

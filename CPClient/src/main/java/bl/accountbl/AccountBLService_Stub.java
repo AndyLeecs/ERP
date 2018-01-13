@@ -3,7 +3,6 @@ package bl.accountbl;
 import java.util.ArrayList;
 import java.util.List;
 
-import VO.ListVO;
 import VO.VIPVO.VIPVO;
 import VO.accountVO.AccountVO;
 import VO.accountVO.CashExpenseListVO;
@@ -281,7 +280,7 @@ public class AccountBLService_Stub implements AccountBLService, AccountManagemen
 	}
 
 	@Override
-	public ListVO getList(String id) {
+	public FinanceListVO getList(String id) {
 		return null;
 	}
 	
