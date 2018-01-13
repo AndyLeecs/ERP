@@ -36,7 +36,7 @@ public class ListblController implements Listblservice {
      */
 	
 
-    //单据红冲的接口还没加，但理论上应该是我来写
+
 	ListDataServiceHelper helper=ListDataServiceHelper.getInstance();
     ListDataService listDataService=helper.getListDataService();
     Approvable approvable;

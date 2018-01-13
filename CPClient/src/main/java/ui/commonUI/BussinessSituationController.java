@@ -1,6 +1,9 @@
 package ui.commonUI;
 
 import VO.listVO.BussinessSituationListVO;
+import bl.listbl.ListblController;
+import blservice.listblservice.Listblservice;
+
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -19,12 +22,15 @@ public class BussinessSituationController {
     @FXML  Label b9;
     @FXML  Label b10;
     @FXML  Label b11;
+    @FXML Label rmLabel;
     @FXML
     JFXButton toExcelBtn;
-
+    Listblservice service=new ListblController();
     @FXML
     public void toExcel(){
-
+    	String path="D:\\经营情况.xls";
+        service.bussinessSituationToExcel(path);
+        rmLabel.setText("导出成功至"+path);
     }
 
     public void set(BussinessSituationListVO vo){
