@@ -138,7 +138,7 @@ public class StoreblController implements StoreBLService{
     		id.add(vo.storeVO_Arr.get(i).ID);
     	}
     	vo.Date=getgoodsinfo.getDate_byID(id);
-    	vo.Model=getgoodsinfo.getDate_byID(id);
+    	vo.Model=getgoodsinfo.getModel_byID(id);
         return vo;
     }
 
