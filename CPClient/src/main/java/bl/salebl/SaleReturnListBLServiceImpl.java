@@ -93,7 +93,7 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 		storeRM storeRm = storeRM.SUCCESS;
 		List<String> id = new ArrayList<String>();
 		List<Integer> subber = new ArrayList<Integer>();
-		if(!isWriteoff){	
+		if(isWriteoff){	
 		for(SalesmanItemVO i : vo.getSaleListItems()){
 			id.add(i.getId());
 			subber.add(i.getAmount());
@@ -106,8 +106,8 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 		//检查客户应收应付
 		double collection = 0;
 		try {
-			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberID());
-			collection = vipChange.getVIPCollection(vo.getMemberID());
+			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberName());
+			collection = vipChange.getVIPCollection(vo.getMemberName());
 			double sum = vo.getSum();
 			
 			if(limit < collection + sum)

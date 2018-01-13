@@ -606,6 +606,6 @@ public class VIPController {
   
         gridPane.addColumn(2,tmpLabel0,tmpLabel1,tmpLabel2,tmpLabel3,tmpLabel4,tmpLabel5,tmpLabel6,tmpLabel7,tmpLabel8);
 
-        System.out.println("new Pane init Success!");
+        System.out.println("new VIPPane init Success!");
     }
 }

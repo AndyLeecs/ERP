@@ -651,7 +651,7 @@ public class GoodsController extends BackgroundController{
         newPane.getChildren().add(edit);
 
         newPane.setStyle("-fx-background-color: #FFB5B5");
-        System.out.println("new Pane init Success!");
+        System.out.println("new GoodsPane init Success!");
         goodsVBox.getChildren().add(newPane);
     }
     
