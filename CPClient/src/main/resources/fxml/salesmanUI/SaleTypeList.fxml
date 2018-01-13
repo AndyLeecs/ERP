@@ -124,9 +124,9 @@
                      </children>
                   </VBox>
                   <Button fx:id="selectGoodsBtn" layoutX="199.0" layoutY="98.0" mnemonicParsing="false" onAction="#selectGoods" prefHeight="27.0" prefWidth="84.0" text="选择商品" />
-                  <TextField fx:id="searchGoodsField" layoutX="15.0" layoutY="96.0" prefHeight="31.0" prefWidth="165.0" promptText="请输入查询信息"/>
+                  <TextField fx:id="searchGoodsField" layoutX="15.0" layoutY="96.0" prefHeight="31.0" prefWidth="165.0" promptText="请输入查询信息" />
                   <Label fx:id="nullErrorMessage" layoutX="288.0" layoutY="99.0" prefHeight="24.0" prefWidth="83.0" textFill="#e40808" />
-                 <TextField fx:id="searchVIPField" layoutX="16.0" layoutY="54.0" prefHeight="33.0" prefWidth="164.0" />
+                 <TextField fx:id="searchVIPField" layoutX="16.0" layoutY="54.0" prefHeight="33.0" prefWidth="164.0" promptText="请输入查询信息" />
                   <Label layoutX="521.0" layoutY="62.0" text="备注" textFill="#938c8c" />
                   <Label layoutX="521.0" layoutY="103.0" text="折让" textFill="#938c8c" />
                   <TextField fx:id="rebateField" layoutX="576.0" layoutY="98.0" prefHeight="26.0" prefWidth="62.0" promptText="0" />

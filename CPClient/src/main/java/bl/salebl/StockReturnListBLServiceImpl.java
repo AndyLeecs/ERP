@@ -125,8 +125,11 @@ public class StockReturnListBLServiceImpl implements StockReturnListBLService,Ap
 						return DataRM.FAILED;
 					}				
 				//发消息
-					if(!isWriteoff)
+					if(!isWriteoff){
 					new ListToMessage().sendMessage((StockReturnListVO)vo);
+					info.modify(true, vo.getId());
+					}
+					
 			}
 			return rm;
 		} catch (RemoteException e) {
