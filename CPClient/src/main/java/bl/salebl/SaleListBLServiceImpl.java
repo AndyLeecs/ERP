@@ -125,8 +125,8 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 		//检查客户应收应付
 
 		try {
-			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberID());
-			collection = vipChange.getVIPCollection(vo.getMemberID());
+			double limit = vipChange.checkVIPCollectionLimit(vo.getMemberName());
+			collection = vipChange.getVIPCollection(vo.getMemberName());
 			double sum = vo.getSum();
 			
 			if(limit < collection + sum)
@@ -167,6 +167,8 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 				PresentListVO presentList = new PresentListVO(null, null, null, null, null);
 				presentList.VIPname = svo.getMemberName();
 				PresentResultVO pvo = svo.getPresentResultVO();
+				if(pvo != null){
+				if(pvo.getPresentList()!=null)
 				for(GoodsInSaleVO i : pvo.getPresentList()){
 					presentList.id.add(i.getId());
 					presentList.num.add(i.getAmount());
@@ -176,6 +178,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 				if(createPresentList == false){
 					return DataRM.PRESENT_FAILED;
 				}
+					}
 					}
 				//发消息
 				if(!isWriteoff){
