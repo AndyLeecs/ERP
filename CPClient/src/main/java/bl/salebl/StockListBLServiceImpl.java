@@ -300,11 +300,14 @@ public class StockListBLServiceImpl implements StockListBLService,Approvable{
 		} catch (RemoteException e) {
 			return ListRM.REFUSED;
 		}
-		if(rm == DataRM.SUCCESS){
+		if(rm .equals(DataRM.SUCCESS) ){
 			return ListRM.SUCCESS;
 		}
-		
+		else{
+			System.out.print("审批失败了");
 		return ListRM.REFUSED;
+		
+		}
 	}
 	@Override
 	public SalesmanListVO get(String id){
