@@ -145,9 +145,10 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 							return DataRM.FAILED;
 						}				
 					//发消息
-						if(!isWriteoff)
+						if(!isWriteoff){
 						new ListToMessage().sendMessage((SaleReturnListVO)vo);	
-						
+						info.modify(true, vo.getId());
+						}
 					
 				}
 				return rm;
