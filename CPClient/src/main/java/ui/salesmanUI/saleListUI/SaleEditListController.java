@@ -55,7 +55,7 @@ public class SaleEditListController extends SaleTypeEditListController implement
 		SaleVO saleVO = null;
 		List<GoodsInSaleVO> goodsList = GoodsVOTrans.SalesmanItemTransGoodsInList(chosenList);
 		try{
-		saleVO = new SaleVO(grade,goodsList,Double.parseDouble(totalAmount.getText()));
+		saleVO = new SaleVO(grade,goodsList,Double.parseDouble(sumAfterRebateLabel.getText()));
 		}catch(Exception e){
 			DataRM rm = DataRM.FORMAT_FAILED;
 			PromptHelper.showPrompt(rm);
@@ -117,27 +117,32 @@ protected void initialize(){
 	//销售单特有部分
 	clerk.setText(vo.getRealOperator());
 	grade = svo.getGrade();
-	//策略部分
-	presentResult = svo.getPresentResultVO();
-	if(presentResult != null){
-	//显示金额
-	voucherInPresent.setText(presentResult.getVoucher()+"");
-	sumAfterRebateLabel.setText(presentResult.getSum()+"");
-	//显示策略id
-	List<Integer> presentId = presentResult.getPresentId();
-	if(presentId != null){
-		for(Integer i : presentId){
-		Button b = new Button(i+"");
-		presentHBox.getChildren().add(b);
-		System.out.println("presentID is" + i + "");
-		}
-	}
-	//显示特价商品列表
-	List<GoodsInSaleVO> presentList = presentResult.getPresentList();
-	if(presentList!=null){
-		setPresentList(presentList);
-	}
-	}
+	totalAmount.setText(svo.getSumBeforeRebate()+"");
+	sumAfterRebateLabel.setText(svo.getSum()+"");
+	rebateField.setText(svo.getRebate()+"");
+	useVoucherField.setText(svo.getVoucher()+"");
+//	//策略部分
+//	presentResult = svo.getPresentResultVO();
+//	if(presentResult != null){
+//	//显示金额
+//	voucherInPresent.setText(presentResult.getVoucher()+"");
+//	
+//
+//	//显示策略id
+//	List<Integer> presentId = presentResult.getPresentId();
+//	if(presentId != null){
+//		for(Integer i : presentId){
+//		Button b = new Button(i+"");
+//		presentHBox.getChildren().add(b);
+//		System.out.println("presentID is" + i + "");
+//		}
+//	}
+//	//显示特价商品列表
+//	List<GoodsInSaleVO> presentList = presentResult.getPresentList();
+//	if(presentList!=null){
+//		setPresentList(presentList);
+//	}
+//	}
 	this.refresh();
 }
 

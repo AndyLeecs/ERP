@@ -21,6 +21,10 @@ import dataService.saleDataService.SaleProjectionDataService;
 */
 public class SaleProjectionDataServiceImpl extends UnicastRemoteObject implements SaleProjectionDataService {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5462307776539975797L;
 	BasicUtil<SaleListPO> saleListUtil;
 	BasicUtil<SaleReturnListPO> saleReturnListUtil;
 	BasicUtil<StockListPO> stockListUtil;

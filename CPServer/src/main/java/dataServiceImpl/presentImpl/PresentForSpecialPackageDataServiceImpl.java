@@ -7,7 +7,6 @@ import java.util.List;
 
 import PO.GoodsInSalePO;
 import PO.PresentForSpecialPackagePO;
-import PO.PresentForSumPO;
 import dataHelper.BasicUtil;
 import dataHelper.CriterionClause;
 import dataHelper.CriterionClauseGenerator;
@@ -23,6 +22,10 @@ import util.PresentState;
 * @description
 */
 public class PresentForSpecialPackageDataServiceImpl extends UnicastRemoteObject implements PresentForSpecialPackageDataService{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8679644519921157361L;
 	BasicUtil<PresentForSpecialPackagePO> util;
 	CriterionClauseGenerator criterionClauseGenerator;
 	
@@ -74,11 +77,11 @@ public class PresentForSpecialPackageDataServiceImpl extends UnicastRemoteObject
 	/* (non-Javadoc)
 	 * @see dataService.presentDataService.PresentForSpecialPackageDataService#getPresentForSpecialPackage(java.util.List)
 	 */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<PresentForSpecialPackagePO> getPresentForSpecialPackage(List<GoodsInSalePO> goodsList)
 			throws RemoteException {
-		// TODO Auto-generated method stub
-		String id;
+
 		List<String> idList = new ArrayList<String>();
 		for(GoodsInSalePO po : goodsList){
 			idList.add(po.getId());

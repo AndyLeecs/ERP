@@ -23,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import resultmessage.DataRM;
+import ui.commonUI.ConfirmHelper;
 import ui.commonUI.PromptHelper;
 import ui.managerUI.PresentNoEditCellController;
 import ui.managerUI.SinglePresentController;
@@ -115,7 +116,6 @@ public class SaleListCellController implements CellController,SinglePresentContr
 		listID.setText(id);
 		operator.setText(vo.getOperator());
 		
-		totalAmount.setText(vo.getSum()+"");
 		VIPID.setText(vo.getMemberID());
 		VIPName.setText(vo.getMemberName());
 		notesTextField.setText(vo.getNotes());
@@ -123,11 +123,13 @@ public class SaleListCellController implements CellController,SinglePresentContr
 		chosenList = vo.getSaleListItems();
 		clerk.setText(vo.getRealOperator());
 		
-		//销售退货单中特有的属性
+		//销售单中特有的属性
 		SaleListVO svo = (SaleListVO)vo;
 		rebateField.setText(svo.getRebate()+"");
 		useVoucherField.setText(svo.getVoucher()+"");
-		sumAfterRebateLabel.setText(vo.getSum()+"");
+		System.out.println(svo.getSum()+" "+svo.getSumBeforeRebate());
+		sumAfterRebateLabel.setText(svo.getSum()+"");
+		totalAmount.setText(svo.getSumBeforeRebate()+"");
 		
 		
 		//把textfield set
@@ -145,6 +147,7 @@ public class SaleListCellController implements CellController,SinglePresentContr
 
 		//销售单特有部分
 		clerk.setText(vo.getRealOperator());
+		clerk.setEditable(false);
 		grade = svo.getGrade();
 		//策略部分
 		presentResult = svo.getPresentResultVO();
@@ -218,6 +221,7 @@ public void setPresentList(List<GoodsInSaleVO> presentList) {
 	}
 	//编辑
 	@FXML void save(){
+		if(ConfirmHelper.showConfirmDialog("编辑状态会清空已获得的策略哦")){
 		this.controller.controller.CloseListToEdit();
 
 		Platform.runLater(()->{
@@ -234,6 +238,7 @@ public void setPresentList(List<GoodsInSaleVO> presentList) {
 			e.printStackTrace();
 		}
 	});
+		}
 	}
 	protected SaleTypeEditListController generateEditList() {
 		SaleEditListController controller = 

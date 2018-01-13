@@ -9,7 +9,7 @@
    <children>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="730.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="idLabel" prefHeight="30.0" prefWidth="84.0" text="商品编号" textFill="#938c8c" wrapText="true" />
+            <Label fx:id="idLabel" prefHeight="30.0" prefWidth="84.0" text="商品编号" textAlignment="RIGHT" textFill="#938c8c" wrapText="true" />
             <Label fx:id="nameLabel" prefHeight="39.0" prefWidth="69.0" text="名称" textFill="#938c8c" wrapText="true" />
             <Label fx:id="typeLabel" prefHeight="33.0" prefWidth="68.0" text="型号" textFill="#938c8c" />
             <Label fx:id="amountTextField" prefHeight="31.0" prefWidth="73.0" text="数量" textFill="#938c8c" />

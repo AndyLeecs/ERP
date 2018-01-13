@@ -19,6 +19,10 @@ import ui.commonUI.listUI.ApproveSaleListWin;
 import ui.commonUI.listUI.ApproveSaleReturnListWin;
 import ui.commonUI.listUI.ApproveStockListWin;
 import ui.commonUI.listUI.ApproveStockReturnListWin;
+import ui.commonUI.listUI.WriteoffSaleListWin;
+import ui.commonUI.listUI.WriteoffSaleReturnListWin;
+import ui.commonUI.listUI.WriteoffStockListWin;
+import ui.commonUI.listUI.WriteoffStockReturnListWin;
 import util.GreatListType;
 
 public class LookListController {
@@ -39,6 +43,7 @@ public class LookListController {
     @FXML public void open(){
          for(int i=0;i<arr1.size();i++){
         	 if(arr1.get(i).isChosen.isSelected()){
+        		 if(isManager){
         		try {
         			if(arr0.get(i).type.equals(GreatListType.COLLECTMONEY)){  new CollectionListWin(arr0.get(i).id) ;}
         			else if(arr0.get(i).type.equals(GreatListType.SALE)){new ApproveSaleListWin(arr0.get(i).id);}
@@ -53,6 +58,25 @@ public class LookListController {
 					//e.printStackTrace();
 					System.out.println("----");
 				}
+        		 }else{
+        			 try{
+        			  if(arr0.get(i).type.equals(GreatListType.SALE)){
+        				  new WriteoffSaleListWin(arr0.get(i).id);
+        			 }
+        			  else if(arr0.get(i).type.equals(GreatListType.STOCK)){
+        				  new WriteoffStockListWin(arr0.get(i).id);
+        			  }
+        			  else if(arr0.get(i).type.equals(GreatListType.STOCK_RETURN)){
+        				  new WriteoffStockReturnListWin(arr0.get(i).id);
+        			  }
+        			  else if(arr0.get(i).type.equals(GreatListType.SALE_RETURN)){
+        				  new WriteoffSaleReturnListWin(arr0.get(i).id);
+        			  }
+        			 }catch(IOException e){
+        				 System.out.println("----");
+        			 }
+        			  
+        		 }
         	 }
          }
     }

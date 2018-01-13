@@ -8,6 +8,7 @@ import VO.GoodsInSaleVO;
 import VO.presentVO.PresentResultVO;
 import VO.saleVO.SaleListVO;
 import VO.saleVO.SaleVO;
+import VO.saleVO.SalesmanItemVO;
 import VO.saleVO.SalesmanListVO;
 import bl.utility.GoodsVOTrans;
 import blservice.saleblservice.SaleListBLService;
@@ -18,11 +19,14 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import resultmessage.DataRM;
+import ui.commonUI.ConfirmHelper;
 import ui.commonUI.ParentController;
 import ui.commonUI.PromptHelper;
 import ui.mainUI.loginUI.User;
 import ui.managerUI.PresentNoEditCellController;
 import ui.managerUI.SinglePresentController;
+import ui.salesmanUI.CellController;
+import ui.salesmanUI.NoEditCellController;
 import ui.salesmanUI.sale.RebateChecker;
 import ui.salesmanUI.sale.SaleTypeNewListController;
 
@@ -31,7 +35,7 @@ import ui.salesmanUI.sale.SaleTypeNewListController;
 * @date 2017年12月28日
 * @description
 */
-public class SaleNewListController extends SaleTypeNewListController implements SinglePresentController{
+public class SaleNewListController extends SaleTypeNewListController implements SinglePresentController, CellController{
 
 	PresentResultVO presentResult;
 	
@@ -52,6 +56,35 @@ public class SaleNewListController extends SaleTypeNewListController implements 
 				Double.parseDouble(sumAfterRebateLabel.getText()),Double.parseDouble(totalAmount.getText()), Double.parseDouble(rebateField.getText()), Double.parseDouble(useVoucherField.getText()), presentResult); 
 	}
 
+	public void refreshInValid() {
+		goodsListVBox.getChildren().clear();
+		for(SalesmanItemVO vo : chosenList){
+			NoEditCellController controller = 
+   				    new NoEditCellController(this,vo);
+   		 FXMLLoader loader = new FXMLLoader(
+   				    getClass().getResource(
+   				        cellUrl));
+   				loader.setController(controller);
+   				addChildrenForVBox(loader);
+		}
+	}	
+
+	protected void Invalid(){
+		
+			notesTextField.setEditable(false);
+	rebateField.setEditable(false);
+	useVoucherField.setEditable(false);
+	clerk.setEditable(false);
+	
+	//将无用的控件set invisible
+	selectVIPBtn.setVisible(false);
+	searchVIPField.setVisible(false);
+	selectGoodsBtn.setVisible(false);
+	searchGoodsField.setVisible(false);
+	
+	getPresentBtn.setVisible(false);	
+	refreshInValid();
+	}
 
 	/* (non-Javadoc)
 	 * @see ui.salesmanUI.sale.SaleTypeListController#findPresent()
@@ -59,11 +92,13 @@ public class SaleNewListController extends SaleTypeNewListController implements 
 	@FXML
 	@Override
 	protected void findPresent() {
+		if(ConfirmHelper.showConfirmDialog()&&check()){
+			Invalid();
 		SaleListBLService service = (SaleListBLService)(uniBLService);
 		SaleVO saleVO = null;
 		List<GoodsInSaleVO> goodsList = GoodsVOTrans.SalesmanItemTransGoodsInList(chosenList);
 		try{
-		saleVO = new SaleVO(grade,goodsList,Double.parseDouble(totalAmount.getText()));
+		saleVO = new SaleVO(grade,goodsList,Double.parseDouble(sumAfterRebateLabel.getText()));
 		}catch(Exception e){
 			DataRM rm = DataRM.FORMAT_FAILED;
 			PromptHelper.showPrompt(rm);
@@ -109,6 +144,7 @@ public class SaleNewListController extends SaleTypeNewListController implements 
 			setPresentList(presentList);
 		}
 		
+		}
 	}
 
 

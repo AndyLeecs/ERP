@@ -26,6 +26,10 @@ import util.PresentState;
 public class PresentForSumDataServiceImpl extends UnicastRemoteObject implements PresentForSumDataService{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4709322489737866730L;
 	BasicUtil<PresentForSumPO> util;
 	CriterionClauseGenerator criterionClauseGenerator;
 	OrderClauseGenerator orderClauseGenerator;		//TODO 记得初始化

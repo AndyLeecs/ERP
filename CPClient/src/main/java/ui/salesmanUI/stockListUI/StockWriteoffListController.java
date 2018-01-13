@@ -6,14 +6,12 @@ import bl.salebl.SaleBLFactory;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 import resultmessage.DataRM;
 import ui.commonUI.PromptHelper;
 import ui.mainUI.loginUI.User;
 import ui.salesmanUI.IdChecker;
 import ui.salesmanUI.ListViewController;
 import ui.salesmanUI.WriteoffHelper;
-import ui.salesmanUI.sale.SaleTypeEditListController;
 import util.UserType;
 
 /**     

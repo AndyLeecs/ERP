@@ -34,6 +34,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements  StoreD
 		
 		StorePO  po=getStorePO(id);
 		if(po!=null){
+			
 			return true;
 		}
 		else{
@@ -45,6 +46,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements  StoreD
 	public StorePO getStorePO(String id) throws RemoteException{
 		HibernateUtil_Green<StorePO> util=new HibernateUtil_Green<StorePO>(StorePO.class);
 		StorePO po=util.get(id);
+
 		return po;
 	}
 
@@ -63,7 +65,8 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements  StoreD
 		}else{
 			String num=Integer.toString(slid.num);
 			s=slid.listName+"-"+day;
-			for(int i=0;i<5-num.length();i++){
+			int tempsize=5-num.length();
+			for(int i=0;i<tempsize;i++){
 				num="0"+num;
 			}
 			s=s+"-"+num;
@@ -171,7 +174,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements  StoreD
 	@Override
 	public void addAlarmList(AlarmListPO po) throws RemoteException{
 		HibernateUtil_Green<AlarmListPO> util= new HibernateUtil_Green<AlarmListPO>(AlarmListPO.class);
-		util.insert(po);
+		System.out.println("库存报警单增加的结果是："+util.insert(po));;
 		
 	}
 

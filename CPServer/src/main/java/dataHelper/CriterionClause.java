@@ -1,7 +1,5 @@
 package dataHelper;
 
-import java.io.Serializable;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -13,6 +11,10 @@ import org.hibernate.criterion.Criterion;
 * @description 查询条件，组合了hibernate框架的查询条件，更换框架时只需更换成员变量声明的类型
 */
 public class CriterionClause extends UnicastRemoteObject{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7014809906340749012L;
 	private Criterion criterion;
 
 	public CriterionClause(Criterion criterion) throws RemoteException {

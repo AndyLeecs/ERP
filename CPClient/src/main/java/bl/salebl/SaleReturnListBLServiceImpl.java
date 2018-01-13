@@ -134,7 +134,7 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 						}
 					//更改最近进价	
 						resultRm = goodsRecentChange.setGoodsRecentBuyPrice(i.getPrice(), i.getName(), null);
-						if(resultRm != resultRm.SUCCESS){
+						if(resultRm != ResultMessage.SUCCESS){
 							return DataRM.FAILED;
 						}
 					}

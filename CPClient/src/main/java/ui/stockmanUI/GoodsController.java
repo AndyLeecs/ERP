@@ -149,9 +149,9 @@ public class GoodsController extends BackgroundController{
         treeView.addEventHandler(MouseEvent.MOUSE_CLICKED,event ->
                 {
                     TreeItem<String> goodsItem = treeView.getSelectionModel().getSelectedItem();
-                    System.out.println(goodsItem.getValue().toString() + "被点击");
+                 
 
-                    if(goodsItem.getValue().toString().contains("商品")) {
+                    if(goodsItem!=null&&goodsItem.getValue().toString().contains("商品")) {
                         System.out.println("是商品项 可以进行下一步操作");
                         goodsVBox.getChildren().clear();
                         
@@ -167,8 +167,8 @@ public class GoodsController extends BackgroundController{
                         try {
 							newGoodsPane(goodsBLService.getGoods(goodsItem.getValue().toString().substring(3),goodsItem.getParent().getValue().substring(3)));
 						} catch (RemoteException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
+							
+							//e1.printStackTrace();
 						}
                   //      loading.close();
                     }

@@ -14,6 +14,17 @@ import ui.salesmanUI.sale.SaleTypeEditListController;
 */
 public class SaleReturnEditListController extends SaleTypeEditListController{
 
+	@FXML
+	@Override
+	protected void initialize(){
+		super.initialize();
+		SaleReturnListVO svo = (SaleReturnListVO)vo;
+		System.out.println(svo.getSum()+" "+svo.getSumBeforeRebate());
+		sumAfterRebateLabel.setText(svo.getSum()+"");
+		totalAmount.setText(svo.getSumBeforeRebate()+"");
+		rebateField.setText(svo.getRebate()+"");
+		useVoucherField.setText(svo.getVoucher()+"");
+	}
 	/**
 	 * @param parentController
 	 * @param uniBLService

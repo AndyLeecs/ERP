@@ -20,6 +20,6 @@ public interface Listblservice {
     public ArrayList<InfoListVO> openApproved() ;//查看已经审批通过的经营历程表
     public ArrayList<SalesDetailListVO> openSaleDetailList() ; //销售明细表查看
     public BussinessSituationListVO openBussinessSituationList(); //经营情况表查看
-    public ListRM toExcel (GreatListType type ,String id) ; // 表单导出
+    public ListRM bussinessSituationToExcel (String path) ; // 表单导出
     public ApproveRM approve(String id,GreatListType type); //批量审批
 }

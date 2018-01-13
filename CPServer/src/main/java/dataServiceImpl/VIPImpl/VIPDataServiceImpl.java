@@ -80,6 +80,7 @@ public class VIPDataServiceImpl extends UnicastRemoteObject implements VIPDataSe
         criterionClauseGenerator.generateExactCriterion(l,"state",VIPUtil.EXIST);
         System.out.println(util.Query(l).size());
         return util.Query(l).get(util.Query(l).size()-1);
+        //return util.Query(l).get(0);
     }
 
     /**
