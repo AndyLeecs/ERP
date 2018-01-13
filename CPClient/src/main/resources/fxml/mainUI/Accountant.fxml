@@ -47,11 +47,6 @@
                   <MenuItem fx:id="openCashExpenseDraft" mnemonicParsing="false" onAction="#onOpenCashExpenseDraftBtnClicked" text="现金费用单" />
                </items>
             </MenuButton>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" text="期初建账">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
             <Button mnemonicParsing="false" onAction="#onAccountManageBtnClicked" prefHeight="62.0" prefWidth="122.0" text="账户管理" textFill="#9f353a">
                <font>
                   <Font size="18.0" />
@@ -62,17 +57,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" text="日志" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="127.0" text="消息" textFill="#9f353a">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="127.0" text="个人" textFill="#9f353a">
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="122.0" text="期初建账">
                <font>
                   <Font size="18.0" />
                </font>

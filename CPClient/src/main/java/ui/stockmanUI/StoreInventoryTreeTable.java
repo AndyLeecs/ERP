@@ -81,13 +81,8 @@ public class StoreInventoryTreeTable {
 	}
 		
 	private void btnAction1(String filepath){
-		storeInventoryVO inventoryVO=new storeInventoryVO();
-		StoreVO log=new StoreVO();
-		log.ID="1";log.name="佩奇";log.Num=20;log.averagePrice=25.35;
-		inventoryVO.storeVO_Arr.add(log);
-		inventoryVO.Date.add(User.calcTime());
-		inventoryVO.Model.add("model1");
-		service=new StoreblController();
+		storeInventoryVO inventoryVO=service.store_inventory();
+
 
 		String rtn=service.toExcel(inventoryVO, filepath);
 		System.out.println(rtn);
@@ -125,16 +120,16 @@ public class StoreInventoryTreeTable {
 	    S0.add("型号");
 	    S0.add("出厂日期");
 
-	    Obs.add(new T("1","G1","佩奇灯","30","20.25","Model1","2017-05-26"));
+	  //  Obs.add(new T("1","G1","佩奇灯","30","20.25","Model1","2017-05-26"));
 	     service=new StoreblController();
-	    /*storeInventoryVO inventoryVO=service.store_inventory();
+	    storeInventoryVO inventoryVO=service.store_inventory();
 	    for(int i=0;i<inventoryVO.storeVO_Arr.size();i++){
 	    	StoreVO vo=inventoryVO.storeVO_Arr.get(i);
 	       T t=new T(Integer.toString(i),vo.ID,vo.name,Integer.toString(vo.Num),Double.toString(vo.averagePrice),inventoryVO.Model.get(i),
 	    		   inventoryVO.Date.get(i) );
 	       Obs.add(t);
-	    }*/
-	    //------
+	    }
+	    
 	    
 	    
 		FlowPane main=addColumn();

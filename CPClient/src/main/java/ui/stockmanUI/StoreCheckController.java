@@ -74,7 +74,44 @@ public class StoreCheckController {
 }
     boolean checkInput(){
        //检查输入合法性
-       return true;
+    	String s1=beginTime.getText();
+    	String s2=endTime.getText();
+    	boolean ret=true;
+    	int counter1=0;
+    	int counter2=0;
+    	for(int i=0;i<s1.length();i++){
+    		if((48<=s1.charAt(i)&&s1.charAt(i)<=57)){
+    			counter1++;
+    		}else{
+    			if(s1.charAt(i)!='-'){
+    			ret=false;
+    			}
+    		}
+    		
+    		
+    	}
+    	if(counter1!=8){
+    		ret=false;
+    		beginTime.clear();
+    	    beginTime.setPromptText("开始时间格式错误");
+    	}
+    	for(int i=0;i<s2.length();i++){
+    		if((48<=s2.charAt(i)&&s2.charAt(i)<=57)){
+    			counter2++;
+    		}else{
+    			if(s2.charAt(i)!='-'){
+    			ret=false;
+    			}
+    		}
+    		
+    		
+    	}
+    	if(counter2!=8){
+    		ret=false;
+    		endTime.clear();
+    	    endTime.setPromptText("结束时间格式错误");
+    	}
+       return ret;
     }
     
     @FXML public void openInventory(){

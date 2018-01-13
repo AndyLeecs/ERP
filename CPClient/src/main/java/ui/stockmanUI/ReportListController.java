@@ -1,5 +1,7 @@
 package ui.stockmanUI;
 
+
+
 import VO.listVO.ListRM;
 import VO.storeVO.ReportListVO;
 import VO.storeVO.StoreVO;
@@ -154,6 +156,8 @@ public class ReportListController {
     	num.setText(Integer.toString(vo.Num));
     	
     }
+    
+
 
 
 }
