@@ -238,6 +238,7 @@ public class PresentForMembershipController implements SinglePresentEditableCont
 	    	this.controllerList = new ArrayList<PresentEditCellController>();
 
 		}		
+		@Override
 		@FXML
 	    public void initialize(){
 	    	

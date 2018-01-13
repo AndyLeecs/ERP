@@ -114,7 +114,7 @@
                <VBox fx:id="vBox" layoutX="7.0" layoutY="54.0" prefHeight="369.0" prefWidth="182.0" style="-fx-border-color: #ff7575; -fx-background-radius: 23; -fx-border-radius: 15;" />
                <Pane layoutX="8.0" layoutY="6.0" prefHeight="42.0" prefWidth="180.0" style="-fx-border-color: #ff7575; -fx-border-radius: 12;">
                    <children>
-                       <Label fx:id="presentLocation" layoutX="40.0" layoutY="10.0" prefHeight="20.0" prefWidth="132.0" />
+                       <Label fx:id="presentLocation" layoutX="40.0" layoutY="11.0" prefHeight="20.0" prefWidth="132.0" text="右键进行操作" />
                        <Label layoutX="11.0" layoutY="10.0" prefHeight="23.0" prefWidth="31.0" text="提示" textFill="#9f353a" />
                    </children>
                </Pane>

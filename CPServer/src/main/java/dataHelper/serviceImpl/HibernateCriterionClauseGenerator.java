@@ -1,4 +1,4 @@
-package dataHelper;
+package dataHelper.serviceImpl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
+
+import dataHelper.service.CriterionClauseGenerator;
 
 /**     
 * @author 李安迪

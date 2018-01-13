@@ -1,12 +1,5 @@
 package bl.storebl;
 
-import VO.storeVO.*;
-import dataService.storeDataService.StoreDataService;
-//import dataService.storeDataService.StoreDataService_Stub;
-import network.storeRemoteHelper.StoreDataServiceHelper;
-//import network.storeRemoteHelper.StoreDataServiceHelper;
-import util.StoreListType;
-
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -15,9 +8,20 @@ import java.util.List;
 import PO.AlarmListPO;
 import PO.PresentListPO;
 import PO.ReportListPO;
-import util.State;
 import PO.StoreLogPO;
 import PO.StorePO;
+import VO.storeVO.AlarmListVO;
+import VO.storeVO.PresentListVO;
+import VO.storeVO.ReportListVO;
+import VO.storeVO.StoreLogVO;
+import VO.storeVO.StoreVO;
+import VO.storeVO.storeRM;
+import dataService.storeDataService.StoreDataService;
+//import dataService.storeDataService.StoreDataService_Stub;
+import network.storeRemoteHelper.StoreDataServiceHelper;
+import util.State;
+//import network.storeRemoteHelper.StoreDataServiceHelper;
+import util.StoreListType;
 
 public class DataGetter  {
     //用于获取数据，在开发时先写好这个类，方便测试驱动。

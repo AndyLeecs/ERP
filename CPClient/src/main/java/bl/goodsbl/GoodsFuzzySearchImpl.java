@@ -1,11 +1,11 @@
 package bl.goodsbl;
 
-import VO.goodsVO.GoodsVO;
-import blservice.goodsblservice.GoodsFuzzySearch;
-
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+
+import VO.goodsVO.GoodsVO;
+import blservice.goodsblservice.GoodsFuzzySearch;
 
 /**
  * Created by julia98 on 2017/12/15.

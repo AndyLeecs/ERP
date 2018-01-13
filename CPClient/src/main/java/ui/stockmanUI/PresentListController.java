@@ -6,8 +6,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import util.State;
 
-import java.awt.*;
-
 public class PresentListController {
     @FXML ComboBox<String> goodsID;
     @FXML Label operator;

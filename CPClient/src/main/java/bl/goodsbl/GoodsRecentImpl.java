@@ -1,11 +1,11 @@
 package bl.goodsbl;
 
+import java.rmi.RemoteException;
+
 import VO.goodsVO.GoodsVO;
 import blservice.goodsblservice.GoodsBLService;
 import blservice.goodsblservice.GoodsRecent;
 import resultmessage.ResultMessage;
-
-import java.rmi.RemoteException;
 
 /**
  * Created by julia98 on 2018/1/1.

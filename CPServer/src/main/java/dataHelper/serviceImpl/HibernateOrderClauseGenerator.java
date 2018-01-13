@@ -1,8 +1,10 @@
-package dataHelper;
+package dataHelper.serviceImpl;
 
 import java.rmi.RemoteException;
 
 import org.hibernate.criterion.Order;
+
+import dataHelper.service.OrderClauseGenerator;
 
 /**     
 * @author 李安迪

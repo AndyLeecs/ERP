@@ -174,6 +174,7 @@ public class PresentForSumController implements SinglePresentEditableController{
 	    	this.presentList = new ArrayList<GoodsInSaleVO>();
 	    	this.controllerList = new ArrayList<PresentEditCellController>();
 		}		
+		@Override
 		@FXML
 	    public void initialize(){
 	    	

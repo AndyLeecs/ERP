@@ -13,6 +13,7 @@ public class CashExpenseListWinApproveController extends CashExpenseListWinContr
 		super(vo);
 	}
 	
+	@Override
 	public void init(){
 		
 		operator.setText(vo.getOperator());

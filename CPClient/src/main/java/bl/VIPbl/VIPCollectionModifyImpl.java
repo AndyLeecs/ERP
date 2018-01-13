@@ -1,11 +1,11 @@
 package bl.VIPbl;
 
+import java.rmi.RemoteException;
+
 import VO.VIPVO.VIPVO;
 import blservice.VIPblservice.VIPBLService;
 import blservice.VIPblservice.VIPCollectionModify;
 import resultmessage.ResultMessage;
-
-import java.rmi.RemoteException;
 
 /**
  * Created by julia98 on 2018/1/1.

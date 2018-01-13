@@ -3,7 +3,7 @@ package dataServiceImpl.accountImpl;
 import java.rmi.RemoteException;
 
 import PO.account.CashExpenseListPO;
-import dataHelper.HibernateUtil;
+import dataHelper.serviceFactory.BasicUtilServiceFactory;
 import dataService.accountDataService.CashExpenseListDataService;
 
 public class CashExpenseListDataServiceImpl extends FinanceListDataServiceImpl implements CashExpenseListDataService{
@@ -14,7 +14,7 @@ public class CashExpenseListDataServiceImpl extends FinanceListDataServiceImpl i
 
 	public CashExpenseListDataServiceImpl() throws RemoteException{
 		super();
-		basicUtil = new HibernateUtil<CashExpenseListPO>(CashExpenseListPO.class);
+		basicUtil = BasicUtilServiceFactory.getService(CashExpenseListPO.class);
 		
 	}
 	
