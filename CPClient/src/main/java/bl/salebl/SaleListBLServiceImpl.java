@@ -164,7 +164,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 				//生成库存赠送单
 					if(!isWriteoff){
 				SaleListVO svo = (SaleListVO)vo;
-				PresentListVO presentList = new PresentListVO(null, null, null, null, null);
+				PresentListVO presentList = new PresentListVO();
 				presentList.VIPname = svo.getMemberName();
 				PresentResultVO pvo = svo.getPresentResultVO();
 				if(pvo != null){
@@ -175,9 +175,7 @@ public class SaleListBLServiceImpl implements SaleListBLService,Approvable{
 					presentList.name.add(i.getGoodsName());
 				}
 				boolean createPresentList = storeChange.createPresentList_auto(presentList);
-				if(createPresentList == false){
-					return DataRM.PRESENT_FAILED;
-				}
+				
 					}
 					}
 				//发消息

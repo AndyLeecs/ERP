@@ -15,7 +15,7 @@ import util.State;
 @Table(name="PresentListPO")
 public class PresentListPO implements Serializable{
 
-	@Id @GeneratedValue
+	@Id 
 	@Column(name="listID")
 	public String listID;  //单据编号
 

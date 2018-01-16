@@ -26,9 +26,8 @@ public class StockWriteoffListController extends StockListCellController{
 	 * @param vo
 	 */
 	public StockWriteoffListController(ListViewController stockListViewController, SalesmanListVO vo,String id) {
-		super(stockListViewController, vo);
-		this.uniBLService = SaleBLFactory.getStockListBLService();
-		this.vo = uniBLService.get(id);
+		super(stockListViewController, SaleBLFactory.getStockListBLService().get(id));
+	
 	}
 
 	@Override

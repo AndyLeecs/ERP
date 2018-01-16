@@ -136,6 +136,7 @@ public class Store_InterfaceImpl implements Store_Interface {
 		String id=dg.calcID(StoreListType.PRESENT);
 		vo.listID=id;
 		vo.statetype=State.IsApproved;
+		vo.time=calcTime();
 		if( ds.insertPresentListVO(vo).equals(ListRM.SUCCESS)){
 			return true;
 		}else{

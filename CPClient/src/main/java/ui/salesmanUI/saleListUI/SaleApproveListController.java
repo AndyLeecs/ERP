@@ -41,7 +41,7 @@ public class SaleApproveListController extends SaleTypeApproveListController imp
 		this.vo = uniBLService.get(id);
 		SaleListVO svo = (SaleListVO)(this.vo);
 		if(svo.getPresentResultVO() != null)
-		presentResult = svo.getPresentResultVO();
+		presentResult = svo.getPresentResultVO();  
 	}
 	
 	@Override

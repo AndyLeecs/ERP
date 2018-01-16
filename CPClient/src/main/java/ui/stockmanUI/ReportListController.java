@@ -51,6 +51,7 @@ public class ReportListController {
         	 if(listrm.equals(ListRM.SUCCESS)){
         		 rm.setText("保存成功");
         	 }else{
+        		 if(listrm.equals(ListRM.REFUSED)){rm.setText("数据格式不正确");}
         		 rm.setText("保存失败");
         	 }
          }
@@ -62,6 +63,7 @@ public class ReportListController {
        	 if(listrm.equals(ListRM.SUCCESS)){
     		 rm.setText("提交成功");
     	 }else{
+    		 if(listrm.equals(ListRM.REFUSED)){rm.setText("数据格式不正确");}
     		 rm.setText("提交失败");
     	 }
         }
@@ -108,6 +110,7 @@ public class ReportListController {
             btn1.setText("保存");
             btn2.setText("提交");//实际上是保存并提交
             btn3.setText("取消");
+            btn3.setVisible(false);
             vo=new ReportListVO();
             vo.listID=service.newList(type);
             listID.setText(vo.listID);
@@ -124,6 +127,15 @@ public class ReportListController {
     
     private ListRM save(){
     	fillVO();
+    	if(vo.st.equals(StoreListType.LOSS)){
+    		if(vo.actualNum<0||vo.actualNum>=vo.Num){
+    			return ListRM.REFUSED;
+    		}
+    	}else if(vo.st.equals(StoreListType.OVERFLOW)){
+    		if(vo.actualNum<=vo.Num){
+    			return ListRM.REFUSED;
+    		}
+    	}
     	vo.statetype=State.IsDraft;
     	return service.saveReportList(vo);
     	
@@ -131,8 +143,9 @@ public class ReportListController {
     
     private ListRM commit(){
     
-    	save();
+    	if(save().equals(ListRM.SUCCESS)){
     	return service.commit(type, vo.listID);
+    	}else{return ListRM.REFUSED;}
     }
     
     private void fillVO(){

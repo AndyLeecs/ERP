@@ -181,7 +181,7 @@ public class SaleReturnListBLServiceImpl implements SaleReturnListBLService,Appr
 			vo.setState(State.IsCommitted);
 			DataRM returnMessage =  service.commit(voToPo(vo));
 			if(returnMessage == DataRM.SUCCESS){
-				info.register(new InfoListVO(vo.getId(),GreatListType.SALE,vo.getOperator(),vo.getNotes()));
+				info.register(new InfoListVO(vo.getId(),GreatListType.SALE_RETURN,vo.getOperator(),vo.getNotes()));
 			}
 			
 			return returnMessage;

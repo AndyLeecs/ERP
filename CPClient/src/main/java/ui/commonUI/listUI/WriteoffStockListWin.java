@@ -33,7 +33,7 @@ public class WriteoffStockListWin extends Stage{
 			this.setScene(scene);
 			this.initStyle(StageStyle.DECORATED);
 			
-			this.setFullScreen(true);
+//			this.setFullScreen(true);
 			this.show();
 		} 
 

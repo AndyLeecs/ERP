@@ -54,9 +54,12 @@ public class LookListController {
         			else if(arr0.get(i).type.equals(GreatListType.CASHEXPENSE)){new CashExpenseListWin(arr0.get(i).id);}
         			
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					//e.printStackTrace();
-					System.out.println("----");
+					try {
+						new PromptWin("未知原因，失败！");
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				e.printStackTrace();
 				}
         		 }else{
         			 try{

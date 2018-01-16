@@ -24,7 +24,7 @@ public class ApproveSaleReturnListWin extends Stage{
 		public ApproveSaleReturnListWin(String id) throws IOException{
 	
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/salesmanUI/SaleTypeList.fxml"));
-			loader.setController(new SaleReturnApproveListController(null,SaleBLFactory.getSaleListBLService(),id,null));
+			loader.setController(new SaleReturnApproveListController(null,SaleBLFactory.getSaleReturnListBLService(),id,null));
 			root = loader.load();
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/css/managerUI/Manager.css").toExternalForm());

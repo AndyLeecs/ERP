@@ -104,6 +104,10 @@ public class AccountManageWinController implements SonController{
 			        @Override
 			        public void handle(CellEditEvent<AccountItem, String> t) {
 			        	AccountItem item = t.getTableView().getItems().get(t.getTablePosition().getRow());
+			        	if(Double.parseDouble(item.getBalance())!=0){
+			        		prompt("账户余额不为0！");
+			        		return;
+			        	}
 			            accountItem.remove(item);
 			        }
 			    }

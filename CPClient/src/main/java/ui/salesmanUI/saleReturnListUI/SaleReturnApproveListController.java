@@ -3,6 +3,7 @@ package ui.salesmanUI.saleReturnListUI;
 import VO.saleVO.SaleReturnListVO;
 import VO.saleVO.SalesmanListVO;
 import blservice.saleblservice.SaleUniBLService;
+import javafx.fxml.FXML;
 import ui.commonUI.ParentController;
 import ui.salesmanUI.sale.SaleTypeApproveListController;
 
@@ -36,6 +37,7 @@ public class SaleReturnApproveListController extends SaleTypeApproveListControll
 	 * @see ui.salesmanUI.sale.SaleTypeListController#findPresent()
 	 */
 	@Override
+	@FXML
 	protected void findPresent() {
 		
 	}
